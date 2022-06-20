@@ -49,6 +49,7 @@ public class Constants {
     public static final String PHONE_BRAND = "brand";
     public static final String PREF_EXTRA = "mipush_extra";
     public static final String SP_KEY_LAST_REINITIALIZE = "last_reinitialize";
+    public static final String VERSION = "version";
     public static final String WAVE_SEPARATOR = "~";
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -85,6 +86,6 @@ public class Constants {
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? com.xiaomi.push.ab.a() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? com.xiaomi.push.ae.a() : invokeV.intValue;
     }
 }

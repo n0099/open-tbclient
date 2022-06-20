@@ -1,7 +1,9 @@
 package com.repackage;
 
-import com.repackage.kq;
+import com.baidu.bdtask.model.response.TaskResponseData;
 /* loaded from: classes6.dex */
-public interface lq<T extends kq> {
-    void a(T t);
+public interface lq {
+    void a(TaskResponseData taskResponseData);
+
+    void onError(int i, String str);
 }

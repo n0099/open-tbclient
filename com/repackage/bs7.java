@@ -1,68 +1,63 @@
 package com.repackage;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
-import com.baidu.tieba.pb.pb.main.PbChildTitleViewHolder;
+import com.baidu.tbadk.switchs.DelayPbTaskSwitch;
+import com.baidu.tbadk.switchs.PrefetchPbDataSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bs7 extends es7<jp7, PbChildTitleViewHolder> {
+public class bs7 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile bs7 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final boolean a;
+    public final boolean b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bs7(pw7 pw7Var, BdUniqueId bdUniqueId) {
-        super(pw7Var, bdUniqueId);
+    public bs7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pw7Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((pw7) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = DelayPbTaskSwitch.getIsOn();
+        this.a = PrefetchPbDataSwitch.getIsOn();
     }
 
-    @Override // com.repackage.es7, com.repackage.wm
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        c0(i, view2, viewGroup, (jp7) obj, (PbChildTitleViewHolder) viewHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.wm
-    /* renamed from: b0 */
-    public PbChildTitleViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public static bs7 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbChildTitleViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d065b, viewGroup, false)) : (PbChildTitleViewHolder) invokeL.objValue;
-    }
-
-    public View c0(int i, View view2, ViewGroup viewGroup, jp7 jp7Var, PbChildTitleViewHolder pbChildTitleViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, jp7Var, pbChildTitleViewHolder})) == null) {
-            super.S(i, view2, viewGroup, jp7Var, pbChildTitleViewHolder);
-            pbChildTitleViewHolder.c(jp7Var);
-            pbChildTitleViewHolder.e();
-            return view2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (bs7.class) {
+                    if (c == null) {
+                        c = new bs7();
+                    }
+                }
+            }
+            return c;
         }
-        return (View) invokeCommon.objValue;
+        return (bs7) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.booleanValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.booleanValue;
     }
 }

@@ -1,45 +1,24 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.swan.apps.res.ui.FullScreenFloatView;
-import com.baidu.tieba.R;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class qx2 {
+import com.repackage.pk2;
+/* loaded from: classes7.dex */
+public class qx2 extends u63 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static FullScreenFloatView a(Context context, ViewGroup viewGroup, int i) {
-        InterceptResult invokeLLI;
+    public static void onEvent(@NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, context, viewGroup, i)) == null) {
-            if (context == null || viewGroup == null) {
-                return null;
-            }
-            FullScreenFloatView b = b(context, i);
-            viewGroup.addView(b);
-            return b;
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            pk2.a W = rz2.K().r().W();
+            v63 v63Var = new v63();
+            v63Var.b = str;
+            v63Var.a = l63.n(W.G());
+            v63Var.f = W.H();
+            v63Var.c = W.T();
+            l63.x("1088", v63Var);
         }
-        return (FullScreenFloatView) invokeLLI.objValue;
-    }
-
-    public static FullScreenFloatView b(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
-            if (context == null) {
-                return null;
-            }
-            int i2 = R.layout.obfuscated_res_0x7f0d00a5;
-            if (i != 1 && i == 2) {
-                i2 = R.layout.obfuscated_res_0x7f0d00a6;
-            }
-            return (FullScreenFloatView) LayoutInflater.from(context.getApplicationContext()).inflate(i2, (ViewGroup) null);
-        }
-        return (FullScreenFloatView) invokeLI.objValue;
     }
 }

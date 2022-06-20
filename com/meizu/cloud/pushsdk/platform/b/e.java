@@ -4,9 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.platform.PlatformMessageSender;
 import com.meizu.cloud.pushsdk.platform.message.SubTagsStatus;
-import com.repackage.ni9;
 import java.util.concurrent.ScheduledExecutorService;
 /* loaded from: classes5.dex */
 public class e extends c<SubTagsStatus> {
@@ -111,7 +111,7 @@ public class e extends c<SubTagsStatus> {
         } else {
             com.meizu.cloud.pushsdk.b.b.a c = e.c();
             if (c.a() != null) {
-                ni9.b("Strategy", "status code=" + c.b() + " data=" + c.a());
+                DebugLogger.e("Strategy", "status code=" + c.b() + " data=" + c.a());
             }
             subTagsStatus.setCode(String.valueOf(c.b()));
             subTagsStatus.setMessage(c.c());
@@ -120,7 +120,7 @@ public class e extends c<SubTagsStatus> {
         }
         sb.append(str);
         sb.append(subTagsStatus);
-        ni9.b("Strategy", sb.toString());
+        DebugLogger.e("Strategy", sb.toString());
         return subTagsStatus;
     }
 

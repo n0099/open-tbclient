@@ -39,12 +39,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ai;
-import com.repackage.ci;
-import com.repackage.k88;
-import com.repackage.li;
-import com.repackage.rx0;
-import com.repackage.yx4;
+import com.repackage.ei;
+import com.repackage.gi;
+import com.repackage.ly4;
+import com.repackage.pi;
+import com.repackage.r98;
+import com.repackage.vx0;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmentWeightLayout {
@@ -56,7 +56,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
     public int r0;
     public int s0;
     public int t0;
-    public k88 u0;
+    public r98 u0;
 
     static {
         InterceptResult invokeClinit;
@@ -99,13 +99,13 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void C(View view2) {
-        k88 k88Var;
+    public void B(View view2) {
+        r98 r98Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.B == null || this.C == null || (k88Var = this.u0) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.B == null || this.C == null || (r98Var = this.u0) == null) {
             return;
         }
-        j0(k88Var.getThreadData(), "share", 0);
+        j0(r98Var.getThreadData(), "share", 0);
         k0(this.u0.getThreadData(), "2", "1");
         if (ShareSwitch.isOn() || ViewHelper.checkUpIsLogin(this.C)) {
             ShareItem shareItem = new ShareItem();
@@ -151,9 +151,9 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
                         ShareItem shareItem2 = this.a;
-                        shareItem2.w = yx4.v(shareItem2.w, shareItem2.N, UtilHelper.isVideoThread(shareItem2.P));
-                        ai.a(this.a.w);
-                        li.O(this.b.C, view3.getResources().getString(R.string.obfuscated_res_0x7f0f044d));
+                        shareItem2.w = ly4.v(shareItem2.w, shareItem2.N, UtilHelper.isVideoThread(shareItem2.P));
+                        ei.a(this.a.w);
+                        pi.O(this.b.C, view3.getResources().getString(R.string.obfuscated_res_0x7f0f043e));
                     }
                 }
             });
@@ -163,10 +163,10 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void F(ThreadData threadData) {
+    public void E(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) == null) {
-            super.F(threadData);
+            super.E(threadData);
             if (this.q0 == 1) {
                 this.b.setText(StringHelper.cutChineseAndEnglishWithSuffix(threadData.getForum_name(), 12, ""));
             }
@@ -174,10 +174,10 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentWeightLayout, com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void H() {
+    public void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.H();
+            super.G();
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             if (layoutParams instanceof RelativeLayout.LayoutParams) {
                 RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;
@@ -252,7 +252,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
             try {
-                return new JSONObject(new String(ci.d(str))).getString(str2);
+                return new JSONObject(new String(gi.d(str))).getString(str2);
             } catch (Exception e) {
                 e.printStackTrace();
                 return "";
@@ -264,7 +264,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
     public final void g0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            v0 = li.f(this.C, R.dimen.tbds44);
+            v0 = pi.f(this.C, R.dimen.tbds44);
             setManageVisible(false);
             setSelectVisible(false);
             setShowFlag(11);
@@ -432,7 +432,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                 i = -1;
             }
             o.u(String.valueOf(i)).t(advertAppInfo.j).h(str).n(advertAppInfo.g);
-            rx0.c(clogBuilder);
+            vx0.c(clogBuilder);
         }
     }
 
@@ -537,11 +537,11 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         }
     }
 
-    public void setShareData(k88 k88Var) {
+    public void setShareData(r98 r98Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, k88Var) == null) {
-            this.u0 = k88Var;
-            setData(k88Var.getThreadData());
+        if (interceptable == null || interceptable.invokeL(1048594, this, r98Var) == null) {
+            this.u0 = r98Var;
+            setData(r98Var.getThreadData());
         }
     }
 

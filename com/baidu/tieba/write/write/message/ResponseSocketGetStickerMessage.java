@@ -1,5 +1,6 @@
 package com.baidu.tieba.write.write.message;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,26 +36,30 @@ public class ResponseSocketGetStickerMessage extends SocketResponsedMessage {
         }
     }
 
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
+        DataRes dataRes;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            GetStickerResIdl getStickerResIdl = (GetStickerResIdl) new Wire(new Class[0]).parseFrom(bArr, GetStickerResIdl.class);
+            if (getStickerResIdl == null) {
+                return null;
+            }
+            setError(getStickerResIdl.error.errorno.intValue());
+            setErrorString(getStickerResIdl.error.usermsg);
+            if (getError() == 0 && (dataRes = getStickerResIdl.data) != null) {
+                this.mUrlList = dataRes.pic_info;
+            }
+            return getStickerResIdl;
+        }
+        return invokeIL.objValue;
+    }
+
     public List<String> getUrlList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mUrlList : (List) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        GetStickerResIdl getStickerResIdl;
-        DataRes dataRes;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getStickerResIdl = (GetStickerResIdl) new Wire(new Class[0]).parseFrom(bArr, GetStickerResIdl.class)) == null) {
-            return;
-        }
-        setError(getStickerResIdl.error.errorno.intValue());
-        setErrorString(getStickerResIdl.error.usermsg);
-        if (getError() != 0 || (dataRes = getStickerResIdl.data) == null) {
-            return;
-        }
-        this.mUrlList = dataRes.pic_info;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mUrlList : (List) invokeV.objValue;
     }
 }

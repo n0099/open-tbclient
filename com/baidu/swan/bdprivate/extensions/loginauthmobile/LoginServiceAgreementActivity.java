@@ -11,13 +11,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bd3;
+import com.repackage.md3;
 /* loaded from: classes2.dex */
 public class LoginServiceAgreementActivity extends BaseActivity {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String KEY_URL = "url";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SwanAppActionBar mActionBar;
+    public SwanAppActionBar b;
 
     /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
@@ -70,9 +69,9 @@ public class LoginServiceAgreementActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            int c0 = bd3.c0(this);
+            int c0 = md3.c0(this);
             super.onCreate(bundle);
-            bd3.g(this, c0);
+            md3.g(this, c0);
             Intent intent = getIntent();
             if (intent == null) {
                 finish();
@@ -85,11 +84,11 @@ public class LoginServiceAgreementActivity extends BaseActivity {
                 ngWebView.loadUrl(extras.getString("url"));
             }
             SwanAppActionBar swanAppActionBar = (SwanAppActionBar) findViewById(R.id.obfuscated_res_0x7f090179);
-            this.mActionBar = swanAppActionBar;
+            this.b = swanAppActionBar;
             swanAppActionBar.setLeftBackViewVisibility(true);
-            this.mActionBar.setLeftBackViewClickListener(new a(this));
-            this.mActionBar.setTitle(R.string.obfuscated_res_0x7f0f1302);
-            this.mActionBar.setRightZoneVisibility(false);
+            this.b.setLeftBackViewClickListener(new a(this));
+            this.b.setTitle(R.string.obfuscated_res_0x7f0f130f);
+            this.b.setRightZoneVisibility(false);
         }
     }
 }

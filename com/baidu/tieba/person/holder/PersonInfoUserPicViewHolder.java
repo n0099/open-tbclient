@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hz4;
-import com.repackage.jn;
+import com.repackage.nn;
+import com.repackage.wz4;
 /* loaded from: classes3.dex */
 public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -24,7 +24,7 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
     public TbImageView a;
     public TextView b;
     public View c;
-    public jn d;
+    public nn d;
     public int e;
     public View.OnClickListener f;
 
@@ -47,40 +47,40 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.e = 3;
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091834);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09182a);
         this.a = tbImageView;
         tbImageView.setDefaultBgResource(R.color.CAM_X0205);
-        this.c = view2.findViewById(R.id.obfuscated_res_0x7f091585);
+        this.c = view2.findViewById(R.id.obfuscated_res_0x7f091577);
         this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ffe);
     }
 
-    public void c(jn jnVar) {
+    public void c(nn nnVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jnVar) == null) && (jnVar instanceof hz4)) {
-            this.d = jnVar;
-            hz4 hz4Var = (hz4) jnVar;
-            if (hz4Var.e()) {
-                String headPortraitFilter = HeadIconRefreshHelper.headPortraitFilter(hz4Var.b());
+        if ((interceptable == null || interceptable.invokeL(1048576, this, nnVar) == null) && (nnVar instanceof wz4)) {
+            this.d = nnVar;
+            wz4 wz4Var = (wz4) nnVar;
+            if (wz4Var.c()) {
+                String headPortraitFilter = HeadIconRefreshHelper.headPortraitFilter(wz4Var.b());
                 this.b.setVisibility(0);
                 if (StringUtils.isNull(headPortraitFilter)) {
                     this.a.setDefaultResource(R.drawable.pic_mycenter_avatar_def_i);
                 } else {
-                    this.a.K(headPortraitFilter, 25, false);
+                    this.a.J(headPortraitFilter, 25, false);
                 }
             } else {
-                this.a.setDefaultResource(R.drawable.obfuscated_res_0x7f080ba6);
+                this.a.setDefaultResource(R.drawable.obfuscated_res_0x7f080b91);
                 this.b.setVisibility(8);
-                this.a.K(hz4Var.b(), 10, false);
+                this.a.J(wz4Var.b(), 10, false);
             }
             b().setOnClickListener(this.f);
             e(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public jn d() {
+    public nn d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (jn) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (nn) invokeV.objValue;
     }
 
     public void e(int i) {

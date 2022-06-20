@@ -1,111 +1,258 @@
 package com.xiaomi.push;
 
+import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.SharedPreferences;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.channels.FileLock;
+import java.util.Arrays;
+import java.util.List;
 /* loaded from: classes8.dex */
 public class bt {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile bt a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with other field name */
-    public Context f140a;
-
-    public bt(Context context) {
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return Build.VERSION.RELEASE + "-" + Build.VERSION.INCREMENTAL;
         }
-        this.f140a = context;
+        return (String) invokeV.objValue;
     }
 
-    public static bt a(Context context) {
+    public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (a == null) {
-                synchronized (bt.class) {
-                    if (a == null) {
-                        a = new bt(context);
-                    }
-                }
+            String a = bw.a(context).a("sp_client_report_status", "sp_client_report_key", "");
+            if (TextUtils.isEmpty(a)) {
+                String a2 = bp.a(20);
+                bw.a(context).m207a("sp_client_report_status", "sp_client_report_key", a2);
+                return a2;
             }
             return a;
         }
-        return (bt) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public synchronized long a(String str, String str2, long j) {
-        InterceptResult invokeCommon;
-        long j2;
+    public static void a(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j)})) == null) {
-            synchronized (this) {
-                try {
-                    j2 = this.f140a.getSharedPreferences(str, 4).getLong(str2, j);
-                } catch (Throwable unused) {
-                    return j;
-                }
-            }
-            return j2;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
+            Intent intent = new Intent("com.xiaomi.xmsf.push.XMSF_UPLOAD_ACTIVE");
+            intent.putExtra("pkgname", context.getPackageName());
+            intent.putExtra("category", "category_client_report_data");
+            intent.putExtra("name", "quality_support");
+            intent.putExtra("data", str);
+            context.sendBroadcast(intent, "com.xiaomi.xmsf.permission.USE_XMSF_UPLOAD");
         }
-        return invokeCommon.longValue;
     }
 
-    public synchronized String a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        String string;
+    /* JADX WARN: Code restructure failed: missing block: B:62:0x00e8, code lost:
+        if (r7 == null) goto L59;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void a(Context context, String str, String str2) {
+        File externalFilesDir;
+        File file;
+        RandomAccessFile randomAccessFile;
+        Exception e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3)) == null) {
-            synchronized (this) {
-                try {
-                    string = this.f140a.getSharedPreferences(str, 4).getString(str2, str3);
-                } catch (Throwable unused) {
-                    return str3;
+        if (!(interceptable == null || interceptable.invokeLLL(65539, null, context, str, str2) == null) || (externalFilesDir = context.getExternalFilesDir(str2)) == null) {
+            return;
+        }
+        if (!externalFilesDir.exists()) {
+            externalFilesDir.mkdirs();
+        }
+        File externalFilesDir2 = context.getExternalFilesDir(str);
+        if (externalFilesDir2 != null) {
+            if (!externalFilesDir2.exists()) {
+                externalFilesDir2.mkdirs();
+                return;
+            }
+            File[] listFiles = externalFilesDir2.listFiles(new bu());
+            if (listFiles == null || listFiles.length <= 0) {
+                return;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            FileLock fileLock = null;
+            RandomAccessFile randomAccessFile2 = null;
+            File file2 = null;
+            for (File file3 : listFiles) {
+                if (file3 != null) {
+                    try {
+                    } catch (Exception e2) {
+                        file = file2;
+                        randomAccessFile = randomAccessFile2;
+                        e = e2;
+                    } catch (Throwable th) {
+                        th = th;
+                    }
+                    if (!TextUtils.isEmpty(file3.getAbsolutePath())) {
+                        file = new File(file3.getAbsolutePath() + ".lock");
+                        try {
+                            ab.m156a(file);
+                            randomAccessFile = new RandomAccessFile(file, "rw");
+                            try {
+                                try {
+                                    fileLock = randomAccessFile.getChannel().lock();
+                                    File file4 = new File(externalFilesDir.getAbsolutePath() + File.separator + file3.getName() + currentTimeMillis);
+                                    try {
+                                        ab.b(file3, file4);
+                                    } catch (IOException e3) {
+                                        e3.printStackTrace();
+                                        file3.delete();
+                                        file4.delete();
+                                    }
+                                    file3.delete();
+                                    if (fileLock != null && fileLock.isValid()) {
+                                        try {
+                                            fileLock.release();
+                                        } catch (IOException e4) {
+                                            com.xiaomi.channel.commonutils.logger.b.a(e4);
+                                        }
+                                    }
+                                    ab.a(randomAccessFile);
+                                } catch (Throwable th2) {
+                                    th = th2;
+                                    randomAccessFile2 = randomAccessFile;
+                                    file2 = file;
+                                    if (fileLock != null && fileLock.isValid()) {
+                                        try {
+                                            fileLock.release();
+                                        } catch (IOException e5) {
+                                            com.xiaomi.channel.commonutils.logger.b.a(e5);
+                                        }
+                                    }
+                                    ab.a(randomAccessFile2);
+                                    if (file2 != null) {
+                                        file2.delete();
+                                    }
+                                    throw th;
+                                }
+                            } catch (Exception e6) {
+                                e = e6;
+                                com.xiaomi.channel.commonutils.logger.b.a(e);
+                                if (fileLock != null && fileLock.isValid()) {
+                                    try {
+                                        fileLock.release();
+                                    } catch (IOException e7) {
+                                        com.xiaomi.channel.commonutils.logger.b.a(e7);
+                                    }
+                                }
+                                ab.a(randomAccessFile);
+                            }
+                        } catch (Exception e8) {
+                            randomAccessFile = randomAccessFile2;
+                            e = e8;
+                        } catch (Throwable th3) {
+                            th = th3;
+                        }
+                        file.delete();
+                        randomAccessFile2 = randomAccessFile;
+                        file2 = file;
+                    }
+                }
+                if (fileLock != null && fileLock.isValid()) {
+                    try {
+                        fileLock.release();
+                    } catch (IOException e9) {
+                        com.xiaomi.channel.commonutils.logger.b.a(e9);
+                    }
+                }
+                ab.a(randomAccessFile2);
+                if (file2 != null) {
+                    file2.delete();
                 }
             }
-            return string;
         }
-        return (String) invokeLLL.objValue;
+    }
+
+    public static void a(Context context, List<String> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, list) == null) || list == null || list.size() <= 0 || !m203a(context)) {
+            return;
+        }
+        for (String str : list) {
+            if (!TextUtils.isEmpty(str)) {
+                a(context, str);
+            }
+        }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m226a(String str, String str2, long j) {
+    public static boolean m203a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j)}) == null) {
-            synchronized (this) {
-                SharedPreferences.Editor edit = this.f140a.getSharedPreferences(str, 4).edit();
-                edit.putLong(str2, j);
-                edit.commit();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            try {
+                return context.getApplicationContext().getPackageManager().getPackageInfo("com.xiaomi.xmsf", 0).versionCode >= 108;
+            } catch (PackageManager.NameNotFoundException unused) {
+                return false;
             }
         }
+        return invokeL.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m227a(String str, String str2, String str3) {
+    public static boolean m204a(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
-            synchronized (this) {
-                SharedPreferences.Editor edit = this.f140a.getSharedPreferences(str, 4).edit();
-                edit.putString(str2, str3);
-                edit.commit();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
+            File file = new File(str);
+            long maxFileLength = com.xiaomi.clientreport.manager.a.a(context).m89a().getMaxFileLength();
+            if (file.exists()) {
+                try {
+                    if (file.length() > maxFileLength) {
+                        return false;
+                    }
+                } catch (Exception e) {
+                    com.xiaomi.channel.commonutils.logger.b.a(e);
+                    return false;
+                }
+            } else {
+                ab.m156a(file);
             }
+            return true;
         }
+        return invokeLL.booleanValue;
+    }
+
+    @TargetApi(9)
+    public static byte[] a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            byte[] copyOf = Arrays.copyOf(bm.m197a(str), 16);
+            copyOf[0] = 68;
+            copyOf[15] = 84;
+            return copyOf;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static File[] m205a(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {
+            File externalFilesDir = context.getExternalFilesDir(str);
+            if (externalFilesDir != null) {
+                return externalFilesDir.listFiles(new bv());
+            }
+            return null;
+        }
+        return (File[]) invokeLL.objValue;
     }
 }

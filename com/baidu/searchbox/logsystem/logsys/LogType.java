@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes2.dex */
 public final class LogType {
@@ -34,7 +35,7 @@ public final class LogType {
         }
         JAVA_CRASH = new LogType("JAVA_CRASH", 0, "$JAVA_CRASH$");
         NATIVE_CRASH = new LogType("NATIVE_CRASH", 1, "$NATIVE_CRASH$");
-        LogType logType = new LogType("NONE", 2, "$NONE$");
+        LogType logType = new LogType(HlsPlaylistParser.METHOD_NONE, 2, "$NONE$");
         NONE = logType;
         $VALUES = new LogType[]{JAVA_CRASH, NATIVE_CRASH, logType};
     }

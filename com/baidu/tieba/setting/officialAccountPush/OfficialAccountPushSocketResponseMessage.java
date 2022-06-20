@@ -1,5 +1,6 @@
 package com.baidu.tieba.setting.officialAccountPush;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.GetOfficialSwitch.DataRes;
 import tbclient.GetOfficialSwitch.GetOfficialSwitchResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class OfficialAccountPushSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,42 +37,46 @@ public class OfficialAccountPushSocketResponseMessage extends SocketResponsedMes
         }
     }
 
-    public ArrayList<OfficialAccountPushInfo> getList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.official_list : (ArrayList) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         String str;
         Integer num;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || bArr == null) {
-            return;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            if (bArr == null) {
+                return null;
+            }
+            GetOfficialSwitchResIdl getOfficialSwitchResIdl = (GetOfficialSwitchResIdl) new Wire(new Class[0]).parseFrom(bArr, GetOfficialSwitchResIdl.class);
+            if (getOfficialSwitchResIdl == null) {
+                return null;
+            }
+            Error error = getOfficialSwitchResIdl.error;
+            if (error != null && (num = error.errorno) != null) {
+                setError(num.intValue());
+            }
+            Error error2 = getOfficialSwitchResIdl.error;
+            if (error2 != null && (str = error2.usermsg) != null && str.length() > 0) {
+                setErrorString(getOfficialSwitchResIdl.error.usermsg);
+            }
+            DataRes dataRes = getOfficialSwitchResIdl.data;
+            if (dataRes != null && dataRes.official_list != null) {
+                this.official_list = new ArrayList<>();
+                for (int i2 = 0; i2 < getOfficialSwitchResIdl.data.official_list.size(); i2++) {
+                    OfficialAccountPushInfo officialAccountPushInfo = new OfficialAccountPushInfo();
+                    officialAccountPushInfo.parser(getOfficialSwitchResIdl.data.official_list.get(i2));
+                    this.official_list.add(officialAccountPushInfo);
+                }
+            }
+            return getOfficialSwitchResIdl;
         }
-        GetOfficialSwitchResIdl getOfficialSwitchResIdl = (GetOfficialSwitchResIdl) new Wire(new Class[0]).parseFrom(bArr, GetOfficialSwitchResIdl.class);
-        if (getOfficialSwitchResIdl == null) {
-            return;
-        }
-        Error error = getOfficialSwitchResIdl.error;
-        if (error != null && (num = error.errorno) != null) {
-            setError(num.intValue());
-        }
-        Error error2 = getOfficialSwitchResIdl.error;
-        if (error2 != null && (str = error2.usermsg) != null && str.length() > 0) {
-            setErrorString(getOfficialSwitchResIdl.error.usermsg);
-        }
-        DataRes dataRes = getOfficialSwitchResIdl.data;
-        if (dataRes == null || dataRes.official_list == null) {
-            return;
-        }
-        this.official_list = new ArrayList<>();
-        for (int i2 = 0; i2 < getOfficialSwitchResIdl.data.official_list.size(); i2++) {
-            OfficialAccountPushInfo officialAccountPushInfo = new OfficialAccountPushInfo();
-            officialAccountPushInfo.parser(getOfficialSwitchResIdl.data.official_list.get(i2));
-            this.official_list.add(officialAccountPushInfo);
-        }
+        return invokeIL.objValue;
+    }
+
+    public ArrayList<OfficialAccountPushInfo> getList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.official_list : (ArrayList) invokeV.objValue;
     }
 }

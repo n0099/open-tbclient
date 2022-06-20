@@ -31,10 +31,10 @@ public class LegoTbImageView extends TbImageView {
                 return;
             }
         }
-        w();
+        v();
     }
 
-    public final void w() {
+    public final void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setDrawerType(6);

@@ -24,13 +24,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f05;
-import com.repackage.li;
-import com.repackage.n05;
-import com.repackage.ot4;
-import com.repackage.sz4;
+import com.repackage.c15;
+import com.repackage.h05;
+import com.repackage.pi;
+import com.repackage.u05;
+import com.repackage.xt4;
 /* loaded from: classes3.dex */
-public class SendNoLaunchView extends FrameLayout implements f05 {
+public class SendNoLaunchView extends FrameLayout implements u05 {
     public static /* synthetic */ Interceptable $ic;
     public static final int j;
     public static final int k;
@@ -78,7 +78,7 @@ public class SendNoLaunchView extends FrameLayout implements f05 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.g(new sz4(8, -1, null));
+                this.a.L(new h05(8, -1, null));
             }
         }
     }
@@ -112,9 +112,9 @@ public class SendNoLaunchView extends FrameLayout implements f05 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.i) {
-                    this.a.g(new sz4(1, 3, null));
+                    this.a.L(new h05(1, 3, null));
                     SendNoLaunchView sendNoLaunchView = this.a;
-                    sendNoLaunchView.g(new sz4(14, 0, Integer.valueOf(sendNoLaunchView.getToolId())));
+                    sendNoLaunchView.L(new h05(14, 0, Integer.valueOf(sendNoLaunchView.getToolId())));
                     return;
                 }
                 BdTopToast bdTopToast = new BdTopToast(this.a.h);
@@ -138,11 +138,11 @@ public class SendNoLaunchView extends FrameLayout implements f05 {
                 return;
             }
         }
-        j = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds39);
-        k = li.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
-        l = li.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
-        m = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds46);
-        n = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds68);
+        j = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds39);
+        k = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
+        l = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
+        m = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds46);
+        n = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds68);
         o = 1;
         p = 0;
     }
@@ -203,98 +203,15 @@ public class SendNoLaunchView extends FrameLayout implements f05 {
         }
     }
 
-    public final void c() {
+    @Override // com.repackage.i05
+    public void C(h05 h05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f.setOnClickListener(new a(this));
-            this.g.setOnClickListener(new b(this));
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.g = new ImageView(getContext());
-            int i = n;
-            this.g.setLayoutParams(new FrameLayout.LayoutParams(l + i, i + (m * 2)));
-            ImageView imageView = this.g;
-            int i2 = l;
-            int i3 = m;
-            imageView.setPadding(i2, i3, 0, i3);
-            addView(this.g);
-            this.g.setVisibility(0);
-        }
-    }
-
-    @Override // com.repackage.f05
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            setVisibility(0);
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f = new TBSpecificationBtn(getContext());
-            this.f.setLayoutParams(new FrameLayout.LayoutParams(li.f(getContext(), R.dimen.tbds151) + j, li.f(getContext(), R.dimen.tbds75) + (k * 2)));
-            TBSpecificationBtn tBSpecificationBtn = this.f;
-            int i = j;
-            int i2 = k;
-            tBSpecificationBtn.setPadding(i, i2, 0, i2);
-            this.f.setEnabled(false);
-            this.f.setTextSize(R.dimen.T_X08);
-            this.f.setText(getContext().getString(R.string.obfuscated_res_0x7f0f1112));
-            addView(this.f);
-            this.f.setVisibility(8);
-        }
-    }
-
-    @Override // com.repackage.f05
-    public void g(sz4 sz4Var) {
-        EditorTools editorTools;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, sz4Var) == null) || (editorTools = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, h05Var) == null) || h05Var == null) {
             return;
         }
-        editorTools.A(sz4Var);
-    }
-
-    @Override // com.repackage.f05
-    public int getToolId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    @Override // com.repackage.f05
-    public void hide() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            setVisibility(8);
-        }
-    }
-
-    @Override // com.repackage.f05
-    public void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            f();
-            d();
-            c();
-        }
-    }
-
-    @Override // com.repackage.tz4
-    public void onAction(sz4 sz4Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sz4Var) == null) || sz4Var == null) {
-            return;
-        }
-        int i = sz4Var.a;
+        int i = h05Var.a;
         if (i == 4) {
-            Object obj = sz4Var.c;
+            Object obj = h05Var.c;
             if (obj != null && (!(obj instanceof String) || !StringUtils.isNull((String) obj))) {
                 this.c[0] = true;
             } else {
@@ -322,13 +239,13 @@ public class SendNoLaunchView extends FrameLayout implements f05 {
                     this.c[2] = false;
                     break;
                 case 12:
-                    Object obj2 = sz4Var.c;
-                    if (obj2 instanceof n05) {
-                        n05 n05Var = (n05) obj2;
-                        WriteImagesInfo writeImagesInfo = n05Var.a;
+                    Object obj2 = h05Var.c;
+                    if (obj2 instanceof c15) {
+                        c15 c15Var = (c15) obj2;
+                        WriteImagesInfo writeImagesInfo = c15Var.a;
                         if (writeImagesInfo != null) {
                             if (writeImagesInfo.getChosedFiles() != null) {
-                                this.d[0] = n05Var.a.getChosedFiles().size();
+                                this.d[0] = c15Var.a.getChosedFiles().size();
                             } else {
                                 this.d[0] = 0;
                             }
@@ -360,20 +277,103 @@ public class SendNoLaunchView extends FrameLayout implements f05 {
         setSendBtnUseable(this.e);
     }
 
-    @Override // com.repackage.f05
-    public void onChangeSkinType(int i) {
+    @Override // com.repackage.u05
+    public void L(h05 h05Var) {
+        EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            if (this.f != null) {
-                ot4 ot4Var = new ot4();
-                ot4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
-                this.f.setConfig(ot4Var);
-            }
-            WebPManager.setPureDrawable(this.g, R.drawable.obfuscated_res_0x7f080989, R.color.CAM_X0105, null);
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h05Var) == null) || (editorTools = this.a) == null) {
+            return;
+        }
+        editorTools.A(h05Var);
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f.setOnClickListener(new a(this));
+            this.g.setOnClickListener(new b(this));
         }
     }
 
-    @Override // com.repackage.f05
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.g = new ImageView(getContext());
+            int i = n;
+            this.g.setLayoutParams(new FrameLayout.LayoutParams(l + i, i + (m * 2)));
+            ImageView imageView = this.g;
+            int i2 = l;
+            int i3 = m;
+            imageView.setPadding(i2, i3, 0, i3);
+            addView(this.g);
+            this.g.setVisibility(0);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.f = new TBSpecificationBtn(getContext());
+            this.f.setLayoutParams(new FrameLayout.LayoutParams(pi.f(getContext(), R.dimen.tbds151) + j, pi.f(getContext(), R.dimen.tbds75) + (k * 2)));
+            TBSpecificationBtn tBSpecificationBtn = this.f;
+            int i = j;
+            int i2 = k;
+            tBSpecificationBtn.setPadding(i, i2, 0, i2);
+            this.f.setEnabled(false);
+            this.f.setTextSize(R.dimen.T_X08);
+            this.f.setText(getContext().getString(R.string.obfuscated_res_0x7f0f111d));
+            addView(this.f);
+            this.f.setVisibility(8);
+        }
+    }
+
+    @Override // com.repackage.u05
+    public int getToolId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    @Override // com.repackage.u05
+    public void hide() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            setVisibility(8);
+        }
+    }
+
+    @Override // com.repackage.u05
+    public void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            e();
+            d();
+            c();
+        }
+    }
+
+    @Override // com.repackage.u05
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            if (this.f != null) {
+                xt4 xt4Var = new xt4();
+                xt4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
+                this.f.setConfig(xt4Var);
+            }
+            WebPManager.setPureDrawable(this.g, R.drawable.obfuscated_res_0x7f080974, R.color.CAM_X0105, null);
+        }
+    }
+
+    @Override // com.repackage.u05
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            setVisibility(0);
+        }
+    }
+
+    @Override // com.repackage.u05
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, editorTools) == null) {
@@ -388,7 +388,7 @@ public class SendNoLaunchView extends FrameLayout implements f05 {
         }
     }
 
-    @Override // com.repackage.f05
+    @Override // com.repackage.u05
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {

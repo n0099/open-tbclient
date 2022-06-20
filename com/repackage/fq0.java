@@ -1,14 +1,13 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public abstract class fq0 extends wt0 {
+/* loaded from: classes6.dex */
+public class fq0 extends lq0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,35 +25,40 @@ public abstract class fq0 extends wt0 {
         }
     }
 
-    @SuppressLint({"KotlinPropertyAccess"})
-    public st0 s() {
+    @Override // com.repackage.lq0
+    public boolean C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            bu0 bu0Var = this.a;
-            if (bu0Var != null) {
-                return (st0) bu0Var;
-            }
-            throw new NullPointerException("null cannot be cast to non-null type com.baidu.nadcore.player.layer.AbsNewControlLayer");
-        }
-        return (st0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? q().V() : invokeV.booleanValue;
     }
 
-    public void t(boolean z, boolean z2) {
+    @Override // com.repackage.lq0
+    public void H() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            boolean C = C();
+            if (C && uw0.c(getContext()) == 0) {
+                uw0.d(getContext(), (int) (uw0.b(getContext()) * 0.35d));
+            }
+            J(C);
+            boolean z = !C;
+            L(z);
+            O(z);
         }
     }
 
-    public void u() {
+    @Override // com.repackage.lq0
+    public void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            L(q().V());
         }
     }
 
-    public void v() {
+    public void O(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            q().w0(z);
         }
     }
 }

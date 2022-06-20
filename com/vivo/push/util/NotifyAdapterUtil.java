@@ -25,13 +25,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.push.c.r;
+import com.vivo.push.d.r;
 import com.vivo.push.model.InsideNotificationItem;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class NotifyAdapterUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HIDE_TITLE = 1;
@@ -39,6 +39,7 @@ public class NotifyAdapterUtil {
     public static final int NOTIFY_SINGLE_STYLE = 0;
     public static final String PRIMARY_CHANNEL = "vivo_push_channel";
     public static final String PUSH_EN = "PUSH";
+    public static final String PUSH_ID = "pushId";
     public static final String PUSH_ZH = "推送通知";
     public static final String TAG = "NotifyManager";
     public static NotificationManager sNotificationManager = null;
@@ -139,6 +140,7 @@ public class NotifyAdapterUtil {
 
     public static void pushNotificationByCustom(Context context, List<Bitmap> list, InsideNotificationItem insideNotificationItem, long j, r.a aVar) {
         Notification notification;
+        int i;
         Bitmap bitmap;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{context, list, insideNotificationItem, Long.valueOf(j), aVar}) == null) {
@@ -146,15 +148,21 @@ public class NotifyAdapterUtil {
             String packageName = context.getPackageName();
             String title = insideNotificationItem.getTitle();
             int defaultNotifyIcon = NotifyUtil.getNotifyDataAdapter(context).getDefaultNotifyIcon();
-            int i = context.getApplicationInfo().icon;
-            if (Build.VERSION.SDK_INT >= 26) {
+            int i2 = context.getApplicationInfo().icon;
+            Bundle bundle = new Bundle();
+            bundle.putLong("pushId", j);
+            int i3 = Build.VERSION.SDK_INT;
+            if (i3 >= 26) {
                 Notification.Builder builder = new Notification.Builder(context, PRIMARY_CHANNEL);
                 if (defaultNotifyIcon > 0) {
-                    Bundle bundle = new Bundle();
                     bundle.putInt("vivo.summaryIconRes", defaultNotifyIcon);
-                    builder.setExtras(bundle);
                 }
+                builder.setExtras(bundle);
                 notification = builder.build();
+            } else if (i3 >= 19) {
+                Notification.Builder builder2 = new Notification.Builder(context);
+                builder2.setExtras(bundle);
+                notification = builder2.build();
             } else {
                 notification = new Notification();
             }
@@ -163,7 +171,7 @@ public class NotifyAdapterUtil {
             notification.tickerText = title;
             int defaultSmallIconId = NotifyUtil.getNotifyDataAdapter(context).getDefaultSmallIconId();
             if (defaultSmallIconId <= 0) {
-                defaultSmallIconId = i;
+                defaultSmallIconId = i2;
             }
             notification.icon = defaultSmallIconId;
             RemoteViews remoteViews = new RemoteViews(packageName, NotifyUtil.getNotifyLayoutAdapter(context).getNotificationLayout());
@@ -172,17 +180,19 @@ public class NotifyAdapterUtil {
             remoteViews.setTextViewText(resources.getIdentifier("notify_msg", "id", packageName), insideNotificationItem.getContent());
             if (insideNotificationItem.isShowTime()) {
                 remoteViews.setTextViewText(resources.getIdentifier("notify_when", "id", packageName), new SimpleDateFormat("HH:mm", Locale.CHINA).format(new Date()));
+                i = 0;
                 remoteViews.setViewVisibility(resources.getIdentifier("notify_when", "id", packageName), 0);
             } else {
+                i = 0;
                 remoteViews.setViewVisibility(resources.getIdentifier("notify_when", "id", packageName), 8);
             }
             int suitIconId = NotifyUtil.getNotifyLayoutAdapter(context).getSuitIconId();
-            remoteViews.setViewVisibility(suitIconId, 0);
-            if (list != null && !list.isEmpty() && (bitmap = list.get(0)) != null) {
+            remoteViews.setViewVisibility(suitIconId, i);
+            if (list != null && !list.isEmpty() && (bitmap = list.get(i)) != null) {
                 remoteViews.setImageViewBitmap(suitIconId, bitmap);
             } else {
                 if (defaultNotifyIcon <= 0) {
-                    defaultNotifyIcon = i;
+                    defaultNotifyIcon = i2;
                 }
                 remoteViews.setImageViewResource(suitIconId, defaultNotifyIcon);
             }
@@ -236,6 +246,10 @@ public class NotifyAdapterUtil {
             intent.putExtra("command_type", "reflect_receiver");
             try {
                 intent.putExtra("security_avoid_pull", a.a(context).a("com.vivo.pushservice"));
+                if (Build.VERSION.SDK_INT >= 18) {
+                    intent.putExtra("security_avoid_pull_rsa", com.vivo.push.c.d.a(context).a().a("com.vivo.pushservice"));
+                    intent.putExtra("security_avoid_rsa_public_key", u.a(com.vivo.push.c.d.a(context).a().a()));
+                }
             } catch (Exception e) {
                 p.a(TAG, "pushNotificationByCustom encrypt ：" + e.getMessage());
             }
@@ -268,6 +282,7 @@ public class NotifyAdapterUtil {
     }
 
     public static void pushNotificationBySystem(Context context, List<Bitmap> list, InsideNotificationItem insideNotificationItem, long j, int i, r.a aVar) {
+        String str;
         Bitmap bitmap;
         Notification.Builder builder;
         int i2;
@@ -283,22 +298,25 @@ public class NotifyAdapterUtil {
             AudioManager audioManager = (AudioManager) context.getSystemService("audio");
             int defaultNotifyIcon = NotifyUtil.getNotifyDataAdapter(context).getDefaultNotifyIcon();
             if (list == null || list.isEmpty()) {
+                str = packageName;
                 bitmap = null;
             } else {
                 bitmap = list.get(0);
-                if (bitmap != null && defaultNotifyIcon > 0 && (decodeResource = BitmapFactory.decodeResource(context.getResources(), defaultNotifyIcon)) != null) {
+                if (bitmap == null || defaultNotifyIcon <= 0 || (decodeResource = BitmapFactory.decodeResource(context.getResources(), defaultNotifyIcon)) == null) {
+                    str = packageName;
+                } else {
                     int width = decodeResource.getWidth();
+                    str = packageName;
                     int height = decodeResource.getHeight();
                     decodeResource.recycle();
                     bitmap = c.a(bitmap, width, height);
                 }
             }
+            Bundle bundle = new Bundle();
             if (Build.VERSION.SDK_INT >= 26) {
                 builder = new Notification.Builder(context, PRIMARY_CHANNEL);
                 if (defaultNotifyIcon > 0) {
-                    Bundle bundle = new Bundle();
                     bundle.putInt("vivo.summaryIconRes", defaultNotifyIcon);
-                    builder.setExtras(bundle);
                 }
                 if (bitmap != null) {
                     builder.setLargeIcon(bitmap);
@@ -310,6 +328,10 @@ public class NotifyAdapterUtil {
                 } else if (Build.VERSION.SDK_INT <= 22) {
                     builder.setLargeIcon(BitmapFactory.decodeResource(context.getResources(), i3));
                 }
+            }
+            if (Build.VERSION.SDK_INT >= 19) {
+                bundle.putLong("pushId", j);
+                builder.setExtras(bundle);
             }
             int defaultSmallIconId = NotifyUtil.getNotifyDataAdapter(context).getDefaultSmallIconId();
             if (defaultSmallIconId > 0) {
@@ -351,7 +373,13 @@ public class NotifyAdapterUtil {
                 bitmap2 = list.get(1);
                 i2 = i;
             }
-            if (i2 != 1 && bitmap2 != null) {
+            if (i2 != 1) {
+                Notification.BigTextStyle bigTextStyle = new Notification.BigTextStyle();
+                bigTextStyle.setBigContentTitle(title);
+                bigTextStyle.bigText(content);
+                builder.setStyle(bigTextStyle);
+            }
+            if (bitmap2 != null) {
                 Notification.BigPictureStyle bigPictureStyle = new Notification.BigPictureStyle();
                 bigPictureStyle.setBigContentTitle(title);
                 bigPictureStyle.setSummaryText(content);
@@ -365,10 +393,14 @@ public class NotifyAdapterUtil {
             intent.putExtra("command_type", "reflect_receiver");
             try {
                 intent.putExtra("security_avoid_pull", a.a(context).a("com.vivo.pushservice"));
+                if (Build.VERSION.SDK_INT >= 18) {
+                    intent.putExtra("security_avoid_pull_rsa", com.vivo.push.c.d.a(context).a().a("com.vivo.pushservice"));
+                    intent.putExtra("security_avoid_rsa_public_key", u.a(com.vivo.push.c.d.a(context).a().a()));
+                }
             } catch (Exception e) {
                 p.a(TAG, "pushNotificationBySystem encrypt ：" + e.getMessage());
             }
-            new com.vivo.push.b.p(packageName, j, insideNotificationItem).b(intent);
+            new com.vivo.push.b.p(str, j, insideNotificationItem).b(intent);
             builder.setContentIntent(PendingIntent.getService(context, (int) SystemClock.uptimeMillis(), intent, LaunchTaskConstants.OTHER_PROCESS));
             Notification build = builder.build();
             int k = com.vivo.push.e.a().k();
@@ -410,7 +442,7 @@ public class NotifyAdapterUtil {
                 p.a(TAG, "unknow cancle notify style ".concat(String.valueOf(k)));
                 return false;
             }
-            long b = x.b().b("com.vivo.push.notify_key", -1L);
+            long b = w.b().b("com.vivo.push.notify_key", -1L);
             if (b == j) {
                 p.d(TAG, "undo showed message ".concat(String.valueOf(j)));
                 p.a(context, "回收已展示的通知： ".concat(String.valueOf(j)));

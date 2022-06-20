@@ -1,115 +1,178 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.TreeMap;
+import dalvik.system.DexFile;
+import dalvik.system.PathClassLoader;
+import java.io.File;
+import java.lang.reflect.Array;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
+@SuppressLint({"BDSoLoader", "UnsafeDynamicallyLoadedCode"})
 /* loaded from: classes7.dex */
 public class v52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public boolean h;
-    public String i;
-    public boolean j;
-    public String k;
-    public boolean l;
-    public String m;
 
-    public v52() {
+    public static void a(Context context, String str) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, context, str) == null) {
+            Object e = e((PathClassLoader) context.getClassLoader());
+            Field declaredField = e.getClass().getDeclaredField("nativeLibraryDirectories");
+            declaredField.setAccessible(true);
+            File[] fileArr = (File[]) declaredField.get(e);
+            Object newInstance = Array.newInstance(File.class, fileArr.length + 1);
+            Array.set(newInstance, 0, new File(str));
+            for (int i = 1; i < fileArr.length + 1; i++) {
+                Array.set(newInstance, i, fileArr[i - 1]);
+            }
+            declaredField.set(e, newInstance);
+        }
+    }
+
+    @SuppressLint({"ObsoleteSdkInt"})
+    public static void b(Context context, String str) throws IllegalAccessException, NoSuchFieldException, ClassNotFoundException, NoSuchMethodException, InvocationTargetException {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) || Build.VERSION.SDK_INT < 21) {
+            return;
+        }
+        Object e = e((PathClassLoader) context.getClassLoader());
+        Field declaredField = e.getClass().getDeclaredField("systemNativeLibraryDirectories");
+        declaredField.setAccessible(true);
+        List list = (List) declaredField.get(e);
+        list.add(new File(str));
+        declaredField.set(e, list);
+        Field declaredField2 = e.getClass().getDeclaredField("nativeLibraryDirectories");
+        declaredField2.setAccessible(true);
+        ArrayList arrayList = (ArrayList) declaredField2.get(e);
+        arrayList.add(new File(str));
+        declaredField2.set(e, arrayList);
+        Class<?> cls = Class.forName("dalvik.system.DexPathList$Element");
+        Constructor<?> constructor = cls.getConstructor(File.class, Boolean.TYPE, File.class, DexFile.class);
+        Field declaredField3 = e.getClass().getDeclaredField("nativeLibraryPathElements");
+        declaredField3.setAccessible(true);
+        Object[] objArr = (Object[]) declaredField3.get(e);
+        Object newInstance = Array.newInstance(cls, objArr.length + 1);
+        if (constructor != null) {
+            try {
+                Array.set(newInstance, 0, constructor.newInstance(new File(str), Boolean.TRUE, null, null));
+                for (int i = 1; i < objArr.length + 1; i++) {
+                    Array.set(newInstance, i, objArr[i - 1]);
+                }
+                declaredField3.set(e, newInstance);
+            } catch (IllegalArgumentException unused) {
+                Method declaredMethod = e.getClass().getDeclaredMethod("makePathElements", List.class);
+                declaredMethod.setAccessible(true);
+                Object invoke = declaredMethod.invoke(null, arrayList);
+                Field declaredField4 = e.getClass().getDeclaredField("nativeLibraryPathElements");
+                declaredField4.setAccessible(true);
+                declaredField4.set(e, invoke);
+            } catch (InstantiationException e2) {
+                e2.printStackTrace();
+            } catch (InvocationTargetException e3) {
+                e3.printStackTrace();
             }
         }
     }
 
-    public static Map<String, String> a(v52 v52Var) {
+    public static void c(Context context, String str) throws NoSuchFieldException, IllegalAccessException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
+            PathClassLoader pathClassLoader = (PathClassLoader) context.getClassLoader();
+            Field declaredField = pathClassLoader.getClass().getDeclaredField("mLibPaths");
+            declaredField.setAccessible(true);
+            String[] strArr = (String[]) declaredField.get(pathClassLoader);
+            Object newInstance = Array.newInstance(String.class, strArr.length + 1);
+            Array.set(newInstance, 0, str);
+            for (int i = 1; i < strArr.length + 1; i++) {
+                Array.set(newInstance, i, strArr[i - 1]);
+            }
+            declaredField.set(pathClassLoader, newInstance);
+        }
+    }
+
+    public static Object d(Object obj, Class cls, String str) throws NoSuchFieldException, IllegalAccessException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, obj, cls, str)) == null) {
+            Field declaredField = cls.getDeclaredField(str);
+            declaredField.setAccessible(true);
+            return declaredField.get(obj);
+        }
+        return invokeLLL.objValue;
+    }
+
+    public static Object e(Object obj) throws ClassNotFoundException, NoSuchFieldException, IllegalAccessException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, v52Var)) == null) {
-            TreeMap treeMap = new TreeMap();
-            if (v52Var == null) {
-                return treeMap;
-            }
-            treeMap.put(PrefetchEvent.EVENT_KEY_APP_CONFIG, v52Var.a);
-            treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, v52Var.b);
-            treeMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, v52Var.c);
-            treeMap.put(PrefetchEvent.EVENT_KEY_PAGE_URL, v52Var.d);
-            treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, v52Var.f);
-            treeMap.put("root", v52Var.g);
-            if (!TextUtils.isEmpty(v52Var.e)) {
-                treeMap.put(PrefetchEvent.EVENT_DATA_EXTRA_DATA, v52Var.e);
-            }
-            treeMap.put(PrefetchEvent.EVENT_DATA_SHOW_PERFORMANCE_PANEL, String.valueOf(v52Var.h));
-            treeMap.put("pageType", v52Var.i);
-            treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(v52Var.j));
-            if (!TextUtils.isEmpty(v52Var.k)) {
-                treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, v52Var.k);
-            }
-            fv2.a(treeMap, "app ready event");
-            z23.a(v52Var.d, treeMap);
-            if (ly1.c()) {
-                treeMap.put("offlinePerfTool", String.valueOf(1));
-            }
-            if (f53.d()) {
-                treeMap.put("performanceType", CloudStabilityUBCUtils.VALUE_TYPE);
-            }
-            if (f53.f()) {
-                treeMap.put("performanceType", "stabilityProfile");
-            }
-            treeMap.put("slaveReady", String.valueOf(v52Var.l));
-            if (!TextUtils.isEmpty(v52Var.m)) {
-                treeMap.put(PrefetchEvent.EVENT_USER_ACTION_APIS, v52Var.m);
-            }
-            return treeMap;
-        }
-        return (Map) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) ? d(obj, Class.forName("dalvik.system.BaseDexClassLoader"), "pathList") : invokeL.objValue;
     }
 
-    public static i92 b(v52 v52Var) {
-        InterceptResult invokeL;
+    public static boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, v52Var)) == null) {
-            Map<String, String> a = a(v52Var);
-            i92 i92Var = new i92("AppReady", a);
-            PrefetchEvent.c createFromAppReadyEvent = PrefetchEvent.createFromAppReadyEvent(a);
-            if (createFromAppReadyEvent == null) {
-                return i92Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            try {
+                Class.forName("dalvik.system.BaseDexClassLoader");
+                return true;
+            } catch (ClassNotFoundException unused) {
+                return false;
             }
-            x52 x52Var = new x52();
-            x52Var.t(createFromAppReadyEvent);
-            x52Var.t(i92Var);
-            return x52Var;
         }
-        return (i92) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static String c(hz2 hz2Var, String str) {
-        InterceptResult invokeLL;
+    public static void g(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, hz2Var, str)) == null) {
-            String b0 = hz2Var != null ? hz2Var.b0(zc3.f(str)) : null;
-            return b0 == null ? "" : b0;
+        if (interceptable == null || interceptable.invokeLL(65542, null, context, str) == null) {
+            if (f()) {
+                try {
+                    try {
+                        a(context, str);
+                        return;
+                    } catch (Exception unused) {
+                        b(context, str);
+                        return;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return;
+                }
+            }
+            try {
+                c(context, str);
+            } catch (Exception unused2) {
+            }
         }
-        return (String) invokeLL.objValue;
+    }
+
+    public static boolean h(String str, String str2, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65543, null, str, str2, z)) == null) {
+            if (!z) {
+                try {
+                    System.loadLibrary(str);
+                    return true;
+                } catch (Throwable unused) {
+                }
+            }
+            try {
+                System.load(str2 + File.separator + "lib" + str + ".so");
+                return true;
+            } catch (Throwable unused2) {
+                return false;
+            }
+        }
+        return invokeLLZ.booleanValue;
     }
 }

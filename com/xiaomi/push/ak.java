@@ -1,49 +1,46 @@
 package com.xiaomi.push;
 
+import android.app.KeyguardManager;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.ai;
-import java.util.Map;
 /* loaded from: classes8.dex */
-public class ak extends ai.b {
+public class ak {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ ai a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ak(ai aiVar, ai.a aVar) {
-        super(aVar);
+    public static boolean a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aiVar, aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((ai.a) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            try {
+                return ((KeyguardManager) context.getSystemService("keyguard")).inKeyguardRestrictedInputMode();
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
+                return false;
             }
         }
-        this.a = aiVar;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.xiaomi.push.ai.b
-    public void b() {
-        Object obj;
-        Map map;
+    public static boolean b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            obj = this.a.f88a;
-            synchronized (obj) {
-                map = this.a.f89a;
-                map.remove(super.a.mo222a());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            Intent intent = null;
+            try {
+                intent = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+            } catch (Exception unused) {
             }
+            if (intent == null) {
+                return false;
+            }
+            int intExtra = intent.getIntExtra("status", -1);
+            return intExtra == 2 || intExtra == 5;
         }
+        return invokeL.booleanValue;
     }
 }

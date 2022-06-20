@@ -1,134 +1,27 @@
 package com.repackage;
 
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.template.state.ViewType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oa5;
-import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ja5 implements ia5 {
+public class ja5 extends ia5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<ViewType, ka5> a;
-    public final ViewGroup b;
-    public final ra5 c;
-    public final oa5 d;
-    public ViewType e;
-    public ka5 f;
+    public List<nn> a;
 
-    public ja5(ra5 ra5Var, @NonNull ViewGroup viewGroup, @NonNull oa5 oa5Var) {
+    public ja5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ra5Var, viewGroup, oa5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = viewGroup;
-        this.c = ra5Var;
-        this.d = oa5Var;
-    }
-
-    @Override // com.repackage.ia5
-    public void a(ViewType viewType, String str) {
-        oa5.a aVar;
-        oa5.b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, viewType, str) == null) {
-            if (viewType == ViewType.ERROR && (bVar = this.d.c) != null) {
-                bVar.a = str;
-            } else if (viewType != ViewType.EMPTY || (aVar = this.d.b) == null) {
-            } else {
-                aVar.a = str;
-            }
-        }
-    }
-
-    @Override // com.repackage.ia5
-    public void b(ViewType viewType) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewType) == null) || this.e == viewType) {
-            return;
-        }
-        this.e = viewType;
-        if (this.b == null) {
-            return;
-        }
-        ra5 ra5Var = this.c;
-        if (ra5Var != null && ra5Var.getView() != null) {
-            this.c.getView().setVisibility(viewType == ViewType.CONTENT ? 0 : 8);
-        }
-        ka5 ka5Var = this.f;
-        if (ka5Var != null) {
-            ka5Var.b(this.b);
-        }
-        ka5 ka5Var2 = this.a.get(viewType);
-        oa5.e d = d(viewType);
-        if (ka5Var2 == null || d == null) {
-            return;
-        }
-        ka5Var2.c(viewType, this.b, d);
-        this.f = ka5Var2;
-        this.a.put(viewType, ka5Var2);
-    }
-
-    @Override // com.repackage.ia5
-    public void c(ViewType viewType, @NonNull ka5 ka5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewType, ka5Var) == null) {
-            this.a.put(viewType, ka5Var);
-        }
-    }
-
-    public final oa5.e d(ViewType viewType) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewType)) == null) {
-            if (viewType == ViewType.ERROR) {
-                return this.d.c;
-            }
-            if (viewType == ViewType.EMPTY) {
-                return this.d.b;
-            }
-            if (viewType == ViewType.LOADING) {
-                return this.d.a;
-            }
-            return null;
-        }
-        return (oa5.e) invokeL.objValue;
-    }
-
-    @Override // com.repackage.ia5
-    public void onChangeSkinType(int i) {
-        ka5 ka5Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || (ka5Var = this.f) == null) {
-            return;
-        }
-        ka5Var.e(i);
-    }
-
-    @Override // com.repackage.ia5
-    public void onDestroy() {
-        ka5 ka5Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (ka5Var = this.f) == null) {
-            return;
-        }
-        ka5Var.b(this.b);
     }
 }

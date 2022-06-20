@@ -1,17 +1,20 @@
 package com.repackage;
 
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.y53;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class x53 extends hv2 {
+public class x53 implements v53<JSONObject> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public JSONArray b;
 
     public x53() {
         Interceptable interceptable = $ic;
@@ -27,15 +30,41 @@ public class x53 extends hv2 {
         }
     }
 
-    @Override // com.repackage.hv2
-    public void b(@NonNull Bundle bundle) {
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            y53.a aVar = y53.a().a;
-            if (!ProcessUtils.isMainProcess() || aVar == null) {
-                return;
-            }
-            aVar.a(bundle.getString("statTag"), bundle.getString("statisticData"));
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
+        if (this.b == null) {
+            this.b = new JSONArray();
+        }
+        this.b.put(jSONObject);
+        if (v53.a) {
+            Log.d("WhiteCollector", "FEStage: " + jSONObject);
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = null;
+        }
+    }
+
+    public JSONObject c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("stageError", this.b);
+            } catch (JSONException e) {
+                if (v53.a) {
+                    Log.e("WhiteCollector", Log.getStackTraceString(e));
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

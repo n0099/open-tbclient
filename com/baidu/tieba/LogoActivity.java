@@ -16,14 +16,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dh5;
-import com.repackage.kr4;
+import com.repackage.ai5;
+import com.repackage.tr4;
 @SuppressLint({"HandlerLeak"})
 /* loaded from: classes3.dex */
 public class LogoActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dh5 mLogoActivityDelegate;
+    public ai5 a;
 
     public LogoActivity() {
         Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class LogoActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.f75
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.t75
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -74,7 +74,7 @@ public class LogoActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
-            this.mLogoActivityDelegate.d(configuration);
+            this.a.d(configuration);
         }
     }
 
@@ -86,11 +86,11 @@ public class LogoActivity extends BaseFragmentActivity {
             setIsAddSwipeBackLayout(false);
             setUseStyleImmersiveSticky(false);
             super.onCreate(bundle);
-            dh5 dh5Var = new dh5(this);
-            this.mLogoActivityDelegate = dh5Var;
-            dh5Var.e(bundle);
+            ai5 ai5Var = new ai5(this);
+            this.a = ai5Var;
+            ai5Var.e(bundle);
             SpeedStatsManager.getInstance().addStatsTimeStamp(3001);
-            kr4.m();
+            tr4.m();
         }
     }
 
@@ -100,9 +100,9 @@ public class LogoActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(3004);
             super.onDestroy();
-            this.mLogoActivityDelegate.f();
+            this.a.f();
             SpeedStatsManager.getInstance().addStatsTimeStamp(3005);
-            kr4.n();
+            tr4.n();
         }
     }
 
@@ -124,7 +124,7 @@ public class LogoActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent) == null) {
             super.onNewIntent(intent);
-            kr4.m();
+            tr4.m();
         }
     }
 
@@ -133,7 +133,7 @@ public class LogoActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onPause();
-            this.mLogoActivityDelegate.g();
+            this.a.g();
         }
     }
 
@@ -143,7 +143,7 @@ public class LogoActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(3002);
             super.onResume();
-            this.mLogoActivityDelegate.h();
+            this.a.h();
             SpeedStatsManager.getInstance().addStatsTimeStamp(3003);
         }
     }

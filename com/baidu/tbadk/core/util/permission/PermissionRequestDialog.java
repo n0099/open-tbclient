@@ -13,10 +13,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b9;
-import com.repackage.dq4;
+import com.repackage.d9;
+import com.repackage.nq4;
 /* loaded from: classes3.dex */
-public class PermissionRequestDialog extends dq4 {
+public class PermissionRequestDialog extends nq4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView mCloseView;
@@ -62,29 +62,29 @@ public class PermissionRequestDialog extends dq4 {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.obfuscated_res_0x7f0d022b, (ViewGroup) null);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.obfuscated_res_0x7f0d0228, (ViewGroup) null);
             this.mRootView = viewGroup;
-            this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0921d3);
-            this.mDetailView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0921d2);
-            TextView textView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0921d0);
+            this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0921cf);
+            this.mDetailView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0921ce);
+            TextView textView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0921cc);
             this.mCloseView = textView;
-            textView.setText(R.string.obfuscated_res_0x7f0f03f0);
-            TextView textView2 = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0921d1);
+            textView.setText(R.string.obfuscated_res_0x7f0f03e1);
+            TextView textView2 = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0921cd);
             this.mContinueView = textView2;
-            textView2.setText(R.string.obfuscated_res_0x7f0f07b9);
+            textView2.setText(R.string.obfuscated_res_0x7f0f07b6);
             onChangeSkinType();
             setContentView(this.mRootView);
         }
     }
 
-    @Override // com.repackage.dq4
-    public dq4 create(b9<?> b9Var) {
+    @Override // com.repackage.nq4
+    public nq4 create(d9<?> d9Var) {
         InterceptResult invokeL;
         char c;
         String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, b9Var)) == null) {
-            super.create(b9Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, d9Var)) == null) {
+            super.create(d9Var);
             String str = this.mRequestPermission;
             int hashCode = str.hashCode();
             if (hashCode == -63024214) {
@@ -105,16 +105,16 @@ public class PermissionRequestDialog extends dq4 {
             }
             String str2 = null;
             if (c == 0) {
-                str2 = b9Var.getString(R.string.obfuscated_res_0x7f0f0fde);
-                string = b9Var.getString(R.string.obfuscated_res_0x7f0f0fd8);
+                str2 = d9Var.getString(R.string.obfuscated_res_0x7f0f0fe9);
+                string = d9Var.getString(R.string.obfuscated_res_0x7f0f0fe3);
             } else if (c == 1) {
-                str2 = b9Var.getString(R.string.obfuscated_res_0x7f0f0fe0);
-                string = b9Var.getString(R.string.obfuscated_res_0x7f0f0fda);
+                str2 = d9Var.getString(R.string.obfuscated_res_0x7f0f0feb);
+                string = d9Var.getString(R.string.obfuscated_res_0x7f0f0fe5);
             } else if (c != 2) {
                 string = null;
             } else {
-                str2 = b9Var.getString(R.string.obfuscated_res_0x7f0f0fdf);
-                string = b9Var.getString(R.string.obfuscated_res_0x7f0f0fd9);
+                str2 = d9Var.getString(R.string.obfuscated_res_0x7f0f0fea);
+                string = d9Var.getString(R.string.obfuscated_res_0x7f0f0fe4);
             }
             this.mTitleView.setText(str2);
             this.mDetailView.setText(string);
@@ -184,7 +184,7 @@ public class PermissionRequestDialog extends dq4 {
             });
             return this;
         }
-        return (dq4) invokeL.objValue;
+        return (nq4) invokeL.objValue;
     }
 
     public void onChangeSkinType() {

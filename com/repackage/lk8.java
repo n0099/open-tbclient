@@ -1,148 +1,150 @@
 package com.repackage;
 
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
+import android.app.Application;
+import android.text.TextUtils;
+import android.text.format.DateFormat;
+import android.text.format.Time;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.AsyncGetClipboardSwitch;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tbadk.core.message.RemindRecommendMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Calendar;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes6.dex */
 public class lk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public boolean b;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lk8 a;
-
-        /* renamed from: com.repackage.lk8$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0467a extends mc5<Boolean> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public C0467a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
+    public static RemindRecommendMessage a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.repackage.mc5
-            public Boolean doInBackground() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(l97.u()) : (Boolean) invokeV.objValue;
+            try {
+                RemindRecommendMessage remindRecommendMessage = new RemindRecommendMessage();
+                JSONObject jSONObject = new JSONObject(str);
+                remindRecommendMessage.title = jSONObject.optString("title");
+                remindRecommendMessage.url = jSONObject.optString("url");
+                remindRecommendMessage.picture = jSONObject.optString("picture");
+                remindRecommendMessage.name = jSONObject.optString("name");
+                remindRecommendMessage.isLocal = false;
+                return remindRecommendMessage;
+            } catch (JSONException unused) {
+                return null;
             }
         }
-
-        /* loaded from: classes6.dex */
-        public class b implements tb5<Boolean> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public b(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.tb5
-            /* renamed from: a */
-            public void onReturnDataInUI(Boolean bool) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, bool) == null) && bool != null && !bool.booleanValue() && TbadkCoreApplication.isLogin() && TbSingleton.getInstance().showStampMissionDialog && UbsABTestHelper.isStampMissionDialogABTestA()) {
-                    me8.r().A(1, 1);
-                    me8.r().G();
-                }
-            }
-        }
-
-        public a(lk8 lk8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lk8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lk8Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TbSingleton.getInstance().getExceptInsertAdDiaShow() || this.a.b) {
-                return;
-            }
-            if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
-                pc5.b(new C0467a(this), new b(this));
-            } else if (!l97.u() && TbadkCoreApplication.isLogin() && TbSingleton.getInstance().showStampMissionDialog && UbsABTestHelper.isStampMissionDialogABTestA()) {
-                me8.r().A(1, 1);
-                me8.r().G();
-            }
-        }
+        return (RemindRecommendMessage) invokeL.objValue;
     }
 
-    public lk8(MainTabActivity mainTabActivity, uj8 uj8Var) {
+    public static long b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, uj8Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = mainTabActivity;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? c(System.currentTimeMillis()) : invokeV.longValue;
     }
 
-    public void a() {
+    public static long c(long j) {
+        InterceptResult invokeJ;
+        int i;
+        int i2;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            mg.a().postDelayed(new a(this), 400L);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
+            String loadString = TbadkSettings.getInst().loadString(TbadkCoreApplication.getCurrentAccount() + "remind_recommend_dialog_time", "12:05:00");
+            String[] split = (TextUtils.isEmpty(loadString) ? "12:05:00" : loadString).split(":");
+            int i4 = 5;
+            if (split == null || split.length != 3) {
+                i = 0;
+                i2 = 12;
+                i3 = 5;
+            } else {
+                i2 = ng.e(split[0], 12);
+                i3 = ng.e(split[1], 5);
+                i = ng.e(split[2], 0);
+            }
+            if (i2 < 0 || i2 > 23 || i3 < 0 || i3 > 59 || i < 0 || i > 59) {
+                i = 0;
+                i2 = 12;
+            } else {
+                i4 = i3;
+            }
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(j);
+            calendar.set(12, i4);
+            calendar.set(13, i);
+            Application app = TbadkCoreApplication.getInst().getApp();
+            if (app != null && app.getContentResolver() != null && DateFormat.is24HourFormat(app)) {
+                calendar.set(11, i2);
+            } else {
+                if (i2 >= 12) {
+                    i2 -= 12;
+                    calendar.set(9, 1);
+                } else {
+                    calendar.set(9, 0);
+                }
+                calendar.set(10, i2);
+            }
+            return calendar.getTimeInMillis();
         }
+        return invokeJ.longValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(TbadkCoreApplication.getCurrentAccount());
+            sb.append("remind_recommend_server_switch");
+            return TbadkSettings.getInst().loadInt(sb.toString(), 1) == 1;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? ht4.k().l("sync_local_dialog", 1) == 1 : invokeV.booleanValue;
+    }
+
+    public static boolean f(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j)) == null) {
+            Time time = new Time();
+            time.set(j);
+            int i = time.year;
+            int i2 = time.month;
+            int i3 = time.monthDay;
+            time.set(System.currentTimeMillis());
+            return i == time.year && i2 == time.month && i3 == time.monthDay;
+        }
+        return invokeJ.booleanValue;
+    }
+
+    public static String g(DataRes dataRes) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, dataRes)) == null) {
+            if (dataRes != null && dataRes.local_dialog != null) {
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("title", dataRes.local_dialog.title);
+                    jSONObject.put("picture", dataRes.local_dialog.picture);
+                    jSONObject.put("url", dataRes.local_dialog.url);
+                    jSONObject.put("name", dataRes.local_dialog.name);
+                    return jSONObject.toString();
+                } catch (JSONException unused) {
+                }
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
     }
 }

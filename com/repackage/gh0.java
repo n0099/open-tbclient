@@ -1,8 +1,8 @@
 package com.repackage;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public interface gh0 {
-    public static final ServiceReference d = new ServiceReference("nad.core", "hostCI");
-    public static final gh0 e = new a();
+    public static final ServiceReference a = new ServiceReference("nad.core", UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME);
+    public static final gh0 b = new a();
 
     /* loaded from: classes6.dex */
     public static class a implements gh0 {
@@ -34,35 +34,13 @@ public interface gh0 {
 
         @Override // com.repackage.gh0
         @NonNull
-        public String n() {
+        public hh0 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
-        }
-
-        @Override // com.repackage.gh0
-        @NonNull
-        public String r() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "" : (String) invokeV.objValue;
-        }
-
-        @Override // com.repackage.gh0
-        @NonNull
-        public String s() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "" : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? hh0.a : (hh0) invokeV.objValue;
         }
     }
 
     @NonNull
-    String n();
-
-    @NonNull
-    String r();
-
-    @NonNull
-    String s();
+    hh0 a();
 }

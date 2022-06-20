@@ -1,13 +1,14 @@
 package com.baidu.tieba.frs.accelerator;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jn6;
+import com.repackage.mo6;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +54,7 @@ public class AcceleratorData implements Serializable {
             JSONObject optJSONObject = jSONObject.optJSONObject("token_info");
             ArrayList arrayList = null;
             TokenInfo parseJson = optJSONObject != null ? TokenInfo.parseJson(optJSONObject) : null;
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("item_info");
+            JSONObject optJSONObject2 = jSONObject.optJSONObject(WriteActivityConfig.ITEM_INFO);
             if (optJSONObject2 != null) {
                 itemData = new ItemData();
                 itemData.parseJson(optJSONObject2.toString(), false);
@@ -91,7 +92,7 @@ public class AcceleratorData implements Serializable {
             }
             this.availableTornadoNodeInfoList = new ArrayList();
             for (int i = 0; i < this.tornadoNodeInfoList.size(); i++) {
-                if (jn6.a(this.tornadoNodeInfoList.get(i).getPackageName()) != null) {
+                if (mo6.a(this.tornadoNodeInfoList.get(i).getPackageName()) != null) {
                     this.availableTornadoNodeInfoList.add(this.tornadoNodeInfoList.get(i));
                     this.availableNodesNum += this.tornadoNodeInfoList.get(i).getNodeInfoList().size();
                 }

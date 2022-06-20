@@ -1,6 +1,5 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,35 +8,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.tu9;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicReference;
-import rx.internal.schedulers.ScheduledAction;
-import rx.internal.util.RxThreadFactory;
-/* loaded from: classes6.dex */
-public class qw9 extends tu9.a implements xu9 {
+/* loaded from: classes7.dex */
+public final class qw9 implements zu9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static final int d;
-    public static final ConcurrentHashMap<ScheduledThreadPoolExecutor, ScheduledThreadPoolExecutor> e;
-    public static final AtomicReference<ScheduledExecutorService> f;
-    public static volatile Object g;
-    public static final Object h;
+    public static final zu9 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ScheduledExecutorService a;
-    public volatile boolean b;
+    public long a;
+    public zu9 b;
+    public boolean c;
+    public long d;
+    public long e;
+    public zu9 f;
 
-    /* loaded from: classes6.dex */
-    public static class a implements Runnable {
+    /* loaded from: classes7.dex */
+    public static class a implements zu9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -55,11 +39,10 @@ public class qw9 extends tu9.a implements xu9 {
             }
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.repackage.zu9
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                qw9.f();
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
             }
         }
     }
@@ -77,227 +60,173 @@ public class qw9 extends tu9.a implements xu9 {
                 return;
             }
         }
-        h = new Object();
-        e = new ConcurrentHashMap<>();
-        f = new AtomicReference<>();
-        d = Integer.getInteger("rx.scheduler.jdk6.purge-frequency-millis", 1000).intValue();
-        boolean z = Boolean.getBoolean("rx.scheduler.jdk6.purge-force");
-        int a2 = yw9.a();
-        c = !z && (a2 == 0 || a2 >= 21);
+        g = new a();
     }
 
-    public qw9(ThreadFactory threadFactory) {
+    public qw9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {threadFactory};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, threadFactory);
-        if (!k(newScheduledThreadPool) && (newScheduledThreadPool instanceof ScheduledThreadPoolExecutor)) {
-            g((ScheduledThreadPoolExecutor) newScheduledThreadPool);
-        }
-        this.a = newScheduledThreadPool;
     }
 
-    public static void d(ScheduledExecutorService scheduledExecutorService) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, scheduledExecutorService) == null) {
-            e.remove(scheduledExecutorService);
+        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+            return;
         }
-    }
-
-    public static Method e(ScheduledExecutorService scheduledExecutorService) {
-        InterceptResult invokeL;
-        Method[] methods;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, scheduledExecutorService)) == null) {
-            for (Method method : scheduledExecutorService.getClass().getMethods()) {
-                if (method.getName().equals("setRemoveOnCancelPolicy")) {
-                    Class<?>[] parameterTypes = method.getParameterTypes();
-                    if (parameterTypes.length == 1 && parameterTypes[0] == Boolean.TYPE) {
-                        return method;
-                    }
+        while (true) {
+            synchronized (this) {
+                long j = this.d;
+                long j2 = this.e;
+                zu9 zu9Var = this.f;
+                int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+                if (i == 0 && j2 == 0 && zu9Var == null) {
+                    this.c = false;
+                    return;
                 }
-            }
-            return null;
-        }
-        return (Method) invokeL.objValue;
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            try {
-                Iterator<ScheduledThreadPoolExecutor> it = e.keySet().iterator();
-                while (it.hasNext()) {
-                    ScheduledThreadPoolExecutor next = it.next();
-                    if (!next.isShutdown()) {
-                        next.purge();
+                this.d = 0L;
+                this.e = 0L;
+                this.f = null;
+                long j3 = this.a;
+                if (j3 != Long.MAX_VALUE) {
+                    long j4 = j3 + j;
+                    if (j4 < 0 || j4 == Long.MAX_VALUE) {
+                        this.a = Long.MAX_VALUE;
+                        j3 = Long.MAX_VALUE;
                     } else {
-                        it.remove();
+                        j3 = j4 - j2;
+                        if (j3 >= 0) {
+                            this.a = j3;
+                        } else {
+                            throw new IllegalStateException("more produced than requested");
+                        }
                     }
                 }
-            } catch (Throwable th) {
-                cv9.e(th);
-                xy9.j(th);
-            }
-        }
-    }
-
-    public static void g(ScheduledThreadPoolExecutor scheduledThreadPoolExecutor) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, scheduledThreadPoolExecutor) == null) {
-            while (true) {
-                if (f.get() != null) {
-                    break;
-                }
-                ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, new RxThreadFactory("RxSchedulerPurge-"));
-                if (f.compareAndSet(null, newScheduledThreadPool)) {
-                    a aVar = new a();
-                    int i = d;
-                    newScheduledThreadPool.scheduleAtFixedRate(aVar, i, i, TimeUnit.MILLISECONDS);
-                    break;
-                }
-                newScheduledThreadPool.shutdownNow();
-            }
-            e.putIfAbsent(scheduledThreadPoolExecutor, scheduledThreadPoolExecutor);
-        }
-    }
-
-    public static boolean k(ScheduledExecutorService scheduledExecutorService) {
-        InterceptResult invokeL;
-        Method e2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, scheduledExecutorService)) == null) {
-            if (c) {
-                if (scheduledExecutorService instanceof ScheduledThreadPoolExecutor) {
-                    Object obj = g;
-                    if (obj == h) {
-                        return false;
-                    }
-                    if (obj == null) {
-                        e2 = e(scheduledExecutorService);
-                        g = e2 != null ? e2 : h;
+                if (zu9Var != null) {
+                    if (zu9Var == g) {
+                        this.b = null;
                     } else {
-                        e2 = (Method) obj;
+                        this.b = zu9Var;
+                        zu9Var.request(j3);
                     }
                 } else {
-                    e2 = e(scheduledExecutorService);
-                }
-                if (e2 != null) {
-                    try {
-                        e2.invoke(scheduledExecutorService, Boolean.TRUE);
-                        return true;
-                    } catch (IllegalAccessException e3) {
-                        xy9.j(e3);
-                    } catch (IllegalArgumentException e4) {
-                        xy9.j(e4);
-                    } catch (InvocationTargetException e5) {
-                        xy9.j(e5);
+                    zu9 zu9Var2 = this.b;
+                    if (zu9Var2 != null && i != 0) {
+                        zu9Var2.request(j);
                     }
                 }
             }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.tu9.a
-    public xu9 b(dv9 dv9Var) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public void b(long j) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dv9Var)) == null) ? c(dv9Var, 0L, null) : (xu9) invokeL.objValue;
-    }
-
-    @Override // com.repackage.tu9.a
-    public xu9 c(dv9 dv9Var, long j, TimeUnit timeUnit) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{dv9Var, Long.valueOf(j), timeUnit})) == null) {
-            if (this.b) {
-                return nz9.c();
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            if (j > 0) {
+                synchronized (this) {
+                    if (this.c) {
+                        this.e += j;
+                        return;
+                    }
+                    this.c = true;
+                    try {
+                        long j2 = this.a;
+                        if (j2 != Long.MAX_VALUE) {
+                            long j3 = j2 - j;
+                            if (j3 >= 0) {
+                                this.a = j3;
+                            } else {
+                                throw new IllegalStateException("more items arrived than were requested");
+                            }
+                        }
+                        a();
+                        return;
+                    } catch (Throwable th) {
+                        synchronized (this) {
+                            this.c = false;
+                            throw th;
+                        }
+                    }
+                }
             }
-            return h(dv9Var, j, timeUnit);
+            throw new IllegalArgumentException("n > 0 required");
         }
-        return (xu9) invokeCommon.objValue;
     }
 
-    public ScheduledAction h(dv9 dv9Var, long j, TimeUnit timeUnit) {
-        InterceptResult invokeCommon;
-        Future<?> schedule;
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public void c(zu9 zu9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{dv9Var, Long.valueOf(j), timeUnit})) == null) {
-            ScheduledAction scheduledAction = new ScheduledAction(xy9.q(dv9Var));
-            if (j <= 0) {
-                schedule = this.a.submit(scheduledAction);
-            } else {
-                schedule = this.a.schedule(scheduledAction, j, timeUnit);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zu9Var) == null) {
+            synchronized (this) {
+                if (this.c) {
+                    if (zu9Var == null) {
+                        zu9Var = g;
+                    }
+                    this.f = zu9Var;
+                    return;
+                }
+                this.c = true;
+                try {
+                    this.b = zu9Var;
+                    if (zu9Var != null) {
+                        zu9Var.request(this.a);
+                    }
+                    a();
+                } catch (Throwable th) {
+                    synchronized (this) {
+                        this.c = false;
+                        throw th;
+                    }
+                }
             }
-            scheduledAction.add(schedule);
-            return scheduledAction;
         }
-        return (ScheduledAction) invokeCommon.objValue;
     }
 
-    public ScheduledAction i(dv9 dv9Var, long j, TimeUnit timeUnit, bx9 bx9Var) {
-        InterceptResult invokeCommon;
-        Future<?> schedule;
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    @Override // com.repackage.zu9
+    public void request(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{dv9Var, Long.valueOf(j), timeUnit, bx9Var})) == null) {
-            ScheduledAction scheduledAction = new ScheduledAction(xy9.q(dv9Var), bx9Var);
-            bx9Var.a(scheduledAction);
-            if (j <= 0) {
-                schedule = this.a.submit(scheduledAction);
-            } else {
-                schedule = this.a.schedule(scheduledAction, j, timeUnit);
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i < 0) {
+                throw new IllegalArgumentException("n >= 0 required");
             }
-            scheduledAction.add(schedule);
-            return scheduledAction;
-        }
-        return (ScheduledAction) invokeCommon.objValue;
-    }
-
-    @Override // com.repackage.xu9
-    public boolean isUnsubscribed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    public ScheduledAction j(dv9 dv9Var, long j, TimeUnit timeUnit, kz9 kz9Var) {
-        InterceptResult invokeCommon;
-        Future<?> schedule;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{dv9Var, Long.valueOf(j), timeUnit, kz9Var})) == null) {
-            ScheduledAction scheduledAction = new ScheduledAction(xy9.q(dv9Var), kz9Var);
-            kz9Var.a(scheduledAction);
-            if (j <= 0) {
-                schedule = this.a.submit(scheduledAction);
-            } else {
-                schedule = this.a.schedule(scheduledAction, j, timeUnit);
+            if (i == 0) {
+                return;
             }
-            scheduledAction.add(schedule);
-            return scheduledAction;
-        }
-        return (ScheduledAction) invokeCommon.objValue;
-    }
-
-    @Override // com.repackage.xu9
-    public void unsubscribe() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.b = true;
-            this.a.shutdownNow();
-            d(this.a);
+            synchronized (this) {
+                if (this.c) {
+                    this.d += j;
+                    return;
+                }
+                this.c = true;
+                try {
+                    long j2 = this.a + j;
+                    if (j2 < 0) {
+                        j2 = Long.MAX_VALUE;
+                    }
+                    this.a = j2;
+                    zu9 zu9Var = this.b;
+                    if (zu9Var != null) {
+                        zu9Var.request(j);
+                    }
+                    a();
+                } catch (Throwable th) {
+                    synchronized (this) {
+                        this.c = false;
+                        throw th;
+                    }
+                }
+            }
         }
     }
 }

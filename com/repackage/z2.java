@@ -1,187 +1,199 @@
 package com.repackage;
 
-import android.content.res.AssetFileDescriptor;
-import android.content.res.AssetManager;
-import androidx.core.view.InputDeviceCompat;
-import com.badlogic.gdx.Files;
-import com.badlogic.gdx.utils.GdxRuntimeException;
+import android.content.Context;
+import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import com.tachikoma.core.utility.FileUtil;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+import com.repackage.e3;
 /* loaded from: classes7.dex */
-public class z2 extends j2 {
+public class z2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean d;
-    public long e;
-    public d3 f;
-    public String g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z2(String str) {
-        super((AssetManager) null, str, Files.FileType.Internal);
+    public z2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((AssetManager) objArr2[0], (String) objArr2[1], (Files.FileType) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        w();
-    }
-
-    @Override // com.repackage.j2, com.repackage.h3
-    public h3 a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (this.a.getPath().length() == 0) {
-                return new z2(new File(str), this.b);
-            }
-            return new z2(new File(this.a, str), this.b);
-        }
-        return (h3) invokeL.objValue;
-    }
-
-    @Override // com.repackage.j2, com.repackage.h3
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d || this.f.b(v()).length != 0 : invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.j2, com.repackage.h3
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.d) {
-                return this.e;
-            }
-            return 0L;
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.repackage.j2, com.repackage.h3
-    public h3 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            File parentFile = this.a.getParentFile();
-            if (parentFile == null) {
-                parentFile = new File("");
-            }
-            return new z2(parentFile.getPath());
-        }
-        return (h3) invokeV.objValue;
-    }
-
-    @Override // com.repackage.j2, com.repackage.h3
-    public InputStream m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            try {
-                return this.f.c(v());
-            } catch (IOException e) {
-                throw new GdxRuntimeException("Error reading file: " + this.a + " (ZipResourceFile)", e);
-            }
-        }
-        return (InputStream) invokeV.objValue;
-    }
-
-    @Override // com.repackage.j2, com.repackage.h3
-    public h3 s(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (this.a.getPath().length() != 0) {
-                return b1.d.d(new File(this.a.getParent(), str).getPath(), this.b);
-            }
-            throw new GdxRuntimeException("Cannot get the sibling of the root.");
-        }
-        return (h3) invokeL.objValue;
-    }
-
-    @Override // com.repackage.j2
-    public AssetFileDescriptor u() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f.a(v()) : (AssetFileDescriptor) invokeV.objValue;
-    }
-
-    public final String v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.g : (String) invokeV.objValue;
-    }
-
-    public final void w() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.g = this.a.getPath().replace(FileUtil.WINDOWS_SEPARATOR, WebvttCueParser.CHAR_SLASH);
-            d3 c = ((k2) b1.d).c();
-            this.f = c;
-            AssetFileDescriptor a = c.a(v());
-            if (a != null) {
-                this.d = true;
-                this.e = a.getLength();
-                try {
-                    a.close();
-                } catch (IOException unused) {
-                }
-            } else {
-                this.d = false;
-            }
-            if (x()) {
-                this.g += "/";
-            }
-        }
-    }
-
-    public boolean x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? !this.d : invokeV.booleanValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z2(File file, Files.FileType fileType) {
-        super((AssetManager) null, file, fileType);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {file, fileType};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((AssetManager) objArr2[0], (File) objArr2[1], (Files.FileType) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        w();
+    }
+
+    public void a(MotionEvent motionEvent, e3 e3Var) {
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        int i5;
+        int i6;
+        int i7;
+        int i8;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, motionEvent, e3Var) == null) {
+            int action = motionEvent.getAction() & 255;
+            int action2 = (motionEvent.getAction() & 65280) >> 8;
+            int pointerId = motionEvent.getPointerId(action2);
+            long nanoTime = System.nanoTime();
+            synchronized (e3Var) {
+                int i9 = 20;
+                switch (action) {
+                    case 0:
+                    case 5:
+                        int d = e3Var.d();
+                        if (d >= 20) {
+                            break;
+                        } else {
+                            e3Var.q[d] = pointerId;
+                            int x = (int) motionEvent.getX(action2);
+                            int y = (int) motionEvent.getY(action2);
+                            int d2 = d(motionEvent.getButtonState());
+                            if (d2 != -1) {
+                                i = d2;
+                                i2 = x;
+                                i3 = y;
+                                b(e3Var, 0, x, y, d, i, nanoTime);
+                            } else {
+                                i = d2;
+                                i2 = x;
+                                i3 = y;
+                            }
+                            e3Var.k[d] = i2;
+                            e3Var.l[d] = i3;
+                            e3Var.m[d] = 0;
+                            e3Var.n[d] = 0;
+                            int i10 = i;
+                            e3Var.o[d] = i10 != -1;
+                            e3Var.p[d] = i10;
+                            e3Var.r[d] = motionEvent.getPressure(action2);
+                            break;
+                        }
+                    case 1:
+                    case 4:
+                    case 6:
+                        int f = e3Var.f(pointerId);
+                        if (f != -1 && f < 20) {
+                            e3Var.q[f] = -1;
+                            int x2 = (int) motionEvent.getX(action2);
+                            int y2 = (int) motionEvent.getY(action2);
+                            int i11 = e3Var.p[f];
+                            if (i11 != -1) {
+                                i4 = x2;
+                                b(e3Var, 1, x2, y2, f, i11, nanoTime);
+                            } else {
+                                i4 = x2;
+                            }
+                            e3Var.k[f] = i4;
+                            e3Var.l[f] = y2;
+                            e3Var.m[f] = 0;
+                            e3Var.n[f] = 0;
+                            e3Var.o[f] = false;
+                            e3Var.p[f] = 0;
+                            e3Var.r[f] = 0.0f;
+                            break;
+                        }
+                        break;
+                    case 2:
+                        int pointerCount = motionEvent.getPointerCount();
+                        int i12 = 0;
+                        while (i12 < pointerCount) {
+                            int pointerId2 = motionEvent.getPointerId(i12);
+                            int x3 = (int) motionEvent.getX(i12);
+                            int y3 = (int) motionEvent.getY(i12);
+                            int f2 = e3Var.f(pointerId2);
+                            if (f2 == -1) {
+                                i7 = i12;
+                            } else if (f2 >= i9) {
+                                break;
+                            } else {
+                                int i13 = e3Var.p[f2];
+                                if (i13 != -1) {
+                                    i5 = f2;
+                                    i6 = y3;
+                                    i7 = i12;
+                                    i8 = x3;
+                                    b(e3Var, 2, x3, y3, f2, i13, nanoTime);
+                                } else {
+                                    i5 = f2;
+                                    i6 = y3;
+                                    i7 = i12;
+                                    i8 = x3;
+                                    b(e3Var, 4, i8, i6, f2, 0, nanoTime);
+                                }
+                                e3Var.m[i5] = i8 - e3Var.k[i5];
+                                e3Var.n[i5] = i6 - e3Var.l[i5];
+                                e3Var.k[i5] = i8;
+                                e3Var.l[i5] = i6;
+                                e3Var.r[i5] = motionEvent.getPressure(i7);
+                            }
+                            i12 = i7 + 1;
+                            i9 = 20;
+                        }
+                        break;
+                    case 3:
+                        for (int i14 = 0; i14 < e3Var.q.length; i14++) {
+                            e3Var.q[i14] = -1;
+                            e3Var.k[i14] = 0;
+                            e3Var.l[i14] = 0;
+                            e3Var.m[i14] = 0;
+                            e3Var.n[i14] = 0;
+                            e3Var.o[i14] = false;
+                            e3Var.p[i14] = 0;
+                            e3Var.r[i14] = 0.0f;
+                        }
+                        break;
+                }
+            }
+            e1.a.getGraphics().c();
+        }
+    }
+
+    public final void b(e3 e3Var, int i, int i2, int i3, int i4, int i5, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{e3Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Long.valueOf(j)}) == null) {
+            e3.f e = e3Var.g.e();
+            e.a = j;
+            e.h = i4;
+            e.c = i2;
+            e.d = i3;
+            e.b = i;
+            e.g = i5;
+            e3Var.j.add(e);
+        }
+    }
+
+    public boolean c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) ? context.getPackageManager().hasSystemFeature("android.hardware.touchscreen.multitouch") : invokeL.booleanValue;
+    }
+
+    public final int d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            if (i == 0 || i == 1) {
+                return 0;
+            }
+            if (i == 2) {
+                return 1;
+            }
+            if (i == 4) {
+                return 2;
+            }
+            if (i == 8) {
+                return 3;
+            }
+            return i == 16 ? 4 : -1;
+        }
+        return invokeI.intValue;
     }
 }

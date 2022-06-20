@@ -1,32 +1,23 @@
 package com.repackage;
 
-import android.content.res.Configuration;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.app.Application;
+import androidx.lifecycle.Lifecycle;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.stats.SpeedStatsManager;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.AdToMainTabActivitySwitch;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class eh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BaseFragmentActivity a;
-    public xx5 b;
+    public final CustomMessageListener a;
+    public c b;
 
     /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
@@ -58,20 +49,59 @@ public class eh5 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Lifecycle.Event event;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Integer)) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof aq4)) {
+                aq4 aq4Var = (aq4) customResponsedMessage.getData();
+                if (aq4Var.a == null || (event = aq4Var.c) == null) {
+                    return;
+                }
+                if (event.equals(Lifecycle.Event.ON_PAUSE)) {
+                    if (this.a.b != null) {
+                        this.a.b.a(aq4Var.a);
+                    }
+                } else if (!aq4Var.c.equals(Lifecycle.Event.ON_RESUME) || this.a.b == null) {
+                } else {
+                    this.a.b.b(aq4Var.a);
+                }
             }
-            this.a.b(((Integer) customResponsedMessage.getData()).intValue(), false);
         }
     }
 
-    public eh5(@NonNull BaseFragmentActivity baseFragmentActivity) {
+    /* loaded from: classes5.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static eh5 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-414380543, "Lcom/repackage/eh5$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-414380543, "Lcom/repackage/eh5$b;");
+                    return;
+                }
+            }
+            a = new eh5();
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface c {
+        void a(Application application);
+
+        void b(Application application);
+    }
+
+    public eh5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -81,95 +111,20 @@ public class eh5 {
                 return;
             }
         }
-        this.a = baseFragmentActivity;
-        c();
+        this.a = new a(this, 2921698);
     }
 
-    public final void b(int i, boolean z) {
+    public static eh5 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this.a).createNormalCfg(i);
-            if (TbSingleton.getInstance().getFirstOpenScheme() != null) {
-                createNormalCfg.getIntent().setData(TbSingleton.getInstance().getFirstOpenScheme());
-                TbSingleton.getInstance().setFirstOpenScheme(null);
-            }
-            this.a.sendMessage(new CustomMessage(2015002, createNormalCfg));
-            this.a.finish();
-            SpeedStatsManager.getInstance().addStatsTimeStamp(3006);
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 4));
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (eh5) invokeV.objValue;
     }
 
-    public final void c() {
+    public void c(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.registerListener(new a(this, 2921639));
-            this.b = new xx5(this.a);
-        }
-    }
-
-    public void d(Configuration configuration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, configuration) == null) {
-            wx5.a().b(configuration);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            wx5.a().c();
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            wx5.a().d();
-        }
-    }
-
-    public void g() {
-        xx5 xx5Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (xx5Var = this.b) == null) {
-            return;
-        }
-        xx5Var.i();
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            wx5.a().e(this.a);
-        }
-    }
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            if (!PermissionUtil.isAgreePrivacyPolicy()) {
-                this.b.j();
-                return;
-            }
-            if (!AdToMainTabActivitySwitch.getIsOn()) {
-                j();
-            }
-            if (!rc8.a(this.a.getIntent()) && !rc8.b(this.a.getIntent()) && !this.a.isTaskRoot()) {
-                this.a.finish();
-            } else {
-                h();
-            }
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || rc8.a(this.a.getIntent())) {
-            return;
-        }
-        if (this.a.isTaskRoot() || rc8.b(this.a.getIntent())) {
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOST_START).param("obj_param1", 2).param(TiebaStatic.Params.OBJ_PARAM2, TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, TbadkCoreApplication.getInst().getCanShowSplash()));
+        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
+            this.b = cVar;
+            MessageManager.getInstance().registerListener(this.a);
         }
     }
 }

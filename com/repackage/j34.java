@@ -1,35 +1,33 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.swan.hide.api.bypass.NativeHideApiBypass;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import okhttp3.Callback;
+import okhttp3.HttpUrl;
+import okhttp3.Request;
 /* loaded from: classes6.dex */
 public class j34 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Object obj, String str) {
-        InterceptResult invokeLL;
+    public static void a(Callback callback) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, obj, str)) == null) ? (obj == null || TextUtils.isEmpty(str)) ? false : true : invokeLL.booleanValue;
+        if (interceptable == null || interceptable.invokeL(65536, null, callback) == null) {
+            b(callback, "6");
+        }
     }
 
-    public static Method b(Object obj, String str, Class<?>... clsArr) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        InterceptResult invokeLLL;
+    public static void b(Callback callback, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, obj, str, clsArr)) == null) {
-            if (a(obj, str)) {
-                if (i34.g()) {
-                    return NativeHideApiBypass.getDeclaredMethod(obj, str, clsArr);
-                }
-                return (Method) Class.class.getMethod("getDeclaredMethod", String.class, Class[].class).invoke(obj, str, clsArr);
-            }
-            return null;
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, callback, str) == null) || sz2.M() == null) {
+            return;
         }
-        return (Method) invokeLLL.objValue;
+        HttpUrl.Builder newBuilder = HttpUrl.parse("https://gamecenter.baidu.com/api/exchange/list").newBuilder();
+        newBuilder.addQueryParameter(Constants.EXTRA_CONFIG_LIMIT, str);
+        newBuilder.addQueryParameter(GameGuideConfigInfo.KEY_APP_KEY, sz2.M().O());
+        newBuilder.addQueryParameter("source", "4");
+        ((yx3) sz2.M().i0()).call(new Request.Builder().url(newBuilder.build()).build(), callback);
     }
 }

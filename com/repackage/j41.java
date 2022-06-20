@@ -1,41 +1,49 @@
 package com.repackage;
 
+import android.app.Dialog;
+import android.content.Context;
+import android.content.res.Resources;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.nadcore.widget.uitemplate.SimpleFeedAdInfoView;
-import com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView;
-import com.baidu.nadcore.widget.view.NadExpressNaBaseView;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.zz0;
+import com.repackage.jm0;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class j41 extends l41 {
+public class j41 extends Dialog {
     public static /* synthetic */ Interceptable $ic;
-    public static final int k;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SimpleFeedAdInfoView j;
+    public d a;
 
     /* loaded from: classes6.dex */
-    public class a implements SimpleAdInfoView.c {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AdBaseModel a;
-        public final /* synthetic */ j41 b;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ AdBaseModel b;
+        public final /* synthetic */ j41 c;
 
-        public a(j41 j41Var, AdBaseModel adBaseModel) {
+        public a(j41 j41Var, List list, AdBaseModel adBaseModel) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {j41Var, adBaseModel};
+                Object[] objArr = {j41Var, list, adBaseModel};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -45,16 +53,20 @@ public class j41 extends l41 {
                     return;
                 }
             }
-            this.b = j41Var;
-            this.a = adBaseModel;
+            this.c = j41Var;
+            this.a = list;
+            this.b = adBaseModel;
         }
 
-        @Override // com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView.c
-        public void a(String str) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                j41 j41Var = this.b;
-                j41Var.q(ClogBuilder.LogType.FREE_CLICK.type, j41Var.c, str, this.a.f.d);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.c.a != null) {
+                    this.c.a.a(this.a);
+                }
+                this.c.g(this.b, this.a);
+                this.c.dismiss();
             }
         }
     }
@@ -89,102 +101,229 @@ public class j41 extends l41 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                z31 z31Var = this.b.d;
-                if (z31Var != null) {
-                    z31Var.a(this.a);
-                }
-                rx0.c(new ClogBuilder().w(ClogBuilder.LogType.CLOSE).n(this.a.f.d));
+                this.b.dismiss();
+                kg0.c(this.a.g.c, this.b.getContext());
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755638742, "Lcom/repackage/j41;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jm0.a a;
+        public final /* synthetic */ List b;
+        public final /* synthetic */ TextView c;
+        public final /* synthetic */ TextView d;
+        public final /* synthetic */ j41 e;
+
+        public c(j41 j41Var, jm0.a aVar, List list, TextView textView, TextView textView2) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j41Var, aVar, list, textView, textView2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755638742, "Lcom/repackage/j41;");
-                return;
+            this.e = j41Var;
+            this.a = aVar;
+            this.b = list;
+            this.c = textView;
+            this.d = textView2;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.c()) {
+                    this.a.f(false);
+                    if (this.b.contains(this.a)) {
+                        kx0.j(this.b, this.a);
+                    }
+                    if (this.b.size() == 0) {
+                        this.c.setText(view2.getContext().getResources().getText(R.string.obfuscated_res_0x7f0f0b8c));
+                    }
+                    this.d.setTextColor(view2.getContext().getResources().getColor(R.color.obfuscated_res_0x7f060251));
+                    return;
+                }
+                this.a.f(true);
+                if (!this.b.contains(this.a)) {
+                    kx0.b(this.b, this.a);
+                }
+                this.d.setTextColor(view2.getContext().getResources().getColor(R.color.obfuscated_res_0x7f06025f));
+                this.c.setText(view2.getContext().getResources().getText(R.string.obfuscated_res_0x7f0f0b8d));
             }
         }
-        k = zz0.c.a(xg0.b(), 15.0f);
+    }
+
+    /* loaded from: classes6.dex */
+    public interface d {
+        void a(List<jm0.a> list);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j41(int i, View view2) {
-        super(i, view2);
+    public j41(Context context, @NonNull AdBaseModel adBaseModel) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), view2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), (View) objArr2[1]);
+            Object[] objArr = {context, adBaseModel};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.j = (SimpleFeedAdInfoView) view2.findViewById(R.id.obfuscated_res_0x7f09096a);
-        m();
+        f(adBaseModel);
     }
 
-    private void m() {
-        SimpleFeedAdInfoView simpleFeedAdInfoView;
+    public final void c(AdBaseModel adBaseModel) {
+        int i;
+        jm0 jm0Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (simpleFeedAdInfoView = this.j) == null) {
-            return;
-        }
-        simpleFeedAdInfoView.c();
-    }
-
-    public final void q(String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, str4) == null) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.x(str);
-            clogBuilder.t(str2);
-            clogBuilder.n(str4);
-            clogBuilder.h(str3);
-            rx0.c(clogBuilder);
-        }
-    }
-
-    public final void r(AdBaseModel adBaseModel) {
-        SimpleFeedAdInfoView simpleFeedAdInfoView;
-        View findViewById;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel) == null) || adBaseModel == null || (simpleFeedAdInfoView = this.j) == null || (findViewById = simpleFeedAdInfoView.findViewById(R.id.obfuscated_res_0x7f091479)) == null) {
-            return;
-        }
-        z21.a(this.j, findViewById, k);
-        findViewById.setOnClickListener(new b(this, adBaseModel));
-    }
-
-    @Override // com.repackage.l41, com.repackage.h41
-    public void update(AdBaseModel adBaseModel, NadExpressNaBaseView nadExpressNaBaseView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, adBaseModel, nadExpressNaBaseView) == null) {
-            super.update(adBaseModel, nadExpressNaBaseView);
-            m();
-            SimpleFeedAdInfoView simpleFeedAdInfoView = this.j;
-            if (simpleFeedAdInfoView != null) {
-                simpleFeedAdInfoView.update(adBaseModel);
-                ym0 ym0Var = adBaseModel.p;
-                if (ym0Var == null || ym0Var.k) {
-                    this.j.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dfd));
+        if (interceptable == null || interceptable.invokeL(1048576, this, adBaseModel) == null) {
+            ArrayList arrayList = new ArrayList();
+            ViewGroup viewGroup = null;
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d058c, (ViewGroup) null);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092168);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f09120f);
+            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0b8c));
+            textView.setOnClickListener(new a(this, arrayList, adBaseModel));
+            inflate.setBackground(inflate.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080da7));
+            Resources resources = inflate.getContext().getResources();
+            int i2 = R.color.obfuscated_res_0x7f060251;
+            textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060251));
+            findViewById.setBackgroundColor(inflate.getContext().getResources().getColor(R.color.obfuscated_res_0x7f0602aa));
+            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091194);
+            LayoutInflater from = LayoutInflater.from(inflate.getContext());
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09220d);
+            if (adBaseModel != null && (jm0Var = adBaseModel.g) != null && !TextUtils.isEmpty(jm0Var.c)) {
+                if (!TextUtils.isEmpty(adBaseModel.g.a)) {
+                    textView2.setText(adBaseModel.g.a);
                 }
-                this.j.setAfterListener(new a(this, adBaseModel));
+                textView2.setVisibility(0);
+                textView2.setOnClickListener(new b(this, adBaseModel));
+            } else {
+                textView2.setVisibility(8);
             }
-            r(adBaseModel);
+            List<jm0.a> d2 = d(adBaseModel);
+            if (d2 == null) {
+                linearLayout.setVisibility(8);
+                return;
+            }
+            int min = Math.min(d2.size(), 7);
+            int i3 = 0;
+            while (i3 < min) {
+                jm0.a aVar = (jm0.a) kx0.d(d2, i3);
+                if (aVar == null || TextUtils.isEmpty(aVar.a())) {
+                    i = i3;
+                } else {
+                    View inflate2 = from.inflate(R.layout.obfuscated_res_0x7f0d0599, viewGroup);
+                    TextView textView3 = (TextView) inflate2.findViewById(R.id.obfuscated_res_0x7f092186);
+                    textView3.setText(aVar.a());
+                    textView3.setTextColor(inflate.getContext().getResources().getColor(i2));
+                    i = i3;
+                    inflate2.setOnClickListener(new c(this, aVar, arrayList, textView, textView3));
+                    linearLayout.addView(inflate2);
+                }
+                i3 = i + 1;
+                viewGroup = null;
+                i2 = R.color.obfuscated_res_0x7f060251;
+            }
+            setContentView(inflate);
+        }
+    }
+
+    public final List<jm0.a> d(AdBaseModel adBaseModel) {
+        InterceptResult invokeL;
+        jm0 jm0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel)) == null) {
+            if (adBaseModel == null || (jm0Var = adBaseModel.g) == null) {
+                return null;
+            }
+            return jm0Var.b;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public String e(List<jm0.a> list) {
+        InterceptResult invokeL;
+        jm0.a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
+            if (list == null) {
+                return StringUtil.EMPTY_ARRAY;
+            }
+            String str = "";
+            for (int i = 0; i < list.size(); i++) {
+                if (((jm0.a) kx0.d(list, i)) != null) {
+                    str = !TextUtils.isEmpty(str) ? str + "," + aVar.b() : str + aVar.b();
+                }
+            }
+            return TextUtils.isEmpty(str) ? StringUtil.EMPTY_ARRAY : str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void f(@NonNull AdBaseModel adBaseModel) {
+        Window window;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, adBaseModel) == null) || (window = getWindow()) == null) {
+            return;
+        }
+        window.requestFeature(1);
+        c(adBaseModel);
+        window.getDecorView().setPadding(0, 0, 0, 0);
+        WindowManager.LayoutParams attributes = window.getAttributes();
+        attributes.width = -1;
+        attributes.height = -2;
+        attributes.windowAnimations = R.style.obfuscated_res_0x7f1003b7;
+        attributes.gravity = 80;
+        window.setAttributes(attributes);
+        window.setBackgroundDrawableResource(17170445);
+    }
+
+    public final void g(AdBaseModel adBaseModel, List<jm0.a> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, adBaseModel, list) == null) || adBaseModel == null) {
+            return;
+        }
+        vx0.c(new zx0().d(e(list)).f(adBaseModel.f.d).e(bh0.a().b()));
+    }
+
+    public void h(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, dVar) == null) {
+            this.a = dVar;
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            Window window = getWindow();
+            if (window == null) {
+                xz0.b(this);
+                return;
+            }
+            window.setFlags(8, 8);
+            xz0.b(this);
+            q01.a(window);
+            window.clearFlags(8);
         }
     }
 }

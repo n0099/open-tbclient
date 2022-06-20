@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cz6;
+import com.repackage.l07;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class LocalChannelTopicListResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cz6 data;
+    public l07 data;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LocalChannelTopicListResponseMessage() {
@@ -38,7 +38,7 @@ public class LocalChannelTopicListResponseMessage extends JsonHttpResponsedMessa
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject != null && jSONObject.optInt("error_code", -1) == 0) {
-                this.data = cz6.a(jSONObject);
+                this.data = l07.a(jSONObject);
             }
         }
     }

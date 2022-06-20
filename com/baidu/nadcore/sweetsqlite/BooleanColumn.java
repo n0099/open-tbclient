@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.by0;
+import com.repackage.fy0;
 import java.io.Serializable;
 /* loaded from: classes2.dex */
 public class BooleanColumn extends Column implements Serializable {
@@ -16,18 +16,18 @@ public class BooleanColumn extends Column implements Serializable {
     public boolean value;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BooleanColumn(by0 by0Var) {
-        super(by0Var);
+    public BooleanColumn(fy0 fy0Var) {
+        super(fy0Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {by0Var};
+            Object[] objArr = {fy0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((by0) newInitContext.callArgs[0]);
+                super((fy0) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

@@ -1,37 +1,42 @@
 package com.repackage;
 
-import android.annotation.TargetApi;
-import android.media.MediaCodec;
-import android.media.MediaCrypto;
-import android.media.MediaFormat;
-import android.view.Surface;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.record.EncoderParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.ByteBuffer;
+import com.baidu.ugc.download.exception.DownloadException;
+import com.repackage.s59;
+import com.repackage.t59;
+import com.repackage.u59;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.concurrent.Executor;
 /* loaded from: classes7.dex */
-public class z59 {
+public class z59 implements t59, u59.a, s59.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public int c;
-    public int d;
+    public m59 a;
+    public p59 b;
+    public Executor c;
+    public String d;
+    public k59 e;
+    public t59.a f;
+    public int g;
+    public v59 h;
+    public u59 i;
+    public List<s59> j;
 
-    public z59(String str) {
+    public z59(m59 m59Var, p59 p59Var, Executor executor, String str, k59 k59Var, t59.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {m59Var, p59Var, executor, str, k59Var, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,299 +46,321 @@ public class z59 {
                 return;
             }
         }
-        this.a = 88200L;
-        this.b = str;
+        this.a = m59Var;
+        this.b = p59Var;
+        this.c = executor;
+        this.d = str;
+        this.e = k59Var;
+        this.f = aVar;
+        g();
     }
 
-    public final void a(byte[] bArr, int i) {
+    @Override // com.repackage.s59.a
+    public void a(DownloadException downloadException) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, bArr, i) == null) {
-            int[] iArr = {96000, 88200, 64000, 48000, 44100, 32000, 24000, 22050, 16000, com.kuaishou.weapon.un.w0.X3, 11025, 8000, 7350};
-            int i2 = 0;
-            while (true) {
-                if (i2 >= 13) {
-                    i2 = 4;
-                    break;
-                } else if (iArr[i2] == this.c) {
-                    break;
-                } else {
-                    i2++;
-                }
-            }
-            bArr[0] = -1;
-            bArr[1] = -7;
-            bArr[2] = (byte) (64 + (i2 << 2) + 0);
-            bArr[3] = (byte) (128 + (i >> 11));
-            bArr[4] = (byte) ((i & RevenueServerConst.GetUserCouponStoreResponse) >> 3);
-            bArr[5] = (byte) (((i & 7) << 5) + 31);
-            bArr[6] = -4;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, downloadException) == null) && k()) {
+            this.g = 108;
+            this.b.a(downloadException);
+            m();
         }
     }
 
-    @TargetApi(16)
-    public final MediaCodec b() throws IOException {
+    @Override // com.repackage.u59.a
+    public void b(DownloadException downloadException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadException) == null) {
+            if (this.i.isCanceled()) {
+                onConnectCanceled();
+            } else if (this.i.isPaused()) {
+                onDownloadPaused();
+            } else {
+                this.g = 108;
+                this.b.b(downloadException);
+                m();
+            }
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            File file = new File(this.h.a(), this.h.d());
+            if (file.exists() && file.isFile()) {
+                file.delete();
+            }
+        }
+    }
+
+    @Override // com.repackage.t59
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            u59 u59Var = this.i;
+            if (u59Var != null) {
+                u59Var.cancel();
+            }
+            for (s59 s59Var : this.j) {
+                s59Var.cancel();
+            }
+            if (this.g != 104) {
+                onDownloadCanceled();
+            }
+        }
+    }
+
+    public final void d(long j, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            this.g = 104;
+            h(j, z);
+            for (s59 s59Var : this.j) {
+                this.c.execute(s59Var);
+            }
+        }
+    }
+
+    public final List<d69> e(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+            ArrayList arrayList = new ArrayList();
+            int b = this.e.b();
+            int i = 0;
+            while (i < b) {
+                long j2 = j / b;
+                long j3 = j2 * i;
+                arrayList.add(new d69(i, this.d, this.a.c(), j3, i == b + (-1) ? j : (j2 + j3) - 1, 0L));
+                i++;
+            }
+            return arrayList;
+        }
+        return (List) invokeJ.objValue;
+    }
+
+    public final d69 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            MediaCodec createEncoderByType = MediaCodec.createEncoderByType("audio/mp4a-latm");
-            MediaFormat mediaFormat = new MediaFormat();
-            mediaFormat.setString("mime", "audio/mp4a-latm");
-            mediaFormat.setInteger("bitrate", EncoderParams.AUDIO_BIT_RATE);
-            mediaFormat.setInteger("channel-count", this.d);
-            mediaFormat.setInteger("sample-rate", this.c);
-            mediaFormat.setInteger("aac-profile", 2);
-            createEncoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
-            return createEncoderByType;
-        }
-        return (MediaCodec) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new d69(0, this.d, this.a.c(), 0L) : (d69) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:101:0x0223 A[Catch: Exception -> 0x021f, TRY_LEAVE, TryCatch #1 {Exception -> 0x021f, blocks: (B:97:0x021b, B:101:0x0223), top: B:109:0x021b }] */
-    /* JADX WARN: Removed duplicated region for block: B:109:0x021b A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:117:0x0210 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:123:0x0189 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:126:0x01bf A[SYNTHETIC] */
-    @TargetApi(16)
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void c(String str) {
-        Throwable th;
-        FileInputStream fileInputStream;
-        FileOutputStream fileOutputStream;
-        ByteBuffer[] byteBufferArr;
-        long j;
-        long j2;
-        long j3;
-        long j4;
-        int dequeueInputBuffer;
-        boolean z;
-        int i;
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.h = new v59(this.a.b().toString(), this.a.c(), this.a.a());
+            this.j = new LinkedList();
         }
-        MediaCodec mediaCodec = null;
-        try {
-            try {
-                if (this.c == 0) {
-                    this.c = 48000;
+    }
+
+    public final void h(long j, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            this.j.clear();
+            if (z) {
+                List<d69> e = e(j);
+                int i = 0;
+                for (d69 d69Var : e) {
+                    i = (int) (i + d69Var.b());
                 }
-                if (this.d == 0) {
-                    this.d = 1;
+                this.h.f(i);
+                for (d69 d69Var2 : e) {
+                    this.j.add(new b69(this.h, d69Var2, this));
                 }
-                this.a = (this.c * 16) / 8;
-                fileInputStream = new FileInputStream(this.b);
-            } catch (Exception e) {
-                e.printStackTrace();
                 return;
             }
-        } catch (Exception e2) {
-            e = e2;
-            fileInputStream = null;
-            fileOutputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
-            fileInputStream = null;
-            fileOutputStream = null;
-        }
-        try {
-            fileOutputStream = new FileOutputStream(str);
-            try {
-                try {
-                    mediaCodec = b();
-                    mediaCodec.start();
-                    ByteBuffer[] inputBuffers = mediaCodec.getInputBuffers();
-                    ByteBuffer[] outputBuffers = mediaCodec.getOutputBuffers();
-                    MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
-                    byte[] bArr = new byte[4096];
-                    ByteBuffer[] byteBufferArr2 = outputBuffers;
-                    long j5 = 0;
-                    long j6 = 0;
-                    boolean z2 = false;
-                    int i2 = 0;
-                    boolean z3 = false;
-                    boolean z4 = false;
-                    int i3 = 0;
-                    while (!z3) {
-                        ByteBuffer[] byteBufferArr3 = byteBufferArr2;
-                        if (z4 || (dequeueInputBuffer = mediaCodec.dequeueInputBuffer(10000L)) < 0) {
-                            byteBufferArr = inputBuffers;
-                            j = j5;
-                            j2 = 10000;
-                        } else {
-                            ByteBuffer byteBuffer = inputBuffers[dequeueInputBuffer];
-                            byteBuffer.clear();
-                            int remaining = byteBuffer.remaining();
-                            if (remaining != bArr.length) {
-                                bArr = new byte[remaining];
-                            }
-                            byte[] bArr2 = bArr;
-                            if (z2 || (i2 = fileInputStream.read(bArr2)) != -1) {
-                                z = z2;
-                                i = i2;
-                            } else {
-                                i = i2;
-                                z = true;
-                            }
-                            if (z) {
-                                j = j5;
-                                mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
-                                byteBufferArr = inputBuffers;
-                                bArr = bArr2;
-                                z2 = z;
-                                i2 = i;
-                                j2 = 10000;
-                                z4 = true;
-                            } else {
-                                j = j5;
-                                byteBuffer.put(bArr2, 0, i);
-                                int i4 = i3 + i;
-                                byteBufferArr = inputBuffers;
-                                mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, i, j6, 0);
-                                i3 = i4;
-                                j6 = (long) (((i4 / 2.0d) * 1000000.0d) / this.a);
-                                z2 = z;
-                                i2 = i;
-                                j2 = 10000;
-                                bArr = bArr2;
-                            }
-                        }
-                        int dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(bufferInfo, j2);
-                        if (dequeueOutputBuffer < 0) {
-                            j3 = j;
-                            if (dequeueOutputBuffer == -3) {
-                                j5 = j3;
-                                byteBufferArr2 = mediaCodec.getOutputBuffers();
-                                inputBuffers = byteBufferArr;
-                            } else {
-                                if (dequeueOutputBuffer == -2) {
-                                    p79.b("format change : " + mediaCodec.getOutputFormat());
-                                }
-                                j5 = j3;
-                                byteBufferArr2 = byteBufferArr3;
-                            }
-                        } else if ((bufferInfo.flags & 2) != 0) {
-                            p79.b("audio encoder: codec config buffer");
-                            mediaCodec.releaseOutputBuffer(dequeueOutputBuffer, false);
-                            j3 = j;
-                            j5 = j3;
-                            byteBufferArr2 = byteBufferArr3;
-                        } else {
-                            if (bufferInfo.size != 0) {
-                                ByteBuffer byteBuffer2 = byteBufferArr3[dequeueOutputBuffer];
-                                byteBuffer2.position(bufferInfo.offset);
-                                byteBuffer2.limit(bufferInfo.offset + bufferInfo.size);
-                                p79.b(String.format(" writing audio sample : size=%s , presentationTimeUs=%s", Integer.valueOf(bufferInfo.size), Long.valueOf(bufferInfo.presentationTimeUs)));
-                                j4 = j;
-                                if (j4 < bufferInfo.presentationTimeUs) {
-                                    long j7 = bufferInfo.presentationTimeUs;
-                                    int i5 = bufferInfo.size;
-                                    int i6 = i5 + 7;
-                                    byteBuffer2.position(bufferInfo.offset);
-                                    byteBuffer2.limit(bufferInfo.offset + i5);
-                                    byte[] bArr3 = new byte[i6];
-                                    a(bArr3, i6);
-                                    byteBuffer2.get(bArr3, 7, i5);
-                                    fileOutputStream.write(bArr3, 0, i6);
-                                    p79.b(i6 + " bytes written.");
-                                    j5 = j7;
-                                    mediaCodec.releaseOutputBuffer(dequeueOutputBuffer, false);
-                                    byteBufferArr2 = byteBufferArr3;
-                                    if ((bufferInfo.flags & 4) == 0) {
-                                        inputBuffers = byteBufferArr;
-                                        z3 = true;
-                                    }
-                                } else {
-                                    p79.b("error sample! its presentationTimeUs should not lower than before. lastPTS = " + j4 + ", bufferPTS = " + bufferInfo.presentationTimeUs);
-                                }
-                            } else {
-                                j4 = j;
-                            }
-                            j5 = j4;
-                            mediaCodec.releaseOutputBuffer(dequeueOutputBuffer, false);
-                            byteBufferArr2 = byteBufferArr3;
-                            if ((bufferInfo.flags & 4) == 0) {
-                            }
-                        }
-                        inputBuffers = byteBufferArr;
-                    }
-                    p79.b("acc encode done");
-                    if (mediaCodec != null) {
-                        try {
-                            mediaCodec.release();
-                        } catch (Exception e3) {
-                            e3.printStackTrace();
-                        }
-                    }
-                    fileInputStream.close();
-                    fileOutputStream.close();
-                } catch (Exception e4) {
-                    e = e4;
-                    e.printStackTrace();
-                    if (mediaCodec != null) {
-                        try {
-                            mediaCodec.release();
-                        } catch (Exception e5) {
-                            e5.printStackTrace();
-                        }
-                    }
-                    if (fileInputStream != null) {
-                        fileInputStream.close();
-                    }
-                    if (fileOutputStream != null) {
-                        fileOutputStream.close();
-                    }
-                }
-            } catch (Throwable th3) {
-                th = th3;
-                if (mediaCodec != null) {
-                    try {
-                        mediaCodec.release();
-                    } catch (Exception e6) {
-                        e6.printStackTrace();
-                    }
-                }
-                if (fileInputStream != null) {
-                    try {
-                        fileInputStream.close();
-                    } catch (Exception e7) {
-                        e7.printStackTrace();
-                        throw th;
-                    }
-                }
-                if (fileOutputStream != null) {
-                    fileOutputStream.close();
-                }
-                throw th;
-            }
-        } catch (Exception e8) {
-            e = e8;
-            fileOutputStream = null;
-        } catch (Throwable th4) {
-            th = th4;
-            fileOutputStream = null;
-            if (mediaCodec != null) {
-            }
-            if (fileInputStream != null) {
-            }
-            if (fileOutputStream != null) {
-            }
-            throw th;
+            this.j.add(new c69(this.h, f(), this));
         }
     }
 
-    public void d(int i) {
+    public final boolean i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.d = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            for (s59 s59Var : this.j) {
+                if (s59Var.isDownloading()) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.t59
+    public boolean isRunning() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            int i = this.g;
+            return i == 101 || i == 102 || i == 103 || i == 104;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            for (s59 s59Var : this.j) {
+                if (!s59Var.isComplete()) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            for (s59 s59Var : this.j) {
+                if (s59Var.isDownloading()) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            for (s59 s59Var : this.j) {
+                if (s59Var.isDownloading()) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            this.f.a(this.d, this);
         }
     }
 
-    public void e(int i) {
+    public final void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.c = i;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            a69 a69Var = new a69(this.a.c(), this);
+            this.i = a69Var;
+            this.c.execute(a69Var);
+        }
+    }
+
+    @Override // com.repackage.u59.a
+    public void onConnectCanceled() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            c();
+            this.g = 107;
+            this.b.onConnectCanceled();
+            m();
+        }
+    }
+
+    @Override // com.repackage.u59.a
+    public void onConnectPaused() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            onDownloadPaused();
+        }
+    }
+
+    @Override // com.repackage.u59.a
+    public void onConnected(long j, long j2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+            if (this.i.isCanceled()) {
+                onConnectCanceled();
+                return;
+            }
+            this.g = 103;
+            this.b.onConnected(j, j2, z);
+            this.h.e(z);
+            this.h.g(j2);
+            d(j2, z);
+        }
+    }
+
+    @Override // com.repackage.u59.a
+    public void onConnecting() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            this.g = 102;
+            this.b.onConnecting();
+        }
+    }
+
+    @Override // com.repackage.s59.a
+    public void onDownloadCanceled() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && i()) {
+            c();
+            this.g = 107;
+            this.b.onDownloadCanceled();
+            m();
+        }
+    }
+
+    @Override // com.repackage.s59.a
+    public void onDownloadCompleted(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048597, this, str) == null) && j()) {
+            this.g = 105;
+            this.b.onDownloadCompleted(str);
+            m();
+        }
+    }
+
+    @Override // com.repackage.s59.a
+    public void onDownloadPaused() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && l()) {
+            this.g = 106;
+            this.b.onDownloadPaused();
+            m();
+        }
+    }
+
+    @Override // com.repackage.s59.a
+    public void onDownloadProgress(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            this.b.onDownloadProgress(j, j2, (int) ((100 * j) / j2));
+        }
+    }
+
+    @Override // com.repackage.t59
+    public void pause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+            u59 u59Var = this.i;
+            if (u59Var != null) {
+                u59Var.pause();
+            }
+            for (s59 s59Var : this.j) {
+                s59Var.pause();
+            }
+            if (this.g != 104) {
+                onDownloadPaused();
+            }
+        }
+    }
+
+    @Override // com.repackage.t59
+    public void start() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            this.g = 101;
+            this.b.onStarted();
+            n();
         }
     }
 }

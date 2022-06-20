@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
@@ -23,20 +22,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ci4;
-import com.repackage.fg;
-import com.repackage.li;
-import com.repackage.um;
+import com.repackage.jg;
+import com.repackage.mi4;
+import com.repackage.pi;
+import com.repackage.ym;
 /* loaded from: classes3.dex */
 public class NewUserRedPackageActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageView mBgImage;
-    public ImageView mCloseBtnImage;
-    public NewUserRedPackageData mData;
-    public ci4 mGetMoneyModel;
-    public View.OnClickListener mOnClickListener;
-    public RoundRelativeLayout mRoundCornerLayout;
+    public RoundRelativeLayout a;
+    public NewUserRedPackageData b;
+    public mi4 c;
+    public ImageView d;
+    public ImageView e;
+    public View.OnClickListener f;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -66,12 +65,12 @@ public class NewUserRedPackageActivity extends BaseActivity {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() != this.a.mCloseBtnImage.getId()) {
-                    if (view2.getId() == this.a.mBgImage.getId()) {
+                if (view2.getId() != this.a.e.getId()) {
+                    if (view2.getId() == this.a.d.getId()) {
                         TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 2));
                         if (TbadkCoreApplication.isLogin()) {
-                            if (this.a.mData != null) {
-                                UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{this.a.mData.clickUrl});
+                            if (this.a.b != null) {
+                                UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{this.a.b.clickUrl});
                                 this.a.finish();
                                 return;
                             }
@@ -101,27 +100,27 @@ public class NewUserRedPackageActivity extends BaseActivity {
                 return;
             }
         }
-        this.mOnClickListener = new a(this);
+        this.f = new a(this);
     }
 
-    private void setData() {
-        um umVar;
+    public final void D1() {
+        ym ymVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || getIntent() == null) {
             return;
         }
         NewUserRedPackageData newUserRedPackageData = (NewUserRedPackageData) getIntent().getSerializableExtra(NewUserRedPackageActivityConfig.KEY_DATA);
-        this.mData = newUserRedPackageData;
-        if (newUserRedPackageData == null || (umVar = (um) fg.h().n(this.mData.topPicUrl, 10, new Object[0])) == null) {
+        this.b = newUserRedPackageData;
+        if (newUserRedPackageData == null || (ymVar = (ym) jg.h().n(this.b.topPicUrl, 10, new Object[0])) == null) {
             return;
         }
-        this.mBgImage.setImageBitmap(umVar.p());
+        this.d.setImageBitmap(ymVar.p());
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void closeAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
         }
     }
@@ -129,7 +128,7 @@ public class NewUserRedPackageActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void enterExitAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
         }
     }
@@ -137,13 +136,13 @@ public class NewUserRedPackageActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
-            if (i != 25046 || this.mData == null) {
+            if (i != 25046 || this.b == null) {
                 return;
             }
-            this.mGetMoneyModel.a();
-            UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{this.mData.clickUrl});
+            this.c.a();
+            UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{this.b.clickUrl});
             finish();
         }
     }
@@ -151,29 +150,29 @@ public class NewUserRedPackageActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.onChangeSkinType(i);
-            SkinManager.setBackgroundColor(this.mRoundCornerLayout, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0044);
-            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091ae5);
-            this.mRoundCornerLayout = roundRelativeLayout;
-            roundRelativeLayout.setAllCornerRound(li.f(this, R.dimen.tbds31));
-            this.mBgImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e6b);
-            this.mCloseBtnImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e6e);
-            this.mBgImage.setOnClickListener(this.mOnClickListener);
-            this.mCloseBtnImage.setOnClickListener(this.mOnClickListener);
-            setData();
+            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091add);
+            this.a = roundRelativeLayout;
+            roundRelativeLayout.setAllCornerRound(pi.f(this, R.dimen.tbds31));
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e5d);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e60);
+            this.d.setOnClickListener(this.f);
+            this.e.setOnClickListener(this.f);
+            D1();
             TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 1));
-            this.mGetMoneyModel = new ci4();
+            this.c = new mi4();
         }
     }
 }

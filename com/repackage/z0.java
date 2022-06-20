@@ -1,15 +1,28 @@
 package com.repackage;
+
+import com.badlogic.gdx.Graphics;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface z0 {
-    void a(String str, String str2, Throwable th);
+public abstract class z0 implements Graphics {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void debug(String str, String str2);
+    public z0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void error(String str, String str2);
-
-    void error(String str, String str2, Throwable th);
-
-    void log(String str, String str2);
-
-    void log(String str, String str2, Throwable th);
+    public abstract /* synthetic */ Graphics.GraphicsType getType();
 }

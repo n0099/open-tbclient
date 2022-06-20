@@ -1,23 +1,38 @@
 package com.repackage;
 
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.PBError;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ak9 implements am9 {
+public class ak9 implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ zl9 a;
+    public Context a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public HashMap<String, String> h;
 
-    public ak9(zl9 zl9Var) {
+    public ak9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zl9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,76 +42,179 @@ public class ak9 implements am9 {
                 return;
             }
         }
-        this.a = zl9Var;
+        this.b = "";
+        this.c = "";
+        this.d = "";
+        this.e = "";
+        this.f = "";
+        this.g = "";
+        this.h = new HashMap<>();
     }
 
-    @Override // com.repackage.am9
-    public void c(boolean z, long j) {
-        am9 am9Var;
+    public String a(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) || (am9Var = this.a.b) == null) {
-            return;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            if (z) {
+                return m(this.b);
+            }
+            return this.b;
         }
-        am9Var.c(z, j);
+        return (String) invokeZ.objValue;
     }
 
-    @Override // com.repackage.am9
-    public void d(String str) {
-        am9 am9Var;
+    public Context b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (am9Var = this.a.b) == null) {
-            return;
-        }
-        am9Var.d(str);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (Context) invokeV.objValue;
     }
 
-    @Override // com.repackage.am9
-    public void f() {
-        am9 am9Var;
+    public String c(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (am9Var = this.a.b) == null) {
-            return;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            if (this.h.isEmpty()) {
+                return "";
+            }
+            JSONObject jSONObject = new JSONObject();
+            for (Map.Entry<String, String> entry : this.h.entrySet()) {
+                try {
+                    jSONObject.put(entry.getKey(), entry.getValue());
+                } catch (JSONException unused) {
+                    return "";
+                }
+            }
+            if (z) {
+                return m(jSONObject.toString());
+            }
+            return jSONObject.toString();
         }
-        am9Var.f();
+        return (String) invokeZ.objValue;
     }
 
-    @Override // com.repackage.am9
-    public void g() {
-        am9 am9Var;
+    public Object clone() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (am9Var = this.a.b) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            try {
+                ak9 ak9Var = (ak9) super.clone();
+                HashMap<String, String> hashMap = new HashMap<>();
+                for (Map.Entry<String, String> entry : ak9Var.h.entrySet()) {
+                    hashMap.put(entry.getKey(), entry.getValue());
+                }
+                ak9Var.h = hashMap;
+                return ak9Var;
+            } catch (CloneNotSupportedException unused) {
+                return null;
+            }
         }
-        am9Var.g();
+        return invokeV.objValue;
     }
 
-    @Override // com.win.opensdk.PBListener
-    public void onClicked() {
-        am9 am9Var;
+    public String d(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (am9Var = this.a.b) == null) {
-            return;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+            if (z) {
+                return m(this.d);
+            }
+            return this.d;
         }
-        am9Var.onClicked();
+        return (String) invokeZ.objValue;
     }
 
-    @Override // com.win.opensdk.PBListener
-    public void onFail(PBError pBError) {
-        am9 am9Var;
+    public String e(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, pBError) == null) || (am9Var = this.a.b) == null) {
-            return;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+            if (z) {
+                return m(this.f);
+            }
+            return this.f;
         }
-        am9Var.onFail(pBError);
+        return (String) invokeZ.objValue;
     }
 
-    @Override // com.win.opensdk.PBListener
-    public void onLoaded() {
-        am9 am9Var;
+    public String f(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (am9Var = this.a.b) == null) {
-            return;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
+            if (z) {
+                return m(this.c);
+            }
+            return this.c;
         }
-        am9Var.onLoaded();
+        return (String) invokeZ.objValue;
+    }
+
+    public String g(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
+            if (z) {
+                return m(this.g);
+            }
+            return this.g;
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public String h(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
+            if (z) {
+                return m(this.e);
+            }
+            return this.e;
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void j(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
+            this.a = context.getApplicationContext();
+        }
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public final String m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            try {
+                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
+            } catch (UnsupportedEncodingException unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? (this.a == null || TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.d) || TextUtils.isEmpty(this.e)) ? false : true : invokeV.booleanValue;
     }
 }

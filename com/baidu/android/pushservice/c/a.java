@@ -36,16 +36,16 @@ public class a {
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.android.pushservice.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class EnumC0015a {
+    public static final class EnumC0017a {
         public static /* synthetic */ Interceptable $ic;
-        public static final EnumC0015a a;
-        public static final EnumC0015a b;
-        public static final EnumC0015a c;
-        public static final EnumC0015a d;
-        public static final EnumC0015a e;
-        public static final EnumC0015a f;
-        public static final EnumC0015a g;
-        public static final /* synthetic */ EnumC0015a[] h;
+        public static final EnumC0017a a;
+        public static final EnumC0017a b;
+        public static final EnumC0017a c;
+        public static final EnumC0017a d;
+        public static final EnumC0017a e;
+        public static final EnumC0017a f;
+        public static final EnumC0017a g;
+        public static final /* synthetic */ EnumC0017a[] h;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -61,18 +61,18 @@ public class a {
                     return;
                 }
             }
-            a = new EnumC0015a("alarmMsgInfoId", 0);
-            b = new EnumC0015a("msgId", 1);
-            c = new EnumC0015a("sendtime", 2);
-            d = new EnumC0015a("showtime", 3);
-            e = new EnumC0015a("expiretime", 4);
-            f = new EnumC0015a("msgEnable", 5);
-            EnumC0015a enumC0015a = new EnumC0015a("isAlarm", 6);
-            g = enumC0015a;
-            h = new EnumC0015a[]{a, b, c, d, e, f, enumC0015a};
+            a = new EnumC0017a("alarmMsgInfoId", 0);
+            b = new EnumC0017a("msgId", 1);
+            c = new EnumC0017a("sendtime", 2);
+            d = new EnumC0017a("showtime", 3);
+            e = new EnumC0017a("expiretime", 4);
+            f = new EnumC0017a("msgEnable", 5);
+            EnumC0017a enumC0017a = new EnumC0017a("isAlarm", 6);
+            g = enumC0017a;
+            h = new EnumC0017a[]{a, b, c, d, e, f, enumC0017a};
         }
 
-        public EnumC0015a(String str, int i) {
+        public EnumC0017a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -331,19 +331,19 @@ public class a {
             c = sb.toString();
             StringBuilder sb2 = new StringBuilder();
             sb2.append("CREATE TABLE AlarmMsgInfo (");
-            sb2.append(EnumC0015a.a.name());
+            sb2.append(EnumC0017a.a.name());
             sb2.append(" INTEGER PRIMARY KEY AUTOINCREMENT, ");
-            sb2.append(EnumC0015a.b.name());
+            sb2.append(EnumC0017a.b.name());
             sb2.append(" TEXT NOT NULL, ");
-            sb2.append(EnumC0015a.c.name());
+            sb2.append(EnumC0017a.c.name());
             sb2.append(" LONG NOT NULL, ");
-            sb2.append(EnumC0015a.d.name());
+            sb2.append(EnumC0017a.d.name());
             sb2.append(" LONG NOT NULL, ");
-            sb2.append(EnumC0015a.e.name());
+            sb2.append(EnumC0017a.e.name());
             sb2.append(" LONG NOT NULL, ");
-            sb2.append(EnumC0015a.f.name());
+            sb2.append(EnumC0017a.f.name());
             sb2.append(" INTEGER, ");
-            sb2.append(EnumC0015a.g.name());
+            sb2.append(EnumC0017a.g.name());
             sb2.append(" INTEGER);");
             d = sb2.toString();
             e = "CREATE TABLE AppInfo (" + b.a.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + b.b.name() + " TEXT, " + b.c.name() + " INTEGER, " + b.d.name() + " TEXT UNIQUE, " + b.e.name() + " TEXT, " + b.f.name() + " TEXT, " + b.g.name() + " TEXT, " + b.h.name() + " TEXT, " + b.i.name() + " TEXT);";
@@ -793,7 +793,7 @@ public class a {
         File parentFile;
         File[] listFiles;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, context) == null) || (parentFile = context.getDatabasePath("pushstat_8.1.9.db").getParentFile()) == null || !parentFile.isDirectory() || (listFiles = parentFile.listFiles(new FileFilter(str) { // from class: com.baidu.android.pushservice.c.a.1
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, context) == null) || (parentFile = context.getDatabasePath("pushstat_8.2.2.db").getParentFile()) == null || !parentFile.isDirectory() || (listFiles = parentFile.listFiles(new FileFilter(str) { // from class: com.baidu.android.pushservice.c.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
@@ -948,8 +948,8 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             synchronized (b) {
                 if (a == null) {
-                    String path = context.getDatabasePath("pushstat_8.1.9.db").getPath();
-                    a("pushstat_8.1.9.db", context);
+                    String path = context.getDatabasePath("pushstat_8.2.2.db").getPath();
+                    a("pushstat_8.2.2.db", context);
                     if (Build.VERSION.SDK_INT >= 11) {
                         a = new e(context, path, 2, new d());
                     } else {

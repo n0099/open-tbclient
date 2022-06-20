@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
-import com.repackage.de;
-import com.repackage.ee;
+import com.repackage.ge;
+import com.repackage.he;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.concurrent.Callable;
@@ -31,11 +31,11 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MESSAGE_POST_PROGRESS = 2;
     public static final int MESSAGE_POST_RESULT = 1;
-    public static final de sDefaultExecutor;
+    public static final ge sDefaultExecutor;
     public static final e sHandler;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isSelfExecute;
-    public final ee<Result> mFuture;
+    public final he<Result> mFuture;
     public boolean mIsTimeout;
     public String mKey;
     public BdAsyncTaskParallel mParallel;
@@ -151,7 +151,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     }
 
     /* loaded from: classes.dex */
-    public class b extends ee<Result> {
+    public class b extends he<Result> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdAsyncTask b;
@@ -178,7 +178,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
             this.b = bdAsyncTask;
         }
 
-        @Override // com.repackage.ee
+        @Override // com.repackage.he
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -345,7 +345,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
                 return;
             }
         }
-        sDefaultExecutor = de.e();
+        sDefaultExecutor = ge.e();
         sHandler = new e(Looper.getMainLooper());
     }
 

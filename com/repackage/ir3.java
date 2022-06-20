@@ -2,6 +2,12 @@ package com.repackage;
 
 import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.manage.Download;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,22 +15,48 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ir3 extends mr3 {
+public class ir3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public Download a;
+    public JSONObject b;
+    public d c;
+    public kr3 d;
 
     /* loaded from: classes6.dex */
-    public class a implements ae3<h43> {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lc2 a;
+    }
 
-        public a(ir3 ir3Var, lc2 lc2Var) {
+    /* loaded from: classes6.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+
+        public /* synthetic */ b(String str, String str2, a aVar) {
+            this(str, str2);
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                qq3.n().t(this.b);
+                qq3.n().l(this.a);
+                qq3.n().k();
+            }
+        }
+
+        public b(String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ir3Var, lc2Var};
+                Object[] objArr = {str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -34,61 +66,168 @@ public class ir3 extends mr3 {
                     return;
                 }
             }
-            this.a = lc2Var;
+            this.a = str;
+            this.b = str2;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Download a;
+        public JSONObject b;
+        public jr3 c;
+
+        public /* synthetic */ c(Download download, JSONObject jSONObject, jr3 jr3Var, a aVar) {
+            this(download, jSONObject, jr3Var);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ae3
-        /* renamed from: a */
-        public void onCallback(h43 h43Var) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, h43Var) == null) {
-                boolean z = true;
-                if ((h43Var == null || h43Var.d || h43Var.j != 1) ? false : false) {
-                    this.a.a(null);
-                } else {
-                    this.a.onFail(10001, "authorize fail.");
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                qq3.n().G(this.b);
+                sr3.a(this.a.getKeyByUser(), "installApp", null, null, new qr3(this.b));
+                qq3.n().r(AppRuntime.getAppContext(), this.a.getUrl(), this.a.getKeyByUser(), this.c);
+            }
+        }
+
+        public c(@NonNull Download download, JSONObject jSONObject, @NonNull jr3 jr3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {download, jSONObject, jr3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = download;
+            this.b = jSONObject;
+            this.c = jr3Var;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements jr3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public final /* synthetic */ ir3 c;
+
+        public d(ir3 ir3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ir3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = ir3Var;
+        }
+
+        @Override // com.repackage.kr3
+        public void a(mr3 mr3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, mr3Var) == null) {
+                if (ir3.e) {
+                    Log.d("InstallAppLocal", "onResult mPackageName:" + this.a);
+                }
+                this.c.setResult(mr3Var);
+                tq3.d.execute(new b(this.b, this.a, null));
+            }
+        }
+
+        @Override // com.repackage.jr3
+        public void setFilePath(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                this.b = str;
+            }
+        }
+
+        @Override // com.repackage.jr3
+        public void setPackageName(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                this.a = str;
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ir3() {
-        super("authorize");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755608889, "Lcom/repackage/ir3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755608889, "Lcom/repackage/ir3;");
                 return;
             }
         }
+        e = cg1.a;
     }
 
-    @Override // com.repackage.mr3
-    public hr1 a(@NonNull JSONObject jSONObject, @NonNull lc2 lc2Var) {
-        InterceptResult invokeLL;
+    public ir3(Download download, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, lc2Var)) == null) {
-            if (mr3.b && jSONObject.optBoolean("debug", false)) {
-                Log.i("authorize", "debug mode: true.");
-                lc2Var.a(null);
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {download, jSONObject};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            hz2 a0 = hz2.a0();
-            if (a0 == null) {
-                lc2Var.onFail(10001, "authorize fail.");
-                return null;
-            }
-            a0.d0().e("mapp_gamecenter_private_api", new a(this, lc2Var));
-            return null;
         }
-        return (hr1) invokeLL.objValue;
+        this.a = download;
+        this.b = jSONObject;
+        this.c = new d(this);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void setResult(mr3 mr3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, mr3Var) == null) {
+            kr3 kr3Var = this.d;
+            if (kr3Var != null) {
+                kr3Var.a(mr3Var);
+            }
+            if (mr3Var != null && !mr3Var.d()) {
+                sr3.a(this.a.getKeyByUser(), "installApp", com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(mr3Var.c()), new qr3(this.b));
+            }
+            if (this.c != null) {
+                qq3.n().B(this.a.getKeyByUser(), this.c);
+                this.c = null;
+            }
+        }
+    }
+
+    public void c(kr3 kr3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, kr3Var) == null) {
+            this.d = kr3Var;
+            tq3.d.execute(new c(this.a, this.b, this.c, null));
+        }
     }
 }

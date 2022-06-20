@@ -1,80 +1,71 @@
 package com.repackage;
 
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class hu1 extends eu1 {
+public class hu1 extends ys1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String k;
-    public String l;
-    public float m;
-    public boolean n;
-    public boolean o;
+    public float a;
+    public float b;
+    public float c;
+    public float d;
+    public int e;
+    public int f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hu1(String str) {
-        super(str);
-        String[] split;
+    public hu1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.l = "sans-serif";
-        this.m = yc3.g(10.0f);
-        this.n = false;
-        this.o = false;
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            this.k = jSONObject.optString("text");
-            String optString = jSONObject.optString("font");
-            if (optString == null || optString.length() <= 0) {
-                return;
+    }
+
+    @Override // com.repackage.ys1
+    public void a(zs1 zs1Var, Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, zs1Var, canvas) == null) {
+            if (zs1Var.a() == 0) {
+                zs1Var.b(canvas.save());
+            } else {
+                canvas.restoreToCount(zs1Var.a());
+                zs1Var.b(canvas.save());
             }
-            for (String str2 : optString.split(" ")) {
-                if (str2.contains("italic")) {
-                    this.o = true;
-                } else if (str2.contains("oblique")) {
-                    this.o = true;
-                } else if (str2.contains("bold")) {
-                    this.n = true;
-                } else if (!str2.contains("normal")) {
-                    if (Character.isDigit(str2.charAt(0))) {
-                        int length = str2.length();
-                        int i3 = 0;
-                        while (true) {
-                            if (i3 >= str2.length()) {
-                                break;
-                            } else if (!Character.isDigit(str2.charAt(i3))) {
-                                length = i3;
-                                break;
-                            } else {
-                                i3++;
-                            }
-                        }
-                        this.m = yc3.g(Float.parseFloat(str2.substring(0, length)));
-                    } else {
-                        this.l = str2;
-                    }
+            Matrix matrix = new Matrix();
+            matrix.setValues(new float[]{this.a, this.c, this.e, this.b, this.d, this.f, 0.0f, 0.0f, 1.0f});
+            canvas.concat(matrix);
+        }
+    }
+
+    @Override // com.repackage.ys1
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() == 6) {
+                    this.a = (float) jSONArray.optDouble(0);
+                    this.b = (float) jSONArray.optDouble(1);
+                    this.c = (float) jSONArray.optDouble(2);
+                    this.d = (float) jSONArray.optDouble(3);
+                    this.e = jd3.g((float) jSONArray.optDouble(4));
+                    this.f = jd3.g((float) jSONArray.optDouble(5));
                 }
-            }
-        } catch (Exception e) {
-            if (rf1.a) {
-                e.printStackTrace();
+            } catch (Exception e) {
+                if (cg1.a) {
+                    e.printStackTrace();
+                }
             }
         }
     }

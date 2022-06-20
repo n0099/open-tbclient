@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dv4;
+import com.repackage.nv4;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes3.dex */
-public class MyAudioRecorder implements dv4 {
+public class MyAudioRecorder implements nv4 {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] n;
     public static Object o;
@@ -251,7 +251,7 @@ public class MyAudioRecorder implements dv4 {
         return (MyAudioRecorder) invokeL.objValue;
     }
 
-    @Override // com.repackage.dv4
+    @Override // com.repackage.nv4
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -259,14 +259,14 @@ public class MyAudioRecorder implements dv4 {
         }
     }
 
-    @Override // com.repackage.dv4
+    @Override // com.repackage.nv4
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e == State.RECORDING : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.dv4
+    @Override // com.repackage.nv4
     public boolean d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -279,7 +279,7 @@ public class MyAudioRecorder implements dv4 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.dv4
+    @Override // com.repackage.nv4
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

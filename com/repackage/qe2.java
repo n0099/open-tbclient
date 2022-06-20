@@ -8,9 +8,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class qe2 extends bd2<sf2> {
+public class qe2 extends md2<cg2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,46 +27,26 @@ public class qe2 extends bd2<sf2> {
         }
     }
 
-    @Override // com.repackage.bd2
+    @Override // com.repackage.md2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "enterRoom" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.bd2
-    public void c(@NonNull ZeusPlugin.Command command) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
-            Object obj = command.obj;
-            if (obj instanceof JSONObject) {
-                JSONObject jSONObject = (JSONObject) obj;
-                command.ret = new vf2(jSONObject.optString("roomName"), jSONObject.optLong("userId", -1L), jSONObject.optString("displayName"), jSONObject.optString("rtcAppId"), jSONObject.optString("token")).a() ? 1 : 0;
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setUserId" : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.bd2
+    @Override // com.repackage.md2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull sf2 sf2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull cg2 cg2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, command, sf2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, cg2Var) == null) {
             String str = command.what;
-            d(sf2Var, str, "" + command.obj, true);
+            d(cg2Var, str, "" + command.obj, true);
             Object obj = command.obj;
-            if (obj instanceof JSONObject) {
-                JSONObject jSONObject = (JSONObject) obj;
-                vf2 vf2Var = new vf2(jSONObject.optString("roomName"), jSONObject.optLong("userId", -1L), jSONObject.optString("displayName"), jSONObject.optString("rtcAppId"), jSONObject.optString("token"));
-                boolean a = vf2Var.a();
-                if (a) {
-                    sf2Var.u(vf2Var);
-                }
-                command.ret = a ? 1 : 0;
+            if (obj instanceof Long) {
+                cg2Var.X(((Long) obj).longValue());
             }
-            String str2 = command.what;
-            d(sf2Var, str2, "result: " + command.ret, true);
         }
     }
 }

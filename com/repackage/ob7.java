@@ -1,5 +1,7 @@
 package com.repackage;
+
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes6.dex */
 public interface ob7 {
-    void a(String str);
+    void setUniqueId(BdUniqueId bdUniqueId);
 }

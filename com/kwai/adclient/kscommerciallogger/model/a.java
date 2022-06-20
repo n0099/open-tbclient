@@ -34,7 +34,7 @@ public class a {
 
     /* renamed from: com.kwai.adclient.kscommerciallogger.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0349a {
+    public static class C0357a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
@@ -46,7 +46,7 @@ public class a {
         public JSONObject g;
         public String h;
 
-        public C0349a(@NonNull String str) {
+        public C0357a(@NonNull String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,56 +64,56 @@ public class a {
             this.a = str;
         }
 
-        public static C0349a a() {
+        public static C0357a a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new C0349a("ad_client_error_log") : (C0349a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new C0357a("ad_client_error_log") : (C0357a) invokeV.objValue;
         }
 
-        public static C0349a b() {
+        public static C0357a b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new C0349a("ad_client_apm_log") : (C0349a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new C0357a("ad_client_apm_log") : (C0357a) invokeV.objValue;
         }
 
-        public C0349a a(BusinessType businessType) {
+        public C0357a a(BusinessType businessType) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessType)) == null) {
                 this.b = businessType;
                 return this;
             }
-            return (C0349a) invokeL.objValue;
+            return (C0357a) invokeL.objValue;
         }
 
-        public C0349a a(@NonNull String str) {
+        public C0357a a(@NonNull String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
                 this.d = str;
                 return this;
             }
-            return (C0349a) invokeL.objValue;
+            return (C0357a) invokeL.objValue;
         }
 
-        public C0349a a(JSONObject jSONObject) {
+        public C0357a a(JSONObject jSONObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
                 this.f = jSONObject;
                 return this;
             }
-            return (C0349a) invokeL.objValue;
+            return (C0357a) invokeL.objValue;
         }
 
-        public C0349a b(@NonNull String str) {
+        public C0357a b(@NonNull String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
                 this.h = str;
                 return this;
             }
-            return (C0349a) invokeL.objValue;
+            return (C0357a) invokeL.objValue;
         }
 
         public a c() {
@@ -132,12 +132,12 @@ public class a {
         }
     }
 
-    public a(C0349a c0349a) {
+    public a(C0357a c0357a) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c0349a};
+            Object[] objArr = {c0357a};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -147,18 +147,18 @@ public class a {
                 return;
             }
         }
-        this.a = c0349a.a;
-        this.b = c0349a.b;
-        this.c = c0349a.c;
-        this.d = c0349a.d;
-        this.e = c0349a.e;
-        this.f = c0349a.f;
-        this.g = c0349a.g;
-        this.h = c0349a.h;
+        this.a = c0357a.a;
+        this.b = c0357a.b;
+        this.c = c0357a.c;
+        this.d = c0357a.d;
+        this.e = c0357a.e;
+        this.f = c0357a.f;
+        this.g = c0357a.g;
+        this.h = c0357a.h;
     }
 
-    public /* synthetic */ a(C0349a c0349a, AnonymousClass1 anonymousClass1) {
-        this(c0349a);
+    public /* synthetic */ a(C0357a c0357a, AnonymousClass1 anonymousClass1) {
+        this(c0357a);
     }
 
     public String a() {

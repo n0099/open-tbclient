@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lo7;
+import com.repackage.sp7;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ShareSuccessReplyToServerModel extends BdBaseModel {
@@ -64,7 +64,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
                 if (statusCode != 200 || error < 0 || jSONObject == null || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
                     return;
                 }
-                this.mActDialogData = lo7.a(optJSONObject);
+                this.mActDialogData = sp7.a(optJSONObject);
             }
         }
 
@@ -175,7 +175,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
         }
     }
 
-    public void y(String str, int i, b bVar) {
+    public void z(String str, int i, b bVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLIL(1048579, this, str, i, bVar) == null) || str == null) {
             return;

@@ -6,11 +6,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ds4;
-import com.repackage.gk5;
-import com.repackage.hi;
+import com.repackage.dl5;
 import com.repackage.li;
-import com.repackage.mg;
+import com.repackage.ms4;
+import com.repackage.pi;
+import com.repackage.qg;
 import java.io.PrintStream;
 /* loaded from: classes3.dex */
 public class SplashNativePolicy {
@@ -71,15 +71,15 @@ public class SplashNativePolicy {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 switch (this.a) {
                     case 128:
-                        gk5.e().p(true);
+                        dl5.e().p(true);
                         return;
                     case 129:
-                        gk5.e().p(false);
+                        dl5.e().p(false);
                         return;
                     case 130:
                     case 132:
                     case 133:
-                        gk5.e().c();
+                        dl5.e().c();
                         return;
                     case 131:
                     default:
@@ -103,24 +103,24 @@ public class SplashNativePolicy {
             }
         }
         this.plgAdType = 0;
-        this.loadResult = hi.d().h("splash_policy", 1);
+        this.loadResult = li.d().h("splash_policy", 1);
         PrintStream printStream = System.out;
         printStream.println("SplashPolicy loadResult: " + this.loadResult);
     }
 
-    @ds4
+    @ms4
     private native void nativeInitSplashPolicy(String str, String str2, int i, int i2, int i3, int i4, int i5);
 
-    @ds4
+    @ms4
     private native void nativeReleaseSplash();
 
-    @ds4
+    @ms4
     private native void nativeUpdateSplashConfig(int i, int i2, int i3, int i4, int i5);
 
-    @ds4
+    @ms4
     private native void onNativeSplashEvent(int i, int i2);
 
-    @ds4
+    @ms4
     public void eventCallback(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -128,33 +128,33 @@ public class SplashNativePolicy {
             printStream.println("SplashPolicy eventCallback=>" + i);
             if (i == 128 || i == 129) {
                 int i2 = this.plgAdType;
-                gk5.e().k(i2 > 120 ? 1 : i2 == 120 ? 2 : 3);
+                dl5.e().k(i2 > 120 ? 1 : i2 == 120 ? 2 : 3);
             } else if (i == 131) {
-                gk5.e().k(-1);
+                dl5.e().k(-1);
             } else if (i == 132) {
-                gk5.e().k(-2);
+                dl5.e().k(-2);
             } else if (i == 130) {
-                gk5.e().k(-3);
+                dl5.e().k(-3);
             }
-            if (li.C()) {
+            if (pi.C()) {
                 switch (i) {
                     case 128:
-                        gk5.e().p(true);
+                        dl5.e().p(true);
                         return;
                     case 129:
-                        gk5.e().p(false);
+                        dl5.e().p(false);
                         return;
                     case 130:
                     case 132:
                     case 133:
-                        gk5.e().c();
+                        dl5.e().c();
                         return;
                     case 131:
                     default:
                         return;
                 }
             }
-            mg.a().postAtFrontOfQueue(new a(this, i));
+            qg.a().postAtFrontOfQueue(new a(this, i));
         }
     }
 

@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.db1;
-import com.repackage.jf;
+import com.repackage.mf;
+import com.repackage.ob1;
 /* loaded from: classes2.dex */
-public class NetExperimentFetcher extends db1<jf> {
+public class NetExperimentFetcher extends ob1<mf> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -23,7 +23,7 @@ public class NetExperimentFetcher extends db1<jf> {
     }
 
     /* loaded from: classes2.dex */
-    public static final class NetExperimentImpl implements jf {
+    public static final class NetExperimentImpl implements mf {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -41,14 +41,14 @@ public class NetExperimentFetcher extends db1<jf> {
             }
         }
 
-        @Override // com.repackage.jf
+        @Override // com.repackage.mf
         public boolean netABTest() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? UbsABTestHelper.isNetABTest() : invokeV.booleanValue;
         }
 
-        @Override // com.repackage.jf
+        @Override // com.repackage.mf
         public boolean netBdABTest() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -76,10 +76,10 @@ public class NetExperimentFetcher extends db1<jf> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.repackage.db1
-    public jf createService() throws ServiceNotFoundException {
+    @Override // com.repackage.ob1
+    public mf createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new NetExperimentImpl(null) : (jf) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new NetExperimentImpl(null) : (mf) invokeV.objValue;
     }
 }

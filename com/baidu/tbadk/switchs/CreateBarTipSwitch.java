@@ -24,7 +24,7 @@ public class CreateBarTipSwitch extends BaseNormalSwitch {
         }
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.repackage.xe
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.repackage.af
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

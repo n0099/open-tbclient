@@ -5,9 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.android.util.io.ActionJsonData;
+import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.a.b.h;
-import com.repackage.ni9;
 /* loaded from: classes5.dex */
 public class e extends com.meizu.cloud.pushsdk.handler.a.a<h> {
     public e(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
@@ -31,7 +31,7 @@ public class e extends com.meizu.cloud.pushsdk.handler.a.a<h> {
     public void a(h hVar, com.meizu.cloud.pushsdk.notification.c cVar) {
         NotificationManager notificationManager = (NotificationManager) c().getSystemService(ActionJsonData.TAG_NOTIFICATION);
         if (notificationManager != null) {
-            ni9.b("AbstractMessageHandler", "start cancel notification id " + hVar.b());
+            DebugLogger.e("AbstractMessageHandler", "start cancel notification id " + hVar.b());
             notificationManager.cancel(hVar.b());
         }
     }
@@ -39,7 +39,7 @@ public class e extends com.meizu.cloud.pushsdk.handler.a.a<h> {
     @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
         int i;
-        ni9.d("AbstractMessageHandler", "start WithDrawMessageHandler match");
+        DebugLogger.i("AbstractMessageHandler", "start WithDrawMessageHandler match");
         String stringExtra = intent.getStringExtra(PushConstants.MZ_PUSH_CONTROL_MESSAGE);
         if (!TextUtils.isEmpty(stringExtra)) {
             com.meizu.cloud.pushsdk.handler.a.b.b a = com.meizu.cloud.pushsdk.handler.a.b.b.a(stringExtra);

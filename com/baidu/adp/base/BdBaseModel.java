@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a9;
-import com.repackage.b9;
-import com.repackage.wa;
+import com.repackage.c9;
+import com.repackage.d9;
+import com.repackage.za;
 /* loaded from: classes.dex */
 public abstract class BdBaseModel<T> extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
@@ -23,7 +23,7 @@ public abstract class BdBaseModel<T> extends OrmObject {
     public transient /* synthetic */ FieldHolder $fh;
     public int mErrorCode;
     public String mErrorString;
-    public a9 mLoadDataCallBack;
+    public c9 mLoadDataCallBack;
     public int mLoadDataMode;
     public BdUniqueId unique_id;
 
@@ -125,10 +125,10 @@ public abstract class BdBaseModel<T> extends OrmObject {
         }
     }
 
-    public void setLoadDataCallBack(a9 a9Var) {
+    public void setLoadDataCallBack(c9 c9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, a9Var) == null) {
-            this.mLoadDataCallBack = a9Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, c9Var) == null) {
+            this.mLoadDataCallBack = c9Var;
         }
     }
 
@@ -161,12 +161,12 @@ public abstract class BdBaseModel<T> extends OrmObject {
         }
     }
 
-    public BdBaseModel(b9<T> b9Var) {
+    public BdBaseModel(d9<T> d9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {b9Var};
+            Object[] objArr = {d9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -181,31 +181,31 @@ public abstract class BdBaseModel<T> extends OrmObject {
         this.mLoadDataCallBack = null;
         this.mErrorCode = 0;
         this.mErrorString = null;
-        if (b9Var == null) {
+        if (d9Var == null) {
             return;
         }
-        this.unique_id = b9Var.getUniqueId();
+        this.unique_id = d9Var.getUniqueId();
     }
 
-    public void registerListener(wa waVar) {
+    public void registerListener(za zaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, waVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, zaVar) == null) {
             check();
-            if (waVar != null && waVar.getTag() == null) {
-                waVar.setTag(this.unique_id);
+            if (zaVar != null && zaVar.getTag() == null) {
+                zaVar.setTag(this.unique_id);
             }
-            MessageManager.getInstance().registerListener(waVar);
+            MessageManager.getInstance().registerListener(zaVar);
         }
     }
 
-    public void registerListener(int i, wa waVar) {
+    public void registerListener(int i, za zaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, waVar) == null) {
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, zaVar) == null) {
             check();
-            if (waVar != null && waVar.getTag() == null) {
-                waVar.setTag(this.unique_id);
+            if (zaVar != null && zaVar.getTag() == null) {
+                zaVar.setTag(this.unique_id);
             }
-            MessageManager.getInstance().registerListener(i, waVar);
+            MessageManager.getInstance().registerListener(i, zaVar);
         }
     }
 }

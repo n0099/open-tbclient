@@ -1,134 +1,205 @@
 package com.repackage;
 
+import android.content.pm.PackageInfo;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.imageManager.TbFaceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.mvc.message.MvcHttpMessage;
+import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
+import com.baidu.tbadk.mvc.message.MvcNetMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import com.baidu.tbadk.mvc.model.NetModel;
+import com.baidu.tieba.downloadmanager.net.DownloadManagerHttpResponseMessage;
+import com.baidu.tieba.downloadmanager.net.DownloadManagerNetModel;
+import com.baidu.tieba.downloadmanager.net.DownloadManagerSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i05;
-import java.util.Iterator;
-import java.util.LinkedList;
-/* loaded from: classes6.dex */
-public class r26 extends i05 {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes7.dex */
+public class r26 extends n26 implements NetModel.k {
     public static /* synthetic */ Interceptable $ic;
-    public static r26 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<l05> a;
+    public final DownloadManagerNetModel b;
+    public t26 c;
+    public u26 d;
+    public List<String> e;
+    public q26 f;
+    public final List<l26> g;
+    public int h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755402181, "Lcom/repackage/r26;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755402181, "Lcom/repackage/r26;");
-                return;
-            }
-        }
-        b = new r26();
-    }
-
-    public r26() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r26(BaseFragment baseFragment, int i) {
+        super(baseFragment, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragment, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((BaseFragment) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.d = new u26();
+        this.e = new ArrayList();
+        this.g = new ArrayList();
+        this.h = 0;
+        this.c = new t26(1, i);
+        DownloadManagerNetModel downloadManagerNetModel = new DownloadManagerNetModel(baseFragment.getPageContext(), this.c);
+        this.b = downloadManagerNetModel;
+        downloadManagerNetModel.b0(this);
+        this.b.setUniqueId(baseFragment.getUniqueId());
+    }
+
+    @Override // com.repackage.n26
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            e();
+            this.c.c();
+            this.b.loadData();
         }
     }
 
-    public static synchronized r26 e() {
-        InterceptResult invokeV;
-        r26 r26Var;
+    @Override // com.repackage.n26
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (r26.class) {
-                r26Var = b;
-            }
-            return r26Var;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            e();
+            this.d.a.clear();
+            this.e.clear();
+            this.c.b();
+            this.b.loadData();
         }
-        return (r26) invokeV.objValue;
     }
 
-    @Override // com.repackage.i05
-    public void b(i05.a aVar) {
+    @Override // com.repackage.n26
+    public void d(q26 q26Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            LinkedList<l05> linkedList = this.a;
-            if (linkedList != null && !linkedList.isEmpty()) {
-                Iterator<l05> it = this.a.iterator();
-                while (it.hasNext()) {
-                    l05 next = it.next();
-                    if (aVar != null) {
-                        aVar.a(next);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, q26Var) == null) {
+            this.f = q26Var;
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.g.clear();
+            this.h = 0;
+        }
+    }
+
+    public final void f(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) || i == 0) {
+            return;
+        }
+        this.f.a(i, str);
+    }
+
+    public void g(List<l26> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+            for (l26 l26Var : list) {
+                PackageInfo a = mo6.a(l26Var.a.pkgName);
+                if (a != null) {
+                    if (a.versionCode < l26Var.a.apkDetail.version_code.intValue()) {
+                        List<l26> list2 = this.g;
+                        int i = this.h;
+                        this.h = i + 1;
+                        list2.add(i, l26Var);
+                    } else {
+                        this.g.add(l26Var);
                     }
-                }
-            } else if (TbFaceManager.i().m() > 0) {
-                this.a = new LinkedList<>();
-                q26 q26Var = new q26();
-                this.a.add(q26Var);
-                if (aVar != null) {
-                    aVar.a(q26Var);
+                    this.e.add(l26Var.a.pkgName);
                 }
             }
+            if (ListUtils.getCount(this.g) < 15 && this.d.c.intValue() != 0) {
+                this.c.c();
+                this.b.loadData();
+                return;
+            }
+            this.d.a.addAll(this.g);
+            if (ListUtils.getCount(this.d.a) <= 4) {
+                this.f.b(this.d.a, h(), this.d.c.intValue());
+                return;
+            }
+            q26 q26Var = this.f;
+            u26 u26Var = this.d;
+            q26Var.b(u26Var.a, null, u26Var.c.intValue());
         }
     }
 
-    @Override // com.repackage.i05
-    public int c() {
+    public List<l26> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (l26 l26Var : this.d.b) {
+                if (!this.e.contains(l26Var.a.pkgName)) {
+                    arrayList.add(l26Var);
+                }
+            }
+            return arrayList;
         }
-        return invokeV.intValue;
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.i05
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public boolean f(String str) {
+    public final boolean i(u26 u26Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            LinkedList<l05> linkedList = this.a;
-            if (linkedList != null) {
-                Iterator<l05> it = linkedList.iterator();
-                while (it.hasNext()) {
-                    if (it.next().m(str)) {
-                        return true;
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, u26Var)) == null) {
+            if (u26Var == null) {
                 return false;
             }
-            return false;
+            u26 u26Var2 = this.d;
+            u26Var2.c = u26Var.c;
+            u26Var2.b = u26Var.b;
+            g(u26Var.a);
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public boolean g() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tbadk.mvc.model.NetModel.m
+    public void n(MvcSocketResponsedMessage mvcSocketResponsedMessage, MvcSocketMessage mvcSocketMessage, MvcNetMessage mvcNetMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            LinkedList<l05> linkedList = this.a;
-            return linkedList == null || linkedList.size() == 0;
+        if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) == null) || mvcSocketResponsedMessage == null) {
+            return;
         }
-        return invokeV.booleanValue;
+        u26 u26Var = null;
+        if (!mvcSocketResponsedMessage.hasError() && (mvcSocketResponsedMessage instanceof DownloadManagerSocketResponseMessage)) {
+            u26Var = ((DownloadManagerSocketResponseMessage) mvcSocketResponsedMessage).getData();
+        }
+        if (u26Var == null || !i(u26Var)) {
+            f(mvcSocketResponsedMessage.getError(), mvcSocketResponsedMessage.getErrorString());
+        }
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel.l
+    public void s(MvcHttpResponsedMessage mvcHttpResponsedMessage, MvcHttpMessage mvcHttpMessage, MvcNetMessage mvcNetMessage) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048585, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) || mvcHttpResponsedMessage == null) {
+            return;
+        }
+        u26 u26Var = null;
+        if (!mvcHttpResponsedMessage.hasError() && (mvcHttpResponsedMessage instanceof DownloadManagerHttpResponseMessage)) {
+            u26Var = (u26) ((DownloadManagerHttpResponseMessage) mvcHttpResponsedMessage).getData();
+        }
+        if (u26Var == null || !i(u26Var)) {
+            f(mvcHttpResponsedMessage.getError(), mvcHttpResponsedMessage.getErrorString());
+        }
     }
 }

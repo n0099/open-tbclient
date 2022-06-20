@@ -20,10 +20,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class NoNetworkMoreActivity extends BaseActivity<NoNetworkMoreActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View mBack;
-    public NavigationBar mNavigationBar;
-    public TextView more1;
-    public TextView more2;
+    public View a;
+    public NavigationBar b;
+    public TextView c;
+    public TextView d;
 
     public NoNetworkMoreActivity() {
         Interceptable interceptable = $ic;
@@ -39,24 +39,24 @@ public class NoNetworkMoreActivity extends BaseActivity<NoNetworkMoreActivity> {
         }
     }
 
-    public void initUI() {
+    public void A1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923a2);
-            this.mNavigationBar = navigationBar;
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09238f);
+            this.b = navigationBar;
             View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
-            this.mBack = addSystemImageButton;
+            this.a = addSystemImageButton;
             addSystemImageButton.setOnClickListener(this);
-            this.mNavigationBar.setTitleText(R.string.obfuscated_res_0x7f0f0c6c);
-            this.more1 = (TextView) findViewById(R.id.obfuscated_res_0x7f091419);
-            SpannableString spannableString = new SpannableString(getPageContext().getString(R.string.obfuscated_res_0x7f0f0c6e));
+            this.b.setTitleText(R.string.obfuscated_res_0x7f0f0c6f);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09140b);
+            SpannableString spannableString = new SpannableString(getPageContext().getString(R.string.obfuscated_res_0x7f0f0c71));
             spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#262626")), 4, 15, 33);
-            this.more1.setText(spannableString);
-            this.more2 = (TextView) findViewById(R.id.obfuscated_res_0x7f09141a);
-            SpannableString spannableString2 = new SpannableString(getPageContext().getString(R.string.obfuscated_res_0x7f0f0c6f));
+            this.c.setText(spannableString);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09140c);
+            SpannableString spannableString2 = new SpannableString(getPageContext().getString(R.string.obfuscated_res_0x7f0f0c72));
             spannableString2.setSpan(new ForegroundColorSpan(Color.parseColor("#262626")), 4, 15, 33);
-            this.more2.setText(spannableString2);
-            ((Button) findViewById(R.id.obfuscated_res_0x7f091517)).setOnClickListener(this);
+            this.d.setText(spannableString2);
+            ((Button) findViewById(R.id.obfuscated_res_0x7f091509)).setOnClickListener(this);
         }
     }
 
@@ -64,7 +64,7 @@ public class NoNetworkMoreActivity extends BaseActivity<NoNetworkMoreActivity> {
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+            this.b.onChangeSkinType(getPageContext(), i);
         }
     }
 
@@ -73,9 +73,9 @@ public class NoNetworkMoreActivity extends BaseActivity<NoNetworkMoreActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             int id = view2.getId();
-            if (view2 == this.mBack) {
+            if (view2 == this.a) {
                 finish();
-            } else if (id == R.id.obfuscated_res_0x7f091517) {
+            } else if (id == R.id.obfuscated_res_0x7f091509) {
                 startActivity(new Intent("android.settings.SETTINGS"));
                 finish();
             }
@@ -87,8 +87,8 @@ public class NoNetworkMoreActivity extends BaseActivity<NoNetworkMoreActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0606);
-            initUI();
+            setContentView(R.layout.obfuscated_res_0x7f0d0603);
+            A1();
         }
     }
 }

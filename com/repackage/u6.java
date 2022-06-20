@@ -1,5 +1,6 @@
 package com.repackage;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -7,10 +8,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class u6 extends s6 implements t6 {
+public class u6 implements v6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public u3 h;
+    public String a;
+    public float b;
+    public float c;
+    public float d;
+    public float e;
+    public float f;
+    public float g;
 
     public u6() {
         Interceptable interceptable = $ic;
@@ -26,44 +33,125 @@ public class u6 extends s6 implements t6 {
         }
     }
 
-    public u3 o() {
+    @Override // com.repackage.v6
+    public float a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.h : (u3) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : invokeV.floatValue;
     }
 
-    public void p(u3 u3Var) {
+    @Override // com.repackage.v6
+    public void b(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u3Var) == null) {
-            this.h = u3Var;
-            if (u3Var != null) {
-                j(u3Var.k());
-                h(u3Var.j());
-                f(u3Var.g());
-                c(u3Var.f());
-                d(u3Var.d());
-                b(u3Var.e());
-            }
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
+            this.b = f;
         }
     }
 
-    public u6 q(i3 i3Var) {
-        InterceptResult invokeL;
+    @Override // com.repackage.v6
+    public void c(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, i3Var)) == null) {
-            u6 u6Var = new u6(this);
-            u6Var.h = new u3(u6Var.o(), i3Var);
-            return u6Var;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
+            this.c = f;
         }
-        return (u6) invokeL.objValue;
     }
 
-    public u6(u3 u3Var) {
+    @Override // com.repackage.v6
+    public void d(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
+            this.e = f;
+        }
+    }
+
+    @Override // com.repackage.v6
+    public float e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : invokeV.floatValue;
+    }
+
+    @Override // com.repackage.v6
+    public void f(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
+            this.d = f;
+        }
+    }
+
+    @Override // com.repackage.v6
+    public float g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c : invokeV.floatValue;
+    }
+
+    @Override // com.repackage.v6
+    public void h(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
+            this.g = f;
+        }
+    }
+
+    @Override // com.repackage.v6
+    public float i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.d : invokeV.floatValue;
+    }
+
+    @Override // com.repackage.v6
+    public void j(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048585, this, f) == null) {
+            this.f = f;
+        }
+    }
+
+    @Override // com.repackage.v6
+    public float k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.g : invokeV.floatValue;
+    }
+
+    @Override // com.repackage.v6
+    public float l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.b : invokeV.floatValue;
+    }
+
+    public String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public void n(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            String str = this.a;
+            return str == null ? t8.e(getClass()) : str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public u6(v6 v6Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {u3Var};
+            Object[] objArr = {v6Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -73,27 +161,14 @@ public class u6 extends s6 implements t6 {
                 return;
             }
         }
-        p(u3Var);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u6(u6 u6Var) {
-        super(u6Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u6Var};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((t6) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+        if (v6Var instanceof u6) {
+            this.a = ((u6) v6Var).m();
         }
-        this.h = u6Var.h;
+        this.b = v6Var.l();
+        this.c = v6Var.g();
+        this.d = v6Var.i();
+        this.e = v6Var.e();
+        this.f = v6Var.a();
+        this.g = v6Var.k();
     }
 }

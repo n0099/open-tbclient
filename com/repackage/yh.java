@@ -1,66 +1,193 @@
 package com.repackage;
 
-import android.content.Context;
-import android.os.Build;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class yh {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@Nullable File file) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, file) == null) && file != null && file.exists()) {
-            if (file.isDirectory()) {
-                File[] listFiles = file.listFiles();
-                if (listFiles != null) {
-                    for (File file2 : listFiles) {
-                        a(file2);
-                    }
+    /* loaded from: classes7.dex */
+    public static class a extends zb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ eh c;
+        public final /* synthetic */ boolean d;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(String str, String str2, DiskFileOperate.Action action, eh ehVar, boolean z) {
+            super(str, str2, action);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2, action, ehVar, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                return;
             }
-            String absolutePath = file.getAbsolutePath();
-            if (file.delete()) {
-                BdLog.v("Abi64WebViewCompat:Delete[" + absolutePath + PreferencesUtil.RIGHT_MOUNT);
-                return;
+            this.c = ehVar;
+            this.d = z;
+        }
+
+        @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+        public void callback(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                super.callback(z);
+                if (z) {
+                    this.c.F(getFileInfo().length());
+                    if (this.d || this.c.l() > 20480) {
+                        yh.b(this.c);
+                    }
+                }
             }
-            BdLog.e("Abi64WebViewCompat:Delete[" + absolutePath + "]Error!");
         }
     }
 
-    public static void b(@NonNull Context context) {
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, context) == null) || Build.VERSION.SDK_INT < 24) {
-            return;
-        }
-        try {
-            context.getApplicationContext().getSharedPreferences("WebViewChromiumPrefs", 0).edit().clear().apply();
-            File filesDir = context.getFilesDir();
-            if (filesDir == null || filesDir.getParent() == null) {
-                return;
-            }
-            File file = new File(filesDir.getParent());
-            if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
-                for (File file2 : listFiles) {
-                    String absolutePath = file2.getAbsolutePath();
-                    if (!TextUtils.isEmpty(absolutePath) && absolutePath.toLowerCase().contains(AlbumActivityConfig.FROM_WEB_VIEW)) {
-                        a(file2);
-                    }
+    /* loaded from: classes7.dex */
+    public static class b extends DiskFileOperate {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ eh a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(String str, String str2, String str3, String str4, DiskFileOperate.Action action, eh ehVar) {
+            super(str, str2, str3, str4, action);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r3;
+                Object[] objArr = {str, str2, str3, str4, action, ehVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2], (String) objArr2[3], (DiskFileOperate.Action) objArr2[4]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+            this.a = ehVar;
         }
+
+        @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+        public void callback(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                super.callback(z);
+                if (z) {
+                    this.a.F(0L);
+                    oh.m().u(this.a);
+                    return;
+                }
+                BdLog.e("Track Log rename fail!");
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c extends zb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ eh c;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(String str, String str2, DiskFileOperate.Action action, eh ehVar) {
+            super(str, str2, action);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2, action, ehVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = ehVar;
+        }
+
+        @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+        public void callback(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                super.callback(z);
+                if (z) {
+                    this.c.F(getFileInfo().length());
+                }
+            }
+        }
+    }
+
+    public static long a(eh ehVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, ehVar)) == null) {
+            if (ehVar == null) {
+                return -1L;
+            }
+            if (ehVar.v() <= 0) {
+                c cVar = new c(BdStatisticsManager.getInstance().getTrackLogWriteDir(), ehVar.s(), DiskFileOperate.Action.INFO, ehVar);
+                cVar.setSdCard(ehVar.C());
+                cVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+                if (ub.f().a(cVar)) {
+                    return ehVar.v();
+                }
+            }
+            return ehVar.v();
+        }
+        return invokeL.longValue;
+    }
+
+    public static void b(eh ehVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, ehVar) == null) || ehVar == null) {
+            return;
+        }
+        b bVar = new b(BdStatisticsManager.getInstance().getTrackLogWriteDir(), ehVar.s(), BdStatisticsManager.getInstance().getTrackLogWriteDir(), ehVar.r(), DiskFileOperate.Action.RENAME, ehVar);
+        bVar.setSdCard(ehVar.C());
+        bVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+        ub.f().a(bVar);
+    }
+
+    public static void c(eh ehVar, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(65538, null, ehVar, z) == null) || ehVar == null || ehVar.l() == 0) {
+            return;
+        }
+        a aVar = new a(BdStatisticsManager.getInstance().getTrackLogWriteDir(), ehVar.s(), DiskFileOperate.Action.APPEND, ehVar, z);
+        aVar.setSdCard(ehVar.C());
+        aVar.b(ehVar.z().toString());
+        ehVar.f();
+        if (!ehVar.A()) {
+            aVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
+            aVar.setTrySuccessWeight(3);
+        }
+        if (ub.f().a(aVar)) {
+            return;
+        }
+        BdLog.e("Track Log write to disk fail!");
     }
 }

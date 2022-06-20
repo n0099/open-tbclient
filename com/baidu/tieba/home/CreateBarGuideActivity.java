@@ -2,7 +2,6 @@ package com.baidu.tieba.home;
 
 import android.os.Bundle;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,19 +15,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dq4;
-import com.repackage.sq6;
+import com.repackage.nq4;
+import com.repackage.vr6;
 import tbclient.UserBfbInfo;
 /* loaded from: classes3.dex */
 public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity> {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int LOW_VERSION_ERRCODE = 260211;
-    public static final int MAX_LENGTH = 30;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String forumName;
-    public BfbInfoModel.b mCallback;
-    public BfbInfoModel mModel;
-    public sq6 mView;
+    public String a;
+    public vr6 b;
+    public BfbInfoModel c;
+    public BfbInfoModel.b d;
 
     /* loaded from: classes3.dex */
     public class a implements BfbInfoModel.b {
@@ -59,33 +56,33 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, userBfbInfo) == null) {
                 CreateBarGuideActivity createBarGuideActivity = this.a;
-                createBarGuideActivity.hideLoadingView(createBarGuideActivity.mView.d());
-                this.a.mView.g();
+                createBarGuideActivity.hideLoadingView(createBarGuideActivity.b.d());
+                this.a.b.g();
                 if (i == 0) {
-                    this.a.mView.h(this.a.forumName, userBfbInfo);
+                    this.a.b.h(this.a.a, userBfbInfo);
                     return;
                 }
                 this.a.showToast(str);
                 if (i == 260211) {
-                    this.a.showUpdateDialog(null);
+                    this.a.D1(null);
                 }
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b implements dq4.e {
+    public class b implements nq4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dq4 a;
+        public final /* synthetic */ nq4 a;
         public final /* synthetic */ CreateBarGuideActivity b;
 
-        public b(CreateBarGuideActivity createBarGuideActivity, dq4 dq4Var) {
+        public b(CreateBarGuideActivity createBarGuideActivity, nq4 nq4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {createBarGuideActivity, dq4Var};
+                Object[] objArr = {createBarGuideActivity, nq4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -96,13 +93,13 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
                 }
             }
             this.b = createBarGuideActivity;
-            this.a = dq4Var;
+            this.a = nq4Var;
         }
 
-        @Override // com.repackage.dq4.e
-        public void onClick(dq4 dq4Var) {
+        @Override // com.repackage.nq4.e
+        public void onClick(nq4 nq4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dq4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, nq4Var) == null) {
                 this.a.dismiss();
                 this.b.sendMessage(new CustomMessage(2002001, new AboutActivityConfig(this.b.getPageContext().getPageActivity())));
             }
@@ -110,18 +107,18 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
     }
 
     /* loaded from: classes3.dex */
-    public class c implements dq4.e {
+    public class c implements nq4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dq4 a;
+        public final /* synthetic */ nq4 a;
         public final /* synthetic */ CreateBarGuideActivity b;
 
-        public c(CreateBarGuideActivity createBarGuideActivity, dq4 dq4Var) {
+        public c(CreateBarGuideActivity createBarGuideActivity, nq4 nq4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {createBarGuideActivity, dq4Var};
+                Object[] objArr = {createBarGuideActivity, nq4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -132,13 +129,13 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
                 }
             }
             this.b = createBarGuideActivity;
-            this.a = dq4Var;
+            this.a = nq4Var;
         }
 
-        @Override // com.repackage.dq4.e
-        public void onClick(dq4 dq4Var) {
+        @Override // com.repackage.nq4.e
+        public void onClick(nq4 nq4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dq4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, nq4Var) == null) {
                 this.a.dismiss();
             }
         }
@@ -157,33 +154,32 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
                 return;
             }
         }
-        this.mCallback = new a(this);
+        this.d = new a(this);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void showUpdateDialog(String str) {
+    public final void D1(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             if (StringUtils.isNull(str)) {
-                str = getResources().getString(R.string.obfuscated_res_0x7f0f1424);
+                str = getResources().getString(R.string.obfuscated_res_0x7f0f1431);
             }
-            dq4 dq4Var = new dq4(getActivity());
-            dq4Var.setTitle(str);
-            dq4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f042e, new b(this, dq4Var));
-            dq4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0376, new c(this, dq4Var));
-            dq4Var.create(getPageContext());
-            dq4Var.show();
+            nq4 nq4Var = new nq4(getActivity());
+            nq4Var.setTitle(str);
+            nq4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f041f, new b(this, nq4Var));
+            nq4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0366, new c(this, nq4Var));
+            nq4Var.create(getPageContext());
+            nq4Var.show();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void changeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.changeSkinType(i);
-            sq6 sq6Var = this.mView;
-            if (sq6Var != null) {
-                sq6Var.f();
+            vr6 vr6Var = this.b;
+            if (vr6Var != null) {
+                vr6Var.f();
             }
         }
     }
@@ -191,21 +187,21 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             String stringExtra = getIntent().getStringExtra(CreateBarGuideActivityConfig.EXTRA_KEY_FORUM_NAME);
-            this.forumName = stringExtra;
-            if (!TextUtils.isEmpty(stringExtra) && this.forumName.length() > 30) {
-                this.forumName = this.forumName.substring(0, 30);
+            this.a = stringExtra;
+            if (!TextUtils.isEmpty(stringExtra) && this.a.length() > 30) {
+                this.a = this.a.substring(0, 30);
             }
             BfbInfoModel bfbInfoModel = new BfbInfoModel(this);
-            this.mModel = bfbInfoModel;
-            bfbInfoModel.C(this.mCallback);
-            sq6 sq6Var = new sq6(this);
-            this.mView = sq6Var;
-            sq6Var.e();
-            showLoadingView(this.mView.d());
-            this.mModel.loadData();
+            this.c = bfbInfoModel;
+            bfbInfoModel.D(this.d);
+            vr6 vr6Var = new vr6(this);
+            this.b = vr6Var;
+            vr6Var.e();
+            showLoadingView(this.b.d());
+            this.c.loadData();
             TiebaStatic.log("c11222");
         }
     }
@@ -213,10 +209,10 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            this.mView = null;
-            this.mModel.y();
+            this.b = null;
+            this.c.z();
         }
     }
 }

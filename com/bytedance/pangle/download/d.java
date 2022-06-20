@@ -14,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 /* loaded from: classes4.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
@@ -49,7 +50,7 @@ public final class d {
                 }
             }
             a = new a(RomUtils.UNKNOWN, 0, -1);
-            b = new a("NONE", 1, 0);
+            b = new a(HlsPlaylistParser.METHOD_NONE, 1, 0);
             c = new a("MOBILE", 2, 1);
             d = new a("MOBILE_2G", 3, 2);
             e = new a("MOBILE_3G", 4, 3);

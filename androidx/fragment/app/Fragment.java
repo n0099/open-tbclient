@@ -1742,7 +1742,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             this.mSavedStateRegistryController.performSave(bundle);
             Parcelable saveAllState = this.mChildFragmentManager.saveAllState();
             if (saveAllState != null) {
-                bundle.putParcelable("android:support:fragments", saveAllState);
+                bundle.putParcelable(FragmentActivity.FRAGMENTS_TAG, saveAllState);
             }
         }
     }
@@ -1909,7 +1909,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public void restoreChildFragmentState(@Nullable Bundle bundle) {
         Parcelable parcelable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048710, this, bundle) == null) || bundle == null || (parcelable = bundle.getParcelable("android:support:fragments")) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048710, this, bundle) == null) || bundle == null || (parcelable = bundle.getParcelable(FragmentActivity.FRAGMENTS_TAG)) == null) {
             return;
         }
         this.mChildFragmentManager.restoreSaveState(parcelable);

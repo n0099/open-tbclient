@@ -3,7 +3,6 @@ package com.repackage;
 import android.content.Context;
 import android.view.MotionEvent;
 import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,25 +10,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.PBNativeListener;
 import com.win.opensdk.core.Info;
-import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class bk9 implements View.OnClickListener, View.OnTouchListener {
+public class bk9 implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public long c;
-    public int d;
-    public int e;
-    public long f;
-    public final /* synthetic */ fk9 g;
+    public final /* synthetic */ mk9 a;
 
-    public bk9(fk9 fk9Var) {
+    public bk9(mk9 mk9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fk9Var};
+            Object[] objArr = {mk9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,79 +31,58 @@ public class bk9 implements View.OnClickListener, View.OnTouchListener {
                 return;
             }
         }
-        this.g = fk9Var;
-    }
-
-    public HashMap a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("dx", Integer.valueOf(this.a));
-            hashMap.put("dy", Integer.valueOf(this.b));
-            hashMap.put("dts", Long.valueOf(this.c));
-            hashMap.put("ux", Integer.valueOf(this.d));
-            hashMap.put("uy", Integer.valueOf(this.e));
-            hashMap.put("uts", Long.valueOf(this.f));
-            fk9 fk9Var = this.g;
-            ll9.j(hashMap, fk9Var.p, fk9Var.q, fk9Var.r, fk9Var.s, fk9Var.t, fk9Var.u);
-            return hashMap;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-        }
+        this.a = mk9Var;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view2, MotionEvent motionEvent) {
         InterceptResult invokeLL;
+        Info info;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, motionEvent)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.a = (int) motionEvent.getRawX();
-                this.b = (int) motionEvent.getRawY();
-                this.c = System.currentTimeMillis();
-                this.g.p = (int) motionEvent.getX();
-                this.g.q = (int) motionEvent.getY();
-                fk9.e(this.g, view2);
-                return false;
-            } else if (action != 1) {
-                return false;
-            } else {
-                this.d = (int) motionEvent.getRawX();
-                this.e = (int) motionEvent.getRawY();
-                this.f = System.currentTimeMillis();
-                this.g.r = (int) motionEvent.getX();
-                this.g.s = (int) motionEvent.getY();
-                fk9 fk9Var = this.g;
-                Info info = fk9Var.c;
-                if (info == null || !pm9.d(info, fk9Var.h)) {
-                    return false;
+                this.a.j = true;
+                this.a.k = System.currentTimeMillis();
+                this.a.l = motionEvent.getX();
+                this.a.m = motionEvent.getY();
+                this.a.n = (int) motionEvent.getRawX();
+                this.a.o = (int) motionEvent.getRawY();
+                this.a.p = (int) motionEvent.getX();
+                this.a.q = (int) motionEvent.getY();
+                this.a.v = System.currentTimeMillis();
+                mk9.e(this.a, view2);
+            } else if (action == 1) {
+                this.a.w = (int) motionEvent.getRawX();
+                this.a.x = (int) motionEvent.getRawY();
+                this.a.r = (int) motionEvent.getX();
+                this.a.s = (int) motionEvent.getY();
+                this.a.y = System.currentTimeMillis();
+                Math.abs(motionEvent.getX() - this.a.l);
+                Math.abs(motionEvent.getY() - this.a.m);
+                if (System.currentTimeMillis() - this.a.k < 2000) {
+                    mk9 mk9Var = this.a;
+                    if (mk9Var.j && (info = mk9Var.c) != null && wm9.d(info, mk9Var.h)) {
+                        this.a.h = System.currentTimeMillis();
+                        mk9 mk9Var2 = this.a;
+                        Context context = mk9Var2.a;
+                        String open = mk9Var2.c.getOpen();
+                        mk9 mk9Var3 = this.a;
+                        wm9.a(context, open, mk9Var3.c, mk9Var3.g, mk9Var3.i().toString());
+                        un9 a = yn9.a(this.a.a);
+                        a.h(new co9(this.a.c), null);
+                        a.l("desc", this.a.i().toString());
+                        a.m();
+                        mk9 mk9Var4 = this.a;
+                        sl9.p(mk9Var4.c, mk9Var4.i().toString());
+                        PBNativeListener pBNativeListener = this.a.f;
+                        if (pBNativeListener != null) {
+                            pBNativeListener.onClicked();
+                        }
+                    }
                 }
-                this.g.h = System.currentTimeMillis();
-                fk9 fk9Var2 = this.g;
-                Context context = fk9Var2.a;
-                String open = fk9Var2.c.getOpen();
-                fk9 fk9Var3 = this.g;
-                pm9.a(context, open, fk9Var3.c, fk9Var3.g, a().toString());
-                nn9 a = rn9.a(this.g.a);
-                a.h(new vn9(this.g.c), null);
-                a.l("desc", a().toString());
-                a.m();
-                ll9.p(this.g.c, a().toString());
-                PBNativeListener pBNativeListener = this.g.f;
-                if (pBNativeListener != null) {
-                    pBNativeListener.onClicked();
-                    return false;
-                }
-                return false;
             }
+            return true;
         }
         return invokeLL.booleanValue;
     }

@@ -26,7 +26,6 @@ import com.baidu.mapframework.open.aidl.IComOpenClient;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tieba.addresslist.im.searchfriend.SearchFriendActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -452,14 +451,14 @@ public class b {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x007a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0077, code lost:
         if (r2 != null) goto L16;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x00cf, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:39:0x00cc, code lost:
         if (r2 != null) goto L27;
      */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x00c7  */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x00cd  */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x00c4  */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x00ca  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -994,15 +993,15 @@ public class b {
                 bundle.putString("target", "poi_search_page");
                 Bundle bundle2 = new Bundle();
                 if (q != null) {
-                    bundle2.putString(SearchFriendActivity.HTTP_PARAMS_SEARCH_KEY, q);
+                    bundle2.putString("search_key", q);
                 } else {
-                    bundle2.putString(SearchFriendActivity.HTTP_PARAMS_SEARCH_KEY, "");
+                    bundle2.putString("search_key", "");
                 }
                 if (r != null) {
                     bundle2.putInt("center_pt_x", (int) CoordUtil.ll2mc(r).getLongitudeE6());
                     bundle2.putInt("center_pt_y", (int) CoordUtil.ll2mc(r).getLatitudeE6());
                 } else {
-                    bundle2.putString(SearchFriendActivity.HTTP_PARAMS_SEARCH_KEY, "");
+                    bundle2.putString("search_key", "");
                 }
                 if (s != 0) {
                     bundle2.putInt("search_radius", s);

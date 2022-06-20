@@ -1,54 +1,108 @@
 package com.repackage;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import org.json.JSONObject;
+import com.repackage.dg2;
 /* loaded from: classes6.dex */
-public class ge2 extends bd2<rf2> {
+public class ge2 extends nd2<dg2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public dg2.a h;
 
-    public ge2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public class a implements dg2.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(ge2 ge2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ge2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
     }
 
-    @Override // com.repackage.bd2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ge2(@NonNull dg2 dg2Var) {
+        super(dg2Var);
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "onSurfaceChanged" : (String) invokeV.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dg2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((pd2) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        a aVar = new a(this);
+        this.h = aVar;
+        dg2Var.Z(aVar);
+        this.a.a(new te2());
+        this.a.a(new ue2());
+        this.a.a(new ve2());
+        this.a.a(new xe2());
+        this.a.a(new ze2());
+        this.a.a(new af2());
+        this.a.a(new bf2());
+        this.a.a(new cf2());
+        this.a.a(new df2());
+        this.a.a(new ef2());
+        this.a.a(new we2());
+        this.a.a(new ye2());
+        this.a.a(new gf2());
+        this.a.a(new hf2());
+        this.a.a(new if2());
+        this.a.a(new kf2());
+        this.a.a(new jf2());
+        this.a.a(new lf2());
+        this.a.a(new mf2());
+        this.a.a(new nf2());
+        this.a.a(new of2());
+        this.a.a(new pf2());
+        this.a.a(new qf2());
+        this.a.a(new rf2());
+        this.a.a(new sf2());
+        this.a.a(new tf2());
+        this.a.a(new uf2());
+        this.a.a(new vf2());
+        this.a.a(new wf2());
+        this.a.a(new xf2());
+        this.a.a(new yf2());
+        this.a.a(new ag2());
+        this.a.a(new zf2());
+        this.a.a(new ff2());
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.bd2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull rf2 rf2Var) {
+    @Override // com.repackage.nd2, com.baidu.webkit.sdk.plugin.ZeusPlugin
+    public void sendCommand(ZeusPlugin.Command command) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, rf2Var) == null) {
-            String str = command.what;
-            d(rf2Var, str, "" + command.obj, true);
-            Object obj = command.obj;
-            if (obj instanceof JSONObject) {
-                JSONObject jSONObject = (JSONObject) obj;
-                rf2Var.R(jSONObject.optInt("width"), jSONObject.optInt("height"));
+        if (interceptable == null || interceptable.invokeL(1048576, this, command) == null) {
+            String str = command == null ? "" : command.what;
+            if (((dg2) this.c).q()) {
+                sw1.i("InlineRtcRoomController", "isReleased command：" + str);
+                return;
             }
+            sw1.i("InlineRtcRoomController", "authorize type：" + ((dg2) this.c).a() + " command：" + str);
+            super.sendCommand(command);
         }
     }
 }

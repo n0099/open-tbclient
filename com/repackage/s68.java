@@ -1,25 +1,28 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.tieba.VideoPlatformStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetWebviewCacheInfo.Offpack;
 /* loaded from: classes7.dex */
-public class s68 {
+public class s68 implements qk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
-    public String c;
-    public boolean d;
+    public u68 b;
 
-    public s68() {
+    public s68(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,41 +32,129 @@ public class s68 {
                 return;
             }
         }
-        this.d = true;
+        this.a = str;
+        this.b = new u68(str);
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.qk7
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public void e(Offpack offpack) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, offpack) == null) || offpack == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && m(str)) {
+            do8.d().j(this.a, do8.i(VideoPlatformStatic.c(), this.b.d(), this.b.b()));
         }
-        this.a = offpack.src;
-        this.b = offpack.md5;
-        this.c = offpack.webview_version;
-        this.d = offpack.is_use.intValue() == 1;
+    }
+
+    @Override // com.repackage.qk7
+    public void b(String str, int i, int i2, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2}) == null) && m(str)) {
+            this.b.f();
+            this.b.i();
+            this.b.k();
+            this.b.a(new j68(i, AlbumActivityConfig.FROM_WRITE, i2, str2));
+        }
+    }
+
+    @Override // com.repackage.qk7
+    public void c(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, str, i, str2) == null) && m(str)) {
+            this.b.f();
+            this.b.a(new j68(i, "edit", i, str2));
+        }
+    }
+
+    @Override // com.repackage.qk7
+    public boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (m(str)) {
+                return this.b.g();
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.qk7
+    public boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.b.h() : invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.qk7
+    public void f(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLIL(1048581, this, str, i, str2) == null) && m(str)) {
+            this.b.f();
+            this.b.a(new j68(i, "record", i, str2));
+        }
+    }
+
+    @Override // com.repackage.qk7
+    public void g(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLIL(1048582, this, str, i, str2) == null) && m(str)) {
+            this.b.f();
+            this.b.i();
+            this.b.k();
+            this.b.a(new j68(402, AlbumActivityConfig.FROM_WRITE, i, str2));
+        }
+    }
+
+    @Override // com.repackage.qk7
+    public void h(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) && m(str)) {
+            this.b.a(new j68(503, str2, -4399, ""));
+        }
+    }
+
+    @Override // com.repackage.qk7
+    public void i(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) && m(str)) {
+            this.b.a(new j68(501, str2, -4399, ""));
+        }
+    }
+
+    @Override // com.repackage.qk7
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, str) == null) && m(str)) {
+            this.b.k();
+            this.b.a(new j68(301, AlbumActivityConfig.FROM_WRITE, -4399, ""));
+        }
+    }
+
+    @Override // com.repackage.qk7
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, str) == null) && m(str)) {
+            this.b.k();
+            this.b.j();
+            this.b.a(new j68(401, AlbumActivityConfig.FROM_WRITE, -4399, ""));
+        }
+    }
+
+    @Override // com.repackage.qk7
+    public void l(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLIL(1048587, this, str, i, str2) == null) && m(str)) {
+            if (i != 103 && i != 105 && i != 106 && i != 107 && i != 104) {
+                this.b.a(new j68(i, str2, -4399, ""));
+                return;
+            }
+            this.b.f();
+            this.b.a(new j68(i, str2, i, VideoPlatformStatic.g(i)));
+        }
+    }
+
+    public final boolean m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) ? (!TextUtils.equals(this.a, str) || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.a)) ? false : true : invokeL.booleanValue;
     }
 }

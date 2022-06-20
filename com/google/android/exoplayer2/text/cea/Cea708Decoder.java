@@ -742,7 +742,7 @@ public final class Cea708Decoder extends CeaDecoder {
                         }
                     }
                     return;
-                case 140:
+                case COMMAND_DLW /* 140 */:
                     while (i2 <= 8) {
                         if (this.serviceBlockPacket.readBit()) {
                             this.cueBuilders[8 - i2].reset();

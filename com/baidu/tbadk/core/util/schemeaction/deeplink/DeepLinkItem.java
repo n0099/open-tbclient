@@ -72,7 +72,7 @@ public class DeepLinkItem {
             }
             this.appUrl = bundle.getString(DEEPLINK_APPURL_KEY);
             this.marketUrl = bundle.getString(DEEPLINK_MARKETURL_KEY);
-            this.webUrl = bundle.getString("webUrl");
+            this.webUrl = bundle.getString(DEEPLINK_WEBURL_KEY);
             this.pkgName = bundle.getString("pkgName");
             this.marketPkgName = bundle.getString(DEEPLINK_MARKET_PKGNAME_KEY);
             this.isDesignatePkg = bundle.getBoolean(DEEPLINK_MARKET_PKGNAME_KEY, true);
@@ -90,7 +90,7 @@ public class DeepLinkItem {
                 return this;
             }
             this.appUrl = uri.getQueryParameter(DEEPLINK_APPURL_KEY);
-            this.webUrl = uri.getQueryParameter("webUrl");
+            this.webUrl = uri.getQueryParameter(DEEPLINK_WEBURL_KEY);
             this.pkgName = uri.getQueryParameter("pkgName");
             this.marketUrl = uri.getQueryParameter(DEEPLINK_MARKETURL_KEY);
             this.marketPkgName = uri.getQueryParameter(DEEPLINK_MARKET_PKGNAME_KEY);

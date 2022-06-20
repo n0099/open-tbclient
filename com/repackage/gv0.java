@@ -1,75 +1,100 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import kotlin.jvm.internal.Intrinsics;
+import kotlin.Unit;
+import kotlin.jvm.JvmStatic;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public final class gv0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final gv0 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<ev0> a;
 
-    public gv0(ArrayList<ev0> arrayList) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755664720, "Lcom/repackage/gv0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755664720, "Lcom/repackage/gv0;");
+                return;
+            }
+        }
+        a = new gv0();
+    }
+
+    public gv0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {arrayList};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = arrayList;
     }
 
-    public final ArrayList<ev0> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
-    }
-
-    public boolean equals(Object obj) {
+    @JvmStatic
+    public static final JSONArray b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (this != obj) {
-                return (obj instanceof gv0) && Intrinsics.areEqual(this.a, ((gv0) obj).a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            mv0 c = a.c(str);
+            if (c != null) {
+                JSONArray jSONArray = new JSONArray();
+                hv0.a(c, jSONArray);
+                fv0.a(c, jSONArray);
+                return jSONArray;
             }
-            return true;
+            return null;
         }
-        return invokeL.booleanValue;
+        return (JSONArray) invokeL.objValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    public final boolean a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ArrayList<ev0> arrayList = this.a;
-            if (arrayList != null) {
-                return arrayList.hashCode();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i == 0 : invokeI.booleanValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public final mv0 c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "Interact(adaptationSetList=" + this.a + SmallTailInfo.EMOTION_SUFFIX;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (str != null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    int optInt = jSONObject.optInt("version", -1);
+                    if (a.a(optInt)) {
+                        mv0 mv0Var = new mv0();
+                        mv0Var.e(optInt);
+                        mv0Var.d(jSONObject.optString("mode"));
+                        hv0.b(mv0Var, jSONObject);
+                        fv0.b(mv0Var, jSONObject);
+                        Unit unit = Unit.INSTANCE;
+                        return mv0Var;
+                    }
+                    return null;
+                } catch (Exception unused) {
+                    return null;
+                }
+            }
+            return null;
         }
-        return (String) invokeV.objValue;
+        return (mv0) invokeL.objValue;
     }
 }

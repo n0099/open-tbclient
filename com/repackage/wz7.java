@@ -2,11 +2,11 @@ package com.repackage;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.BookInfo;
 /* loaded from: classes7.dex */
-public class wz7 implements lz7 {
+public class wz7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,13 +24,17 @@ public class wz7 implements lz7 {
         }
     }
 
-    @Override // com.repackage.lz7
-    public int getType() {
-        InterceptResult invokeV;
+    public void a(BookInfo bookInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 2;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, bookInfo) == null) || bookInfo == null) {
+            return;
         }
-        return invokeV.intValue;
+        String str = bookInfo.book_id;
+        String str2 = bookInfo.title;
+        String str3 = bookInfo.cover;
+        bookInfo.update_time.intValue();
+        bookInfo.book_type.intValue();
+        bookInfo.forum_id.longValue();
+        bookInfo.total_chapter.intValue();
     }
 }

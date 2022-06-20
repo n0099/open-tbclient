@@ -23,12 +23,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f75;
-import com.repackage.ki;
-import com.repackage.pu4;
+import com.repackage.oi;
+import com.repackage.t75;
+import com.repackage.zu4;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class LikeButtonWithHeadPortrait extends FrameLayout implements pu4 {
+public class LikeButtonWithHeadPortrait extends FrameLayout implements zu4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
@@ -107,7 +107,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements pu4 {
         f(context);
     }
 
-    @Override // com.repackage.pu4
+    @Override // com.repackage.zu4
     public void a(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
@@ -116,10 +116,10 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements pu4 {
                 return;
             }
             Context context = getContext();
-            if ((context instanceof Activity) && (context instanceof f75)) {
+            if ((context instanceof Activity) && (context instanceof t75)) {
                 String stringExtra = ((Activity) context).getIntent().getStringExtra("thread_id");
-                List<String> currentPageSourceKeyList = ((f75) context).getCurrentPageSourceKeyList();
-                if (currentPageSourceKeyList == null || !StringHelper.equals((String) ListUtils.getItem(currentPageSourceKeyList, currentPageSourceKeyList.size() - 1), "a002") || ki.isEmpty(stringExtra)) {
+                List<String> currentPageSourceKeyList = ((t75) context).getCurrentPageSourceKeyList();
+                if (currentPageSourceKeyList == null || !StringHelper.equals((String) ListUtils.getItem(currentPageSourceKeyList, currentPageSourceKeyList.size() - 1), "a002") || oi.isEmpty(stringExtra)) {
                     return;
                 }
                 TiebaStatic.log(new StatisticItem("c12613").param("obj_type", 1).param("tid", stringExtra));
@@ -127,7 +127,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements pu4 {
         }
     }
 
-    @Override // com.repackage.pu4
+    @Override // com.repackage.zu4
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
@@ -135,7 +135,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements pu4 {
         }
     }
 
-    @Override // com.repackage.pu4
+    @Override // com.repackage.zu4
     public void c(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -143,14 +143,14 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements pu4 {
         }
     }
 
-    @Override // com.repackage.pu4
+    @Override // com.repackage.zu4
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
         }
     }
 
-    @Override // com.repackage.pu4
+    @Override // com.repackage.zu4
     public void e(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
@@ -161,13 +161,13 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements pu4 {
     public final void f(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0878, this);
-            HeadPendantView headPendantView = (HeadPendantView) findViewById(R.id.obfuscated_res_0x7f090cdb);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0877, this);
+            HeadPendantView headPendantView = (HeadPendantView) findViewById(R.id.obfuscated_res_0x7f090ccb);
             this.b = headPendantView;
             headPendantView.getHeadView().setIsRound(true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09041b);
-            this.c = findViewById(R.id.obfuscated_res_0x7f092382);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091a9a);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090416);
+            this.c = findViewById(R.id.obfuscated_res_0x7f09236f);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091a92);
         }
     }
 

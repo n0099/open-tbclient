@@ -15,13 +15,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.u44;
+import com.repackage.f54;
 /* loaded from: classes2.dex */
-public class FlipperFrameLayout extends FrameLayout implements u44.b {
+public class FlipperFrameLayout extends FrameLayout implements f54.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public float a;
-    public u44 b;
+    public f54 b;
     public boolean c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -44,7 +44,7 @@ public class FlipperFrameLayout extends FrameLayout implements u44.b {
         }
     }
 
-    @Override // com.repackage.u44.b
+    @Override // com.repackage.f54.b
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -52,7 +52,7 @@ public class FlipperFrameLayout extends FrameLayout implements u44.b {
         }
     }
 
-    @Override // com.repackage.u44.b
+    @Override // com.repackage.f54.b
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
@@ -121,10 +121,10 @@ public class FlipperFrameLayout extends FrameLayout implements u44.b {
         return invokeL.booleanValue;
     }
 
-    public void setViewFlipper(u44 u44Var) {
+    public void setViewFlipper(f54 f54Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, u44Var) == null) {
-            this.b = u44Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, f54Var) == null) {
+            this.b = f54Var;
         }
     }
 

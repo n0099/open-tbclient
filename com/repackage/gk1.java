@@ -1,19 +1,22 @@
 package com.repackage;
 
+import android.content.Context;
+import android.graphics.Bitmap;
 import java.io.File;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public interface gk1 extends ys2 {
-    File a();
+public interface gk1 {
 
-    void e(String str, String str2);
+    /* loaded from: classes6.dex */
+    public interface a {
+        void onResult(String str);
+    }
 
-    void e(String str, String str2, Throwable th);
+    void a(HashMap<String, String> hashMap, File file, a aVar, String str);
 
-    void flush(boolean z);
+    void b(Context context, String str, String str2, String str3);
 
-    void i(String str, String str2);
+    void c(HashMap<String, String> hashMap, File file, a aVar);
 
-    void w(String str, String str2);
-
-    void w(String str, String str2, Throwable th);
+    void d(Bitmap bitmap, HashMap<String, String> hashMap, File[] fileArr, a aVar);
 }

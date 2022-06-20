@@ -1,81 +1,51 @@
 package com.repackage;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.HttpsConnSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class a46 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public int b;
+    public String c;
 
-    /* loaded from: classes5.dex */
-    public static class a extends BdAsyncTask<Void, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                if (TbadkCoreApplication.getInst().checkInterrupt()) {
-                    return null;
-                }
-                NetWork netWork = new NetWork("http://tiebac.baidu.com/empty.gif");
-                netWork.getNetData();
-                boolean isNetSuccess = netWork.isNetSuccess();
-                NetWork netWork2 = new NetWork("https://tiebac.baidu.com/empty.gif");
-                netWork2.getNetData();
-                boolean isNetSuccess2 = netWork2.isNetSuccess();
-                NetWork netWork3 = new NetWork("http://c.tieba.baidu.com/c/s/recordHttpsConnectivity");
-                netWork3.addPostData("is_success_http", String.valueOf(isNetSuccess ? 1 : 0));
-                netWork3.addPostData("is_success_https", String.valueOf(isNetSuccess2 ? 1 : 0));
-                netWork3.postNetData();
-                TiebaStatic.log(new StatisticItem("c13734").param("obj_locate", 1).param("obj_type", isNetSuccess ? 1 : 0));
-                TiebaStatic.log(new StatisticItem("c13734").param("obj_locate", 2).param("obj_type", isNetSuccess2 ? 1 : 0));
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    public static void a() {
+    public a46() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            a aVar = new a();
-            aVar.setPriority(1);
-            aVar.execute(new Void[0]);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static boolean b() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? ji.z() && SwitchManager.getInstance().findType(HttpsConnSwitch.KEY) == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.c) : invokeV.booleanValue;
+    }
+
+    public void b(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        jSONObject.optString("pic");
+        this.a = jSONObject.optString("url");
+        jSONObject.optInt("server_time");
+        this.b = jSONObject.optInt("adid");
+        this.c = jSONObject.optString("big_pic");
+        jSONObject.optString("small_pic");
     }
 }

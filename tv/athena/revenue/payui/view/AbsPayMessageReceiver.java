@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payservice.impl.H5PayConstant;
 import tv.athena.revenue.payui.model.PayFlowType;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class AbsPayMessageReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -157,7 +157,7 @@ public class TranslationAnimationCreator {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{view2, transitionValues, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), timeInterpolator, transition})) == null) {
             float translationX = view2.getTranslationX();
             float translationY = view2.getTranslationY();
-            int[] iArr = (int[]) transitionValues.f980view.getTag(R$id.transition_position);
+            int[] iArr = (int[]) transitionValues.f1020view.getTag(R$id.transition_position);
             if (iArr != null) {
                 f5 = (iArr[0] - i) + translationX;
                 f6 = (iArr[1] - i2) + translationY;
@@ -173,7 +173,7 @@ public class TranslationAnimationCreator {
                 return null;
             }
             ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view2, PropertyValuesHolder.ofFloat(View.TRANSLATION_X, f5, f3), PropertyValuesHolder.ofFloat(View.TRANSLATION_Y, f6, f4));
-            TransitionPositionListener transitionPositionListener = new TransitionPositionListener(view2, transitionValues.f980view, round, round2, translationX, translationY);
+            TransitionPositionListener transitionPositionListener = new TransitionPositionListener(view2, transitionValues.f1020view, round, round2, translationX, translationY);
             transition.addListener(transitionPositionListener);
             ofPropertyValuesHolder.addListener(transitionPositionListener);
             AnimatorUtils.addPauseListener(ofPropertyValuesHolder, transitionPositionListener);

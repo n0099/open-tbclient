@@ -110,8 +110,8 @@ public class d extends com.kwad.sdk.contentalliance.b<g> implements DialogInterf
     }
 
     private void f() {
-        this.f = (AdBaseFrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091112);
-        DetailVideoView detailVideoView = (DetailVideoView) this.c.findViewById(R.id.obfuscated_res_0x7f091117);
+        this.f = (AdBaseFrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091102);
+        DetailVideoView detailVideoView = (DetailVideoView) this.c.findViewById(R.id.obfuscated_res_0x7f091107);
         this.g = detailVideoView;
         detailVideoView.setAd(true);
         this.g.setVisibility(8);
@@ -169,7 +169,7 @@ public class d extends com.kwad.sdk.contentalliance.b<g> implements DialogInterf
 
     @Override // com.kwad.sdk.contentalliance.b
     public int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d045a;
+        return R.layout.obfuscated_res_0x7f0d0454;
     }
 
     @Override // com.kwad.sdk.contentalliance.b, android.view.ViewGroup, android.view.View

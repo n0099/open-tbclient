@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.r25;
+import com.repackage.g35;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ActivityChangeSchemeHttpResMsg extends JsonHttpResponsedMessage {
@@ -49,10 +49,10 @@ public class ActivityChangeSchemeHttpResMsg extends JsonHttpResponsedMessage {
                 if (jSONObject2 != null) {
                     this.scheme = jSONObject2.optString("scheme");
                 }
-                r25.d(true, this.data);
+                g35.d(true, this.data);
                 return;
             }
-            r25.d(false, this.data);
+            g35.d(false, this.data);
         }
     }
 

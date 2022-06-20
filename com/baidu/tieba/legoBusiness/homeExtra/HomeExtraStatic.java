@@ -7,9 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gc7;
-import com.repackage.hc7;
-import com.repackage.la7;
+import com.repackage.rd7;
+import com.repackage.sd7;
+import com.repackage.wb7;
 /* loaded from: classes3.dex */
 public class HomeExtraStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -28,8 +28,8 @@ public class HomeExtraStatic {
                 return;
             }
         }
-        la7.a().b(new gc7());
-        la7.a().b(new hc7());
+        wb7.a().b(new rd7());
+        wb7.a().b(new sd7());
     }
 
     public HomeExtraStatic() {

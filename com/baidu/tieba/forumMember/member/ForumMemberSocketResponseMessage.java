@@ -1,5 +1,6 @@
 package com.baidu.tieba.forumMember.member;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -8,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ag8;
-import com.repackage.d96;
+import com.repackage.da6;
+import com.repackage.tg8;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
@@ -30,7 +31,7 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
     public MemberGodInfo mMemberGodInfo;
     public List<MemberGroupInfo> mMemberGroupInfoList;
     public PriManagerApplyInfo mPrivateMgrApplyInfo;
-    public ag8 mUserInfo;
+    public tg8 mUserInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumMemberSocketResponseMessage() {
@@ -51,51 +52,95 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
         this.isNeedUpdateCache = false;
     }
 
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bArr)) == null) {
+            GetMemberInfoResIdl getMemberInfoResIdl = (GetMemberInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetMemberInfoResIdl.class);
+            if (getMemberInfoResIdl != null) {
+                Error error = getMemberInfoResIdl.error;
+                if (error != null) {
+                    setError(error.errorno.intValue());
+                    setErrorString(getMemberInfoResIdl.error.usermsg);
+                }
+                if (getError() != 0) {
+                    return getMemberInfoResIdl;
+                }
+                DataRes dataRes = getMemberInfoResIdl.data;
+                if (dataRes != null) {
+                    if (dataRes.forum_member_info != null) {
+                        tg8 tg8Var = new tg8();
+                        this.mUserInfo = tg8Var;
+                        tg8Var.y(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
+                        this.mUserInfo.u(getMemberInfoResIdl.data.forum_member_info.cur_score.intValue());
+                        this.mUserInfo.x(getMemberInfoResIdl.data.forum_member_info.levelup_score.intValue());
+                        this.mUserInfo.z(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
+                        this.mUserInfo.w(getMemberInfoResIdl.data.forum_member_info.level_name);
+                    }
+                    DataRes dataRes2 = getMemberInfoResIdl.data;
+                    this.mMemberGroupInfoList = dataRes2.member_group_info;
+                    this.mMemberGodInfo = dataRes2.member_god_info;
+                    this.mManagerApplyInfo = dataRes2.manager_apply_info;
+                    this.mIsBawuShow = dataRes2.is_bawuapply_show.intValue() != 0;
+                    this.mIsPrivateForum = getMemberInfoResIdl.data.is_private_forum.intValue() != 0;
+                    this.mPrivateMgrApplyInfo = getMemberInfoResIdl.data.primanager_apply_info;
+                    this.isNeedUpdateCache = true;
+                } else {
+                    this.isNeedUpdateCache = false;
+                }
+            }
+            return getMemberInfoResIdl;
+        }
+        return invokeIL.objValue;
+    }
+
     public ManagerApplyInfo getManagerApplyInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mManagerApplyInfo : (ManagerApplyInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mManagerApplyInfo : (ManagerApplyInfo) invokeV.objValue;
     }
 
     public MemberGodInfo getMemberGodInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mMemberGodInfo : (MemberGodInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mMemberGodInfo : (MemberGodInfo) invokeV.objValue;
     }
 
     public List<MemberGroupInfo> getMemberGroupInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mMemberGroupInfoList : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mMemberGroupInfoList : (List) invokeV.objValue;
     }
 
     public PriManagerApplyInfo getPrivateMgrApplyInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mPrivateMgrApplyInfo : (PriManagerApplyInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mPrivateMgrApplyInfo : (PriManagerApplyInfo) invokeV.objValue;
     }
 
-    public ag8 getUserInfo() {
+    public tg8 getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mUserInfo : (ag8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mUserInfo : (tg8) invokeV.objValue;
     }
 
     public boolean isBawuShow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mIsBawuShow : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mIsBawuShow : invokeV.booleanValue;
     }
 
     public boolean isPrivateForum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mIsPrivateForum : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mIsPrivateForum : invokeV.booleanValue;
     }
 
     public void setManagerApplyInfo(ManagerApplyInfo managerApplyInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, managerApplyInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, managerApplyInfo) == null) {
             this.mManagerApplyInfo = managerApplyInfo;
         }
     }
@@ -110,49 +155,8 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
                 forumMemberRequestMessage = (ForumMemberRequestMessage) getOrginalMessage().getExtra();
             }
             if (forumMemberRequestMessage != null) {
-                d96 d96Var = new d96();
-                d96Var.c(forumMemberRequestMessage.getForumName() + "", bArr);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
-            GetMemberInfoResIdl getMemberInfoResIdl = (GetMemberInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetMemberInfoResIdl.class);
-            if (getMemberInfoResIdl != null) {
-                Error error = getMemberInfoResIdl.error;
-                if (error != null) {
-                    setError(error.errorno.intValue());
-                    setErrorString(getMemberInfoResIdl.error.usermsg);
-                }
-                if (getError() != 0) {
-                    return;
-                }
-                DataRes dataRes = getMemberInfoResIdl.data;
-                if (dataRes != null) {
-                    if (dataRes.forum_member_info != null) {
-                        ag8 ag8Var = new ag8();
-                        this.mUserInfo = ag8Var;
-                        ag8Var.y(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
-                        this.mUserInfo.u(getMemberInfoResIdl.data.forum_member_info.cur_score.intValue());
-                        this.mUserInfo.x(getMemberInfoResIdl.data.forum_member_info.levelup_score.intValue());
-                        this.mUserInfo.z(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
-                        this.mUserInfo.w(getMemberInfoResIdl.data.forum_member_info.level_name);
-                    }
-                    DataRes dataRes2 = getMemberInfoResIdl.data;
-                    this.mMemberGroupInfoList = dataRes2.member_group_info;
-                    this.mMemberGodInfo = dataRes2.member_god_info;
-                    this.mManagerApplyInfo = dataRes2.manager_apply_info;
-                    this.mIsBawuShow = dataRes2.is_bawuapply_show.intValue() != 0;
-                    this.mIsPrivateForum = getMemberInfoResIdl.data.is_private_forum.intValue() != 0;
-                    this.mPrivateMgrApplyInfo = getMemberInfoResIdl.data.primanager_apply_info;
-                    this.isNeedUpdateCache = true;
-                    return;
-                }
-                this.isNeedUpdateCache = false;
+                da6 da6Var = new da6();
+                da6Var.c(forumMemberRequestMessage.getForumName() + "", bArr);
             }
         }
     }

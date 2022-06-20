@@ -2,7 +2,6 @@ package com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.poly.widget.PolyActivity;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -192,7 +191,7 @@ public final class GetUserYbDetailsResponsee implements IBaseJsonResponse {
                                 ybChargeItemInfo.other = optJSONObject.optString(ImageViewerConfig.FROM_OTHER);
                                 ybChargeItemInfo.outgo = optJSONObject.optString("outgo");
                                 ybChargeItemInfo.tips = optJSONObject.optString("tips");
-                                ybChargeItemInfo.tradeType = optJSONObject.optString(PolyActivity.TRADE_TYPE);
+                                ybChargeItemInfo.tradeType = optJSONObject.optString("tradeType");
                                 ybChargeItemInfo.status = optJSONObject.optString("status");
                                 this.chargeOrderList.add(ybChargeItemInfo);
                             }

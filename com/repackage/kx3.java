@@ -1,24 +1,24 @@
 package com.repackage;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class kx3 implements vg1 {
+public class kx3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<Integer> a;
+    public c72 a;
 
-    public kx3() {
+    public kx3(c72 c72Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {c72Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,70 +28,49 @@ public final class kx3 implements vg1 {
                 return;
             }
         }
-        this.a = new ArrayList<>();
+        this.a = c72Var;
     }
 
-    @Override // com.repackage.vg1
-    public void a(or1 or1Var) {
+    public final void a(String str, String str2) {
+        c72 c72Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, or1Var) == null) || or1Var == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || (c72Var = this.a) == null || c72Var.p() == null || !this.a.p().hasEventListener(str2)) {
             return;
         }
-        d(or1Var.B("action"), or1Var.B("menuItemName"));
+        mx3 mx3Var = new mx3();
+        mx3Var.value = str;
+        JSEvent jSEvent = new JSEvent(str2);
+        jSEvent.data = mx3Var;
+        this.a.p().dispatchEvent(jSEvent);
     }
 
-    @Override // com.repackage.vg1
-    public void b(m54 m54Var) {
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m54Var) == null) || this.a.isEmpty()) {
-            return;
-        }
-        Iterator<Integer> it = this.a.iterator();
-        while (it.hasNext()) {
-            Integer id = it.next();
-            if (m54Var != null) {
-                Intrinsics.checkNotNullExpressionValue(id, "id");
-                m54Var.m(id.intValue());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str = "";
             }
+            a(str, "keyboardcomplete");
         }
     }
 
-    public final boolean c(m54 m54Var, String str) {
-        InterceptResult invokeLL;
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, m54Var, str)) == null) {
-            Integer a = lx3.a(str);
-            if (a != null) {
-                if (!this.a.contains(a)) {
-                    this.a.add(a);
-                }
-                if (m54Var != null) {
-                    m54Var.m(a.intValue());
-                }
-                return true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str = "";
             }
-            return false;
+            a(str, "keyboardconfirm");
         }
-        return invokeLL.booleanValue;
     }
 
-    public final boolean d(String str, String str2) {
-        InterceptResult invokeLL;
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            if (str != null && str.hashCode() == 3202370 && str.equals("hide")) {
-                uk2 U = uk2.U();
-                Intrinsics.checkNotNullExpressionValue(U, "SwanAppController.getInstance()");
-                qy1 V = U.V();
-                dv3 dv3Var = V != null ? (dv3) V.n(dv3.class) : null;
-                m54 w3 = dv3Var != null ? dv3Var.w3() : null;
-                if (w3 != null && dv3Var != null) {
-                    dv3Var.I3(true);
-                }
-                return c(w3, str2);
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str = "";
             }
-            return false;
+            a(str, "keyboardinput");
         }
-        return invokeLL.booleanValue;
     }
 }

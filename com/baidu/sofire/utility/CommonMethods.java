@@ -166,7 +166,7 @@ public class CommonMethods {
             synchronized (CommonMethods.class) {
                 try {
                     SharedPreferenceManager sharedPreferenceManager = SharedPreferenceManager.getInstance(context);
-                    String loadPropertiesFromAssets = loadPropertiesFromAssets(context, "sofire_local.cfg", "local");
+                    String loadPropertiesFromAssets = loadPropertiesFromAssets(context, "sofire_local.cfg", ForHostApp.KEY_NAME_LOCAL);
                     if (TextUtils.isEmpty(loadPropertiesFromAssets)) {
                         return null;
                     }

@@ -1,117 +1,72 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
+import com.baidu.nadcore.requester.NadRequester;
+import com.baidu.nadcore.requester.RequestParameters;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ix0 {
+public class ix0 extends ob1<jx0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static <K, V> boolean a(Map<K, V> map, K k) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, map, k)) == null) {
-            if (d(map)) {
-                return false;
+    /* loaded from: classes6.dex */
+    public class a implements jx0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final jx0 b;
+
+        public a(ix0 ix0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ix0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            try {
-                return map.containsKey(k);
-            } catch (Exception e) {
-                h(e);
-                return false;
+            this.b = new hx0();
+        }
+
+        @Override // com.repackage.jx0
+        public void a(@NonNull RequestParameters requestParameters, @NonNull NadRequester.b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, requestParameters, bVar) == null) {
+                this.b.a(requestParameters, bVar);
             }
         }
-        return invokeLL.booleanValue;
     }
 
-    public static <K, V> V b(Map<K, V> map, K k) {
-        InterceptResult invokeLL;
+    public ix0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, map, k)) == null) {
-            if (d(map)) {
-                return null;
-            }
-            try {
-                return map.get(k);
-            } catch (Exception e) {
-                h(e);
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return (V) invokeLL.objValue;
     }
 
-    public static <K, V> boolean c(Map<K, V> map) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.ob1
+    /* renamed from: a */
+    public jx0 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) ? d(map) || map.isEmpty() : invokeL.booleanValue;
-    }
-
-    public static boolean d(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) ? obj == null : invokeL.booleanValue;
-    }
-
-    public static <K, V> boolean e(Map<K, V> map, K k, V v) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, map, k, v)) == null) {
-            if (d(map)) {
-                return false;
-            }
-            try {
-                map.put(k, v);
-                return true;
-            } catch (Exception e) {
-                h(e);
-                return false;
-            }
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static <K, V> boolean f(Map<K, V> map, Map<? extends K, ? extends V> map2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, map, map2)) == null) {
-            if (d(map)) {
-                return false;
-            }
-            try {
-                map.putAll(map2);
-                return true;
-            } catch (Exception e) {
-                h(e);
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static <K, V> V g(Map<K, V> map, K k) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, map, k)) == null) {
-            if (d(map)) {
-                return null;
-            }
-            try {
-                return map.remove(k);
-            } catch (Exception e) {
-                h(e);
-                return null;
-            }
-        }
-        return (V) invokeLL.objValue;
-    }
-
-    public static void h(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, exc) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (jx0) invokeV.objValue;
     }
 }

@@ -1,37 +1,27 @@
 package com.repackage;
 
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.d03;
 /* loaded from: classes5.dex */
-public class b03 {
+public abstract class b03 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public d03.a a;
 
-    public static String a(int i) {
-        InterceptResult invokeI;
+    public b03() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            switch (i) {
-                case 2001:
-                    return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f01b2);
-                case 2002:
-                    return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f01b4);
-                case 2003:
-                    return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f01b1);
-                case 2004:
-                    return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f01b5);
-                case 2005:
-                default:
-                    return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f01b2);
-                case 2006:
-                    return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f01b3);
-                case 2007:
-                    return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f01b0);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return (String) invokeI.objValue;
     }
 }

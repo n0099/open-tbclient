@@ -1,19 +1,36 @@
 package com.repackage;
 
-import android.os.Build;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteKey;
+import com.baidu.searchbox.perfframe.ioc.Constant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ji0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public long d;
+    public boolean e;
+    public int f;
+    public int g;
+    public int h;
+    public String i;
+    public int j;
+    public int k;
+    public String l;
+    public String m;
+    public long n;
+    public long o;
+    public boolean p;
+    public int q;
 
     public ji0() {
         Interceptable interceptable = $ic;
@@ -25,49 +42,50 @@ public class ji0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = "";
+        this.d = 0L;
+        this.e = false;
+        this.f = 0;
+        this.g = 0;
+        this.h = 0;
+        this.n = -1L;
+        this.o = -1L;
+        this.p = false;
+        this.q = 0;
     }
 
-    public final JSONObject a(Map<String, String> map) {
+    public static String a(@NonNull ji0 ji0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
-            map.put("_client_version", xg0.a().q());
-            map.put("uid", xg0.a().m());
-            map.put("cuid", xg0.a().b());
-            if (Build.VERSION.SDK_INT >= 17) {
-                map.put("ua", xg0.e());
-            }
-            map.put("model", Build.MODEL);
-            map.put(HttpRequest.CLIENT_TYPE, "2");
-            map.put("_os_version", Build.VERSION.RELEASE);
-            map.put("nt", String.valueOf(new sn0().c()));
-            map.put("imei", xg0.a().p());
-            map.put(HttpRequest.ANDROID_ID, xg0.a().a());
-            map.put("ssl", "1");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, ji0Var)) == null) {
             JSONObject jSONObject = new JSONObject();
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                hx0.f(jSONObject, entry.getKey(), entry.getValue());
+            try {
+                jSONObject.put("page", ji0Var.a);
+                jSONObject.put(Constant.KEY_BUSINESS, ji0Var.b);
+                jSONObject.put("content_type", ji0Var.c);
+                jSONObject.put(BreakpointSQLiteKey.CONTENT_LENGTH, ji0Var.d);
+                int i = 1;
+                jSONObject.put("is_dirty", ji0Var.e ? 1 : 0);
+                jSONObject.put("close_v_download", ji0Var.f);
+                jSONObject.put("no_click_opt", ji0Var.g);
+                jSONObject.put("open_after_install", ji0Var.h);
+                jSONObject.put("action_area", ji0Var.i);
+                jSONObject.put("notification_show_count", ji0Var.j);
+                jSONObject.put("tips_show_count", ji0Var.k);
+                jSONObject.put("als_app_save_day", ji0Var.n);
+                jSONObject.put("finished_install_time", ji0Var.o);
+                if (!ji0Var.p) {
+                    i = 0;
+                }
+                jSONObject.put("lazy_launch_switch", i);
+                jSONObject.put("lazy_launch_internal", ji0Var.q);
+            } catch (JSONException unused) {
             }
-            return jSONObject;
+            return jSONObject.toString();
         }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public void b(Map<String, String> map, vn0<ki0> vn0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, vn0Var) == null) {
-            co0 f = co0.f(p01.a(a(map).toString().getBytes()));
-            do0 do0Var = new do0();
-            do0Var.a("Content-Encoding", "gzip");
-            do0Var.a("Content-Type", "application/json");
-            do0Var.k("https://afdconf.baidu.com/afd/download");
-            do0Var.g(3000);
-            do0Var.i(3000);
-            do0Var.j(3000);
-            do0Var.f(f);
-            ln0.b().a().a(do0Var, vn0Var);
-        }
+        return (String) invokeL.objValue;
     }
 }

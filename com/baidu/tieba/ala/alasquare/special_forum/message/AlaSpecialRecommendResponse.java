@@ -7,8 +7,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.np5;
-import com.repackage.op5;
+import com.repackage.mq5;
+import com.repackage.nq5;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -19,7 +19,7 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
     public List<ThreadData> livesList;
-    public op5 mSpecialActivityListData;
+    public nq5 mSpecialActivityListData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaSpecialRecommendResponse() {
@@ -39,7 +39,7 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
         }
         this.hasMore = false;
         this.livesList = new ArrayList();
-        this.mSpecialActivityListData = new op5();
+        this.mSpecialActivityListData = new nq5();
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -68,17 +68,17 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
                     this.hasMore = false;
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("activity_info_detail");
-                op5 op5Var = this.mSpecialActivityListData;
-                if (op5Var != null && op5Var.a == null) {
-                    op5Var.a = new ArrayList();
+                nq5 nq5Var = this.mSpecialActivityListData;
+                if (nq5Var != null && nq5Var.a == null) {
+                    nq5Var.a = new ArrayList();
                 }
                 if (optJSONArray2 != null) {
                     for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                         JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
                         if (optJSONObject3 != null) {
-                            np5 np5Var = new np5();
-                            np5Var.e(optJSONObject3);
-                            this.mSpecialActivityListData.a.add(np5Var);
+                            mq5 mq5Var = new mq5();
+                            mq5Var.c(optJSONObject3);
+                            this.mSpecialActivityListData.a.add(mq5Var);
                         }
                     }
                 }

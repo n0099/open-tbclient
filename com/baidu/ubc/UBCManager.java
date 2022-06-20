@@ -2,9 +2,9 @@ package com.baidu.ubc;
 
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
-import com.repackage.h09;
-import com.repackage.n09;
-import com.repackage.r09;
+import com.repackage.p09;
+import com.repackage.v09;
+import com.repackage.z09;
 import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -78,11 +78,11 @@ public interface UBCManager {
 
     void onEvent(String str, JSONObject jSONObject, int i);
 
-    void registerConfig(r09 r09Var);
+    void registerConfig(z09 z09Var);
 
-    void registerConfig(r09 r09Var, boolean z, n09 n09Var);
+    void registerConfig(z09 z09Var, boolean z, v09 v09Var);
 
-    void setDefaultConfig(h09 h09Var);
+    void setDefaultConfig(p09 p09Var);
 
     void setUBCDebug(boolean z);
 

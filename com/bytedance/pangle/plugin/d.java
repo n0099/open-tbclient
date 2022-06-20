@@ -2,6 +2,7 @@ package com.bytedance.pangle.plugin;
 
 import android.text.TextUtils;
 import com.baidu.nps.utils.Constant;
+import com.baidu.tbadk.core.diskCache.ImagesInvalidService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -77,7 +78,7 @@ public final class d implements Runnable {
                         if (file2 != null && (file2.getName().endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX) || file2.getName().endsWith(".jar"))) {
                             PluginManager.getInstance().asyncInstall(file2);
                             return true;
-                        } else if (file2.getAbsolutePath().endsWith(".temp") && System.currentTimeMillis() - file2.lastModified() < 259200000) {
+                        } else if (file2.getAbsolutePath().endsWith(".temp") && System.currentTimeMillis() - file2.lastModified() < ImagesInvalidService.FILE_VALID_TIME) {
                             ZeusLogger.w(ZeusLogger.TAG_INIT, "ZeusScanRunnable installPluginDir find : ".concat(String.valueOf(file2)));
                             return false;
                         } else {

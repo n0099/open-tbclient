@@ -1,18 +1,19 @@
 package com.repackage;
 
-import com.baidu.nadcore.model.ParseError;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ki0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public zm0 b;
+    public String a;
+    public String b;
     public String c;
 
     public ki0() {
@@ -25,30 +26,27 @@ public class ki0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = "";
+        this.b = "";
+        this.c = "";
     }
 
-    public static ki0 a(JSONObject jSONObject) {
+    public static String a(@NonNull ki0 ki0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, ki0Var)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("ext1", ki0Var.a);
+                jSONObject.put("ext2", ki0Var.b);
+                jSONObject.put("ext3", ki0Var.c);
+            } catch (JSONException unused) {
             }
-            ki0 ki0Var = new ki0();
-            ki0Var.a = jSONObject.optInt("download_state");
-            JSONObject optJSONObject = jSONObject.optJSONObject("app_info");
-            if (optJSONObject != null) {
-                try {
-                    ki0Var.b = zm0.c(optJSONObject);
-                } catch (ParseError e) {
-                    e.printStackTrace();
-                }
-            }
-            ki0Var.c = jSONObject.optString("download_hint");
-            return ki0Var;
+            return jSONObject.toString();
         }
-        return (ki0) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 }

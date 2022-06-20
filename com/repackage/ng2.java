@@ -39,12 +39,11 @@ public class ng2 implements ZeusPluginFactory {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, invoker)) == null) {
-            sh2 c = oi2.D().c(invoker, this.a);
-            if (rf1.a) {
-                Log.i("【InlineLiveFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline live「Hash:" + c.hashCode() + "」");
+            og2 og2Var = new og2(invoker, this.a);
+            if (cg1.a) {
+                Log.i(" [[InlineTextAreaFactory]] ", "Factory 「Hash:" + hashCode() + "」 is creating inline textArea「Hash:" + og2Var.hashCode() + "」");
             }
-            yp1.e().b(c);
-            return new lg2(c);
+            return new mg2(og2Var);
         }
         return (ZeusPlugin) invokeL.objValue;
     }
@@ -53,6 +52,6 @@ public class ng2 implements ZeusPluginFactory {
     public String name() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "swan_live" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "swan_textarea" : (String) invokeV.objValue;
     }
 }

@@ -110,10 +110,10 @@ public class PushJobService extends JobService {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jobParameters)) == null) {
             int i = jobParameters.getExtras().getInt("push_start_source");
-            if (m.p(getApplicationContext()) || !l.a(getApplicationContext(), (Intent) null, i)) {
+            if (m.B(getApplicationContext()) || !l.a(getApplicationContext(), (Intent) null, i)) {
                 try {
                     Intent a2 = e.a(getApplicationContext());
-                    if (Build.VERSION.SDK_INT >= 28 && m.k()) {
+                    if (Build.VERSION.SDK_INT >= 28 && m.u(getApplicationContext())) {
                         a2.putExtra("disable_alarm", true);
                     }
                     a2.putExtra("push_start_source", i);

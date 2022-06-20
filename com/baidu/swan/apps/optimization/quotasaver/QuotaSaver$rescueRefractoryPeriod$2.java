@@ -65,6 +65,6 @@ public final class QuotaSaver$rescueRefractoryPeriod$2 extends Lambda implements
     public final Long invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? QuotaSaver.l.a().l("rescue_refractory_period", 0L) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? QuotaSaver.l.b().l("rescue_refractory_period", 0L) : invokeV.longValue;
     }
 }

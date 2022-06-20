@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
+import com.repackage.pi;
 import tbclient.BawuRoleInfoPub;
 /* loaded from: classes3.dex */
 public class FrsMemberTeamViewHolder extends TypeAdapter.ViewHolder {
@@ -54,40 +54,40 @@ public class FrsMemberTeamViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        int f = li.f(BdBaseApplication.getInst().getApp(), R.dimen.obfuscated_res_0x7f070198);
+        int f = pi.f(BdBaseApplication.getInst().getApp(), R.dimen.obfuscated_res_0x7f070198);
         int color = SkinManager.getColor(R.color.black_alpha10);
         TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092044);
         this.a = textView;
         textView.setOnClickListener(onClickListener);
-        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091398);
-        this.f = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e58);
+        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091390);
+        this.f = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e49);
         this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f63);
         this.f.setIsRound(true);
         this.f.setBorderColor(color);
         this.f.setBorderWidth(f);
         this.f.setOnClickListener(onClickListener);
-        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091399);
-        this.g = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e59);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091391);
+        this.g = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e4a);
         this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f64);
         this.g.setIsRound(true);
         this.g.setBorderColor(color);
         this.g.setBorderWidth(f);
         this.g.setOnClickListener(onClickListener);
-        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09139a);
-        this.h = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e5a);
+        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091392);
+        this.h = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e4b);
         this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f65);
         this.h.setIsRound(true);
         this.h.setBorderColor(color);
         this.h.setBorderWidth(f);
         this.h.setOnClickListener(onClickListener);
-        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09139b);
-        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e5b);
+        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091393);
+        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e4c);
         this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f66);
         this.i.setIsRound(true);
         this.i.setBorderColor(color);
         this.i.setBorderWidth(f);
         this.i.setOnClickListener(onClickListener);
-        this.n = (NoPressedLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a47);
+        this.n = (NoPressedLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a36);
     }
 
     public void c(BawuRoleInfoPub bawuRoleInfoPub, int i) {
@@ -97,26 +97,26 @@ public class FrsMemberTeamViewHolder extends TypeAdapter.ViewHolder {
         }
         String str = bawuRoleInfoPub.portrait;
         if (i == 0) {
-            this.f.K(str, 12, false);
+            this.f.J(str, 12, false);
             this.f.setTag(bawuRoleInfoPub);
             this.f.setContentDescription(bawuRoleInfoPub.user_name);
             this.j.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
             this.b.setVisibility(0);
         } else if (i == 1) {
-            this.g.K(str, 12, false);
+            this.g.J(str, 12, false);
             this.g.setTag(bawuRoleInfoPub);
             this.g.setContentDescription(bawuRoleInfoPub.user_name);
             this.k.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
             this.c.setVisibility(0);
         } else if (i == 2) {
-            this.h.K(str, 12, false);
+            this.h.J(str, 12, false);
             this.h.setTag(bawuRoleInfoPub);
             this.h.setContentDescription(bawuRoleInfoPub.user_name);
             this.l.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
             this.d.setVisibility(0);
         } else if (i != 3) {
         } else {
-            this.i.K(str, 12, false);
+            this.i.J(str, 12, false);
             this.i.setTag(bawuRoleInfoPub);
             this.i.setContentDescription(bawuRoleInfoPub.user_name);
             this.m.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);

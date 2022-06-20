@@ -1,9 +1,22 @@
 package com.repackage;
+
+import android.content.Context;
+import android.view.Window;
+import android.view.WindowManager;
+import com.badlogic.gdx.Application;
 /* loaded from: classes6.dex */
-public interface g2 extends a1, f7 {
-    void d(s2 s2Var);
+public interface g2 extends Application {
+    Window getApplicationWindow();
 
-    void pause();
+    Context getContext();
 
-    void resume();
+    a7<Runnable> getExecutedRunnables();
+
+    s2 getInput();
+
+    g8<g1> getLifecycleListeners();
+
+    a7<Runnable> getRunnables();
+
+    WindowManager getWindowManager();
 }

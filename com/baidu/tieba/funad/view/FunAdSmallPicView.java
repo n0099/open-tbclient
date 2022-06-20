@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunNativeAd;
-import com.repackage.sp6;
-import com.repackage.wq4;
+import com.repackage.fr4;
+import com.repackage.vq6;
 /* loaded from: classes3.dex */
 public class FunAdSmallPicView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -72,7 +72,7 @@ public class FunAdSmallPicView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0358, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0356, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0900e2);
@@ -91,9 +91,9 @@ public class FunAdSmallPicView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             WebPManager.setPureDrawable(this.c, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
-            wq4.d(this.e).v(R.color.CAM_X0105);
-            wq4.d(this.d).v(R.color.CAM_X0109);
-            wq4.d(this.f).v(R.color.CAM_X0109);
+            fr4.d(this.e).v(R.color.CAM_X0105);
+            fr4.d(this.d).v(R.color.CAM_X0109);
+            fr4.d(this.f).v(R.color.CAM_X0109);
             this.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
         }
     }
@@ -105,11 +105,11 @@ public class FunAdSmallPicView extends LinearLayout {
         }
         this.d.setText(funNativeAd.getTitle());
         this.e.setText(funNativeAd.getDescription());
-        sp6.v(this.b, funNativeAd);
+        vq6.v(this.b, funNativeAd);
         if (!StringHelper.equals(str, this.a.getUrl())) {
-            this.a.G();
+            this.a.F();
         }
-        this.a.K(str, 10, false);
+        this.a.J(str, 10, false);
     }
 
     public void setFeedBackListener(View.OnClickListener onClickListener) {

@@ -1,9 +1,75 @@
 package com.xiaomi.push;
 
-import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.xiaomi.push.al;
+import com.xiaomi.push.cj;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public interface ck {
-    void a(Context context);
+public class ck extends al.a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ cj a;
 
-    void b(Context context);
+    public ck(cj cjVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cjVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = cjVar;
+    }
+
+    @Override // com.xiaomi.push.al.a
+    /* renamed from: a */
+    public String mo202a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "100957" : (String) invokeV.objValue;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        ArrayList arrayList;
+        ArrayList arrayList2;
+        ArrayList arrayList3;
+        ArrayList arrayList4;
+        ArrayList arrayList5;
+        ArrayList<cj.a> arrayList6;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            arrayList = this.a.f157a;
+            synchronized (arrayList) {
+                arrayList2 = this.a.f157a;
+                if (arrayList2.size() > 0) {
+                    arrayList3 = this.a.f157a;
+                    if (arrayList3.size() > 1) {
+                        cj cjVar = this.a;
+                        arrayList6 = this.a.f157a;
+                        cjVar.a(arrayList6);
+                    } else {
+                        cj cjVar2 = this.a;
+                        arrayList4 = this.a.f157a;
+                        cjVar2.b((cj.a) arrayList4.get(0));
+                    }
+                    arrayList5 = this.a.f157a;
+                    arrayList5.clear();
+                    System.gc();
+                }
+            }
+        }
+    }
 }

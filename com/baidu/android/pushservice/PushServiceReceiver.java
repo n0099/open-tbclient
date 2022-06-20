@@ -221,7 +221,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
                         public void a() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                if (m.p(this.a) || !l.a(this.a, (Intent) null, 0)) {
+                                if (m.B(this.a) || !l.a(this.a, (Intent) null, 0)) {
                                     try {
                                         f.a(this.a).a(this.b);
                                     } catch (Exception unused) {
@@ -234,7 +234,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
                     if ("com.baidu.android.pushservice.action.receiver.CANCEL_ALARM".equals(action)) {
                         f.a(context).c();
                     }
-                } else if (!com.baidu.android.pushservice.b.d.q(context) || com.baidu.android.pushservice.b.d.c(context)) {
+                } else if (!com.baidu.android.pushservice.b.d.r(context) || com.baidu.android.pushservice.b.d.c(context)) {
                     String stringExtra = intent.getStringExtra("pushService_package_name");
                     String stringExtra2 = intent.getStringExtra("service_name");
                     String stringExtra3 = intent.getStringExtra("notify_type");

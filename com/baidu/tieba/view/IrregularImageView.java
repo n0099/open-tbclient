@@ -17,19 +17,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eg;
-import com.repackage.fg;
-import com.repackage.um;
+import com.repackage.ig;
+import com.repackage.jg;
+import com.repackage.ym;
 /* loaded from: classes4.dex */
 public class IrregularImageView extends AppCompatImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
-    public final eg<um> c;
+    public final ig<ym> c;
 
     /* loaded from: classes4.dex */
-    public class a extends eg<um> {
+    public class a extends ig<ym> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ IrregularImageView a;
@@ -53,11 +53,11 @@ public class IrregularImageView extends AppCompatImageView {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.eg
-        public void onLoaded(um umVar, String str, int i) {
+        @Override // com.repackage.ig
+        public void onLoaded(ym ymVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, umVar, str, i) == null) {
-                if (umVar == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, ymVar, str, i) == null) {
+                if (ymVar == null) {
                     if (this.a.b != 0) {
                         Bitmap bitmap = null;
                         try {
@@ -74,7 +74,7 @@ public class IrregularImageView extends AppCompatImageView {
                     }
                     return;
                 }
-                this.a.setImage(umVar.p(), this.a.a);
+                this.a.setImage(ymVar.p(), this.a.a);
             }
         }
     }
@@ -100,7 +100,7 @@ public class IrregularImageView extends AppCompatImageView {
         this.c = new a(this);
     }
 
-    public final Bitmap o(Bitmap bitmap, int i, int i2) {
+    public final Bitmap k(Bitmap bitmap, int i, int i2) {
         InterceptResult invokeLII;
         int i3;
         float f;
@@ -152,7 +152,7 @@ public class IrregularImageView extends AppCompatImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048579, this, str, bdUniqueId, i) == null) {
             this.a = i;
-            fg.h().k(str, 10, this.c, 0, 0, bdUniqueId, new Object[0]);
+            jg.h().k(str, 10, this.c, 0, 0, bdUniqueId, new Object[0]);
         }
     }
 
@@ -191,7 +191,7 @@ public class IrregularImageView extends AppCompatImageView {
             try {
                 bitmap3 = Bitmap.createBitmap(bitmap2.getWidth(), bitmap2.getHeight(), Bitmap.Config.ARGB_8888);
                 try {
-                    bitmap4 = o(bitmap, bitmap2.getWidth(), bitmap2.getHeight());
+                    bitmap4 = k(bitmap, bitmap2.getWidth(), bitmap2.getHeight());
                 } catch (Throwable th) {
                     th = th;
                     th.printStackTrace();

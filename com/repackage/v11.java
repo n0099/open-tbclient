@@ -1,8 +1,8 @@
 package com.repackage;
 
-import android.content.Context;
-import android.webkit.WebView;
 import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,12 +32,51 @@ public interface v11 {
         }
 
         @Override // com.repackage.v11
-        public WebView a(Context context) {
-            InterceptResult invokeL;
+        public boolean a(int i) {
+            InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? new WebView(context) : (WebView) invokeL.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                return false;
+            }
+            return invokeI.booleanValue;
         }
     }
 
-    WebView a(@NonNull Context context);
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static v11 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(21402205, "Lcom/repackage/v11$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(21402205, "Lcom/repackage/v11$b;");
+                    return;
+                }
+            }
+            a = t11.f();
+        }
+
+        @NonNull
+        public static v11 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                if (a == null) {
+                    a = v11.a;
+                }
+                return a;
+            }
+            return (v11) invokeV.objValue;
+        }
+    }
+
+    boolean a(int i);
 }

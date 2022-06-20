@@ -16,10 +16,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public abstract class NPSActivity extends Activity {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String WINDOW_HIERARCHY_TAG = "android:viewHierarchyState";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Resources mNPSResources;
+    public Resources a;
 
     public NPSActivity() {
         Interceptable interceptable = $ic;
@@ -35,10 +34,10 @@ public abstract class NPSActivity extends Activity {
         }
     }
 
-    private String getBundlePackageName() {
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return null;
         }
         return (String) invokeV.objValue;
@@ -48,16 +47,16 @@ public abstract class NPSActivity extends Activity {
     public AssetManager getAssets() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? getResources().getAssets() : (AssetManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getResources().getAssets() : (AssetManager) invokeV.objValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public ClassLoader getClassLoader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!TextUtils.isEmpty(getBundlePackageName())) {
-                return NPSManager.getInstance().getBundle(getBundlePackageName()).getClassloader();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!TextUtils.isEmpty(a())) {
+                return NPSManager.getInstance().getBundle(a()).getClassloader();
             }
             return super.getClassLoader();
         }
@@ -68,7 +67,7 @@ public abstract class NPSActivity extends Activity {
     public Intent getIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             Intent intent = super.getIntent();
             if (intent != null) {
                 intent.setExtrasClassLoader(getClassLoader());
@@ -82,12 +81,12 @@ public abstract class NPSActivity extends Activity {
     public Resources getResources() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(getBundlePackageName())) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (TextUtils.isEmpty(a())) {
                 return super.getResources();
             }
-            Resources resources = NPSManager.getInstance().getBundle(getBundlePackageName()).getResources(super.getResources());
-            this.mNPSResources = resources;
+            Resources resources = NPSManager.getInstance().getBundle(a()).getResources(super.getResources());
+            this.a = resources;
             return resources;
         }
         return (Resources) invokeV.objValue;
@@ -96,7 +95,7 @@ public abstract class NPSActivity extends Activity {
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
             LogUtil.logActivity(this, "onCreate");
         }
@@ -105,8 +104,8 @@ public abstract class NPSActivity extends Activity {
     @Override // android.app.Activity
     public void onRestoreInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
-            Bundle bundle2 = bundle.getBundle(WINDOW_HIERARCHY_TAG);
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+            Bundle bundle2 = bundle.getBundle("android:viewHierarchyState");
             if (bundle2 != null) {
                 bundle2.setClassLoader(getClassLoader());
             }

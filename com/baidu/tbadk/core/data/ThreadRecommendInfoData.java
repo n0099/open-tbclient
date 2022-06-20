@@ -10,17 +10,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
+import tbclient.ThemeColorInfo;
 import tbclient.ThreadRecommendInfo;
 /* loaded from: classes3.dex */
 public class ThreadRecommendInfoData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ThemeColorInfo backgroundColor;
     public String forumAvatar;
     public String forumName;
+    public String recommendIcon;
     public String recommendReason;
+    public ThemeColorInfo recommendReasonColor;
+    public String recommendTail;
     public long recommendTopicId;
+    public String recommendType;
+    public ThemeColorInfo recommendTypeColor;
     public int showNum;
     public String showType;
+    public ThemeColorInfo stripColor;
 
     public ThreadRecommendInfoData() {
         Interceptable interceptable = $ic;
@@ -63,5 +71,12 @@ public class ThreadRecommendInfoData implements Serializable {
         this.showType = threadRecommendInfo.show_type;
         this.recommendReason = threadRecommendInfo.recommend_reason;
         this.recommendTopicId = threadRecommendInfo.topic_id.longValue();
+        this.recommendType = threadRecommendInfo.recommend_type;
+        this.recommendTail = threadRecommendInfo.recommend_tail;
+        this.recommendIcon = threadRecommendInfo.recommend_icon;
+        this.recommendTypeColor = threadRecommendInfo.recommend_type_color;
+        this.recommendReasonColor = threadRecommendInfo.recommend_reason_color;
+        this.stripColor = threadRecommendInfo.strip_color;
+        this.backgroundColor = threadRecommendInfo.background_color;
     }
 }

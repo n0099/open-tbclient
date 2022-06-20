@@ -1,23 +1,22 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dn9 implements lk9 {
+public class dn9 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ jn9 a;
+    public final /* synthetic */ gn9 a;
 
-    public dn9(jn9 jn9Var) {
+    public dn9(gn9 gn9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jn9Var};
+            Object[] objArr = {gn9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,39 +26,27 @@ public class dn9 implements lk9 {
                 return;
             }
         }
-        this.a = jn9Var;
+        this.a = gn9Var;
     }
 
-    @Override // com.repackage.lk9
-    public void a(String str) {
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-        }
-    }
-
-    @Override // com.repackage.lk9
-    public boolean a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            jn9 jn9Var = this.a;
-            if (pm9.d(jn9Var.c, jn9Var.h)) {
-                this.a.h = System.currentTimeMillis();
-                jn9 jn9Var2 = this.a;
-                pm9.a(jn9Var2.a, str, jn9Var2.c, jn9Var2.g, str2);
-                nn9 a = rn9.a(this.a.a);
-                a.h(new vn9(this.a.c), str);
-                a.l("desc", str2);
-                a.m();
-                xn9 xn9Var = this.a.f;
-                if (xn9Var != null) {
-                    xn9Var.onClicked();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                View rootView = this.a.a.getRootView();
+                if (rootView != null && rootView.getVisibility() == 0 && rootView.isShown()) {
+                    un9 a = yn9.a(this.a.b.a);
+                    a.d(new co9(this.a.b.c), this.a.a.getWidth(), this.a.a.getHeight());
+                    a.m();
+                    sl9.n(this.a.b.c);
+                    if (this.a.b.f != null) {
+                        this.a.b.f.onDisplayed();
+                    }
                 }
-                ll9.p(this.a.c, str2);
-                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return true;
         }
-        return invokeLL.booleanValue;
     }
 }

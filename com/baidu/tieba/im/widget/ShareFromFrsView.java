@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ki;
+import com.repackage.oi;
 /* loaded from: classes3.dex */
 public class ShareFromFrsView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -56,7 +56,7 @@ public class ShareFromFrsView extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return ki.cutString(str, 8) + this.g.getString(R.string.obfuscated_res_0x7f0f0652);
+            return oi.cutString(str, 8) + this.g.getString(R.string.obfuscated_res_0x7f0f0646);
         }
         return (String) invokeL.objValue;
     }
@@ -64,13 +64,13 @@ public class ShareFromFrsView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0754, this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090b7c);
-            this.b = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090b1d);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090b6a);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090b86);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090b6b);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090b87);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0753, this);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090b6b);
+            this.b = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090b0c);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090b59);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090b75);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090b5a);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090b76);
         }
     }
 
@@ -80,7 +80,7 @@ public class ShareFromFrsView extends LinearLayout {
             this.a.setText(a(this.h.getName()));
             this.b.setPlaceHolder(1);
             this.b.setAutoChangeStyle(false);
-            this.b.K(this.h.getImageUrl(), 10, false);
+            this.b.J(this.h.getImageUrl(), 10, false);
             this.d.setText(StringHelper.numFormatOver10000(this.h.getMemberNum()));
             this.f.setText(StringHelper.numFormatOver10000(this.h.getPostNum()));
         }

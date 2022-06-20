@@ -1,5 +1,6 @@
 package com.baidu.tieba.homepage.topic.topictab.message;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -10,9 +11,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jn;
-import com.repackage.wz6;
-import com.repackage.yz6;
+import com.repackage.f17;
+import com.repackage.h17;
+import com.repackage.nn;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +24,7 @@ import tbclient.NewTopicList.NewTopicListResIdl;
 public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<jn> mTopicDataList;
+    public List<nn> mTopicDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseSocketGetTopicListMessage() {
@@ -43,42 +44,46 @@ public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
         }
     }
 
-    public List<jn> getTopicDataList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mTopicDataList : (List) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        NewTopicListResIdl newTopicListResIdl;
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         DataRes dataRes;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (newTopicListResIdl = (NewTopicListResIdl) new Wire(new Class[0]).parseFrom(bArr, NewTopicListResIdl.class)) == null) {
-            return;
-        }
-        setError(newTopicListResIdl.error.errorno.intValue());
-        setErrorString(newTopicListResIdl.error.usermsg);
-        if (getError() != 0 || (dataRes = newTopicListResIdl.data) == null || ListUtils.isEmpty(dataRes.topic_list)) {
-            return;
-        }
-        this.mTopicDataList = new ArrayList();
-        int i2 = 1;
-        for (NewTopicList newTopicList : newTopicListResIdl.data.topic_list) {
-            if (newTopicList != null && !StringUtils.isNull(newTopicList.topic_name) && !StringUtils.isNull(newTopicList.topic_desc)) {
-                wz6 wz6Var = new wz6();
-                wz6Var.R = i2;
-                wz6Var.O(newTopicList);
-                this.mTopicDataList.add(wz6Var);
-                yz6 yz6Var = new yz6();
-                yz6Var.a = R.dimen.tbds1;
-                yz6Var.b = R.color.CAM_X0203;
-                this.mTopicDataList.add(yz6Var);
-                i2++;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            NewTopicListResIdl newTopicListResIdl = (NewTopicListResIdl) new Wire(new Class[0]).parseFrom(bArr, NewTopicListResIdl.class);
+            if (newTopicListResIdl == null) {
+                return null;
             }
+            setError(newTopicListResIdl.error.errorno.intValue());
+            setErrorString(newTopicListResIdl.error.usermsg);
+            if (getError() == 0 && (dataRes = newTopicListResIdl.data) != null && !ListUtils.isEmpty(dataRes.topic_list)) {
+                this.mTopicDataList = new ArrayList();
+                int i2 = 1;
+                for (NewTopicList newTopicList : newTopicListResIdl.data.topic_list) {
+                    if (newTopicList != null && !StringUtils.isNull(newTopicList.topic_name) && !StringUtils.isNull(newTopicList.topic_desc)) {
+                        f17 f17Var = new f17();
+                        f17Var.R = i2;
+                        f17Var.O(newTopicList);
+                        this.mTopicDataList.add(f17Var);
+                        h17 h17Var = new h17();
+                        h17Var.a = R.dimen.tbds1;
+                        h17Var.b = R.color.CAM_X0203;
+                        this.mTopicDataList.add(h17Var);
+                        i2++;
+                    }
+                }
+                List<nn> list = this.mTopicDataList;
+                ((h17) ListUtils.getItem(list, list.size() - 1)).a = 0;
+            }
+            return newTopicListResIdl;
         }
-        List<jn> list = this.mTopicDataList;
-        ((yz6) ListUtils.getItem(list, list.size() - 1)).a = 0;
+        return invokeIL.objValue;
+    }
+
+    public List<nn> getTopicDataList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mTopicDataList : (List) invokeV.objValue;
     }
 }

@@ -1,47 +1,78 @@
 package com.repackage;
 
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.baseEditMark.MarkData;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class uk4 {
+public abstract class uk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public int b;
 
-    public uk4(View view2, int i) {
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(boolean z, boolean z2, String str);
+    }
+
+    public uk4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = view2;
-        this.b = i;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public static uk4 b(BaseActivity baseActivity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, baseActivity)) == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001279, uk4.class, baseActivity);
+            if (runTask == null || runTask.getData() == null) {
+                return null;
+            }
+            return (uk4) runTask.getData();
+        }
+        return (uk4) invokeL.objValue;
     }
 
-    public View b() {
-        InterceptResult invokeV;
+    public static uk4 c(BaseFragmentActivity baseFragmentActivity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (View) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921318, uk4.class, baseFragmentActivity);
+            if (runTask == null || runTask.getData() == null) {
+                return null;
+            }
+            return (uk4) runTask.getData();
+        }
+        return (uk4) invokeL.objValue;
     }
+
+    public abstract void a();
+
+    public abstract void d();
+
+    public abstract boolean e();
+
+    public abstract MarkData f();
+
+    public abstract String g();
+
+    public abstract void h(boolean z);
+
+    public abstract void i(MarkData markData);
+
+    public abstract void j(a aVar);
 }

@@ -11,7 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ym0;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
+import com.repackage.cn0;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class RequestParameters {
@@ -22,7 +23,7 @@ public class RequestParameters {
     public final String c;
     public final String d;
     @Nullable
-    public final ym0 e;
+    public final cn0 e;
     @NonNull
     public final RefreshType f;
     public final String g;
@@ -56,7 +57,7 @@ public class RequestParameters {
                     return;
                 }
             }
-            NONE = new RefreshType("NONE", 0, null);
+            NONE = new RefreshType(HlsPlaylistParser.METHOD_NONE, 0, null);
             PULL_UP = new RefreshType("PULL_UP", 1, "3");
             RefreshType refreshType = new RefreshType("PULL_DOWN", 2, "4");
             PULL_DOWN = refreshType;
@@ -179,7 +180,7 @@ public class RequestParameters {
         public int b;
         public String c;
         public String d;
-        public ym0 e;
+        public cn0 e;
         public RefreshType f;
         public String g;
         public SlotType h;

@@ -88,7 +88,7 @@ public class d extends g implements View.OnClickListener, Observer {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.b = (ImageView) a(R.id.obfuscated_res_0x7f091147);
+        this.b = (ImageView) a(R.id.obfuscated_res_0x7f091137);
     }
 
     @Override // android.view.View.OnClickListener

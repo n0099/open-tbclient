@@ -7,35 +7,35 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 /* loaded from: classes6.dex */
-public class jd implements id {
+public class jd implements ld {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Integer a;
+    public Double a;
 
-    public jd(int i) {
+    public jd(double d) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {Double.valueOf(d)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = Integer.valueOf(i);
+        this.a = Double.valueOf(d);
     }
 
-    @Override // com.repackage.id
-    public Object a(yd ydVar) {
+    @Override // com.repackage.ld
+    public Object a(be beVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ydVar)) == null) {
-            Class<?> a = ydVar.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, beVar)) == null) {
+            Class<?> a = beVar.a();
             if (a != Byte.class && a != Byte.TYPE) {
                 if (a != Short.class && a != Short.TYPE) {
                     if (a != Integer.class && a != Integer.TYPE) {
@@ -53,7 +53,7 @@ public class jd implements id {
                                             }
                                             if (a == byte[].class) {
                                                 try {
-                                                    return ci.e(String.valueOf(this.a), 0);
+                                                    return gi.e(String.valueOf(this.a), 0);
                                                 } catch (IOException e) {
                                                     e.printStackTrace();
                                                     return null;

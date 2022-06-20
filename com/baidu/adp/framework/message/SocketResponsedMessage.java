@@ -1,5 +1,7 @@
 package com.baidu.adp.framework.message;
 
+import androidx.annotation.CallSuper;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -40,26 +42,36 @@ public abstract class SocketResponsedMessage extends ResponsedMessage<byte[]> {
         }
     }
 
-    @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public abstract /* synthetic */ void decodeInBackGround(int i, T t) throws Exception;
+    @Nullable
+    public abstract Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception;
 
     public int getRetry() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mRetry : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mRetry : invokeV.intValue;
     }
 
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public boolean hasError() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? getError() != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? getError() != 0 : invokeV.booleanValue;
     }
 
     public void setRetry(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             this.mRetry = i;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    @CallSuper
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bArr) == null) {
+            this.decodeData = decodeInBackGroundNeedResult(i, bArr);
         }
     }
 }

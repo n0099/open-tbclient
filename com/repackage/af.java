@@ -1,44 +1,120 @@
 package com.repackage;
 
-import android.graphics.Rect;
-import android.view.LayoutInflater;
-import android.view.View;
-import com.baidu.adp.lib.guide.MaskView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.bf;
 /* loaded from: classes5.dex */
-public class af {
-    public static /* synthetic */ Interceptable $ic;
+public abstract class af {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int DEF_CRASHTIME_LIMIT = 10;
+    public static final int OFF_TYPE = 0;
+    public static final int ON_TYPE = 1;
     public transient /* synthetic */ FieldHolder $fh;
+    public int mDefaultType;
+    public String[] mKey;
+    public int mMaxCrashTimes;
+    public String mName;
+    public int mOffType;
+    public bf.a mSwitchListener;
 
-    public static View a(LayoutInflater layoutInflater, bf bfVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, layoutInflater, bfVar)) == null) {
-            View c = bfVar.c(layoutInflater);
-            MaskView.LayoutParams layoutParams = new MaskView.LayoutParams(-2, -2);
-            layoutParams.c = bfVar.getXOffset();
-            layoutParams.d = bfVar.getYOffset();
-            layoutParams.a = bfVar.a();
-            layoutParams.b = bfVar.b();
-            c.setLayoutParams(layoutParams);
-            return c;
+    /* loaded from: classes5.dex */
+    public class a implements bf.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ af a;
+
+        public a(af afVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {afVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = afVar;
         }
-        return (View) invokeLL.objValue;
+
+        @Override // com.repackage.bf.a
+        public void a(String str, int i, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+                this.a.changeSettingByType(i);
+            }
+        }
     }
 
-    public static Rect b(View view2, int i, int i2) {
-        InterceptResult invokeLII;
+    public af() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, view2, i, i2)) == null) {
-            int[] iArr = new int[2];
-            view2.getLocationInWindow(iArr);
-            Rect rect = new Rect();
-            rect.set(iArr[0], iArr[1], iArr[0] + view2.getMeasuredWidth(), iArr[1] + view2.getMeasuredHeight());
-            rect.offset(-i, -i2);
-            return rect;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (Rect) invokeLII.objValue;
+        this.mDefaultType = 0;
+        this.mOffType = 1;
+        this.mMaxCrashTimes = 10;
+        this.mSwitchListener = new a(this);
+        initData();
+        addToManager();
+    }
+
+    public void addToManager() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            bf bfVar = new bf(this.mName, this.mDefaultType, this.mSwitchListener);
+            bfVar.i(this.mMaxCrashTimes, this.mKey, this.mOffType);
+            bfVar.k(getSwitchLibs());
+            SwitchManager.getInstance().addSwitchData(bfVar);
+        }
+    }
+
+    public abstract void changeSettingByType(int i);
+
+    public abstract String[] getCrashKeys();
+
+    public abstract int getDefaultType();
+
+    public abstract int getMaxCrashTimes();
+
+    public abstract String getName();
+
+    public abstract int getOffType();
+
+    public String[] getSwitchLibs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return null;
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    public void initData() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.mName = getName();
+            this.mKey = getCrashKeys();
+            this.mDefaultType = getDefaultType();
+            this.mOffType = getOffType();
+            this.mMaxCrashTimes = getMaxCrashTimes();
+        }
     }
 }

@@ -137,6 +137,7 @@ public abstract class NPSProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
+    @TargetApi(19)
     public Uri canonicalize(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -165,6 +166,7 @@ public abstract class NPSProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
+    @TargetApi(18)
     public void dump(FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048583, this, fileDescriptor, printWriter, strArr) == null) {
@@ -364,6 +366,7 @@ public abstract class NPSProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
+    @TargetApi(19)
     public Uri uncanonicalize(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -406,6 +409,7 @@ public abstract class NPSProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
+    @TargetApi(19)
     public AssetFileDescriptor openAssetFile(Uri uri, String str, CancellationSignal cancellationSignal) throws FileNotFoundException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -420,6 +424,7 @@ public abstract class NPSProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
+    @TargetApi(19)
     public ParcelFileDescriptor openFile(Uri uri, String str, CancellationSignal cancellationSignal) throws FileNotFoundException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -434,6 +439,7 @@ public abstract class NPSProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
+    @TargetApi(19)
     public AssetFileDescriptor openTypedAssetFile(Uri uri, String str, Bundle bundle, CancellationSignal cancellationSignal) throws FileNotFoundException {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

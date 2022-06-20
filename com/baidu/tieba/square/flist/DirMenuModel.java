@@ -7,18 +7,19 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b9;
-import com.repackage.cq4;
-import com.repackage.pd8;
-import com.repackage.qd8;
-import com.repackage.qe;
-/* loaded from: classes3.dex */
+import com.repackage.d9;
+import com.repackage.mq4;
+import com.repackage.te;
+import com.repackage.we8;
+import com.repackage.xe8;
+/* loaded from: classes4.dex */
 public class DirMenuModel extends BdBaseModel<ForumListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,15 +31,15 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
     public boolean f;
     public boolean g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface c {
-        void a(boolean z, int i, qd8 qd8Var, String str, boolean z2);
+        void a(boolean z, int i, xe8 xe8Var, String str, boolean z2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -53,7 +54,7 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((b9) newInitContext.callArgs[0]);
+                super((d9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -66,7 +67,7 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         this.e = str3;
     }
 
-    public void G(c cVar) {
+    public void H(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
             this.b = cVar;
@@ -101,12 +102,12 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes3.dex */
-    public class b extends BdAsyncTask<Object, Integer, pd8> {
+    /* loaded from: classes4.dex */
+    public class b extends BdAsyncTask<Object, Integer, we8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
-        public pd8 b;
+        public we8 b;
         public final /* synthetic */ DirMenuModel c;
 
         public b(DirMenuModel dirMenuModel) {
@@ -126,20 +127,20 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
             }
             this.c = dirMenuModel;
             this.a = null;
-            this.b = new pd8();
+            this.b = new we8();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public pd8 doInBackground(Object... objArr) {
+        public we8 doInBackground(Object... objArr) {
             InterceptResult invokeL;
             String str;
             String postNetData;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                cq4.f();
-                qe<String> g = cq4.g("tb.my_posts");
+                mq4.f();
+                te<String> g = mq4.g("tb.my_posts");
                 if (g != null) {
                     str = g.get(TbadkCoreApplication.getCurrentAccount() + "_" + this.c.c + "_dir");
                 } else {
@@ -153,9 +154,9 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
                 try {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/f/forum/seconddir");
                     this.a = netWork;
-                    netWork.addPostData(ForumListActivity.KEY_MENU_NAME, this.c.c);
-                    this.a.addPostData("menu_type", this.c.d);
-                    this.a.addPostData(ForumListActivity.KEY_MENU_ID, this.c.e);
+                    netWork.addPostData("menu_name", this.c.c);
+                    this.a.addPostData(ForumListActivityConfig.KEY_MENU_TYPE, this.c.d);
+                    this.a.addPostData("menu_id", this.c.e);
                     postNetData = this.a.postNetData();
                 } catch (Exception e) {
                     this.b.g(e.getMessage());
@@ -176,19 +177,19 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
                 }
                 return this.b;
             }
-            return (pd8) invokeL.objValue;
+            return (we8) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(pd8 pd8Var) {
+        public void onPostExecute(we8 we8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pd8Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, we8Var) == null) {
                 if (!this.c.f) {
-                    this.c.b.a(false, -1, null, pd8Var.b(), this.c.g);
-                } else if (pd8Var.h() != null) {
-                    this.c.b.a(true, pd8Var.a(), pd8Var.h(), pd8Var.b(), this.c.g);
+                    this.c.b.a(false, -1, null, we8Var.b(), this.c.g);
+                } else if (we8Var.h() != null) {
+                    this.c.b.a(true, we8Var.a(), we8Var.h(), we8Var.b(), this.c.g);
                 }
             }
         }

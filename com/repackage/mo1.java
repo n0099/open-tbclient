@@ -1,194 +1,118 @@
 package com.repackage;
 
+import android.content.Context;
 import android.text.TextUtils;
+import android.util.Pair;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hj2;
-import com.repackage.lo1;
+import com.repackage.zy2;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class mo1 {
+public class mo1 extends lo1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile mo1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public c a;
 
-    /* loaded from: classes6.dex */
-    public class a implements ku2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lo1.c a;
-        public final /* synthetic */ mo1 b;
-
-        public a(mo1 mo1Var, lo1.c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mo1Var, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = mo1Var;
-            this.a = cVar;
-        }
-
-        @Override // com.repackage.ku2
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.b.c(this.a);
-            }
-        }
-
-        @Override // com.repackage.ku2
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                hw1.c("GetLocationHelper", str);
-                n63.b("getLocation", 5002, "user no permission", 10005, str);
-                this.b.a.f(this.a, str);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements hj2.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lo1.c a;
-        public final /* synthetic */ mo1 b;
-
-        public b(mo1 mo1Var, lo1.c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mo1Var, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = mo1Var;
-            this.a = cVar;
-        }
-
-        @Override // com.repackage.hj2.a
-        public void a(g23 g23Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, g23Var) == null) {
-                this.b.a.g(this.a, g23Var);
-            }
-        }
-
-        @Override // com.repackage.hj2.a
-        public void onFailed(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                n63.b("getLocation", 4000, "sdk's errCode is " + i, 1001, String.valueOf(i));
-                this.b.a.b(this.a, i);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        void b(lo1.c cVar, int i);
-
-        void f(lo1.c cVar, String str);
-
-        void g(lo1.c cVar, g23 g23Var);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755492670, "Lcom/repackage/mo1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755492670, "Lcom/repackage/mo1;");
-                return;
-            }
-        }
-        boolean z = rf1.a;
-    }
-
-    public mo1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mo1(@NonNull tn1 tn1Var) {
+        super(tn1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tn1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((tn1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static mo1 d() {
+    @Override // com.repackage.vn1
+    public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (b == null) {
-                synchronized (mo1.class) {
-                    if (b == null) {
-                        b = new mo1();
-                    }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "LoadingViewApi" : (String) invokeV.objValue;
+    }
+
+    public sr1 x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            q("#hideLoading", false);
+            Context context = getContext();
+            if (!(context instanceof SwanAppActivity)) {
+                return new sr1(1001, "context not support");
+            }
+            bz1 X = ((SwanAppActivity) context).X();
+            if (X == null) {
+                return new sr1(1001, "none fragmentManger");
+            }
+            yy1 m = X.m();
+            if (!(m instanceof zy2.a)) {
+                return new sr1(1001, "fragment not support");
+            }
+            if (m.getContext() == null) {
+                return new sr1(1001, "fragment has detached");
+            }
+            az2.c(m);
+            sw1.i("LoadingViewApi", "hide loading success");
+            return sr1.f();
+        }
+        return (sr1) invokeV.objValue;
+    }
+
+    public sr1 y(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#showLoading", false);
+            if (n()) {
+                sw1.c("LoadingViewApi", "LoadingViewApi does not supported when app is invisible.");
+                return new sr1(1001, "LoadingViewApi does not supported when app is invisible.");
+            }
+            Pair<sr1, JSONObject> s = s(str);
+            sr1 sr1Var = (sr1) s.first;
+            if (sr1Var.isSuccess()) {
+                JSONObject jSONObject = (JSONObject) s.second;
+                sw1.i("LoadingViewApi", "handleShowLoading : joParams = \n" + jSONObject);
+                String optString = jSONObject.optString("title");
+                if (TextUtils.isEmpty(optString)) {
+                    return new sr1(202, "none title");
                 }
+                boolean optBoolean = jSONObject.optBoolean("mask", false);
+                Context context = getContext();
+                if (!(context instanceof SwanAppActivity)) {
+                    return new sr1(1001, "context not support");
+                }
+                bz1 X = ((SwanAppActivity) context).X();
+                if (X == null) {
+                    return new sr1(1001, "none fragment");
+                }
+                yy1 m = X.m();
+                if (!(m instanceof zy2.a)) {
+                    return new sr1(1001, "fragment not support");
+                }
+                zy2 c = ((zy2.a) m).c();
+                if (c == null) {
+                    return new sr1(1001, "can't get floatLayer");
+                }
+                az2.f(c, context, optString, optBoolean);
+                sw1.i("LoadingViewApi", "show loading success");
+                return sr1.f();
             }
-            return b;
+            return sr1Var;
         }
-        return (mo1) invokeV.objValue;
-    }
-
-    public final void c(lo1.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            String str = "gcj02";
-            if (!TextUtils.equals(cVar.a, "gcj02")) {
-                str = TextUtils.equals(cVar.a, "bd09ll") ? "bd09ll" : CoordinateType.WGS84;
-            }
-            oi2.I().b(str, false, cVar.b, new b(this, cVar));
-        }
-    }
-
-    public void e(@NonNull lo1.c cVar, @NonNull c cVar2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, cVar2, z) == null) {
-            this.a = cVar2;
-            if (bd3.M()) {
-                c(cVar);
-            } else if (z) {
-                n63.b("getLocation", 1002, "GetLocation does not supported when app is invisible", 10005, "GetLocation does not supported when app is invisible");
-                this.a.f(cVar, "GetLocation does not supported when app is invisible");
-            } else {
-                a aVar = new a(this, cVar);
-                ju2.g(gz2.J().x(), new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, 0, aVar);
-            }
-        }
+        return (sr1) invokeL.objValue;
     }
 }

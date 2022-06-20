@@ -88,7 +88,7 @@ public class c implements com.kwad.sdk.widget.d {
 
     /* renamed from: com.kwad.sdk.reward.d.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0331c implements Animator.AnimatorListener {
+    public static class C0339c implements Animator.AnimatorListener {
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationCancel(Animator animator) {
         }
@@ -147,8 +147,8 @@ public class c implements com.kwad.sdk.widget.d {
         float f = i;
         float f2 = i2;
         Animator a2 = a(view3, f, f2);
-        a2.addListener(new C0331c() { // from class: com.kwad.sdk.reward.d.c.3
-            @Override // com.kwad.sdk.reward.d.c.C0331c, android.animation.Animator.AnimatorListener
+        a2.addListener(new C0339c() { // from class: com.kwad.sdk.reward.d.c.3
+            @Override // com.kwad.sdk.reward.d.c.C0339c, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
                 view2.setAlpha(1.0f);
@@ -170,7 +170,7 @@ public class c implements com.kwad.sdk.widget.d {
     }
 
     private void a(LinearLayout linearLayout, String str) {
-        TextView textView = (TextView) LayoutInflater.from(linearLayout.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0447, (ViewGroup) linearLayout, false);
+        TextView textView = (TextView) LayoutInflater.from(linearLayout.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0441, (ViewGroup) linearLayout, false);
         textView.setText(str);
         this.j.addView(textView);
     }
@@ -183,14 +183,14 @@ public class c implements com.kwad.sdk.widget.d {
     }
 
     private void c() {
-        this.c = (Button) this.a.findViewById(R.id.obfuscated_res_0x7f0910af);
-        this.d = (Button) this.a.findViewById(R.id.obfuscated_res_0x7f0910b1);
-        this.b = this.a.findViewById(R.id.obfuscated_res_0x7f0910b0);
-        this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0910ae);
-        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0910b2);
-        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0910ac);
-        this.i = (KSRatingBar) this.a.findViewById(R.id.obfuscated_res_0x7f0910b3);
-        this.j = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0910b5);
+        this.c = (Button) this.a.findViewById(R.id.obfuscated_res_0x7f09109f);
+        this.d = (Button) this.a.findViewById(R.id.obfuscated_res_0x7f0910a1);
+        this.b = this.a.findViewById(R.id.obfuscated_res_0x7f0910a0);
+        this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09109e);
+        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0910a2);
+        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09109c);
+        this.i = (KSRatingBar) this.a.findViewById(R.id.obfuscated_res_0x7f0910a3);
+        this.j = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0910a5);
     }
 
     private void d() {
@@ -211,8 +211,8 @@ public class c implements com.kwad.sdk.widget.d {
         if (this.p == null) {
             Animator a2 = a(this.d, this.c, width, height);
             this.p = a2;
-            a2.addListener(new C0331c() { // from class: com.kwad.sdk.reward.d.c.2
-                @Override // com.kwad.sdk.reward.d.c.C0331c, android.animation.Animator.AnimatorListener
+            a2.addListener(new C0339c() { // from class: com.kwad.sdk.reward.d.c.2
+                @Override // com.kwad.sdk.reward.d.c.C0339c, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(final Animator animator) {
                     if (c.this.q) {
                         return;
@@ -236,7 +236,7 @@ public class c implements com.kwad.sdk.widget.d {
 
     public void a(View view2, boolean z) {
         int id = view2.getId();
-        if (id == R.id.obfuscated_res_0x7f0910b0 || id == R.id.obfuscated_res_0x7f0910af || id == R.id.obfuscated_res_0x7f0910b1) {
+        if (id == R.id.obfuscated_res_0x7f0910a0 || id == R.id.obfuscated_res_0x7f09109f || id == R.id.obfuscated_res_0x7f0910a1) {
             com.kwai.sodler.lib.a.b("ApkInfoCardViewHelper", "onClick install");
             this.o = true;
             a aVar = this.k;
@@ -274,7 +274,7 @@ public class c implements com.kwad.sdk.widget.d {
         List<String> list = a2.d;
         if (z && list.size() == 0) {
             this.g.setVisibility(8);
-            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0910ad);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09109d);
             this.h = textView;
             textView.setVisibility(0);
             this.h.setText(a2.e);

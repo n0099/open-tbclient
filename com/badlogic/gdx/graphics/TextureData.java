@@ -8,11 +8,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h3;
-import com.repackage.n3;
-import com.repackage.n5;
-import com.repackage.o5;
-import com.repackage.t5;
+import com.repackage.j3;
+import com.repackage.p3;
+import com.repackage.p5;
+import com.repackage.q5;
+import com.repackage.v5;
 /* loaded from: classes.dex */
 public interface TextureData {
 
@@ -81,23 +81,23 @@ public interface TextureData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public static TextureData a(h3 h3Var, Pixmap.Format format, boolean z) {
+        public static TextureData a(j3 j3Var, Pixmap.Format format, boolean z) {
             InterceptResult invokeLLZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, h3Var, format, z)) == null) {
-                if (h3Var == null) {
+            if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, j3Var, format, z)) == null) {
+                if (j3Var == null) {
                     return null;
                 }
-                if (h3Var.g().endsWith(".cim")) {
-                    return new o5(h3Var, n3.a(h3Var), format, z);
+                if (j3Var.g().endsWith(".cim")) {
+                    return new q5(j3Var, p3.a(j3Var), format, z);
                 }
-                if (h3Var.g().endsWith(".etc1")) {
-                    return new n5(h3Var, z);
+                if (j3Var.g().endsWith(".etc1")) {
+                    return new p5(j3Var, z);
                 }
-                if (!h3Var.g().endsWith(".ktx") && !h3Var.g().endsWith(".zktx")) {
-                    return new o5(h3Var, new Pixmap(h3Var), format, z);
+                if (!j3Var.g().endsWith(".ktx") && !j3Var.g().endsWith(".zktx")) {
+                    return new q5(j3Var, new Pixmap(j3Var), format, z);
                 }
-                return new t5(h3Var, z);
+                return new v5(j3Var, z);
             }
             return (TextureData) invokeLLZ.objValue;
         }

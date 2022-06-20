@@ -1,81 +1,72 @@
 package com.repackage;
 
-import android.os.Bundle;
-import android.util.SparseArray;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 /* loaded from: classes5.dex */
 public class be {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Type[] a;
+    public Type b;
+    public Class<?> c;
 
-    public static final ic a(Object obj) {
-        InterceptResult invokeL;
+    public be(Type type) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, obj)) == null) {
-            if (obj == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {type};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            Class<?> cls = obj.getClass();
-            if (cls != Boolean.TYPE && cls != Boolean.class) {
-                if (cls == Bundle.class) {
-                    return new dc((Bundle) obj);
-                }
-                if (cls != Byte.TYPE && cls != Byte.class) {
-                    if (cls != Character.TYPE && cls != Character.class) {
-                        if (cls != Double.TYPE && cls != Double.class) {
-                            if (cls != Float.TYPE && cls != Float.class) {
-                                if (cls != Integer.TYPE && cls != Integer.class) {
-                                    if (cls != Long.TYPE && cls != Long.class) {
-                                        if (cls != Short.TYPE && cls != Short.class) {
-                                            if (cls == String.class) {
-                                                return new sc((String) obj);
-                                            }
-                                            if (cls.isArray()) {
-                                                return new bc(obj);
-                                            }
-                                            if (cls == SparseArray.class) {
-                                                return new rc((SparseArray) obj);
-                                            }
-                                            if (obj instanceof List) {
-                                                return new kc((List) obj);
-                                            }
-                                            if (obj instanceof Queue) {
-                                                return new oc((Queue) obj);
-                                            }
-                                            if (obj instanceof Map) {
-                                                return new mc((Map) obj);
-                                            }
-                                            if (obj instanceof Set) {
-                                                return new pc((Set) obj);
-                                            }
-                                            if (yb.e(cls, OrmObject.class)) {
-                                                return new nc((OrmObject) obj);
-                                            }
-                                            return null;
-                                        }
-                                        return new qc(((Short) obj).shortValue());
-                                    }
-                                    return new lc(((Long) obj).longValue());
-                                }
-                                return new jc(((Integer) obj).intValue());
-                            }
-                            return new hc(((Float) obj).floatValue());
-                        }
-                        return new gc(((Double) obj).doubleValue());
-                    }
-                    return new fc(((Character) obj).charValue());
-                }
-                return new ec(((Byte) obj).byteValue());
-            }
-            return new cc(((Boolean) obj).booleanValue());
         }
-        return (ic) invokeL.objValue;
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        if (type instanceof ParameterizedType) {
+            ParameterizedType parameterizedType = (ParameterizedType) type;
+            this.a = parameterizedType.getActualTypeArguments();
+            Type rawType = parameterizedType.getRawType();
+            this.b = rawType;
+            Type[] typeArr = this.a;
+            if (typeArr == null || typeArr.length <= 0) {
+                return;
+            }
+            try {
+                this.c = (Class) rawType;
+                return;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return;
+            }
+        }
+        try {
+            this.c = (Class) type;
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    public Class<?> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (Class) invokeV.objValue;
+    }
+
+    public Type[] b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (Type[]) invokeV.objValue;
     }
 }

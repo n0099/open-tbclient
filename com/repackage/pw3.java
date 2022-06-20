@@ -1,17 +1,44 @@
 package com.repackage;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface pw3 {
-    boolean a(@NonNull Context context, @NonNull SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType, @NonNull hn3 hn3Var);
+public class pw3 implements gx3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b(Context context, String str, String str2, String str3);
+    public pw3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    boolean c();
+    @Override // com.repackage.gx3
+    public void a(f04 f04Var, e04 e04Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, f04Var, e04Var) == null) || e04Var == null) {
+            return;
+        }
+        e04Var.a(f04Var, "Method 'shareVideo' is not implemented.");
+    }
 
-    String getPackageName();
-
-    void init();
+    @Override // com.repackage.gx3
+    public void b(wz3 wz3Var, vz3 vz3Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wz3Var, vz3Var) == null) || vz3Var == null) {
+            return;
+        }
+        vz3Var.a(wz3Var, "Method 'clipVideo' is not implemented.");
+    }
 }

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.MonitorType;
-import com.repackage.p79;
+import com.repackage.x79;
 import org.webrtc.EglBase10;
 @TargetApi(18)
 /* loaded from: classes4.dex */
@@ -63,7 +63,7 @@ public class InputSurface {
                 if (eglGetError == 12288) {
                     break;
                 }
-                p79.e("InputSurface", str + ": EGL error: 0x" + Integer.toHexString(eglGetError));
+                x79.e("InputSurface", str + ": EGL error: 0x" + Integer.toHexString(eglGetError));
                 z = true;
             }
             if (z) {

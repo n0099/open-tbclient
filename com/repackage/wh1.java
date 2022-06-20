@@ -1,13 +1,15 @@
 package com.repackage;
 
-import androidx.annotation.Nullable;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class wh1 implements gj2 {
+public class wh1 implements ak1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,11 +27,26 @@ public class wh1 implements gj2 {
         }
     }
 
-    @Override // com.repackage.gj2
-    @Nullable
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.ak1
+    public long a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? nw1.b().a : invokeL.longValue;
+    }
+
+    @Override // com.repackage.ak1
+    public void b(Context context, String str, le3<String> le3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, le3Var) == null) {
+            sm1.d(str, le3Var);
+        }
+    }
+
+    @Override // com.repackage.ak1
+    public void c(Context context, JSONArray jSONArray, le3<String> le3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, jSONArray, le3Var) == null) {
+            sm1.e(jSONArray, le3Var);
+        }
     }
 }

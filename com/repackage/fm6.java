@@ -1,123 +1,97 @@
 package com.repackage;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ViewCommonUtil;
-import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.R;
-import com.baidu.tieba.frs.vc.FrsTopView;
+import com.baidu.tieba.frs.recommend.FrsLikeRecommendHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.wo6;
-/* compiled from: TopViewLogic.java */
-/* loaded from: classes5.dex */
-public final /* synthetic */ class fm6 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ThemeColorInfo;
+/* loaded from: classes6.dex */
+public class fm6 extends an<hg8, FrsLikeRecommendHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ThemeColorInfo i;
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fm6(@NonNull Context context) {
+        super(context, hg8.f);
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? UbsABTestHelper.isFrsModifyABTestA() : invokeV.booleanValue;
-    }
-
-    public static void b(@NonNull View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, view2) == null) && a()) {
-            ViewCommonUtil.setViewMargin(view2, -1, -1, -1, UtilHelper.getDimenPixelSize(R.dimen.tbds9));
-        }
-    }
-
-    public static void c(@NonNull View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, view2) == null) && a()) {
-            int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds18);
-            ViewCommonUtil.setViewPadding(view2, -1, dimenPixelSize, -1, dimenPixelSize);
-        }
-    }
-
-    public static void d(@NonNull View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, view2) == null) {
-            if (a()) {
-                wq4 d = wq4.d(view2);
-                d.n(R.string.J_X05);
-                d.f(R.color.CAM_X0201);
-                ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-                if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                    ((ViewGroup.MarginLayoutParams) layoutParams).topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X002);
-                    return;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            SkinManager.setBackgroundColor(view2, R.color.CAM_X0204);
         }
     }
 
-    public static void e(@NonNull wo6.f fVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, fVar) == null) && a()) {
-            ViewCommonUtil.setViewWidthHeight(fVar.d, -3, -2);
-            ViewCommonUtil.setViewWidthHeight(fVar.c, -3, -2);
-            ViewCommonUtil.setViewWidthHeight(fVar.e, -3, -2);
-            ViewCommonUtil.setViewWidthHeight(fVar.f, -3, -2);
-            ViewCommonUtil.setViewMargin(fVar.f, 0, 0, 0, 0);
-            int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds18);
-            ViewCommonUtil.setViewPadding(fVar.f, -1, dimenPixelSize, -1, dimenPixelSize);
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.repackage.an
+    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, hg8 hg8Var, FrsLikeRecommendHolder frsLikeRecommendHolder) {
+        b0(i, view2, viewGroup, hg8Var, frsLikeRecommendHolder);
+        return view2;
+    }
+
+    public /* synthetic */ void Z(hg8 hg8Var, ViewGroup viewGroup, int i, View view2) {
+        if (z() != null) {
+            z().b(view2, hg8Var, hg8.f, viewGroup, i, view2.getId());
         }
     }
 
-    public static void f(@NonNull TextView textView, @ColorInt int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.an
+    /* renamed from: a0 */
+    public FrsLikeRecommendHolder M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65541, null, textView, i) == null) {
-            Context context = textView.getContext();
-            if (a()) {
-                textView.setTextColor(i);
-                textView.setTextSize(0, li.f(context, R.dimen.T_X07));
-                ViewGroup.LayoutParams layoutParams = textView.getLayoutParams();
-                layoutParams.width = -2;
-                layoutParams.height = -2;
-                return;
-            }
-            TBSelector.makeDrawableSelector().setShape(0).cornerRadius(li.f(context, R.dimen.tbds10)).defaultColorValueNotAutoChangeSkinType(i).into(textView);
-            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
-            textView.setTextSize(0, li.f(context, R.dimen.T_X10));
-            ViewGroup.LayoutParams layoutParams2 = textView.getLayoutParams();
-            layoutParams2.width = li.f(context, R.dimen.tbds74);
-            layoutParams2.height = li.f(context, R.dimen.tbds40);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new FrsLikeRecommendHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0327, viewGroup, false), this.i) : (FrsLikeRecommendHolder) invokeL.objValue;
     }
 
-    @Nullable
-    public static BdTypeRecyclerView g(@Nullable FrsTopView frsTopView, @Nullable BdTypeRecyclerView bdTypeRecyclerView) {
-        InterceptResult invokeLL;
+    public View b0(final int i, View view2, final ViewGroup viewGroup, final hg8 hg8Var, FrsLikeRecommendHolder frsLikeRecommendHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, frsTopView, bdTypeRecyclerView)) == null) {
-            if (!a() || frsTopView == null || bdTypeRecyclerView == null) {
-                return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, hg8Var, frsLikeRecommendHolder})) == null) {
+            if (hg8Var != null && frsLikeRecommendHolder != null) {
+                frsLikeRecommendHolder.c(hg8Var);
+                frsLikeRecommendHolder.e(new View.OnClickListener() { // from class: com.repackage.bm6
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // android.view.View.OnClickListener
+                    public final void onClick(View view3) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
+                            fm6.this.Z(hg8Var, viewGroup, i, view3);
+                        }
+                    }
+                });
+                frsLikeRecommendHolder.d();
             }
-            View v = bdTypeRecyclerView.v(Integer.valueOf(gm6.a));
-            if (v != null) {
-                bdTypeRecyclerView.removeHeaderView(v);
-            }
-            if (frsTopView.getParent() instanceof ViewGroup) {
-                ((ViewGroup) frsTopView.getParent()).removeView(frsTopView);
-            }
-            frsTopView.setTag(R.id.obfuscated_res_0x7f090f31, Integer.valueOf(gm6.a));
-            bdTypeRecyclerView.s(frsTopView);
-            return bdTypeRecyclerView;
+            return view2;
         }
-        return (BdTypeRecyclerView) invokeLL.objValue;
+        return (View) invokeCommon.objValue;
+    }
+
+    public void c0(ThemeColorInfo themeColorInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, themeColorInfo) == null) {
+            this.i = themeColorInfo;
+        }
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.tieba.setting.im.more;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.data.CloseAdData;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.CloseAd.CloseAdResIdl;
 import tbclient.Error;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MemberCloseAdSocketResponseMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,27 +38,35 @@ public class MemberCloseAdSocketResponseMessage extends TbSocketReponsedMessage 
         }
     }
 
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            if (bArr == null) {
+                return null;
+            }
+            CloseAdResIdl closeAdResIdl = (CloseAdResIdl) new Wire(new Class[0]).parseFrom(bArr, CloseAdResIdl.class);
+            Error error = closeAdResIdl.error;
+            if (error == null) {
+                return closeAdResIdl;
+            }
+            setError(error.errorno.intValue());
+            setErrorString(closeAdResIdl.error.usermsg);
+            if (getError() == 0 && closeAdResIdl.data != null) {
+                CloseAdData closeAdData = new CloseAdData();
+                this.mData = closeAdData;
+                closeAdData.B(closeAdResIdl.data.vip_close_ad);
+            }
+            return closeAdResIdl;
+        }
+        return invokeIL.objValue;
+    }
+
     public CloseAdData getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (CloseAdData) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.message.websockt.TbSocketReponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        CloseAdResIdl closeAdResIdl;
-        Error error;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || bArr == null || (error = (closeAdResIdl = (CloseAdResIdl) new Wire(new Class[0]).parseFrom(bArr, CloseAdResIdl.class)).error) == null) {
-            return;
-        }
-        setError(error.errorno.intValue());
-        setErrorString(closeAdResIdl.error.usermsg);
-        if (getError() == 0 && closeAdResIdl.data != null) {
-            CloseAdData closeAdData = new CloseAdData();
-            this.mData = closeAdData;
-            closeAdData.A(closeAdResIdl.data.vip_close_ad);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (CloseAdData) invokeV.objValue;
     }
 }

@@ -15,33 +15,27 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.flutter.FlutterPluginManager;
 import com.baidu.tieba.wallet.WalletPluginManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i65;
-import com.repackage.n65;
-import com.repackage.o65;
-import com.repackage.zk;
+import com.repackage.dl;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class NpsPluginCenterActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbSettingTextTipView livePlugin;
-    public int mFromType;
-    public NavigationBar mNavigationBar;
-    public NoDataView mNoDataView;
-    public o65<Object, i65, n65<Object, i65>> mPluginCenterAdapter;
-    public View mRootView;
-    public List<Object> mShowList;
+    public View a;
+    public NavigationBar b;
+    public NoDataView c;
     @NonNull
-    public final List<TbSettingTextTipView> tipViewList;
+    public final List<TbSettingTextTipView> d;
     @NonNull
-    public final List<String> whiteList;
+    public final List<String> e;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -91,41 +85,42 @@ public class NpsPluginCenterActivity extends BaseActivity {
                 return;
             }
         }
-        this.tipViewList = new ArrayList();
-        this.whiteList = new ArrayList();
+        this.d = new ArrayList();
+        this.e = new ArrayList();
     }
 
-    private void initNavigationBar() {
+    public final void A1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (getIntent() != null) {
-                this.mFromType = getIntent().getIntExtra("key_from_type", 0);
+                getIntent().getIntExtra("key_from_type", 0);
             }
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923a2);
-            this.mNavigationBar = navigationBar;
-            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0e7b));
-            this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09238f);
+            this.b = navigationBar;
+            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0e84));
+            this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         }
     }
 
-    private void initScrollContent() {
+    public final void B1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091bf6);
-            this.whiteList.add("com.baidu.searchbox.bjhlivenps");
-            this.whiteList.add("com.baidu.live.media.business");
-            this.whiteList.add(LiveNPSPluginManager.NPS_PLUGIN_PKG_NAME);
-            this.whiteList.add("com.baidu.searchbox.yylive.extlib");
-            this.whiteList.add(WalletPluginManager.PLUGIN_PKG_NAME);
-            for (BundleInfo bundleInfo : zk.e().c()) {
-                if (this.whiteList.contains(bundleInfo.getPackageName())) {
-                    TbSettingTextTipView makeTipView = makeTipView();
-                    makeTipView.setText(bundleInfo.getName());
-                    makeTipView.setTip(String.valueOf(bundleInfo.getVersionCode()));
-                    this.tipViewList.add(makeTipView);
-                    linearLayout.addView(makeTipView);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091bee);
+            this.e.add("com.baidu.searchbox.bjhlivenps");
+            this.e.add("com.baidu.live.media.business");
+            this.e.add(LiveNPSPluginManager.NPS_PLUGIN_PKG_NAME);
+            this.e.add("com.baidu.searchbox.yylive.extlib");
+            this.e.add(WalletPluginManager.PLUGIN_PKG_NAME);
+            this.e.add(FlutterPluginManager.PLUGIN_PKG_NAME);
+            for (BundleInfo bundleInfo : dl.e().c()) {
+                if (this.e.contains(bundleInfo.getPackageName())) {
+                    TbSettingTextTipView C1 = C1();
+                    C1.setText(bundleInfo.getName());
+                    C1.setTip(String.valueOf(bundleInfo.getVersionCode()));
+                    this.d.add(C1);
+                    linearLayout.addView(C1);
                     if (TbadkCoreApplication.getInst().isDebugMode()) {
-                        makeTipView.setOnClickListener(new a(this, bundleInfo));
+                        C1.setOnClickListener(new a(this, bundleInfo));
                     }
                 }
             }
@@ -133,10 +128,10 @@ public class NpsPluginCenterActivity extends BaseActivity {
     }
 
     @NonNull
-    private TbSettingTextTipView makeTipView() {
+    public final TbSettingTextTipView C1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             TbSettingTextTipView tbSettingTextTipView = new TbSettingTextTipView(this);
             tbSettingTextTipView.c();
             return tbSettingTextTipView;
@@ -147,16 +142,16 @@ public class NpsPluginCenterActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            SkinManager.setBackgroundColor(this.mRootView, R.color.CAM_X0204);
-            this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0204);
+            this.b.onChangeSkinType(getPageContext(), i);
             getLayoutMode().j(findViewById(16908290));
-            NoDataView noDataView = this.mNoDataView;
+            NoDataView noDataView = this.c;
             if (noDataView != null) {
                 noDataView.f(getPageContext(), i);
             }
-            for (TbSettingTextTipView tbSettingTextTipView : this.tipViewList) {
+            for (TbSettingTextTipView tbSettingTextTipView : this.d) {
                 tbSettingTextTipView.f(i);
             }
         }
@@ -165,11 +160,11 @@ public class NpsPluginCenterActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d061a);
-            initNavigationBar();
-            initScrollContent();
+            setContentView(R.layout.obfuscated_res_0x7f0d0617);
+            A1();
+            B1();
         }
     }
 }

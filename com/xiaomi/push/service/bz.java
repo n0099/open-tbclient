@@ -1,54 +1,223 @@
 package com.xiaomi.push.service;
 
-import android.database.ContentObserver;
-import android.os.Handler;
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.service.XMPushService;
+import com.tachikoma.core.component.input.ReturnKeyType;
+import com.xiaomi.mipush.sdk.Constants;
+import com.xiaomi.push.hm;
+import com.xiaomi.push.hn;
+import com.xiaomi.push.ht;
+import com.xiaomi.push.ii;
+import com.xiaomi.push.it;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes8.dex */
-public class bz extends ContentObserver {
+public class bz {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ XMPushService a;
+    public static String a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bz(XMPushService xMPushService, Handler handler) {
-        super(handler);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {xMPushService, handler};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Handler) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* renamed from: a  reason: collision with other field name */
+    public static SimpleDateFormat f954a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public static AtomicLong f955a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1071163790, "Lcom/xiaomi/push/service/bz;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1071163790, "Lcom/xiaomi/push/service/bz;");
                 return;
             }
         }
-        this.a = xMPushService;
+        f955a = new AtomicLong(0L);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        f954a = simpleDateFormat;
+        a = simpleDateFormat.format(Long.valueOf(System.currentTimeMillis()));
     }
 
-    @Override // android.database.ContentObserver
-    public void onChange(boolean z) {
-        boolean m595g;
+    public static ii a(String str, String str2, hm hmVar) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            super.onChange(z);
-            m595g = this.a.m595g();
-            com.xiaomi.channel.commonutils.logger.b.m108a("SuperPowerMode:" + m595g);
-            this.a.e();
-            if (!m595g) {
-                this.a.a(true);
-                return;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, hmVar)) == null) ? new ii("-1", false).d(str).b(str2).a(com.xiaomi.push.ab.a(it.a(hmVar))).c(ht.B.f498a) : (ii) invokeLLL.objValue;
+    }
+
+    public static synchronized String a() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (bz.class) {
+                String format = f954a.format(Long.valueOf(System.currentTimeMillis()));
+                if (!TextUtils.equals(a, format)) {
+                    f955a.set(0L);
+                    a = format;
+                }
+                str = format + "-" + f955a.incrementAndGet();
             }
-            XMPushService xMPushService = this.a;
-            xMPushService.a(new XMPushService.f(xMPushService, 24, null));
+            return str;
         }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:29:0x0066  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x006a  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static ArrayList<ii> a(List<hn> list, String str, String str2, int i) {
+        InterceptResult invokeLLLI;
+        int i2;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65539, null, list, str, str2, i)) == null) {
+            if (list == null) {
+                str3 = "requests can not be null in TinyDataHelper.transToThriftObj().";
+            } else if (list.size() != 0) {
+                ArrayList<ii> arrayList = new ArrayList<>();
+                hm hmVar = new hm();
+                int i3 = 0;
+                for (int i4 = 0; i4 < list.size(); i4++) {
+                    hn hnVar = list.get(i4);
+                    if (hnVar != null) {
+                        if (hnVar.m395a() == null || !hnVar.m395a().containsKey("item_size")) {
+                            i2 = 0;
+                        } else {
+                            String str4 = hnVar.m395a().get("item_size");
+                            if (!TextUtils.isEmpty(str4)) {
+                                try {
+                                    i2 = Integer.parseInt(str4);
+                                } catch (Exception unused) {
+                                }
+                                if (hnVar.m395a().size() != 1) {
+                                    hnVar.a((Map<String, String>) null);
+                                } else {
+                                    hnVar.m395a().remove("item_size");
+                                }
+                            }
+                            i2 = 0;
+                            if (hnVar.m395a().size() != 1) {
+                            }
+                        }
+                        if (i2 <= 0) {
+                            i2 = it.a(hnVar).length;
+                        }
+                        if (i2 > i) {
+                            com.xiaomi.channel.commonutils.logger.b.d("TinyData is too big, ignore upload request item:" + hnVar.d());
+                        } else {
+                            if (i3 + i2 > i) {
+                                arrayList.add(a(str, str2, hmVar));
+                                hmVar = new hm();
+                                i3 = 0;
+                            }
+                            hmVar.a(hnVar);
+                            i3 += i2;
+                        }
+                    }
+                }
+                if (hmVar.a() != 0) {
+                    arrayList.add(a(str, str2, hmVar));
+                }
+                return arrayList;
+            } else {
+                str3 = "requests.length is 0 in TinyDataHelper.transToThriftObj().";
+            }
+            com.xiaomi.channel.commonutils.logger.b.d(str3);
+            return null;
+        }
+        return (ArrayList) invokeLLLI.objValue;
+    }
+
+    public static void a(Context context, String str, String str2, long j, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, str2, Long.valueOf(j), str3}) == null) {
+            hn hnVar = new hn();
+            hnVar.d(str);
+            hnVar.c(str2);
+            hnVar.a(j);
+            hnVar.b(str3);
+            hnVar.a("push_sdk_channel");
+            hnVar.g(context.getPackageName());
+            hnVar.e(context.getPackageName());
+            hnVar.a(true);
+            hnVar.b(System.currentTimeMillis());
+            hnVar.f(a());
+            ca.a(context, hnVar);
+        }
+    }
+
+    public static void a(String str, String str2, String str3, ao aoVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLL(65541, null, str, str2, str3, aoVar) == null) || aoVar == null) {
+            return;
+        }
+        hn hnVar = new hn();
+        hnVar.d(str);
+        hnVar.c(str2);
+        hnVar.g(str3);
+        hnVar.e(str3);
+        HashMap hashMap = new HashMap();
+        hashMap.put("chid", String.valueOf(aoVar.a));
+        hashMap.put("screen_on", String.valueOf(aoVar.f894a));
+        hashMap.put("wifi", String.valueOf(aoVar.f896b));
+        hashMap.put("rx_msg", String.valueOf(aoVar.f893a));
+        hashMap.put("enqueue", String.valueOf(aoVar.f895b));
+        hashMap.put("num", String.valueOf(aoVar.b));
+        hashMap.put("run", String.valueOf(aoVar.c));
+        hashMap.put(ReturnKeyType.SEND, String.valueOf(System.currentTimeMillis()));
+        hnVar.a(hashMap);
+        ca.a(hnVar);
+    }
+
+    public static boolean a(hn hnVar, boolean z) {
+        InterceptResult invokeLZ;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, null, hnVar, z)) == null) {
+            if (hnVar == null) {
+                str = "item is null, verfiy ClientUploadDataItem failed.";
+            } else if (!z && TextUtils.isEmpty(hnVar.f470a)) {
+                str = "item.channel is null or empty, verfiy ClientUploadDataItem failed.";
+            } else if (TextUtils.isEmpty(hnVar.f477d)) {
+                str = "item.category is null or empty, verfiy ClientUploadDataItem failed.";
+            } else if (TextUtils.isEmpty(hnVar.f476c)) {
+                str = "item.name is null or empty, verfiy ClientUploadDataItem failed.";
+            } else if (!com.xiaomi.push.bp.m199a(hnVar.f477d)) {
+                str = "item.category can only contain ascii char, verfiy ClientUploadDataItem failed.";
+            } else if (com.xiaomi.push.bp.m199a(hnVar.f476c)) {
+                String str2 = hnVar.f475b;
+                if (str2 == null || str2.length() <= 10240) {
+                    return false;
+                }
+                str = "item.data is too large(" + hnVar.f475b.length() + "), max size for data is 10240 , verfiy ClientUploadDataItem failed.";
+            } else {
+                str = "item.name can only contain ascii char, verfiy ClientUploadDataItem failed.";
+            }
+            com.xiaomi.channel.commonutils.logger.b.m84a(str);
+            return true;
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    public static boolean a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? !com.xiaomi.push.v.m686b() || Constants.HYBRID_PACKAGE_NAME.equals(str) : invokeL.booleanValue;
     }
 }

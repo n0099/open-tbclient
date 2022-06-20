@@ -12,15 +12,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cz6;
-import com.repackage.s85;
-import com.repackage.zy6;
+import com.repackage.f95;
+import com.repackage.i07;
+import com.repackage.l07;
 /* loaded from: classes3.dex */
 public class LocalChannelTopicListActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LocalChannelTopicListModel mModel;
-    public zy6 mView;
+    public LocalChannelTopicListModel k;
+    public i07 l;
 
     /* loaded from: classes3.dex */
     public class a implements LocalChannelTopicListModel.b {
@@ -47,21 +47,21 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
         }
 
         @Override // com.baidu.tieba.homepage.topic.local.LocalChannelTopicListModel.b
-        public void a(cz6 cz6Var) {
+        public void a(l07 l07Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, cz6Var) == null) || this.a.mView == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, l07Var) == null) || this.a.l == null) {
                 return;
             }
-            this.a.mView.p(cz6Var);
+            this.a.l.q(l07Var);
         }
 
         @Override // com.baidu.tieba.homepage.topic.local.LocalChannelTopicListModel.b
         public void onFail(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.a.mView == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.a.l == null) {
                 return;
             }
-            this.a.mView.m(str);
+            this.a.l.m(str);
         }
     }
 
@@ -92,10 +92,10 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.mModel == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.k == null) {
                 return;
             }
-            this.a.mModel.loadData();
+            this.a.k.loadData();
         }
     }
 
@@ -114,15 +114,10 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public s85 getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
-        InterceptResult invokeLL;
+    public void C0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
-            zy6 zy6Var = new zy6(getPageContext(), linearLayout, navigationBar, new b(this));
-            this.mView = zy6Var;
-            return zy6Var;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
-        return (s85) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity
@@ -130,9 +125,9 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            zy6 zy6Var = this.mView;
-            if (zy6Var != null) {
-                zy6Var.onViewChangeSkinType(i);
+            i07 i07Var = this.l;
+            if (i07Var != null) {
+                i07Var.n(i);
             }
         }
     }
@@ -142,11 +137,11 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            this.mView.k(getIntent());
+            this.l.k(getIntent());
             LocalChannelTopicListModel localChannelTopicListModel = new LocalChannelTopicListModel(getPageContext());
-            this.mModel = localChannelTopicListModel;
-            localChannelTopicListModel.z(new a(this));
-            this.mModel.loadData();
+            this.k = localChannelTopicListModel;
+            localChannelTopicListModel.A(new a(this));
+            this.k.loadData();
         }
     }
 
@@ -155,17 +150,22 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            zy6 zy6Var = this.mView;
-            if (zy6Var != null) {
-                zy6Var.onDestroy();
+            i07 i07Var = this.l;
+            if (i07Var != null) {
+                i07Var.onDestroy();
             }
         }
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public void requestData() {
+    public f95 r0(LinearLayout linearLayout, NavigationBar navigationBar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, linearLayout, navigationBar)) == null) {
+            i07 i07Var = new i07(getPageContext(), linearLayout, navigationBar, new b(this));
+            this.l = i07Var;
+            return i07Var;
         }
+        return (f95) invokeLL.objValue;
     }
 }

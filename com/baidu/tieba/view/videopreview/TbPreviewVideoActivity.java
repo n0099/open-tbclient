@@ -5,7 +5,6 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
@@ -26,12 +25,12 @@ import java.io.Serializable;
 public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View.OnClickListener backBtnListener;
-    public int currentPlayPosition;
-    public NavigationBar navigationBar;
-    public VideoInfo videoInfo;
-    public CustomVideoView videoView;
-    public VideoControllerView videoViewController;
+    public NavigationBar a;
+    public CustomVideoView b;
+    public VideoInfo c;
+    public VideoControllerView d;
+    public int e;
+    public View.OnClickListener f;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -60,10 +59,10 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.videoView == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.b == null) {
                 return;
             }
-            this.a.videoView.stopPlayback();
+            this.a.b.stopPlayback();
             this.a.closeActivity();
         }
     }
@@ -96,9 +95,9 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
         public void onPrepared(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                this.a.videoView.start();
-                this.a.videoViewController.i(0, this.a.videoView.getDuration());
-                this.a.videoViewController.p();
+                this.a.b.start();
+                this.a.d.i(0, this.a.b.getDuration());
+                this.a.d.p();
             }
         }
     }
@@ -131,8 +130,8 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
         public void onCompletion(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                this.a.videoView.start();
-                this.a.videoViewController.p();
+                this.a.b.start();
+                this.a.d.p();
             }
         }
     }
@@ -151,47 +150,47 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
         }
     }
 
-    private void initDataFromIntent() {
+    public final void D1() {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (intent = getIntent()) == null) {
             return;
         }
         Serializable serializableExtra = intent.getSerializableExtra(TbPreviewVideoActivityConfig.KEY_VIDEO_INFO);
         if (serializableExtra instanceof VideoInfo) {
-            this.videoInfo = (VideoInfo) serializableExtra;
+            this.c = (VideoInfo) serializableExtra;
         }
     }
 
-    private void initListener() {
+    public final void E1() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65541, this) == null) && this.backBtnListener == null) {
-            this.backBtnListener = new a(this);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f == null) {
+            this.f = new a(this);
         }
     }
 
-    private void initView() {
+    public final void F1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0918e2);
-            this.navigationBar = navigationBar;
-            ((ImageView) navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.backBtnListener).findViewById(R.id.obfuscated_res_0x7f092442)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0809ec));
-            this.videoView = (CustomVideoView) findViewById(R.id.obfuscated_res_0x7f0918e4);
-            if (!StringUtils.isNull(this.videoInfo.getVideoPath())) {
-                this.videoView.setVideoPath(this.videoInfo.getVideoPath());
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0918d9);
+            this.a = navigationBar;
+            ((ImageView) navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.f).findViewById(R.id.obfuscated_res_0x7f09242f)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0809d7));
+            this.b = (CustomVideoView) findViewById(R.id.obfuscated_res_0x7f0918db);
+            if (!StringUtils.isNull(this.c.getVideoPath())) {
+                this.b.setVideoPath(this.c.getVideoPath());
             }
-            this.videoView.setOnPreparedListener(new b(this));
-            this.videoView.setOnCompletionListener(new c(this));
-            VideoControllerView videoControllerView = (VideoControllerView) findViewById(R.id.obfuscated_res_0x7f0918e0);
-            this.videoViewController = videoControllerView;
-            videoControllerView.setPlayer(this.videoView);
+            this.b.setOnPreparedListener(new b(this));
+            this.b.setOnCompletionListener(new c(this));
+            VideoControllerView videoControllerView = (VideoControllerView) findViewById(R.id.obfuscated_res_0x7f0918d7);
+            this.d = videoControllerView;
+            videoControllerView.setPlayer(this.b);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void closeAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 0);
         }
     }
@@ -199,12 +198,12 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d004a);
-            initDataFromIntent();
-            initListener();
-            initView();
+            D1();
+            E1();
+            F1();
             TiebaStatic.log("c14312");
         }
     }
@@ -212,9 +211,9 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            CustomVideoView customVideoView = this.videoView;
+            CustomVideoView customVideoView = this.b;
             if (customVideoView != null) {
                 customVideoView.stopPlayback();
             }
@@ -224,12 +223,12 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onPause();
-            CustomVideoView customVideoView = this.videoView;
+            CustomVideoView customVideoView = this.b;
             if (customVideoView != null) {
-                this.currentPlayPosition = customVideoView.getCurrentPosition();
-                this.videoView.stopPlayback();
+                this.e = customVideoView.getCurrentPosition();
+                this.b.stopPlayback();
             }
         }
     }
@@ -237,13 +236,13 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onResume();
-            CustomVideoView customVideoView = this.videoView;
+            CustomVideoView customVideoView = this.b;
             if (customVideoView != null) {
                 customVideoView.start();
-                this.videoView.seekTo(this.currentPlayPosition);
-                this.videoViewController.p();
+                this.b.seekTo(this.e);
+                this.d.p();
             }
         }
     }

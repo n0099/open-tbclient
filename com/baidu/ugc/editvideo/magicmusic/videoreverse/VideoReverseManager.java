@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.listener.OnTimeReverseListener;
 import com.baidu.ugc.utils.FileUtils;
-import com.repackage.p79;
+import com.repackage.x79;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.WeakHashMap;
@@ -122,7 +122,7 @@ public class VideoReverseManager {
                 WeakReference<OnTimeReverseListener> weakReference = new WeakReference<>(onTimeReverseListener);
                 try {
                 } catch (Exception e) {
-                    p79.g(e);
+                    x79.g(e);
                     OnTimeReverseListener onTimeReverseListener2 = weakReference.get();
                     if (onTimeReverseListener2 != null) {
                         String str2 = z ? "MediaCodec点击倒放失败" : "MediaCodec预倒放失败";

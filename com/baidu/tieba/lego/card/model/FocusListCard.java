@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eb7;
+import com.repackage.pc7;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -69,10 +69,10 @@ public class FocusListCard extends BaseCardInfo {
                 return;
             }
         }
-        this.titleColor = eb7.b(jSONObject.optString("titleColor", ""));
-        this.titleColorNight = eb7.b(jSONObject.optString("titleColorNight", ""));
-        this.bgColor = eb7.b(jSONObject.optString("bgColor", ""));
-        this.bgColorNight = eb7.b(jSONObject.optString("bgColorNight", ""));
+        this.titleColor = pc7.b(jSONObject.optString("titleColor", ""));
+        this.titleColorNight = pc7.b(jSONObject.optString("titleColorNight", ""));
+        this.bgColor = pc7.b(jSONObject.optString("bgColor", ""));
+        this.bgColorNight = pc7.b(jSONObject.optString("bgColorNight", ""));
         JSONArray optJSONArray2 = jSONObject.optJSONArray("itemList");
         int length = optJSONArray2 == null ? 0 : optJSONArray2.length();
         this.focusItemList = new ArrayList(length);
@@ -90,8 +90,8 @@ public class FocusListCard extends BaseCardInfo {
                     if (optJSONArray.length() > 2) {
                         aVar.c = optJSONArray.getString(2);
                     }
-                    aVar.d = eb7.b(optJSONObject.optString("focusColor", ""));
-                    aVar.e = eb7.b(optJSONObject.optString("focusColorNight", ""));
+                    aVar.d = pc7.b(optJSONObject.optString("focusColor", ""));
+                    aVar.e = pc7.b(optJSONObject.optString("focusColorNight", ""));
                     aVar.f = optJSONObject.optString("scheme");
                     aVar.g = optJSONObject.optLong("resourceId");
                     this.focusItemList.add(aVar);

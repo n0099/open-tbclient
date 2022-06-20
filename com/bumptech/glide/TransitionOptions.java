@@ -64,7 +64,7 @@ public abstract class TransitionOptions<CHILD extends TransitionOptions<CHILD, T
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public final CHILD m98clone() {
+    public final CHILD m74clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

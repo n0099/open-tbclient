@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes4.dex */
 public final class EncodeStrategy {
@@ -32,7 +33,7 @@ public final class EncodeStrategy {
         }
         SOURCE = new EncodeStrategy("SOURCE", 0);
         TRANSFORMED = new EncodeStrategy("TRANSFORMED", 1);
-        EncodeStrategy encodeStrategy = new EncodeStrategy("NONE", 2);
+        EncodeStrategy encodeStrategy = new EncodeStrategy(HlsPlaylistParser.METHOD_NONE, 2);
         NONE = encodeStrategy;
         $VALUES = new EncodeStrategy[]{SOURCE, TRANSFORMED, encodeStrategy};
     }

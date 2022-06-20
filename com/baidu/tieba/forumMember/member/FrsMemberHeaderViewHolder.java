@@ -46,18 +46,18 @@ public class FrsMemberHeaderViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091212);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091206);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090cf7);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092295);
-        this.e = view2.findViewById(R.id.obfuscated_res_0x7f090cf3);
-        this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092391);
+        this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091207);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0911fb);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ce8);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092282);
+        this.e = view2.findViewById(R.id.obfuscated_res_0x7f090ce4);
+        this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09237e);
         this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092001);
-        this.h = (NoPressedLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ad1);
-        this.i = view2.findViewById(R.id.obfuscated_res_0x7f090cf4);
+        this.h = (NoPressedLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ac9);
+        this.i = view2.findViewById(R.id.obfuscated_res_0x7f090ce5);
         this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092000);
-        this.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09131a);
-        this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091319);
+        this.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091311);
+        this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091310);
         this.a.setOnClickListener(onClickListener);
         this.d.setOnClickListener(onClickListener);
     }

@@ -1,85 +1,47 @@
 package com.repackage;
 
-import android.graphics.Canvas;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import java.util.Map;
-import kotlin.Pair;
-import kotlin.collections.MapsKt__MapsKt;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class p06 implements n06 {
+public final class p06 extends n06<Integer> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final n06 a;
-    public final Map<Integer, n06> b;
 
-    public p06(n06 defaultRenderer, Pair<Integer, ? extends n06>... renderers) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public p06() {
+        super(1, false, 2, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {defaultRenderer, renderers};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super(((Integer) objArr[0]).intValue(), ((Boolean) objArr[1]).booleanValue(), ((Integer) objArr[2]).intValue(), (DefaultConstructorMarker) objArr[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(defaultRenderer, "defaultRenderer");
-        Intrinsics.checkNotNullParameter(renderers, "renderers");
-        this.a = defaultRenderer;
-        this.b = MapsKt__MapsKt.mutableMapOf((Pair[]) Arrays.copyOf(renderers, renderers.length));
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.n06
-    public z06 a(ry5 item, r06 displayer, ly5 config) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, displayer, config)) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            n06 n06Var = this.b.get(Integer.valueOf(c(item)));
-            if (n06Var == null) {
-                n06Var = this.a;
-            }
-            return n06Var.a(item, displayer, config);
-        }
-        return (z06) invokeLLL.objValue;
-    }
-
-    @Override // com.repackage.n06
-    public void b(ry5 item, Canvas canvas, r06 displayer, ly5 config) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item, canvas, displayer, config) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(canvas, "canvas");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            n06 n06Var = this.b.get(Integer.valueOf(c(item)));
-            if (n06Var == null) {
-                n06Var = this.a;
-            }
-            n06Var.b(item, canvas, displayer, config);
-        }
-    }
-
-    public int c(ry5 item) {
+    /* renamed from: e */
+    public Integer c(sz5 data) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, item)) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            return item.e().g();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            return Integer.valueOf(data.j());
         }
-        return invokeL.intValue;
+        return (Integer) invokeL.objValue;
     }
 }

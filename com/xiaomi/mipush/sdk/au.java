@@ -1,125 +1,78 @@
 package com.xiaomi.mipush.sdk;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import com.baidu.searchbox.player.widget.BdPlayerProgressView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.xiaomi.push.bm;
-import com.xiaomi.push.hk;
-import com.xiaomi.push.ie;
-import java.text.Collator;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Locale;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes8.dex */
-public class au {
+public final class au {
     public static /* synthetic */ Interceptable $ic;
+    public static final au a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public static final /* synthetic */ au[] f59a;
+    public static final au b;
+    public static final au c;
+    public static final au d;
+    public static final au e;
+    public static final au f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_extra", 0);
-            long j = sharedPreferences.getLong("last_sync_info", -1L);
-            long currentTimeMillis = System.currentTimeMillis() / 1000;
-            long a = com.xiaomi.push.service.aq.a(context).a(hk.B.a(), 1209600);
-            if (j != -1) {
-                if (Math.abs(currentTimeMillis - j) <= a) {
-                    return;
-                }
-                a(context, true);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1871206445, "Lcom/xiaomi/mipush/sdk/au;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            sharedPreferences.edit().putLong("last_sync_info", currentTimeMillis).commit();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1871206445, "Lcom/xiaomi/mipush/sdk/au;");
+                return;
+            }
         }
+        a = new au("DISABLE_PUSH", 0);
+        b = new au("ENABLE_PUSH", 1);
+        c = new au("UPLOAD_HUAWEI_TOKEN", 2);
+        d = new au("UPLOAD_FCM_TOKEN", 3);
+        e = new au("UPLOAD_COS_TOKEN", 4);
+        au auVar = new au("UPLOAD_FTOS_TOKEN", 5);
+        f = auVar;
+        f59a = new au[]{a, b, c, d, e, auVar};
     }
 
-    public static void a(Context context, ie ieVar) {
+    public au(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, ieVar) == null) {
-            com.xiaomi.channel.commonutils.logger.b.m108a("need to update local info with: " + ieVar.m504a());
-            String str = ieVar.m504a().get(Constants.EXTRA_KEY_ACCEPT_TIME);
-            if (str != null) {
-                MiPushClient.removeAcceptTime(context);
-                String[] split = str.split("-");
-                if (split.length == 2) {
-                    MiPushClient.addAcceptTime(context, split[0], split[1]);
-                    if (BdPlayerProgressView.DEFAULT_TIME_TEXT.equals(split[0]) && BdPlayerProgressView.DEFAULT_TIME_TEXT.equals(split[1])) {
-                        b.m149a(context).a(true);
-                    } else {
-                        b.m149a(context).a(false);
-                    }
-                }
-            }
-            String str2 = ieVar.m504a().get(Constants.EXTRA_KEY_ALIASES);
-            if (str2 != null) {
-                MiPushClient.removeAllAliases(context);
-                if (!"".equals(str2)) {
-                    for (String str3 : str2.split(",")) {
-                        MiPushClient.addAlias(context, str3);
-                    }
-                }
-            }
-            String str4 = ieVar.m504a().get(Constants.EXTRA_KEY_TOPICS);
-            if (str4 != null) {
-                MiPushClient.removeAllTopics(context);
-                if (!"".equals(str4)) {
-                    for (String str5 : str4.split(",")) {
-                        MiPushClient.addTopic(context, str5);
-                    }
-                }
-            }
-            String str6 = ieVar.m504a().get(Constants.EXTRA_KEY_ACCOUNTS);
-            if (str6 != null) {
-                MiPushClient.removeAllAccounts(context);
-                if ("".equals(str6)) {
-                    return;
-                }
-                for (String str7 : str6.split(",")) {
-                    MiPushClient.addAccount(context, str7);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                String str2 = (String) objArr2[0];
+                ((Integer) objArr2[1]).intValue();
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void a(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65539, null, context, z) == null) {
-            com.xiaomi.push.ai.a(context).a(new av(context, z));
-        }
-    }
-
-    public static String c(List<String> list) {
+    public static au valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
-            String a = bm.a(d(list));
-            return (TextUtils.isEmpty(a) || a.length() <= 4) ? "" : a.substring(0, 4).toLowerCase();
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (au) Enum.valueOf(au.class, str) : (au) invokeL.objValue;
     }
 
-    public static String d(List<String> list) {
-        InterceptResult invokeL;
+    public static au[] values() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, list)) == null) {
-            String str = "";
-            if (com.xiaomi.push.ad.a(list)) {
-                return "";
-            }
-            ArrayList<String> arrayList = new ArrayList(list);
-            Collections.sort(arrayList, Collator.getInstance(Locale.CHINA));
-            for (String str2 : arrayList) {
-                if (!TextUtils.isEmpty(str)) {
-                    str = str + ",";
-                }
-                str = str + str2;
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (au[]) f59a.clone() : (au[]) invokeV.objValue;
     }
 }

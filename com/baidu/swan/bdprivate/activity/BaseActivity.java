@@ -15,10 +15,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class BaseActivity extends Activity {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int ACTION_BAR_TEXT_SIZE = 14;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean mIsSlideInFromBottom;
+    public boolean a;
 
     public BaseActivity() {
         Interceptable interceptable = $ic;
@@ -33,7 +32,7 @@ public class BaseActivity extends Activity {
                 return;
             }
         }
-        this.mIsSlideInFromBottom = false;
+        this.a = false;
     }
 
     @Override // android.app.Activity
@@ -41,7 +40,7 @@ public class BaseActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.finish();
-            if (this.mIsSlideInFromBottom) {
+            if (this.a) {
                 overridePendingTransition(R.anim.obfuscated_res_0x7f01001c, R.anim.obfuscated_res_0x7f010024);
             } else {
                 overridePendingTransition(R.anim.obfuscated_res_0x7f01001c, R.anim.obfuscated_res_0x7f010026);
@@ -53,7 +52,7 @@ public class BaseActivity extends Activity {
     public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            if (this.mIsSlideInFromBottom) {
+            if (this.a) {
                 overridePendingTransition(R.anim.obfuscated_res_0x7f010021, R.anim.obfuscated_res_0x7f01001c);
             } else {
                 overridePendingTransition(R.anim.obfuscated_res_0x7f010022, R.anim.obfuscated_res_0x7f01001c);
@@ -75,7 +74,7 @@ public class BaseActivity extends Activity {
     public void onNewIntent(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
-            if (this.mIsSlideInFromBottom) {
+            if (this.a) {
                 overridePendingTransition(R.anim.obfuscated_res_0x7f010021, R.anim.obfuscated_res_0x7f01001c);
             } else {
                 overridePendingTransition(R.anim.obfuscated_res_0x7f010022, R.anim.obfuscated_res_0x7f01001c);
@@ -96,12 +95,5 @@ public class BaseActivity extends Activity {
             return true;
         }
         return invokeL.booleanValue;
-    }
-
-    public void setIsSlideInFromBottom(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.mIsSlideInFromBottom = z;
-        }
     }
 }

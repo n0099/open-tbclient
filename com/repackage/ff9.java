@@ -1,39 +1,33 @@
 package com.repackage;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
-import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-/* loaded from: classes5.dex */
-public class ff9 extends ReporterPidLoader<pe9> {
+import com.repackage.rf9;
+import com.win.opensdk.PBError;
+/* loaded from: classes6.dex */
+public class ff9 extends af9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final em9 a;
 
-    /* loaded from: classes5.dex */
-    public class a implements ze9 {
+    /* loaded from: classes6.dex */
+    public class a implements fm9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public boolean b;
-        public final /* synthetic */ pe9 c;
-        public final /* synthetic */ ff9 d;
+        public final /* synthetic */ kf9 a;
 
-        public a(ff9 ff9Var, pe9 pe9Var) {
+        public a(ff9 ff9Var, kf9 kf9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ff9Var, pe9Var};
+                Object[] objArr = {ff9Var, kf9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,107 +37,137 @@ public class ff9 extends ReporterPidLoader<pe9> {
                     return;
                 }
             }
-            this.d = ff9Var;
-            this.c = pe9Var;
+            this.a = kf9Var;
         }
 
+        @Override // com.repackage.fm9
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                rf9.a aVar = (rf9.a) this.a;
+                aVar.getClass();
                 LogPrinter.d();
-                this.d.onAdClicked(this.b, new String[0]);
-                this.b = true;
+                aVar.d.onAdClose();
             }
         }
 
-        public void b(String str, int i) {
+        @Override // com.repackage.fm9
+        public void b(PBError pBError) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) {
-                LogPrinter.e("onFail code: " + i + ", message: " + str, new Object[0]);
-                this.d.onError(i, str);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pBError) == null) {
+                kf9 kf9Var = this.a;
+                String msg = pBError.getMsg();
+                int code = pBError.getCode();
+                rf9.a aVar = (rf9.a) kf9Var;
+                aVar.getClass();
+                LogPrinter.d();
+                aVar.d.onAdError(code, msg);
             }
         }
 
-        public void c() {
+        @Override // com.repackage.fm9
+        public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                rf9.a aVar = (rf9.a) this.a;
+                aVar.getClass();
                 LogPrinter.d();
-                this.d.onAdLoaded((ff9) this.c);
+                aVar.d.onAdClose();
+            }
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onClicked() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                ((rf9.a) this.a).a();
+            }
+        }
+
+        @Override // com.repackage.fm9
+        public void onDisplayed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                rf9.a aVar = (rf9.a) this.a;
+                aVar.getClass();
+                LogPrinter.d();
+                aVar.d.onAdShow(aVar.c, aVar.a, new String[0]);
+                aVar.a = true;
+            }
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onFail(PBError pBError) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, pBError) == null) {
+                ((rf9.a) this.a).b(pBError.getMsg(), pBError.getCode());
+            }
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onLoaded() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+                ((rf9.a) this.a).c();
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ff9(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.INTERSTITIAL), pid);
+    public ff9(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new em9(context.getApplicationContext(), str);
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        pe9 pe9Var;
+    @Override // com.repackage.ve9
+    public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, obj) == null) || (pe9Var = (pe9) obj) == null) {
-            return;
-        }
-        pe9Var.a();
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean isAdAvailable(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            pe9 pe9Var = (pe9) obj;
-            return pe9Var != null && pe9Var.d();
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
-            pe9 pe9Var = (pe9) le9.a(context, this.mPid);
-            onLoadStart(funAdSlot);
-            if (pe9Var == null) {
-                onError(0, "jy 插屏广告创建失败");
-                return;
-            }
-            pe9Var.c(new a(this, pe9Var));
-            pe9Var.b();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.j();
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
+    @Override // com.repackage.ve9
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
-            pe9 pe9Var = (pe9) obj;
-            onShowStart();
-            if (pe9Var.d()) {
-                pe9Var.e();
-                return true;
-            }
-            LogPrinter.e("Ad isn't ready now", new Object[0]);
-            return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.l();
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.repackage.af9
+    public void c(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.a.m(j);
+        }
+    }
+
+    @Override // com.repackage.af9
+    public void d(ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, viewGroup) == null) {
+            this.a.o(viewGroup);
+        }
+    }
+
+    @Override // com.repackage.af9
+    public void e(kf9 kf9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, kf9Var) == null) {
+            this.a.n(new a(this, kf9Var));
+        }
     }
 }

@@ -14,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import com.tencent.connect.common.Constants;
 /* loaded from: classes2.dex */
 public class Enums {
@@ -88,7 +89,7 @@ public class Enums {
                     return;
                 }
             }
-            NONE = new LastLoginType("NONE", 0, "none", 0);
+            NONE = new LastLoginType(HlsPlaylistParser.METHOD_NONE, 0, "none", 0);
             PWD = new LastLoginType("PWD", 1, "pwd", 1);
             SMS = new LastLoginType("SMS", 2, LoginConstants.SMS_LOGIN, 2);
             FACE = new LastLoginType("FACE", 3, "face", 3);

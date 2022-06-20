@@ -1,248 +1,341 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
-import java.util.Map;
+import com.repackage.b40;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class v20 extends l20 {
+public class v20 implements o20 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
 
-    public v20() {
+    /* loaded from: classes7.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Context a;
+        public b40.a b;
+        public boolean c;
+        public boolean d;
+        public boolean e;
+        public long f;
+        public JSONObject g;
+        public JSONObject h;
+        public long i;
+
+        public a(v20 v20Var, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v20Var, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            if (context == null) {
+                throw new NullPointerException("context should not be null");
+            }
+            this.b = new b40(context.getApplicationContext()).d().f("cloud").f("cstore");
+        }
+
+        public void a(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+                this.g = jSONObject;
+                h();
+            }
+        }
+
+        public final boolean b(JSONObject jSONObject, JSONObject jSONObject2) {
+            InterceptResult invokeLL;
+            JSONArray jSONArray;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, jSONObject2)) == null) {
+                JSONArray jSONArray2 = null;
+                try {
+                    jSONArray = t20.a(jSONObject.optJSONArray("sids"), "pkg");
+                    try {
+                        jSONArray2 = t20.a(jSONObject2.optJSONArray("sids"), "pkg");
+                    } catch (Exception unused) {
+                    }
+                } catch (Exception unused2) {
+                    jSONArray = null;
+                }
+                return v20.c(jSONArray, jSONArray2) || t20.c(jSONObject, jSONObject2, "oid") || t20.c(jSONObject, jSONObject2, "gaid") || t20.c(jSONObject, jSONObject2, "iid") || t20.c(jSONObject, jSONObject2, "adrid") || t20.c(jSONObject, jSONObject2, "aid");
+            }
+            return invokeLL.booleanValue;
+        }
+
+        public void c(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+                this.h = jSONObject;
+            }
+        }
+
+        public final synchronized boolean d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                synchronized (this) {
+                    JSONObject jSONObject = this.g;
+                    if (jSONObject == null) {
+                        return true;
+                    }
+                    JSONObject jSONObject2 = this.h;
+                    if (jSONObject2 != null) {
+                        return b(jSONObject, jSONObject2);
+                    }
+                    throw new IllegalArgumentException("you forgot invoke methond :IMatchConditions.setComparedCStoreParams before ");
+                }
+            }
+            return invokeV.booleanValue;
+        }
+
+        public final long e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                JSONObject jSONObject = this.g;
+                if (jSONObject == null) {
+                    return 0L;
+                }
+                return jSONObject.optLong("ctime", 0L);
+            }
+            return invokeV.longValue;
+        }
+
+        public final boolean f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? Math.abs(System.currentTimeMillis() - this.i) / 1000 > this.f : invokeV.booleanValue;
+        }
+
+        /* JADX WARN: Code restructure failed: missing block: B:16:0x002d, code lost:
+            if (d() != false) goto L21;
+         */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public synchronized boolean g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                synchronized (this) {
+                    i();
+                    l();
+                    boolean h = l10.e(this.a).h();
+                    boolean z = false;
+                    if (this.c && h) {
+                        if (this.g == null) {
+                            return true;
+                        }
+                        if (!f()) {
+                        }
+                        z = true;
+                        return z;
+                    }
+                    return false;
+                }
+            }
+            return invokeV.booleanValue;
+        }
+
+        public final boolean h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                try {
+                    this.b.i("cs.dat", this.g.toString(), true);
+                    return true;
+                } catch (Exception unused) {
+                    return false;
+                }
+            }
+            return invokeV.booleanValue;
+        }
+
+        public final synchronized void i() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                synchronized (this) {
+                    if (this.d) {
+                        this.d = !j();
+                    }
+                    if (this.e) {
+                        this.e = !k();
+                    }
+                }
+            }
+        }
+
+        public final boolean j() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("isOn", this.c);
+                    this.b.i("ci.dat", jSONObject.toString(), true);
+                    return true;
+                } catch (Exception unused) {
+                    return false;
+                }
+            }
+            return invokeV.booleanValue;
+        }
+
+        public final boolean k() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("TIME_OUT", this.f);
+                    this.b.i("ct.dat", jSONObject.toString(), true);
+                    return true;
+                } catch (Exception unused) {
+                    return false;
+                }
+            }
+            return invokeV.booleanValue;
+        }
+
+        public final void l() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+                m();
+                o();
+                n();
+            }
+        }
+
+        public final void m() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+                try {
+                    this.g = u20.a(this.b.g("cs.dat", true));
+                    this.i = e();
+                } catch (Exception unused) {
+                    this.i = 0L;
+                }
+            }
+        }
+
+        public final void n() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+                try {
+                    JSONObject a = u20.a(this.b.g("ci.dat", true));
+                    if (a == null) {
+                        this.c = true;
+                    } else {
+                        this.c = a.optBoolean("isOn", true);
+                    }
+                } catch (Exception unused) {
+                    this.c = true;
+                }
+            }
+        }
+
+        public final void o() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+                try {
+                    JSONObject a = u20.a(this.b.g("ct.dat", true));
+                    if (a == null) {
+                        this.f = ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME;
+                    } else {
+                        this.f = a.optLong("TIME_OUT", ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME);
+                    }
+                } catch (Exception unused) {
+                    this.f = ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME;
+                }
+            }
+        }
+    }
+
+    public v20(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        if (context == null) {
+            throw new NullPointerException("context should not be null");
+        }
+        if (this.a == null) {
+            this.a = new a(this, context.getApplicationContext());
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:125:0x00f0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:133:0x00fa A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:69:0x00eb  */
-    @Override // com.repackage.n20
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public String a(String str, String str2, Map<String, String> map, JSONObject jSONObject) {
-        InterceptResult invokeLLLL;
-        Throwable th;
-        HttpURLConnection httpURLConnection;
-        OutputStream outputStream;
-        OutputStream outputStream2;
-        BufferedReader bufferedReader;
+    public static boolean c(JSONArray jSONArray, JSONArray jSONArray2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, str, str2, map, jSONObject)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                throw new NullPointerException("urlStr should not be null");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, jSONArray, jSONArray2)) == null) {
+            int length = jSONArray == null ? 0 : jSONArray.length();
+            if (length != (jSONArray2 == null ? 0 : jSONArray2.length())) {
+                return true;
             }
-            OutputStream outputStream3 = null;
-            try {
-                httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
-                try {
-                    try {
-                        httpURLConnection.setConnectTimeout(15000);
-                        httpURLConnection.setReadTimeout(15000);
-                        httpURLConnection.setDoOutput(true);
-                        httpURLConnection.setRequestMethod(str2);
-                        if (map != null) {
-                            try {
-                                if (map.size() > 0) {
-                                    for (String str3 : map.keySet()) {
-                                        httpURLConnection.setRequestProperty(str3, map.get(str3));
-                                    }
-                                    httpURLConnection.setRequestProperty("Content-type", "application/json");
-                                }
-                            } catch (Throwable th2) {
-                                th = th2;
-                                bufferedReader = null;
-                                if (httpURLConnection != null) {
-                                    httpURLConnection.disconnect();
-                                }
-                                if (outputStream3 != null) {
-                                    try {
-                                        outputStream3.close();
-                                    } catch (IOException e) {
-                                        e.printStackTrace();
-                                    }
-                                }
-                                if (bufferedReader != null) {
-                                    try {
-                                        bufferedReader.close();
-                                    } catch (IOException e2) {
-                                        e2.printStackTrace();
-                                    }
-                                }
-                                throw th;
-                            }
-                        }
-                        outputStream2 = httpURLConnection.getOutputStream();
-                    } catch (Throwable th3) {
-                        th = th3;
-                        outputStream = null;
-                    }
-                } catch (UnsupportedEncodingException unused) {
-                    outputStream2 = null;
-                } catch (MalformedURLException unused2) {
-                    outputStream2 = null;
-                } catch (ProtocolException unused3) {
-                    outputStream2 = null;
-                } catch (IOException unused4) {
-                    outputStream2 = null;
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                JSONObject optJSONObject2 = jSONArray2.optJSONObject(i);
+                if (t20.c(optJSONObject, optJSONObject2, "pkg") || t20.c(optJSONObject, optJSONObject2, "aid") || t20.b(optJSONObject, optJSONObject2, "priority")) {
+                    return true;
                 }
-            } catch (UnsupportedEncodingException unused5) {
-                httpURLConnection = null;
-                outputStream2 = null;
-            } catch (MalformedURLException unused6) {
-                httpURLConnection = null;
-                outputStream2 = null;
-            } catch (ProtocolException unused7) {
-                httpURLConnection = null;
-                outputStream2 = null;
-            } catch (IOException unused8) {
-                httpURLConnection = null;
-                outputStream2 = null;
-            } catch (Throwable th4) {
-                th = th4;
-                httpURLConnection = null;
-                outputStream = null;
             }
-            try {
-                outputStream2.write(jSONObject.toString().getBytes(IMAudioTransRequest.CHARSET));
-                outputStream2.flush();
-                if (httpURLConnection.getResponseCode() != 200) {
-                    if (httpURLConnection != null) {
-                        httpURLConnection.disconnect();
-                    }
-                    if (outputStream2 != null) {
-                        try {
-                            outputStream2.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
-                        }
-                    }
-                    return null;
-                }
-                bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream(), IMAudioTransRequest.CHARSET));
-                String str4 = "";
-                while (true) {
-                    try {
-                        String readLine = bufferedReader.readLine();
-                        if (readLine == null) {
-                            break;
-                        }
-                        str4 = str4 + readLine;
-                    } catch (IOException unused9) {
-                    } catch (Throwable th5) {
-                        outputStream3 = outputStream2;
-                        th = th5;
-                        if (httpURLConnection != null) {
-                        }
-                        if (outputStream3 != null) {
-                        }
-                        if (bufferedReader != null) {
-                        }
-                        throw th;
-                    }
-                }
-                if (httpURLConnection != null) {
-                    httpURLConnection.disconnect();
-                }
-                if (outputStream2 != null) {
-                    try {
-                        outputStream2.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
-                }
-                try {
-                    bufferedReader.close();
-                } catch (IOException e5) {
-                    e5.printStackTrace();
-                }
-                return str4;
-            } catch (UnsupportedEncodingException unused10) {
-                if (httpURLConnection != null) {
-                    httpURLConnection.disconnect();
-                }
-                if (outputStream2 != null) {
-                    try {
-                        outputStream2.close();
-                    } catch (IOException e6) {
-                        e6.printStackTrace();
-                    }
-                }
-                return null;
-            } catch (MalformedURLException unused11) {
-                if (httpURLConnection != null) {
-                    httpURLConnection.disconnect();
-                }
-                if (outputStream2 != null) {
-                    try {
-                        outputStream2.close();
-                    } catch (IOException e7) {
-                        e7.printStackTrace();
-                    }
-                }
-                return null;
-            } catch (ProtocolException unused12) {
-                if (httpURLConnection != null) {
-                    httpURLConnection.disconnect();
-                }
-                if (outputStream2 != null) {
-                    try {
-                        outputStream2.close();
-                    } catch (IOException e8) {
-                        e8.printStackTrace();
-                    }
-                }
-                return null;
-            } catch (IOException unused13) {
-                if (httpURLConnection != null) {
-                    httpURLConnection.disconnect();
-                }
-                if (outputStream2 != null) {
-                    try {
-                        outputStream2.close();
-                    } catch (IOException e9) {
-                        e9.printStackTrace();
-                    }
-                }
-                return null;
-            } catch (Throwable th6) {
-                outputStream = outputStream2;
-                th = th6;
-                outputStream3 = outputStream;
-                bufferedReader = null;
-                if (httpURLConnection != null) {
-                }
-                if (outputStream3 != null) {
-                }
-                if (bufferedReader != null) {
-                }
-                throw th;
-            }
+            return false;
         }
-        return (String) invokeLLLL.objValue;
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.repackage.o20
+    public o20 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            this.a.c(jSONObject);
+            return this;
+        }
+        return (o20) invokeL.objValue;
+    }
+
+    @Override // com.repackage.o20
+    public void b(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            this.a.a(jSONObject);
+        }
+    }
+
+    @Override // com.repackage.o20
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.g() : invokeV.booleanValue;
     }
 }

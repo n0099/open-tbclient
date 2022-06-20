@@ -1,64 +1,18 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bq0 extends hq0 {
+public class bq0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public bq0() {
+    public static void a(@NonNull oo0 oo0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.repackage.hq0
-    public boolean D() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? r().V() : invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.hq0
-    public void I() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            boolean D = D();
-            if (D && qw0.c(getContext()) == 0) {
-                qw0.d(getContext(), (int) (qw0.b(getContext()) * 0.35d));
-            }
-            K(D);
-            boolean z = !D;
-            L(z);
-            O(z);
-        }
-    }
-
-    @Override // com.repackage.hq0
-    public void J() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            L(r().V());
-        }
-    }
-
-    public void O(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            r().w0(z);
+        if ((interceptable == null || interceptable.invokeL(65536, null, oo0Var) == null) && no0.f() && cx0.q()) {
+            oo0Var.c(new cq0(), new FrameLayout.LayoutParams(-1, -2));
         }
     }
 }

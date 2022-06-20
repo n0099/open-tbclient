@@ -27,38 +27,38 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.tabs.TabLayout;
-import com.repackage.ft4;
-import com.repackage.gt4;
-import com.repackage.gu6;
-import com.repackage.ji;
-import com.repackage.jn;
-import com.repackage.kl4;
-import com.repackage.li;
-import com.repackage.ot6;
-import com.repackage.s35;
-import com.repackage.t35;
-import com.repackage.xt6;
+import com.repackage.cv6;
+import com.repackage.h45;
+import com.repackage.i45;
+import com.repackage.lv6;
+import com.repackage.ni;
+import com.repackage.nn;
+import com.repackage.ot4;
+import com.repackage.pi;
+import com.repackage.pt4;
+import com.repackage.tu6;
+import com.repackage.ul4;
 import java.util.List;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes3.dex */
-public class HotTopicTabView extends FrameLayout implements ft4.g {
+public class HotTopicTabView extends FrameLayout implements ot4.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public TbPageContext<?> b;
-    public ot6 c;
+    public tu6 c;
     public BdSwipeRefreshLayout d;
     public BdTypeRecyclerView e;
-    public xt6 f;
-    public gt4 g;
-    public s35 h;
-    public t35 i;
+    public cv6 f;
+    public pt4 g;
+    public h45 h;
+    public i45 i;
     public ScrollFragmentTabHost j;
     public int k;
     public PbListView l;
     public HotTopicHeaderView m;
     public TabLayout.OnTabSelectedListener n;
-    public kl4 o;
+    public ul4 o;
     public boolean p;
     public RecyclerView.OnScrollListener q;
     public ScrollFragmentTabHost.x r;
@@ -95,11 +95,11 @@ public class HotTopicTabView extends FrameLayout implements ft4.g {
             }
             this.a.k = i;
             if (this.a.k == 1) {
-                this.a.j.Y();
-            } else if (this.a.r(recyclerView)) {
-                this.a.j.C();
+                this.a.j.b0();
+            } else if (this.a.u(recyclerView)) {
+                this.a.j.D();
             } else {
-                this.a.j.Y();
+                this.a.j.b0();
             }
         }
     }
@@ -136,10 +136,10 @@ public class HotTopicTabView extends FrameLayout implements ft4.g {
             }
             this.a.k = -1;
             HotTopicTabView hotTopicTabView = this.a;
-            if (hotTopicTabView.r(hotTopicTabView.e)) {
-                this.a.j.C();
+            if (hotTopicTabView.u(hotTopicTabView.e)) {
+                this.a.j.D();
             } else {
-                this.a.j.Y();
+                this.a.j.b0();
             }
         }
     }
@@ -171,9 +171,9 @@ public class HotTopicTabView extends FrameLayout implements ft4.g {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ji.A() && this.a.c != null) {
-                this.a.u(false);
-                this.a.c.loadData();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ni.A() && this.a.c != null) {
+                this.a.x(false);
+                this.a.c.a();
             }
         }
     }
@@ -201,68 +201,90 @@ public class HotTopicTabView extends FrameLayout implements ft4.g {
         this.q = new a(this);
         this.r = new b(this);
         this.b = tbPageContext;
-        l(tbPageContext.getPageActivity());
-        m();
-        q();
+        o(tbPageContext.getPageActivity());
+        p();
+        t();
     }
 
-    public void h() {
+    public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ScrollFragmentTabHost scrollFragmentTabHost = this.j;
-            if (scrollFragmentTabHost != null) {
-                scrollFragmentTabHost.U(this.r);
-            }
-            y();
-            i();
-            j();
-            this.p = true;
+            this.d.setRefreshing(true);
         }
     }
 
-    public void i() {
-        s35 s35Var;
+    public void B() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (s35Var = this.h) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d.setRefreshing(false);
         }
-        s35Var.dettachView(this);
-        this.h = null;
     }
 
-    public void j() {
-        t35 t35Var;
+    @Override // com.repackage.ot4.g
+    public void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (t35Var = this.i) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.c.a();
         }
-        t35Var.dettachView(this);
-        this.i = null;
     }
 
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            ScrollFragmentTabHost scrollFragmentTabHost = this.j;
+            if (scrollFragmentTabHost != null) {
+                scrollFragmentTabHost.X(this.r);
+            }
+            B();
+            l();
+            m();
+            this.p = true;
+        }
+    }
+
+    public void l() {
+        h45 h45Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (h45Var = this.h) == null) {
+            return;
+        }
+        h45Var.dettachView(this);
+        this.h = null;
+    }
+
+    public void m() {
+        i45 i45Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (i45Var = this.i) == null) {
+            return;
+        }
+        i45Var.dettachView(this);
+        this.i = null;
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.e.setNextPage(null);
         }
     }
 
-    public final void l(Context context) {
+    public final void o(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02d3, (ViewGroup) this, true);
-            this.d = (BdSwipeRefreshLayout) findViewById(R.id.obfuscated_res_0x7f090d73);
-            gt4 gt4Var = new gt4(this.b);
-            this.g = gt4Var;
-            this.d.setProgressView(gt4Var);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f090d72);
+        if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02d1, (ViewGroup) this, true);
+            this.d = (BdSwipeRefreshLayout) findViewById(R.id.obfuscated_res_0x7f090d64);
+            pt4 pt4Var = new pt4(this.b);
+            this.g = pt4Var;
+            this.d.setProgressView(pt4Var);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f090d63);
             this.e = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context));
             this.e.setFadingEdgeLength(0);
             this.e.setOverScrollMode(2);
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
             this.e.setPadding(dimenPixelSize, 0, dimenPixelSize, 0);
-            this.f = new xt6(this.b, this.e);
+            this.f = new cv6(this.b, this.e);
             PbListView pbListView = new PbListView(this.b.getPageActivity());
             this.l = pbListView;
             pbListView.a();
@@ -271,89 +293,168 @@ public class HotTopicTabView extends FrameLayout implements ft4.g {
         }
     }
 
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.e.addOnScrollListener(this.q);
-            this.g.e(this);
-        }
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            s35 s35Var = this.h;
-            if (s35Var != null) {
-                return s35Var.isViewAttached();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            t35 t35Var = this.i;
-            if (t35Var != null) {
-                return t35Var.isViewAttached();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            h();
+            k();
             super.onDetachedFromWindow();
         }
     }
 
-    @Override // com.repackage.ft4.g
-    public void onListPullRefresh(boolean z) {
+    public final void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.c.loadData();
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.e.addOnScrollListener(this.q);
+            this.g.f(this);
         }
     }
 
-    public boolean p() {
+    public boolean q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            h45 h45Var = this.h;
+            if (h45Var != null) {
+                return h45Var.isViewAttached();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            i45 i45Var = this.i;
+            if (i45Var != null) {
+                return i45Var.isViewAttached();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             HotTopicHeaderView hotTopicHeaderView = this.m;
             return (hotTopicHeaderView == null || hotTopicHeaderView.getParent() == null) ? false : true;
         }
         return invokeV.booleanValue;
     }
 
-    public void q() {
+    public void setData(@NonNull lv6 lv6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, lv6Var) == null) {
+            w(lv6Var);
+            setListData(lv6Var.getDataList());
+        }
+    }
+
+    public void setListData(@NonNull List<nn> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, list) == null) {
+            this.f.d(list);
+        }
+    }
+
+    public void setOnItemCoverListener(ul4 ul4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, ul4Var) == null) {
+            this.o = ul4Var;
+            cv6 cv6Var = this.f;
+            if (cv6Var != null) {
+                cv6Var.e(ul4Var);
+            }
+            HotTopicHeaderView hotTopicHeaderView = this.m;
+            if (hotTopicHeaderView != null) {
+                hotTopicHeaderView.setOnItemCoverListener(ul4Var);
+            }
+        }
+    }
+
+    public void setOnTabSelectedListener(TabLayout.OnTabSelectedListener onTabSelectedListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, onTabSelectedListener) == null) {
+            this.n = onTabSelectedListener;
+        }
+    }
+
+    public void setPresenter(tu6 tu6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, tu6Var) == null) {
+            this.c = tu6Var;
+        }
+    }
+
+    public void setScrollFragmentTabHost(ScrollFragmentTabHost scrollFragmentTabHost) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, scrollFragmentTabHost) == null) {
+            this.j = scrollFragmentTabHost;
+            if (scrollFragmentTabHost != null) {
+                scrollFragmentTabHost.X(this.r);
+                this.j.A(this.r);
+            }
+        }
+    }
+
+    public void setUniqueId(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, bdUniqueId) == null) {
+            cv6 cv6Var = this.f;
+            if (cv6Var != null) {
+                cv6Var.f(bdUniqueId);
+            }
+            pt4 pt4Var = this.g;
+            if (pt4Var != null) {
+                pt4Var.b0(bdUniqueId);
+            }
+        }
+    }
+
+    public void setViewForeground() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            ScrollFragmentTabHost scrollFragmentTabHost = this.j;
+            if (scrollFragmentTabHost != null) {
+                scrollFragmentTabHost.X(this.r);
+                this.j.A(this.r);
+                this.r.c();
+            }
+            if (this.p) {
+                this.p = false;
+                if (ListUtils.isEmpty(this.f.a())) {
+                    this.c.a();
+                }
+            }
+        }
+    }
+
+    public void t() {
         int skinType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.a) {
+        if (!(interceptable == null || interceptable.invokeV(1048597, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.a) {
             return;
         }
         this.a = skinType;
-        gt4 gt4Var = this.g;
-        if (gt4Var != null) {
-            gt4Var.H(skinType);
+        pt4 pt4Var = this.g;
+        if (pt4Var != null) {
+            pt4Var.H(skinType);
         }
-        s35 s35Var = this.h;
-        if (s35Var != null) {
-            s35Var.onChangeSkinType();
+        h45 h45Var = this.h;
+        if (h45Var != null) {
+            h45Var.onChangeSkinType();
         }
-        t35 t35Var = this.i;
-        if (t35Var != null) {
-            t35Var.onChangeSkinType();
+        i45 i45Var = this.i;
+        if (i45Var != null) {
+            i45Var.onChangeSkinType();
         }
-        xt6 xt6Var = this.f;
-        if (xt6Var != null) {
-            xt6Var.c();
+        cv6 cv6Var = this.f;
+        if (cv6Var != null) {
+            cv6Var.c();
         }
         PbListView pbListView = this.l;
         if (pbListView != null) {
@@ -366,10 +467,10 @@ public class HotTopicTabView extends FrameLayout implements ft4.g {
         }
     }
 
-    public final boolean r(RecyclerView recyclerView) {
+    public final boolean u(RecyclerView recyclerView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, recyclerView)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, recyclerView)) == null) {
             if (recyclerView == null) {
                 return true;
             }
@@ -378,11 +479,11 @@ public class HotTopicTabView extends FrameLayout implements ft4.g {
         return invokeL.booleanValue;
     }
 
-    public void s() {
+    public void v() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             this.e.setSelection(0);
-            x();
+            A();
             ScrollFragmentTabHost.x xVar = this.r;
             if (xVar != null) {
                 xVar.c();
@@ -390,114 +491,27 @@ public class HotTopicTabView extends FrameLayout implements ft4.g {
         }
     }
 
-    public void setData(@NonNull gu6 gu6Var) {
+    public void w(@NonNull lv6 lv6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, gu6Var) == null) {
-            t(gu6Var);
-            setListData(gu6Var.getDataList());
-        }
-    }
-
-    public void setListData(@NonNull List<jn> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, list) == null) {
-            this.f.d(list);
-        }
-    }
-
-    public void setOnItemCoverListener(kl4 kl4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, kl4Var) == null) {
-            this.o = kl4Var;
-            xt6 xt6Var = this.f;
-            if (xt6Var != null) {
-                xt6Var.e(kl4Var);
-            }
-            HotTopicHeaderView hotTopicHeaderView = this.m;
-            if (hotTopicHeaderView != null) {
-                hotTopicHeaderView.setOnItemCoverListener(kl4Var);
-            }
-        }
-    }
-
-    public void setOnTabSelectedListener(TabLayout.OnTabSelectedListener onTabSelectedListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, onTabSelectedListener) == null) {
-            this.n = onTabSelectedListener;
-        }
-    }
-
-    public void setPresenter(ot6 ot6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, ot6Var) == null) {
-            this.c = ot6Var;
-        }
-    }
-
-    public void setScrollFragmentTabHost(ScrollFragmentTabHost scrollFragmentTabHost) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, scrollFragmentTabHost) == null) {
-            this.j = scrollFragmentTabHost;
-            if (scrollFragmentTabHost != null) {
-                scrollFragmentTabHost.U(this.r);
-                this.j.z(this.r);
-            }
-        }
-    }
-
-    public void setUniqueId(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, bdUniqueId) == null) {
-            xt6 xt6Var = this.f;
-            if (xt6Var != null) {
-                xt6Var.f(bdUniqueId);
-            }
-            gt4 gt4Var = this.g;
-            if (gt4Var != null) {
-                gt4Var.a0(bdUniqueId);
-            }
-        }
-    }
-
-    public void setViewForeground() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            ScrollFragmentTabHost scrollFragmentTabHost = this.j;
-            if (scrollFragmentTabHost != null) {
-                scrollFragmentTabHost.U(this.r);
-                this.j.z(this.r);
-                this.r.c();
-            }
-            if (this.p) {
-                this.p = false;
-                if (ListUtils.isEmpty(this.f.a())) {
-                    this.c.loadData();
-                }
-            }
-        }
-    }
-
-    public void t(@NonNull gu6 gu6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, gu6Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048600, this, lv6Var) == null) {
             if (this.m == null) {
                 this.m = new HotTopicHeaderView(getContext());
             }
             this.e.setHeaderView(this.m);
             this.m.setOnItemCoverListener(this.o);
             this.m.setOnTabSelectedListener(this.n);
-            this.m.setData(gu6Var.getResData());
+            this.m.setData(lv6Var.getResData());
         }
     }
 
-    public void u(boolean z) {
+    public void x(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048599, this, z) == null) || n()) {
+        if (!(interceptable == null || interceptable.invokeZ(1048601, this, z) == null) || q()) {
             return;
         }
         if (this.h == null) {
-            this.h = new s35(getContext());
-            int height = (((getHeight() - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()) - li.f(getContext(), R.dimen.tbds304)) / 2) - (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() / 2);
+            this.h = new h45(getContext());
+            int height = (((getHeight() - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()) - pi.f(getContext(), R.dimen.tbds304)) / 2) - (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() / 2);
             this.h.i();
             this.h.s(height);
             this.h.onChangeSkinType();
@@ -505,39 +519,25 @@ public class HotTopicTabView extends FrameLayout implements ft4.g {
         this.h.attachView(this, z);
     }
 
-    public void v(boolean z) {
+    public void y(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048600, this, z) == null) || o()) {
+        if (!(interceptable == null || interceptable.invokeZ(1048602, this, z) == null) || r()) {
             return;
         }
         if (this.i == null) {
-            this.i = new t35(getContext(), new c(this));
+            this.i = new i45(getContext(), new c(this));
         }
         this.i.attachView(this, z);
         this.i.p();
     }
 
-    public void w() {
+    public void z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
             this.e.setNextPage(this.l);
             this.l.f();
             this.l.L(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-            this.l.D(getResources().getString(R.string.obfuscated_res_0x7f0f0f5c), li.f(getContext(), R.dimen.tbds158));
-        }
-    }
-
-    public void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            this.d.setRefreshing(true);
-        }
-    }
-
-    public void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            this.d.setRefreshing(false);
+            this.l.D(getResources().getString(R.string.obfuscated_res_0x7f0f0f67), pi.f(getContext(), R.dimen.tbds158));
         }
     }
 }

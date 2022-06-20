@@ -1,39 +1,35 @@
 package com.repackage;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
-import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.write.accountAccess.AccountAccessActivity;
+import com.baidu.tbadk.core.data.TransmitForumData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.frs.FrsTabItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.rw8;
+import com.repackage.vy5;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.FrsTabInfo;
+import tbclient.SimpleForum;
 /* loaded from: classes6.dex */
-public class kv8 {
+public class kv8 implements vy5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final lv8 a;
-    public final NewWriteModel b;
-    public boolean c;
-    public final NewWriteModel.e d;
+    public rw8 a;
+    public ArrayList<TransmitForumData> b;
+    public List<SimpleForum> c;
+    public vy5.a d;
+    public boolean e;
+    public int f;
+    public rw8.b g;
 
     /* loaded from: classes6.dex */
-    public class a implements NewWriteModel.e {
+    public class a implements rw8.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ kv8 a;
@@ -56,71 +52,29 @@ public class kv8 {
             this.a = kv8Var;
         }
 
-        @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.e
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, ww4 ww4Var, WriteData writeData, AntiData antiData) {
+        @Override // com.repackage.rw8.b
+        public void a(List<SimpleForum> list, int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, ww4Var, writeData, antiData}) == null) || this.a.a == null || this.a.b == null || this.a.b.S() == null) {
-                return;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, list, i) == null) {
+                this.a.c = list;
+                this.a.f = i;
+                this.a.h();
             }
-            this.a.a.o(false);
-            if (writeData == null) {
-                writeData = this.a.b.S();
-            }
-            WriteData writeData2 = writeData;
-            if (z) {
-                this.a.c = true;
-                if (writeData2.getType() != 0 || writeData2.isUserFeedback()) {
-                    if (postWriteCallBackData == null) {
-                        cj8.b(this.a.a.getContext().getActivity(), this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1117), null, null);
-                    } else {
-                        cj8.b(this.a.a.getContext().getActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
-                    }
-                }
-                Intent intent = new Intent();
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
-                intent.putExtras(bundle);
-                BaseActivity context = this.a.a.getContext();
-                this.a.a.getContext();
-                context.setResult(-1, intent);
-                this.a.a.getContext().finish();
-            } else if (writeData2 != null && ww4Var != null && !TextUtils.isEmpty(ww4Var.d())) {
-                writeData2.setVcodeMD5(ww4Var.b());
-                writeData2.setVcodeUrl(ww4Var.c());
-                writeData2.setVcodeExtra(ww4Var.a());
-                this.a.a.getContext().setVisible(false);
-                if (dd5.b(ww4Var.d())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.a.a.getContext().getActivity(), 12006, writeData2, false, ww4Var.d())));
-                } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.a.a.getContext().getActivity(), writeData2, 12006)));
-                }
-            } else if (postWriteCallBackData == null || !postWriteCallBackData.isSensitiveError()) {
-                if (postWriteCallBackData != null) {
-                    cj8.b(this.a.a.getContext().getActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
-                    BaseActivity context2 = this.a.a.getContext();
-                    this.a.a.getContext();
-                    context2.setResult(0, null);
-                }
-                this.a.a.getContext().finish();
-            } else {
-                Intent intent2 = new Intent();
-                Bundle bundle2 = new Bundle();
-                bundle2.putSerializable("post_write_callback_data", postWriteCallBackData);
-                intent2.putExtras(bundle2);
-                BaseActivity context3 = this.a.a.getContext();
-                this.a.a.getContext();
-                context3.setResult(0, intent2);
-                this.a.a.getContext().finish();
+        }
+
+        @Override // com.repackage.rw8.b
+        public void onError() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.g();
             }
         }
     }
 
-    public kv8(lv8 lv8Var, NewWriteModel newWriteModel) {
+    public kv8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {lv8Var, newWriteModel};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -130,86 +84,71 @@ public class kv8 {
                 return;
             }
         }
-        a aVar = new a(this);
-        this.d = aVar;
-        this.a = lv8Var;
-        this.b = newWriteModel;
-        newWriteModel.b0(aVar);
+        this.b = new ArrayList<>();
+        this.g = new a(this);
+        BdUniqueId gen = BdUniqueId.gen();
+        rw8 rw8Var = new rw8(gen);
+        this.a = rw8Var;
+        rw8Var.i(this.g);
+        this.a.j(gen);
     }
 
-    public void d() {
-        lv8 lv8Var;
+    @Override // com.repackage.vy5
+    public void a(vy5.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (lv8Var = this.a) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            this.d = aVar;
+        }
+    }
+
+    @Override // com.repackage.vy5
+    public void b() {
+        rw8 rw8Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.d == null || (rw8Var = this.a) == null) {
             return;
         }
-        lv8Var.r(500);
-    }
-
-    public void e() {
-        lv8 lv8Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (lv8Var = this.a) == null) {
-            return;
-        }
-        lv8Var.o(false);
-    }
-
-    public boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.a == null || str == null) {
-                return false;
-            }
-            if (str.equals(AccountAccessActivity.ACCOUNT_ACCESS_CANCEL)) {
-                this.a.getContext().finish();
-                return true;
-            } else if (str.equals(AccountAccessActivity.ACCOUNT_ACCESS_INPUT_FOCUS)) {
-                this.a.n(0, UtilHelper.getImmersiveStickyBarHeight(), 0, 0);
-                if (this.a.g() != this.a.h()) {
-                    lv8 lv8Var = this.a;
-                    lv8Var.m(lv8Var.g());
-                    this.a.s();
-                }
-                this.a.i().setVisibility(0);
-                return true;
-            } else if (str.equals(AccountAccessActivity.ACCOUNT_ACCESS_VALID_SUCCESS)) {
-                g();
-                return true;
-            } else if (str.equals(AccountAccessActivity.ACCOUNT_ACCESS_FEEDBACK_HTTP) || str.equals(AccountAccessActivity.ACCOUNT_ACCESS_FEEDBACK_HTTPS)) {
-                this.a.getContext().finish();
-                UrlManager.getInstance().dealOneLink(this.a.getContext().getPageContext(), new String[]{UrlSchemaHelper.SCHEMA_TYPE_FEED_BACK});
-                return true;
-            } else {
-                return true;
-            }
-        }
-        return invokeL.booleanValue;
+        this.e = false;
+        rw8Var.l(null);
+        this.a.k(null);
+        this.a.h();
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.a == null || this.b == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.e) {
             return;
         }
-        if (!li.D()) {
-            this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c33);
-            this.a.getContext().finish();
-            return;
+        vy5.a aVar = this.d;
+        if (aVar != null) {
+            aVar.a(null, false, 2, 0);
         }
-        this.a.o(true);
-        this.b.e0();
+        this.e = true;
     }
 
-    public void h(String str) {
-        lv8 lv8Var;
+    public final void h() {
+        Long l;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (lv8Var = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b.clear();
+            if (ListUtils.getCount(this.c) > 0) {
+                for (SimpleForum simpleForum : this.c) {
+                    if (simpleForum != null && (l = simpleForum.id) != null && l.longValue() > 0 && !StringUtils.isNull(simpleForum.name)) {
+                        TransmitForumData transmitForumData = new TransmitForumData(simpleForum.id.longValue(), simpleForum.name, false, 1, simpleForum.avatar);
+                        transmitForumData.tabItemDatas = new ArrayList<>();
+                        for (FrsTabInfo frsTabInfo : simpleForum.tab_info) {
+                            if (frsTabInfo != null && frsTabInfo.is_general_tab.intValue() == 1 && frsTabInfo.tab_id.intValue() > 0 && !StringUtils.isNull(frsTabInfo.tab_name)) {
+                                transmitForumData.tabItemDatas.add(new FrsTabItemData(frsTabInfo));
+                            }
+                        }
+                        this.b.add(transmitForumData);
+                    }
+                }
+            }
+            vy5.a aVar = this.d;
+            if (aVar != null) {
+                aVar.a(this.b, true, 2, this.f);
+            }
         }
-        lv8Var.p(true);
-        this.a.q(false);
-        this.a.i().loadUrl(str);
     }
 }

@@ -1,111 +1,178 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
+import android.net.Uri;
+import android.os.Bundle;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.Iterator;
+import java.util.Set;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class oy5 {
+public class oy5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Canvas a;
-    public Bitmap b;
-    public int c;
-    public int d;
+    public Uri a;
+    public String b;
+    public Bundle c;
 
-    public oy5() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755423354, "Lcom/repackage/oy5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755423354, "Lcom/repackage/oy5;");
+        }
+    }
+
+    public oy5(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new Canvas();
-        this.b = zz5.b();
+        g(str);
     }
 
-    public final void a(int i, int i2, int i3, boolean z, int i4) {
+    public Bundle a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4)}) == null) {
-            boolean z2 = !z ? i > this.c || i2 > this.d : !(i == this.c && i2 == this.d);
-            if (!Intrinsics.areEqual(this.b, zz5.b()) && !this.b.isRecycled() && z2) {
-                this.b.eraseColor(0);
-                this.a.setBitmap(this.b);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.c == null) {
+                this.c = new Bundle();
             }
-            this.c = Math.max(1, i);
-            this.d = Math.max(1, i2);
+            return this.c;
+        }
+        return (Bundle) invokeV.objValue;
+    }
+
+    public String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? c(str, null) : (String) invokeL.objValue;
+    }
+
+    public String c(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            Bundle bundle = this.c;
+            return bundle == null ? str2 : bundle.getString(str, str2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public Uri d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (Uri) invokeV.objValue;
+    }
+
+    public final boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
-                Bitmap createBitmap = Bitmap.createBitmap(this.c, this.d, i4 == 32 ? Bitmap.Config.ARGB_8888 : Bitmap.Config.ARGB_4444);
-                if (i3 > 0) {
-                    createBitmap.setDensity(i3);
+                this.a.getScheme();
+                this.a.getHost();
+                String path = this.a.getPath();
+                this.b = path;
+                if (!TextUtils.isEmpty(path) && this.b.endsWith("/")) {
+                    this.b = this.b.substring(0, this.b.length() - 1);
                 }
-                d().setBitmap(createBitmap);
-                d().setDensity(i3);
-                Unit unit = Unit.INSTANCE;
-                Intrinsics.checkNotNullExpressionValue(createBitmap, "createBitmap(width, heig…y = density\n            }");
-                this.b = createBitmap;
-            } catch (Exception unused) {
-                this.b = zz5.b();
-                this.a.setBitmap(null);
-                this.c = 0;
-                this.d = 0;
+                Set<String> queryParameterNames = this.a.getQueryParameterNames();
+                if (queryParameterNames == null || queryParameterNames.isEmpty()) {
+                    return true;
+                }
+                if (this.c == null) {
+                    this.c = new Bundle();
+                }
+                for (String str : queryParameterNames) {
+                    String queryParameter = this.a.getQueryParameter(str);
+                    this.c.putString(str, queryParameter);
+                    if (TextUtils.equals(str, "params") && !TextUtils.isEmpty(queryParameter)) {
+                        try {
+                            JSONObject jSONObject = new JSONObject(queryParameter);
+                            Iterator<String> keys = jSONObject.keys();
+                            while (keys.hasNext()) {
+                                String next = keys.next();
+                                this.c.putString(next, jSONObject.optString(next, ""));
+                            }
+                        } catch (Exception e) {
+                            if (BdLog.isDebugMode()) {
+                                BdLog.e("builder parseUri e = " + e.toString());
+                            }
+                        }
+                    }
+                }
+                return true;
+            } catch (Throwable th) {
+                if (BdLog.isDebugMode()) {
+                    BdLog.e("builder parseUri te = " + th.toString());
+                }
+                return false;
             }
         }
+        return invokeV.booleanValue;
     }
 
-    public final void b() {
+    public oy5 f(Uri uri) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.b.isRecycled()) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, uri)) == null) {
+            this.a = uri;
+            if (uri != null) {
+                if (BdLog.isDebugMode()) {
+                    BdLog.i("builder uri = " + uri);
+                }
+                e();
+            } else if (BdLog.isDebugMode()) {
+                BdLog.i("builder uri = null");
+            }
+            return this;
         }
-        this.b.eraseColor(0);
+        return (oy5) invokeL.objValue;
     }
 
-    public final Bitmap c() {
-        InterceptResult invokeV;
+    public oy5 g(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (Bitmap) invokeV.objValue;
-    }
-
-    public final Canvas d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (Canvas) invokeV.objValue;
-    }
-
-    public final int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public final int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || Intrinsics.areEqual(this.b, zz5.b())) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            Uri uri = null;
+            try {
+                if (!TextUtils.isEmpty(str)) {
+                    uri = Uri.parse(str);
+                }
+            } catch (Throwable th) {
+                if (BdLog.isDebugMode()) {
+                    BdLog.e("builder uri e = " + th.toString());
+                }
+            }
+            f(uri);
+            return this;
         }
-        this.a.setBitmap(null);
-        this.b = zz5.b();
-        this.c = 0;
-        this.d = 0;
+        return (oy5) invokeL.objValue;
     }
 }

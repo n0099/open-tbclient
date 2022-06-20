@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ki;
+import com.repackage.oi;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -78,11 +78,11 @@ public class MultiLineEllipsizeTextView extends EMTextView {
             super.onMeasure(i, i2);
             CharSequence text = getText();
             Rect rect = new Rect();
-            if (ki.isEmpty(text.toString())) {
+            if (oi.isEmpty(text.toString())) {
                 return;
             }
             TextPaint paint = getPaint();
-            if (!ki.isEmpty(this.b)) {
+            if (!oi.isEmpty(this.b)) {
                 String str = this.b;
                 paint.getTextBounds(str, 0, str.length() - 1, rect);
             }

@@ -82,7 +82,7 @@ public class KSCouponLabelTextView extends TextView implements b {
     @SuppressLint({"CustomViewStyleable"})
     private void a(Context context, AttributeSet attributeSet, int i) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040368, R.attr.obfuscated_res_0x7f040375, R.attr.obfuscated_res_0x7f04037e, R.attr.obfuscated_res_0x7f04037f}, i, 0);
-        int color = context.getResources().getColor(R.color.obfuscated_res_0x7f060763);
+        int color = context.getResources().getColor(R.color.obfuscated_res_0x7f060761);
         this.a = obtainStyledAttributes.getDimension(0, 8.0f);
         this.b = obtainStyledAttributes.getDimension(3, 2.0f);
         this.c = obtainStyledAttributes.getColor(2, color);
@@ -173,7 +173,7 @@ public class KSCouponLabelTextView extends TextView implements b {
 
     @Override // com.kwad.sdk.widget.b
     public void a(c cVar) {
-        int color = getResources().getColor(com.kwad.sdk.core.config.b.aM() ? R.color.obfuscated_res_0x7f060763 : R.color.obfuscated_res_0x7f060764);
+        int color = getResources().getColor(com.kwad.sdk.core.config.b.aM() ? R.color.obfuscated_res_0x7f060761 : R.color.obfuscated_res_0x7f060762);
         this.c = color;
         setTextColor(color);
         a();

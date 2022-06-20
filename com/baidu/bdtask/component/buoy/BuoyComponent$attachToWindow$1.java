@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.es;
+import com.repackage.is;
 import kotlin.Metadata;
 import kotlin.TypeCastException;
 import kotlin.Unit;
@@ -56,39 +56,39 @@ public final class BuoyComponent$attachToWindow$1 extends Lambda implements Func
     @Override // kotlin.jvm.functions.Function0
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final void invoke2() {
-        es esVar;
-        es esVar2;
-        es esVar3;
-        es esVar4;
-        es esVar5;
-        es esVar6;
-        es esVar7;
-        es esVar8;
+        is isVar;
+        is isVar2;
+        is isVar3;
+        is isVar4;
+        is isVar5;
+        is isVar6;
+        is isVar7;
+        is isVar8;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            esVar = this.this$0.f;
-            View contentView = esVar.getContentView();
+            isVar = this.this$0.f;
+            View contentView = isVar.getContentView();
             if ((contentView != null ? contentView.getParent() : null) != null) {
-                esVar6 = this.this$0.f;
-                View contentView2 = esVar6.getContentView();
+                isVar6 = this.this$0.f;
+                View contentView2 = isVar6.getContentView();
                 ViewParent parent = contentView2 != null ? contentView2.getParent() : null;
                 if (!(parent instanceof ViewGroup)) {
                     parent = null;
                 }
                 if (((ViewGroup) parent) != null) {
-                    esVar7 = this.this$0.f;
-                    View contentView3 = esVar7.getContentView();
+                    isVar7 = this.this$0.f;
+                    View contentView3 = isVar7.getContentView();
                     ViewParent parent2 = contentView3 != null ? contentView3.getParent() : null;
                     if (parent2 == null) {
                         throw new TypeCastException("null cannot be cast to non-null type android.view.ViewGroup");
                     }
-                    esVar8 = this.this$0.f;
-                    ((ViewGroup) parent2).removeView(esVar8.getContentView());
+                    isVar8 = this.this$0.f;
+                    ((ViewGroup) parent2).removeView(isVar8.getContentView());
                 }
             }
             ViewGroup viewGroup = this.$viewGroup;
-            esVar2 = this.this$0.f;
-            if (viewGroup.indexOfChild(esVar2.getContentView()) != -1) {
+            isVar2 = this.this$0.f;
+            if (viewGroup.indexOfChild(isVar2.getContentView()) != -1) {
                 ViewGroup viewGroup2 = this.$viewGroup;
                 viewGroup2.removeView(viewGroup2);
             }
@@ -96,20 +96,20 @@ public final class BuoyComponent$attachToWindow$1 extends Lambda implements Func
             if (findViewWithTag != null) {
                 this.$viewGroup.removeView(findViewWithTag);
             }
-            esVar3 = this.this$0.f;
-            View contentView4 = esVar3.getContentView();
+            isVar3 = this.this$0.f;
+            View contentView4 = isVar3.getContentView();
             if (contentView4 != null) {
                 contentView4.setTag("TaskSDKBuoyViewTag");
             }
             if (this.$layoutParams == null) {
                 ViewGroup viewGroup3 = this.$viewGroup;
-                esVar5 = this.this$0.f;
-                viewGroup3.addView(esVar5.getContentView());
+                isVar5 = this.this$0.f;
+                viewGroup3.addView(isVar5.getContentView());
                 return;
             }
             ViewGroup viewGroup4 = this.$viewGroup;
-            esVar4 = this.this$0.f;
-            viewGroup4.addView(esVar4.getContentView(), this.$layoutParams);
+            isVar4 = this.this$0.f;
+            viewGroup4.addView(isVar4.getContentView(), this.$layoutParams);
         }
     }
 }

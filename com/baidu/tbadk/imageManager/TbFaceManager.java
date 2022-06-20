@@ -18,13 +18,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.et4;
-import com.repackage.hd5;
-import com.repackage.k05;
-import com.repackage.qe5;
-import com.repackage.s25;
-import com.repackage.u25;
-import com.repackage.um;
+import com.repackage.h35;
+import com.repackage.j35;
+import com.repackage.nf5;
+import com.repackage.nt4;
+import com.repackage.wd5;
+import com.repackage.ym;
+import com.repackage.z05;
 import java.io.Serializable;
 import java.security.InvalidParameterException;
 import java.util.regex.Matcher;
@@ -36,7 +36,7 @@ public class TbFaceManager {
     public static String d = "#[\\(][\\w?~！]+[\\)]|\\[[\\u4e00-\\u9fa5\\w]+\\]|#[\\(]+[A-Za-z0-9_\\-\\u4e00-\\u9fa5]+[\\)]";
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public s25 b;
+    public h35 b;
 
     /* loaded from: classes3.dex */
     public static class RichUnit extends OrmObject implements Serializable {
@@ -108,7 +108,7 @@ public class TbFaceManager {
             }
             TbFaceManager tbFaceManager = c;
             if (tbFaceManager.b == null) {
-                tbFaceManager.b = new k05();
+                tbFaceManager.b = new z05();
                 c.a = TbadkCoreApplication.getInst();
             }
             return c;
@@ -116,10 +116,10 @@ public class TbFaceManager {
         return (TbFaceManager) invokeV.objValue;
     }
 
-    public um a(String str) {
+    public ym a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? h(e(str), str) : (um) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? h(e(str), str) : (ym) invokeL.objValue;
     }
 
     public Bitmap b(String str) {
@@ -128,16 +128,16 @@ public class TbFaceManager {
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? BitmapHelper.getCashBitmap(e(str)) : (Bitmap) invokeL.objValue;
     }
 
-    public qe5 c(String str) {
+    public nf5 c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? new qe5(TbadkCoreApplication.getInst().getContext(), e(str)) : (qe5) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? new nf5(TbadkCoreApplication.getInst().getContext(), e(str)) : (nf5) invokeL.objValue;
     }
 
-    public qe5 d(String str) {
+    public nf5 d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? new qe5(TbadkCoreApplication.getInst().getContext(), l(str)) : (qe5) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? new nf5(TbadkCoreApplication.getInst().getContext(), l(str)) : (nf5) invokeL.objValue;
     }
 
     public final int e(String str) {
@@ -146,47 +146,47 @@ public class TbFaceManager {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.b.e(str) : invokeL.intValue;
     }
 
-    public s25.a f(String str) {
+    public h35.a f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            um a2 = a(str);
+            ym a2 = a(str);
             if (a2 != null) {
-                return new s25.a(a2.r(), a2.m());
+                return new h35.a(a2.r(), a2.m());
             }
             return null;
         }
-        return (s25.a) invokeL.objValue;
+        return (h35.a) invokeL.objValue;
     }
 
-    public s25.a g(String str) {
+    public h35.a g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
             int l = l(str);
-            um h = h(l, this.b.d(l));
+            ym h = h(l, this.b.d(l));
             if (h != null) {
-                return new s25.a(h.r(), h.m());
+                return new h35.a(h.r(), h.m());
             }
             return null;
         }
-        return (s25.a) invokeL.objValue;
+        return (h35.a) invokeL.objValue;
     }
 
-    public final um h(int i, String str) {
+    public final ym h(int i, String str) {
         InterceptResult invokeIL;
         Bitmap resBitmap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i, str)) == null) {
-            um m = u25.k().m(str);
+            ym m = j35.k().m(str);
             if (m != null || (resBitmap = BitmapHelper.getResBitmap(this.a, i)) == null) {
                 return m;
             }
-            um umVar = new um(resBitmap, false, str);
-            u25.k().d(str, umVar);
-            return umVar;
+            ym ymVar = new ym(resBitmap, false, str);
+            j35.k().d(str, ymVar);
+            return ymVar;
         }
-        return (um) invokeIL.objValue;
+        return (ym) invokeIL.objValue;
     }
 
     public String j(String str) {
@@ -195,10 +195,10 @@ public class TbFaceManager {
         return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? this.b.c(str) : (String) invokeL.objValue;
     }
 
-    public um k(String str) {
+    public ym k(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? h(l(str), str) : (um) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? h(l(str), str) : (ym) invokeL.objValue;
     }
 
     public final int l(String str) {
@@ -231,12 +231,12 @@ public class TbFaceManager {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) ? this.b.f(str) > 0 : invokeL.booleanValue;
     }
 
-    public void q(Context context, s25 s25Var) {
+    public void q(Context context, h35 h35Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, context, s25Var) == null) {
-            if (context != null && s25Var != null) {
+        if (interceptable == null || interceptable.invokeLL(1048591, this, context, h35Var) == null) {
+            if (context != null && h35Var != null) {
                 this.a = context;
-                this.b = s25Var;
+                this.b = h35Var;
                 return;
             }
             throw new InvalidParameterException("TbFaceManager initial error");
@@ -245,7 +245,7 @@ public class TbFaceManager {
 
     public SpannableString r(Context context, String str) {
         InterceptResult invokeLL;
-        um h;
+        ym h;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, context, str)) == null) {
             if (str == null) {
@@ -261,7 +261,7 @@ public class TbFaceManager {
                     int start = matcher.start();
                     BitmapDrawable j = h.j();
                     j.setBounds(0, 0, 55, 55);
-                    spannableString.setSpan(new et4(j, 0), start, length + start, 33);
+                    spannableString.setSpan(new nt4(j, 0), start, length + start, 33);
                 }
             }
             return spannableString;
@@ -271,7 +271,7 @@ public class TbFaceManager {
 
     public SpannableString s(Context context, String str, int i, int i2) {
         InterceptResult invokeLLII;
-        um h;
+        ym h;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048593, this, context, str, i, i2)) == null) {
             if (str == null) {
@@ -287,7 +287,7 @@ public class TbFaceManager {
                     int start = matcher.start();
                     BitmapDrawable j = h.j();
                     j.setBounds(0, 0, i > 0 ? i : h.r(), i2 > 0 ? i2 : h.m());
-                    spannableString.setSpan(new hd5(j), start, length + start, 33);
+                    spannableString.setSpan(new wd5(j), start, length + start, 33);
                 }
             }
             return spannableString;
@@ -312,7 +312,7 @@ public class TbFaceManager {
                 String group = matcher.group();
                 int f = this.b.f(group);
                 if (f > 0) {
-                    um h = h(f, String.valueOf(f));
+                    ym h = h(f, String.valueOf(f));
                     if (h != null) {
                         int length = group.length();
                         int start = matcher.start();

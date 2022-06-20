@@ -1,169 +1,33 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.appsearchlib.Info;
-import com.baidu.clientupdate.ClientUpdater;
-import com.baidu.clientupdate.IClientUpdaterCallback;
-import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
-import com.baidu.clientupdate.appinfo.RuleInfo;
-import com.baidu.nps.utils.Constant;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LcUpdateDialogActivityConfig;
-import com.baidu.tbadk.coreExtra.data.VersionData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.VideoRecommentPlayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebKitFactory;
-import java.io.IOException;
-import java.util.Date;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class v97 extends BdAsyncTask<String, Integer, ClientUpdateInfo> {
+public class v97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ClientUpdater a;
-    public IClientUpdaterCallback b;
-    public volatile ClientUpdateInfo c;
-    public String d;
-    public boolean e;
-    public Handler f;
-    public Runnable g;
+    public BdTypeRecyclerView a;
+    public ArrayList<nn> b;
+    public List<an> c;
+    public x97 d;
+    public x97 e;
+    public x97 f;
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v97 a;
-
-        public a(v97 v97Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v97Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = v97Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.c != null && "1".equals(this.a.c.mStatus) && TbConfig.COULD_UPDATE) {
-                VersionData versionData = new VersionData();
-                versionData.setForceUpdate(Integer.parseInt(this.a.c.mIsForceUpdate));
-                versionData.setStrategy(0);
-                versionData.setNewVersion(this.a.c.mVername);
-                versionData.setNewVersionCode(Integer.parseInt(this.a.c.mVercode));
-                versionData.setNewFile(this.a.c.mPackageName + this.a.c.mVername + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
-                versionData.setHasNewVer(Integer.parseInt(this.a.c.mStatus));
-                versionData.setNewVersionDesc(this.a.c.mChangelog);
-                versionData.setUrl(this.a.c.mDownurl);
-                versionData.setSize(this.a.c.mSize);
-                versionData.setPatch(this.a.c.mPatchDownUrl);
-                versionData.setPatchSize(this.a.c.mPatchSize);
-                versionData.setTiebaIconUrl(this.a.c.mIconUrl);
-                versionData.setApkMD5RSA(this.a.c.mSignMd5);
-                TbadkCoreApplication.getInst().setVersionData(versionData);
-                TbadkCoreApplication.getInst().refreshNewVersion(true);
-                if (TbadkCoreApplication.getInst().getResumeNum() > 0) {
-                    if (versionData.forceUpdate()) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), this.a.c, this.a.d)));
-                        return;
-                    }
-                    Long valueOf = Long.valueOf(TbadkCoreApplication.getInst().getUpdateNotifyTime());
-                    Long valueOf2 = Long.valueOf(new Date().getTime());
-                    if ((valueOf2.longValue() - valueOf.longValue() > 86400000 || this.a.e) && versionData.getStrategy() == 0) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), this.a.c, this.a.d)));
-                        TbadkCoreApplication.getInst().setUpdateNotifyTime(valueOf2.longValue());
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements IClientUpdaterCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v97 a;
-
-        public b(v97 v97Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v97Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = v97Var;
-        }
-
-        @Override // com.baidu.clientupdate.IClientUpdaterCallback
-        public void onCompleted(ClientUpdateInfo clientUpdateInfo, RuleInfo ruleInfo) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, clientUpdateInfo, ruleInfo) == null) || clientUpdateInfo == null || TextUtils.isEmpty(this.a.d)) {
-                return;
-            }
-            this.a.c = clientUpdateInfo;
-            this.a.f.post(this.a.g);
-        }
-
-        @Override // com.baidu.clientupdate.IClientUpdaterCallback
-        public void onError(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            }
-        }
-
-        @Override // com.baidu.clientupdate.IClientUpdaterCallback
-        public void onException(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            }
-        }
-
-        @Override // com.baidu.clientupdate.IClientUpdaterCallback
-        public void onFetched(JSONObject jSONObject) {
-            JSONObject optJSONObject;
-            JSONObject optJSONObject2;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("rule")) == null || (optJSONObject2 = optJSONObject.optJSONObject("custom")) == null) {
-                return;
-            }
-            this.a.d = optJSONObject2.optString("apk_MD5_RSA");
-        }
-    }
-
-    public v97(boolean z) {
+    public v97(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
+            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -173,59 +37,85 @@ public class v97 extends BdAsyncTask<String, Integer, ClientUpdateInfo> {
                 return;
             }
         }
-        this.g = new a(this);
-        this.e = z;
-        ClientUpdater clientUpdater = ClientUpdater.getInstance(TbadkCoreApplication.getInst());
-        this.a = clientUpdater;
-        clientUpdater.setUseCFG(false);
-        this.a.setUseRSA(false);
-        this.a.setFileProvider("com.baidu.tieba.fileprovider");
-        this.b = new b(this);
-        this.f = new Handler(Looper.getMainLooper());
+        this.c = new LinkedList();
+        if (tbPageContext == null || bdTypeRecyclerView == null) {
+            return;
+        }
+        this.a = bdTypeRecyclerView;
+        b(tbPageContext);
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
+    public void a(int i) {
+        BdTypeRecyclerView bdTypeRecyclerView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.cancel();
-            this.f.removeCallbacks(this.g);
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (bdTypeRecyclerView = this.a) == null) {
+            return;
+        }
+        bdTypeRecyclerView.E(i);
+    }
+
+    public final void b(TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
+            x97 x97Var = new x97(tbPageContext, w97.B);
+            this.d = x97Var;
+            x97Var.b0(VideoRecommentPlayActivityConfig.FROM_AT_PAGE);
+            x97 x97Var2 = new x97(tbPageContext, w97.A);
+            this.e = x97Var2;
+            x97Var2.b0(VideoRecommentPlayActivityConfig.FROM_AT_PAGE);
+            x97 x97Var3 = new x97(tbPageContext, w97.z);
+            this.f = x97Var3;
+            x97Var3.b0(VideoRecommentPlayActivityConfig.FROM_AT_PAGE);
+            this.c.add(this.f);
+            this.c.add(this.e);
+            this.c.add(this.d);
+            this.a.a(this.c);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: i */
-    public ClientUpdateInfo doInBackground(String... strArr) throws IOException {
-        InterceptResult invokeL;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
-            this.a.setOsName(Info.PASSWORD);
-            this.a.setTypeId("0");
-            this.a.setFrom("tieba");
-            this.a.addParamValue("versionType", String.valueOf(TbConfig.getVersionType()));
-            this.a.addParamValue("tieba_versionname", TbConfig.getVersion());
-            ClientUpdater clientUpdater = this.a;
-            boolean a2 = zh.a();
-            String str = WebKitFactory.OS_64;
-            clientUpdater.addParamValue("running_abi", a2 ? WebKitFactory.OS_64 : "32");
-            ClientUpdater clientUpdater2 = this.a;
-            if (!zh.b()) {
-                str = "32";
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.getAdapter().notifyDataSetChanged();
+        }
+    }
+
+    public void d(xn xnVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, xnVar) == null) {
+            for (an anVar : this.c) {
+                if (anVar != null) {
+                    anVar.V(xnVar);
+                }
             }
-            clientUpdater2.addParamValue("support_abi", str);
-            this.a.checkUpdate(this.b);
-            return null;
         }
-        return (ClientUpdateInfo) invokeL.objValue;
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPreExecute() {
+    public void e(ArrayList<nn> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onPreExecute();
-            this.f.removeCallbacks(this.g);
+        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
+            this.a.setData(arrayList);
+            this.b = arrayList;
+        }
+    }
+
+    public void f(yn ynVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ynVar) == null) {
+            for (an anVar : this.c) {
+                if (anVar != null) {
+                    anVar.W(ynVar);
+                }
+            }
+        }
+    }
+
+    public void g(mx5 mx5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, mx5Var) == null) {
+            this.f.c0(mx5Var);
+            this.e.c0(mx5Var);
+            this.d.c0(mx5Var);
         }
     }
 }

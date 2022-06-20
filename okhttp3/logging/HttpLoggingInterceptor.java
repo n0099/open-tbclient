@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -60,7 +61,7 @@ public final class HttpLoggingInterceptor implements Interceptor {
                     return;
                 }
             }
-            NONE = new Level("NONE", 0);
+            NONE = new Level(HlsPlaylistParser.METHOD_NONE, 0);
             BASIC = new Level("BASIC", 1);
             HEADERS = new Level("HEADERS", 2);
             Level level = new Level("BODY", 3);

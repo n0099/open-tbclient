@@ -17,24 +17,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ef;
-import com.repackage.ff;
-import com.repackage.wm;
+import com.repackage.Cif;
+import com.repackage.an;
+import com.repackage.hf;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public abstract class MsgCommonItemAdapter<T> extends wm<ChatMessage, MsgViewHolder<T>> {
+public abstract class MsgCommonItemAdapter<T> extends an<ChatMessage, MsgViewHolder<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<MsglistActivity<?>> i;
-    public ef j;
-    public ff k;
+    public hf j;
+    public Cif k;
     public long l;
     public boolean m;
     public boolean n;
     public int o;
     public boolean p;
     public ArrayList<ReportPrivateMsgData> q;
-    public AbsMsglistView.g r;
+    public AbsMsglistView.i r;
     public int s;
 
     /* loaded from: classes3.dex */
@@ -120,7 +120,7 @@ public abstract class MsgCommonItemAdapter<T> extends wm<ChatMessage, MsgViewHol
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.wm
+    @Override // com.repackage.an
     /* renamed from: c0 */
     public View S(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgViewHolder<T> msgViewHolder) {
         InterceptResult invokeCommon;
@@ -156,17 +156,17 @@ public abstract class MsgCommonItemAdapter<T> extends wm<ChatMessage, MsgViewHol
         }
     }
 
-    public void g0(ef efVar) {
+    public void g0(hf hfVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, efVar) == null) {
-            this.j = efVar;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, hfVar) == null) {
+            this.j = hfVar;
         }
     }
 
-    public void h0(ff ffVar) {
+    public void h0(Cif cif) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, ffVar) == null) {
-            this.k = ffVar;
+        if (interceptable == null || interceptable.invokeL(1048585, this, cif) == null) {
+            this.k = cif;
         }
     }
 
@@ -184,10 +184,10 @@ public abstract class MsgCommonItemAdapter<T> extends wm<ChatMessage, MsgViewHol
         }
     }
 
-    public void k0(AbsMsglistView.g gVar) {
+    public void k0(AbsMsglistView.i iVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, gVar) == null) {
-            this.r = gVar;
+        if (interceptable == null || interceptable.invokeL(1048588, this, iVar) == null) {
+            this.r = iVar;
         }
     }
 }

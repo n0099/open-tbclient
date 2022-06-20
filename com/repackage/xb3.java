@@ -1,147 +1,84 @@
 package com.repackage;
 
-import android.app.ActivityManager;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.os.StatFs;
-import android.text.TextUtils;
+import android.view.View;
+import android.widget.AbsoluteLayout;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import androidx.annotation.Nullable;
+import com.baidu.browser.sailor.BdSailorWebView;
+import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a93;
-import java.text.DecimalFormat;
-import org.json.JSONObject;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 /* loaded from: classes7.dex */
 public class xb3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile String a;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ ae3 c;
-
-        public a(int i, long j, ae3 ae3Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755177400, "Lcom/repackage/xb3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), ae3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = i;
-            this.b = j;
-            this.c = ae3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    xb3.f(jSONObject, uq2.b(), this.a, this.b);
-                } catch (Exception e) {
-                    hc3.f(jSONObject, "errorMsg", e.getMessage());
-                }
-                this.c.onCallback(jSONObject);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755177400, "Lcom/repackage/xb3;");
+                return;
             }
         }
+        a = cg1.a;
     }
 
-    public xb3() {
+    public static void a(@NonNull BdSailorWebView bdSailorWebView) {
+        AbsoluteLayout webView;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeL(65537, null, bdSailorWebView) == null) {
+            Drawable d = td4.d(bdSailorWebView.getContext(), R.drawable.obfuscated_res_0x7f08112c);
+            Drawable d2 = td4.d(bdSailorWebView.getContext(), R.drawable.obfuscated_res_0x7f08112b);
+            if (BdZeusUtil.isWebkitLoaded()) {
+                webView = bdSailorWebView.getCurrentWebView();
+            } else {
+                webView = bdSailorWebView.getCurrentWebView().getWebView();
             }
-        }
-    }
-
-    public static String b(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? new DecimalFormat("#.##").format(j / 1.073741824E9d) : (String) invokeJ.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (TextUtils.isEmpty(a)) {
-                synchronized (xb3.class) {
-                    a = e();
-                }
+            if (Build.VERSION.SDK_INT >= 29) {
+                webView.setVerticalScrollbarThumbDrawable(d);
+                webView.setHorizontalScrollbarThumbDrawable(d2);
+                return;
             }
-            return a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void d(@NonNull ek2 ek2Var, @NonNull ae3<JSONObject> ae3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, ek2Var, ae3Var) == null) {
-            ExecutorUtilsExt.postOnElastic(new a(ek2Var.i("host_launch_type"), ek2Var.k("box_cold_launch"), ae3Var), "getDeviceInfoAsync", 2);
+            b(webView, d, d2);
         }
     }
 
-    public static String e() {
-        InterceptResult invokeV;
+    public static void b(@Nullable View view2, Drawable drawable, Drawable drawable2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            String str = Build.MODEL;
-            String replace = TextUtils.isEmpty(str) ? "NUL" : str.replace("_", "-");
-            String str2 = Build.VERSION.RELEASE;
-            String replace2 = TextUtils.isEmpty(str2) ? "0.0" : str2.replace("_", "-");
-            int i = Build.VERSION.SDK_INT;
-            String str3 = Build.MANUFACTURER;
-            String replace3 = TextUtils.isEmpty(str3) ? "NUL" : str3.replace("_", "-");
-            return replace + "_" + replace2 + "_" + i + "_" + replace3;
+        if (!(interceptable == null || interceptable.invokeLLL(65538, null, view2, drawable, drawable2) == null) || view2 == null) {
+            return;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static void f(@NonNull JSONObject jSONObject, int i, int i2, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{jSONObject, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            hc3.f(jSONObject, "model", Build.MODEL);
-            hc3.f(jSONObject, "systemVersion", Build.VERSION.RELEASE);
-            hc3.f(jSONObject, "netStatus", Integer.valueOf(i));
-            a93.a a2 = a93.a(oi2.c());
-            hc3.f(jSONObject, "batteryLevel", Integer.valueOf(a2 == null ? -1 : a2.a));
-            hc3.f(jSONObject, "appCurVersion", bd3.D());
-            hc3.f(jSONObject, "startupType", String.valueOf(i2));
-            hc3.f(jSONObject, "coldLaunchTime", Long.valueOf(j));
-            StatFs statFs = new StatFs(di2.i());
-            hc3.f(jSONObject, "totalDiskSpace", b(statFs.getTotalBytes()));
-            hc3.f(jSONObject, "freeDiskSpace", b(statFs.getAvailableBytes()));
-            ActivityManager activityManager = (ActivityManager) gz2.J().getSystemService("activity");
-            if (activityManager != null) {
-                ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-                activityManager.getMemoryInfo(memoryInfo);
-                hc3.f(jSONObject, "totalMemory", b(memoryInfo.totalMem));
-                hc3.f(jSONObject, "freeMemory", b(memoryInfo.availMem));
-                hc3.f(jSONObject, "lowMemory", memoryInfo.lowMemory ? "1" : "0");
+        try {
+            Field declaredField = View.class.getDeclaredField("mScrollCache");
+            declaredField.setAccessible(true);
+            Object obj = declaredField.get(view2);
+            Field declaredField2 = obj.getClass().getDeclaredField("scrollBar");
+            declaredField2.setAccessible(true);
+            Object obj2 = declaredField2.get(obj);
+            Method declaredMethod = obj2.getClass().getDeclaredMethod("setVerticalThumbDrawable", Drawable.class);
+            declaredMethod.setAccessible(true);
+            declaredMethod.invoke(obj2, drawable);
+            Method declaredMethod2 = obj2.getClass().getDeclaredMethod("setHorizontalThumbDrawable", Drawable.class);
+            declaredMethod2.setAccessible(true);
+            declaredMethod2.invoke(obj2, drawable2);
+        } catch (Throwable th) {
+            if (a) {
+                th.printStackTrace();
             }
         }
     }

@@ -1,34 +1,48 @@
 package com.repackage;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.uu9;
-import rx.exceptions.CompositeException;
+import com.repackage.xu9;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicLong;
+import rx.exceptions.MissingBackpressureException;
+import rx.internal.operators.NotificationLite;
+import rx.internal.util.BackpressureDrainManager;
 /* loaded from: classes5.dex */
-public final class ew9<T> implements uu9.c<T> {
+public class ew9<T> implements xu9.b<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final uu9<T> a;
-    public final ev9<? super T> b;
-    public final ev9<Throwable> c;
+    public final Long a;
+    public final kv9 b;
+    public final uu9.d c;
 
     /* loaded from: classes5.dex */
-    public static final class a<T> extends vu9<T> {
+    public static final class a<T> extends dv9<T> implements BackpressureDrainManager.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final vu9<? super T> b;
-        public final ev9<? super T> c;
-        public final ev9<Throwable> d;
+        public final ConcurrentLinkedQueue<Object> e;
+        public final AtomicLong f;
+        public final dv9<? super T> g;
+        public final AtomicBoolean h;
+        public final BackpressureDrainManager i;
+        public final kv9 j;
+        public final uu9.d k;
 
-        public a(vu9<? super T> vu9Var, ev9<? super T> ev9Var, ev9<Throwable> ev9Var2) {
+        public a(dv9<? super T> dv9Var, Long l, kv9 kv9Var, uu9.d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vu9Var, ev9Var, ev9Var2};
+                Object[] objArr = {dv9Var, l, kv9Var, dVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -38,45 +52,179 @@ public final class ew9<T> implements uu9.c<T> {
                     return;
                 }
             }
-            this.b = vu9Var;
-            this.c = ev9Var;
-            this.d = ev9Var2;
+            this.e = new ConcurrentLinkedQueue<>();
+            this.h = new AtomicBoolean(false);
+            this.g = dv9Var;
+            this.f = l != null ? new AtomicLong(l.longValue()) : null;
+            this.j = kv9Var;
+            this.i = new BackpressureDrainManager(this);
+            this.k = dVar;
         }
 
-        @Override // com.repackage.vu9
-        public void b(Throwable th) {
+        @Override // rx.internal.util.BackpressureDrainManager.a
+        public void a(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                try {
-                    this.d.call(th);
-                    this.b.b(th);
-                } catch (Throwable th2) {
-                    cv9.e(th2);
-                    this.b.b(new CompositeException(th, th2));
+                if (th != null) {
+                    this.g.onError(th);
+                } else {
+                    this.g.onCompleted();
                 }
             }
         }
 
-        @Override // com.repackage.vu9
-        public void c(T t) {
+        @Override // rx.internal.util.BackpressureDrainManager.a
+        public boolean accept(Object obj) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-                try {
-                    this.c.call(t);
-                    this.b.c(t);
-                } catch (Throwable th) {
-                    cv9.h(th, this, t);
-                }
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? NotificationLite.a(this.g, obj) : invokeL.booleanValue;
+        }
+
+        @Override // com.repackage.dv9
+        public void d() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                e(Long.MAX_VALUE);
             }
+        }
+
+        /* JADX WARN: Removed duplicated region for block: B:36:0x003d A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:40:0x004d A[SYNTHETIC] */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public final boolean g() {
+            InterceptResult invokeV;
+            long j;
+            boolean z;
+            kv9 kv9Var;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (this.f == null) {
+                    return true;
+                }
+                do {
+                    j = this.f.get();
+                    if (j <= 0) {
+                        try {
+                        } catch (MissingBackpressureException e) {
+                            if (this.h.compareAndSet(false, true)) {
+                                unsubscribe();
+                                this.g.onError(e);
+                            }
+                        }
+                        if (this.k.a() && poll() != null) {
+                            z = true;
+                            kv9Var = this.j;
+                            if (kv9Var != null) {
+                                try {
+                                    kv9Var.call();
+                                } catch (Throwable th) {
+                                    jv9.e(th);
+                                    this.i.terminateAndDrain(th);
+                                    return false;
+                                }
+                            }
+                            if (!z) {
+                                return false;
+                            }
+                        }
+                        z = false;
+                        kv9Var = this.j;
+                        if (kv9Var != null) {
+                        }
+                        if (!z) {
+                        }
+                    }
+                } while (!this.f.compareAndSet(j, j - 1));
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public zu9 h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i : (zu9) invokeV.objValue;
+        }
+
+        @Override // com.repackage.yu9
+        public void onCompleted() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.h.get()) {
+                return;
+            }
+            this.i.terminateAndDrain();
+        }
+
+        @Override // com.repackage.yu9
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048582, this, th) == null) || this.h.get()) {
+                return;
+            }
+            this.i.terminateAndDrain(th);
+        }
+
+        @Override // com.repackage.yu9
+        public void onNext(T t) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048583, this, t) == null) && g()) {
+                this.e.offer(NotificationLite.h(t));
+                this.i.drain();
+            }
+        }
+
+        @Override // rx.internal.util.BackpressureDrainManager.a
+        public Object peek() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.e.peek() : invokeV.objValue;
+        }
+
+        @Override // rx.internal.util.BackpressureDrainManager.a
+        public Object poll() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                Object poll = this.e.poll();
+                AtomicLong atomicLong = this.f;
+                if (atomicLong != null && poll != null) {
+                    atomicLong.incrementAndGet();
+                }
+                return poll;
+            }
+            return invokeV.objValue;
         }
     }
 
-    public ew9(uu9<T> uu9Var, ev9<? super T> ev9Var, ev9<Throwable> ev9Var2) {
+    /* loaded from: classes5.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ew9<?> a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-400408564, "Lcom/repackage/ew9$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-400408564, "Lcom/repackage/ew9$b;");
+                    return;
+                }
+            }
+            a = new ew9<>();
+        }
+    }
+
+    public ew9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {uu9Var, ev9Var, ev9Var2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -86,22 +234,31 @@ public final class ew9<T> implements uu9.c<T> {
                 return;
             }
         }
-        this.a = uu9Var;
-        this.b = ev9Var;
-        this.c = ev9Var2;
+        this.a = null;
+        this.b = null;
+        this.c = uu9.b;
     }
 
-    @Override // com.repackage.uu9.c, com.repackage.ev9
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((vu9) ((vu9) obj));
-    }
-
-    public void call(vu9<? super T> vu9Var) {
+    public static <T> ew9<T> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, vu9Var) == null) {
-            a aVar = new a(vu9Var, this.b, this.c);
-            vu9Var.a(aVar);
-            this.a.j(aVar);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? (ew9<T>) b.a : (ew9) invokeV.objValue;
+    }
+
+    @Override // com.repackage.xu9.b, com.repackage.pv9
+    public /* bridge */ /* synthetic */ Object call(Object obj) {
+        return call((dv9) ((dv9) obj));
+    }
+
+    public dv9<? super T> call(dv9<? super T> dv9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dv9Var)) == null) {
+            a aVar = new a(dv9Var, this.a, this.b, this.c);
+            dv9Var.b(aVar);
+            dv9Var.f(aVar.h());
+            return aVar;
         }
+        return (dv9) invokeL.objValue;
     }
 }

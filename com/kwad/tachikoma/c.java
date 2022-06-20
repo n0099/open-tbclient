@@ -57,7 +57,7 @@ public class c extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, context) == null) {
             i.c("ad_client_apm_log", new CommercialAction.TKDownloadMsg().setDownloadState(0));
-            com.kwad.tachikoma.kwai.a.a(context, new a.InterfaceC0347a(this, context) { // from class: com.kwad.tachikoma.c.2
+            com.kwad.tachikoma.kwai.a.a(context, new a.InterfaceC0355a(this, context) { // from class: com.kwad.tachikoma.c.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Context a;
@@ -82,7 +82,7 @@ public class c extends g {
                     this.a = context;
                 }
 
-                @Override // com.kwad.tachikoma.kwai.a.InterfaceC0347a
+                @Override // com.kwad.tachikoma.kwai.a.InterfaceC0355a
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -112,7 +112,7 @@ public class c extends g {
                     }
                 }
 
-                @Override // com.kwad.tachikoma.kwai.a.InterfaceC0347a
+                @Override // com.kwad.tachikoma.kwai.a.InterfaceC0355a
                 public void a(int i) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {

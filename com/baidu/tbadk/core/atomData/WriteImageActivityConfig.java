@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WriteImageActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CANCEL_TEXT = "cancel_text";
@@ -66,7 +66,7 @@ public class WriteImageActivityConfig extends IntentConfig {
         getIntent().putExtra("request", i);
         getIntent().putExtra("from", str5);
         getIntent().putExtra("forumid", str);
-        getIntent().putExtra("foruimname", str2);
+        getIntent().putExtra(FORUMNAME, str2);
         getIntent().putExtra("display_size", i3);
         if (str3 != null) {
             getIntent().putExtra(FINISH_TEXT, str3);
@@ -103,7 +103,7 @@ public class WriteImageActivityConfig extends IntentConfig {
         getIntent().putExtra("request", i);
         getIntent().putExtra("from", str5);
         getIntent().putExtra("forumid", str);
-        getIntent().putExtra("foruimname", str2);
+        getIntent().putExtra(FORUMNAME, str2);
         getIntent().putExtra("display_size", i3);
         if (str3 != null) {
             getIntent().putExtra(FINISH_TEXT, str3);

@@ -1,6 +1,7 @@
 package com.googlecode.mp4parser.authoring.tracks;
 
 import androidx.core.view.InputDeviceCompat;
+import androidx.media2.session.SessionCommand;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.record.EncoderParams;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -107,7 +108,7 @@ public class MP3TrackImpl extends AbstractTrack {
             }
         }
         SAMPLE_RATE = new int[]{44100, 48000, 32000};
-        BIT_RATE = new int[]{0, 32000, 40000, 48000, 56000, 64000, 80000, 96000, 112000, EncoderParams.AUDIO_BIT_RATE, 160000, 192000, 224000, 256000, 320000};
+        BIT_RATE = new int[]{0, 32000, SessionCommand.COMMAND_CODE_SESSION_FAST_FORWARD, 48000, 56000, 64000, 80000, 96000, 112000, EncoderParams.AUDIO_BIT_RATE, 160000, 192000, 224000, 256000, 320000};
     }
 
     public MP3TrackImpl(DataSource dataSource, String str) throws IOException {

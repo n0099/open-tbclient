@@ -29,11 +29,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.o80;
-import com.repackage.va0;
-import com.repackage.w80;
-import com.repackage.x80;
-import com.repackage.y80;
+import com.repackage.a90;
+import com.repackage.b90;
+import com.repackage.c90;
+import com.repackage.s80;
+import com.repackage.za0;
 /* loaded from: classes2.dex */
 public class SmartTabLayout extends HorizontalScrollView {
     public static /* synthetic */ Interceptable $ic;
@@ -51,7 +51,7 @@ public class SmartTabLayout extends HorizontalScrollView {
     public boolean K;
     public boolean L;
     public int a;
-    public final x80 b;
+    public final b90 b;
     public int c;
     public int d;
     public int e;
@@ -380,8 +380,8 @@ public class SmartTabLayout extends HorizontalScrollView {
     public void B(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            setCustomTextsColorWithoutSelectedPos(va0.e().a(getContext(), this.K, this.J));
-            setCustomTextsColorSelectedPos(va0.e().a(getContext(), this.K, this.I));
+            setCustomTextsColorWithoutSelectedPos(za0.e().a(getContext(), this.K, this.J));
+            setCustomTextsColorSelectedPos(za0.e().a(getContext(), this.K, this.I));
         }
     }
 
@@ -404,7 +404,7 @@ public class SmartTabLayout extends HorizontalScrollView {
                     return;
                 }
                 if (this.H && i2 == 0 && (hVar = this.o) != null) {
-                    hVar.b(a2, o80.a(getContext(), 16.0f), 0, 0, 0);
+                    hVar.b(a2, s80.a(getContext(), 16.0f), 0, 0, 0);
                 }
                 if (this.r) {
                     LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) a2.getLayoutParams();
@@ -471,39 +471,39 @@ public class SmartTabLayout extends HorizontalScrollView {
         if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) || (childCount = this.b.getChildCount()) == 0 || i < 0 || i >= childCount) {
             return;
         }
-        boolean n = y80.n(this);
+        boolean n = c90.n(this);
         View childAt = this.b.getChildAt(i);
-        int l = (int) ((y80.l(childAt) + y80.d(childAt)) * f2);
+        int l = (int) ((c90.l(childAt) + c90.d(childAt)) * f2);
         if (this.b.h()) {
             if (0.0f < f2 && f2 < 1.0f) {
                 View childAt2 = this.b.getChildAt(i + 1);
-                l = Math.round(f2 * ((y80.l(childAt) / 2) + y80.c(childAt) + (y80.l(childAt2) / 2) + y80.e(childAt2)));
+                l = Math.round(f2 * ((c90.l(childAt) / 2) + c90.c(childAt) + (c90.l(childAt2) / 2) + c90.e(childAt2)));
             }
             View childAt3 = this.b.getChildAt(0);
             if (n) {
-                int l2 = y80.l(childAt3) + y80.c(childAt3);
-                int l3 = y80.l(childAt) + y80.c(childAt);
-                j = (y80.a(childAt) - y80.c(childAt)) - l;
+                int l2 = c90.l(childAt3) + c90.c(childAt3);
+                int l3 = c90.l(childAt) + c90.c(childAt);
+                j = (c90.a(childAt) - c90.c(childAt)) - l;
                 i3 = (l2 - l3) / 2;
             } else {
-                int l4 = y80.l(childAt3) + y80.e(childAt3);
-                int l5 = y80.l(childAt) + y80.e(childAt);
-                j = (y80.j(childAt) - y80.e(childAt)) + l;
+                int l4 = c90.l(childAt3) + c90.e(childAt3);
+                int l5 = c90.l(childAt) + c90.e(childAt);
+                j = (c90.j(childAt) - c90.e(childAt)) + l;
                 i3 = (l4 - l5) / 2;
             }
             scrollTo(j - i3, 0);
         } else if (this.b.i()) {
-            scrollTo(((y80.j(childAt) - y80.e(childAt)) - (o80.c(getContext()) / 2)) + (y80.l(childAt) / 2) + y80.c(childAt), 0);
+            scrollTo(((c90.j(childAt) - c90.e(childAt)) - (s80.c(getContext()) / 2)) + (c90.l(childAt) / 2) + c90.c(childAt), 0);
         } else {
             if (this.c == -1) {
                 if (0.0f < f2 && f2 < 1.0f) {
                     View childAt4 = this.b.getChildAt(i + 1);
-                    l = Math.round(f2 * ((y80.l(childAt) / 2) + y80.c(childAt) + (y80.l(childAt4) / 2) + y80.e(childAt4)));
+                    l = Math.round(f2 * ((c90.l(childAt) / 2) + c90.c(childAt) + (c90.l(childAt4) / 2) + c90.e(childAt4)));
                 }
                 if (n) {
-                    i2 = (((-y80.m(childAt)) / 2) + (getWidth() / 2)) - y80.i(this);
+                    i2 = (((-c90.m(childAt)) / 2) + (getWidth() / 2)) - c90.i(this);
                 } else {
-                    i2 = ((y80.m(childAt) / 2) - (getWidth() / 2)) + y80.i(this);
+                    i2 = ((c90.m(childAt) / 2) - (getWidth() / 2)) + c90.i(this);
                 }
             } else if (n) {
                 if (i > 0 || f2 > 0.0f) {
@@ -516,9 +516,9 @@ public class SmartTabLayout extends HorizontalScrollView {
                 }
                 i2 = 0;
             }
-            int j2 = y80.j(childAt);
-            int e2 = y80.e(childAt);
-            scrollTo(i2 + (n ? (((j2 + e2) - l) - getWidth()) + y80.h(this) : (j2 - e2) + l), 0);
+            int j2 = c90.j(childAt);
+            int e2 = c90.e(childAt);
+            scrollTo(i2 + (n ? (((j2 + e2) - l) - getWidth()) + c90.h(this) : (j2 - e2) + l), 0);
         }
     }
 
@@ -579,12 +579,12 @@ public class SmartTabLayout extends HorizontalScrollView {
                 return;
             }
             View childAt = this.b.getChildAt(0);
-            x80 x80Var = this.b;
-            View childAt2 = x80Var.getChildAt(x80Var.getChildCount() - 1);
-            int f2 = ((i - y80.f(childAt)) / 2) - y80.e(childAt);
-            int f3 = ((i - y80.f(childAt2)) / 2) - y80.c(childAt2);
-            x80 x80Var2 = this.b;
-            x80Var2.setMinimumWidth(x80Var2.getMeasuredWidth());
+            b90 b90Var = this.b;
+            View childAt2 = b90Var.getChildAt(b90Var.getChildCount() - 1);
+            int f2 = ((i - c90.f(childAt)) / 2) - c90.e(childAt);
+            int f3 = ((i - c90.f(childAt2)) / 2) - c90.c(childAt2);
+            b90 b90Var2 = this.b;
+            b90Var2.setMinimumWidth(b90Var2.getMeasuredWidth());
             ViewCompat.setPaddingRelative(this, f2, getPaddingTop(), f3, getPaddingBottom());
             setClipToPadding(false);
         }
@@ -628,10 +628,10 @@ public class SmartTabLayout extends HorizontalScrollView {
             if (x instanceof TextView) {
                 if (i2 != -1) {
                     Drawable drawable = getResources().getDrawable(i2);
-                    drawable.setBounds(0, 0, o80.a(getContext(), 11.0f), o80.a(getContext(), 11.0f));
+                    drawable.setBounds(0, 0, s80.a(getContext(), 11.0f), s80.a(getContext(), 11.0f));
                     TextView textView = (TextView) x;
                     textView.setCompoundDrawables(null, null, drawable, null);
-                    textView.setCompoundDrawablePadding(o80.a(getContext(), 5.0f));
+                    textView.setCompoundDrawablePadding(s80.a(getContext(), 5.0f));
                     return;
                 }
                 ((TextView) x).setCompoundDrawables(null, null, null, null);
@@ -767,10 +767,10 @@ public class SmartTabLayout extends HorizontalScrollView {
         }
     }
 
-    public void setIndicationInterpolator(w80 w80Var) {
+    public void setIndicationInterpolator(a90 a90Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, w80Var) == null) {
-            this.b.n(w80Var);
+        if (interceptable == null || interceptable.invokeL(1048606, this, a90Var) == null) {
+            this.b.n(a90Var);
         }
     }
 
@@ -1091,12 +1091,12 @@ public class SmartTabLayout extends HorizontalScrollView {
         setClipChildren(false);
         setClipToPadding(false);
         setHorizontalScrollBarEnabled(false);
-        this.a = o80.a(getContext(), 40.0f);
+        this.a = s80.a(getContext(), 40.0f);
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
         float f2 = displayMetrics.density;
         float applyDimension = TypedValue.applyDimension(2, 17.0f, displayMetrics);
         float applyDimension2 = TypedValue.applyDimension(2, 17.0f, displayMetrics);
-        int a2 = o80.a(context, 40.0f);
+        int a2 = s80.a(context, 40.0f);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403fb, R.attr.obfuscated_res_0x7f040402, R.attr.obfuscated_res_0x7f040403, R.attr.obfuscated_res_0x7f040404, R.attr.obfuscated_res_0x7f040405, R.attr.obfuscated_res_0x7f040406, R.attr.obfuscated_res_0x7f040407, R.attr.obfuscated_res_0x7f040408, R.attr.obfuscated_res_0x7f040409, R.attr.obfuscated_res_0x7f04040a, R.attr.obfuscated_res_0x7f04040b, R.attr.obfuscated_res_0x7f04040c, R.attr.obfuscated_res_0x7f04040d, R.attr.obfuscated_res_0x7f04040e, R.attr.obfuscated_res_0x7f040410, R.attr.obfuscated_res_0x7f040411, R.attr.obfuscated_res_0x7f040412, R.attr.obfuscated_res_0x7f040413, R.attr.obfuscated_res_0x7f040414, R.attr.obfuscated_res_0x7f040416, R.attr.obfuscated_res_0x7f040417, R.attr.obfuscated_res_0x7f040418, R.attr.obfuscated_res_0x7f040419, R.attr.obfuscated_res_0x7f04041a, R.attr.obfuscated_res_0x7f04041b, R.attr.obfuscated_res_0x7f04041c, R.attr.obfuscated_res_0x7f04041d, R.attr.obfuscated_res_0x7f04041e, R.attr.obfuscated_res_0x7f04041f, R.attr.obfuscated_res_0x7f040420, R.attr.obfuscated_res_0x7f040421, R.attr.obfuscated_res_0x7f040423, R.attr.obfuscated_res_0x7f040424, R.attr.obfuscated_res_0x7f040426, R.attr.obfuscated_res_0x7f04042c, R.attr.obfuscated_res_0x7f04042d, R.attr.obfuscated_res_0x7f04042f, R.attr.obfuscated_res_0x7f040430, R.attr.obfuscated_res_0x7f040431, R.attr.obfuscated_res_0x7f040432}, i, 0);
         int resourceId = obtainStyledAttributes.getResourceId(8, -1);
         boolean z = obtainStyledAttributes.getBoolean(9, true);
@@ -1134,9 +1134,9 @@ public class SmartTabLayout extends HorizontalScrollView {
         if (resourceId2 != -1) {
             setCustomTabView(resourceId2, resourceId3, new LinearLayout.LayoutParams(layoutDimension2, layoutDimension));
         }
-        x80 x80Var = new x80(context, attributeSet);
-        this.b = x80Var;
-        if (z2 && x80Var.h()) {
+        b90 b90Var = new b90(context, attributeSet);
+        this.b = b90Var;
+        if (z2 && b90Var.h()) {
             return;
         }
         setFillViewport(!this.b.h());

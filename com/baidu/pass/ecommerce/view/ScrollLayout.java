@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.poly.widget.PolyActivity;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -113,7 +112,7 @@ public class ScrollLayout extends FrameLayout {
                 }
             }
             EXIT = new InnerStatus("EXIT", 0);
-            HALF = new InnerStatus(PolyActivity.HALF_PANEL_TYPE, 1);
+            HALF = new InnerStatus("HALF", 1);
             OPENED = new InnerStatus("OPENED", 2);
             MOVING = new InnerStatus("MOVING", 3);
             InnerStatus innerStatus = new InnerStatus("SCROLLING", 4);
@@ -186,7 +185,7 @@ public class ScrollLayout extends FrameLayout {
                 }
             }
             EXIT = new Status("EXIT", 0);
-            HALF = new Status(PolyActivity.HALF_PANEL_TYPE, 1);
+            HALF = new Status("HALF", 1);
             Status status = new Status("OPENED", 2);
             OPENED = status;
             $VALUES = new Status[]{EXIT, HALF, status};

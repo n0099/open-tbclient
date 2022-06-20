@@ -11,18 +11,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jq5;
+import com.repackage.ir5;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jq5 mAlaNewSquareSubListController;
-    public String mBitmapRatio;
-    public String mEntryName;
-    public String mLableName;
-    public List<String> mSubTypeList;
-    public AlaSquareTabInfo mTabInfo;
+    public ir5 a;
+    public AlaSquareTabInfo b;
+    public String c;
+    public String d;
+    public String e;
+    public List<String> f;
 
     public AlaNewSquareSubListActivity() {
         Interceptable interceptable = $ic;
@@ -38,34 +38,34 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
         }
     }
 
-    private void handleIntent(Intent intent) {
+    public final void A1(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, intent) == null) {
-            this.mTabInfo = (AlaSquareTabInfo) intent.getParcelableExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_ENTRY_DATA);
-            this.mEntryName = intent.getStringExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_ENTRY_NAME);
-            this.mLableName = intent.getStringExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_LABEL_NAME);
-            this.mBitmapRatio = intent.getStringExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_BITMAP_RATIO);
-            this.mSubTypeList = intent.getStringArrayListExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_SUB_TYPE_LIST);
-            AlaSquareTabInfo alaSquareTabInfo = this.mTabInfo;
+        if (interceptable == null || interceptable.invokeL(1048576, this, intent) == null) {
+            this.b = (AlaSquareTabInfo) intent.getParcelableExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_ENTRY_DATA);
+            this.c = intent.getStringExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_ENTRY_NAME);
+            this.d = intent.getStringExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_LABEL_NAME);
+            this.e = intent.getStringExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_BITMAP_RATIO);
+            this.f = intent.getStringArrayListExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_SUB_TYPE_LIST);
+            AlaSquareTabInfo alaSquareTabInfo = this.b;
             if (alaSquareTabInfo != null) {
                 int i = alaSquareTabInfo.iconType;
                 if (i == 1) {
-                    this.mEntryName = alaSquareTabInfo.name;
+                    this.c = alaSquareTabInfo.name;
                 } else if (i == 2) {
-                    this.mEntryName = "游戏";
-                    this.mLableName = alaSquareTabInfo.name;
+                    this.c = "游戏";
+                    this.d = alaSquareTabInfo.name;
                 }
-                AlaSquareTabInfo alaSquareTabInfo2 = this.mTabInfo;
+                AlaSquareTabInfo alaSquareTabInfo2 = this.b;
                 String str = alaSquareTabInfo2.bitmapWHRatio;
-                this.mBitmapRatio = str;
-                this.mAlaNewSquareSubListController.l(str, this.mEntryName, this.mLableName, alaSquareTabInfo2.sortTypeList);
-            } else if (!StringUtils.isNull(this.mEntryName)) {
-                this.mAlaNewSquareSubListController.l(this.mBitmapRatio, this.mEntryName, this.mLableName, this.mSubTypeList);
+                this.e = str;
+                this.a.l(str, this.c, this.d, alaSquareTabInfo2.sortTypeList);
+            } else if (!StringUtils.isNull(this.c)) {
+                this.a.l(this.e, this.c, this.d, this.f);
             } else {
                 finish();
             }
-            if (this.mAlaNewSquareSubListController.f() != null) {
-                setContentView(this.mAlaNewSquareSubListController.f());
+            if (this.a.f() != null) {
+                setContentView(this.a.f());
             }
         }
     }
@@ -73,11 +73,11 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            jq5 jq5Var = this.mAlaNewSquareSubListController;
-            if (jq5Var != null) {
-                jq5Var.h(getPageContext(), i);
+            ir5 ir5Var = this.a;
+            if (ir5Var != null) {
+                ir5Var.h(getPageContext(), i);
             }
         }
     }
@@ -85,11 +85,11 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            this.mAlaNewSquareSubListController = new jq5(getPageContext(), true);
+            this.a = new ir5(getPageContext(), true);
             if (getIntent() != null) {
-                handleIntent(getIntent());
+                A1(getIntent());
             } else {
                 finish();
             }
@@ -99,11 +99,11 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            jq5 jq5Var = this.mAlaNewSquareSubListController;
-            if (jq5Var != null) {
-                jq5Var.i();
+            ir5 ir5Var = this.a;
+            if (ir5Var != null) {
+                ir5Var.i();
             }
         }
     }
@@ -111,9 +111,9 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onResume();
-            this.mAlaNewSquareSubListController.k();
+            this.a.k();
         }
     }
 }

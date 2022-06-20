@@ -46,7 +46,7 @@ public class b extends AbstractKsFeedAd {
 
     /* renamed from: com.kwad.sdk.feed.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0322b {
+    public interface InterfaceC0330b {
         void a();
     }
 
@@ -85,22 +85,22 @@ public class b extends AbstractKsFeedAd {
         if (aVar == null) {
             return;
         }
-        aVar.setInnerAdInteractionListener(new a.InterfaceC0323a() { // from class: com.kwad.sdk.feed.b.2
-            @Override // com.kwad.sdk.feed.widget.base.a.InterfaceC0323a
+        aVar.setInnerAdInteractionListener(new a.InterfaceC0331a() { // from class: com.kwad.sdk.feed.b.2
+            @Override // com.kwad.sdk.feed.widget.base.a.InterfaceC0331a
             public void a() {
                 if (b.this.a != null) {
                     b.this.a.onAdClicked();
                 }
             }
 
-            @Override // com.kwad.sdk.feed.widget.base.a.InterfaceC0323a
+            @Override // com.kwad.sdk.feed.widget.base.a.InterfaceC0331a
             public void b() {
                 if (b.this.a != null) {
                     b.this.a.onAdShow();
                 }
             }
 
-            @Override // com.kwad.sdk.feed.widget.base.a.InterfaceC0323a
+            @Override // com.kwad.sdk.feed.widget.base.a.InterfaceC0331a
             public void c() {
                 if (b.this.a != null) {
                     b.this.a.onDislikeClicked();
@@ -114,7 +114,7 @@ public class b extends AbstractKsFeedAd {
                 }
             }
 
-            @Override // com.kwad.sdk.feed.widget.base.a.InterfaceC0323a
+            @Override // com.kwad.sdk.feed.widget.base.a.InterfaceC0331a
             public void d() {
                 if (b.this.a != null) {
                     try {
@@ -124,7 +124,7 @@ public class b extends AbstractKsFeedAd {
                 }
             }
 
-            @Override // com.kwad.sdk.feed.widget.base.a.InterfaceC0323a
+            @Override // com.kwad.sdk.feed.widget.base.a.InterfaceC0331a
             public void e() {
                 if (b.this.a != null) {
                     try {
@@ -148,10 +148,10 @@ public class b extends AbstractKsFeedAd {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public com.kwad.sdk.feed.widget.base.a a(final InterfaceC0322b interfaceC0322b) {
+    public com.kwad.sdk.feed.widget.base.a a(final InterfaceC0330b interfaceC0330b) {
         Context context = KsAdSDKImpl.get().getContext();
         if (context == null) {
-            interfaceC0322b.a();
+            interfaceC0330b.a();
             return null;
         }
         com.kwad.sdk.feed.widget.base.a a2 = a(context);
@@ -170,9 +170,9 @@ public class b extends AbstractKsFeedAd {
                     public void a() {
                         b bVar = b.this;
                         bVar.a(bVar.c);
-                        InterfaceC0322b interfaceC0322b2 = interfaceC0322b;
-                        if (interfaceC0322b2 != null) {
-                            interfaceC0322b2.a();
+                        InterfaceC0330b interfaceC0330b2 = interfaceC0330b;
+                        if (interfaceC0330b2 != null) {
+                            interfaceC0330b2.a();
                         }
                     }
                 });

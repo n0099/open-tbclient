@@ -9,20 +9,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ds9;
-import com.repackage.fs9;
-import com.repackage.is9;
-import com.repackage.ls9;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
+import com.repackage.at9;
+import com.repackage.bt9;
+import com.repackage.es9;
+import com.repackage.gt9;
+import com.repackage.ks9;
 import com.repackage.ms9;
-import com.repackage.ns9;
-import com.repackage.os9;
 import com.repackage.ps9;
-import com.repackage.qs9;
-import com.repackage.rs9;
+import com.repackage.ss9;
 import com.repackage.ts9;
 import com.repackage.us9;
-import com.repackage.xr9;
-import com.repackage.zs9;
+import com.repackage.vs9;
+import com.repackage.ws9;
+import com.repackage.xs9;
+import com.repackage.ys9;
 import java.nio.ByteBuffer;
 import java.util.Collections;
 import java.util.Iterator;
@@ -65,7 +66,7 @@ public abstract class Draft {
                     return;
                 }
             }
-            NONE = new CloseHandshakeType("NONE", 0);
+            NONE = new CloseHandshakeType(HlsPlaylistParser.METHOD_NONE, 0);
             ONEWAY = new CloseHandshakeType("ONEWAY", 1);
             CloseHandshakeType closeHandshakeType = new CloseHandshakeType("TWOWAY", 2);
             TWOWAY = closeHandshakeType;
@@ -226,16 +227,16 @@ public abstract class Draft {
             if (p == null) {
                 return null;
             }
-            return zs9.d(p.array(), 0, p.limit());
+            return gt9.d(p.array(), 0, p.limit());
         }
         return (String) invokeL.objValue;
     }
 
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r10v21, types: [com.repackage.us9, com.repackage.qs9] */
-    public static os9 w(ByteBuffer byteBuffer, WebSocket.Role role) throws InvalidHandshakeException, IncompleteHandshakeException {
+    /* JADX WARN: Type inference failed for: r10v21, types: [com.repackage.xs9, com.repackage.bt9] */
+    public static vs9 w(ByteBuffer byteBuffer, WebSocket.Role role) throws InvalidHandshakeException, IncompleteHandshakeException {
         InterceptResult invokeLL;
-        ps9 ps9Var;
+        ws9 ws9Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, byteBuffer, role)) == null) {
             String q = q(byteBuffer);
@@ -245,10 +246,10 @@ public abstract class Draft {
                     if (role == WebSocket.Role.CLIENT) {
                         if ("101".equals(split[1])) {
                             if ("HTTP/1.1".equalsIgnoreCase(split[0])) {
-                                ?? qs9Var = new qs9();
-                                qs9Var.h(Short.parseShort(split[1]));
-                                qs9Var.c(split[2]);
-                                ps9Var = qs9Var;
+                                ?? xs9Var = new xs9();
+                                xs9Var.h(Short.parseShort(split[1]));
+                                xs9Var.c(split[2]);
+                                ws9Var = xs9Var;
                             } else {
                                 throw new InvalidHandshakeException("Invalid status line received: " + split[0] + " Status line: " + q);
                             }
@@ -257,9 +258,9 @@ public abstract class Draft {
                         }
                     } else if ("GET".equalsIgnoreCase(split[0])) {
                         if ("HTTP/1.1".equalsIgnoreCase(split[2])) {
-                            ps9 ps9Var2 = new ps9();
-                            ps9Var2.b(split[1]);
-                            ps9Var = ps9Var2;
+                            ws9 ws9Var2 = new ws9();
+                            ws9Var2.b(split[1]);
+                            ws9Var = ws9Var2;
                         } else {
                             throw new InvalidHandshakeException("Invalid status line received: " + split[2] + " Status line: " + q);
                         }
@@ -270,11 +271,11 @@ public abstract class Draft {
                     while (q2 != null && q2.length() > 0) {
                         String[] split2 = q2.split(":", 2);
                         if (split2.length == 2) {
-                            if (ps9Var.e(split2[0])) {
+                            if (ws9Var.e(split2[0])) {
                                 String str = split2[0];
-                                ps9Var.put(str, ps9Var.d(split2[0]) + "; " + split2[1].replaceFirst("^ +", ""));
+                                ws9Var.put(str, ws9Var.d(split2[0]) + "; " + split2[1].replaceFirst("^ +", ""));
                             } else {
-                                ps9Var.put(split2[0], split2[1].replaceFirst("^ +", ""));
+                                ws9Var.put(split2[0], split2[1].replaceFirst("^ +", ""));
                             }
                             q2 = q(byteBuffer);
                         } else {
@@ -282,7 +283,7 @@ public abstract class Draft {
                         }
                     }
                     if (q2 != null) {
-                        return ps9Var;
+                        return ws9Var;
                     }
                     throw new IncompleteHandshakeException();
                 }
@@ -290,17 +291,17 @@ public abstract class Draft {
             }
             throw new IncompleteHandshakeException(byteBuffer.capacity() + 128);
         }
-        return (os9) invokeLL.objValue;
+        return (vs9) invokeLL.objValue;
     }
 
-    public abstract HandshakeState a(ms9 ms9Var, ts9 ts9Var) throws InvalidHandshakeException;
+    public abstract HandshakeState a(ts9 ts9Var, at9 at9Var) throws InvalidHandshakeException;
 
-    public abstract HandshakeState b(ms9 ms9Var) throws InvalidHandshakeException;
+    public abstract HandshakeState b(ts9 ts9Var) throws InvalidHandshakeException;
 
-    public boolean c(rs9 rs9Var) {
+    public boolean c(ys9 ys9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rs9Var)) == null) ? rs9Var.d("Upgrade").equalsIgnoreCase("websocket") && rs9Var.d(HTTP.CONN_DIRECTIVE).toLowerCase(Locale.ENGLISH).contains("upgrade") : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ys9Var)) == null) ? ys9Var.d("Upgrade").equalsIgnoreCase("websocket") && ys9Var.d(HTTP.CONN_DIRECTIVE).toLowerCase(Locale.ENGLISH).contains("upgrade") : invokeL.booleanValue;
     }
 
     public int d(int i) throws LimitExedeedException, InvalidDataException {
@@ -317,32 +318,32 @@ public abstract class Draft {
 
     public List<Framedata> e(Framedata.Opcode opcode, ByteBuffer byteBuffer, boolean z) {
         InterceptResult invokeLLZ;
-        is9 ls9Var;
+        ps9 ss9Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048580, this, opcode, byteBuffer, z)) == null) {
             if (opcode != Framedata.Opcode.BINARY && opcode != Framedata.Opcode.TEXT) {
                 throw new IllegalArgumentException("Only Opcode.BINARY or  Opcode.TEXT are allowed");
             }
             if (this.b != null) {
-                ls9Var = new fs9();
+                ss9Var = new ms9();
             } else {
                 this.b = opcode;
                 if (opcode == Framedata.Opcode.BINARY) {
-                    ls9Var = new ds9();
+                    ss9Var = new ks9();
                 } else {
-                    ls9Var = opcode == Framedata.Opcode.TEXT ? new ls9() : null;
+                    ss9Var = opcode == Framedata.Opcode.TEXT ? new ss9() : null;
                 }
             }
-            ls9Var.j(byteBuffer);
-            ls9Var.i(z);
+            ss9Var.j(byteBuffer);
+            ss9Var.i(z);
             try {
-                ls9Var.h();
+                ss9Var.h();
                 if (z) {
                     this.b = null;
                 } else {
                     this.b = opcode;
                 }
-                return Collections.singletonList(ls9Var);
+                return Collections.singletonList(ss9Var);
             } catch (InvalidDataException e) {
                 throw new IllegalArgumentException(e);
             }
@@ -358,40 +359,40 @@ public abstract class Draft {
 
     public abstract List<Framedata> i(ByteBuffer byteBuffer, boolean z);
 
-    public List<ByteBuffer> j(rs9 rs9Var, WebSocket.Role role) {
+    public List<ByteBuffer> j(ys9 ys9Var, WebSocket.Role role) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, rs9Var, role)) == null) ? k(rs9Var, role, true) : (List) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, ys9Var, role)) == null) ? k(ys9Var, role, true) : (List) invokeLL.objValue;
     }
 
-    public List<ByteBuffer> k(rs9 rs9Var, WebSocket.Role role, boolean z) {
+    public List<ByteBuffer> k(ys9 ys9Var, WebSocket.Role role, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048586, this, rs9Var, role, z)) == null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048586, this, ys9Var, role, z)) == null) {
             StringBuilder sb = new StringBuilder(100);
-            if (rs9Var instanceof ms9) {
+            if (ys9Var instanceof ts9) {
                 sb.append("GET ");
-                sb.append(((ms9) rs9Var).f());
+                sb.append(((ts9) ys9Var).f());
                 sb.append(" HTTP/1.1");
-            } else if (rs9Var instanceof ts9) {
+            } else if (ys9Var instanceof at9) {
                 sb.append("HTTP/1.1 101 ");
-                sb.append(((ts9) rs9Var).a());
+                sb.append(((at9) ys9Var).a());
             } else {
                 throw new IllegalArgumentException("unknown role");
             }
             sb.append("\r\n");
-            Iterator<String> g = rs9Var.g();
+            Iterator<String> g = ys9Var.g();
             while (g.hasNext()) {
                 String next = g.next();
-                String d = rs9Var.d(next);
+                String d = ys9Var.d(next);
                 sb.append(next);
                 sb.append(": ");
                 sb.append(d);
                 sb.append("\r\n");
             }
             sb.append("\r\n");
-            byte[] a = zs9.a(sb.toString());
-            byte[] content = z ? rs9Var.getContent() : null;
+            byte[] a = gt9.a(sb.toString());
+            byte[] content = z ? ys9Var.getContent() : null;
             ByteBuffer allocate = ByteBuffer.allocate((content == null ? 0 : content.length) + a.length);
             allocate.put(a);
             if (content != null) {
@@ -405,17 +406,17 @@ public abstract class Draft {
 
     public abstract CloseHandshakeType l();
 
-    public abstract ns9 m(ns9 ns9Var) throws InvalidHandshakeException;
+    public abstract us9 m(us9 us9Var) throws InvalidHandshakeException;
 
-    public abstract os9 n(ms9 ms9Var, us9 us9Var) throws InvalidHandshakeException;
+    public abstract vs9 n(ts9 ts9Var, bt9 bt9Var) throws InvalidHandshakeException;
 
-    public abstract void o(xr9 xr9Var, Framedata framedata) throws InvalidDataException;
+    public abstract void o(es9 es9Var, Framedata framedata) throws InvalidDataException;
 
-    public int r(rs9 rs9Var) {
+    public int r(ys9 ys9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, rs9Var)) == null) {
-            String d = rs9Var.d("Sec-WebSocket-Version");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, ys9Var)) == null) {
+            String d = ys9Var.d("Sec-WebSocket-Version");
             if (d.length() > 0) {
                 try {
                     return new Integer(d.trim()).intValue();
@@ -444,9 +445,9 @@ public abstract class Draft {
 
     public abstract List<Framedata> u(ByteBuffer byteBuffer) throws InvalidDataException;
 
-    public rs9 v(ByteBuffer byteBuffer) throws InvalidHandshakeException {
+    public ys9 v(ByteBuffer byteBuffer) throws InvalidHandshakeException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, byteBuffer)) == null) ? w(byteBuffer, this.a) : (rs9) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, byteBuffer)) == null) ? w(byteBuffer, this.a) : (ys9) invokeL.objValue;
     }
 }

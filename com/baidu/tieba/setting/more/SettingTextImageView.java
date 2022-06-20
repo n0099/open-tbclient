@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SettingTextImageView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -93,10 +93,10 @@ public class SettingTextImageView extends FrameLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d074d, (ViewGroup) this, true);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906b0);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091f06);
-            this.d = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090dc3);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d074c, (ViewGroup) this, true);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09069b);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091f05);
+            this.d = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090db4);
             this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09029e);
         }
     }
@@ -121,9 +121,9 @@ public class SettingTextImageView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048582, this, str, z) == null) {
             if (z) {
-                this.d.K(str, 26, false);
+                this.d.J(str, 26, false);
             } else {
-                this.d.K(str, 12, false);
+                this.d.J(str, 12, false);
             }
         }
     }

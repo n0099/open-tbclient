@@ -1,155 +1,67 @@
 package com.repackage;
 
-import android.app.Application;
-import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
+import com.badlogic.gdx.utils.reflect.ReflectionException;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONObject;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 /* loaded from: classes7.dex */
-public class u8 {
+public final class u8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final u8 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile boolean a;
-    public o91 b;
-    public long c;
-    public final Handler d;
-    public final ArrayList<jc1> e;
+    public final Constructor a;
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ u8 b;
-
-        public a(u8 u8Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u8Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = u8Var;
-            this.a = i;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a != 1 || ((float) (System.currentTimeMillis() - this.b.c)) >= y91.i() * 60000.0f) {
-                    if (this.b.b == null) {
-                        this.b.b = new o91();
-                    }
-                    this.b.b.k();
-                    this.b.c = System.currentTimeMillis();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface b {
-        void onFailed();
-
-        void onSuccess();
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964027390, "Lcom/repackage/u8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1964027390, "Lcom/repackage/u8;");
-                return;
-            }
-        }
-        f = new u8();
-    }
-
-    public u8() {
+    public u8(Constructor constructor) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {constructor};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        this.d = new Handler(Looper.getMainLooper());
-        this.e = new ArrayList<>();
+        this.a = constructor;
     }
 
-    public static u8 f() {
+    public Class a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f : (u8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getDeclaringClass() : (Class) invokeV.objValue;
     }
 
-    public void e() {
+    public Object b(Object... objArr) throws ReflectionException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e.clear();
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Context b2 = xg0.b();
-            if (b2 instanceof Application) {
-                ((Application) b2).registerActivityLifecycleCallbacks(new s91());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) {
+            try {
+                return this.a.newInstance(objArr);
+            } catch (IllegalAccessException e) {
+                throw new ReflectionException("Could not instantiate instance of class: " + a().getName(), e);
+            } catch (IllegalArgumentException e2) {
+                throw new ReflectionException("Illegal argument(s) supplied to constructor for class: " + a().getName(), e2);
+            } catch (InstantiationException e3) {
+                throw new ReflectionException("Could not instantiate instance of class: " + a().getName(), e3);
+            } catch (InvocationTargetException e4) {
+                throw new ReflectionException("Exception occurred in constructor for class: " + a().getName(), e4);
             }
         }
+        return invokeL.objValue;
     }
 
-    public boolean h() {
-        InterceptResult invokeV;
+    public void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject d = m91.a().d();
-            return d == null || d.optBoolean("real_time_query_switch", true);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.booleanValue;
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.d.postDelayed(new a(this, i), 5000L);
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.a.setAccessible(z);
         }
     }
 }

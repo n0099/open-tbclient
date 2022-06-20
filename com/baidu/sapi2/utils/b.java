@@ -36,12 +36,12 @@ public class b {
 
         /* renamed from: com.baidu.sapi2.utils.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0129a implements Runnable {
+        public class RunnableC0132a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0129a(a aVar) {
+            public RunnableC0132a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,7 +92,7 @@ public class b {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.post(new RunnableC0129a(this));
+                this.a.post(new RunnableC0132a(this));
             }
         }
     }
@@ -152,7 +152,7 @@ public class b {
             try {
                 ProgressBar progressBar = new ProgressBar(context, null, 16842872);
                 progressBar.setLayoutParams(new AbsoluteLayout.LayoutParams(-1, SapiUtils.dip2px(context, 2.0f), 0, 0));
-                progressBar.setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0609bc));
+                progressBar.setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0609ba));
                 sapiWebView.setProgressBar(progressBar);
             } catch (Throwable th) {
                 Log.e(th);
@@ -187,16 +187,16 @@ public class b {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, webView)) == null) {
-            View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.obfuscated_res_0x7f0d04c1, (ViewGroup) null);
-            Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f090433);
+            View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.obfuscated_res_0x7f0d04bf, (ViewGroup) null);
+            Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f09042e);
             if (SapiAccountManager.getInstance().getConfignation().isDarkMode && inflate != null) {
-                ((LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091b95)).setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0609bc));
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b97)).setTextColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0609bf));
-                ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091b96)).setImageResource(R.drawable.obfuscated_res_0x7f08106c);
-                button.setBackgroundResource(R.drawable.obfuscated_res_0x7f08102c);
+                ((LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091b8d)).setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0609ba));
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b8f)).setTextColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0609bd));
+                ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091b8e)).setImageResource(R.drawable.obfuscated_res_0x7f08105d);
+                button.setBackgroundResource(R.drawable.obfuscated_res_0x7f08101d);
                 Resources resources = context.getResources();
                 if (resources != null) {
-                    button.setTextColor(resources.getColorStateList(R.color.obfuscated_res_0x7f060a0c));
+                    button.setTextColor(resources.getColorStateList(R.color.obfuscated_res_0x7f060a0a));
                 }
             }
             button.setOnClickListener(new a(webView, inflate));

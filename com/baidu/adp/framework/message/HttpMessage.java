@@ -14,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
@@ -59,7 +60,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
             }
             ASCEND = new SORT("ASCEND", 0);
             DESCEND = new SORT("DESCEND", 1);
-            SORT sort = new SORT("NONE", 2);
+            SORT sort = new SORT(HlsPlaylistParser.METHOD_NONE, 2);
             NONE = sort;
             $VALUES = new SORT[]{ASCEND, DESCEND, sort};
         }

@@ -1,76 +1,24 @@
 package com.repackage;
 
-import android.os.Bundle;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mh2;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class nt2 implements ae3<HybridUbcFlow> {
+public class nt2 implements ot2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public class a implements ae3<HybridUbcFlow> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(nt2 nt2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nt2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ae3
-        /* renamed from: a */
-        public void onCallback(HybridUbcFlow hybridUbcFlow) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, hybridUbcFlow) == null) || nt2.a(hybridUbcFlow)) {
-                return;
-            }
-            long f = hybridUbcFlow.f("na_first_meaningful_paint", "naStart");
-            if (f <= 0) {
-                f = hybridUbcFlow.f("na_first_paint", "naStart");
-            }
-            if (f <= 0) {
-                f = hybridUbcFlow.f("slave_first_rendered", "naStart");
-            }
-            if (f <= 0) {
-                f = hybridUbcFlow.f("fe_page_show", "naStart");
-            }
-            if (f <= 0) {
-                f = hybridUbcFlow.f("na_page_show", "naStart");
-            }
-            if (f <= 0) {
-                f = hybridUbcFlow.f("na_receive_intent", "naStart");
-            }
-            if (f <= 0) {
-                f = System.currentTimeMillis();
-            }
-            Bundle bundle = new Bundle();
-            bundle.putLong("property_launch_cost", f);
-            xv2 e = xv2.e();
-            zv2 zv2Var = new zv2(20, bundle);
-            zv2Var.f(true);
-            e.h(zv2Var);
-            us2.j().c(f);
-            kt2.e().f();
-        }
-    }
 
     public nt2() {
         Interceptable interceptable = $ic;
@@ -86,31 +34,55 @@ public class nt2 implements ae3<HybridUbcFlow> {
         }
     }
 
-    public static boolean a(HybridUbcFlow hybridUbcFlow) {
+    @Override // com.repackage.ot2
+    public List<at2> a(JSONObject jSONObject) {
         InterceptResult invokeL;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hybridUbcFlow)) == null) ? hybridUbcFlow.p("performanceEnd") && !hybridUbcFlow.p("na_first_meaningful_paint") : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            ArrayList arrayList = new ArrayList();
+            String optString = jSONObject.optString("apiName");
+            c("api-name " + optString);
+            if (TextUtils.isEmpty(optString)) {
+                return arrayList;
+            }
+            int optInt = jSONObject.optInt("count");
+            c("api-count " + optInt);
+            if (optInt > 0 && (optJSONObject = jSONObject.optJSONObject("caller")) != null) {
+                b(optString, optJSONObject.optJSONObject("swan"), arrayList, 0);
+                b(optString, optJSONObject.optJSONObject("boxjs"), arrayList, 1);
+                return arrayList;
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ae3
-    /* renamed from: b */
-    public void onCallback(HybridUbcFlow hybridUbcFlow) {
+    public final void b(String str, @Nullable JSONObject jSONObject, @NonNull List<at2> list, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hybridUbcFlow) == null) {
-            hybridUbcFlow.J("670");
-            hybridUbcFlow.D("preload_scene", "1");
-            hybridUbcFlow.E("from", "swan");
-            hybridUbcFlow.H("component_reporter", new is2());
-            hybridUbcFlow.H("component_reporter", new lr2());
-            hybridUbcFlow.H("component_reporter", new fs2());
-            hybridUbcFlow.H("component_reporter", new ks2());
-            hybridUbcFlow.H("callback_on_submit", new mh2.a());
-            hybridUbcFlow.H("fmp_callback", new qt2("fmp_callback"));
-            hybridUbcFlow.H("fmp_callback", new eu2());
-            hybridUbcFlow.H("callback_on_submit", new qt2("callback_on_submit"));
-            hybridUbcFlow.H("callback_on_submit", new fb3());
-            hybridUbcFlow.H("callback_on_submit", new a(this));
+        if (!(interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject, list, i) == null) || jSONObject == null || jSONObject.length() <= 0) {
+            return;
+        }
+        JSONArray optJSONArray = jSONObject.optJSONArray(FetchLog.START_TIME);
+        JSONArray optJSONArray2 = jSONObject.optJSONArray(FetchLog.END_TIME);
+        if (optJSONArray == null || optJSONArray2 == null) {
+            return;
+        }
+        int min = Math.min(optJSONArray.length(), optJSONArray2.length());
+        for (int i2 = 0; i2 < min; i2++) {
+            at2 at2Var = new at2();
+            at2Var.g(i);
+            at2Var.f(str);
+            at2Var.i(optJSONArray.optLong(i2));
+            at2Var.h(optJSONArray2.optLong(i2));
+            list.add(at2Var);
+        }
+    }
+
+    public final void c(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && ot2.a) {
+            Log.d("Api-Parser", str);
         }
     }
 }

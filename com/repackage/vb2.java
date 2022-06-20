@@ -1,21 +1,19 @@
 package com.repackage;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
 public class vb2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    @V8JavascriptField
-    public String errMsg;
-    @V8JavascriptField
-    public hb2[] fileList;
+    public HashMap<String, wb2> a;
 
     public vb2() {
         Interceptable interceptable = $ic;
@@ -30,17 +28,61 @@ public class vb2 {
                 return;
             }
         }
-        this.a = 0;
-        this.a = 0 + 1;
-        this.b = 0;
+        this.a = new HashMap<>();
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public void a(wb2 wb2Var, String... strArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "GetSavedFileListCallBack" + this.b;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, wb2Var, strArr) == null) || strArr == null || strArr.length == 0) {
+            return;
         }
-        return (String) invokeV.objValue;
+        for (String str : strArr) {
+            if (!TextUtils.isEmpty(str)) {
+                this.a.put(str, wb2Var);
+            }
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.clear();
+        }
+    }
+
+    public ArrayList<wb2> c(String... strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
+            ArrayList<wb2> arrayList = null;
+            if (strArr != null && strArr.length != 0) {
+                for (String str : strArr) {
+                    if (!TextUtils.isEmpty(str)) {
+                        for (String str2 : this.a.keySet()) {
+                            if (str2.startsWith(str) || str.startsWith(str2)) {
+                                if (arrayList == null) {
+                                    arrayList = new ArrayList<>();
+                                }
+                                arrayList.add(this.a.get(str2));
+                            }
+                        }
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public void d(wb2 wb2Var, String... strArr) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, wb2Var, strArr) == null) || strArr == null || strArr.length == 0) {
+            return;
+        }
+        for (String str : strArr) {
+            if (!TextUtils.isEmpty(str) && this.a.get(str) == wb2Var) {
+                this.a.remove(str);
+            }
+        }
     }
 }

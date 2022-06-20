@@ -1,458 +1,377 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.mobstat.Config;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.R;
+import com.baidu.tieba.postsearch.PostSearchActivity;
+import com.baidu.tieba.postsearch.PostSearchHttpResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 /* loaded from: classes5.dex */
-public class b78 implements pg5 {
+public class b78 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Object> a;
-    public ug5 b;
-    public n78 c;
-    public wm d;
-    public wm e;
-    public wm f;
-    public wm g;
-    public wm h;
+    public PostSearchActivity a;
+    public String b;
+    public String c;
+    public int d;
+    public int e;
+    public int f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
+    public ArrayList<String> j;
+    public int k;
+    public final HttpMessageListener l;
+    public CustomMessageListener m;
 
-    public b78() {
+    /* loaded from: classes5.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b78 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(b78 b78Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b78Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = b78Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                int statusCode = httpResponsedMessage.getStatusCode();
+                int error = httpResponsedMessage.getError();
+                if ((httpResponsedMessage instanceof PostSearchHttpResponseMessage) && (httpResponsedMessage.getOrginalMessage() instanceof HttpMessage)) {
+                    HttpMessage httpMessage = (HttpMessage) httpResponsedMessage.getOrginalMessage();
+                    int intValue = httpMessage.getExtra() instanceof Integer ? ((Integer) httpMessage.getExtra()).intValue() : 0;
+                    this.a.p(intValue);
+                    boolean z = this.a.i(intValue) > 1;
+                    PostSearchHttpResponseMessage postSearchHttpResponseMessage = (PostSearchHttpResponseMessage) httpResponsedMessage;
+                    if (statusCode == 200 && error == 0) {
+                        this.a.a.z0(intValue, postSearchHttpResponseMessage.getSearchData(), z);
+                        this.a.f(intValue);
+                        this.a.r();
+                        this.a.s();
+                        return;
+                    }
+                    String errorString = postSearchHttpResponseMessage.getErrorString();
+                    if (TextUtils.isEmpty(errorString)) {
+                        errorString = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c37);
+                    }
+                    this.a.a.showToast(errorString);
+                    this.a.a.z0(intValue, null, z);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b78 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(b78 b78Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b78Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = b78Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Object data;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || (data = customResponsedMessage.getData()) == null || !(data instanceof ArrayList)) {
+                return;
+            }
+            b78 b78Var = this.a;
+            b78Var.j = (ArrayList) data;
+            b78Var.a.y0();
+        }
+    }
+
+    public b78(PostSearchActivity postSearchActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {postSearchActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.repackage.pg5
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-        }
-    }
-
-    @Override // com.repackage.pg5
-    public List<Integer> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(Integer.valueOf(AdvertAppInfo.w.getId()));
-            arrayList.add(Integer.valueOf(AdvertAppInfo.t.getId()));
-            arrayList.add(Integer.valueOf(AdvertAppInfo.x.getId()));
-            arrayList.add(Integer.valueOf(AdvertAppInfo.y.getId()));
-            arrayList.add(Integer.valueOf(AdvertAppInfo.z.getId()));
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.repackage.pg5
-    public void d(List<og5> list, String str, String str2, String str3, String str4, boolean z, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{list, str, str2, str3, str4, Boolean.valueOf(z), Integer.valueOf(i)}) == null) || db7.e(list)) {
-            return;
-        }
-        Set<jn> a = a98.a("FRS");
-        if (a == null) {
-            a = new HashSet();
-        }
-        HashSet hashSet = new HashSet();
-        for (og5 og5Var : list) {
-            if (og5Var != null) {
-                Object a2 = og5Var.a();
-                for (jn jnVar : a) {
-                    if (a2 != null && og5Var.c() == 3 && (a2 instanceof AdvertAppInfo) && jnVar != null && (jnVar instanceof AdvertAppInfo) && a2.hashCode() == jnVar.hashCode()) {
-                        ((AdvertAppInfo) a2).i = ((AdvertAppInfo) jnVar).i;
-                    }
-                }
-                if (a2 != null && og5Var.c() == 3 && (a2 instanceof AdvertAppInfo)) {
-                    AdvertAppInfo advertAppInfo = (AdvertAppInfo) a2;
-                    if (advertAppInfo.i == null) {
-                        tm4 tm4Var = new tm4();
-                        advertAppInfo.i = tm4Var;
-                        tm4Var.a = "FRS";
-                        String.valueOf(z);
-                        tm4 tm4Var2 = advertAppInfo.i;
-                        tm4Var2.b = i;
-                        tm4Var2.c = str;
-                        tm4Var2.d = str2;
-                        tm4Var2.e = str3;
-                        tm4Var2.f = str4;
-                        tm4Var2.g = advertAppInfo.g;
-                        tm4Var2.h = false;
-                        hashSet.add(advertAppInfo);
-                    }
-                }
-            }
-        }
-        a.addAll(hashSet);
-        a98.b("FRS", a);
-    }
-
-    @Override // com.repackage.pg5
-    public TypeAdapter.ViewHolder e(ViewGroup viewGroup, Object obj) {
-        InterceptResult invokeLL;
-        wm wmVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewGroup, obj)) == null) {
-            if (obj instanceof AdvertAppInfo) {
-                BdUniqueId type = ((AdvertAppInfo) obj).getType();
-                if (type == AdvertAppInfo.w) {
-                    wmVar = this.e;
-                } else if (type == AdvertAppInfo.t) {
-                    wmVar = this.d;
-                } else if (type == AdvertAppInfo.x) {
-                    wmVar = this.f;
-                } else if (type == AdvertAppInfo.y) {
-                    wmVar = this.g;
-                } else {
-                    wmVar = type == AdvertAppInfo.z ? this.h : null;
-                }
-                if (wmVar != null) {
-                    return wmVar.N(viewGroup, obj);
-                }
-                return null;
-            }
-            return null;
-        }
-        return (TypeAdapter.ViewHolder) invokeLL.objValue;
-    }
-
-    @Override // com.repackage.pg5
-    public void g(List<og5> list, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048580, this, list, i) == null) || db7.e(this.a)) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList();
-        for (Object obj : this.a) {
-            if (obj instanceof AdvertAppInfo) {
-                db7.a(arrayList, (AdvertAppInfo) obj);
-            }
-        }
-        Iterator<og5> it = list.iterator();
-        while (it.hasNext()) {
-            if (it.next().c() == 3) {
-                it.remove();
-            }
-        }
-        int i2 = db7.i(list);
-        int i3 = 0;
-        int i4 = 0;
-        for (og5 og5Var : list) {
-            if (og5Var.c() == 1) {
-                i4++;
-            }
-        }
-        int i5 = db7.i(arrayList);
-        if (i5 < 1) {
-            return;
-        }
-        int i6 = i2 - i4;
-        HashSet hashSet = new HashSet();
-        int i7 = 0;
-        while (i7 < i5) {
-            AdvertAppInfo advertAppInfo = (AdvertAppInfo) db7.d(arrayList, i7);
-            advertAppInfo.j = "FRS";
-            int q = advertAppInfo.q();
-            if (q != 0) {
-                c98.h(advertAppInfo, i, q);
-                if (q != 28 && q != 31) {
-                    advertAppInfo.c = -1001;
-                }
-                i7++;
-                i3 = 0;
-            }
-            if (advertAppInfo.getType() == null) {
-                c98.h(advertAppInfo, i, 100);
-            } else {
-                int e = (jg.e(advertAppInfo.f, i3) + i4) - 1;
-                if (hashSet.contains(Integer.valueOf(e))) {
-                    c98.h(advertAppInfo, i, 29);
-                } else if (e < 0) {
-                    c98.h(advertAppInfo, i, 33);
-                } else if (e >= i2 && i6 > 3) {
-                    c98.i(advertAppInfo, i, 2, e, i2);
-                } else {
-                    og5 og5Var2 = new og5();
-                    og5Var2.d(advertAppInfo);
-                    og5Var2.e(advertAppInfo.getType().getId());
-                    og5Var2.f(3);
-                    if (advertAppInfo.i()) {
-                        if (r78.i(advertAppInfo.p) && dg5.a().p()) {
-                            c98.h(advertAppInfo, i, 3);
-                        } else if (!TextUtils.isEmpty(advertAppInfo.p) && !TextUtils.isEmpty(advertAppInfo.l)) {
-                            hashSet.add(Integer.valueOf(e));
-                            if (e < i2) {
-                                db7.b(list, og5Var2, e);
-                            } else if (e == i2) {
-                                db7.a(list, og5Var2);
-                            }
-                        }
-                    } else if (advertAppInfo.m()) {
-                        hashSet.add(Integer.valueOf(e));
-                        if (e < i2) {
-                            db7.b(list, og5Var2, e);
-                        } else if (e == i2) {
-                            db7.a(list, og5Var2);
-                        }
-                    } else {
-                        c98.h(advertAppInfo, i, 21);
-                    }
-                }
-            }
-            i7++;
-            i3 = 0;
-        }
-    }
-
-    @Override // com.repackage.pg5
-    public void i(List<Object> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.a = list;
-        }
-    }
-
-    @Override // com.repackage.pg5
-    public View k(int i, View view2, ViewGroup viewGroup, Object obj) {
-        InterceptResult invokeCommon;
-        wm wmVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, obj})) == null) {
-            if (obj instanceof AdvertAppInfo) {
-                AdvertAppInfo advertAppInfo = (AdvertAppInfo) obj;
-                BdUniqueId type = advertAppInfo.getType();
-                if (type == AdvertAppInfo.w) {
-                    wmVar = this.e;
-                } else if (type == AdvertAppInfo.t) {
-                    wmVar = this.d;
-                } else if (type == AdvertAppInfo.x) {
-                    wmVar = this.f;
-                } else if (type == AdvertAppInfo.y) {
-                    wmVar = this.g;
-                } else {
-                    wmVar = type == AdvertAppInfo.z ? this.h : null;
-                }
-                if (wmVar != null) {
-                    return wmVar.E(i, view2, viewGroup, advertAppInfo);
-                }
-                return null;
-            }
-            return null;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    @Override // com.repackage.pg5
-    public void l(int i, ViewGroup viewGroup, TypeAdapter.ViewHolder viewHolder, Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), viewGroup, viewHolder, obj}) == null) && (obj instanceof AdvertAppInfo)) {
-            wm wmVar = null;
-            BdUniqueId type = ((AdvertAppInfo) obj).getType();
-            if (type == AdvertAppInfo.w) {
-                wmVar = this.e;
-            } else if (type == AdvertAppInfo.t) {
-                wmVar = this.d;
-            } else if (type == AdvertAppInfo.x) {
-                wmVar = this.f;
-            } else if (type == AdvertAppInfo.y) {
-                wmVar = this.g;
-            } else if (type == AdvertAppInfo.z) {
-                wmVar = this.h;
-            }
-            if (wmVar != null) {
-                wmVar.T(i, viewGroup, viewHolder, obj);
-            }
-        }
-    }
-
-    @Override // com.repackage.pg5
-    public void m(List<og5> list, List<og5> list2, boolean z, int i) {
-        ArrayList arrayList;
-        int i2;
-        int i3;
-        int e;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{list, list2, Boolean.valueOf(z), Integer.valueOf(i)}) == null) || db7.e(this.a)) {
-            return;
-        }
-        ArrayList arrayList2 = new ArrayList();
-        for (Object obj : this.a) {
-            if (obj instanceof AdvertAppInfo) {
-                db7.a(arrayList2, (AdvertAppInfo) obj);
-            }
-        }
-        Iterator<og5> it = list.iterator();
-        while (it.hasNext()) {
-            if (it.next().c() == 3) {
-                it.remove();
-            }
-        }
-        int i4 = db7.i(list);
-        int i5 = 0;
-        int i6 = 0;
-        for (og5 og5Var : list) {
-            if (og5Var.c() == 1) {
-                i6++;
-            }
-        }
-        int i7 = db7.i(arrayList2);
-        if (i7 < 1) {
-            return;
-        }
-        int i8 = 9;
-        if (db7.i(arrayList2) > 1 && (e = (jg.e(((AdvertAppInfo) db7.d(arrayList2, 1)).f, 0) - jg.e(((AdvertAppInfo) db7.d(arrayList2, 0)).f, 0)) - 1) > 0) {
-            i8 = e;
-        }
-        int e2 = jg.e(((AdvertAppInfo) db7.d(arrayList2, 0)).f, 0) - 1;
-        int i9 = i4 - i6;
-        HashSet hashSet = new HashSet();
-        int i10 = 0;
-        while (i10 < i7) {
-            AdvertAppInfo advertAppInfo = (AdvertAppInfo) db7.d(arrayList2, i10);
-            advertAppInfo.j = "SMART_FRS";
-            int q = advertAppInfo.q();
-            if (q != 0) {
-                c98.h(advertAppInfo, i, q);
-                if (q != 28 && q != 31) {
-                    advertAppInfo.c = -1001;
-                }
-                arrayList = arrayList2;
-                i10++;
-                arrayList2 = arrayList;
-                i5 = 0;
-            }
-            if (advertAppInfo.getType() == null) {
-                c98.h(advertAppInfo, i, 100);
-                arrayList = arrayList2;
-                i10++;
-                arrayList2 = arrayList;
-                i5 = 0;
-            } else {
-                int e3 = jg.e(advertAppInfo.f, i5);
-                int i11 = (e3 + i6) - 1;
-                if (i11 < 0 || hashSet.contains(Integer.valueOf(i11)) || i11 > i4) {
-                    arrayList = arrayList2;
-                    if (i11 > i4) {
-                        c98.i(advertAppInfo, i, 2, i11, i4);
-                        i10++;
-                        arrayList2 = arrayList;
-                        i5 = 0;
-                    } else {
-                        i2 = i11 < 0 ? 33 : 29;
-                    }
-                } else {
-                    if (e3 <= (i9 - i8) + e2 || !z) {
-                        arrayList = arrayList2;
-                    } else if (!db7.e(list2)) {
-                        int i12 = db7.i(list2);
-                        int i13 = (i8 - ((i9 - e3) + 1)) - 1;
-                        int i14 = 0;
-                        while (i14 < i12 && i14 < i13) {
-                            arrayList = arrayList2;
-                            if (((og5) db7.d(list2, i14)).a() instanceof AdvertAppInfo) {
-                                i3 = 0;
-                                break;
-                            } else {
-                                i14++;
-                                arrayList2 = arrayList;
-                            }
-                        }
-                        arrayList = arrayList2;
-                        i3 = 1;
-                        i2 = i3 ^ 1;
-                    } else {
-                        arrayList = arrayList2;
-                        if (dg5.a().o()) {
-                            i2 = 36;
-                        }
-                    }
-                    i2 = 0;
-                }
-                if (i2 != 0) {
-                    c98.h(advertAppInfo, i, i2);
-                    i10++;
-                    arrayList2 = arrayList;
-                    i5 = 0;
-                } else {
-                    og5 og5Var2 = new og5();
-                    og5Var2.d(advertAppInfo);
-                    og5Var2.e(advertAppInfo.getType().getId());
-                    og5Var2.f(3);
-                    if (advertAppInfo.i()) {
-                        if (r78.i(advertAppInfo.p) && dg5.a().p()) {
-                            c98.h(advertAppInfo, i, 3);
-                        } else if (!TextUtils.isEmpty(advertAppInfo.p) && !TextUtils.isEmpty(advertAppInfo.l)) {
-                            hashSet.add(Integer.valueOf(i11));
-                            if (i11 < i4) {
-                                db7.b(list, og5Var2, i11);
-                            } else if (i11 == i4) {
-                                db7.a(list, og5Var2);
-                            }
-                        }
-                    } else if (advertAppInfo.m()) {
-                        hashSet.add(Integer.valueOf(i11));
-                        if (i11 < i4) {
-                            db7.b(list, og5Var2, i11);
-                        } else if (i11 == i4) {
-                            db7.a(list, og5Var2);
-                        }
-                    }
-                    i10++;
-                    arrayList2 = arrayList;
-                    i5 = 0;
-                }
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.sg5
-    /* renamed from: o */
-    public void n(ug5 ug5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, ug5Var) == null) {
-            this.b = ug5Var;
-            if (ug5Var == null || !(ug5Var.a() instanceof n78)) {
                 return;
             }
-            this.c = (n78) this.b.a();
-            this.d = new v78(this.c, AdvertAppInfo.t);
-            this.e = new w78(this.c, AdvertAppInfo.w);
-            this.f = new w78(this.c, AdvertAppInfo.x);
-            this.g = new w78(this.c, AdvertAppInfo.y);
-            this.h = new w78(this.c, AdvertAppInfo.z);
+        }
+        this.d = 1;
+        this.e = 1;
+        this.f = 1;
+        this.g = false;
+        this.h = false;
+        this.i = false;
+        this.k = 0;
+        this.l = new a(this, CmdConfigHttp.CMD_POST_SEARCH);
+        b bVar = new b(this, 2009001);
+        this.m = bVar;
+        this.a = postSearchActivity;
+        postSearchActivity.registerListener(bVar);
+        this.a.registerListener(this.l);
+    }
+
+    public final void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (i == 1) {
+                this.d++;
+            } else if (i == 2) {
+                this.e++;
+            } else if (i != 3) {
+            } else {
+                this.f++;
+            }
         }
     }
 
-    @Override // com.repackage.sg5
-    public void setParams(Map<String, String> map) {
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, map) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ArrayList<String> arrayList = this.j;
+            if (arrayList != null) {
+                arrayList.clear();
+            }
+            this.a.sendMessage(new CustomMessage(2009004));
+        }
+    }
+
+    public final HttpMessage h(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_POST_SEARCH);
+            httpMessage.addParam("word", this.b);
+            httpMessage.addParam("rn", 30);
+            httpMessage.addParam(TiebaStatic.Params.H5_FORUM_NAME, this.a.d);
+            httpMessage.setExtra(Integer.valueOf(this.k));
+            if (i == 1) {
+                httpMessage.addParam("sm", 1);
+                httpMessage.addParam("only_thread", 0);
+                httpMessage.addParam(Config.PACKAGE_NAME, this.d);
+            } else if (i == 2) {
+                httpMessage.addParam("sm", 2);
+                httpMessage.addParam("only_thread", 0);
+                httpMessage.addParam(Config.PACKAGE_NAME, this.e);
+            } else if (i == 3) {
+                httpMessage.addParam("sm", 2);
+                httpMessage.addParam("only_thread", 1);
+                httpMessage.addParam(Config.PACKAGE_NAME, this.f);
+            }
+            return httpMessage;
+        }
+        return (HttpMessage) invokeI.objValue;
+    }
+
+    public final int i(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        return 0;
+                    }
+                    return this.f;
+                }
+                return this.e;
+            }
+            return this.d;
+        }
+        return invokeI.intValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a.sendMessage(new CustomMessage(2009001));
+        }
+    }
+
+    public final void k(List<String> list) {
+        int size;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, list) == null) || list == null || list.size() - 5 <= 0) {
+            return;
+        }
+        int size2 = list.size();
+        for (int i = 0; i < size; i++) {
+            list.remove((size2 - i) - 1);
+        }
+    }
+
+    public boolean l(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, str, i)) == null) {
+            if (StringUtils.isNull(str)) {
+                return false;
+            }
+            if (!str.equals(this.b)) {
+                q();
+            }
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        return false;
+                    }
+                    return m(str);
+                }
+                return n(str);
+            }
+            return o(str);
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public boolean m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (this.i) {
+                return false;
+            }
+            this.b = str;
+            this.k = 3;
+            this.a.sendMessage(h(3));
+            this.i = true;
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean n(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            if (this.h) {
+                return false;
+            }
+            this.b = str;
+            this.k = 2;
+            this.a.sendMessage(h(2));
+            this.h = true;
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean o(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            if (this.g) {
+                return false;
+            }
+            this.b = str;
+            this.k = 1;
+            this.a.sendMessage(h(1));
+            this.g = true;
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void p(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            if (i == 1) {
+                this.g = false;
+            } else if (i == 2) {
+                this.h = false;
+            } else if (i != 3) {
+            } else {
+                this.i = false;
+            }
+        }
+    }
+
+    public void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.d = 1;
+            this.e = 1;
+            this.f = 1;
+        }
+    }
+
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || StringUtils.isNull(this.b) || this.b.equals(this.c)) {
+            return;
+        }
+        this.a.sendMessage(new CustomMessage(2009003, this.b));
+        this.c = this.b;
+    }
+
+    public final void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            if (this.j == null) {
+                this.j = new ArrayList<>();
+            }
+            this.j.remove(this.b);
+            this.j.add(0, this.b);
+            k(this.j);
         }
     }
 }

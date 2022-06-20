@@ -13,12 +13,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.s85;
+import com.repackage.f95;
 /* loaded from: classes4.dex */
 public class RelevanceItemSearchActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelevanceItemSearchView mSearchView;
+    public RelevanceItemSearchView k;
 
     public RelevanceItemSearchActivity() {
         Interceptable interceptable = $ic;
@@ -34,49 +34,23 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.Window.Callback
-    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        InputMethodManager inputMethodManager;
+    @Override // com.baidu.tbadk.suspended.SuspendedActivity
+    public void C0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            if (motionEvent.getAction() == 0) {
-                View currentFocus = getCurrentFocus();
-                if (isShouldHideInput(currentFocus, motionEvent) && (inputMethodManager = (InputMethodManager) getSystemService("input_method")) != null) {
-                    inputMethodManager.hideSoftInputFromWindow(currentFocus.getWindowToken(), 0);
-                }
-                return super.dispatchTouchEvent(motionEvent);
-            } else if (getWindow().superDispatchTouchEvent(motionEvent)) {
-                return true;
-            } else {
-                return onTouchEvent(motionEvent);
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
-        return invokeL.booleanValue;
     }
 
-    public RelevanceItemSearchView getSearchView() {
+    public RelevanceItemSearchView F0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mSearchView : (RelevanceItemSearchView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.k : (RelevanceItemSearchView) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public s85 getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public boolean G0(View view2, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, linearLayout, navigationBar)) == null) {
-            RelevanceItemSearchView relevanceItemSearchView = new RelevanceItemSearchView(this, linearLayout, navigationBar);
-            this.mSearchView = relevanceItemSearchView;
-            return relevanceItemSearchView;
-        }
-        return (s85) invokeLL.objValue;
-    }
-
-    public boolean isShouldHideInput(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, motionEvent)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, motionEvent)) == null) {
             if (view2 == null || !(view2 instanceof EditText)) {
                 return false;
             }
@@ -89,12 +63,33 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
         return invokeLL.booleanValue;
     }
 
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.Window.Callback
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        InputMethodManager inputMethodManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
+            if (motionEvent.getAction() == 0) {
+                View currentFocus = getCurrentFocus();
+                if (G0(currentFocus, motionEvent) && (inputMethodManager = (InputMethodManager) getSystemService("input_method")) != null) {
+                    inputMethodManager.hideSoftInputFromWindow(currentFocus.getWindowToken(), 0);
+                }
+                return super.dispatchTouchEvent(motionEvent);
+            } else if (getWindow().superDispatchTouchEvent(motionEvent)) {
+                return true;
+            } else {
+                return onTouchEvent(motionEvent);
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            RelevanceItemSearchView relevanceItemSearchView = this.mSearchView;
+            RelevanceItemSearchView relevanceItemSearchView = this.k;
             if (relevanceItemSearchView != null) {
                 relevanceItemSearchView.onDestroy();
             }
@@ -102,9 +97,14 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public void requestData() {
+    public f95 r0(LinearLayout linearLayout, NavigationBar navigationBar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, linearLayout, navigationBar)) == null) {
+            RelevanceItemSearchView relevanceItemSearchView = new RelevanceItemSearchView(this, linearLayout, navigationBar);
+            this.k = relevanceItemSearchView;
+            return relevanceItemSearchView;
         }
+        return (f95) invokeLL.objValue;
     }
 }

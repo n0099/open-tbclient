@@ -1,88 +1,49 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import android.annotation.SuppressLint;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.zxing.client.result.ResultParser;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"StaticFieldLeak"})
 /* loaded from: classes6.dex */
-public class of4 {
+public final class of4 extends ag4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile of4 d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a(InputStream inputStream) {
-        InterceptResult invokeL;
-        int i;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public of4() {
+        super("aiapp_open_stat");
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65536, null, inputStream)) != null) {
-            return (byte[]) invokeL.objValue;
-        }
-        if (inputStream == null) {
-            return null;
-        }
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        byte[] bArr = new byte[1024];
-        while (true) {
-            try {
-                i = inputStream.read(bArr, 0, 1024);
-            } catch (IOException unused) {
-                i = 0;
-            }
-            if (i != -1) {
-                byteArrayOutputStream.write(bArr, 0, i);
-            } else {
-                byte[] byteArray = byteArrayOutputStream.toByteArray();
-                kf4.d(byteArrayOutputStream);
-                return byteArray;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    public static of4 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            try {
-                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return str;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(InputStream inputStream) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
-            try {
-                byte[] a = a(inputStream);
-                if (a != null) {
-                    String str = new String(a);
-                    if (str.startsWith(ResultParser.BYTE_ORDER_MARK)) {
-                        str = str.substring(1);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (d == null) {
+                synchronized (of4.class) {
+                    if (d == null) {
+                        d = new of4();
                     }
-                    kf4.d(inputStream);
-                    return str;
                 }
-            } catch (Exception unused) {
-            } catch (Throwable th) {
-                kf4.d(inputStream);
-                throw th;
             }
-            kf4.d(inputStream);
-            return null;
+            return d;
         }
-        return (String) invokeL.objValue;
+        return (of4) invokeV.objValue;
     }
 }

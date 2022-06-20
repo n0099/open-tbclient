@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ga8;
-/* loaded from: classes3.dex */
+import com.repackage.nb8;
+/* loaded from: classes4.dex */
 public class BrowseSettingActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ga8 mView;
+    public nb8 a;
 
     public BrowseSettingActivity() {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class BrowseSettingActivity extends BaseActivity {
                 return;
             }
         }
-        this.mView = null;
+        this.a = null;
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -38,7 +38,7 @@ public class BrowseSettingActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
-            this.mView.onChangeSkinType(i);
+            this.a.onChangeSkinType(i);
         }
     }
 
@@ -46,18 +46,18 @@ public class BrowseSettingActivity extends BaseActivity {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            if (view2 == this.mView.l()) {
-                this.mView.x();
+            if (view2 == this.a.o()) {
+                this.a.z();
                 TiebaStatic.log("c10649");
             }
-            if (view2 == this.mView.o()) {
-                this.mView.z();
+            if (view2 == this.a.r()) {
+                this.a.B();
                 TiebaStatic.log("c10653");
-            } else if (view2 == this.mView.n()) {
-                this.mView.y();
-            } else if (view2 == this.mView.q()) {
-                this.mView.A();
-            } else if (view2 == this.mView.m()) {
+            } else if (view2 == this.a.q()) {
+                this.a.A();
+            } else if (view2 == this.a.s()) {
+                this.a.C();
+            } else if (view2 == this.a.p()) {
                 UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{"http://bjhw-bac-orp-tieba-core-137287.bjhw.baidu.com:8899/#/app-tool"});
             }
         }
@@ -68,7 +68,7 @@ public class BrowseSettingActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            this.mView = new ga8(this);
+            this.a = new nb8(this);
         }
     }
 }

@@ -13,8 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public final class BridgeActivity extends Activity {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String FLAG_RESTART = "isRestart";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     public BridgeActivity() {
@@ -64,7 +63,7 @@ public final class BridgeActivity extends Activity {
                 return;
             }
             Log.d("BridgeActivity", "onCreate");
-            if (bundle == null || !bundle.getBoolean(FLAG_RESTART)) {
+            if (bundle == null || !bundle.getBoolean("isRestart")) {
                 try {
                     intent = (Intent) getIntent().getParcelableExtra("intent");
                     if (intent != null) {
@@ -97,7 +96,7 @@ public final class BridgeActivity extends Activity {
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            bundle.putBoolean(FLAG_RESTART, true);
+            bundle.putBoolean("isRestart", true);
             super.onSaveInstanceState(bundle);
             Log.d("BridgeActivity", "onSaveInstanceState");
         }

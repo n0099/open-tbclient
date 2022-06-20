@@ -53,14 +53,14 @@ public class MuteButtonElement extends AbsElement implements View.OnClickListene
                 if (imageView == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("muteButton");
                 }
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080210);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f08020f);
                 return;
             }
             ImageView imageView2 = this.muteButton;
             if (imageView2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("muteButton");
             }
-            imageView2.setImageResource(R.drawable.obfuscated_res_0x7f08020f);
+            imageView2.setImageResource(R.drawable.obfuscated_res_0x7f08020e);
         }
     }
 

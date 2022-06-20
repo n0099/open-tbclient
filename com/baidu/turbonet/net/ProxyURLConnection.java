@@ -7,11 +7,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.turbonet.net.proxy.ProxyConfig;
-import com.repackage.gz8;
-import com.repackage.jz8;
-import com.repackage.mz8;
-import com.repackage.nz8;
+import com.repackage.oz8;
 import com.repackage.rz8;
+import com.repackage.uz8;
+import com.repackage.vz8;
+import com.repackage.zz8;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -28,25 +28,25 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSocketFactory;
 /* loaded from: classes4.dex */
-public class ProxyURLConnection extends HttpsURLConnection implements nz8 {
+public class ProxyURLConnection extends HttpsURLConnection implements vz8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jz8 a;
+    public rz8 a;
     public HttpURLConnection b;
-    public rz8 c;
+    public zz8 c;
     public TurbonetEngine d;
     public ProxyConfig e;
 
-    @Override // com.repackage.nz8
+    @Override // com.repackage.vz8
     public void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            jz8 jz8Var = this.a;
-            jz8Var.e = j;
-            jz8Var.c();
-            jz8 jz8Var2 = this.a;
-            jz8Var2.c = -12;
-            jz8Var2.d(this.d);
+            rz8 rz8Var = this.a;
+            rz8Var.e = j;
+            rz8Var.c();
+            rz8 rz8Var2 = this.a;
+            rz8Var2.c = -12;
+            rz8Var2.d(this.d);
         }
     }
 
@@ -62,13 +62,13 @@ public class ProxyURLConnection extends HttpsURLConnection implements nz8 {
         }
     }
 
-    @Override // com.repackage.nz8
+    @Override // com.repackage.vz8
     public void b(Exception exc, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, exc, j) == null) {
-            jz8 jz8Var = this.a;
-            jz8Var.e = j;
-            jz8Var.c();
+            rz8 rz8Var = this.a;
+            rz8Var.e = j;
+            rz8Var.c();
             this.a.a(exc);
             this.a.d(this.d);
         }
@@ -78,7 +78,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements nz8 {
     public void connect() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            gz8.a("ProxyURLConn", "connect by libtype: " + this.e.toString());
+            oz8.a("ProxyURLConn", "connect by libtype: " + this.e.toString());
             if (!this.e.a()) {
                 this.c.connect();
                 return;
@@ -96,7 +96,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements nz8 {
     public void disconnect() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            gz8.a("ProxyURLConn", "disconnect by libtype: " + this.e.toString());
+            oz8.a("ProxyURLConn", "disconnect by libtype: " + this.e.toString());
             if (!this.e.a()) {
                 this.c.disconnect();
             } else {
@@ -369,12 +369,12 @@ public class ProxyURLConnection extends HttpsURLConnection implements nz8 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            gz8.a("ProxyURLConn", "getInputStream by libtype: " + this.e.toString());
+            oz8.a("ProxyURLConn", "getInputStream by libtype: " + this.e.toString());
             if (!this.e.a()) {
                 return this.c.getInputStream();
             }
             try {
-                return new mz8(this.b.getInputStream(), this);
+                return new uz8(this.b.getInputStream(), this);
             } catch (IOException e) {
                 b(e, 0L);
                 throw e;
@@ -551,7 +551,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements nz8 {
                     throw e;
                 }
             }
-            gz8.a("ProxyURLConn", "getResponseCode: " + i + " by libtype: " + this.e.toString());
+            oz8.a("ProxyURLConn", "getResponseCode: " + i + " by libtype: " + this.e.toString());
             return i;
         }
         return invokeV.intValue;
@@ -568,7 +568,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements nz8 {
             } else {
                 responseMessage = this.b.getResponseMessage();
             }
-            gz8.a("ProxyURLConn", "getResponseMessage by libtype: " + this.e.toString() + " Message: " + responseMessage);
+            oz8.a("ProxyURLConn", "getResponseMessage by libtype: " + this.e.toString() + " Message: " + responseMessage);
             return responseMessage;
         }
         return (String) invokeV.objValue;
@@ -628,16 +628,16 @@ public class ProxyURLConnection extends HttpsURLConnection implements nz8 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.nz8
+    @Override // com.repackage.vz8
     public void onComplete(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048620, this, j) == null) {
-            jz8 jz8Var = this.a;
-            jz8Var.e = j;
-            jz8Var.c();
-            jz8 jz8Var2 = this.a;
-            jz8Var2.c = 0;
-            jz8Var2.d(this.d);
+            rz8 rz8Var = this.a;
+            rz8Var.e = j;
+            rz8Var.c();
+            rz8 rz8Var2 = this.a;
+            rz8Var2.c = 0;
+            rz8Var2.d(this.d);
         }
     }
 

@@ -1,163 +1,62 @@
 package com.repackage;
 
-import android.app.Application;
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.database.Cursor;
+import android.content.res.ColorStateList;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
+import android.util.AttributeSet;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.service.ChangeSkinReceiver;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Stack;
 /* loaded from: classes5.dex */
 public class cm4 {
     public static /* synthetic */ Interceptable $ic;
-    public static cm4 k;
+    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
-    public AccountData a;
-    public boolean b;
-    public c c;
-    public int d;
-    public int e;
-    public int f;
-    public boolean g;
-    public int h;
-    public ChangeSkinReceiver i;
-    public boolean j;
+    public boolean a;
+    public Map<String, bm4> b;
+    public Resources c;
+    public Resources d;
+    public boolean e;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AccountData a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ cm4 c;
-
-        public a(cm4 cm4Var, AccountData accountData, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cm4Var, accountData, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = cm4Var;
-            this.a = accountData;
-            this.b = context;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755792409, "Lcom/repackage/cm4;")) == null) {
+            return;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.N(this.a, this.b);
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ai8.a("", 7);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cm4 this$0;
-
-        public c(cm4 cm4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cm4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = cm4Var;
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && this.this$0.F() && intent != null && "com.baidu.tieba.action.accountChange".equals(intent.getAction())) {
-                Serializable serializableExtra = intent.getSerializableExtra("intent_data_accountData");
-                if (serializableExtra instanceof AccountData) {
-                    this.this$0.a = (AccountData) serializableExtra;
-                } else {
-                    this.this$0.a = null;
-                }
-                y45.o(this.this$0.D());
-                if (this.this$0.a != null) {
-                    y45.n(this.this$0.a.getBDUSS());
-                    y45.q(this.this$0.a.getTbs());
-                    y45.p(this.this$0.a.getStoken());
-                }
-            }
-        }
-
-        public /* synthetic */ c(cm4 cm4Var, a aVar) {
-            this(cm4Var);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755792409, "Lcom/repackage/cm4;");
         }
     }
 
@@ -165,597 +64,411 @@ public class cm4 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = false;
-        this.d = 0;
-        this.e = 0;
-        this.f = 0;
-        this.g = true;
-        this.j = false;
+        this.a = false;
+        this.b = new HashMap();
+        this.e = false;
     }
 
-    public static void I() {
+    public static int g(Resources resources, Resources resources2, int i) {
+        InterceptResult invokeLLI;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            pg.a().b(new b());
-            ys4.k().x("app_inverval", System.currentTimeMillis());
-        }
-    }
-
-    public static void J(AccountData accountData) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, accountData) == null) {
-            String str2 = null;
-            if (accountData != null) {
-                str2 = accountData.getID();
-                str = accountData.getAccount();
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, resources, resources2, i)) == null) {
+            String resourceName = resources.getResourceName(i);
+            if (TextUtils.isEmpty(resourceName)) {
+                i2 = i;
             } else {
-                str = null;
-            }
-            String currentBduss = TbadkCoreApplication.getCurrentBduss();
-            Intent intent = new Intent();
-            intent.setAction("adp.bdstatisticsmanager.account_changed");
-            intent.putExtra("intent_data_userid", str2);
-            intent.putExtra("intent_data_username", str);
-            intent.putExtra("intent_data_bduss", currentBduss);
-            intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-            try {
-                TbadkCoreApplication.getInst().sendStickyBroadcast(intent);
-            } catch (Throwable th) {
-                BdLog.detailException(th);
-            }
-            Intent intent2 = new Intent();
-            intent2.setAction("com.baidu.tieba.action.accountChange");
-            intent2.putExtra("intent_data_accountData", accountData);
-            intent2.setPackage(TbadkCoreApplication.getInst().getPackageName());
-            TbadkCoreApplication.getInst().sendBroadcast(intent2);
-            y45.o(!TextUtils.isEmpty(str2));
-            if (accountData != null) {
-                y45.n(accountData.getBDUSS());
-                y45.q(accountData.getTbs());
-                y45.p(accountData.getStoken());
-            }
-        }
-    }
-
-    public static cm4 t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (k == null) {
-                synchronized (cm4.class) {
-                    if (k == null) {
-                        k = new cm4();
-                    }
+                String packageName = SkinManager.getPackageName();
+                f = packageName;
+                if (StringUtils.isNull(packageName)) {
+                    f = BdBaseApplication.getInst().getPackageName();
                 }
+                resourceName = f + resourceName.substring(resourceName.indexOf(":"));
+                i2 = resources2.getIdentifier(resourceName + SkinManager.nightSufix, null, null);
             }
-            return k;
+            if (i2 == 0) {
+                BdLog.e(resourceName + " 缺少夜间资源,使用了日间资源");
+                return i;
+            }
+            return i2;
         }
-        return (cm4) invokeV.objValue;
+        return invokeLLI.intValue;
     }
 
-    public void A() {
+    public final void a(View view2) {
+        Drawable f2;
+        Drawable f3;
+        Drawable f4;
+        int q;
+        ColorStateList e;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.j) {
-            return;
-        }
-        this.j = true;
-        long currentTimeMillis = System.currentTimeMillis();
-        if (E(true)) {
-            try {
-                if (TbadkCoreApplication.getInst().getDatabasePath(TbConfig.PHONE_DATEBASE_NAME).exists()) {
-                    AccountData e = dm4.e();
-                    if (e != null) {
-                        ns4.a(DI.ACCOUNT, -1L, 0, "application_init_account", 0, "", new Object[0]);
-                        L(e, TbadkCoreApplication.getInst());
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            String str = "@" + view2.getId();
+            Map<String, bm4> map = this.b;
+            if (map == null || !map.containsKey(str)) {
+                return;
+            }
+            bm4 bm4Var = this.b.get(str);
+            if (view2 instanceof TextView) {
+                if (bm4Var.v() != 0 && (e = e(this.a, bm4Var.u(), bm4Var.v())) != null) {
+                    ((TextView) view2).setTextColor(e);
+                }
+                if (bm4Var.t() != 0) {
+                    ((TextView) view2).setHintTextColor(e(this.a, bm4Var.s(), bm4Var.t()));
+                }
+                if (bm4Var.r() != 0) {
+                    TextView textView = (TextView) view2;
+                    Context context = view2.getContext();
+                    if (this.a) {
+                        q = bm4Var.r();
                     } else {
-                        ns4.a(DI.ACCOUNT, -1L, 0, "application_init_no_account", 0, "", new Object[0]);
+                        q = bm4Var.q();
                     }
+                    textView.setTextAppearance(context, q);
+                }
+                if (bm4Var.k() != 0) {
+                    ((TextView) view2).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, f(this.a, bm4Var.j(), bm4Var.k()), (Drawable) null, (Drawable) null);
+                }
+                if (bm4Var.g() != 0) {
+                    ((TextView) view2).setCompoundDrawablesWithIntrinsicBounds(f(this.a, bm4Var.f(), bm4Var.g()), (Drawable) null, (Drawable) null, (Drawable) null);
+                }
+                if (bm4Var.i() != 0) {
+                    ((TextView) view2).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, f(this.a, bm4Var.h(), bm4Var.i()), (Drawable) null);
+                }
+            } else if (view2 instanceof ImageButton) {
+                if (bm4Var.n() != 0 && (f4 = f(this.a, bm4Var.m(), bm4Var.n())) != null) {
+                    ((ImageView) view2).setImageDrawable(f4);
+                }
+            } else if (view2 instanceof ImageView) {
+                if (bm4Var.n() != 0 && (f3 = f(this.a, bm4Var.m(), bm4Var.n())) != null) {
+                    ((ImageView) view2).setImageDrawable(f3);
+                }
+            } else if ((view2 instanceof ProgressBar) && bm4Var.p() != 0 && (f2 = f(this.a, bm4Var.o(), bm4Var.p())) != null) {
+                ((ProgressBar) view2).setProgressDrawable(f2);
+            }
+            if (bm4Var.c() != 0) {
+                int paddingLeft = view2.getPaddingLeft();
+                int paddingTop = view2.getPaddingTop();
+                int paddingRight = view2.getPaddingRight();
+                int paddingBottom = view2.getPaddingBottom();
+                String resourceTypeName = this.c.getResourceTypeName(bm4Var.b());
+                if (resourceTypeName != null && resourceTypeName.equals("color")) {
+                    view2.setBackgroundColor(d(this.a, bm4Var.b(), bm4Var.c()));
                 } else {
-                    ns4.a(DI.ACCOUNT, -1L, 0, "application_bd_no_account", 0, "", new Object[0]);
+                    view2.setBackgroundDrawable(f(this.a, bm4Var.b(), bm4Var.c()));
                 }
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
+                view2.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
             }
-            d85.b().i(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
-    public void B() {
+    public final void b(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !E(false) && F() && this.c == null) {
-            this.c = new c(this, null);
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("com.baidu.tieba.action.accountChange");
-            TbadkCoreApplication.getInst().registerReceiver(this.c, intentFilter);
-        }
-    }
-
-    public void C() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && F()) {
-            this.i = new ChangeSkinReceiver();
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction(TbConfig.getBroadcastActionChangeSkin());
-            TbadkCoreApplication.getInst().registerReceiver(this.i, intentFilter);
-        }
-    }
-
-    public boolean D() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String h = h();
-            return h != null && h.length() > 0;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean E(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) ? TbadkCoreApplication.getInst().isMainProcess(z) : invokeZ.booleanValue;
-    }
-
-    public boolean F() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? TbadkCoreApplication.getInst().isRemoteProcess() : invokeV.booleanValue;
-    }
-
-    public boolean G() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.g : invokeV.booleanValue;
-    }
-
-    public void H(AccountData accountData, Application application) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, accountData, application) == null) {
-            t67.a("onAccountChanged()");
-            BdLog.e("账号切换");
-            ys4 k2 = ys4.k();
-            String q = k2.q("current_used_theme_" + h(), null);
-            if (StringUtils.isNull(q)) {
-                this.e = 0;
-            } else {
-                String[] split = q.split("/");
-                if (split != null && split.length >= 2) {
-                    this.e = jg.e(split[0], 0);
-                } else {
-                    this.e = 0;
-                }
-            }
-            f();
-            MessageManager.getInstance().sendMessageFromBackground(new CustomMessage(2005006, accountData));
-            t67.a("send METHOD_ACCOUNT_CHANGE");
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005016, accountData));
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2005019, accountData);
-            MessageManager.getInstance().registerStickyMode(2005019);
-            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-            TbSingleton.getInstance().onAccountChange();
-        }
-    }
-
-    public void K(AccountData accountData, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, accountData, str, str2) == null) {
-            if (accountData == null && this.a != null) {
-                this.b = true;
-            } else if (this.a == null && accountData != null) {
-                this.b = true;
-            } else {
-                AccountData accountData2 = this.a;
-                if (accountData2 != null && accountData != null && !TextUtils.equals(accountData2.getAccount(), accountData.getAccount())) {
-                    this.b = true;
-                }
-            }
-            if (this.a == null && accountData != null) {
-                this.a = accountData;
-            }
-            if (this.a == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) {
+            String str = "@" + viewGroup.getId();
+            Map<String, bm4> map = this.b;
+            if (map == null || !map.containsKey(str)) {
                 return;
             }
-            if (!TextUtils.isEmpty(str)) {
-                this.a.setBDUSS(str);
-            }
-            if (TextUtils.isEmpty(str2)) {
-                return;
-            }
-            this.a.setTbs(str2);
-        }
-    }
-
-    public void L(AccountData accountData, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, accountData, context) == null) {
-            String str = "set_application_account:";
-            if (accountData == null) {
-                str = "set_application_account:" + StringUtil.NULL_STRING;
-            } else if (!StringUtils.isNull(accountData.getID()) && !StringUtils.isNull(accountData.getBDUSS())) {
-                str = "set_application_account:valid_logined";
-            } else if (!StringUtils.isNull(accountData.getBDUSS())) {
-                str = "set_application_account:valid";
-            } else if (!StringUtils.isNull(accountData.getID())) {
-                str = "set_application_account:logined";
-            }
-            ns4.a(DI.ACCOUNT, -1L, 0, str, 0, "", new Object[0]);
-            if (!this.b) {
-                if (accountData == null && this.a != null) {
-                    this.b = true;
-                    t67.a("account == null && mAccount != null");
-                } else if (this.a == null && accountData != null) {
-                    this.b = true;
-                    t67.a("mAccount == null && account != null 初始化");
-                } else {
-                    AccountData accountData2 = this.a;
-                    if (accountData2 != null && accountData != null && !TextUtils.equals(accountData2.getAccount(), accountData.getAccount())) {
-                        this.b = true;
-                        t67.a("mAccount != null && account != null");
-                    }
+            bm4 bm4Var = this.b.get(str);
+            if (viewGroup instanceof AdapterView) {
+                if ((viewGroup instanceof ListView) && bm4Var.e() != 0) {
+                    ListView listView = (ListView) viewGroup;
+                    int dividerHeight = listView.getDividerHeight();
+                    listView.setDivider(f(this.a, bm4Var.d(), bm4Var.e()));
+                    listView.setDividerHeight(dividerHeight);
+                }
+                Adapter adapter = ((AdapterView) viewGroup).getAdapter();
+                if (adapter != null && (adapter instanceof BaseAdapter)) {
+                    ((BaseAdapter) adapter).notifyDataSetChanged();
                 }
             }
-            this.a = accountData;
-            nb.b().a("setCurrentAccountInUI", new a(this, accountData, context));
-        }
-    }
-
-    public void M(AccountData accountData, Context context) {
-        String str;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, accountData, context) == null) {
-            this.a = accountData;
-            String str3 = null;
-            if (accountData != null) {
-                str3 = accountData.getID();
-                str2 = accountData.getAccount();
-                str = accountData.getBDUSS();
-            } else {
-                str = null;
-                str2 = null;
-            }
-            BdStatisticsManager.getInstance().setUser(str3, str2, str);
-        }
-    }
-
-    public final void N(AccountData accountData, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, accountData, context) == null) {
-            ai8.n();
-            if (context != null) {
-                if (TbadkCoreApplication.getInst().isPushServiceOpen()) {
-                    UtilHelper.startPushService(context);
+            if (bm4Var.c() != 0) {
+                int paddingLeft = viewGroup.getPaddingLeft();
+                int paddingTop = viewGroup.getPaddingTop();
+                int paddingRight = viewGroup.getPaddingRight();
+                int paddingBottom = viewGroup.getPaddingBottom();
+                String resourceTypeName = this.c.getResourceTypeName(bm4Var.b());
+                if (resourceTypeName != null && resourceTypeName.equals("color")) {
+                    viewGroup.setBackgroundColor(d(this.a, bm4Var.b(), bm4Var.c()));
                 } else {
-                    UtilHelper.stopPushService(context);
+                    viewGroup.setBackgroundDrawable(f(this.a, bm4Var.b(), bm4Var.c()));
                 }
+                viewGroup.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
             }
-            J(accountData);
-            if (this.b) {
-                H(accountData, TbadkCoreApplication.getInst());
-                BdSocketLinkService.setHasAbsoluteClose(false);
-                BdSocketLinkService.setAvailable(true);
-                l35.b(0, 0, 0, 1, 2);
-                BdSocketLinkService.startService(true, "account changed");
-            }
-            MessageManager.getInstance().runTask(2004603, (Class) null);
-            if (ji.H() && accountData != null) {
-                MessageManager.getInstance().runTask(2004611, (Class) null);
-            }
-            TbadkCoreApplication.getInst().setActivityPrizeData(null);
         }
     }
 
-    public void O(int i) {
-        AccountData accountData;
+    public void c() {
+        Map<String, bm4> map;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || (accountData = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (map = this.b) == null) {
             return;
         }
-        accountData.setMemberType(i);
+        map.clear();
+        this.b = null;
     }
 
-    public void P(int i) {
+    public final int d(boolean z, int i, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.h = w();
-            I();
-            Q(i);
-            TbadkSettings.getInst().saveInt("skin_", i);
-            a(i);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001304, Integer.valueOf(i)));
-        }
-    }
-
-    public void Q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void R(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, str) == null) || str == null || str.length() <= 0) {
-            return;
-        }
-        synchronized (this) {
-            if (this.a != null) {
-                this.a.setTbs(str);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            if (skinType == 2 || (!this.e && skinType == 4)) {
+                return SkinManager.getColor(i);
             }
-        }
-    }
-
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            Intent intent = new Intent();
-            intent.setAction(TbConfig.getBroadcastActionChangeSkin());
-            intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-            intent.putExtra("skin_type", i);
-            TbadkCoreApplication.getInst().getContext().sendBroadcast(intent);
-        }
-    }
-
-    public boolean e(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048593, this, str, i)) == null) {
-            h9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            mainDBDatabaseManager.e("delete from cash_data where type=?", new String[]{String.valueOf(i)});
-            return mainDBDatabaseManager.e("Insert into cash_data(type ,account ,data ) values(?,?,?)", new String[]{String.valueOf(i), "", str});
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            TbSingleton.getInstance().clearVideoRecord();
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048595, this, str) == null) || str == null) {
-            return;
-        }
-        h9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-        mainDBDatabaseManager.e("delete from cash_data where account=?", new String[]{str});
-        mainDBDatabaseManager.e("delete from mark_data where account=?", new String[]{str});
-        mainDBDatabaseManager.e("delete from draft_box where account=?", new Object[]{str});
-        mainDBDatabaseManager.e("delete from account_data where id=?", new Object[]{str});
-        mainDBDatabaseManager.e("delete from setting where account=?", new Object[]{str});
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            AccountData accountData = this.a;
-            if (accountData != null) {
-                return accountData.getID();
+            if (!z) {
+                return this.c.getColor(i);
             }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            String h = h();
-            if (TextUtils.isEmpty(h)) {
-                AccountData e = dm4.e();
-                return e != null ? e.getID() : "";
+            if (i == i2) {
+                Resources resources = this.c;
+                this.d = resources;
+                i2 = g(resources, resources, i);
             }
-            return h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            AccountData accountData = this.a;
-            if (accountData != null) {
-                return jg.g(accountData.getID(), 0L);
+            Resources resources2 = this.d;
+            if (resources2 == null) {
+                return this.c.getColor(i);
             }
-            return 0L;
-        }
-        return invokeV.longValue;
-    }
-
-    public AccountData k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.a : (AccountData) invokeV.objValue;
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            AccountData accountData = this.a;
-            if (accountData != null) {
-                return accountData.getAccount();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            AccountData accountData = this.a;
-            if (accountData != null) {
-                return accountData.getAccountNameShow();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public AccountData n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.a : (AccountData) invokeV.objValue;
-    }
-
-    public String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            AccountData n = n();
-            if (n == null) {
-                return null;
-            }
-            if (!TextUtils.isEmpty(n.getAvatar())) {
-                return n.getAvatar();
-            }
-            return n.getPortrait();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            AccountData accountData = this.a;
-            if (accountData != null) {
-                return accountData.getBDUSS();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            AccountData accountData = this.a;
-            if (accountData != null) {
-                return accountData.getMemberType();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public String r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            AccountData n = n();
-            if (n == null) {
-                return null;
-            }
-            return n.getPortrait();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
-            AccountData accountData = this.a;
-            if (accountData == null || accountData.getVipInfo() == null) {
-                return 0;
-            }
-            return this.a.getVipInfo().getVipLevel();
-        }
-        return invokeV.intValue;
-    }
-
-    public String u(int i) {
-        InterceptResult invokeI;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeI = interceptable.invokeI(1048608, this, i)) != null) {
-            return (String) invokeI.objValue;
-        }
-        h9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-        Cursor cursor2 = null;
-        try {
-            cursor = mainDBDatabaseManager.j("select * from cash_data where type=? ", new String[]{String.valueOf(i)});
             try {
+                return resources2.getColor(i2);
+            } catch (Resources.NotFoundException unused) {
+                return this.c.getColor(i);
+            }
+        }
+        return invokeCommon.intValue;
+    }
+
+    public final ColorStateList e(boolean z, int i, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            if (skinType == 2 || (!this.e && skinType == 4)) {
+                return SkinManager.getColorList(i);
+            }
+            if (!z) {
+                return this.c.getColorStateList(i);
+            }
+            if (i == i2) {
+                Resources resources = this.c;
+                this.d = resources;
+                i2 = g(resources, resources, i);
+            }
+            Resources resources2 = this.d;
+            if (resources2 == null) {
+                return this.c.getColorStateList(i);
+            }
+            try {
+                return resources2.getColorStateList(i2);
+            } catch (Resources.NotFoundException unused) {
+                return this.c.getColorStateList(i);
+            }
+        }
+        return (ColorStateList) invokeCommon.objValue;
+    }
+
+    public final Drawable f(boolean z, int i, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            if (skinType == 2 || (!this.e && skinType == 4)) {
+                return SkinManager.getDrawable(i);
+            }
+            if (!z) {
                 try {
-                    String string = cursor.moveToFirst() ? cursor.getString(2) : null;
-                    ig.a(cursor);
-                    return string;
-                } catch (Exception e) {
-                    e = e;
-                    mainDBDatabaseManager.i(e, "getNoAccountData");
-                    ig.a(cursor);
+                    return this.c.getDrawable(i);
+                } catch (Throwable unused) {
                     return null;
                 }
-            } catch (Throwable th) {
-                th = th;
-                cursor2 = cursor;
-                ig.a(cursor2);
-                throw th;
             }
-        } catch (Exception e2) {
-            e = e2;
-            cursor = null;
-        } catch (Throwable th2) {
-            th = th2;
-            ig.a(cursor2);
-            throw th;
+            if (i == i2) {
+                Resources resources = this.c;
+                this.d = resources;
+                i2 = g(resources, resources, i);
+            }
+            Resources resources2 = this.d;
+            if (resources2 == null) {
+                try {
+                    return this.c.getDrawable(i);
+                } catch (Throwable unused2) {
+                    return null;
+                }
+            }
+            try {
+                try {
+                    return resources2.getDrawable(i2);
+                } catch (Throwable unused3) {
+                    return null;
+                }
+            } catch (Resources.NotFoundException unused4) {
+                return this.c.getDrawable(i);
+            } catch (ArrayIndexOutOfBoundsException unused5) {
+                return null;
+            }
         }
+        return (Drawable) invokeCommon.objValue;
     }
 
-    public int v() {
-        InterceptResult invokeV;
+    public final int[] h(String str) {
+        InterceptResult invokeL;
+        int parseInt;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.h : invokeV.intValue;
-    }
-
-    public int w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public String x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            AccountData accountData = this.a;
-            if (accountData != null) {
-                return accountData.getTbs();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            if (TextUtils.isDigitsOnly(str.substring(1)) && (parseInt = Integer.parseInt(str.substring(1))) != 0) {
+                return new int[]{parseInt, g(this.c, this.d, parseInt)};
             }
             return null;
         }
-        return (String) invokeV.objValue;
+        return (int[]) invokeL.objValue;
     }
 
-    public int y() {
-        InterceptResult invokeV;
+    public void i(String str, Context context, AttributeSet attributeSet) {
+        int[] h;
+        int e;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.f : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeLLL(1048583, this, str, context, attributeSet) == null) {
+            try {
+                Resources resources = context.getResources();
+                this.c = resources;
+                this.d = resources;
+                int attributeCount = attributeSet.getAttributeCount();
+                bm4 bm4Var = new bm4();
+                bm4Var.R(str);
+                boolean z = false;
+                for (int i = 0; i < attributeCount; i++) {
+                    String attributeName = attributeSet.getAttributeName(i);
+                    String attributeValue = attributeSet.getAttributeValue(i);
+                    if (attributeName.equals("id")) {
+                        bm4Var.G(attributeValue);
+                    } else if (attributeName.equals("tb_background")) {
+                        int[] h2 = h(attributeValue);
+                        if (h2 != null) {
+                            bm4Var.w(h2[0]);
+                            bm4Var.x(h2[1]);
+                            z = true;
+                        }
+                    } else if (attributeName.equals("tb_src")) {
+                        int[] h3 = h(attributeValue);
+                        if (h3 != null) {
+                            bm4Var.H(h3[0]);
+                            bm4Var.I(h3[1]);
+                            z = true;
+                        }
+                    } else if (attributeName.equals("tb_textColor")) {
+                        int[] h4 = h(attributeValue);
+                        if (h4 != null) {
+                            bm4Var.P(h4[0]);
+                            bm4Var.Q(h4[1]);
+                            z = true;
+                        }
+                    } else if (attributeName.equals("tb_style")) {
+                        int[] h5 = h(attributeValue);
+                        if (h5 != null) {
+                            bm4Var.L(h5[0]);
+                            bm4Var.M(h5[1]);
+                            z = true;
+                        }
+                    } else if (attributeName.equals("tb_divider")) {
+                        int[] h6 = h(attributeValue);
+                        if (h6 != null) {
+                            bm4Var.y(h6[0]);
+                            bm4Var.z(h6[1]);
+                            z = true;
+                        }
+                    } else if (attributeName.equals("tb_drawableTop")) {
+                        int[] h7 = h(attributeValue);
+                        if (h7 != null) {
+                            bm4Var.E(h7[0]);
+                            bm4Var.F(h7[1]);
+                            z = true;
+                        }
+                    } else if (attributeName.equals("tb_drawableLeft")) {
+                        int[] h8 = h(attributeValue);
+                        if (h8 != null) {
+                            bm4Var.A(h8[0]);
+                            bm4Var.B(h8[1]);
+                            z = true;
+                        }
+                    } else if (attributeName.equals("tb_drawableRight")) {
+                        int[] h9 = h(attributeValue);
+                        if (h9 != null) {
+                            bm4Var.C(h9[0]);
+                            bm4Var.D(h9[1]);
+                            z = true;
+                        }
+                    } else if (attributeName.equals("tb_progressDrawable")) {
+                        int[] h10 = h(attributeValue);
+                        if (h10 != null) {
+                            bm4Var.J(h10[0]);
+                            bm4Var.K(h10[1]);
+                            z = true;
+                        }
+                    } else if (attributeName.equals("tb_textColorHint") && (h = h(attributeValue)) != null) {
+                        bm4Var.N(h[0]);
+                        bm4Var.O(h[1]);
+                        z = true;
+                    }
+                    if (z && TbConfig.getDebugSwitch() && (e = ng.e(attributeValue.substring(1), 0)) != 0) {
+                        String resourceName = this.c.getResourceName(e);
+                        bm4Var.a(attributeName + "=" + resourceName);
+                    }
+                }
+                if (!z || TextUtils.isEmpty(bm4Var.l()) || this.b == null || this.b.containsKey(bm4Var.l())) {
+                    return;
+                }
+                this.b.put(bm4Var.l(), bm4Var);
+            } catch (Resources.NotFoundException unused) {
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
     }
 
-    public int z() {
-        InterceptResult invokeV;
+    public void j(View view2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.e : invokeV.intValue;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) || view2 == null) {
+            return;
+        }
+        Stack stack = new Stack();
+        stack.push(view2);
+        while (!stack.isEmpty()) {
+            View view3 = (View) stack.pop();
+            if (view3 instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view3;
+                b(viewGroup);
+                if (!(view3 instanceof AdapterView)) {
+                    int childCount = viewGroup.getChildCount();
+                    for (int i = 0; i < childCount; i++) {
+                        stack.push(viewGroup.getChildAt(i));
+                    }
+                }
+            } else {
+                a(view3);
+            }
+        }
+    }
+
+    public void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public void l(Resources resources) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, resources) == null) {
+            this.d = resources;
+        }
     }
 }

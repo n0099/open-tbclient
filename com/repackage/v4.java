@@ -1,5 +1,6 @@
 package com.repackage;
 
+import com.badlogic.gdx.graphics.g3d.model.data.ModelMaterial;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -8,9 +9,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class v4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public short[] b;
-    public int c;
+    public final short[] a;
+    public final a7<w4> b;
+    public final a7<ModelMaterial> c;
+    public final a7<y4> d;
+    public final a7<u4> e;
 
     public v4() {
         Interceptable interceptable = $ic;
@@ -22,7 +25,13 @@ public class v4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new short[2];
+        this.b = new a7<>();
+        this.c = new a7<>();
+        this.d = new a7<>();
+        this.e = new a7<>();
     }
 }

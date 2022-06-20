@@ -1,19 +1,21 @@
 package com.repackage;
 
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
-import com.baidu.tbadk.core.util.PullViewHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class l80 {
     public static /* synthetic */ Interceptable $ic;
-    public static l80 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public String a;
+    public int b;
+    public int c;
+    public long d;
+    public long e;
 
     public l80() {
         Interceptable interceptable = $ic;
@@ -25,30 +27,27 @@ public class l80 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = true;
-        new PorterDuffColorFilter(PullViewHelper.IMAGE_COLORFILTER_NIGHT, PorterDuff.Mode.MULTIPLY);
     }
 
-    public static l80 a() {
+    public JSONObject a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (l80.class) {
-                if (b == null) {
-                    b = new l80();
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("id", this.a);
+                jSONObject.put("show", this.b);
+                jSONObject.put("show_ts", this.d);
+                jSONObject.put("clk", this.c);
+                jSONObject.put("clk_ts", this.e);
+                return jSONObject;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
             }
-            return b;
         }
-        return (l80) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

@@ -49,7 +49,7 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         public void onAnimationCancel(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.z();
+                this.a.w();
             }
         }
 
@@ -57,7 +57,7 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.a.A();
+                this.a.x();
                 if (this.a.i) {
                     this.a.i = false;
                 }
@@ -70,7 +70,7 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         public void onAnimationRepeat(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-                this.a.B();
+                this.a.y();
                 if (this.a.i) {
                     this.a.cancelAnimation();
                     this.a.i = false;
@@ -82,7 +82,7 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.a.C();
+                this.a.z();
                 this.a.h = true;
             }
         }
@@ -109,28 +109,10 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         }
     }
 
-    public final void A() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    public final void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    public final void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
     public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && isAnimating()) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && isAnimating()) {
             cancelAnimation();
         }
     }
@@ -138,7 +120,7 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
     public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             playAnimation();
         }
     }
@@ -146,14 +128,14 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
     public void c(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
         }
     }
 
     @Override // com.baidu.tbadk.widget.lottie.TBLottieAnimationView, com.airbnb.lottie.LottieAnimationView
     public void cancelAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.cancelAnimation();
         }
     }
@@ -161,7 +143,7 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
     @Override // android.view.View
     public void clearAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.clearAnimation();
         }
     }
@@ -169,14 +151,14 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
     public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
-    public void f() {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
     }
 
@@ -184,7 +166,7 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
     public long getCompleteAnimTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return 0L;
         }
         return invokeV.longValue;
@@ -194,7 +176,7 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return null;
         }
         return (View) invokeV.objValue;
@@ -202,7 +184,7 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
 
     public final void init() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             addAnimatorListener(new a(this));
             setAnimation(R.raw.lottie_common_pull_refresh);
             loop(true);
@@ -213,14 +195,14 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
     public void onFinish() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
         }
     }
 
     @Override // com.baidu.tbadk.widget.lottie.TBLottieAnimationView, com.airbnb.lottie.LottieAnimationView
     public void pauseAnimation() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && this.h) {
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.h) {
             this.i = true;
         }
     }
@@ -228,12 +210,30 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
     @Override // com.baidu.tbadk.widget.lottie.TBLottieAnimationView, com.airbnb.lottie.LottieAnimationView
     public void playAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             if (isAnimating()) {
                 cancelAnimation();
             }
             setAlpha(1.0f);
             super.playAnimation();
+        }
+    }
+
+    public final void w() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        }
+    }
+
+    public final void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        }
+    }
+
+    public final void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
         }
     }
 

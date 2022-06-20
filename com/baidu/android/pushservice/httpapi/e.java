@@ -125,7 +125,6 @@ public class e extends d {
         if (interceptable == null || interceptable.invokeL(1048579, this, hashMap) == null) {
             super.b(hashMap);
             hashMap.put("method", "bind");
-            hashMap.put("bind_name", Build.MODEL);
             hashMap.put("bind_status", this.e + "");
             hashMap.put("push_sdk_version", this.f + "");
             if (com.baidu.android.pushservice.b.d.b(((a) this).a)) {
@@ -151,9 +150,9 @@ public class e extends d {
             if (!TextUtils.isEmpty(d4)) {
                 hashMap.put(PushConstants.EXTRA_APP_NOTIFY_STATUS, d4);
             }
-            String m = com.baidu.android.pushservice.i.m.m(((a) this).a);
-            if (!TextUtils.isEmpty(m)) {
-                hashMap.put("app_version", m);
+            String y = com.baidu.android.pushservice.i.m.y(((a) this).a);
+            if (!TextUtils.isEmpty(y)) {
+                hashMap.put("app_version", y);
             }
             String d5 = com.baidu.android.pushservice.c.c.d(((a) this).a, "do_not_disturb");
             if (!TextUtils.isEmpty(d5)) {
@@ -166,14 +165,14 @@ public class e extends d {
             if (!TextUtils.isEmpty(this.g)) {
                 hashMap.put("bind_notify_status", this.g);
             }
-            if (!TextUtils.isEmpty(((a) this).b.i) && com.baidu.android.pushservice.b.d.q(((a) this).a)) {
+            if (!TextUtils.isEmpty(((a) this).b.i) && com.baidu.android.pushservice.b.d.r(((a) this).a)) {
                 hashMap.put("push_proxy", ((a) this).b.i);
             }
-            hashMap.put("manufacture", com.baidu.android.pushservice.i.m.a(false));
-            if (com.baidu.android.pushservice.i.m.n()) {
+            hashMap.put("manufacture", com.baidu.android.pushservice.i.m.c(((a) this).a, false));
+            if (com.baidu.android.pushservice.i.m.x(((a) this).a)) {
                 hashMap.put(Config.ROM, com.baidu.android.pushservice.i.m.l(((a) this).a));
             }
-            if (com.baidu.android.pushservice.i.m.o(((a) this).a)) {
+            if (com.baidu.android.pushservice.i.m.A(((a) this).a)) {
                 hashMap.put("connect_version", "3");
             } else {
                 hashMap.put("connect_version", "2");
@@ -193,7 +192,7 @@ public class e extends d {
                 hashMap.put("device_id", deviceID);
             }
             hashMap.put(HttpConstants.DEVICE_TYPE, "3");
-            hashMap.put("app_alone_conn", (com.baidu.android.pushservice.b.d.e(((a) this).a) ? 1 : 0) + "");
+            hashMap.put("app_alone_conn", (com.baidu.android.pushservice.b.d.f(((a) this).a) ? 1 : 0) + "");
             hashMap.put("dual_channel", (com.baidu.android.pushservice.b.d.c(((a) this).a) ? 1 : 0) + "");
             hashMap.put("ignore_token", (((a) this).b.k ? 1 : 0) + "");
             if (PushSettings.e(((a) this).a)) {

@@ -1,81 +1,70 @@
 package com.repackage;
 
+import android.annotation.TargetApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@TargetApi(9)
 /* loaded from: classes7.dex */
-public class ye1 {
+public abstract class ye1 implements we1<ye1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    public static byte[] a(byte[] bArr) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ye1() {
+        this(5);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(ye1 ye1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            byte[] bArr2 = new byte[256];
-            for (int i = 0; i < 256; i++) {
-                bArr2[i] = (byte) i;
-            }
-            if (bArr == null || bArr.length == 0) {
-                return null;
-            }
-            int i2 = 0;
-            int i3 = 0;
-            for (int i4 = 0; i4 < 256; i4++) {
-                i3 = ((bArr[i2] & 255) + (bArr2[i4] & 255) + i3) & 255;
-                byte b = bArr2[i4];
-                bArr2[i4] = bArr2[i3];
-                bArr2[i3] = b;
-                i2 = (i2 + 1) % bArr.length;
-            }
-            return bArr2;
-        }
-        return (byte[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ye1Var)) == null) ? ye1Var.a - this.a : invokeL.intValue;
     }
 
-    public static byte[] b(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
+    public abstract void b();
+
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, bArr2)) == null) {
-            if (bArr == null || bArr2 == null) {
-                return null;
-            }
-            return d(bArr, bArr2);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            b();
         }
-        return (byte[]) invokeLL.objValue;
     }
 
-    public static byte[] c(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
+    public ye1(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, bArr2)) == null) {
-            if (bArr == null || bArr2 == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return d(bArr, bArr2);
         }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static byte[] d(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bArr, bArr2)) == null) {
-            byte[] a = a(bArr2);
-            byte[] bArr3 = new byte[bArr.length];
-            int i = 0;
-            int i2 = 0;
-            for (int i3 = 0; i3 < bArr.length; i3++) {
-                i = (i + 1) & 255;
-                i2 = ((a[i] & 255) + i2) & 255;
-                byte b = a[i];
-                a[i] = a[i2];
-                a[i2] = b;
-                bArr3[i3] = (byte) (a[((a[i] & 255) + (a[i2] & 255)) & 255] ^ bArr[i3]);
-                bArr3[i3] = (byte) (bArr3[i3] ^ 42);
-            }
-            return bArr3;
-        }
-        return (byte[]) invokeLL.objValue;
+        this.a = i;
     }
 }

@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.ConectivityUtils;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class e {
@@ -44,7 +45,7 @@ public class e {
             fU = new a("WIFI", 0);
             fV = new a("CMNET", 1);
             fW = new a("CMWAP", 2);
-            a aVar = new a("NONE", 3);
+            a aVar = new a(HlsPlaylistParser.METHOD_NONE, 3);
             fX = aVar;
             fY = new a[]{fU, fV, fW, aVar};
         }

@@ -215,13 +215,13 @@ public class b {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, bArr, str)) == null) {
-            a.C0037a.C0038a.C0039a e = a.C0037a.C0038a.e();
+            a.C0039a.C0040a.C0041a e = a.C0039a.C0040a.e();
             if (TextUtils.isEmpty(str)) {
                 str = "";
             }
-            a.C0037a.C0038a build = e.a(str).build();
+            a.C0039a.C0040a build = e.a(str).build();
             long currentTimeMillis = System.currentTimeMillis();
-            return a.C0037a.o().a(1L).a(IMPushUploadConstants.Service.BAIDU_APP).a(build).b(currentTimeMillis).b(com.baidu.android.pushservice.h.a.a(this.c, IMPushUploadConstants.Service.BAIDU_APP, currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
+            return a.C0039a.o().a(1L).a(IMPushUploadConstants.Service.BAIDU_APP).a(build).b(currentTimeMillis).b(com.baidu.android.pushservice.h.a.a(this.c, IMPushUploadConstants.Service.BAIDU_APP, currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
         }
         return (byte[]) invokeLL.objValue;
     }

@@ -9,6 +9,7 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -21,13 +22,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
-import com.repackage.b76;
-import com.repackage.i86;
-import com.repackage.il7;
-import com.repackage.kl7;
-import com.repackage.ml7;
-import com.repackage.nl7;
-import com.repackage.t66;
+import com.repackage.b86;
+import com.repackage.i96;
+import com.repackage.t76;
+import com.repackage.tm7;
+import com.repackage.vm7;
+import com.repackage.xm7;
+import com.repackage.ym7;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class NewFaceGroupDownloadModel extends FaceBaseModel {
@@ -42,27 +43,27 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
 
         /* renamed from: com.baidu.tieba.newfaceshop.NewFaceGroupDownloadModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0209a implements ml7 {
+        public class C0215a implements xm7 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ nl7 a;
+            public final /* synthetic */ ym7 a;
             public final /* synthetic */ Boolean b;
-            public final /* synthetic */ ml7 c;
+            public final /* synthetic */ xm7 c;
 
             /* renamed from: com.baidu.tieba.newfaceshop.NewFaceGroupDownloadModel$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public class C0210a extends BdAsyncTask<Void, Void, Boolean> {
+            public class C0216a extends BdAsyncTask<Void, Void, Boolean> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String a;
-                public final /* synthetic */ C0209a b;
+                public final /* synthetic */ C0215a b;
 
-                public C0210a(C0209a c0209a, String str) {
+                public C0216a(C0215a c0215a, String str) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0209a, str};
+                        Object[] objArr = {c0215a, str};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -72,7 +73,7 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
                             return;
                         }
                     }
-                    this.b = c0209a;
+                    this.b = c0215a;
                     this.a = str;
                 }
 
@@ -82,7 +83,7 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
                     InterceptResult invokeL;
                     Interceptable interceptable = $ic;
                     if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                        int f = t66.c().f(this.b.a);
+                        int f = t76.c().f(this.b.a);
                         if (f == 0) {
                             return Boolean.FALSE;
                         }
@@ -94,8 +95,8 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
                         emotionGroupData.setDownloadTime(System.currentTimeMillis());
                         emotionGroupData.setGroupName(this.b.a.b);
                         emotionGroupData.setStatus(1);
-                        if (b76.o().g(emotionGroupData)) {
-                            return Boolean.valueOf(b76.o().h(TbadkCoreApplication.getCurrentAccount(), emotionGroupData));
+                        if (b86.o().g(emotionGroupData)) {
+                            return Boolean.valueOf(b86.o().h(TbadkCoreApplication.getCurrentAccount(), emotionGroupData));
                         }
                         return Boolean.FALSE;
                     }
@@ -110,34 +111,34 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
                         if (bool != null && bool.booleanValue()) {
                             MessageManager.getInstance().runTask(2004603, (Class) null);
                             if (this.b.b.booleanValue()) {
-                                kl7.o().z();
+                                vm7.o().z();
                             }
-                            ml7 ml7Var = this.b.c;
-                            if (ml7Var != null) {
-                                ml7Var.onSuccess(this.a);
+                            xm7 xm7Var = this.b.c;
+                            if (xm7Var != null) {
+                                xm7Var.onSuccess(this.a);
                             }
-                            i86 i86Var = new i86();
-                            i86Var.a = 0;
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921375, i86Var));
+                            i96 i96Var = new i96();
+                            i96Var.a = 0;
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921375, i96Var));
                             return;
                         }
-                        ml7 ml7Var2 = this.b.c;
-                        if (ml7Var2 != null) {
-                            ml7Var2.onFail("failed to download");
+                        xm7 xm7Var2 = this.b.c;
+                        if (xm7Var2 != null) {
+                            xm7Var2.onFail("failed to download");
                         }
-                        i86 i86Var2 = new i86();
-                        i86Var2.a = 1;
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921375, i86Var2));
+                        i96 i96Var2 = new i96();
+                        i96Var2.a = 1;
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921375, i96Var2));
                     }
                 }
             }
 
-            public C0209a(a aVar, nl7 nl7Var, Boolean bool, ml7 ml7Var) {
+            public C0215a(a aVar, ym7 ym7Var, Boolean bool, xm7 xm7Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, nl7Var, bool, ml7Var};
+                    Object[] objArr = {aVar, ym7Var, bool, xm7Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -147,46 +148,46 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
                         return;
                     }
                 }
-                this.a = nl7Var;
+                this.a = ym7Var;
                 this.b = bool;
-                this.c = ml7Var;
+                this.c = xm7Var;
             }
 
-            @Override // com.repackage.ml7
+            @Override // com.repackage.xm7
             public void onFail(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                     BdLog.e("FaceDownload:" + str);
-                    ml7 ml7Var = this.c;
-                    if (ml7Var != null) {
-                        ml7Var.onFail(str);
+                    xm7 xm7Var = this.c;
+                    if (xm7Var != null) {
+                        xm7Var.onFail(str);
                     }
-                    i86 i86Var = new i86();
-                    i86Var.a = 1;
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921375, i86Var));
+                    i96 i96Var = new i96();
+                    i96Var.a = 1;
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921375, i96Var));
                 }
             }
 
-            @Override // com.repackage.ml7
+            @Override // com.repackage.xm7
             public void onProgress(int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                    ml7 ml7Var = this.c;
-                    if (ml7Var != null) {
-                        ml7Var.onProgress(i);
+                    xm7 xm7Var = this.c;
+                    if (xm7Var != null) {
+                        xm7Var.onProgress(i);
                     }
-                    i86 i86Var = new i86();
-                    i86Var.a = 2;
-                    i86Var.b = i;
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921375, i86Var));
+                    i96 i96Var = new i96();
+                    i96Var.a = 2;
+                    i96Var.b = i;
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921375, i96Var));
                 }
             }
 
-            @Override // com.repackage.ml7
+            @Override // com.repackage.xm7
             public void onSuccess(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                    new C0210a(this, str).execute(new Void[0]);
+                    new C0216a(this, str).execute(new Void[0]);
                 }
             }
         }
@@ -217,24 +218,24 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
             Object extra;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003338 && (httpResponsedMessage instanceof GetFaceGroupInfoResponseMessage)) {
-                ml7 ml7Var = null;
+                xm7 xm7Var = null;
                 Boolean bool = Boolean.FALSE;
                 if (httpResponsedMessage.getOrginalMessage() != null && (extra = httpResponsedMessage.getOrginalMessage().getExtra()) != null && (extra instanceof HashMap)) {
                     HashMap hashMap = (HashMap) extra;
                     Object obj = hashMap.get(WebChromeClient.KEY_ARG_CALLBACK);
-                    if (obj != null && (obj instanceof ml7)) {
-                        ml7Var = (ml7) obj;
+                    if (obj != null && (obj instanceof xm7)) {
+                        xm7Var = (xm7) obj;
                     }
-                    Object obj2 = hashMap.get("sync");
+                    Object obj2 = hashMap.get(NativeConstants.COMPONENT_SYNC_TEXT_VIEW);
                     if (obj2 != null && (obj2 instanceof Boolean)) {
                         bool = (Boolean) obj2;
                     }
                 }
-                nl7 data = ((GetFaceGroupInfoResponseMessage) httpResponsedMessage).getData();
+                ym7 data = ((GetFaceGroupInfoResponseMessage) httpResponsedMessage).getData();
                 if (data != null) {
-                    il7.c(data, new C0209a(this, data, bool, ml7Var));
-                } else if (ml7Var != null) {
-                    ml7Var.onFail("group data null");
+                    tm7.c(data, new C0215a(this, data, bool, xm7Var));
+                } else if (xm7Var != null) {
+                    xm7Var.onFail("group data null");
                 }
             }
         }
@@ -292,13 +293,13 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
         }
     }
 
-    public void y(String str, Boolean bool, ml7 ml7Var) {
+    public void z(String str, Boolean bool, xm7 xm7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, bool, ml7Var) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, bool, xm7Var) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_FACE_GROUP_INFO);
             HashMap hashMap = new HashMap();
-            hashMap.put("sync", bool);
-            hashMap.put(WebChromeClient.KEY_ARG_CALLBACK, ml7Var);
+            hashMap.put(NativeConstants.COMPONENT_SYNC_TEXT_VIEW, bool);
+            hashMap.put(WebChromeClient.KEY_ARG_CALLBACK, xm7Var);
             httpMessage.setExtra(hashMap);
             httpMessage.addParam("id", str);
             sendMessage(httpMessage);

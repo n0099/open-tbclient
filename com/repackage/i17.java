@@ -1,93 +1,283 @@
 package com.repackage;
 
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.TopicDetailActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.ThreadGodReplyLayout;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
+import com.baidu.tieba.homepage.topic.topictab.view.CellTopicLinearLayout;
+import com.baidu.tieba.homepage.topic.topictab.view.TopicPkView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.TopicList.DataRes;
-import tbclient.TopicList.NewTopicList;
-import tbclient.TopicList.TabList;
-import tbclient.TopicList.TopicList;
-import tbclient.TopicList.TopicListModule;
 /* loaded from: classes6.dex */
-public class i17 {
+public class i17 extends mw5<f17> {
     public static /* synthetic */ Interceptable $ic;
+    public static final int z;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<m17> b;
-    public l17 c;
-    public List<b17> d;
-    public List<a17> e;
-    public List<TopicList> f;
-    public List<NewTopicList> g;
+    public final View i;
+    public int j;
+    public CellTopicLinearLayout k;
+    public TextView l;
+    public TextView m;
+    public TextView n;
+    public TextView o;
+    public RelativeLayout p;
+    public TbImageView q;
+    public View r;
+    public TopicPkView s;
+    public ThreadGodReplyLayout t;
+    public View u;
+    public RelativeLayout v;
+    public HeadImageView w;
+    public f17 x;
+    public final int y;
 
-    public i17() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755671230, "Lcom/repackage/i17;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755671230, "Lcom/repackage/i17;");
+                return;
+            }
+        }
+        z = pi.k(TbadkCoreApplication.getInst()) - ((pi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + pi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i17(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.j = 3;
+        this.y = pi.f(getContext(), R.dimen.M_W_X005);
+        View h = h();
+        this.k = (CellTopicLinearLayout) h.findViewById(R.id.obfuscated_res_0x7f0905a1);
+        this.v = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f0905a3);
+        this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09059e);
+        this.m = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0905a2);
+        this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09059f);
+        this.o = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090598);
+        this.p = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f09059b);
+        this.q = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f09059a);
+        this.r = h.findViewById(R.id.obfuscated_res_0x7f09059d);
+        this.s = (TopicPkView) h.findViewById(R.id.obfuscated_res_0x7f0905a0);
+        this.t = (ThreadGodReplyLayout) h.findViewById(R.id.obfuscated_res_0x7f090599);
+        this.u = h.findViewById(R.id.obfuscated_res_0x7f09059c);
+        this.i = h.findViewById(R.id.obfuscated_res_0x7f090597);
+        HeadImageView headImageView = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f092266);
+        this.w = headImageView;
+        headImageView.setIsRound(true);
+        this.w.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.w.setDefaultResource(17170445);
+        this.w.setPlaceHolder(1);
+        t(this.v);
+        t(this.o);
+        t(this.t);
+        t(this.i);
+        t(this.q);
+        t(this.u);
+        int f = pi.f(getContext(), R.dimen.tbds11);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.s.getLayoutParams();
+        layoutParams.leftMargin = f;
+        layoutParams.rightMargin = f;
+        this.s.setLayoutParams(layoutParams);
+        ViewGroup.LayoutParams layoutParams2 = this.q.getLayoutParams();
+        layoutParams2.height = ((pi.k(getContext()) - pi.f(getContext(), R.dimen.tbds88)) * 9) / 16;
+        this.q.setLayoutParams(layoutParams2);
+        this.q.setRadiusById(R.string.J_X05);
+        this.q.setConrers(15);
+        this.q.setDrawCorner(true);
+        this.q.setPlaceHolder(3);
     }
 
-    public List<TopicList> a() {
+    @Override // com.repackage.mw5
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01cb : invokeV.intValue;
     }
 
-    public void b(DataRes dataRes) {
-        List<TopicList> list;
-        List<TopicList> list2;
+    @Override // com.repackage.mw5
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) || dataRes == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.s.q();
+            this.t.k();
+            if (i == this.j) {
+                return;
+            }
+            this.j = i;
+            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.o, (int) R.color.CAM_X0105);
+            this.q.setSkinType(this.j);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        f17 f17Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || (f17Var = this.x) == null) {
             return;
         }
-        List<TabList> list3 = dataRes.tab_list;
-        if (list3 != null && !ListUtils.isEmpty(list3)) {
-            this.b = new ArrayList();
-            for (TabList tabList : dataRes.tab_list) {
-                m17 m17Var = new m17();
-                m17Var.a(tabList);
-                this.b.add(m17Var);
+        if (f17Var.Z != 1) {
+            TiebaStatic.log(new StatisticItem("c13351").param("topic_id", this.x.S).param("obj_locate", this.x.R));
+        }
+        if (this.x.Z == 1) {
+            TiebaStatic.log(new StatisticItem("c13449").param("topic_id", this.x.S));
+        }
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TopicDetailActivityConfig(getContext(), this.x.S)));
+    }
+
+    public CellTopicLinearLayout r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.k : (CellTopicLinearLayout) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.mw5
+    /* renamed from: s */
+    public void i(f17 f17Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, f17Var) == null) || f17Var == null) {
+            return;
+        }
+        this.x = f17Var;
+        if (f17Var.Z == 0) {
+            this.w.setVisibility(8);
+            this.l.setVisibility(0);
+            this.n.setVisibility(0);
+            this.l.setText(String.valueOf(f17Var.R));
+            int i = f17Var.R;
+            if (i == 1) {
+                SkinManager.setBackgroundResource(this.l, R.drawable.topic_rank_one_bg);
+            } else if (i == 2) {
+                SkinManager.setBackgroundResource(this.l, R.drawable.topic_rank_two_bg);
+            } else if (i == 3) {
+                SkinManager.setBackgroundResource(this.l, R.drawable.topic_rank_three_bg);
+            } else {
+                SkinManager.setBackgroundResource(this.l, R.drawable.topic_rank_other_bg);
             }
-        }
-        if (dataRes.media_topic != null) {
-            l17 l17Var = new l17();
-            this.c = l17Var;
-            l17Var.a(dataRes.media_topic);
-        }
-        TopicListModule topicListModule = dataRes.topic_manual;
-        if (topicListModule != null && (list2 = topicListModule.topic_list) != null && list2.size() > 0) {
-            this.e = new ArrayList();
-            for (int i = 0; i < dataRes.topic_manual.topic_list.size(); i++) {
-                a17 a17Var = new a17();
-                a17Var.b(dataRes.topic_manual);
-                a17Var.a(dataRes.topic_manual.topic_list.get(i));
-                this.e.add(a17Var);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.m.getLayoutParams();
+            int f = pi.f(getContext(), R.dimen.tbds16);
+            layoutParams.addRule(1, R.id.obfuscated_res_0x7f09059e);
+            layoutParams.setMargins(f, 0, f, 0);
+            ThreadCardUtils.cutAndSetTextByMaxLine(this.o, f17Var.U, R.string.obfuscated_res_0x7f0f03a3, R.dimen.tbds17, 2, z, true);
+            if (f17Var.V == 0) {
+                this.n.setText("NEW");
+            } else {
+                this.n.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f1455), StringHelper.numberUniformFormat(f17Var.V)));
             }
-        }
-        TopicListModule topicListModule2 = dataRes.topic_bang;
-        if (topicListModule2 != null && (list = topicListModule2.topic_list) != null && list.size() > 0) {
-            this.d = new ArrayList();
-            for (int i2 = 0; i2 < dataRes.topic_bang.topic_list.size(); i2++) {
-                b17 b17Var = new b17();
-                b17Var.b(dataRes.topic_bang);
-                b17Var.a(dataRes.topic_bang.topic_list.get(i2));
-                this.d.add(b17Var);
+            if (f17Var.Y == null) {
+                this.t.setVisibility(8);
+            } else {
+                this.t.setVisibility(0);
+                this.t.setData(f17Var.Y);
             }
+        } else {
+            this.w.setVisibility(0);
+            this.l.setVisibility(8);
+            this.n.setVisibility(8);
+            this.t.setVisibility(8);
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.m.getLayoutParams();
+            int f2 = pi.f(getContext(), R.dimen.tbds30);
+            int f3 = pi.f(getContext(), R.dimen.tbds16);
+            layoutParams2.addRule(1, R.id.obfuscated_res_0x7f092266);
+            layoutParams2.setMargins(f2, 0, f3, 0);
+            this.m.setTextSize(0, pi.f(this.c, R.dimen.tbds40));
+            fr4 d = fr4.d(this.m);
+            d.v(R.color.CAM_X0105);
+            d.A(R.string.F_X01);
+            if (StringUtils.isNull(f17Var.U)) {
+                this.o.setVisibility(8);
+            } else {
+                this.o.setVisibility(0);
+                ThreadCardUtils.setAbstractStyleAb(this.o);
+                ThreadCardUtils.cutAndSetTextByMaxLine(this.o, f17Var.U, R.string.obfuscated_res_0x7f0f03a3, R.dimen.tbds17, 2, z, true, false);
+            }
+            SkinManager.setViewTextColor(this.o, R.color.CAM_X0105, 1);
         }
-        this.f = dataRes.frs_tab_topic;
-        this.g = dataRes.topic_list;
+        String str = f17Var.T;
+        if (str.length() > 14) {
+            str = str.substring(0, 13) + StringHelper.STRING_MORE;
+        }
+        this.m.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f0470), str));
+        if (StringUtils.isNull(f17Var.W)) {
+            this.p.setVisibility(8);
+            this.s.setUserColor(R.color.CAM_X0109);
+        } else {
+            this.p.setVisibility(0);
+            this.q.setPlaceHolder(3);
+            this.q.J(f17Var.W, 10, false);
+            this.s.setUserColor(R.color.CAM_X0101);
+        }
+        if (!StringUtils.isNull(f17Var.g0)) {
+            this.w.setVisibility(0);
+            this.w.J(f17Var.g0, 10, false);
+        }
+        if (f17Var.X == null) {
+            this.r.setVisibility(8);
+            this.s.setVisibility(8);
+            this.u.setVisibility(8);
+            return;
+        }
+        this.r.setVisibility(0);
+        this.s.setVisibility(0);
+        this.s.setData(f17Var.X);
+        this.u.setVisibility(0);
+    }
+
+    public final void t(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, view2) == null) && (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
+            int i = this.y;
+            marginLayoutParams.leftMargin = i;
+            marginLayoutParams.rightMargin = i;
+            view2.setLayoutParams(marginLayoutParams);
+        }
     }
 }

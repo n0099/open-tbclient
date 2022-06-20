@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qq5;
-import com.repackage.rq5;
+import com.repackage.pr5;
+import com.repackage.qr5;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerViewHolder> {
@@ -21,8 +21,8 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
     public transient /* synthetic */ FieldHolder $fh;
     public List<T> a;
     public Context b;
-    public qq5 c;
-    public rq5 d;
+    public pr5 c;
+    public qr5 d;
     public boolean e;
     public View.OnClickListener f;
 
@@ -60,12 +60,12 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
         }
     }
 
-    public AlaBannerRecyclerAdapter(Context context, qq5 qq5Var, boolean z) {
+    public AlaBannerRecyclerAdapter(Context context, pr5 pr5Var, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, qq5Var, Boolean.valueOf(z)};
+            Object[] objArr = {context, pr5Var, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -77,7 +77,7 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
         }
         this.f = new a(this);
         this.b = context;
-        this.c = qq5Var;
+        this.c = pr5Var;
         this.e = z;
     }
 
@@ -132,25 +132,25 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
-            qq5 qq5Var = this.c;
-            if (qq5Var != null) {
-                return qq5Var.a(viewGroup, i);
+            pr5 pr5Var = this.c;
+            if (pr5Var != null) {
+                return pr5Var.a(viewGroup, i);
             }
             return null;
         }
         return (AlaBannerViewHolder) invokeLI.objValue;
     }
 
-    public void i(rq5 rq5Var) {
+    public void i(qr5 qr5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, rq5Var) == null) {
-            this.d = rq5Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, qr5Var) == null) {
+            this.d = qr5Var;
         }
     }
 
-    public void j(qq5 qq5Var) {
+    public void j(pr5 pr5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, qq5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, pr5Var) == null) {
         }
     }
 

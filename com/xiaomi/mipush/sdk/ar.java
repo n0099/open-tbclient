@@ -1,71 +1,61 @@
 package com.xiaomi.mipush.sdk;
 
-import android.content.ComponentName;
-import android.content.ServiceConnection;
-import android.os.IBinder;
-import android.os.Message;
-import android.os.Messenger;
-import android.os.RemoteException;
+import android.content.Context;
+import android.database.ContentObserver;
+import android.os.Handler;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import com.xiaomi.push.bj;
+import com.xiaomi.push.service.bn;
 /* loaded from: classes8.dex */
-public class ar implements ServiceConnection {
+public class ar extends ContentObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ an a;
+    public final /* synthetic */ ao a;
 
-    public ar(an anVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ar(ao aoVar, Handler handler) {
+        super(handler);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {anVar};
+            Object[] objArr = {aoVar, handler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Handler) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = anVar;
+        this.a = aoVar;
     }
 
-    @Override // android.content.ServiceConnection
-    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        List<Message> list;
-        List list2;
-        Messenger messenger;
+    @Override // android.database.ContentObserver
+    public void onChange(boolean z) {
+        Context context;
+        Integer num;
+        Context context2;
+        Context context3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-            synchronized (this.a) {
-                this.a.f51a = new Messenger(iBinder);
-                this.a.c = false;
-                list = this.a.f54a;
-                for (Message message : list) {
-                    try {
-                        messenger = this.a.f51a;
-                        messenger.send(message);
-                    } catch (RemoteException e) {
-                        com.xiaomi.channel.commonutils.logger.b.a(e);
-                    }
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            ao aoVar = this.a;
+            context = aoVar.f49a;
+            aoVar.f53a = Integer.valueOf(bn.a(context).a());
+            num = this.a.f53a;
+            if (num.intValue() != 0) {
+                context2 = this.a.f49a;
+                context2.getContentResolver().unregisterContentObserver(this);
+                context3 = this.a.f49a;
+                if (bj.b(context3)) {
+                    this.a.m123c();
                 }
-                list2 = this.a.f54a;
-                list2.clear();
             }
-        }
-    }
-
-    @Override // android.content.ServiceConnection
-    public void onServiceDisconnected(ComponentName componentName) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            this.a.f51a = null;
-            this.a.c = false;
         }
     }
 }

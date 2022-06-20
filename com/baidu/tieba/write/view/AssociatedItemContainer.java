@@ -95,7 +95,7 @@ public final class AssociatedItemContainer extends LinearLayout {
             if (onDeletedListener == null) {
                 return;
             }
-            Object tag = itemCardView.getTag(R.id.obfuscated_res_0x7f090fce);
+            Object tag = itemCardView.getTag(R.id.obfuscated_res_0x7f090fbe);
             if (tag == null) {
                 throw new NullPointerException("null cannot be cast to non-null type com.baidu.tbadk.core.data.ItemData");
             }
@@ -116,8 +116,8 @@ public final class AssociatedItemContainer extends LinearLayout {
             final ItemCardView itemCardView = new ItemCardView(getContext());
             itemCardView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             itemCardView.N();
-            itemCardView.setTag(R.id.obfuscated_res_0x7f090fce, itemData);
-            itemCardView.setOnCloseListener(new View.OnClickListener() { // from class: com.repackage.pw8
+            itemCardView.setTag(R.id.obfuscated_res_0x7f090fbe, itemData);
+            itemCardView.setOnCloseListener(new View.OnClickListener() { // from class: com.repackage.xw8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

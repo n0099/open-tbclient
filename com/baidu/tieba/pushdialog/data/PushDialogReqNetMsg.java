@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dc5;
+import com.repackage.qc5;
 import tbclient.GetLockWindowMsg.DataReq;
 import tbclient.GetLockWindowMsg.GetLockWindowMsgReqIdl;
 /* loaded from: classes3.dex */
@@ -46,7 +46,7 @@ public class PushDialogReqNetMsg extends NetMessage {
                 DataReq.Builder builder = new DataReq.Builder();
                 builder.tid = Long.valueOf(this.tid);
                 builder.task_id = Long.valueOf(this.task_id);
-                dc5.c(builder, true, true, true);
+                qc5.c(builder, true, true, true);
                 GetLockWindowMsgReqIdl.Builder builder2 = new GetLockWindowMsgReqIdl.Builder();
                 builder2.data = builder.build(true);
                 return builder2.build(true);

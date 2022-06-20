@@ -6,18 +6,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes5.dex */
-public class fd implements id {
+/* loaded from: classes6.dex */
+public class fd implements ld {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public char a;
+    public boolean a;
 
-    public fd(char c) {
+    public fd(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Character.valueOf(c)};
+            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,54 +27,51 @@ public class fd implements id {
                 return;
             }
         }
-        this.a = c;
+        this.a = z;
     }
 
-    @Override // com.repackage.id
-    public Object a(yd ydVar) {
+    @Override // com.repackage.ld
+    public Object a(be beVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ydVar)) == null) {
-            Class<?> a = ydVar.a();
-            if (a != Byte.class && a != Byte.TYPE) {
-                if (a != Short.class && a != Short.TYPE) {
-                    if (a != Integer.class && a != Integer.TYPE) {
-                        if (a != Long.class && a != Long.TYPE) {
-                            if (a != Float.class && a != Float.TYPE) {
-                                if (a != Double.class && a != Double.TYPE) {
-                                    if (a != Character.class && a != Character.TYPE) {
-                                        if (a == Boolean.class || a == Boolean.TYPE) {
-                                            return Boolean.valueOf(((byte) this.a) == 0);
-                                        } else if (a == String.class) {
-                                            return String.valueOf(this.a);
-                                        } else {
-                                            if (a == char[].class) {
-                                                return String.valueOf(this.a).toCharArray();
-                                            }
-                                            if (a == byte[].class) {
-                                                try {
-                                                    return ci.e(String.valueOf(this.a), 0);
-                                                } catch (IOException e) {
-                                                    e.printStackTrace();
-                                                    return null;
-                                                }
-                                            }
-                                            return null;
-                                        }
-                                    }
-                                    return Character.valueOf(this.a);
-                                }
-                                return Double.valueOf(this.a);
-                            }
-                            return Float.valueOf(this.a);
-                        }
-                        return Long.valueOf(this.a);
-                    }
-                    return Integer.valueOf(this.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, beVar)) == null) {
+            Class<?> a = beVar.a();
+            if (a != Boolean.class && a != Boolean.TYPE) {
+                if (a == Short.class || a == Short.TYPE) {
+                    return Short.valueOf((short) (!this.a ? 1 : 0));
                 }
-                return Short.valueOf((short) this.a);
+                if (a == Integer.class || a == Integer.TYPE) {
+                    return Integer.valueOf(!this.a ? 1 : 0);
+                }
+                if (a == Long.class || a == Long.TYPE) {
+                    return Long.valueOf(!this.a ? 1 : 0);
+                }
+                if (a == Float.class || a == Float.TYPE) {
+                    return Float.valueOf(!this.a ? 1 : 0);
+                }
+                if (a == Double.class || a == Double.TYPE) {
+                    return Double.valueOf(!this.a ? 1 : 0);
+                }
+                if (a == Character.class || a == Character.TYPE) {
+                    return Character.valueOf((char) (!this.a ? 1 : 0));
+                }
+                if (a == String.class) {
+                    return String.valueOf(this.a);
+                }
+                if (a == char[].class) {
+                    return String.valueOf(this.a).toCharArray();
+                }
+                if (a == byte[].class) {
+                    try {
+                        return gi.e(String.valueOf(this.a), 0);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        return null;
+                    }
+                }
+                return null;
             }
-            return Byte.valueOf((byte) this.a);
+            return Boolean.valueOf(this.a);
         }
         return invokeL.objValue;
     }

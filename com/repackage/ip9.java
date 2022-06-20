@@ -1,22 +1,22 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ip9 implements tk9 {
+public class ip9 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ mp9 a;
+    public final /* synthetic */ cm9 a;
 
-    public ip9(mp9 mp9Var) {
+    public ip9(cm9 cm9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mp9Var};
+            Object[] objArr = {cm9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,30 +26,19 @@ public class ip9 implements tk9 {
                 return;
             }
         }
-        this.a = mp9Var;
+        this.a = cm9Var;
     }
 
-    @Override // com.repackage.tk9
-    public void a() {
+    @Override // java.lang.Runnable
+    public void run() {
+        View view2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.tk9
-    public void onLoaded() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.k.removeMessages(11);
-            this.a.c = true;
-            nn9 a = rn9.a(this.a.b);
-            a.e(new vn9(this.a.f), 200, System.currentTimeMillis() - this.a.j);
-            a.m();
-            mp9 mp9Var = this.a;
-            if (mp9Var.e) {
+            cm9 cm9Var = this.a;
+            if (cm9Var.h == null || cm9Var.i == null || (view2 = cm9Var.j) == null) {
                 return;
             }
-            mp9Var.h.onLoaded();
+            view2.setVisibility(0);
         }
     }
 }

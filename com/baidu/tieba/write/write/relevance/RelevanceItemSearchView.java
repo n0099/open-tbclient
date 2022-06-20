@@ -34,13 +34,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
-import com.repackage.s85;
+import com.repackage.f95;
+import com.repackage.pi;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class RelevanceItemSearchView implements s85, ViewPager.OnPageChangeListener {
+public class RelevanceItemSearchView implements f95, ViewPager.OnPageChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String[] a;
@@ -276,23 +276,33 @@ public class RelevanceItemSearchView implements s85, ViewPager.OnPageChangeListe
         this.b = linearLayout;
         this.c = navigationBar;
         this.d = relevanceItemSearchActivity;
-        n();
+        o();
         j();
         i();
     }
 
+    @Override // com.repackage.f95
+    public boolean H0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemSearchMessage(this.i.getText().toString()));
         }
     }
 
-    @Override // com.repackage.s85
+    @Override // com.repackage.f95
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
         return (Intent) invokeV.objValue;
@@ -301,13 +311,13 @@ public class RelevanceItemSearchView implements s85, ViewPager.OnPageChangeListe
     public EditText h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.i : (EditText) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.i : (EditText) invokeV.objValue;
     }
 
     public final void i() {
         String[] strArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.k.clear();
             this.e.B();
             for (String str : this.a) {
@@ -315,7 +325,7 @@ public class RelevanceItemSearchView implements s85, ViewPager.OnPageChangeListe
                 c cVar = new c(this);
                 RelevanceItemListFragment relevanceItemListFragment = new RelevanceItemListFragment();
                 cVar.a = relevanceItemListFragment;
-                relevanceItemListFragment.K0(str);
+                relevanceItemListFragment.x1(str);
                 cVar.b = str;
                 this.k.add(cVar);
             }
@@ -323,49 +333,29 @@ public class RelevanceItemSearchView implements s85, ViewPager.OnPageChangeListe
         }
     }
 
-    @Override // com.repackage.s85
-    public boolean isOnViewCancel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.s85
-    public boolean isOnViewTop() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     public final void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             MessageManager.getInstance().registerListener(this.l);
         }
     }
 
     public final void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.c.setCenterTextTitle(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0f9a));
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.c.setCenterTextTitle(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0fa5));
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
-            layoutParams.height = li.f(this.b.getContext(), R.dimen.tbds60);
-            layoutParams.topMargin = li.f(this.b.getContext(), R.dimen.tbds15);
+            layoutParams.height = pi.f(this.b.getContext(), R.dimen.tbds60);
+            layoutParams.topMargin = pi.f(this.b.getContext(), R.dimen.tbds15);
         }
     }
 
     public final void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.h = this.b.findViewById(R.id.obfuscated_res_0x7f091c0e);
-            this.j = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091c20);
-            EditText editText = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f091c36);
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.h = this.b.findViewById(R.id.obfuscated_res_0x7f091c06);
+            this.j = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091c18);
+            EditText editText = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f091c2e);
             this.i = editText;
             editText.addTextChangedListener(new b(this));
         }
@@ -373,72 +363,19 @@ public class RelevanceItemSearchView implements s85, ViewPager.OnPageChangeListe
 
     public final void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            TbTabLayout tbTabLayout = (TbTabLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091e45);
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            TbTabLayout tbTabLayout = (TbTabLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091e3a);
             this.e = tbTabLayout;
-            tbTabLayout.setTabTextSize(li.f(this.d, R.dimen.tbds46));
-            this.e.setSelectedTabTextSize(li.f(this.d, R.dimen.tbds52));
-            this.e.setSelectedIndicatorBottomMargin(li.f(this.d, R.dimen.tbds11));
+            tbTabLayout.setTabTextSize(pi.f(this.d, R.dimen.tbds46));
+            this.e.setSelectedTabTextSize(pi.f(this.d, R.dimen.tbds52));
+            this.e.setSelectedIndicatorBottomMargin(pi.f(this.d, R.dimen.tbds11));
         }
     }
 
-    public final void n() {
+    @Override // com.repackage.f95
+    public void n(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            LayoutInflater.from(this.b.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0717, (ViewGroup) this.b, true);
-            this.d.showLoadingView(this.b);
-            l();
-            k();
-            m();
-            o();
-        }
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            CustomViewPager customViewPager = (CustomViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f0923b7);
-            this.f = customViewPager;
-            customViewPager.addOnPageChangeListener(this);
-            FragmentAdapter fragmentAdapter = new FragmentAdapter(this.d.getSupportFragmentManager());
-            this.g = fragmentAdapter;
-            this.f.setAdapter(fragmentAdapter);
-            this.e.setupWithViewPager(this.f);
-        }
-    }
-
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.l);
-        }
-    }
-
-    @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-        }
-    }
-
-    @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
-        }
-    }
-
-    @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-        }
-    }
-
-    @Override // com.repackage.s85
-    public void onViewChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.j, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
             SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0109);
             SkinManager.setBackgroundResource(this.h, R.drawable.enter_forum_search_bg);
@@ -453,5 +390,68 @@ public class RelevanceItemSearchView implements s85, ViewPager.OnPageChangeListe
             this.e.setSelectedTabTextBlod(true);
             this.e.setSelectedTabIndicatorColor(SkinManager.getColor(R.color.CAM_X0302));
         }
+    }
+
+    public final void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            LayoutInflater.from(this.b.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0716, (ViewGroup) this.b, true);
+            this.d.showLoadingView(this.b);
+            l();
+            k();
+            m();
+            p();
+        }
+    }
+
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.l);
+        }
+    }
+
+    @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+    public void onPageScrollStateChanged(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+        }
+    }
+
+    @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+    public void onPageScrolled(int i, float f, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
+        }
+    }
+
+    @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+    public void onPageSelected(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+        }
+    }
+
+    public final void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            CustomViewPager customViewPager = (CustomViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f0923a4);
+            this.f = customViewPager;
+            customViewPager.addOnPageChangeListener(this);
+            FragmentAdapter fragmentAdapter = new FragmentAdapter(this.d.getSupportFragmentManager());
+            this.g = fragmentAdapter;
+            this.f.setAdapter(fragmentAdapter);
+            this.e.setupWithViewPager(this.f);
+        }
+    }
+
+    @Override // com.repackage.f95
+    public boolean s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

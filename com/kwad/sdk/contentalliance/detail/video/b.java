@@ -1,6 +1,7 @@
 package com.kwad.sdk.contentalliance.detail.video;
 
 import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.atomData.CameraActivityConfig;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.m;
 import org.json.JSONException;
@@ -32,7 +33,7 @@ public class b {
     public String a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("contentType", this.d);
+            jSONObject.put(CameraActivityConfig.KEY_CONTENT_TYPE, this.d);
             jSONObject.put("adStyle", this.c);
         } catch (JSONException e) {
             com.kwad.sdk.core.d.a.a(e);

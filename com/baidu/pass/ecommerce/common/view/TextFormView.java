@@ -46,9 +46,9 @@ public class TextFormView extends FrameLayout {
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04b1, (ViewGroup) this, true);
-            this.mTextView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b70);
-            this.mBottomLine = inflate.findViewById(R.id.obfuscated_res_0x7f091b6b);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04af, (ViewGroup) this, true);
+            this.mTextView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b68);
+            this.mBottomLine = inflate.findViewById(R.id.obfuscated_res_0x7f091b63);
             this.mTextView.setText(this.mTextStr);
             this.mBottomLine.setVisibility(this.mIsShowBottomLine ? 0 : 4);
         }
@@ -57,8 +57,8 @@ public class TextFormView extends FrameLayout {
     public void setDarkMode() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.mTextView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060936));
-            this.mBottomLine.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060930));
+            this.mTextView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060934));
+            this.mBottomLine.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06092e));
         }
     }
 

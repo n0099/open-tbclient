@@ -6,10 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ab1;
-import com.repackage.bb1;
-import com.repackage.cb1;
-import com.repackage.wa1;
+import com.repackage.hb1;
+import com.repackage.lb1;
+import com.repackage.mb1;
+import com.repackage.nb1;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -31,32 +31,32 @@ public class ServerProvider extends DispatchableContentProvider {
         }
     }
 
-    public static String getCoreProviderAuthority() {
+    public static String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return wa1.a().getPackageName() + ".provider.ipc.server";
+            return hb1.a().getPackageName() + ".provider.ipc.server";
         }
         return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.pyramid.runtime.multiprocess.components.DispatchableContentProvider
-    public String getAuthority() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? getCoreProviderAuthority() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f() : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.pyramid.runtime.multiprocess.components.DispatchableContentProvider
-    public List<ab1> getContentProviderDelegates() {
+    public List<lb1> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<ab1> a = cb1.a(getAuthority());
+            List<lb1> a = nb1.a(b());
             if (a == null) {
                 a = new ArrayList<>();
             }
-            a.add(0, new bb1());
+            a.add(0, new mb1());
             return a;
         }
         return (List) invokeV.objValue;

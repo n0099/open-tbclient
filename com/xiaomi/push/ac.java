@@ -1,28 +1,35 @@
 package com.xiaomi.push;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileFilter;
 /* loaded from: classes8.dex */
-public class ac {
+public final class ac implements FileFilter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(byte[] bArr) {
-        InterceptResult invokeL;
+    public ac() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            if (bArr.length == 4) {
-                return (bArr[3] & 255) | 0 | ((bArr[0] & 255) << 24) | ((bArr[1] & 255) << 16) | ((bArr[2] & 255) << 8);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            throw new IllegalArgumentException("the length of bytes must be 4");
         }
-        return invokeL.intValue;
     }
 
-    public static byte[] a(int i) {
-        InterceptResult invokeI;
+    @Override // java.io.FileFilter
+    public boolean accept(File file) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? new byte[]{(byte) (i >> 24), (byte) (i >> 16), (byte) (i >> 8), (byte) i} : (byte[]) invokeI.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) ? file.isDirectory() : invokeL.booleanValue;
     }
 }

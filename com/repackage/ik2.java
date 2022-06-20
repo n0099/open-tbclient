@@ -1,369 +1,460 @@
 package com.repackage;
 
+import android.content.Context;
 import android.os.Bundle;
-import android.os.Parcelable;
+import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.apps.env.launch.SwanLauncher;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.p53;
-import java.util.ConcurrentModificationException;
+import com.repackage.oi2;
+import com.repackage.pk2;
+import com.repackage.qk2;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public interface ik2 {
-    public static final jk2<Boolean> a = new d(Boolean.FALSE);
-    public static final jk2<Integer> b = new e(0);
-    public static final jk2<Long> c = new f(0L);
-    public static final jk2<Float> d = new g(Float.valueOf(0.0f));
-    public static final jk2<String> e = new h();
-    public static final jk2<String[]> f = new a();
-    public static final jk2<Bundle> g = new b();
-    public static final jk2<Parcelable> h = new c();
+public class ik2 extends p13 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a extends jk2<String[]> {
+    public class a implements f74 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ JSONObject b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ Context e;
+        public final /* synthetic */ UnitedSchemeEntity f;
+        public final /* synthetic */ CallbackHandler g;
+        public final /* synthetic */ sz2 h;
+        public final /* synthetic */ ik2 i;
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jk2
-        /* renamed from: f */
-        public String[] c(Bundle bundle, String str, String[] strArr) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, strArr)) == null) ? bundle.getStringArray(str) : (String[]) invokeLLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jk2
-        /* renamed from: g */
-        public void e(Bundle bundle, String str, String[] strArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, strArr) == null) {
-                bundle.putStringArray(str, strArr);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b extends jk2<Bundle> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jk2
-        /* renamed from: f */
-        public Bundle c(Bundle bundle, String str, Bundle bundle2) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, bundle2)) == null) ? bundle.getBundle(str) : (Bundle) invokeLLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jk2
-        /* renamed from: g */
-        public void e(Bundle bundle, String str, Bundle bundle2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, bundle2) == null) {
-                bundle.putBundle(str, bundle2);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c extends jk2<Parcelable> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jk2
-        /* renamed from: f */
-        public Parcelable c(Bundle bundle, String str, Parcelable parcelable) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, parcelable)) == null) ? bundle.getParcelable(str) : (Parcelable) invokeLLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jk2
-        /* renamed from: g */
-        public void e(Bundle bundle, String str, Parcelable parcelable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, parcelable) == null) {
-                bundle.putParcelable(str, parcelable);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class d extends jk2<Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(Boolean bool) {
-            super(bool);
+        public a(ik2 ik2Var, String str, JSONObject jSONObject, String str2, String str3, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, sz2 sz2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bool};
+                Object[] objArr = {ik2Var, str, jSONObject, str2, str3, context, unitedSchemeEntity, callbackHandler, sz2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super(newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.i = ik2Var;
+            this.a = str;
+            this.b = jSONObject;
+            this.c = str2;
+            this.d = str3;
+            this.e = context;
+            this.f = unitedSchemeEntity;
+            this.g = callbackHandler;
+            this.h = sz2Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jk2
-        /* renamed from: f */
-        public Boolean c(Bundle bundle, String str, Boolean bool) {
-            InterceptResult invokeLLL;
+        @Override // com.repackage.f74
+        public void a(@Nullable Map<String, String> map) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, bool)) == null) ? Boolean.valueOf(bundle.getBoolean(str, bool.booleanValue())) : (Boolean) invokeLLL.objValue;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, map) == null) || map == null) {
+                return;
+            }
+            String str = map.get(this.a);
+            if (TextUtils.isEmpty(str)) {
+                str = this.a;
+            }
+            this.i.o(this.b, this.c, this.d, this.e, this.f, str, this.g, this.h);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jk2
-        /* renamed from: g */
-        public void e(Bundle bundle, String str, Boolean bool) {
+        @Override // com.repackage.f74
+        public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, bool) == null) {
-                bundle.putBoolean(str, bool.booleanValue());
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                if (p13.b) {
+                    Log.e("LaunchAction", "getOpenBundleId", exc);
+                }
+                this.f.result = UnitedSchemeUtility.wrapCallbackParams(201);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class e extends jk2<Integer> {
+    public class b implements oi2.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qk2.a a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ CallbackHandler d;
+        public final /* synthetic */ UnitedSchemeEntity e;
+        public final /* synthetic */ String f;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(Integer num) {
-            super(num);
+        public b(ik2 ik2Var, qk2.a aVar, String str, String str2, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {num};
+                Object[] objArr = {ik2Var, aVar, str, str2, callbackHandler, unitedSchemeEntity, str3};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super(newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = aVar;
+            this.b = str;
+            this.c = str2;
+            this.d = callbackHandler;
+            this.e = unitedSchemeEntity;
+            this.f = str3;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jk2
-        /* renamed from: f */
-        public Integer c(Bundle bundle, String str, Integer num) {
-            InterceptResult invokeLLL;
+        @Override // com.repackage.oi2.c
+        public void a(int i) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, num)) == null) ? Integer.valueOf(bundle.getInt(str, num.intValue())) : (Integer) invokeLLL.objValue;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jk2
-        /* renamed from: g */
-        public void e(Bundle bundle, String str, Integer num) {
+        @Override // com.repackage.oi2.c
+        public void onFailed() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, num) == null) {
-                try {
-                    bundle.putInt(str, num.intValue());
-                } catch (ConcurrentModificationException e) {
-                    p53.b bVar = new p53.b(CyberPlayerManager.MEDIA_INFO_FIRST_FRAME_DECODE_FAIL_CHANGE_MODE);
-                    bVar.h(hz2.L() == null ? "null appKey" : hz2.L().N());
-                    bVar.k(str);
-                    bVar.i(Log.getStackTraceString(e));
-                    bVar.m();
-                }
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                lb3 lb3Var = new lb3();
+                lb3Var.k(7L);
+                lb3Var.i(9L);
+                lb3Var.f("debug download pkg fail");
+                pb3.a().f(lb3Var);
+                mk2.e(zi2.c(), lb3Var, 0, this.c);
+                t63 t63Var = new t63();
+                t63Var.p(lb3Var);
+                t63Var.r(this.a);
+                l63.R(t63Var);
+                this.e.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            }
+        }
+
+        @Override // com.repackage.oi2.c
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                ((qk2.a) this.a.A0(true)).a1("1.6.0");
+                SwanLauncher.j().n(this.a, null);
+                ik2.n(this.b, this.c, this.d, this.e, this.f);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class f extends jk2<Long> {
+    public static class c implements e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ UnitedSchemeEntity b;
+        public final /* synthetic */ String c;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public f(Long l) {
-            super(l);
+        public c(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {l};
+                Object[] objArr = {callbackHandler, unitedSchemeEntity, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super(newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = callbackHandler;
+            this.b = unitedSchemeEntity;
+            this.c = str;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jk2
-        /* renamed from: f */
-        public Long c(Bundle bundle, String str, Long l) {
-            InterceptResult invokeLLL;
+        @Override // com.repackage.ik2.e
+        public void a() {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, l)) == null) ? Long.valueOf(bundle.getLong(str, l.longValue())) : (Long) invokeLLL.objValue;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ik2.m(this.a, this.b, this.c, 1001);
+            }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jk2
-        /* renamed from: g */
-        public void e(Bundle bundle, String str, Long l) {
+        @Override // com.repackage.ik2.e
+        public void b() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, l) == null) {
-                bundle.putLong(str, l.longValue());
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                ik2.m(this.a, this.b, this.c, 0);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class g extends jk2<Float> {
+    public static class d extends yv2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e c;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public g(Float f) {
-            super(f);
+        public d(e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {f};
+                Object[] objArr = {eVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super(newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.c = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jk2
-        /* renamed from: f */
-        public Float c(Bundle bundle, String str, Float f) {
-            InterceptResult invokeLLL;
+        @Override // com.repackage.yv2, com.repackage.zv2, com.repackage.xv2
+        public void onEvent(@NonNull vv2 vv2Var) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, f)) == null) ? Float.valueOf(bundle.getFloat(str, f.floatValue())) : (Float) invokeLLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jk2
-        /* renamed from: g */
-        public void e(Bundle bundle, String str, Float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, f) == null) {
-                bundle.putFloat(str, f.floatValue());
+            if (interceptable == null || interceptable.invokeL(1048576, this, vv2Var) == null) {
+                if (vv2Var.a() != null && vv2Var.a().getInt("ok") == 0) {
+                    e eVar = this.c;
+                    if (eVar != null) {
+                        eVar.b();
+                        return;
+                    }
+                    return;
+                }
+                e eVar2 = this.c;
+                if (eVar2 != null) {
+                    eVar2.a();
+                }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class h extends jk2<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface e {
+        void a();
 
-        public h() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        void b();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ik2(p03 p03Var) {
+        super(p03Var, "/swanAPI/launch");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {p03Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public static void m(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, callbackHandler, unitedSchemeEntity, str, i) == null) {
+            if (TextUtils.isEmpty(str)) {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(i));
+            } else {
+                UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(i).toString(), str);
+            }
+        }
+    }
+
+    public static void n(String str, String str2, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65541, null, str, str2, callbackHandler, unitedSchemeEntity, str3) == null) {
+            if (!TextUtils.isEmpty(str3)) {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            }
+            if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str3)) {
+                return;
+            }
+            c cVar = new c(callbackHandler, unitedSchemeEntity, str3);
+            if (ProcessUtils.isMainProcess()) {
+                jk2.j(str2, cVar);
+            } else {
+                p(str2, cVar);
+            }
+        }
+    }
+
+    public static void p(String str, e eVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65542, null, str, eVar) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        Bundle bundle = new Bundle();
+        bundle.putString("desAppId", str);
+        rz2.K().z().X(bundle, jk2.class, new d(eVar));
+    }
+
+    @Override // com.repackage.p13
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, sz2 sz2Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, sz2Var)) == null) {
+            sw1.b("LaunchAction", "handle entity: ", unitedSchemeEntity);
+            String uri = unitedSchemeEntity.getUri() != null ? unitedSchemeEntity.getUri().toString() : "";
+            sw1.i("LaunchAction", "launch scheme = " + uri);
+            HashMap<String, String> params = unitedSchemeEntity.getParams();
+            String str = params.get("params");
+            String str2 = params.get("from");
+            if (TextUtils.isEmpty(str)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                lb3 lb3Var = new lb3();
+                lb3Var.k(1L);
+                lb3Var.i(1L);
+                lb3Var.f("paramsValue is empty");
+                pb3.a().f(lb3Var);
+                mk2.e(context, lb3Var, 0, "");
+                t63 t63Var = new t63();
+                t63Var.p(lb3Var);
+                t63Var.t(str2);
+                t63Var.l("scheme", uri);
+                l63.R(t63Var);
+                return false;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                String optString = jSONObject.optString("appid");
+                String optString2 = jSONObject.optString("navi");
+                if (TextUtils.isEmpty(optString)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    lb3 lb3Var2 = new lb3();
+                    lb3Var2.k(1L);
+                    lb3Var2.i(1L);
+                    lb3Var2.f("appId is empty");
+                    pb3.a().f(lb3Var2);
+                    mk2.e(context, lb3Var2, 0, "");
+                    t63 t63Var2 = new t63();
+                    t63Var2.p(lb3Var2);
+                    t63Var2.t(str2);
+                    t63Var2.l("scheme", uri);
+                    l63.R(t63Var2);
+                    return false;
+                } else if (fc4.e().g(!md3.G()) && TextUtils.equals(optString2, "naviTo")) {
+                    ArrayList arrayList = new ArrayList();
+                    arrayList.add(optString);
+                    a74.e(arrayList, rz2.K().r().O(), new a(this, optString, jSONObject, str2, uri, context, unitedSchemeEntity, callbackHandler, sz2Var));
+                    return true;
+                } else {
+                    return o(jSONObject, str2, uri, context, unitedSchemeEntity, optString, callbackHandler, sz2Var);
                 }
+            } catch (JSONException e2) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                lb3 lb3Var3 = new lb3();
+                lb3Var3.k(1L);
+                lb3Var3.i(1L);
+                lb3Var3.f("parse paramsValue with JSONException:" + e2.getMessage());
+                pb3.a().f(lb3Var3);
+                mk2.e(context, lb3Var3, 0, "");
+                t63 t63Var3 = new t63();
+                t63Var3.p(lb3Var3);
+                t63Var3.t(str2);
+                t63Var3.l("scheme", uri);
+                l63.R(t63Var3);
+                return false;
             }
         }
+        return invokeLLLL.booleanValue;
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jk2
-        /* renamed from: f */
-        public String c(Bundle bundle, String str, String str2) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, str2)) == null) ? bundle.getString(str, str2) : (String) invokeLLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jk2
-        /* renamed from: g */
-        public void e(Bundle bundle, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, str2) == null) {
-                bundle.putString(str, str2);
+    public final boolean o(JSONObject jSONObject, String str, String str2, Context context, UnitedSchemeEntity unitedSchemeEntity, String str3, CallbackHandler callbackHandler, sz2 sz2Var) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{jSONObject, str, str2, context, unitedSchemeEntity, str3, callbackHandler, sz2Var})) == null) {
+            String h = SwanLauncher.h();
+            rz2.K().r().W().J0(h);
+            String optString = jSONObject.optString("url");
+            String optString2 = jSONObject.optString(PrefetchEvent.EVENT_DATA_EXTRA_DATA);
+            String optString3 = jSONObject.optString("downloadurl");
+            String optString4 = jSONObject.optString("clkid");
+            String optString5 = jSONObject.optString("notinhis");
+            String optString6 = jSONObject.optString("cb");
+            String optString7 = jSONObject.optString("navi");
+            qk2.a aVar = (qk2.a) ((qk2.a) ((qk2.a) ((qk2.a) ((qk2.a) ((qk2.a) ((qk2.a) new qk2.a().v0(str3)).R0(optString)).I0(str)).K0(str2)).y0(optString4)).P0(optString5)).J0(h);
+            if (sz2Var != null && !TextUtils.isEmpty(optString7)) {
+                aVar.r0(PrefetchEvent.EVENT_DATA_EXTRA_DATA, optString2);
+                aVar.r0("navi", optString7);
+                pk2.a Y = sz2Var.Y();
+                if (Y == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                }
+                String H = Y.H();
+                if (ur1.e(Y) && !ur1.f(str3)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
+                }
+                aVar.r0("srcAppId", H);
+                aVar.r0("srcAppKey", Y.I());
+                aVar.q0("srcPkgType", Y.getType());
+                aVar.r0("srcAppPage", md3.n().e());
+            }
+            if (p13.b && !TextUtils.isEmpty(optString3)) {
+                oi2.d dVar = new oi2.d();
+                dVar.a = optString3;
+                oi2.K(dVar, new b(this, aVar, optString7, str3, callbackHandler, unitedSchemeEntity, optString6));
+                return true;
+            } else if (TextUtils.isEmpty(optString3)) {
+                aVar.A0(false);
+                SwanLauncher.j().n(aVar, null);
+                n(optString7, str3, callbackHandler, unitedSchemeEntity, optString6);
+                return true;
+            } else {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                lb3 lb3Var = new lb3();
+                lb3Var.k(1L);
+                lb3Var.i(1L);
+                lb3Var.f("release but downloadUrl is not empty");
+                pb3.a().f(lb3Var);
+                mk2.e(context, lb3Var, 0, str3);
+                t63 t63Var = new t63();
+                t63Var.t(str);
+                t63Var.m(str3);
+                t63Var.r(aVar);
+                t63Var.l("scheme", str2);
+                l63.R(t63Var);
+                return false;
             }
         }
+        return invokeCommon.booleanValue;
     }
 }

@@ -8,9 +8,9 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.view.Display;
 import android.view.WindowManager;
+import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.c.f.e;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
-import com.repackage.ni9;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes5.dex */
@@ -44,7 +44,7 @@ public class c {
         if (aVar.a != null) {
             a(aVar.a);
         }
-        ni9.d(a, "Subject created successfully.");
+        DebugLogger.i(a, "Subject created successfully.");
     }
 
     private void a(Context context, long j) {
@@ -105,7 +105,7 @@ public class c {
     private void e(Context context) {
         Location c = e.c(context);
         if (c == null) {
-            ni9.b(a, "Location information not available.");
+            DebugLogger.e(a, "Location information not available.");
             return;
         }
         b(b.B, Double.valueOf(c.getLongitude()));
@@ -158,11 +158,11 @@ public class c {
             display.getSize(point);
             a(point.x, point.y);
         } catch (Exception unused) {
-            ni9.b(a, "Display.getSize isn't available on older devices.");
+            DebugLogger.e(a, "Display.getSize isn't available on older devices.");
             if (display != null) {
                 a(display.getWidth(), display.getHeight());
             } else {
-                ni9.b(a, "error get display");
+                DebugLogger.e(a, "error get display");
             }
         }
     }

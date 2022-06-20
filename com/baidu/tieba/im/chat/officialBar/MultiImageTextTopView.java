@@ -18,17 +18,16 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.stampmission.message.StampMissionHttpRequestMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a67;
-import com.repackage.ff;
-import com.repackage.r37;
-import com.repackage.u47;
-import com.repackage.y67;
+import com.repackage.Cif;
+import com.repackage.b57;
+import com.repackage.e67;
+import com.repackage.i87;
+import com.repackage.k77;
 /* loaded from: classes3.dex */
 public class MultiImageTextTopView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -37,7 +36,7 @@ public class MultiImageTextTopView extends RelativeLayout {
     public TbImageView b;
     public TextView c;
     public TextView d;
-    public ff e;
+    public Cif e;
     public int f;
 
     /* loaded from: classes3.dex */
@@ -70,7 +69,7 @@ public class MultiImageTextTopView extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
                 if (this.a.e != null) {
-                    this.a.e.onItemViewLongClick(view2, 9, this.a.f, 0L);
+                    this.a.e.o(view2, 9, this.a.f, 0L);
                     return false;
                 }
                 return false;
@@ -83,12 +82,12 @@ public class MultiImageTextTopView extends RelativeLayout {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u47.a a;
+        public final /* synthetic */ e67.a a;
         public final /* synthetic */ TbPageContext b;
         public final /* synthetic */ int c;
         public final /* synthetic */ MultiImageTextTopView d;
 
-        public b(MultiImageTextTopView multiImageTextTopView, u47.a aVar, TbPageContext tbPageContext, int i) {
+        public b(MultiImageTextTopView multiImageTextTopView, e67.a aVar, TbPageContext tbPageContext, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +110,7 @@ public class MultiImageTextTopView extends RelativeLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            u47.a aVar;
+            e67.a aVar;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (aVar = this.a) == null || StringUtils.isNull(aVar.d)) {
                 return;
@@ -119,12 +118,12 @@ public class MultiImageTextTopView extends RelativeLayout {
             UrlManager.getInstance().dealOneLink(this.b, new String[]{this.a.d});
             if (this.c == 1) {
                 TiebaStatic.eventStat(this.d.a, "official_msg_ck", "click", 1, "fid", this.a.e);
-                r37 l = y67.l(this.a.f);
+                b57 l = i87.l(this.a.f);
                 if (l != null) {
-                    TiebaStatic.eventStat(this.d.a, "message_open_detail", "click", 1, StampMissionHttpRequestMessage.KEY_TASK_TYPE, l.a, "task_id", l.b, "loc", "0");
+                    TiebaStatic.eventStat(this.d.a, "message_open_detail", "click", 1, "task_type", l.a, "task_id", l.b, "loc", "0");
                     int i = this.a.g;
                     if ((i == 1 || i == 3) && !"0".equals(l.b)) {
-                        a67.c().a(l.b);
+                        k77.c().a(l.b);
                     }
                 }
                 StatisticItem statisticItem = new StatisticItem("official_message_open_detail");
@@ -163,12 +162,12 @@ public class MultiImageTextTopView extends RelativeLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d054b, (ViewGroup) this, true);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092096);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0548, (ViewGroup) this, true);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092097);
             this.b = tbImageView;
             tbImageView.setAutoChangeStyle(false);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0920b5);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091ce9);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0920b0);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091ce0);
             setOnLongClickListener(new a(this));
         }
     }
@@ -197,7 +196,7 @@ public class MultiImageTextTopView extends RelativeLayout {
         }
     }
 
-    public void setData(TbPageContext<?> tbPageContext, u47.a aVar, View view2, int i) {
+    public void setData(TbPageContext<?> tbPageContext, e67.a aVar, View view2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(1048579, this, tbPageContext, aVar, view2, i) == null) {
             setPadding((int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070201), (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070201), (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070201), (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070201));
@@ -212,14 +211,14 @@ public class MultiImageTextTopView extends RelativeLayout {
                 return;
             }
             this.b.setTag(aVar.c);
-            this.b.K(aVar.c, 10, false);
+            this.b.J(aVar.c, 10, false);
         }
     }
 
-    public void setOnItemViewLongClickListener(ff ffVar) {
+    public void setOnItemViewLongClickListener(Cif cif) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ffVar) == null) {
-            this.e = ffVar;
+        if (interceptable == null || interceptable.invokeL(1048580, this, cif) == null) {
+            this.e = cif;
         }
     }
 

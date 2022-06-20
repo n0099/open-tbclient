@@ -22,22 +22,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
-import com.repackage.nw5;
-import com.repackage.rz7;
-import com.repackage.sk4;
-import com.repackage.uy7;
+import com.repackage.b08;
+import com.repackage.cl4;
+import com.repackage.mx5;
+import com.repackage.pi;
+import com.repackage.w08;
 /* loaded from: classes3.dex */
 public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rz7 mItemData;
-    public uy7 mMoreController;
-    public nw5 mOnCardSubClickListenner;
-    public Bundle mUrlBundle;
+    public b08 a;
+    public Bundle b;
+    public w08 c;
+    public mx5 d;
 
     /* loaded from: classes3.dex */
-    public class a extends nw5<rz7> {
+    public class a extends mx5<w08> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonCenterMoreActivity b;
@@ -61,17 +61,17 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.nw5
+        @Override // com.repackage.mx5
         /* renamed from: d */
-        public void a(View view2, rz7 rz7Var) {
+        public void a(View view2, w08 w08Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, rz7Var) == null) {
-                this.b.mItemData = rz7Var;
-                if (this.b.mItemData == null || this.b.requestPermission()) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, w08Var) == null) {
+                this.b.c = w08Var;
+                if (this.b.c == null || this.b.G1()) {
                     return;
                 }
                 PersonCenterMoreActivity personCenterMoreActivity = this.b;
-                personCenterMoreActivity.dealUrlMapClick(personCenterMoreActivity.mItemData.g);
+                personCenterMoreActivity.E1(personCenterMoreActivity.c.g);
             }
         }
     }
@@ -89,17 +89,16 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
                 return;
             }
         }
-        this.mOnCardSubClickListenner = new a(this);
+        this.d = new a(this);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void dealUrlMapClick(String str) {
+    public final void E1(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, this, str) == null) || StringUtils.isNull(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || StringUtils.isNull(str)) {
             return;
         }
         if (str.startsWith("tieba&")) {
-            processPerosnWalletUrlClick(str);
+            F1(str);
         } else if (str.startsWith("nohead:url")) {
             StringBuilder sb = new StringBuilder();
             sb.append(str.replaceFirst(UrlSchemaHelper.PREFIX_BOOK_TOWN, ""));
@@ -111,29 +110,28 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         }
     }
 
-    private void processPerosnWalletUrlClick(String str) {
+    public final void F1(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, this, str) == null) || StringUtils.isNull(str)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || StringUtils.isNull(str)) {
             return;
         }
         if (str.startsWith("tieba&")) {
             if (!TbadkCoreApplication.getInst().appResponseToIntentClass(ConsumptionRecordsActivityConfig.class)) {
-                li.N(getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f045d);
+                pi.N(getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f044e);
                 return;
             }
             UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{str.substring(6)});
         } else if (!str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) && !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001387, str));
         } else {
-            sk4.x(getPageContext().getPageActivity(), true, str);
+            cl4.x(getPageContext().getPageActivity(), true, str);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean requestPermission() {
+    public final boolean G1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             Activity pageActivity = getPageContext().getPageActivity();
             PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
             permissionJudgePolicy.clearRequestPermissionList();
@@ -146,11 +144,11 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            uy7 uy7Var = this.mMoreController;
-            if (uy7Var != null) {
-                uy7Var.c();
+            b08 b08Var = this.a;
+            if (b08Var != null) {
+                b08Var.c();
             }
         }
     }
@@ -158,24 +156,24 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             Intent intent = getIntent();
             if (intent != null) {
-                this.mUrlBundle = intent.getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
+                this.b = intent.getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
             }
-            setContentView(R.layout.obfuscated_res_0x7f0d0698);
-            uy7 uy7Var = new uy7(getPageContext(), this.mUrlBundle, this.mOnCardSubClickListenner);
-            this.mMoreController = uy7Var;
-            uy7Var.b();
+            setContentView(R.layout.obfuscated_res_0x7f0d0696);
+            b08 b08Var = new b08(getPageContext(), this.b, this.d);
+            this.a = b08Var;
+            b08Var.b();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, strArr, iArr) == null) && 25040 == i && iArr[0] == 0) {
-            dealUrlMapClick(this.mItemData.g);
+        if ((interceptable == null || interceptable.invokeILL(1048581, this, i, strArr, iArr) == null) && 25040 == i && iArr[0] == 0) {
+            E1(this.c.g);
         }
     }
 }

@@ -21,7 +21,7 @@ public class a {
 
     /* renamed from: com.baidu.pass.common.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0117a {
+    public static class C0120a {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String a = "UTF-8";
         public static final String b = "AES/CBC/NoPadding";
@@ -32,7 +32,7 @@ public class a {
         public String f;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public C0117a() {
+        public C0120a() {
             this("AES", "AES/CBC/NoPadding", "UTF-8");
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -74,7 +74,7 @@ public class a {
             return (byte[]) invokeLLL.objValue;
         }
 
-        public C0117a(String str, String str2, String str3) {
+        public C0120a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();

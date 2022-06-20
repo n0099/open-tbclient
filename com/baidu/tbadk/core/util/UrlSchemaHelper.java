@@ -1,6 +1,12 @@
 package com.baidu.tbadk.core.util;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -73,12 +79,21 @@ public class UrlSchemaHelper {
     public static final String SCHEMA_FORUM_BROADCAST_REVIEWED = "com.baidu.tieba://unidispatch/forumbroadcast/reviewed";
     public static final String SCHEMA_FORUM_BROADCAST_SINGLE_FEED = "com.baidu.tieba://unidispatch/forumbroadcast/singlefeed";
     public static final String SCHEMA_FORUM_DETAIL_FLUTTER = "com.baidu.tieba://unidispatch/forumDetail?forumId=";
+    public static final String SCHEMA_GAME_PLAY_ALBUM = "com.baidu.tieba://unidispatch/GameGodAlbum";
+    public static final String SCHEMA_GAME_PLAY_GODS_PAGE = "com.baidu.tieba://unidispatch/GameGodsDetailPage";
+    public static final String SCHEMA_GAME_PLAY_MAIN_PAGE = "com.baidu.tieba://unidispatch/GamePlayPage";
+    public static final String SCHEMA_GAME_PLAY_ORDERING_PAGE = "com.baidu.tieba://unidispatch/GameGodsDetailPage";
+    public static final String SCHEMA_GAME_PLAY_ORDER_PAGE = "com.baidu.tieba://unidispatch/GameOrderDetail";
+    public static final String SCHEMA_GAME_PLAY_PERSON_CHAT = "com.baidu.tieba://unidispatch/UserChat";
+    public static final String SCHEMA_GAME_PLAY_SKILL_DETAIL = "com.baidu.tieba://unidispatch/GameSkillDetail";
+    public static final String SCHEMA_GAME_RECOMMENT_PAGE = "tbmaintab://tieba.baidu.com";
     public static final String SCHEMA_LIVE_MY_CONCERN_LIST = "com.baidu.tieba://unidispatch/liveconcernlist";
     public static final String SCHEMA_LIVE_SDK = "bdtiebalive://";
     public static final String SCHEMA_NAITVE_H5 = "com.baidu.tieba://unidispatch/tbwebview";
     public static final String SCHEMA_PATH_FROM_FORUM_SQUARE = "/forumsquare";
     public static final String SCHEMA_REPLY_ME = "com.baidu.tieba://unidispatch/replyme";
     public static final String SCHEMA_TB_FLUTTER = "flt://";
+    public static final String SCHEMA_TO_FORUM_USER_LIVE = "com.baidu.tieba://unidispatch/yylivelist";
     public static final String SCHEMA_TYPE_BAIJIAHAO_PB = "isbaijiahao=1";
     public static final String SCHEMA_TYPE_BAR_VOTE = "tieba://election?";
     public static final String SCHEMA_TYPE_BEAUTY_PIC = "beautypic:";
@@ -196,10 +211,26 @@ public class UrlSchemaHelper {
         return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? str.startsWith(SCHEMA_TYPE_SWAN_BAIDUBOXAPP) : invokeL.booleanValue;
     }
 
+    public static void goToNewPageByScheme(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65538, null, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        if (str.startsWith(SCHEMA_TYPE_SWAN)) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2921361, str));
+            return;
+        }
+        Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
+        intent.addFlags(805306368);
+        if (UtilHelper.isHaveActivityCanHandleIntent(intent)) {
+            TbadkCoreApplication.getInst().startActivity(intent);
+        }
+    }
+
     @NonNull
     public static String replaceSwanBaiduboxapp2Tiebaclient(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? str.replace(SCHEMA_TYPE_SWAN_BAIDUBOXAPP, SCHEMA_TYPE_SWAN) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? str.replace(SCHEMA_TYPE_SWAN_BAIDUBOXAPP, SCHEMA_TYPE_SWAN) : (String) invokeL.objValue;
     }
 }

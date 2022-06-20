@@ -1,43 +1,33 @@
 package com.repackage;
 
-import android.view.MotionEvent;
-import android.view.View;
+import android.graphics.Bitmap;
+import android.os.Build;
+import android.text.TextUtils;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.core.Info;
-import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class bo9 implements View.OnTouchListener {
+public class bo9 extends WebViewClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final qn9 a;
-    public boolean b;
-    public long c;
-    public float d;
-    public float e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
-    public int m;
-    public long n;
-    public int o;
-    public int p;
-    public long q;
+    public String a;
+    public String b;
+    public boolean c;
+    public final /* synthetic */ fo9 d;
 
-    public bo9(Info info, qn9 qn9Var) {
+    public bo9(fo9 fo9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {info, qn9Var};
+            Object[] objArr = {fo9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -47,85 +37,86 @@ public class bo9 implements View.OnTouchListener {
                 return;
             }
         }
-        this.b = false;
-        this.c = 0L;
-        this.a = qn9Var;
+        this.d = fo9Var;
     }
 
-    public HashMap a() {
-        InterceptResult invokeV;
+    public final boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("dx", Integer.valueOf(this.f));
-            hashMap.put("dy", Integer.valueOf(this.g));
-            hashMap.put("dts", Long.valueOf(this.n));
-            hashMap.put("ux", Integer.valueOf(this.o));
-            hashMap.put("uy", Integer.valueOf(this.p));
-            hashMap.put("uts", Long.valueOf(this.q));
-            ll9.j(hashMap, this.h, this.i, this.j, this.k, this.l, this.m);
-            return hashMap;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (action == 0) {
-                this.b = true;
-                this.c = System.currentTimeMillis();
-                this.d = motionEvent.getX();
-                this.e = motionEvent.getY();
-                this.h = (int) motionEvent.getX();
-                this.i = (int) motionEvent.getY();
-                this.f = (int) motionEvent.getRawX();
-                this.g = (int) motionEvent.getRawY();
-                if (this.l <= 0 || this.m <= 0) {
-                    this.m = view2.getHeight();
-                    this.l = view2.getWidth();
-                }
-                this.n = System.currentTimeMillis();
-            } else if (action == 1) {
-                this.o = (int) motionEvent.getRawX();
-                this.p = (int) motionEvent.getRawY();
-                this.j = (int) motionEvent.getX();
-                this.k = (int) motionEvent.getY();
-                this.q = System.currentTimeMillis();
-                boolean z = Math.abs(motionEvent.getX() - this.d) < 51.0f;
-                boolean z2 = Math.abs(motionEvent.getY() - this.e) < 51.0f;
-                boolean z3 = System.currentTimeMillis() - this.c < 2000;
-                if (z && z2 && z3 && this.b) {
-                    String str = null;
-                    try {
-                        str = a().toString();
-                        lk9 lk9Var = this.a.a.b;
-                        if (lk9Var != null) {
-                            lk9Var.a(str);
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    qn9 qn9Var = this.a;
-                    qn9Var.a.d = true;
-                    qn9Var.a.e = str;
-                    return false;
-                } else if (this.a != null) {
-                    try {
-                        String hashMap = a().toString();
-                        lk9 lk9Var2 = this.a.a.b;
-                        if (lk9Var2 != null) {
-                            lk9Var2.a(hashMap);
-                        }
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            fo9 fo9Var = this.d;
+            if (fo9Var.d) {
+                fo9Var.d = false;
+                fo9 fo9Var2 = this.d;
+                sk9 sk9Var = fo9Var2.b;
+                if (sk9Var != null) {
+                    return sk9Var.a(str, fo9Var2.e);
                 }
             }
             return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onPageFinished(WebView webView, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
+            super.onPageFinished(webView, str);
+            if (TextUtils.isEmpty(this.b)) {
+                this.b = str;
+            }
+        }
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
+            super.onPageStarted(webView, str, bitmap);
+            al9 al9Var = this.d.a;
+            if (al9Var != null && !this.c) {
+                this.c = true;
+                al9Var.onLoaded();
+            }
+            this.a = webView.getUrl();
+        }
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, webView, webResourceRequest, webResourceError) == null) {
+            super.onReceivedError(webView, webResourceRequest, webResourceError);
+            if ((TextUtils.equals(webView.getUrl(), "http://abcd/") || TextUtils.equals(webView.getUrl(), this.a)) && Build.VERSION.SDK_INT >= 23) {
+                webResourceError.getDescription().toString();
+                webResourceError.getErrorCode();
+            }
+        }
+    }
+
+    @Override // android.webkit.WebViewClient
+    public boolean shouldOverrideUrlLoading(WebView webView, WebResourceRequest webResourceRequest) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, webResourceRequest)) == null) {
+            if (Build.VERSION.SDK_INT < 24 || !a(webResourceRequest.getUrl().toString())) {
+                return super.shouldOverrideUrlLoading(webView, webResourceRequest);
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebViewClient
+    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, str)) == null) {
+            if (Build.VERSION.SDK_INT >= 24 || !a(str)) {
+                return super.shouldOverrideUrlLoading(webView, str);
+            }
+            return true;
         }
         return invokeLL.booleanValue;
     }

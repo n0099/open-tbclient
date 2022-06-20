@@ -21,7 +21,6 @@ public class PayConfig implements Serializable {
     public static final long serialVersionUID = 1473520404420820966L;
     public transient /* synthetic */ FieldHolder $fh;
     public int isAutoPay;
-    public int isFromDecreaseGiftStepStrategy;
     public String mClickZone;
     public int mFrom;
     public String mIsLeft;
@@ -60,7 +59,6 @@ public class PayConfig implements Serializable {
         this.mOrderInfo = "";
         this.paymentPosKey = "";
         this.mPayForm = PageDialogHelper$PayForm.NOT_SET;
-        this.isFromDecreaseGiftStepStrategy = 0;
         this.mPayType = i;
         this.mIsLeft = str;
         this.mPropsId = str2;
@@ -137,98 +135,85 @@ public class PayConfig implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.isAutoPay : invokeV.intValue;
     }
 
-    public int isFromDecreaseGiftStepStrategy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.isFromDecreaseGiftStepStrategy : invokeV.intValue;
-    }
-
     public boolean isIsPay() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mIsPay : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mIsPay : invokeV.booleanValue;
     }
 
     public void setAutoPay(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
             this.isAutoPay = i;
         }
     }
 
     public void setFrom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             this.mFrom = i;
-        }
-    }
-
-    public void setFromDecreaseGiftStepStrategy(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.isFromDecreaseGiftStepStrategy = i;
         }
     }
 
     public void setIsLeft(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
             this.mIsLeft = str;
         }
     }
 
     public void setIsPay(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
             this.mIsPay = z;
         }
     }
 
     public void setMoney(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
             this.mMoney = str;
         }
     }
 
     public void setOrderName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
             this.mOrderName = str;
         }
     }
 
     public void setPayType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
             this.mPayType = i;
         }
     }
 
     public void setPropsId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
             this.mPropsId = str;
         }
     }
 
     public void setPropsMon(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
             this.mPropsMon = str;
         }
     }
 
     public void setTBeanNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
             this.tBeanNum = i;
         }
     }
 
     public void setTitle(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
             this.mTitle = str;
         }
     }
@@ -254,7 +239,6 @@ public class PayConfig implements Serializable {
         this.paymentPosKey = "";
         PageDialogHelper$PayForm pageDialogHelper$PayForm2 = PageDialogHelper$PayForm.NOT_SET;
         this.mPayForm = pageDialogHelper$PayForm2;
-        this.isFromDecreaseGiftStepStrategy = 0;
         this.mPayType = i;
         this.mIsLeft = str;
         this.mPropsId = str2;
@@ -293,7 +277,6 @@ public class PayConfig implements Serializable {
         this.mOrderInfo = "";
         this.paymentPosKey = "";
         this.mPayForm = PageDialogHelper$PayForm.NOT_SET;
-        this.isFromDecreaseGiftStepStrategy = 0;
         this.mPayType = i;
         this.mIsLeft = str;
         this.mPropsId = str2;

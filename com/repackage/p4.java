@@ -1,34 +1,93 @@
 package com.repackage;
 
-import com.badlogic.gdx.math.Quaternion;
+import com.badlogic.gdx.graphics.Mesh;
 import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.math.collision.BoundingBox;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class p4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BoundingBox h;
     public transient /* synthetic */ FieldHolder $fh;
-    public y6<q4<Vector3>> a;
-    public y6<q4<Quaternion>> b;
-    public y6<q4<Vector3>> c;
+    public String a;
+    public int b;
+    public int c;
+    public int d;
+    public Mesh e;
+    public final Vector3 f;
+    public final Vector3 g;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964032319, "Lcom/repackage/p4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1964032319, "Lcom/repackage/p4;");
+                return;
+            }
+        }
+        h = new BoundingBox();
+    }
 
     public p4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
+        this.f = new Vector3();
+        this.g = new Vector3();
+    }
+
+    public boolean a(p4 p4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, p4Var)) == null) ? p4Var == this || (p4Var != null && p4Var.e == this.e && p4Var.b == this.b && p4Var.c == this.c && p4Var.d == this.d) : invokeL.booleanValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (obj == null) {
+                return false;
+            }
+            if (obj == this) {
+                return true;
+            }
+            if (obj instanceof p4) {
+                return a((p4) obj);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void update() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.e.f(h, this.c, this.d);
+            h.getCenter(this.f);
+            h.getDimensions(this.g).m21scl(0.5f);
+            this.g.len();
+        }
     }
 }

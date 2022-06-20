@@ -1,187 +1,110 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.CardUserInfoLayout;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.browser.sailor.platform.BdSailorPlatform;
+import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.LoadErrorCode;
+import com.baidu.webkit.sdk.Log;
+import com.baidu.webkit.sdk.WebKitFactory;
 /* loaded from: classes6.dex */
-public class pw extends mw<om4> {
-    public static /* synthetic */ Interceptable $ic;
+public class pw implements WebKitFactory.WebkitInstallListener {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String c = "pw";
     public transient /* synthetic */ FieldHolder $fh;
-    public CardUserInfoLayout f;
-    public int g;
-    public om4 h;
-    public b i;
+    public byte a;
+    public long b;
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pw a;
-
-        public a(pw pwVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pwVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pwVar;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1964030242, "Lcom/repackage/pw;")) == null) {
+            return;
         }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.i != null) {
-                    this.a.i.a(this.a.h, view2);
-                }
-                if (this.a.d() != null) {
-                    this.a.d().a(view2, this.a.h);
-                }
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1964030242, "Lcom/repackage/pw;");
         }
     }
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(om4 om4Var, View view2);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pw(Context context) {
-        super(context);
+    public pw() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.g = 34053;
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().c instanceof CardUserInfoLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().c.getParent() == null) {
-            this.f = (CardUserInfoLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().c;
-        } else {
-            this.f = new CardUserInfoLayout(context);
-        }
-        this.f.setShowFlag(this.g);
-        this.f.setUserAfterClickListener(new a(this));
     }
 
-    @Override // com.repackage.mw
-    public void b(int i) {
+    public static void c(LoadErrorCode loadErrorCode) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            int i2 = i | this.g;
-            this.g = i2;
-            u(i2);
+        if (interceptable == null || interceptable.invokeL(65538, null, loadErrorCode) == null) {
+            BdSailorPlatform.getStatic().b("init-webkit", "Err = " + loadErrorCode.getInt() + loadErrorCode.getString());
         }
     }
 
-    @Override // com.repackage.mw
-    public void c(int i) {
+    public final void a(LoadErrorCode loadErrorCode) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            int i2 = (~i) & this.g;
-            this.g = i2;
-            u(i2);
+        if (interceptable == null || interceptable.invokeL(1048576, this, loadErrorCode) == null) {
+            WebKitFactory.setEngine(0);
+            BdSailorPlatform.getWebkitManager().onInstallZeusPluginFailed(this.a, loadErrorCode);
         }
     }
 
-    @Override // com.repackage.mw
-    public View g() {
-        InterceptResult invokeV;
+    public final void b(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : (View) invokeV.objValue;
-    }
-
-    @Override // com.repackage.cx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
-            this.f.onChangeSkinType(tbPageContext, i);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.bx
-    /* renamed from: q */
-    public void a(om4 om4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, om4Var) == null) {
-            this.h = om4Var;
-            this.f.setData(om4Var.getThreadData());
-        }
-    }
-
-    public void r(boolean z) {
-        CardUserInfoLayout cardUserInfoLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (cardUserInfoLayout = this.f) == null || cardUserInfoLayout.getAvatar() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || str == null) {
             return;
         }
-        this.f.getAvatar().setClickable(z);
+        this.a = (byte) 0;
+        if (!str.startsWith("file://")) {
+            str = "file://".concat(String.valueOf(str));
+        }
+        BdZeusUtil.printKernellog("install plugin from download");
+        WebKitFactory.installAsync(str, this);
+        this.b = System.currentTimeMillis();
+        Log.i(c, "full update started!");
     }
 
-    public void s(b bVar) {
+    @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
+    public void onInstallFinish(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
-            this.i = bVar;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
+            System.currentTimeMillis();
+            Log.i("soar", "the return value of installing kernal is: ".concat(String.valueOf(i)));
+            BdZeusUtil.printKernellog("oninstalled: " + i + " targetpath: " + str);
+            if (i == 0) {
+                Log.d(c, "install success!");
+                BdSailorPlatform.getWebkitManager().onInstallZeusPluginSuccess(BdSailorPlatform.getInstance().getAppContext(), str, this.a);
+            } else {
+                Log.d(c, "install failed!");
+                BdSailorPlatform.getWebkitManager().onInstallZeusPluginFailed(this.a, WebKitFactory.getLoadErrorCode());
+            }
+            BdSailorPlatform.getWebkitManager().enableBdWebkit();
+            long currentTimeMillis = System.currentTimeMillis() - this.b;
+            String str2 = c;
+            Log.i(str2, "total timecost: " + String.valueOf(currentTimeMillis));
         }
     }
 
-    public void t(BdUniqueId bdUniqueId) {
+    @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
+    public void onInstallStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
-            this.f.setPageUniqueId(bdUniqueId);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
-    }
-
-    public void u(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.f.setShowFlag(this.g);
-        }
-    }
-
-    public void v(TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, tbPageContext) == null) {
-            this.f.setPageContext(tbPageContext);
-        }
-    }
-
-    public void w(boolean z) {
-        CardUserInfoLayout cardUserInfoLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048587, this, z) == null) || (cardUserInfoLayout = this.f) == null || cardUserInfoLayout.getUserName() == null) {
-            return;
-        }
-        this.f.getUserName().setClickable(z);
     }
 }

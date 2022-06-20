@@ -27,12 +27,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ki;
-import com.repackage.li;
-import com.repackage.nv5;
-import com.repackage.rp5;
+import com.repackage.mw5;
+import com.repackage.oi;
+import com.repackage.pi;
+import com.repackage.qq5;
 /* loaded from: classes3.dex */
-public class ConcernTabLiveItemView extends nv5<rp5> {
+public class ConcernTabLiveItemView extends mw5<qq5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewHolder i;
@@ -84,9 +84,9 @@ public class ConcernTabLiveItemView extends nv5<rp5> {
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0909e6 && (view2.getTag() instanceof UserData)) {
-                    if (!li.D()) {
-                        this.a.k.j.showToast(R.string.obfuscated_res_0x7f0f0c33);
+                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0909d5 && (view2.getTag() instanceof UserData)) {
+                    if (!pi.D()) {
+                        this.a.k.j.showToast(R.string.obfuscated_res_0x7f0f0c37);
                         return;
                     }
                     UserData userData = (UserData) view2.getTag();
@@ -100,7 +100,7 @@ public class ConcernTabLiveItemView extends nv5<rp5> {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ViewHolder(ConcernTabLiveItemView concernTabLiveItemView, ConcernTabLiveItemView concernTabLiveItemView2) {
-            super(concernTabLiveItemView2.k());
+            super(concernTabLiveItemView2.h());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -119,23 +119,23 @@ public class ConcernTabLiveItemView extends nv5<rp5> {
             this.k = concernTabLiveItemView;
             this.j = new a(this);
             this.a = concernTabLiveItemView2;
-            View k = concernTabLiveItemView2.k();
-            this.b = k;
-            TbImageView tbImageView = (TbImageView) k.findViewById(R.id.obfuscated_res_0x7f091946);
+            View h = concernTabLiveItemView2.h();
+            this.b = h;
+            TbImageView tbImageView = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f09193d);
             this.c = tbImageView;
             tbImageView.setDefaultResource(R.drawable.icon_default_avatar100_bg);
             this.c.setIsRound(true);
             this.c.setAutoChangeStyle(false);
             this.c.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09129e);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0912a2);
-            this.i = this.b.findViewById(R.id.obfuscated_res_0x7f09077b);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091295);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091299);
+            this.i = this.b.findViewById(R.id.obfuscated_res_0x7f090766);
             Drawable drawable = SkinManager.getDrawable(concernTabLiveItemView.c.getResources(), (int) R.drawable.icon_living_seeding);
             drawable.setBounds(0, 0, concernTabLiveItemView.c.getResources().getDimensionPixelOffset(R.dimen.tbds8), concernTabLiveItemView.c.getResources().getDimensionPixelOffset(R.dimen.tbds8));
             this.e.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092298);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0909e6);
-            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0909f0);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092285);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0909d5);
+            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0909df);
             this.g.setOnClickListener(this.j);
         }
     }
@@ -173,15 +173,15 @@ public class ConcernTabLiveItemView extends nv5<rp5> {
         }
     }
 
-    @Override // com.repackage.nv5
+    @Override // com.repackage.mw5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d076b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d076a : invokeV.intValue;
     }
 
-    @Override // com.repackage.nv5
-    public void m(TbPageContext<?> tbPageContext, int i) {
+    @Override // com.repackage.mw5
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
             SkinManager.setViewTextColor(this.i.d, (int) R.color.CAM_X0105);
@@ -203,21 +203,21 @@ public class ConcernTabLiveItemView extends nv5<rp5> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.nv5
-    /* renamed from: u */
-    public void l(rp5 rp5Var) {
+    @Override // com.repackage.mw5
+    /* renamed from: t */
+    public void i(qq5 qq5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, rp5Var) == null) {
-            UserData userData = rp5Var.a;
+        if (interceptable == null || interceptable.invokeL(1048581, this, qq5Var) == null) {
+            UserData userData = qq5Var.a;
             if (userData != null) {
                 if (!StringUtils.isNull(userData.getPortrait())) {
-                    this.i.c.K(rp5Var.a.getPortrait(), 12, false);
+                    this.i.c.J(qq5Var.a.getPortrait(), 12, false);
                 }
-                if (!StringUtils.isNull(rp5Var.a.getName_show())) {
-                    this.i.d.setText(rp5Var.a.getName_show());
+                if (!StringUtils.isNull(qq5Var.a.getName_show())) {
+                    this.i.d.setText(qq5Var.a.getName_show());
                 }
-                if (rp5Var.c) {
-                    if (rp5Var.a.hadConcerned()) {
+                if (qq5Var.c) {
+                    if (qq5Var.a.hadConcerned()) {
                         this.i.g.setVisibility(8);
                         this.i.h.setVisibility(0);
                     } else {
@@ -228,32 +228,32 @@ public class ConcernTabLiveItemView extends nv5<rp5> {
                     this.i.g.setVisibility(8);
                     this.i.h.setVisibility(8);
                 }
-                this.i.g.setTag(rp5Var.a);
+                this.i.g.setTag(qq5Var.a);
             }
-            AlaInfoData alaInfoData = rp5Var.b;
+            AlaInfoData alaInfoData = qq5Var.b;
             if (alaInfoData != null) {
                 this.i.b.setTag(alaInfoData);
-                if (!StringUtils.isNull(rp5Var.b.description)) {
-                    String str = rp5Var.b.description;
+                if (!StringUtils.isNull(qq5Var.b.description)) {
+                    String str = qq5Var.b.description;
                     int i = this.k;
-                    if (rp5Var.c) {
+                    if (qq5Var.c) {
                         i -= 9;
                     }
-                    if (ki.byteLength(str) > i) {
+                    if (oi.byteLength(str) > i) {
                         str = StringHelper.cutChineseAndEnglishWithSuffix(str, i, StringHelper.STRING_MORE);
                     }
                     this.i.f.setText(str);
                 }
             }
-            if (rp5Var.c) {
+            if (qq5Var.c) {
                 TiebaStatic.log(new StatisticItem("c12895"));
             } else {
                 StatisticItem statisticItem = new StatisticItem("c12893");
                 statisticItem.addParam("fid", this.l);
                 statisticItem.addParam("fname", this.m);
-                AlaInfoData alaInfoData2 = rp5Var.b;
+                AlaInfoData alaInfoData2 = qq5Var.b;
                 if (alaInfoData2 != null && alaInfoData2.isLegalYYLiveData()) {
-                    AlaInfoData alaInfoData3 = rp5Var.b;
+                    AlaInfoData alaInfoData3 = qq5Var.b;
                     int calculateLiveType = YYLiveUtil.calculateLiveType(alaInfoData3);
                     String str2 = StringUtils.isNull(alaInfoData3.appId) ? null : alaInfoData3.appId;
                     if (alaInfoData3.mYyExtData != null) {
@@ -261,17 +261,17 @@ public class ConcernTabLiveItemView extends nv5<rp5> {
                     }
                     statisticItem.addParam("obj_param1", calculateLiveType);
                     statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM2, str2);
-                    YYLiveUtil.calculateLiveType(rp5Var.b);
-                    TiebaStaticHelper.addYYParam(statisticItem, rp5Var.b.mYyExtData);
+                    YYLiveUtil.calculateLiveType(qq5Var.b);
+                    TiebaStaticHelper.addYYParam(statisticItem, qq5Var.b.mYyExtData);
                 }
                 TiebaStatic.log(statisticItem);
             }
-            this.i.g.setTag(rp5Var.a);
-            m(j(), TbadkCoreApplication.getInst().getSkinType());
+            this.i.g.setTag(qq5Var.a);
+            j(g(), TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void v(String str) {
+    public void u(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             this.l = str;

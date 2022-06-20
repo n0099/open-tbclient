@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.appsearchlib.Info;
 import com.baidu.mytransformapp.util.LogUtil;
@@ -15,34 +16,29 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a81;
-import com.repackage.h91;
-import com.repackage.r61;
-import com.repackage.x71;
-import com.repackage.z61;
+import com.repackage.c71;
+import com.repackage.i81;
+import com.repackage.k71;
+import com.repackage.l81;
+import com.repackage.s91;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClickListener {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String KEY_APP_KEY = "key_app_key";
-    public static final String KEY_AUTH_CHANNEL = "key_auth_channel";
-    public static final String KEY_BDUSS = "key_bduss";
-    public static final String KEY_INVOKER_TASK_ID = "key_invoker_task_id";
-    public static final String KEY_PAY_CHANNEL = "key_pay_channel";
-    public static IChannelAuth channelAuth;
+    public static /* synthetic */ Interceptable $ic;
+    public static IChannelAuth j;
     public transient /* synthetic */ FieldHolder $fh;
-    public View agreeNoticeLayout;
-    public View agreeResultLayout;
-    public String appKey;
-    public String bduss;
-    public View closeNoticeBtn;
-    public ProgressButton gotoAgreeBtn;
-    public int invokerTaskId;
-    public String payChannel;
-    public View resultKnownBtn;
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public View e;
+    public View f;
+    public View g;
+    public ProgressButton h;
+    public View i;
 
     /* loaded from: classes2.dex */
-    public class a extends r61<JSONObject> {
+    public class a extends c71<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GuideAgreeNoPwdPayActivity a;
@@ -65,7 +61,7 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
             this.a = guideAgreeNoPwdPayActivity;
         }
 
-        @Override // com.repackage.r61
+        @Override // com.repackage.c71
         public void b(Throwable th, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, th, str) == null) {
@@ -74,13 +70,13 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.r61
+        @Override // com.repackage.c71
         /* renamed from: d */
         public void c(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
                 if (jSONObject.optBoolean("needAgreementGuide")) {
-                    this.a.showGuideAgreeNoPwdPayNotice();
+                    this.a.n();
                 } else {
                     this.a.finish();
                 }
@@ -89,13 +85,13 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
     }
 
     /* loaded from: classes2.dex */
-    public class b extends r61<JSONObject> {
+    public class b extends c71<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GuideAgreeNoPwdPayActivity a;
 
         /* loaded from: classes2.dex */
-        public class a extends r61<JSONObject> {
+        public class a extends c71<JSONObject> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
@@ -119,13 +115,13 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.r61
+            @Override // com.repackage.c71
             /* renamed from: d */
             public void c(JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-                    this.a.a.processNoPwdAgreeResult(jSONObject);
-                    this.a.a.moveInvokerTaskToFront();
+                    this.a.a.m(jSONObject);
+                    this.a.a.k();
                 }
             }
         }
@@ -148,32 +144,32 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
             this.a = guideAgreeNoPwdPayActivity;
         }
 
-        @Override // com.repackage.r61
+        @Override // com.repackage.c71
         public void b(Throwable th, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, th, str) == null) {
-                this.a.gotoAgreeBtn.c();
-                this.a.gotoAgreeBtn.setEnable(true);
-                this.a.gotoAgreeBtn.setPressed(false);
-                h91.f(this.a.getApplicationContext(), "服务异常，请稍后重试");
+                this.a.h.c();
+                this.a.h.setEnable(true);
+                this.a.h.setPressed(false);
+                s91.f(this.a.getApplicationContext(), "服务异常，请稍后重试");
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.r61
+        @Override // com.repackage.c71
         /* renamed from: d */
         public void c(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-                this.a.gotoAgreeBtn.c();
-                this.a.gotoAgreeBtn.setEnable(true);
-                this.a.gotoAgreeBtn.setPressed(false);
+                this.a.h.c();
+                this.a.h.setEnable(true);
+                this.a.h.setPressed(false);
                 String optString = jSONObject.optString("payChannel");
                 String optString2 = jSONObject.optString("signUrl");
                 if (TextUtils.equals(optString, "BAIDU-ALIPAY-WISE") && !TextUtils.isEmpty(optString2)) {
-                    GuideAgreeNoPwdPayActivity.channelAuth.aLiAuth(this.a, optString2, new a(this));
+                    GuideAgreeNoPwdPayActivity.j.aLiAuth(this.a, optString2, new a(this));
                 } else {
-                    h91.f(this.a.getApplicationContext(), "服务异常，请稍后重试");
+                    s91.f(this.a.getApplicationContext(), "服务异常，请稍后重试");
                 }
             }
         }
@@ -207,8 +203,8 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.agreeNoticeLayout.setVisibility(8);
-                this.a.agreeResultLayout.setVisibility(0);
+                this.a.e.setVisibility(8);
+                this.a.f.setVisibility(0);
             }
         }
     }
@@ -227,104 +223,101 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
         }
     }
 
-    private void checkNeedAgreeNoPwdPay() {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            h91.e(this, R.drawable.obfuscated_res_0x7f080625, "加载中");
-            z61.j().k(this.bduss, this.payChannel, this.appKey, new a(this));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            k();
+            finish();
         }
     }
 
-    private void initViews() {
+    public final void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            this.agreeNoticeLayout = findViewById(R.id.obfuscated_res_0x7f091888);
-            this.agreeResultLayout = findViewById(R.id.obfuscated_res_0x7f091889);
-            this.closeNoticeBtn = findViewById(R.id.obfuscated_res_0x7f091874);
-            this.gotoAgreeBtn = (ProgressButton) findViewById(R.id.obfuscated_res_0x7f090154);
-            this.resultKnownBtn = findViewById(R.id.obfuscated_res_0x7f09187c);
-            this.gotoAgreeBtn.setText("立即开启小额免密支付");
-            this.closeNoticeBtn.setOnClickListener(this);
-            this.gotoAgreeBtn.setOnClickListener(this);
-            this.resultKnownBtn.setOnClickListener(this);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            s91.e(this, R.drawable.obfuscated_res_0x7f080623, "加载中");
+            k71.j().k(this.a, this.c, this.b, new a(this));
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void moveInvokerTaskToFront() {
+    public final void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.e = findViewById(R.id.obfuscated_res_0x7f09187f);
+            this.f = findViewById(R.id.obfuscated_res_0x7f091880);
+            this.g = findViewById(R.id.obfuscated_res_0x7f09186b);
+            this.h = (ProgressButton) findViewById(R.id.obfuscated_res_0x7f090154);
+            this.i = findViewById(R.id.obfuscated_res_0x7f091873);
+            this.h.setText("立即开启小额免密支付");
+            this.g.setOnClickListener(this);
+            this.h.setOnClickListener(this);
+            this.i.setOnClickListener(this);
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             try {
-                ((ActivityManager) getSystemService("activity")).moveTaskToFront(this.invokerTaskId, 1);
+                ((ActivityManager) getSystemService("activity")).moveTaskToFront(this.d, 1);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private void processIsNeedAgreementGuide(String str, String str2, String str3) {
+    public final void l(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65547, this, str, str2, str3) == null) {
-            h91.e(this, R.drawable.obfuscated_res_0x7f080625, "加载中");
-            z61.j().l(str, str2, str3, new b(this));
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, str3) == null) {
+            s91.e(this, R.drawable.obfuscated_res_0x7f080623, "加载中");
+            k71.j().l(str, str2, str3, new b(this));
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void processNoPwdAgreeResult(JSONObject jSONObject) {
+    public final void m(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, this, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
             if (jSONObject != null && TextUtils.equals(jSONObject.optString("code"), "10000")) {
-                a81.e(new x71("202"));
+                l81.e(new i81("202"));
                 runOnUiThread(new c(this));
             } else if (jSONObject != null && TextUtils.equals(jSONObject.optString("code"), "60001")) {
-                a81.e(new x71("203"));
-                authEnd();
-                h91.f(this, "开通失败，请重试");
+                l81.e(new i81("203"));
+                h();
+                s91.f(this, "开通失败，请重试");
             } else {
-                authEnd();
-                h91.f(this, "网络异常，请重试");
+                h();
+                s91.f(this, "网络异常，请重试");
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void showGuideAgreeNoPwdPayNotice() {
+    public final void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
-            this.agreeNoticeLayout.setVisibility(0);
-            this.agreeResultLayout.setVisibility(8);
-        }
-    }
-
-    public void authEnd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            moveInvokerTaskToFront();
-            finish();
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.e.setVisibility(0);
+            this.f.setVisibility(8);
         }
     }
 
     @Override // android.app.Activity
     public void onBackPressed() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f091874) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f09186b) {
                 finish();
             } else if (view2.getId() == R.id.obfuscated_res_0x7f090154) {
-                this.gotoAgreeBtn.b();
-                this.gotoAgreeBtn.setEnable(false);
-                this.gotoAgreeBtn.setPressed(true);
-                a81.e(new x71(Info.kBaiduPIDValue));
-                processIsNeedAgreementGuide(this.bduss, this.payChannel, this.appKey);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09187c) {
+                this.h.b();
+                this.h.setEnable(false);
+                this.h.setPressed(true);
+                l81.e(new i81(Info.kBaiduPIDValue));
+                l(this.a, this.c, this.b);
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091873) {
                 finish();
             }
         }
@@ -333,23 +326,23 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0038);
-            initViews();
-            PolyActivity.invokerActivity = null;
+            j();
+            PolyActivity.g = null;
             Intent intent = getIntent();
-            this.bduss = intent.getStringExtra(KEY_BDUSS);
-            this.appKey = intent.getStringExtra(KEY_APP_KEY);
-            this.payChannel = intent.getStringExtra(KEY_PAY_CHANNEL);
-            channelAuth = (IChannelAuth) intent.getSerializableExtra(KEY_AUTH_CHANNEL);
-            this.invokerTaskId = intent.getIntExtra(KEY_INVOKER_TASK_ID, -100);
-            if (channelAuth == null) {
+            this.a = intent.getStringExtra("key_bduss");
+            this.b = intent.getStringExtra("key_app_key");
+            this.c = intent.getStringExtra("key_pay_channel");
+            j = (IChannelAuth) intent.getSerializableExtra("key_auth_channel");
+            this.d = intent.getIntExtra("key_invoker_task_id", -100);
+            if (j == null) {
                 finish();
                 LogUtil.logActivity(this, "onCreate");
                 return;
             }
-            checkNeedAgreeNoPwdPay();
+            i();
             LogUtil.logActivity(this, "onCreate");
         }
     }

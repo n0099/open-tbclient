@@ -1,33 +1,23 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.os.Bundle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ActBtn;
 /* loaded from: classes6.dex */
 public class lh8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Rect a;
-    public Bitmap b;
-    public Rect c;
-    public Context d;
-    public Bundle e;
-    public boolean f;
-    public boolean g;
+    public int a;
 
-    public lh8(Context context) {
+    public lh8(ActBtn actBtn) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {actBtn};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,16 +27,18 @@ public class lh8 {
                 return;
             }
         }
-        this.d = context;
-        this.c = new Rect();
+        this.a = 0;
+        if (actBtn == null) {
+            return;
+        }
+        this.a = actBtn.type.intValue();
+        String str = actBtn.url;
+        String str2 = actBtn.text;
     }
 
-    public void a(Canvas canvas) {
+    public int getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            this.d.getResources().getDisplayMetrics();
-            this.c.set(0, 0, this.b.getWidth(), this.b.getHeight());
-            canvas.drawBitmap(this.b, this.c, this.a, (Paint) null);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 }

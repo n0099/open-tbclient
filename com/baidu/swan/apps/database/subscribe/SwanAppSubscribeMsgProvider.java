@@ -16,15 +16,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi2;
+import com.repackage.zi2;
 /* loaded from: classes2.dex */
 public class SwanAppSubscribeMsgProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
-    public static final String CONTENT_AUTHORITY;
-    public static final Uri CONTENT_URI;
+    public static final String b;
+    public static final Uri c;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public SQLiteDatabase mDatabase;
+    public SQLiteDatabase a;
 
     static {
         InterceptResult invokeClinit;
@@ -39,8 +39,8 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
                 return;
             }
         }
-        CONTENT_AUTHORITY = oi2.c().getPackageName() + ".swan.subscribe_msg";
-        CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
+        b = zi2.c().getPackageName() + ".swan.subscribe_msg";
+        c = Uri.parse("content://" + b);
     }
 
     public SwanAppSubscribeMsgProvider() {
@@ -57,18 +57,18 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
         }
     }
 
-    private synchronized boolean isInitDBFail() {
+    public final synchronized boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                if (this.mDatabase != null) {
+                if (this.a != null) {
                     return false;
                 }
-                SQLiteOpenHelper h = SwanAppDbControl.f(oi2.c()).h();
+                SQLiteOpenHelper h = SwanAppDbControl.f(zi2.c()).h();
                 if (h != null) {
                     SQLiteDatabase writableDatabase = h.getWritableDatabase();
-                    this.mDatabase = writableDatabase;
+                    this.a = writableDatabase;
                     return writableDatabase == null;
                 }
                 return true;
@@ -81,11 +81,11 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
     public int delete(@Nullable Uri uri, @Nullable String str, @Nullable String[] strArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, uri, str, strArr)) == null) {
-            if (isInitDBFail()) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, str, strArr)) == null) {
+            if (a()) {
                 return 0;
             }
-            return this.mDatabase.delete("swanapp_subscribe_msg", str, strArr);
+            return this.a.delete("swanapp_subscribe_msg", str, strArr);
         }
         return invokeLLL.intValue;
     }
@@ -95,7 +95,7 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
     public String getType(@Nullable Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) ? CONTENT_AUTHORITY : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri)) == null) ? b : (String) invokeL.objValue;
     }
 
     @Override // android.content.ContentProvider
@@ -103,8 +103,8 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
     public Uri insert(@Nullable Uri uri, @Nullable ContentValues contentValues) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, uri, contentValues)) == null) {
-            if (!isInitDBFail() && this.mDatabase.insert("swanapp_subscribe_msg", null, contentValues) > 0) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, uri, contentValues)) == null) {
+            if (!a() && this.a.insert("swanapp_subscribe_msg", null, contentValues) > 0) {
                 return uri;
             }
             return null;
@@ -116,7 +116,7 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
     public boolean onCreate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -127,11 +127,11 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
     public Cursor query(@Nullable Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048580, this, uri, strArr, str, strArr2, str2)) == null) {
-            if (isInitDBFail()) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, uri, strArr, str, strArr2, str2)) == null) {
+            if (a()) {
                 return null;
             }
-            return this.mDatabase.query("swanapp_subscribe_msg", strArr, str, strArr2, null, null, str2);
+            return this.a.query("swanapp_subscribe_msg", strArr, str, strArr2, null, null, str2);
         }
         return (Cursor) invokeLLLLL.objValue;
     }
@@ -140,11 +140,11 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
     public int update(@Nullable Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, uri, contentValues, str, strArr)) == null) {
-            if (isInitDBFail()) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, uri, contentValues, str, strArr)) == null) {
+            if (a()) {
                 return 0;
             }
-            return this.mDatabase.update("swanapp_subscribe_msg", contentValues, str, strArr);
+            return this.a.update("swanapp_subscribe_msg", contentValues, str, strArr);
         }
         return invokeLLLL.intValue;
     }

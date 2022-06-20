@@ -10,7 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b1;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
+import com.repackage.e1;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
@@ -47,7 +48,7 @@ public class GLVersion {
             OpenGL = new Type("OpenGL", 0);
             GLES = new Type("GLES", 1);
             WebGL = new Type("WebGL", 2);
-            Type type = new Type("NONE", 3);
+            Type type = new Type(HlsPlaylistParser.METHOD_NONE, 3);
             NONE = type;
             $VALUES = new Type[]{OpenGL, GLES, WebGL, type};
         }
@@ -140,7 +141,7 @@ public class GLVersion {
                 c(split[2], 0);
                 return;
             }
-            Application application = b1.a;
+            Application application = e1.a;
             application.log("GLVersion", "Invalid version string: " + str2);
             this.a = 2;
         }
@@ -159,7 +160,7 @@ public class GLVersion {
             try {
                 return Integer.parseInt(str);
             } catch (NumberFormatException unused) {
-                Application application = b1.a;
+                Application application = e1.a;
                 application.error("LibGDX GL", "Error parsing number: " + str + ", assuming: " + i);
                 return i;
             }

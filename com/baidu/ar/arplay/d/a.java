@@ -17,12 +17,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class a extends WebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public C0048a fZ;
+    public C0050a fZ;
     public boolean ga;
 
     /* renamed from: com.baidu.ar.arplay.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0048a {
+    public static class C0050a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int dM;
@@ -32,7 +32,7 @@ public class a extends WebView {
         public String url;
         public int width;
 
-        public C0048a() {
+        public C0050a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -126,10 +126,10 @@ public class a extends WebView {
         });
     }
 
-    public C0048a getWebViewData() {
+    public C0050a getWebViewData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.fZ : (C0048a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.fZ : (C0050a) invokeV.objValue;
     }
 
     @Override // android.webkit.WebView, android.view.View
@@ -146,10 +146,10 @@ public class a extends WebView {
         }
     }
 
-    public void setWebViewData(C0048a c0048a) {
+    public void setWebViewData(C0050a c0050a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, c0048a) == null) {
-            this.fZ = c0048a;
+        if (interceptable == null || interceptable.invokeL(1048580, this, c0050a) == null) {
+            this.fZ = c0050a;
         }
     }
 }

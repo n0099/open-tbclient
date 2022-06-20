@@ -5,10 +5,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fl;
-import com.repackage.na1;
+import com.repackage.jl;
+import com.repackage.ya1;
 /* loaded from: classes2.dex */
-public class IWebViewDataDirectoryManager_WebViewDataDirectoryManager_Provider implements na1 {
+public class IWebViewDataDirectoryManager_WebViewDataDirectoryManager_Provider implements ya1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,10 +26,10 @@ public class IWebViewDataDirectoryManager_WebViewDataDirectoryManager_Provider i
         }
     }
 
-    @Override // com.repackage.na1
+    @Override // com.repackage.ya1
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new fl() : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new jl() : invokeV.objValue;
     }
 }

@@ -18,11 +18,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.di8;
-import com.repackage.kh6;
-import com.repackage.nv5;
+import com.repackage.ki6;
+import com.repackage.mw5;
+import com.repackage.vi8;
 /* loaded from: classes3.dex */
-public class FrsGameStrategyItemView extends nv5<kh6> {
+public class FrsGameStrategyItemView extends mw5<ki6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext i;
@@ -41,7 +41,7 @@ public class FrsGameStrategyItemView extends nv5<kh6> {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public FrsGameStrategyItemViewHolder(FrsGameStrategyItemView frsGameStrategyItemView) {
-            super(frsGameStrategyItemView.k());
+            super(frsGameStrategyItemView.h());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -80,19 +80,19 @@ public class FrsGameStrategyItemView extends nv5<kh6> {
             }
         }
         this.i = tbPageContext;
-        this.j = k();
-        s();
+        this.j = h();
+        r();
     }
 
-    @Override // com.repackage.nv5
+    @Override // com.repackage.mw5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0309 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0303 : invokeV.intValue;
     }
 
-    @Override // com.repackage.nv5
-    public void m(TbPageContext<?> tbPageContext, int i) {
+    @Override // com.repackage.mw5
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
             SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0105);
@@ -109,31 +109,31 @@ public class FrsGameStrategyItemView extends nv5<kh6> {
         }
     }
 
-    public final void s() {
+    public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TbImageView tbImageView = (TbImageView) this.j.findViewById(R.id.obfuscated_res_0x7f090ade);
+            TbImageView tbImageView = (TbImageView) this.j.findViewById(R.id.obfuscated_res_0x7f090acd);
             this.k = tbImageView;
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f080866);
-            this.l = (ImageView) this.j.findViewById(R.id.obfuscated_res_0x7f090af1);
-            this.m = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090aed);
-            this.n = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090aec);
-            this.o = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090aeb);
-            m(this.i, TbadkCoreApplication.getInst().getSkinType());
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f08084d);
+            this.l = (ImageView) this.j.findViewById(R.id.obfuscated_res_0x7f090ae0);
+            this.m = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090adc);
+            this.n = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090adb);
+            this.o = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090ada);
+            j(this.i, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.nv5
-    /* renamed from: t */
-    public void l(kh6 kh6Var) {
+    @Override // com.repackage.mw5
+    /* renamed from: s */
+    public void i(ki6 ki6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, kh6Var) == null) || kh6Var == null || kh6Var.getThreadData() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, ki6Var) == null) || ki6Var == null || ki6Var.getThreadData() == null) {
             return;
         }
-        ThreadData threadData = kh6Var.getThreadData();
+        ThreadData threadData = ki6Var.getThreadData();
         this.m.setText(threadData.getTitle());
-        di8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+        vi8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
         if (readThreadHistory != null && readThreadHistory.d(threadData.getId())) {
             SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0108);
         } else {
@@ -142,7 +142,7 @@ public class FrsGameStrategyItemView extends nv5<kh6> {
         String numberUniformFormat = StringHelper.numberUniformFormat(threadData.getView_num());
         String formatTimeShort = StringHelper.getFormatTimeShort(threadData.getAuditTime());
         if (!StringUtils.isNull(numberUniformFormat) && !StringUtils.isNull(formatTimeShort)) {
-            this.n.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f06f2), numberUniformFormat, formatTimeShort));
+            this.n.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f06e7), numberUniformFormat, formatTimeShort));
         }
         String str = null;
         if (threadData.getThreadType() == 40) {
@@ -156,7 +156,7 @@ public class FrsGameStrategyItemView extends nv5<kh6> {
                 str = threadData.getMedias().get(0).getOriginalUrl();
             }
         }
-        this.k.K(str, 10, false);
+        this.k.J(str, 10, false);
         if (!StringUtils.isNull(threadData.getGameInformationSource())) {
             this.o.setText(threadData.getGameInformationSource());
             this.o.setVisibility(0);

@@ -1,6 +1,6 @@
 package com.repackage;
 
-import com.baidu.live.business.model.data.LiveHostInfo;
+import com.baidu.live.business.model.data.LiveBannerEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class g80 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<f80> a;
+    public List<LiveBannerEntity> a;
 
     public g80() {
         Interceptable interceptable = $ic;
@@ -30,38 +30,29 @@ public class g80 {
     }
 
     public void a(JSONObject jSONObject) {
-        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         jSONObject.optInt("inner_errno");
         jSONObject.optString("inner_msg");
+        jSONObject.optInt("count");
+        jSONObject.optInt("position");
         JSONArray optJSONArray = jSONObject.optJSONArray("items");
-        if (optJSONArray != null && optJSONArray.length() > 0) {
-            this.a = new ArrayList();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
-                if (optJSONObject2 != null) {
-                    f80 f80Var = new f80();
-                    f80Var.a(optJSONObject2);
-                    this.a.add(f80Var);
+        if (optJSONArray == null || optJSONArray.length() <= 0) {
+            return;
+        }
+        this.a = new ArrayList();
+        for (int i = 0; i < optJSONArray.length(); i++) {
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+            if (optJSONObject != null) {
+                LiveBannerEntity liveBannerEntity = new LiveBannerEntity();
+                liveBannerEntity.parserJson(optJSONObject);
+                if (liveBannerEntity.isValid()) {
+                    liveBannerEntity.position = this.a.size();
+                    this.a.add(liveBannerEntity);
                 }
             }
         }
-        if (ea0.c(this.a) || (optJSONObject = jSONObject.optJSONObject("more")) == null) {
-            return;
-        }
-        String optString = optJSONObject.optString("scheme");
-        if (ka0.a(optString)) {
-            return;
-        }
-        f80 f80Var2 = new f80();
-        f80Var2.d = optString;
-        f80Var2.a = true;
-        LiveHostInfo liveHostInfo = new LiveHostInfo();
-        liveHostInfo.name = optJSONObject.optString("txt");
-        f80Var2.e = liveHostInfo;
-        this.a.add(f80Var2);
     }
 }

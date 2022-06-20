@@ -41,7 +41,7 @@ import java.util.TimerTask;
 import java.util.TreeSet;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class MultiSrcBinaryReqTask extends BinaryReqTask {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;

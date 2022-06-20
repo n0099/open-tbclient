@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 /* loaded from: classes.dex */
 public class SocketMessageTask extends MessageTask {
     public static /* synthetic */ Interceptable $ic;
@@ -45,7 +46,7 @@ public class SocketMessageTask extends MessageTask {
                     return;
                 }
             }
-            NONE = new DupLicateMode("NONE", 0);
+            NONE = new DupLicateMode(HlsPlaylistParser.METHOD_NONE, 0);
             REMOVE_ME = new DupLicateMode("REMOVE_ME", 1);
             REMOVE_WAITING = new DupLicateMode("REMOVE_WAITING", 2);
             DupLicateMode dupLicateMode = new DupLicateMode("REMOVE_ALL", 3);

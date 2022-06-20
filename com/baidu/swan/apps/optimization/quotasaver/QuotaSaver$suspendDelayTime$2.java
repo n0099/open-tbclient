@@ -65,6 +65,6 @@ public final class QuotaSaver$suspendDelayTime$2 extends Lambda implements Funct
     public final Long invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? QuotaSaver.l.a().l("suspend_delay_time", -1L) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? QuotaSaver.l.b().l("suspend_delay_time", -1L) : invokeV.longValue;
     }
 }

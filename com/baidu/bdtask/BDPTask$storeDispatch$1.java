@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sq;
+import com.repackage.wq;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
@@ -14,17 +14,17 @@ import kotlin.jvm.internal.Lambda;
 /* loaded from: classes.dex */
 public final class BDPTask$storeDispatch$1 extends Lambda implements Function0<String> {
     public static /* synthetic */ Interceptable $ic;
-    public final /* synthetic */ sq $action;
+    public final /* synthetic */ wq $action;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BDPTask$storeDispatch$1(sq sqVar) {
+    public BDPTask$storeDispatch$1(wq wqVar) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sqVar};
+            Object[] objArr = {wqVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,7 +35,7 @@ public final class BDPTask$storeDispatch$1 extends Lambda implements Function0<S
                 return;
             }
         }
-        this.$action = sqVar;
+        this.$action = wqVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

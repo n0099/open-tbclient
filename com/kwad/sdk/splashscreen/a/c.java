@@ -130,9 +130,9 @@ public class c extends Presenter implements com.kwad.sdk.core.j.d {
         com.kwad.sdk.core.d.a.a("SkipAdPresenter", "onBind");
         com.kwad.sdk.splashscreen.g gVar = (com.kwad.sdk.splashscreen.g) p();
         this.a = gVar;
-        this.c = (TextView) gVar.e.findViewById(R.id.obfuscated_res_0x7f091111);
-        this.d = (SkipView) this.a.e.findViewById(R.id.obfuscated_res_0x7f091113);
-        this.k = this.a.e.findViewById(R.id.obfuscated_res_0x7f091104);
+        this.c = (TextView) gVar.e.findViewById(R.id.obfuscated_res_0x7f091101);
+        this.d = (SkipView) this.a.e.findViewById(R.id.obfuscated_res_0x7f091103);
+        this.k = this.a.e.findViewById(R.id.obfuscated_res_0x7f0910f4);
         this.b = new Handler(Looper.getMainLooper());
         AdInfo j = com.kwad.sdk.core.response.a.d.j(this.a.d);
         this.i = j;

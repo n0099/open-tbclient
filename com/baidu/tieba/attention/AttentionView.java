@@ -14,6 +14,7 @@ import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -25,23 +26,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ji;
-import com.repackage.kg5;
-import com.repackage.s35;
-import com.repackage.t35;
-import com.repackage.th5;
+import com.repackage.h45;
+import com.repackage.hh5;
+import com.repackage.i45;
+import com.repackage.ni;
+import com.repackage.qi5;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class AttentionView extends FrameLayout implements kg5<String> {
+public class AttentionView extends FrameLayout implements hh5<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public RecyclerView b;
     public SelectForumItemAdapter c;
     public LinearLayoutManager d;
-    public s35 e;
-    public t35 f;
+    public h45 e;
+    public i45 f;
     public List<SelectForumData> g;
     public List<SelectForumData> h;
     public boolean i;
@@ -176,7 +177,7 @@ public class AttentionView extends FrameLayout implements kg5<String> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ji.A()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ni.A()) {
                 this.a.c(null);
             }
         }
@@ -214,7 +215,7 @@ public class AttentionView extends FrameLayout implements kg5<String> {
         return i;
     }
 
-    @Override // com.repackage.kg5
+    @Override // com.repackage.hh5
     public void a() {
         int skinType;
         Interceptable interceptable = $ic;
@@ -222,25 +223,25 @@ public class AttentionView extends FrameLayout implements kg5<String> {
             return;
         }
         this.a = skinType;
-        s35 s35Var = this.e;
-        if (s35Var != null) {
-            s35Var.onChangeSkinType();
+        h45 h45Var = this.e;
+        if (h45Var != null) {
+            h45Var.onChangeSkinType();
         }
-        t35 t35Var = this.f;
-        if (t35Var != null) {
-            t35Var.onChangeSkinType();
+        i45 i45Var = this.f;
+        if (i45Var != null) {
+            i45Var.onChangeSkinType();
         }
         this.c.notifyDataSetChanged();
     }
 
-    @Override // com.repackage.kg5
+    @Override // com.repackage.hh5
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
         }
     }
 
-    @Override // com.repackage.kg5
+    @Override // com.repackage.hh5
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -248,21 +249,21 @@ public class AttentionView extends FrameLayout implements kg5<String> {
     }
 
     public void l() {
-        s35 s35Var;
+        h45 h45Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (s35Var = this.e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (h45Var = this.e) == null) {
             return;
         }
-        s35Var.dettachView(this);
+        h45Var.dettachView(this);
         this.e = null;
     }
 
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            t35 t35Var = this.f;
-            if (t35Var != null) {
-                t35Var.dettachView(this);
+            i45 i45Var = this.f;
+            if (i45Var != null) {
+                i45Var.dettachView(this);
                 this.f = null;
             }
             this.b.setVisibility(0);
@@ -272,8 +273,8 @@ public class AttentionView extends FrameLayout implements kg5<String> {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0742, (ViewGroup) this, true);
-            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091c5b);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0741, (ViewGroup) this, true);
+            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091c53);
             SelectForumItemAdapter selectForumItemAdapter = new SelectForumItemAdapter(this);
             this.c = selectForumItemAdapter;
             selectForumItemAdapter.k(2);
@@ -293,7 +294,7 @@ public class AttentionView extends FrameLayout implements kg5<String> {
         }
     }
 
-    @Override // com.repackage.kg5
+    @Override // com.repackage.hh5
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -328,9 +329,9 @@ public class AttentionView extends FrameLayout implements kg5<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            s35 s35Var = this.e;
-            if (s35Var != null) {
-                return s35Var.isViewAttached();
+            h45 h45Var = this.e;
+            if (h45Var != null) {
+                return h45Var.isViewAttached();
             }
             return false;
         }
@@ -341,9 +342,9 @@ public class AttentionView extends FrameLayout implements kg5<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            t35 t35Var = this.f;
-            if (t35Var != null) {
-                return t35Var.isViewAttached();
+            i45 i45Var = this.f;
+            if (i45Var != null) {
+                return i45Var.isViewAttached();
             }
             return false;
         }
@@ -367,7 +368,7 @@ public class AttentionView extends FrameLayout implements kg5<String> {
         return (List) invokeL.objValue;
     }
 
-    public void setForumSelectStateChangedListener(th5.e eVar) {
+    public void setForumSelectStateChangedListener(qi5.e eVar) {
         SelectForumItemAdapter selectForumItemAdapter;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048589, this, eVar) == null) || (selectForumItemAdapter = this.c) == null) {
@@ -393,13 +394,13 @@ public class AttentionView extends FrameLayout implements kg5<String> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.kg5
+    @Override // com.repackage.hh5
     /* renamed from: u */
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
             if (ListUtils.isEmpty(this.h)) {
-                if (!ji.A()) {
+                if (!ni.A()) {
                     w(false, true);
                     return;
                 } else {
@@ -410,7 +411,7 @@ public class AttentionView extends FrameLayout implements kg5<String> {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SELECT_FORUM_ATTENTION);
             httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
             httpMessage.addParam("from_index", 1);
-            httpMessage.addParam("page_size", 50);
+            httpMessage.addParam(SuggestAddrField.KEY_PAGE_SIZE, 50);
             httpMessage.addParam("page_no", this.j);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
@@ -422,9 +423,9 @@ public class AttentionView extends FrameLayout implements kg5<String> {
             return;
         }
         if (this.e == null) {
-            s35 s35Var = new s35(getContext());
-            this.e = s35Var;
-            s35Var.onChangeSkinType();
+            h45 h45Var = new h45(getContext());
+            this.e = h45Var;
+            h45Var.onChangeSkinType();
         }
         this.e.attachView(this, z);
     }
@@ -435,7 +436,7 @@ public class AttentionView extends FrameLayout implements kg5<String> {
             return;
         }
         if (this.f == null) {
-            this.f = new t35(getContext(), new c(this));
+            this.f = new i45(getContext(), new c(this));
         }
         this.f.k(getResources().getDimensionPixelSize(R.dimen.tbds380));
         this.f.attachView(this, z);

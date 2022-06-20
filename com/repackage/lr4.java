@@ -1,12 +1,20 @@
 package com.repackage;
 
-import com.baidu.tbadk.util.AppLaunchInfoFetcher;
+import android.content.Context;
+import android.content.res.Resources;
+import android.view.View;
+import android.widget.ImageView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class lr4 implements AppLaunchInfoFetcher.a {
+public class lr4 implements jr4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,12 +32,57 @@ public class lr4 implements AppLaunchInfoFetcher.a {
         }
     }
 
-    @Override // com.baidu.tbadk.util.AppLaunchInfoFetcher.a
-    public void onFinish(ac5 ac5Var) {
+    @Override // com.repackage.jr4
+    public mr4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, ac5Var) == null) || ac5Var == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            mr4 mr4Var = new mr4();
+            mr4Var.c(R.drawable.obfuscated_res_0x7f08067f);
+            mr4Var.g(R.drawable.obfuscated_res_0x7f080680);
+            mr4Var.h(R.dimen.obfuscated_res_0x7f07027c);
+            mr4Var.d(81);
+            mr4Var.e(R.dimen.obfuscated_res_0x7f07027c);
+            return mr4Var;
         }
-        kr4.u(ac5Var.a, ac5Var.b);
+        return (mr4) invokeV.objValue;
+    }
+
+    @Override // com.repackage.jr4
+    public View b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.repackage.jr4
+    public or4 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            or4 or4Var = new or4();
+            Resources resources = TbadkCoreApplication.getInst().getResources();
+            if (resources != null) {
+                or4Var.a(resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702a5));
+            }
+            return or4Var;
+        }
+        return (or4) invokeV.objValue;
+    }
+
+    @Override // com.repackage.jr4
+    public TbImageView d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            TbImageView tbImageView = new TbImageView(context);
+            tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            tbImageView.setGifIconSupport(false);
+            return tbImageView;
+        }
+        return (TbImageView) invokeL.objValue;
     }
 }

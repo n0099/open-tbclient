@@ -6,25 +6,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.ai;
-import com.xiaomi.push.hf;
-import com.xiaomi.push.hs;
-import com.xiaomi.push.ie;
+import com.xiaomi.push.al;
+import com.xiaomi.push.hj;
+import com.xiaomi.push.hw;
+import com.xiaomi.push.ii;
+import com.xiaomi.push.service.bd;
 /* loaded from: classes8.dex */
-public final class p extends ai.a {
+public final class p extends al.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ ie f76a;
+    public final /* synthetic */ ii f77a;
 
-    public p(ie ieVar, Context context) {
+    public p(ii iiVar, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ieVar, context};
+            Object[] objArr = {iiVar, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,13 +35,13 @@ public final class p extends ai.a {
                 return;
             }
         }
-        this.f76a = ieVar;
+        this.f77a = iiVar;
         this.a = context;
     }
 
-    @Override // com.xiaomi.push.ai.a
+    @Override // com.xiaomi.push.al.a
     /* renamed from: a */
-    public String mo222a() {
+    public String mo202a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "22" : (String) invokeV.objValue;
@@ -48,12 +49,12 @@ public final class p extends ai.a {
 
     @Override // java.lang.Runnable
     public void run() {
-        ie ieVar;
+        ii iiVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (ieVar = this.f76a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (iiVar = this.f77a) == null) {
             return;
         }
-        ieVar.a(com.xiaomi.push.service.at.a());
-        an.a(this.a.getApplicationContext()).a((an) this.f76a, hf.i, true, (hs) null, true);
+        iiVar.a(bd.a());
+        ao.a(this.a.getApplicationContext()).a((ao) this.f77a, hj.i, true, (hw) null, true);
     }
 }

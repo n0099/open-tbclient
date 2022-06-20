@@ -10,9 +10,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qy1;
-import com.repackage.uk2;
-import com.repackage.zy2;
+import com.repackage.bz1;
+import com.repackage.fl2;
+import com.repackage.kz2;
 /* loaded from: classes2.dex */
 public class OpenSettingButton extends ApiButton {
     public static /* synthetic */ Interceptable $ic;
@@ -42,20 +42,20 @@ public class OpenSettingButton extends ApiButton {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            v();
+            u();
         }
     }
 
-    public void v() {
+    public void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            qy1 V = uk2.U().V();
+            bz1 V = fl2.U().V();
             if (V == null) {
-                zy2.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f019f).G();
+                kz2.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f019f).G();
                 return;
             }
-            qy1.b i = V.i("navigateTo");
-            i.n(qy1.g, qy1.i);
+            bz1.b i = V.i("navigateTo");
+            i.n(bz1.g, bz1.i);
             i.k("authority", null).a();
         }
     }

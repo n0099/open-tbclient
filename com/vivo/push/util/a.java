@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static volatile a c;
@@ -35,8 +35,8 @@ public class a {
                 return;
             }
         }
-        x.b().a(ContextDelegate.getContext(context));
-        x b = x.b();
+        w.b().a(ContextDelegate.getContext(context));
+        w b = w.b();
         this.a = b.c();
         this.b = b.d();
     }
@@ -68,7 +68,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             byte[] bArr = this.b;
-            return (bArr == null || bArr.length <= 0) ? x.b().d() : bArr;
+            return (bArr == null || bArr.length <= 0) ? w.b().d() : bArr;
         }
         return (byte[]) invokeV.objValue;
     }
@@ -93,7 +93,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             byte[] bArr = this.a;
-            return (bArr == null || bArr.length <= 0) ? x.b().c() : bArr;
+            return (bArr == null || bArr.length <= 0) ? w.b().c() : bArr;
         }
         return (byte[]) invokeV.objValue;
     }

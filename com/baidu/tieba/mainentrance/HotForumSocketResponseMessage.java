@@ -1,5 +1,6 @@
 package com.baidu.tieba.mainentrance;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -8,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ad7;
-import com.repackage.bd7;
+import com.repackage.le7;
+import com.repackage.me7;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,9 +22,9 @@ import tbclient.HotForum.HotTopicList;
 public class HotForumSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ad7> forumInfoList;
+    public List<le7> forumInfoList;
     public HotSearchInfoData mSearchInfo;
-    public List<bd7> mTopicInfoList;
+    public List<me7> mTopicInfoList;
     public String mTopicInfoTitle;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -44,79 +45,84 @@ public class HotForumSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
-    public List<ad7> getForumInfoList() {
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            HotForumResIdl hotForumResIdl = (HotForumResIdl) new Wire(new Class[0]).parseFrom(bArr, HotForumResIdl.class);
+            if (hotForumResIdl == null) {
+                return null;
+            }
+            Error error = hotForumResIdl.error;
+            if (error != null) {
+                setError(error.errorno.intValue());
+                setErrorString(hotForumResIdl.error.errmsg);
+            }
+            if (hotForumResIdl.data == null) {
+                return hotForumResIdl;
+            }
+            this.forumInfoList = new ArrayList();
+            List<ForumInfo> list = hotForumResIdl.data.forum_info;
+            if (list != null) {
+                for (ForumInfo forumInfo : list) {
+                    if (forumInfo != null) {
+                        le7 le7Var = new le7();
+                        le7Var.a(forumInfo);
+                        this.forumInfoList.add(le7Var);
+                    }
+                }
+            }
+            if (hotForumResIdl.data.hot_search != null) {
+                HotSearchInfoData hotSearchInfoData = new HotSearchInfoData();
+                this.mSearchInfo = hotSearchInfoData;
+                hotSearchInfoData.A(hotForumResIdl.data.hot_search);
+            }
+            if (hotForumResIdl.data.hot_topic != null) {
+                this.mTopicInfoList = new ArrayList();
+                List<HotTopicList> list2 = hotForumResIdl.data.hot_topic.topic_list;
+                if (list2 != null) {
+                    for (HotTopicList hotTopicList : list2) {
+                        if (hotTopicList != null) {
+                            me7 me7Var = new me7();
+                            me7Var.d(hotTopicList);
+                            this.mTopicInfoList.add(me7Var);
+                        }
+                    }
+                }
+                if (!StringUtils.isNull(hotForumResIdl.data.hot_topic.title)) {
+                    this.mTopicInfoTitle = hotForumResIdl.data.hot_topic.title;
+                } else {
+                    this.mTopicInfoTitle = "";
+                }
+            }
+            return hotForumResIdl;
+        }
+        return invokeIL.objValue;
+    }
+
+    public List<le7> getForumInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.forumInfoList : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.forumInfoList : (List) invokeV.objValue;
     }
 
     public HotSearchInfoData getSearchInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mSearchInfo : (HotSearchInfoData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mSearchInfo : (HotSearchInfoData) invokeV.objValue;
     }
 
-    public List<bd7> getTopicInfoList() {
+    public List<me7> getTopicInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mTopicInfoList : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mTopicInfoList : (List) invokeV.objValue;
     }
 
     public String getTopicInfoTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mTopicInfoTitle : (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        HotForumResIdl hotForumResIdl;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (hotForumResIdl = (HotForumResIdl) new Wire(new Class[0]).parseFrom(bArr, HotForumResIdl.class)) == null) {
-            return;
-        }
-        Error error = hotForumResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(hotForumResIdl.error.errmsg);
-        }
-        if (hotForumResIdl.data == null) {
-            return;
-        }
-        this.forumInfoList = new ArrayList();
-        List<ForumInfo> list = hotForumResIdl.data.forum_info;
-        if (list != null) {
-            for (ForumInfo forumInfo : list) {
-                if (forumInfo != null) {
-                    ad7 ad7Var = new ad7();
-                    ad7Var.a(forumInfo);
-                    this.forumInfoList.add(ad7Var);
-                }
-            }
-        }
-        if (hotForumResIdl.data.hot_search != null) {
-            HotSearchInfoData hotSearchInfoData = new HotSearchInfoData();
-            this.mSearchInfo = hotSearchInfoData;
-            hotSearchInfoData.z(hotForumResIdl.data.hot_search);
-        }
-        if (hotForumResIdl.data.hot_topic != null) {
-            this.mTopicInfoList = new ArrayList();
-            List<HotTopicList> list2 = hotForumResIdl.data.hot_topic.topic_list;
-            if (list2 != null) {
-                for (HotTopicList hotTopicList : list2) {
-                    if (hotTopicList != null) {
-                        bd7 bd7Var = new bd7();
-                        bd7Var.d(hotTopicList);
-                        this.mTopicInfoList.add(bd7Var);
-                    }
-                }
-            }
-            if (!StringUtils.isNull(hotForumResIdl.data.hot_topic.title)) {
-                this.mTopicInfoTitle = hotForumResIdl.data.hot_topic.title;
-            } else {
-                this.mTopicInfoTitle = "";
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mTopicInfoTitle : (String) invokeV.objValue;
     }
 }

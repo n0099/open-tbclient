@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -790,7 +791,7 @@ public class PeerConnection {
                     return;
                 }
             }
-            NONE = new IceTransportsType("NONE", 0);
+            NONE = new IceTransportsType(HlsPlaylistParser.METHOD_NONE, 0);
             RELAY = new IceTransportsType("RELAY", 1);
             NOHOST = new IceTransportsType("NOHOST", 2);
             IceTransportsType iceTransportsType = new IceTransportsType("ALL", 3);

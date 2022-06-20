@@ -20,9 +20,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bt4;
-import com.repackage.li;
-import com.repackage.sw5;
+import com.repackage.kt4;
+import com.repackage.pi;
+import com.repackage.rx5;
 /* loaded from: classes3.dex */
 public class SingleLinkCardView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -52,26 +52,26 @@ public class SingleLinkCardView extends RelativeLayout {
         }
     }
 
-    public void a(sw5 sw5Var) {
+    public void a(rx5 rx5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sw5Var) == null) {
-            if (sw5Var instanceof PbLinkData) {
-                PbLinkData pbLinkData = (PbLinkData) sw5Var;
-                this.a.K(pbLinkData.picUrl, 10, false);
+        if (interceptable == null || interceptable.invokeL(1048576, this, rx5Var) == null) {
+            if (rx5Var instanceof PbLinkData) {
+                PbLinkData pbLinkData = (PbLinkData) rx5Var;
+                this.a.J(pbLinkData.picUrl, 10, false);
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                 if (!TextUtils.isEmpty(pbLinkData.linkFrom)) {
                     spannableStringBuilder.append((CharSequence) pbLinkData.linkFrom);
-                    int f = li.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
-                    int f2 = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
-                    int f3 = li.f(TbadkCoreApplication.getInst(), R.dimen.T_X10);
-                    int f4 = li.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-                    int f5 = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds2);
-                    int f6 = li.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
-                    bt4 bt4Var = new bt4(f, -1, R.color.CAM_X0305, f3, R.color.CAM_X0305, f4, li.f(TbadkCoreApplication.getInst(), R.dimen.tbds38));
-                    bt4Var.b(f2);
-                    bt4Var.h(f5);
-                    bt4Var.i(f6);
-                    spannableStringBuilder.setSpan(bt4Var, 0, pbLinkData.linkFrom.length(), 17);
+                    int f = pi.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
+                    int f2 = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+                    int f3 = pi.f(TbadkCoreApplication.getInst(), R.dimen.T_X10);
+                    int f4 = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+                    int f5 = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds2);
+                    int f6 = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
+                    kt4 kt4Var = new kt4(f, -1, R.color.CAM_X0305, f3, R.color.CAM_X0305, f4, pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds38));
+                    kt4Var.b(f2);
+                    kt4Var.h(f5);
+                    kt4Var.i(f6);
+                    spannableStringBuilder.setSpan(kt4Var, 0, pbLinkData.linkFrom.length(), 17);
                 }
                 if (TextUtils.isEmpty(pbLinkData.title) && !TextUtils.isEmpty(pbLinkData.linkUrl)) {
                     spannableStringBuilder.append((CharSequence) pbLinkData.linkUrl);
@@ -84,7 +84,7 @@ public class SingleLinkCardView extends RelativeLayout {
                         this.c.setVisibility(8);
                     } else {
                         this.b.setMaxLines(1);
-                        this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0412), pbLinkData.extTxt));
+                        this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0403), pbLinkData.extTxt));
                         this.c.setVisibility(0);
                     }
                 } else {
@@ -93,23 +93,23 @@ public class SingleLinkCardView extends RelativeLayout {
                 if (TextUtils.isEmpty(pbLinkData.title) && !TextUtils.isEmpty(pbLinkData.linkUrl) && TextUtils.isEmpty(pbLinkData.extTxt)) {
                     this.b.setMaxLines(1);
                 }
-            } else if (sw5Var instanceof PbGoodsData) {
-                PbGoodsData pbGoodsData = (PbGoodsData) sw5Var;
-                this.a.K(pbGoodsData.picUrl, 10, false);
+            } else if (rx5Var instanceof PbGoodsData) {
+                PbGoodsData pbGoodsData = (PbGoodsData) rx5Var;
+                this.a.J(pbGoodsData.picUrl, 10, false);
                 SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder();
                 if (!TextUtils.isEmpty(pbGoodsData.linkFrom)) {
                     spannableStringBuilder2.append((CharSequence) pbGoodsData.linkFrom);
-                    int f7 = li.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
-                    int f8 = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
-                    int f9 = li.f(TbadkCoreApplication.getInst(), R.dimen.T_X10);
-                    int f10 = li.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-                    int f11 = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds2);
-                    int f12 = li.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
-                    bt4 bt4Var2 = new bt4(f7, -1, R.color.CAM_X0305, f9, R.color.CAM_X0305, f10, li.f(TbadkCoreApplication.getInst(), R.dimen.tbds38));
-                    bt4Var2.b(f8);
-                    bt4Var2.h(f11);
-                    bt4Var2.i(f12);
-                    spannableStringBuilder2.setSpan(bt4Var2, 0, pbGoodsData.linkFrom.length(), 17);
+                    int f7 = pi.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
+                    int f8 = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+                    int f9 = pi.f(TbadkCoreApplication.getInst(), R.dimen.T_X10);
+                    int f10 = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+                    int f11 = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds2);
+                    int f12 = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
+                    kt4 kt4Var2 = new kt4(f7, -1, R.color.CAM_X0305, f9, R.color.CAM_X0305, f10, pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds38));
+                    kt4Var2.b(f8);
+                    kt4Var2.h(f11);
+                    kt4Var2.i(f12);
+                    spannableStringBuilder2.setSpan(kt4Var2, 0, pbGoodsData.linkFrom.length(), 17);
                 }
                 if (TextUtils.isEmpty(pbGoodsData.title) && !TextUtils.isEmpty(pbGoodsData.linkUrl)) {
                     spannableStringBuilder2.append((CharSequence) pbGoodsData.linkUrl);
@@ -121,7 +121,7 @@ public class SingleLinkCardView extends RelativeLayout {
                     this.c.setVisibility(8);
                 } else {
                     this.b.setMaxLines(1);
-                    this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0412), pbGoodsData.price));
+                    this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0403), pbGoodsData.price));
                     this.c.setVisibility(0);
                 }
                 if (TextUtils.isEmpty(pbGoodsData.title) && !TextUtils.isEmpty(pbGoodsData.linkUrl) && TextUtils.isEmpty(pbGoodsData.price)) {
@@ -188,8 +188,8 @@ public class SingleLinkCardView extends RelativeLayout {
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0765, this);
-        TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090fc2);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0764, this);
+        TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090fb1);
         this.a = tbImageView;
         tbImageView.setBorderSurroundContent(true);
         this.a.setDrawCorner(true);
@@ -199,10 +199,10 @@ public class SingleLinkCardView extends RelativeLayout {
         this.a.setDrawBorder(true);
         this.a.setBorderWidth(UtilHelper.getDimenPixelSize(R.dimen.tbds1));
         this.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-        this.a.setRadius(li.f(context, R.dimen.tbds10));
+        this.a.setRadius(pi.f(context, R.dimen.tbds10));
         this.a.setPlaceHolder(2);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0921ec);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090c97);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0921e8);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090c87);
         b();
     }
 }

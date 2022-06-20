@@ -20,9 +20,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
-import com.repackage.r85;
-import com.repackage.s85;
+import com.repackage.e95;
+import com.repackage.f95;
+import com.repackage.pi;
 /* loaded from: classes3.dex */
 public class SusPendedView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -30,7 +30,7 @@ public class SusPendedView extends LinearLayout {
     public LinearLayout a;
     public TranView b;
     public LinearLayout c;
-    public s85 d;
+    public f95 d;
     public float e;
     public float f;
     public boolean g;
@@ -71,14 +71,12 @@ public class SusPendedView extends LinearLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 this.a.j = ((Integer) valueAnimator.getAnimatedValue()).intValue();
                 SusPendedView susPendedView = this.a;
-                susPendedView.l = 1.0f - (susPendedView.j / li.i(this.a.getContext()));
+                susPendedView.l = 1.0f - (susPendedView.j / pi.i(this.a.getContext()));
                 if (this.a.j == 0) {
                     this.a.l = 1.0f;
-                } else if (this.a.j == li.i(this.a.getContext())) {
+                } else if (this.a.j == pi.i(this.a.getContext())) {
                     this.a.l = 0.0f;
-                    if (this.a.h && (this.a.getContext() instanceof Activity)) {
-                        ((Activity) this.a.getContext()).finish();
-                    }
+                    this.a.f();
                 }
                 this.a.requestLayout();
             }
@@ -106,6 +104,19 @@ public class SusPendedView extends LinearLayout {
         }
     }
 
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            f95 f95Var = this.d;
+            if (f95Var == null) {
+                return false;
+            }
+            return f95Var.s();
+        }
+        return invokeV.booleanValue;
+    }
+
     /* JADX WARN: Code restructure failed: missing block: B:19:0x002d, code lost:
         if (r0 != 3) goto L19;
      */
@@ -119,7 +130,7 @@ public class SusPendedView extends LinearLayout {
         InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, motionEvent)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) != null) {
             return invokeL.booleanValue;
         }
         if (this.b != null && this.m) {
@@ -132,17 +143,17 @@ public class SusPendedView extends LinearLayout {
                 if (action != 1) {
                     if (action == 2) {
                         this.f = motionEvent.getRawY();
-                        if (this.e == 0.0f && e()) {
+                        if (this.e == 0.0f && d()) {
                             this.e = motionEvent.getRawY();
                         }
-                        this.l = 1.0f - ((this.f - this.e) / li.i(getContext()));
+                        this.l = 1.0f - ((this.f - this.e) / pi.i(getContext()));
                     }
                 }
-                z = this.f > this.e && e();
-                boolean z2 = this.f - this.e > ((float) this.k) && e();
+                z = this.f > this.e && d();
+                boolean z2 = this.f - this.e > ((float) this.k) && d();
                 this.h = z2;
                 if (z2) {
-                    this.i.setIntValues((int) (this.f - this.e), li.i(getContext()));
+                    this.i.setIntValues((int) (this.f - this.e), pi.i(getContext()));
                     this.i.start();
                 } else {
                     this.l = 1.0f;
@@ -150,7 +161,7 @@ public class SusPendedView extends LinearLayout {
                     this.f = 0.0f;
                     requestLayout();
                 }
-                if (this.f <= this.e && e()) {
+                if (this.f <= this.e && d()) {
                     this.g = true;
                     requestLayout();
                     return true;
@@ -163,7 +174,7 @@ public class SusPendedView extends LinearLayout {
                 }
             }
             this.f = motionEvent.getRawY();
-            if (e()) {
+            if (d()) {
                 this.e = motionEvent.getRawY();
             } else {
                 this.e = 0.0f;
@@ -178,28 +189,22 @@ public class SusPendedView extends LinearLayout {
         }
     }
 
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            s85 s85Var = this.d;
-            if (s85Var == null) {
-                return false;
-            }
-            return s85Var.isOnViewTop();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f(int i) {
+    public void e(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
         }
     }
 
+    public void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.h && (getContext() instanceof Activity)) {
+            ((Activity) getContext()).finish();
+        }
+    }
+
     public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.i.cancel();
             this.i.removeAllUpdateListeners();
             clearAnimation();
@@ -209,21 +214,39 @@ public class SusPendedView extends LinearLayout {
     public boolean getIsFinish() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.h : invokeV.booleanValue;
+    }
+
+    public float getRatio() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.l : invokeV.floatValue;
+    }
+
+    public ValueAnimator getTranAnim() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.i : (ValueAnimator) invokeV.objValue;
+    }
+
+    public TranView getTranView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b : (TranView) invokeV.objValue;
     }
 
     public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.h = true;
-            this.i.setIntValues(0, li.i(getContext()));
+            this.i.setIntValues(0, pi.i(getContext()));
             this.i.start();
         }
     }
 
     public void i() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.l == 0.0f) {
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.l == 0.0f) {
             this.i.start();
         }
     }
@@ -231,8 +254,8 @@ public class SusPendedView extends LinearLayout {
     @Override // android.widget.LinearLayout, android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, canvas) == null) {
-            if (e()) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, canvas) == null) {
+            if (d()) {
                 float f = this.l;
                 if (f >= 0.0f && this.b != null) {
                     canvas.drawColor(Color.argb((int) (f * 168.0f), 0, 0, 0), PorterDuff.Mode.SRC);
@@ -245,7 +268,7 @@ public class SusPendedView extends LinearLayout {
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             if (this.i == null) {
                 super.onLayout(z, i, i2, i3, i4);
                 return;
@@ -258,9 +281,9 @@ public class SusPendedView extends LinearLayout {
                 if (f <= f2 || !this.g) {
                     return;
                 }
-                s85 s85Var = this.d;
-                if (s85Var instanceof r85) {
-                    ((r85) s85Var).u(f - f2);
+                f95 f95Var = this.d;
+                if (f95Var instanceof e95) {
+                    ((e95) f95Var).D(f - f2);
                 }
                 LinearLayout linearLayout = this.a;
                 float f3 = this.f;
@@ -277,35 +300,49 @@ public class SusPendedView extends LinearLayout {
 
     public void setCanDragClose(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
             this.m = z;
         }
     }
 
     public void setContentView(LinearLayout linearLayout) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, linearLayout) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, linearLayout) == null) {
             this.c = linearLayout;
         }
     }
 
-    public void setContentViewTop(s85 s85Var) {
+    public void setContentViewTop(f95 f95Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, s85Var) == null) {
-            this.d = s85Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, f95Var) == null) {
+            this.d = f95Var;
+        }
+    }
+
+    public void setIsFinish(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            this.h = z;
         }
     }
 
     public void setNavigationBar(LinearLayout linearLayout) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, linearLayout) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, linearLayout) == null) {
             this.a = linearLayout;
+        }
+    }
+
+    public void setRatio(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048594, this, f) == null) {
+            this.l = f;
         }
     }
 
     public void setTranView(TranView tranView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, tranView) == null) {
+        if (interceptable == null || interceptable.invokeL(1048595, this, tranView) == null) {
             this.b = tranView;
         }
     }
@@ -352,9 +389,9 @@ public class SusPendedView extends LinearLayout {
         }
         this.l = 0.0f;
         this.m = true;
-        this.k = (li.i(context) / 3) - li.f(TbadkCoreApplication.getInst(), R.dimen.tbds153);
-        this.j = li.i(context);
-        ValueAnimator ofInt = ValueAnimator.ofInt(li.i(context), 0);
+        this.k = (pi.i(context) / 3) - pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds153);
+        this.j = pi.i(context);
+        ValueAnimator ofInt = ValueAnimator.ofInt(pi.i(context), 0);
         this.i = ofInt;
         ofInt.setDuration(300L);
         this.i.setInterpolator(new LinearInterpolator());

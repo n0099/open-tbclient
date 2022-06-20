@@ -1,5 +1,6 @@
 package com.repackage;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -7,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class mh1 implements qj1 {
+public class mh1 implements hj1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,20 +26,18 @@ public class mh1 implements qj1 {
         }
     }
 
-    @Override // com.repackage.qj1
-    public float a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.hj1
+    public void a(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0.0f;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
+            g83.a().putInt("fontSizeLevel", i);
         }
-        return invokeV.floatValue;
     }
 
-    @Override // com.repackage.qj1
-    public String processUrl(String str) {
+    @Override // com.repackage.hj1
+    public int b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? dw1.w(str, true) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? g83.a().getInt("fontSizeLevel", 1) : invokeL.intValue;
     }
 }

@@ -1,112 +1,217 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.graphics.drawable.Drawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.R;
+import com.baidu.tieba.forumMember.member.PrivateMgrApplyViewHolder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Collection;
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class na6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public class na6 extends fc6<oa6, PrivateMgrApplyViewHolder> {
+    public static /* synthetic */ Interceptable $ic = null;
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            ys4.k().y(ys4.o("search_forum_history"), "");
+    /* renamed from: v */
+    public static final int obfuscated = 2131302637;
+    public transient /* synthetic */ FieldHolder $fh;
+    public ty4 t;
+    public View.OnClickListener u;
+
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ na6 a;
+
+        public a(na6 na6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {na6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = na6Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (!TbadkCoreApplication.isLogin() || !StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
+                    Object tag = view2.getTag(na6.obfuscated);
+                    if (tag == null || tag.toString().equals("")) {
+                        return;
+                    }
+                    UrlManager.getInstance().dealOneLink((TbPageContext) h9.a(this.a.a), new String[]{tag.toString()});
+                    return;
+                }
+                this.a.q0(TbadkCoreApplication.getCurrentAccountInfo());
+            }
         }
     }
 
-    public static void b(String str) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755476178, "Lcom/repackage/na6;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755476178, "Lcom/repackage/na6;");
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public na6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, str) == null) || StringUtils.isNull(str)) {
-            return;
-        }
-        String q = ys4.k().q(ys4.o("search_forum_history"), "");
-        if (StringUtils.isNull(q)) {
-            return;
-        }
-        try {
-            JSONArray jSONArray = new JSONArray(q);
-            if (jSONArray.length() <= 0) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < jSONArray.length(); i++) {
-                Object obj = jSONArray.get(i);
-                if (!str.equals(obj)) {
-                    arrayList.add((String) obj);
-                }
-            }
-            ys4.k().y(ys4.o("search_forum_history"), new JSONArray((Collection) arrayList).toString());
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
+        this.u = new a(this);
     }
 
-    public static ArrayList<String> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65538, null)) != null) {
-            return (ArrayList) invokeV.objValue;
-        }
-        String q = ys4.k().q(ys4.o("search_forum_history"), "");
-        ArrayList<String> arrayList = null;
-        if (StringUtils.isNull(q)) {
-            return null;
-        }
-        try {
-            JSONArray jSONArray = new JSONArray(q);
-            if (jSONArray.length() <= 0) {
-                return null;
-            }
-            ArrayList<String> arrayList2 = new ArrayList<>();
-            for (int i = 0; i < jSONArray.length(); i++) {
-                try {
-                    Object obj = jSONArray.get(i);
-                    if (obj instanceof String) {
-                        arrayList2.add((String) obj);
-                    }
-                } catch (JSONException e) {
-                    e = e;
-                    arrayList = arrayList2;
-                    e.printStackTrace();
-                    return arrayList;
-                }
-            }
-            return arrayList2;
-        } catch (JSONException e2) {
-            e = e2;
-        }
+    @Override // com.repackage.fc6, com.repackage.an
+    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        p0(i, view2, viewGroup, (oa6) obj, (PrivateMgrApplyViewHolder) viewHolder);
+        return view2;
     }
 
-    public static void d(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.an
+    /* renamed from: o0 */
+    public PrivateMgrApplyViewHolder M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || StringUtils.isNull(str)) {
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PrivateMgrApplyViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06ec, (ViewGroup) null)) : (PrivateMgrApplyViewHolder) invokeL.objValue;
+    }
+
+    public void onDestroy() {
+        ty4 ty4Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (ty4Var = this.t) == null) {
             return;
         }
-        String q = ys4.k().q(ys4.o("search_forum_history"), "");
-        try {
-            JSONArray jSONArray = StringUtils.isNull(q) ? new JSONArray() : new JSONArray(q);
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(str);
-            int i = 1;
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                Object obj = jSONArray.get(i2);
-                if ((obj instanceof String) && !str.equals(obj)) {
-                    arrayList.add((String) obj);
-                    i++;
+        ty4Var.s();
+    }
+
+    public View p0(int i, View view2, ViewGroup viewGroup, oa6 oa6Var, PrivateMgrApplyViewHolder privateMgrApplyViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, oa6Var, privateMgrApplyViewHolder})) == null) {
+            super.S(i, view2, viewGroup, oa6Var, privateMgrApplyViewHolder);
+            if (oa6Var != null && !oa6Var.f() && privateMgrApplyViewHolder != null) {
+                if (oa6Var.f()) {
+                    privateMgrApplyViewHolder.e.setVisibility(8);
+                    return view2;
                 }
-                if (i == 6) {
-                    break;
+                boolean z = true;
+                if (privateMgrApplyViewHolder.f != this.n) {
+                    SkinManager.setBackgroundColor(privateMgrApplyViewHolder.d, R.color.CAM_X0204);
+                    SkinManager.setViewTextColor(privateMgrApplyViewHolder.b, R.color.CAM_X0109, 1);
+                    SkinManager.setViewTextColor(privateMgrApplyViewHolder.a, R.color.CAM_X0105, 1);
+                    SkinManager.setBackgroundResource(privateMgrApplyViewHolder.c, R.drawable.frs_member_manito_bg);
+                }
+                int a2 = oa6Var.a();
+                String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f13ba);
+                if (a2 == -1) {
+                    int c = oa6Var.c();
+                    String numberUniformFormat = StringHelper.numberUniformFormat(c);
+                    if (c > 0) {
+                        string = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f13b4), numberUniformFormat);
+                        privateMgrApplyViewHolder.c.setOnClickListener(this.u);
+                        privateMgrApplyViewHolder.b.setText(string);
+                        privateMgrApplyViewHolder.c.setTag(obfuscated, oa6Var.b());
+                        privateMgrApplyViewHolder.c.setEnabled(z);
+                        privateMgrApplyViewHolder.c.setClickable(z);
+                        privateMgrApplyViewHolder.b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                        privateMgrApplyViewHolder.f = this.n;
+                    }
+                    z = false;
+                    privateMgrApplyViewHolder.c.setOnClickListener(this.u);
+                    privateMgrApplyViewHolder.b.setText(string);
+                    privateMgrApplyViewHolder.c.setTag(obfuscated, oa6Var.b());
+                    privateMgrApplyViewHolder.c.setEnabled(z);
+                    privateMgrApplyViewHolder.c.setClickable(z);
+                    privateMgrApplyViewHolder.b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                    privateMgrApplyViewHolder.f = this.n;
+                } else {
+                    if (a2 == 0) {
+                        string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f13b8);
+                    } else if (a2 == 1) {
+                        string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f13b6);
+                    } else {
+                        if (a2 == 2) {
+                            string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f13b5);
+                        }
+                        z = false;
+                    }
+                    privateMgrApplyViewHolder.c.setOnClickListener(this.u);
+                    privateMgrApplyViewHolder.b.setText(string);
+                    privateMgrApplyViewHolder.c.setTag(obfuscated, oa6Var.b());
+                    privateMgrApplyViewHolder.c.setEnabled(z);
+                    privateMgrApplyViewHolder.c.setClickable(z);
+                    privateMgrApplyViewHolder.b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                    privateMgrApplyViewHolder.f = this.n;
                 }
             }
-            ys4.k().y(ys4.o("search_forum_history"), new JSONArray((Collection) arrayList).toString());
-        } catch (JSONException e) {
-            e.printStackTrace();
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public final void q0(AccountData accountData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, accountData) == null) {
+            d9<?> a2 = h9.a(this.a);
+            Activity pageActivity = a2 instanceof TbPageContext ? ((TbPageContext) a2).getPageActivity() : null;
+            if (this.t == null) {
+                this.t = new ty4(pageActivity);
+            }
+            this.t.p();
+            this.t.u(accountData);
+            this.t.z(1);
         }
     }
 }

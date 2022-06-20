@@ -15,38 +15,38 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a40;
-import com.repackage.c40;
-import com.repackage.f30;
-import com.repackage.r10;
-import com.repackage.t10;
-import com.repackage.u10;
-import com.repackage.u30;
-import com.repackage.x30;
+import com.repackage.b40;
+import com.repackage.e40;
+import com.repackage.g40;
+import com.repackage.j30;
+import com.repackage.v10;
+import com.repackage.x10;
+import com.repackage.y10;
+import com.repackage.y30;
 import java.lang.reflect.Method;
 import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.Random;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
-public class QuantumChannel extends r10 {
+/* loaded from: classes2.dex */
+public class QuantumChannel extends v10 {
     public static /* synthetic */ Interceptable $ic;
     public static final int j;
     public static final int k;
     public transient /* synthetic */ FieldHolder $fh;
-    public x30.a f;
+    public b40.a f;
     public d g;
     public f h;
     public b i;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,11 +67,11 @@ public class QuantumChannel extends r10 {
                     return;
                 }
             }
-            f30 f30Var = new f30();
+            j30 j30Var = new j30();
             try {
-                this.a = new String(f30Var.a(u10.a()), "UTF-8");
-                this.b = new String(f30Var.a(u10.b()), "UTF-8");
-                this.c = new String(f30Var.a(u10.c()), "UTF-8");
+                this.a = new String(j30Var.a(y10.a()), "UTF-8");
+                this.b = new String(j30Var.a(y10.b()), "UTF-8");
+                this.c = new String(j30Var.a(y10.c()), "UTF-8");
             } catch (Exception unused) {
                 throw new IllegalStateException("");
             }
@@ -82,7 +82,7 @@ public class QuantumChannel extends r10 {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class c extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -149,13 +149,13 @@ public class QuantumChannel extends r10 {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
         public long b;
-        public u30 c;
+        public y30 c;
         public long d;
         public String e;
         public boolean f;
@@ -177,7 +177,7 @@ public class QuantumChannel extends r10 {
                 }
             }
             this.g = quantumChannel;
-            this.c = new u30();
+            this.c = new y30();
             this.f = true;
         }
 
@@ -315,14 +315,14 @@ public class QuantumChannel extends r10 {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public t10.a a;
+        public x10.a a;
         public byte[] b;
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes2.dex */
         public static class a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -397,7 +397,7 @@ public class QuantumChannel extends r10 {
                 }
             }
             this.b = bArr;
-            this.a = t10.b(bArr);
+            this.a = x10.b(bArr);
         }
 
         public static byte a(int i) throws h {
@@ -439,7 +439,7 @@ public class QuantumChannel extends r10 {
         public static e c(byte[] bArr, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, bArr, i)) == null) ? new e(t10.c(bArr, i)) : (e) invokeLI.objValue;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, bArr, i)) == null) ? new e(x10.c(bArr, i)) : (e) invokeLI.objValue;
         }
 
         public byte[] d() {
@@ -470,7 +470,7 @@ public class QuantumChannel extends r10 {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -541,23 +541,23 @@ public class QuantumChannel extends r10 {
         public final void d(Context context) throws Exception {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-                Method d = com.baidu.helios.channels.csc.d.d(Context.class, com.baidu.helios.channels.csc.d.c(u10.f()), null);
+                Method d = com.baidu.helios.channels.csc.d.d(Context.class, com.baidu.helios.channels.csc.d.c(y10.f()), null);
                 this.c = d;
                 Object invoke = d.invoke(context, new Object[0]);
                 Intent intent = new Intent();
                 intent.setClassName(context.getPackageName(), "");
-                this.d = com.baidu.helios.channels.csc.d.d(intent.getClass(), com.baidu.helios.channels.csc.d.c(u10.e()), null).invoke(intent, new Object[0]).getClass();
-                String c = com.baidu.helios.channels.csc.d.c(u10.g());
+                this.d = com.baidu.helios.channels.csc.d.d(intent.getClass(), com.baidu.helios.channels.csc.d.c(y10.e()), null).invoke(intent, new Object[0]).getClass();
+                String c = com.baidu.helios.channels.csc.d.c(y10.g());
                 Class<?> cls = invoke.getClass();
                 Class cls2 = Integer.TYPE;
                 this.a = com.baidu.helios.channels.csc.d.d(cls, c, new Class[]{this.d, cls2, cls2});
-                this.b = com.baidu.helios.channels.csc.d.d(invoke.getClass(), com.baidu.helios.channels.csc.d.c(u10.d()), new Class[]{this.d});
+                this.b = com.baidu.helios.channels.csc.d.d(invoke.getClass(), com.baidu.helios.channels.csc.d.c(y10.d()), new Class[]{this.d});
             }
         }
     }
 
-    /* loaded from: classes.dex */
-    public class g extends r10.b {
+    /* loaded from: classes2.dex */
+    public class g extends v10.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String d;
@@ -578,7 +578,7 @@ public class QuantumChannel extends r10 {
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((x30.a) objArr2[0], (String) objArr2[1]);
+                    super((b40.a) objArr2[0], (String) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -586,7 +586,7 @@ public class QuantumChannel extends r10 {
             }
         }
 
-        @Override // com.repackage.r10.b
+        @Override // com.repackage.v10.b
         public void c(JSONObject jSONObject) throws JSONException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
@@ -598,7 +598,7 @@ public class QuantumChannel extends r10 {
             }
         }
 
-        @Override // com.repackage.r10.b
+        @Override // com.repackage.v10.b
         public void e(JSONObject jSONObject) throws JSONException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
@@ -665,7 +665,7 @@ public class QuantumChannel extends r10 {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class h extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -725,8 +725,8 @@ public class QuantumChannel extends r10 {
                 return;
             }
         }
-        j = t10.a(160);
-        k = t10.a(8);
+        j = x10.a(160);
+        k = x10.a(8);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -750,8 +750,8 @@ public class QuantumChannel extends r10 {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, INVOKE, IF, IF] complete} */
-    @Override // com.repackage.r10
-    public r10.g b(String str, r10.f fVar) {
+    @Override // com.repackage.v10
+    public v10.g b(String str, v10.f fVar) {
         InterceptResult invokeLL;
         g gVar;
         Interceptable interceptable = $ic;
@@ -759,7 +759,7 @@ public class QuantumChannel extends r10 {
             try {
                 Object b2 = this.h.b(this.a.a);
                 if (b2 == null) {
-                    return r10.g.c(-101, null);
+                    return v10.g.c(-101, null);
                 }
                 if (fVar.a) {
                     gVar = new g(this, str);
@@ -769,15 +769,15 @@ public class QuantumChannel extends r10 {
                             if (gVar.f() == p(b2, str)) {
                                 String j2 = gVar.j();
                                 if (!TextUtils.isEmpty(j2)) {
-                                    return r10.g.f(j2);
+                                    return v10.g.f(j2);
                                 }
                             }
                         } catch (c e2) {
-                            return r10.g.d(e2);
+                            return v10.g.d(e2);
                         } catch (h unused) {
-                            return r10.g.b(-102);
+                            return v10.g.b(-102);
                         } catch (d.a unused2) {
-                            return r10.g.c(-101, null);
+                            return v10.g.c(-101, null);
                         }
                     }
                 } else {
@@ -786,13 +786,13 @@ public class QuantumChannel extends r10 {
                 try {
                     try {
                         if (!m(b2, str)) {
-                            r10.g c2 = r10.g.c(-2, null);
+                            v10.g c2 = v10.g.c(-2, null);
                             if (fVar.a && gVar != null) {
                                 gVar.b();
                             }
                             return c2;
                         }
-                        String i = c40.i(o(b2, str));
+                        String i = g40.i(o(b2, str));
                         int p = p(b2, str);
                         if (fVar.a && gVar != null) {
                             gVar.i(i);
@@ -800,25 +800,25 @@ public class QuantumChannel extends r10 {
                             gVar.h(System.currentTimeMillis());
                             gVar.g(p);
                         }
-                        r10.g f2 = r10.g.f(i);
+                        v10.g f2 = v10.g.f(i);
                         if (fVar.a && gVar != null) {
                             gVar.b();
                         }
                         return f2;
                     } catch (c e3) {
-                        r10.g d2 = r10.g.d(e3);
+                        v10.g d2 = v10.g.d(e3);
                         if (fVar.a && gVar != null) {
                             gVar.b();
                         }
                         return d2;
                     } catch (h unused3) {
-                        r10.g b3 = r10.g.b(-102);
+                        v10.g b3 = v10.g.b(-102);
                         if (fVar.a && gVar != null) {
                             gVar.b();
                         }
                         return b3;
                     } catch (d.a unused4) {
-                        r10.g c3 = r10.g.c(-2, null);
+                        v10.g c3 = v10.g.c(-2, null);
                         if (fVar.a && gVar != null) {
                             gVar.b();
                         }
@@ -831,14 +831,14 @@ public class QuantumChannel extends r10 {
                     throw th;
                 }
             } catch (d.a unused5) {
-                return r10.g.c(-101, null);
+                return v10.g.c(-101, null);
             }
         }
-        return (r10.g) invokeLL.objValue;
+        return (v10.g) invokeLL.objValue;
     }
 
-    @Override // com.repackage.r10
-    public void e(r10.c cVar) {
+    @Override // com.repackage.v10
+    public void e(v10.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
             this.f = this.b.f("csc");
@@ -847,8 +847,8 @@ public class QuantumChannel extends r10 {
         }
     }
 
-    @Override // com.repackage.r10
-    public r10.e f(r10.d dVar) {
+    @Override // com.repackage.v10
+    public v10.e f(v10.d dVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar)) == null) {
@@ -859,7 +859,7 @@ public class QuantumChannel extends r10 {
                 this.g.j();
             }
         }
-        return (r10.e) invokeL.objValue;
+        return (v10.e) invokeL.objValue;
     }
 
     public final int h(Object obj, Object obj2) throws c, d.a {
@@ -877,7 +877,7 @@ public class QuantumChannel extends r10 {
         return invokeLL.intValue;
     }
 
-    public final r10.e i(r10.d dVar) {
+    public final v10.e i(v10.d dVar) {
         InterceptResult invokeL;
         Object obj;
         long j2;
@@ -885,7 +885,7 @@ public class QuantumChannel extends r10 {
         String b2;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(1048580, this, dVar)) != null) {
-            return (r10.e) invokeL.objValue;
+            return (v10.e) invokeL.objValue;
         }
         Context context = this.a.a;
         PackageManager packageManager = context.getPackageManager();
@@ -895,19 +895,19 @@ public class QuantumChannel extends r10 {
             boolean z = packageInfo.lastUpdateTime != this.g.g();
             this.g.h(packageInfo.lastUpdateTime);
             if (!z && this.g.a(6L) == 4) {
-                return r10.e.b(-101);
+                return v10.e.b(-101);
             }
-            a40 a2 = this.a.c.a("aid");
+            e40 a2 = this.a.c.a("aid");
             try {
                 Object b3 = this.h.b(context);
                 if (b3 == null) {
-                    return r10.e.b(-102);
+                    return v10.e.b(-102);
                 }
                 try {
                     try {
                         if (this.g.a(1L) == 1 && (b2 = this.g.b()) != null && b2.equals(a2.c()) && m(b3, packageName)) {
                             if (this.g.i() == p(b3, packageName)) {
-                                return r10.e.d();
+                                return v10.e.d();
                             }
                         }
                         byte[] d2 = a2.d();
@@ -923,7 +923,7 @@ public class QuantumChannel extends r10 {
                                         i = -101;
                                         j2 = 4;
                                         this.g.d(j2, 6L);
-                                        return r10.e.b(i);
+                                        return v10.e.b(i);
                                     }
                                 }
                                 int nextInt = new Random().nextInt(255);
@@ -940,57 +940,57 @@ public class QuantumChannel extends r10 {
                                     }
                                     try {
                                         if (p(b3, packageName) != nextInt) {
-                                            return r10.e.b(-103);
+                                            return v10.e.b(-103);
                                         }
                                         try {
                                             l(b3, j(packageName), 1);
                                             this.g.f(System.currentTimeMillis());
                                             this.g.d(1L, 1L);
-                                            return r10.e.d();
+                                            return v10.e.d();
                                         } catch (c unused2) {
                                             this.g.d(4L, 6L);
-                                            return r10.e.b(-101);
+                                            return v10.e.b(-101);
                                         } catch (d.a unused3) {
-                                            return r10.e.b(-102);
+                                            return v10.e.b(-102);
                                         }
                                     } catch (c unused4) {
                                         this.g.d(4L, 6L);
-                                        return r10.e.b(-101);
+                                        return v10.e.b(-101);
                                     } catch (h unused5) {
-                                        return r10.e.b(-103);
+                                        return v10.e.b(-103);
                                     } catch (d.a unused6) {
-                                        return r10.e.b(-102);
+                                        return v10.e.b(-102);
                                     }
                                 } catch (c unused7) {
                                     this.g.d(4L, 6L);
-                                    return r10.e.b(-101);
+                                    return v10.e.b(-101);
                                 } catch (d.a unused8) {
-                                    return r10.e.b(-102);
+                                    return v10.e.b(-102);
                                 }
                             } catch (d.a unused9) {
-                                return r10.e.b(-102);
+                                return v10.e.b(-102);
                             }
                         } catch (c unused10) {
                             j2 = 4;
                             i = -101;
                         }
                     } catch (Exception unused11) {
-                        return r10.e.b(-103);
+                        return v10.e.b(-103);
                     }
                 } catch (c unused12) {
                     this.g.d(4L, 6L);
-                    return r10.e.b(-101);
+                    return v10.e.b(-101);
                 } catch (h unused13) {
                     l(obj, j(packageName), 0);
-                    return r10.e.b(-103);
+                    return v10.e.b(-103);
                 } catch (d.a unused14) {
-                    return r10.e.b(-102);
+                    return v10.e.b(-102);
                 }
             } catch (d.a unused15) {
-                return r10.e.b(-102);
+                return v10.e.b(-102);
             }
         } catch (PackageManager.NameNotFoundException unused16) {
-            return r10.e.b(-100);
+            return v10.e.b(-100);
         }
     }
 

@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.message;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -45,39 +46,62 @@ public class ResponseGetLivableForumList extends SocketResponsedMessage {
         this.data = new ArrayList<>();
     }
 
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            GetLivableForumListResIdl getLivableForumListResIdl = (GetLivableForumListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetLivableForumListResIdl.class);
+            setError(getLivableForumListResIdl.error.errorno.intValue());
+            setErrorString(getLivableForumListResIdl.error.usermsg);
+            if (getError() != 0) {
+                return getLivableForumListResIdl;
+            }
+            DataRes dataRes = getLivableForumListResIdl.data;
+            this.tips = dataRes.tips;
+            setHasMore(dataRes.hasMore.intValue());
+            setAvailabel(getLivableForumListResIdl.data.available.intValue());
+            setData(getLivableForumListResIdl.data.likeList);
+            setMiniLevel(getLivableForumListResIdl.data.minLevel.intValue());
+            return getLivableForumListResIdl;
+        }
+        return invokeIL.objValue;
+    }
+
     public boolean getAvailabel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.available : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.available : invokeV.booleanValue;
     }
 
     public ArrayList<ForumData> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.data : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.data : (ArrayList) invokeV.objValue;
     }
 
     public int getMiniLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.minLevel : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.minLevel : invokeV.intValue;
     }
 
     public String getTips() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.tips : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.tips : (String) invokeV.objValue;
     }
 
     public boolean hasMore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.hasMore : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.hasMore : invokeV.booleanValue;
     }
 
     public void setAvailabel(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             if (i == 1) {
                 this.available = true;
             } else {
@@ -88,7 +112,7 @@ public class ResponseGetLivableForumList extends SocketResponsedMessage {
 
     public void setData(List<ForumRalatedInfo> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) || list == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, list) == null) || list == null) {
             return;
         }
         for (int i = 0; i < list.size(); i++) {
@@ -107,7 +131,7 @@ public class ResponseGetLivableForumList extends SocketResponsedMessage {
 
     public void setHasMore(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             if (i == 1) {
                 this.hasMore = true;
             } else {
@@ -118,28 +142,8 @@ public class ResponseGetLivableForumList extends SocketResponsedMessage {
 
     public void setMiniLevel(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             this.minLevel = i;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
-            GetLivableForumListResIdl getLivableForumListResIdl = (GetLivableForumListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetLivableForumListResIdl.class);
-            setError(getLivableForumListResIdl.error.errorno.intValue());
-            setErrorString(getLivableForumListResIdl.error.usermsg);
-            if (getError() != 0) {
-                return;
-            }
-            DataRes dataRes = getLivableForumListResIdl.data;
-            this.tips = dataRes.tips;
-            setHasMore(dataRes.hasMore.intValue());
-            setAvailabel(getLivableForumListResIdl.data.available.intValue());
-            setData(getLivableForumListResIdl.data.likeList);
-            setMiniLevel(getLivableForumListResIdl.data.minLevel.intValue());
         }
     }
 }

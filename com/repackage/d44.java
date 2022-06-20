@@ -1,14 +1,16 @@
 package com.repackage;
 
-import android.animation.TypeEvaluator;
-import com.baidu.mapapi.model.LatLng;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.em2;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class d44 implements TypeEvaluator<LatLng> {
+public abstract class d44<T extends em2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,18 +28,24 @@ public class d44 implements TypeEvaluator<LatLng> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.animation.TypeEvaluator
-    /* renamed from: a */
-    public LatLng evaluate(float f, LatLng latLng, LatLng latLng2) {
-        InterceptResult invokeCommon;
+    public abstract boolean b(Context context, T t, bm2 bm2Var, sz2 sz2Var, JSONObject jSONObject);
+
+    public boolean c(Context context, T t, bm2 bm2Var, sz2 sz2Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), latLng, latLng2})) == null) {
-            double d = latLng.latitude;
-            double d2 = f;
-            double d3 = latLng.longitude;
-            return new LatLng(d + ((latLng2.latitude - d) * d2), d3 + (d2 * (latLng2.longitude - d3)));
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, t, bm2Var, sz2Var)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (!b(context, t, bm2Var, sz2Var, jSONObject)) {
+                bm2Var.d(1001);
+                sw1.c("map", "doAction fail");
+                return false;
+            }
+            if (jSONObject.length() <= 0) {
+                jSONObject = null;
+            }
+            bm2Var.e(jSONObject);
+            return true;
         }
-        return (LatLng) invokeCommon.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

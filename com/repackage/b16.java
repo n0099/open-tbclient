@@ -1,70 +1,102 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class b16 extends BaseCardInfo {
+public final class b16 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadData a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755879798, "Lcom/repackage/b16;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755879798, "Lcom/repackage/b16;");
-                return;
-            }
+    public static final g06 a(o0 o0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, o0Var)) == null) {
+            Intrinsics.checkNotNullParameter(o0Var, "<this>");
+            return (g06) o0Var.d(g06.class);
         }
-        b = BdUniqueId.gen();
+        return (g06) invokeL.objValue;
     }
 
-    public b16() {
+    public static final d06 b(o0 o0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, o0Var)) == null) {
+            Intrinsics.checkNotNullParameter(o0Var, "<this>");
+            return (d06) o0Var.d(d06.class);
+        }
+        return (d06) invokeL.objValue;
+    }
+
+    public static final long c(o0 o0Var) {
+        InterceptResult invokeL;
+        rz5 a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, o0Var)) == null) {
+            Intrinsics.checkNotNullParameter(o0Var, "<this>");
+            d06 b = b(o0Var);
+            if (b == null || (a = b.a()) == null) {
+                return 0L;
             }
+            return a.g();
         }
+        return invokeL.longValue;
     }
 
-    public void e(ThreadData threadData) {
+    public static final c06 d(o0 o0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
-            this.a = threadData;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, o0Var)) == null) {
+            Intrinsics.checkNotNullParameter(o0Var, "<this>");
+            return (c06) o0Var.d(c06.class);
         }
+        return (c06) invokeL.objValue;
     }
 
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
+    public static final e06 e(o0 o0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (ThreadData) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, o0Var)) == null) {
+            Intrinsics.checkNotNullParameter(o0Var, "<this>");
+            return (e06) o0Var.d(e06.class);
+        }
+        return (e06) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.jn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public static final long f(o0 o0Var) {
+        InterceptResult invokeL;
+        rz5 a;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, o0Var)) == null) {
+            Intrinsics.checkNotNullParameter(o0Var, "<this>");
+            d06 b = b(o0Var);
+            if (b == null || (a = b.a()) == null) {
+                return 0L;
+            }
+            return a.j();
+        }
+        return invokeL.longValue;
+    }
+
+    public static final boolean g(o0 o0Var, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, o0Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(o0Var, "<this>");
+            return j - f(o0Var) < 0;
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    public static final boolean h(o0 o0Var, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, null, o0Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(o0Var, "<this>");
+            return j - f(o0Var) > c(o0Var);
+        }
+        return invokeLJ.booleanValue;
     }
 }

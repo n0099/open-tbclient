@@ -1,33 +1,56 @@
 package com.repackage;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import android.os.IBinder;
+import android.view.inputmethod.InputMethodManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
 /* loaded from: classes7.dex */
 public class tc3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@NonNull Context context, @NonNull File file) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, context, file) == null) && file.exists()) {
-            Intent intent = new Intent();
-            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-            intent.setAction("android.intent.action.SEND");
-            intent.setTypeAndNormalize(bd3.s(file));
-            if (Build.VERSION.SDK_INT >= 24) {
-                intent.putExtra("android.intent.extra.STREAM", ed3.a(context, file));
-                intent.addFlags(1);
-            } else {
-                intent.putExtra("android.intent.extra.STREAM", Uri.fromFile(file));
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755295603, "Lcom/repackage/tc3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            context.startActivity(intent);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755295603, "Lcom/repackage/tc3;");
+                return;
+            }
         }
+        a = cg1.a;
+    }
+
+    public static void a(Context context, IBinder iBinder) {
+        InputMethodManager inputMethodManager;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, iBinder) == null) || (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) == null) {
+            return;
+        }
+        try {
+            inputMethodManager.hideSoftInputFromWindow(iBinder, 0);
+        } catch (Exception e) {
+            if (a) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void b(Context context, boolean z) {
+        InputMethodManager inputMethodManager;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) || (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) == null) {
+            return;
+        }
+        inputMethodManager.toggleSoftInput(z ? 2 : 0, 2);
     }
 }

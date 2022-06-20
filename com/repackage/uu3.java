@@ -1,31 +1,40 @@
 package com.repackage;
 
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.text.TextUtils;
-import android.widget.Toast;
+import android.webkit.JavascriptInterface;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.tieba.R;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.swan.apps.favordata.SwanFavorItemData;
+import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.di2;
-import java.io.File;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class uu3 extends e13 {
+public class uu3 extends EventTargetImpl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public sn3 a;
+    public zr1 b;
+    public String c;
 
     /* loaded from: classes7.dex */
-    public class a implements di2.c {
+    public class a implements sn3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ uu3 a;
 
         public a(uu3 uu3Var) {
             Interceptable interceptable = $ic;
@@ -39,82 +48,216 @@ public class uu3 extends e13 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = uu3Var;
         }
 
-        @Override // com.repackage.di2.c
+        @Override // com.repackage.sn3
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                vu3 vu3Var = new vu3();
+                vu3Var.progress = i;
+                JSEvent jSEvent = new JSEvent("ProgressChange");
+                jSEvent.data = vu3Var;
+                this.a.dispatchEvent(jSEvent);
             }
         }
 
-        @Override // com.repackage.di2.c
-        public void onFailed() {
+        @Override // com.repackage.sn3
+        public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                Toast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f012e, 1).show();
             }
         }
 
-        @Override // com.repackage.di2.c
-        public void onSuccess() {
+        @Override // com.repackage.sn3
+        public void c(DownloadState downloadState, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                File c = vu3.c();
-                File b = vu3.b();
-                if (c.exists() && kf4.U(c.getPath(), b.getPath())) {
-                    Toast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f012f, 1).show();
-                } else {
-                    Toast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f012e, 1).show();
-                }
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, downloadState, i) == null) {
+                xu3 xu3Var = new xu3();
+                xu3Var.state = downloadState.value();
+                JSEvent jSEvent = new JSEvent("StateChange");
+                jSEvent.data = xu3Var;
+                this.a.dispatchEvent(jSEvent);
+            }
+        }
+
+        @Override // com.repackage.sn3
+        public void d(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            }
+        }
+
+        @Override // com.repackage.sn3
+        public String e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.c : (String) invokeV.objValue;
+        }
+
+        @Override // com.repackage.sn3
+        public void f(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uu3(e03 e03Var) {
-        super(e03Var, "/swanAPI/debugGameExtensionCore");
+    public uu3(JSRuntime jSRuntime, zr1 zr1Var) {
+        super(jSRuntime);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {e03Var};
+            Object[] objArr = {jSRuntime, zr1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((JSRuntime) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = zr1Var;
+        if (z()) {
+            this.a = new a(this);
+            iw3.f().a(AppRuntime.getAppContext(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_QUERY_STATUS, this.a);
+        }
     }
 
-    @Override // com.repackage.e13
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hz2 hz2Var) {
-        InterceptResult invokeLLLL;
+    public void A(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, hz2Var)) == null) {
-            if (e13.b) {
-                JSONObject a2 = e13.a(unitedSchemeEntity, "params");
-                if (a2 == null) {
-                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f012c, 1).show();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            u63 u63Var = new u63();
+            u63Var.b = str;
+            u63Var.a = SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME;
+            u63Var.a("targetPackageName", str2);
+            l63.g(u63Var);
+        }
+    }
+
+    public final boolean B(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            if (context != null) {
+                try {
+                    if (context.getPackageManager() != null) {
+                        return context.getPackageManager().getPackageInfo(str, 0) != null;
+                    }
+                    return false;
+                } catch (Exception unused) {
                     return false;
                 }
-                String optString = a2.optString("downloadurl");
-                if (TextUtils.isEmpty(optString)) {
-                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f012d, 1).show();
-                    return false;
-                }
-                wv3.f(optString, new a(this));
-                return false;
             }
             return false;
         }
-        return invokeLLLL.booleanValue;
+        return invokeLL.booleanValue;
+    }
+
+    public final void C(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) == null) || context == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        Intent intent = new Intent("android.intent.action.MAIN", (Uri) null);
+        intent.addCategory("android.intent.category.LAUNCHER");
+        intent.setPackage(str);
+        List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
+        if (queryIntentActivities == null || queryIntentActivities.size() <= 0 || queryIntentActivities.iterator().next() == null) {
+            return;
+        }
+        String str2 = queryIntentActivities.iterator().next().activityInfo.name;
+        Intent intent2 = new Intent("android.intent.action.MAIN");
+        intent2.addCategory("android.intent.category.LAUNCHER");
+        intent2.setComponent(new ComponentName(str, str2));
+        intent2.setFlags(270532608);
+        try {
+            context.startActivity(intent2);
+        } catch (Exception unused) {
+        }
+    }
+
+    @JavascriptInterface
+    public void deleteDownload() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            iw3.f().a(AppRuntime.getAppContext(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_CANCEL_DOWNLOAD, this.a);
+        }
+    }
+
+    @JavascriptInterface
+    public void installApp() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            iw3.f().a(AppRuntime.getAppContext(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_INSTALL_APP, this.a);
+        }
+    }
+
+    @JavascriptInterface
+    public void openApp() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            C(AppRuntime.getAppContext(), this.c);
+        }
+    }
+
+    @JavascriptInterface
+    public void pauseDownload() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            iw3.f().a(AppRuntime.getAppContext(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, this.a);
+        }
+    }
+
+    @JavascriptInterface
+    public void resumeDownload() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            iw3.f().a(AppRuntime.getAppContext(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_RESUME_DOWNLOAD, this.a);
+        }
+    }
+
+    @JavascriptInterface
+    public void startDownload() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            iw3.f().a(AppRuntime.getAppContext(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.a);
+        }
+    }
+
+    public final boolean z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            this.c = iw3.f().getPackageName();
+            if (!iw3.f().c()) {
+                au3 au3Var = new au3();
+                au3Var.errMsg = "download url is empty";
+                d24.call(this.b, false, au3Var);
+                A("reallyDownloadNull", this.c);
+                return false;
+            } else if (B(AppRuntime.getAppContext(), this.c)) {
+                au3 au3Var2 = new au3();
+                au3Var2.errMsg = "apk has installed";
+                d24.call(this.b, false, au3Var2);
+                A("reallyHasInstalled", this.c);
+                return false;
+            } else {
+                wu3 wu3Var = new wu3();
+                wu3Var.statusCode = 0;
+                wu3Var.packageName = this.c;
+                d24.call(this.b, true, wu3Var);
+                return true;
+            }
+        }
+        return invokeV.booleanValue;
     }
 }

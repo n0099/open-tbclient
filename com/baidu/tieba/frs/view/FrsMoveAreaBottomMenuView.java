@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.va6;
+import com.repackage.vb6;
 import java.util.Locale;
 /* loaded from: classes3.dex */
 public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.OnClickListener {
@@ -57,10 +57,10 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0332, this);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090b6d);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090b74);
-            this.d = findViewById(R.id.obfuscated_res_0x7f090b75);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0330, this);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090b5c);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090b63);
+            this.d = findViewById(R.id.obfuscated_res_0x7f090b64);
             this.b.setOnClickListener(this);
             this.c.setOnClickListener(this);
             c();
@@ -107,9 +107,9 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
                 d();
             } else if (view2 == this.b) {
                 this.e = null;
-                va6.h().n();
+                vb6.h().n();
             } else if (view2 == this.c) {
-                if (this.a != null && this.e == null && !ListUtils.isEmpty(va6.h().i())) {
+                if (this.a != null && this.e == null && !ListUtils.isEmpty(vb6.h().i())) {
                     FrsMoveAreaChooseView frsMoveAreaChooseView = new FrsMoveAreaChooseView(this.a);
                     this.e = frsMoveAreaChooseView;
                     frsMoveAreaChooseView.setOnClickListener(this);
@@ -118,7 +118,7 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
                 } else {
                     BdTopToast bdTopToast = new BdTopToast(getContext());
                     bdTopToast.i(false);
-                    bdTopToast.h(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0717));
+                    bdTopToast.h(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f070c));
                     bdTopToast.j((ViewGroup) getParent());
                 }
             } else {
@@ -134,7 +134,7 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
     public void setMoveNumber(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            String string = getContext().getString(R.string.obfuscated_res_0x7f0f0719);
+            String string = getContext().getString(R.string.obfuscated_res_0x7f0f070e);
             if (i > 0) {
                 string = string + String.format(Locale.CHINA, "(%d)", Integer.valueOf(i));
             }

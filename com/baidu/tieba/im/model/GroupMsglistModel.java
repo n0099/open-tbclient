@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e27;
+import com.repackage.n37;
 /* loaded from: classes3.dex */
 public class GroupMsglistModel extends CommonGroupMsglistModel {
     public static /* synthetic */ Interceptable $ic = null;
@@ -76,7 +76,7 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                e27 callback;
+                n37 callback;
                 Interceptable interceptable2 = $ic;
                 if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                     return;
@@ -88,7 +88,7 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
                 } else if (customResponsedMessage.getCmd() == 2001145) {
                     boolean processHistory = this.this$0.processHistory(customResponsedMessage);
                     if ((customResponsedMessage.getOrginalMessage() instanceof LoadGroupHistoryMessage) && processHistory && (callback = ((LoadGroupHistoryMessage) customResponsedMessage.getOrginalMessage()).getCallback()) != null) {
-                        callback.onFirstHistoryPageLoaded();
+                        callback.j0();
                     }
                 }
             }
@@ -155,10 +155,10 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public boolean loadFirst(e27 e27Var) {
+    public boolean loadFirst(n37 n37Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, e27Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, n37Var)) == null) {
             if (this.mGroup == null) {
                 return false;
             }
@@ -168,7 +168,7 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
             aVar.b = null;
             aVar.d = this.mGroup.getGroupId() + "";
             LoadGroupHistoryMessage loadGroupHistoryMessage = new LoadGroupHistoryMessage(aVar);
-            loadGroupHistoryMessage.setCallback(e27Var);
+            loadGroupHistoryMessage.setCallback(n37Var);
             super.sendMessage(loadGroupHistoryMessage);
             return true;
         }

@@ -2,6 +2,7 @@ package com.baidu.sapi2;
 
 import android.os.Looper;
 import android.text.TextUtils;
+import androidx.media2.session.SessionCommand;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.http.PassHttpClientRequest;
 import com.baidu.pass.http.ReqPriority;
@@ -22,6 +23,7 @@ import com.baidu.sapi2.utils.SapiEnv;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.sofire.core.ForHostApp;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -479,7 +481,7 @@ public class QrCodeService extends AbstractService implements NoProguard {
                         this.a.onFailure(this.b);
                         return;
                     }
-                    JSONObject optJSONObject = jSONObject.optJSONObject("local");
+                    JSONObject optJSONObject = jSONObject.optJSONObject(ForHostApp.KEY_NAME_LOCAL);
                     if (optJSONObject != null) {
                         this.b.country = optJSONObject.optString("country");
                         this.b.province = optJSONObject.optString("provice");
@@ -636,7 +638,7 @@ public class QrCodeService extends AbstractService implements NoProguard {
             httpHashMapWrap.put("tt", String.valueOf(System.currentTimeMillis()));
             HttpClientWrap httpClientWrap = new HttpClientWrap();
             this.a = httpClientWrap;
-            this.b = httpClientWrap.get(SapiEnv.GET_QR_LOGIN_STATUS_CHECK, ReqPriority.IMMEDIATE, httpHashMapWrap, null, getUaInfo(), 40000, new c(this, Looper.getMainLooper(), z, qrLoginStatusCheckCallback, qrLoginStatusCheckResult, qrLoginStstusCheckDTO));
+            this.b = httpClientWrap.get(SapiEnv.GET_QR_LOGIN_STATUS_CHECK, ReqPriority.IMMEDIATE, httpHashMapWrap, null, getUaInfo(), SessionCommand.COMMAND_CODE_SESSION_FAST_FORWARD, new c(this, Looper.getMainLooper(), z, qrLoginStatusCheckCallback, qrLoginStatusCheckResult, qrLoginStstusCheckDTO));
         }
     }
 

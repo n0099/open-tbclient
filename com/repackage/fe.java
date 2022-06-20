@@ -1,147 +1,181 @@
 package com.repackage;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Bundle;
+import android.os.IBinder;
+import android.os.Parcelable;
+import android.util.SparseArray;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class fe extends he<byte[]> {
+import com.squareup.wire.Message;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class fe {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String h;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fe(h9 h9Var, String str) {
-        super(h9Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {h9Var, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((h9) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.h = str;
-    }
-
-    @Override // com.repackage.he
-    public boolean d(String str) {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:103:0x0150 */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v12, resolved type: java.io.ObjectOutputStream */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.io.ObjectOutputStream */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v9, resolved type: java.io.ObjectOutputStream */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:144:0x0175 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static final ld a(Object obj) {
         InterceptResult invokeL;
+        ObjectOutputStream objectOutputStream;
+        Exception e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(65536, null, obj)) != null) {
+            return (ld) invokeL.objValue;
+        }
+        ObjectOutputStream objectOutputStream2 = 0;
+        if (obj == null) {
+            return null;
+        }
+        if (obj instanceof Boolean) {
+            return new fd(((Boolean) obj).booleanValue());
+        }
+        if (obj instanceof Bundle) {
+            return new gd((Bundle) obj);
+        }
+        if (obj instanceof Byte) {
+            return new hd(((Byte) obj).byteValue());
+        }
+        if (obj instanceof Character) {
+            return new id(((Character) obj).charValue());
+        }
+        if (obj instanceof Double) {
+            return new jd(((Double) obj).doubleValue());
+        }
+        if (obj instanceof Float) {
+            return new kd(((Float) obj).floatValue());
+        }
+        if (obj instanceof Integer) {
+            return new md(((Integer) obj).intValue());
+        }
+        if (obj instanceof JSONArray) {
+            return new nd((JSONArray) obj);
+        }
+        if (obj instanceof JSONObject) {
+            return new od((JSONObject) obj);
+        }
+        if (obj instanceof Long) {
+            return new qd(((Long) obj).longValue());
+        }
+        if (obj instanceof Short) {
+            return new wd(((Short) obj).shortValue());
+        }
+        if (obj instanceof String) {
+            return new yd((String) obj);
+        }
+        if (obj instanceof SparseArray) {
+            return new xd((SparseArray) obj);
+        }
+        if (obj instanceof List) {
+            return new pd((List) obj);
+        }
+        if (obj instanceof Queue) {
+            return new ud((Queue) obj);
+        }
+        if (obj instanceof Set) {
+            return new vd((Set) obj);
+        }
+        if (obj instanceof Map) {
+            return new rd((Map) obj);
+        }
+        if (obj instanceof Message) {
+            return new td((Message) obj);
+        }
+        if (obj.getClass().isArray()) {
+            return new ed(obj);
+        }
+        if (obj instanceof CharSequence) {
+            return new yd(((CharSequence) obj).toString());
+        }
+        if (obj instanceof Serializable) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             try {
-                this.a.f().delete(this.b, "m_ns = ?", new String[]{str});
-                return true;
-            } catch (Throwable th) {
-                h9 h9Var = this.a;
-                h9Var.i(th, "failed to clear from " + str);
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.he
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX WARN: Type inference failed for: r0v14, types: [T, byte[]] */
-    @Override // com.repackage.he
-    public le<byte[]> i(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, str)) != null) {
-            return (le) invokeLL.objValue;
-        }
-        Cursor cursor = null;
-        try {
-            Cursor rawQuery = sQLiteDatabase.rawQuery("SELECT m_key, m_ns, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.b + " where m_key = ?", new String[]{str});
-            try {
-                if (!rawQuery.moveToNext()) {
-                    ig.a(rawQuery);
-                    return null;
+                try {
+                    objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+                    try {
+                        objectOutputStream.writeObject(obj);
+                        objectOutputStream.flush();
+                        ed edVar = new ed(byteArrayOutputStream.toByteArray());
+                        try {
+                            objectOutputStream.close();
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
+                        }
+                        try {
+                            byteArrayOutputStream.close();
+                        } catch (IOException e3) {
+                            e3.printStackTrace();
+                        }
+                        return edVar;
+                    } catch (Exception e4) {
+                        e = e4;
+                        e.printStackTrace();
+                        sd sdVar = new sd(obj);
+                        if (objectOutputStream != null) {
+                            try {
+                                objectOutputStream.close();
+                            } catch (IOException e5) {
+                                e5.printStackTrace();
+                            }
+                        }
+                        try {
+                            byteArrayOutputStream.close();
+                        } catch (IOException e6) {
+                            e6.printStackTrace();
+                        }
+                        return sdVar;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    objectOutputStream2 = interceptable;
+                    if (objectOutputStream2 != 0) {
+                        try {
+                            objectOutputStream2.close();
+                        } catch (IOException e7) {
+                            e7.printStackTrace();
+                        }
+                    }
+                    try {
+                        byteArrayOutputStream.close();
+                    } catch (IOException e8) {
+                        e8.printStackTrace();
+                    }
+                    throw th;
                 }
-                le<byte[]> leVar = new le<>();
-                leVar.a = rawQuery.getString(0);
-                leVar.c = rawQuery.getString(1);
-                leVar.d = rawQuery.getLong(2);
-                leVar.e = rawQuery.getLong(3);
-                leVar.f = rawQuery.getLong(4);
-                leVar.b = rawQuery.getBlob(5);
-                ig.a(rawQuery);
-                return leVar;
-            } catch (Throwable th) {
-                th = th;
-                cursor = rawQuery;
-                ig.a(cursor);
+            } catch (Exception e9) {
+                objectOutputStream = null;
+                e = e9;
+            } catch (Throwable th2) {
+                th = th2;
+                if (objectOutputStream2 != 0) {
+                }
+                byteArrayOutputStream.close();
                 throw th;
             }
-        } catch (Throwable th2) {
-            th = th2;
+        } else if (obj instanceof IBinder) {
+            return new sd(obj);
+        } else {
+            if (obj instanceof Parcelable) {
+                return new sd(obj);
+            }
+            return new sd(obj);
         }
-    }
-
-    @Override // com.repackage.he
-    public void k(String str, String str2, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(1048579, this, str, str2, i, i2) == null) {
-        }
-    }
-
-    @Override // com.repackage.he
-    public String l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.a.d("CREATE TABLE IF NOT EXISTS " + this.h + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
-            this.a.d("CREATE INDEX if not exists idx_mi_ns ON " + this.h + "(m_ns)");
-            return this.h;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.he
-    public ContentValues p(le<byte[]> leVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, leVar)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("m_key", leVar.a);
-            contentValues.put("m_ns", leVar.c);
-            contentValues.put("m_value", leVar.b);
-            contentValues.put("saveTime", Long.valueOf(leVar.d));
-            contentValues.put("lastHitTime", Long.valueOf(leVar.e));
-            contentValues.put("timeToExpire", Long.valueOf(leVar.f));
-            return contentValues;
-        }
-        return (ContentValues) invokeL.objValue;
-    }
-
-    @Override // com.repackage.he
-    public Cursor q(SQLiteDatabase sQLiteDatabase, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, sQLiteDatabase, str)) == null) {
-            return sQLiteDatabase.rawQuery("select * from " + this.b + " where m_ns = ?", new String[]{str});
-        }
-        return (Cursor) invokeLL.objValue;
     }
 }

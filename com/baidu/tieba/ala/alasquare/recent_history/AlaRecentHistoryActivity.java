@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AlaRecentHistoryActivity extends AbsTabActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AbsTabPagerAdapter mAdapter;
+    public AbsTabPagerAdapter a;
 
     /* loaded from: classes3.dex */
     public class a extends AbsTabActivity.CustomOnPageChangeListener {
@@ -82,14 +82,14 @@ public class AlaRecentHistoryActivity extends AbsTabActivity {
                 return;
             }
         }
-        this.mAdapter = new AlaRecentHistoryAdapter(getSupportFragmentManager());
+        this.a = new AlaRecentHistoryAdapter(getSupportFragmentManager());
     }
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity
     public AbsTabPagerAdapter getAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAdapter : (AbsTabPagerAdapter) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (AbsTabPagerAdapter) invokeV.objValue;
     }
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity, com.baidu.tbadk.core.BaseFragmentActivity
@@ -121,7 +121,7 @@ public class AlaRecentHistoryActivity extends AbsTabActivity {
     public void setNavigationBar(NavigationBar navigationBar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, navigationBar) == null) {
-            navigationBar.setTitleText(R.string.obfuscated_res_0x7f0f11e2);
+            navigationBar.setTitleText(R.string.obfuscated_res_0x7f0f11ef);
         }
     }
 }

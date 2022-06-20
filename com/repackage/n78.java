@@ -1,13 +1,15 @@
 package com.repackage;
-
-import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes6.dex */
 public interface n78 {
-    void L();
+    void c1();
 
-    TbPageContext<?> i();
+    void d1();
 
-    int s0();
+    void g0();
 
-    String y();
+    void i1();
+
+    void p0(String str, String str2);
+
+    void x0(String str);
 }

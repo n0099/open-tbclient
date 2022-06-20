@@ -13,17 +13,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.am;
-import com.repackage.li;
+import com.repackage.em;
+import com.repackage.pi;
 /* loaded from: classes3.dex */
 public class AiAppGuideActivity extends BaseActivity {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int GIF_HEIGHT = 828;
-    public static final int GIF_WIDTH = 760;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public GifView mGifView;
-    public ImageView mImgClose;
-    public View.OnClickListener mOnClickListener;
+    public GifView a;
+    public ImageView b;
+    public View.OnClickListener c;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -71,7 +69,7 @@ public class AiAppGuideActivity extends BaseActivity {
                 return;
             }
         }
-        this.mOnClickListener = new a(this);
+        this.c = new a(this);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -79,7 +77,7 @@ public class AiAppGuideActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
-            SkinManager.setImageResource(this.mImgClose, R.drawable.icon_use_close_n);
+            SkinManager.setImageResource(this.b, R.drawable.icon_use_close_n);
         }
     }
 
@@ -92,17 +90,17 @@ public class AiAppGuideActivity extends BaseActivity {
             setSwipeBackEnabled(false);
             setActivityBgTransparent();
             setContentView(R.layout.obfuscated_res_0x7f0d0029);
-            GifView gifView = (GifView) findViewById(R.id.obfuscated_res_0x7f092399);
-            this.mGifView = gifView;
-            gifView.setGifFile(am.b("aiapp_guide.gif"));
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e76);
-            this.mImgClose = imageView;
-            imageView.setOnClickListener(this.mOnClickListener);
-            int k = li.k(getActivity()) - (li.f(getActivity(), R.dimen.tbds44) * 2);
-            ViewGroup.LayoutParams layoutParams = this.mGifView.getLayoutParams();
+            GifView gifView = (GifView) findViewById(R.id.obfuscated_res_0x7f092386);
+            this.a = gifView;
+            gifView.setGifFile(em.b("aiapp_guide.gif"));
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e68);
+            this.b = imageView;
+            imageView.setOnClickListener(this.c);
+            int k = pi.k(getActivity()) - (pi.f(getActivity(), R.dimen.tbds44) * 2);
+            ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
             layoutParams.width = k;
-            layoutParams.height = (int) (((k * GIF_HEIGHT) * 1.0f) / 760.0f);
-            this.mGifView.setLayoutParams(layoutParams);
+            layoutParams.height = (int) (((k * 828) * 1.0f) / 760.0f);
+            this.a.setLayoutParams(layoutParams);
         }
     }
 

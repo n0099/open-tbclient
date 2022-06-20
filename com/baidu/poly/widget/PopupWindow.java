@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j81;
+import com.repackage.u81;
 import java.lang.ref.WeakReference;
 /* loaded from: classes2.dex */
 public class PopupWindow {
@@ -248,7 +248,7 @@ public class PopupWindow {
                 return;
             }
         }
-        P = j81.d;
+        P = u81.d;
         Q = new int[]{16842922};
     }
 

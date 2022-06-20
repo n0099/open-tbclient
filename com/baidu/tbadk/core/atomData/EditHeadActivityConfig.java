@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class EditHeadActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCOUNTDATA = "account_data";
@@ -80,7 +80,7 @@ public class EditHeadActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra("request", i);
-        getIntent().putExtra("account_data", accountData);
+        getIntent().putExtra(ACCOUNTDATA, accountData);
         getIntent().putExtra("edit_type", i3);
         getIntent().putExtra(FILE_NAME, str);
         getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f);
@@ -140,7 +140,7 @@ public class EditHeadActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra("request", i);
-        getIntent().putExtra("account_data", accountData);
+        getIntent().putExtra(ACCOUNTDATA, accountData);
         getIntent().putExtra("edit_type", i3);
         getIntent().putExtra(FILE_NAME, str);
         getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f);
@@ -169,7 +169,7 @@ public class EditHeadActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra("request", i);
-        getIntent().putExtra("account_data", accountData);
+        getIntent().putExtra(ACCOUNTDATA, accountData);
         getIntent().putExtra("edit_type", i3);
         getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f);
         getIntent().setData(uri);
@@ -196,7 +196,7 @@ public class EditHeadActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra("request", i);
-        getIntent().putExtra("account_data", accountData);
+        getIntent().putExtra(ACCOUNTDATA, accountData);
         getIntent().putExtra("edit_type", 0);
         getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f);
         getIntent().setData(uri);
@@ -223,7 +223,7 @@ public class EditHeadActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra("request", i);
-        getIntent().putExtra("account_data", accountData);
+        getIntent().putExtra(ACCOUNTDATA, accountData);
         getIntent().putExtra("edit_type", 0);
         getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f);
         getIntent().putExtra("need_upload", z);
@@ -251,7 +251,7 @@ public class EditHeadActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra("request", i);
-        getIntent().putExtra("account_data", accountData);
+        getIntent().putExtra(ACCOUNTDATA, accountData);
         getIntent().putExtra("edit_type", i3);
         getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f);
         getIntent().putExtra(FROM_WHERE, str);
@@ -279,7 +279,7 @@ public class EditHeadActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra("request", i);
-        getIntent().putExtra("account_data", accountData);
+        getIntent().putExtra(ACCOUNTDATA, accountData);
         getIntent().putExtra("edit_type", i3);
         getIntent().putExtra(FILE_NAME, str);
         getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f);

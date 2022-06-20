@@ -61,7 +61,7 @@ public class ChangeClipBounds extends Transition {
     private void captureValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, transitionValues) == null) {
-            View view2 = transitionValues.f980view;
+            View view2 = transitionValues.f1020view;
             if (view2.getVisibility() == 8) {
                 return;
             }
@@ -110,10 +110,10 @@ public class ChangeClipBounds extends Transition {
                 if (rect.equals(rect2)) {
                     return null;
                 }
-                ViewCompat.setClipBounds(transitionValues2.f980view, rect);
-                objectAnimator = ObjectAnimator.ofObject(transitionValues2.f980view, (Property<View, V>) ViewUtils.CLIP_BOUNDS, (TypeEvaluator) new RectEvaluator(new Rect()), (Object[]) new Rect[]{rect, rect2});
+                ViewCompat.setClipBounds(transitionValues2.f1020view, rect);
+                objectAnimator = ObjectAnimator.ofObject(transitionValues2.f1020view, (Property<View, V>) ViewUtils.CLIP_BOUNDS, (TypeEvaluator) new RectEvaluator(new Rect()), (Object[]) new Rect[]{rect, rect2});
                 if (z) {
-                    objectAnimator.addListener(new AnimatorListenerAdapter(this, transitionValues2.f980view) { // from class: androidx.transition.ChangeClipBounds.1
+                    objectAnimator.addListener(new AnimatorListenerAdapter(this, transitionValues2.f1020view) { // from class: androidx.transition.ChangeClipBounds.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ ChangeClipBounds this$0;

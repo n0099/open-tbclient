@@ -1,27 +1,19 @@
 package com.repackage;
 
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class j14 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile i14 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized i14 a() {
-        InterceptResult invokeV;
-        i14 i14Var;
+    public static void a(a72 a72Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (j14.class) {
-                if (a == null) {
-                    a = new i14();
-                }
-                i14Var = a;
-            }
-            return i14Var;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, a72Var, str) == null) && a72Var != null && a72Var.p().hasEventListener("deviceOrientationChange")) {
+            JSEvent jSEvent = new JSEvent("deviceOrientationChange");
+            jSEvent.data = new l14(str);
+            a72Var.dispatchEvent(jSEvent);
         }
-        return (i14) invokeV.objValue;
     }
 }

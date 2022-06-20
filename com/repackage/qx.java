@@ -2,32 +2,32 @@ package com.repackage;
 
 import android.content.Context;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.RecommendForumLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.MultiLinkCardView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class qx extends mw<ep4> {
+/* loaded from: classes7.dex */
+public class qx extends xw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RecommendForumLayout f;
-    public int g;
+    public MultiLinkCardView h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qx(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity());
+    public qx(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,80 +38,53 @@ public class qx extends mw<ep4> {
                 return;
             }
         }
-        this.g = 3;
-        RecommendForumLayout recommendForumLayout = new RecommendForumLayout(tbPageContext);
-        this.f = recommendForumLayout;
-        recommendForumLayout.setPageUniqueId(bdUniqueId);
-        this.f.setShowMore(true);
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().n instanceof MultiLinkCardView) && TbadkCoreApplication.getInst().getPersonalizeViewData().n.getParent() == null) {
+            this.h = (MultiLinkCardView) TbadkCoreApplication.getInst().getPersonalizeViewData().n;
+        } else {
+            this.h = new MultiLinkCardView(context);
+        }
+        r(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
     }
 
-    @Override // com.repackage.mw
+    @Override // com.repackage.qw
     public View g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h : (View) invokeV.objValue;
+    }
+
+    @Override // com.repackage.gx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.h.b();
+        }
+    }
+
+    public final boolean s(ym4 ym4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, ym4Var)) == null) ? (ym4Var == null || ym4Var.getThreadData() == null || !ym4Var.getThreadData().isVideoThreadType() || ym4Var.getThreadData().getThreadVideoInfo() == null) ? false : true : invokeL.booleanValue;
+    }
+
+    public final boolean t(ym4 ym4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, ym4Var)) == null) ? (ym4Var == null || ym4Var.getThreadData() == null || ym4Var.getThreadData().getPollData() == null || ym4Var.getThreadData().getPollData().getOptions() == null || ym4Var.getThreadData().getPollData().getOptions().size() <= 0) ? false : true : invokeL.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.bx
-    /* renamed from: o */
-    public void a(ep4 ep4Var) {
+    @Override // com.repackage.fx
+    /* renamed from: u */
+    public void a(ym4 ym4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ep4Var) == null) {
-            this.f.setData(ep4Var);
-        }
-    }
-
-    @Override // com.repackage.cx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
-            if (this.g != i) {
-                this.f.onChangeSkinType(tbPageContext, i);
+        if (interceptable == null || interceptable.invokeL(1048581, this, ym4Var) == null) {
+            if (!t(ym4Var) && !s(ym4Var) && ym4Var != null && ym4Var.getThreadData() != null && ((!ListUtils.isEmpty(ym4Var.getThreadData().getLinkDataList()) || ListUtils.getCount(ym4Var.getThreadData().getGoodsDataList()) > 1) && ((!ListUtils.isEmpty(ym4Var.getThreadData().getGoodsDataList()) || ListUtils.getCount(ym4Var.getThreadData().getLinkDataList()) > 1) && ListUtils.getCount(ym4Var.getThreadData().getLinkDataList()) + ListUtils.getCount(ym4Var.getThreadData().getGoodsDataList()) > 1))) {
+                this.h.a(ym4Var.getThreadData().getLinkDataList(), ym4Var.getThreadData().getGoodsDataList());
+                this.h.setVisibility(0);
+                return;
             }
-            this.g = i;
-        }
-    }
-
-    public void p(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f.setEnableShowInto(z);
-        }
-    }
-
-    public void q(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
-            this.f.setOnClickRightArrowListener(onClickListener);
-        }
-    }
-
-    public void r(kl4<dp4> kl4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, kl4Var) == null) {
-            this.f.setOnItemCoverListener(kl4Var);
-        }
-    }
-
-    public void s(PullLeftRefreshLayout.f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, fVar) == null) {
-            this.f.setOnRullOkCallbackr(fVar);
-        }
-    }
-
-    public void t(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f.setShowMore(z);
-        }
-    }
-
-    public void u(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f.setShowSquareEntrance(z);
+            this.h.setVisibility(8);
         }
     }
 }

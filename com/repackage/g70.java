@@ -1,167 +1,191 @@
 package com.repackage;
 
 import android.content.Context;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.websocket.WebSocketRequest;
-import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import com.baidu.lcp.sdk.pb.LcmPb$Common;
+import com.baidu.lcp.sdk.pb.LcmPb$LcmNotify;
+import com.baidu.lcp.sdk.pb.LcmPb$LcmRequest;
+import com.baidu.lcp.sdk.pb.LcmPb$RpcData;
+import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcMeta;
+import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcRequestMeta;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.gslbsdk.db.ProbeTB;
-import java.util.Map;
-import org.apache.http.cookie.ClientCookie;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.ByteArrayOutputStream;
+import java.nio.ByteBuffer;
+import java.util.zip.GZIPOutputStream;
 /* loaded from: classes6.dex */
-public class g70 extends f70 {
+public class g70 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a b;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void onFailure(int i, String str);
-
-        void onResponse(String str);
-    }
-
-    public g70(Context context, a aVar) {
+    public g70() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = context;
-        this.b = aVar;
     }
 
-    @Override // com.repackage.h70.b
-    public Map<String, String> getHeaders() {
-        InterceptResult invokeV;
+    public final byte[] a(byte[] bArr, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) ? i == 1 ? g(bArr) : bArr : (byte[]) invokeLI.objValue;
+    }
+
+    public y60 b(y60 y60Var, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y60Var, z)) == null) {
+            y60Var.o = z;
+            h(y60Var, f(y60Var.h, y60Var.i, y60Var.n, d(false)), a(y60Var.a, d(false)));
+            return y60Var;
         }
-        return (Map) invokeV.objValue;
+        return (y60) invokeLZ.objValue;
     }
 
-    @Override // com.repackage.h70.b
-    public String getHost() {
-        InterceptResult invokeV;
+    public y60 c(Context context, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int a2 = m70.a(this.a);
-            if (a2 == 1) {
-                return "http://rd-im-server.bcc-szth.baidu.com:8089/rest/5.0/generate_lcm_token";
-            } else if (a2 == 2) {
-                return "http://sz-shaheenv-al-b.bcc-szwg.baidu.com:8911/rest/5.0/generate_lcm_token";
-            } else if (m70.b(this.a)) {
-                return "http://rd-im-server.bcc-szth.baidu.com:8089/rest/5.0/generate_lcm_token";
-            } else {
-                return "https://pim.baidu.com/rest/5.0/generate_lcm_token";
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, context, j)) == null) {
+            long random = (long) ((Math.random() * 1000000.0d) + 10000.0d);
+            y60 y60Var = new y60();
+            y60Var.n = random;
+            y60Var.o = true;
+            y60Var.h = 1L;
+            y60Var.i = j;
+            y60Var.l = j == 1;
+            y60Var.k = j == 3;
+            h(y60Var, f(1L, j, random, d(false)), a(e(context, random, j), d(false)));
+            return y60Var;
+        }
+        return (y60) invokeLJ.objValue;
+    }
+
+    public final int d(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) ? z ? 1 : 0 : invokeZ.intValue;
+    }
+
+    public final byte[] e(Context context, long j, long j2) {
+        InterceptResult invokeCommon;
+        LcmPb$LcmRequest build;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{context, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            if (j2 == 4) {
+                LcmPb$LcmNotify.b newBuilder = LcmPb$LcmNotify.newBuilder();
+                newBuilder.w(j);
+                newBuilder.v(2);
+                LcmPb$LcmNotify build2 = newBuilder.build();
+                LcmPb$RpcData.b newBuilder2 = LcmPb$RpcData.newBuilder();
+                newBuilder2.D(build2);
+                return newBuilder2.build().toByteArray();
             }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.h70.b
-    public String getMediaType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "application/json" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.h70.b
-    public byte[] getRequestParameter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            try {
-                JSONObject jSONObject = (JSONObject) l70.c(this.a, true);
-                return jSONObject != null ? jSONObject.toString().getBytes() : new byte[0];
-            } catch (Exception unused) {
-                return new byte[0];
-            }
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    @Override // com.repackage.h70.d
-    public void onFailure(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
-            this.b.onFailure(i, str);
-        }
-    }
-
-    @Override // com.repackage.h70.d
-    public void onSuccess(byte[] bArr) {
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bArr) == null) {
-            try {
-                JSONObject jSONObject2 = new JSONObject(new String(bArr));
-                o70.a("GetTokenRequest", "onSuccess :" + jSONObject2.toString());
-                int optInt = jSONObject2.optInt("error_code", -1);
-                String optString = jSONObject2.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
-                g60.h(this.a).g(601110).c("token_end", System.currentTimeMillis()).b("connect_state", 1).d("P2", jSONObject2.toString()).d("con_err_code", "P2");
-                if (optInt == 0) {
-                    p70.r(this.a, jSONObject2.optBoolean("bddns_enable", false));
-                    String optString2 = jSONObject2.optString("token");
-                    JSONArray jSONArray = jSONObject2.getJSONArray(WebSocketRequest.PARAM_KEY_PROTOCOLS);
-                    if (!TextUtils.isEmpty(optString2) && jSONArray != null && jSONArray.length() >= 1) {
-                        p70.x(this.a, jSONArray.length());
-                        for (int i = 0; i < jSONArray.length(); i++) {
-                            JSONObject jSONObject3 = (JSONObject) jSONArray.get(i);
-                            p70.w(this.a, jSONObject3.optString(ProbeTB.PROTOCOL) + ":" + jSONObject3.optString("domain") + ":" + jSONObject3.optString(ClientCookie.PORT_ATTR), i);
-                        }
-                        p70.t(this.a, jSONObject2.optInt("ipv6_strategy", 3));
-                        this.b.onResponse(optString2);
-                        p70.z(this.a, optString2);
-                        try {
-                            String optString3 = jSONObject2.optString("client_log_config", "");
-                            if (TextUtils.isEmpty(optString3)) {
-                                return;
-                            }
-                            JSONObject jSONObject4 = new JSONObject(optString3);
-                            m60.j(this.a, jSONObject4.optInt("client_upload_log_switch", 0));
-                            JSONArray jSONArray2 = jSONObject4.getJSONArray("realtime_log_switch");
-                            if (jSONArray2 != null && jSONArray2.length() > 0) {
-                                for (int i2 = 0; i2 < jSONArray2.length() && (jSONObject = jSONArray2.getJSONObject(i2)) != null; i2++) {
-                                    m60.i(this.a, jSONObject.optInt("id", 0), jSONObject.optInt("switch", 0));
-                                }
-                                return;
-                            }
-                            return;
-                        } catch (Exception e) {
-                            a aVar = this.b;
-                            aVar.onFailure(10001, "Json Exception" + e);
-                            o70.b("GetTokenRequest", "Json Exception");
-                            return;
-                        }
-                    }
-                    this.b.onFailure(10002, "token or protocol is empty");
-                    g60.h(this.a).g(601110).c("flow_end_time", System.currentTimeMillis()).e();
-                    return;
+            if (j2 == 1) {
+                try {
+                    LcmPb$Common lcmPb$Common = (LcmPb$Common) p70.c(context, false);
+                    LcmPb$LcmRequest.b newBuilder3 = LcmPb$LcmRequest.newBuilder();
+                    newBuilder3.z(j);
+                    newBuilder3.x(lcmPb$Common);
+                    newBuilder3.C(t70.j(context));
+                    newBuilder3.B(System.currentTimeMillis());
+                    newBuilder3.A(q60.c(context));
+                    newBuilder3.y(t70.d(context));
+                    build = newBuilder3.build();
+                    s70.a("PbProcessor", "cuid :" + lcmPb$Common.getCuid() + ", device :" + lcmPb$Common.getDeviceType() + ", os:" + lcmPb$Common.getOsVersion() + ", man :" + lcmPb$Common.getManufacture() + ", model :" + lcmPb$Common.getModelType() + ", appId :" + lcmPb$Common.getAppId() + ", app :" + lcmPb$Common.getAppVersion() + ", sdk :" + lcmPb$Common.getSdkVersion() + ", token :" + build.getToken() + ", net :" + lcmPb$Common.getNetwork() + ", rom :" + lcmPb$Common.getRomVersion() + ", start :" + build.getStartType() + "，connType :" + build.getConnType());
+                } catch (Exception unused) {
+                    LcmPb$LcmRequest.b newBuilder4 = LcmPb$LcmRequest.newBuilder();
+                    newBuilder4.z(j);
+                    newBuilder4.C(t70.j(context));
+                    newBuilder4.B(System.currentTimeMillis());
+                    newBuilder4.A(q60.c(context));
+                    newBuilder4.y(t70.d(context));
+                    build = newBuilder4.build();
                 }
-                this.b.onFailure(optInt, optString);
-            } catch (JSONException e2) {
-                a aVar2 = this.b;
-                aVar2.onFailure(10001, "parse response exception ：" + e2);
+            } else if (j2 == 2) {
+                LcmPb$LcmRequest.b newBuilder5 = LcmPb$LcmRequest.newBuilder();
+                newBuilder5.z(j);
+                newBuilder5.B(System.currentTimeMillis());
+                build = newBuilder5.build();
+            } else {
+                LcmPb$LcmRequest.b newBuilder6 = LcmPb$LcmRequest.newBuilder();
+                newBuilder6.z(j);
+                newBuilder6.B(System.currentTimeMillis());
+                build = newBuilder6.build();
             }
+            s70.f("PbProcessor", "logId :" + j + ", requestTime :" + build.getTimestamp() + "，methodId :" + j2);
+            LcmPb$RpcData.b newBuilder7 = LcmPb$RpcData.newBuilder();
+            newBuilder7.E(build);
+            return newBuilder7.build().toByteArray();
         }
+        return (byte[]) invokeCommon.objValue;
+    }
+
+    public final byte[] f(long j, long j2, long j3, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i)})) == null) {
+            RpcMetaPb$RpcRequestMeta.b newBuilder = RpcMetaPb$RpcRequestMeta.newBuilder();
+            newBuilder.u(j3);
+            newBuilder.x(j);
+            newBuilder.v(j2);
+            newBuilder.w(1);
+            RpcMetaPb$RpcRequestMeta build = newBuilder.build();
+            RpcMetaPb$RpcMeta.b newBuilder2 = RpcMetaPb$RpcMeta.newBuilder();
+            newBuilder2.F(build);
+            newBuilder2.E(j3);
+            newBuilder2.D(i);
+            newBuilder2.A(1);
+            return newBuilder2.build().toByteArray();
+        }
+        return (byte[]) invokeCommon.objValue;
+    }
+
+    public final byte[] g(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            try {
+                GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
+                gZIPOutputStream.write(bArr);
+                gZIPOutputStream.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return byteArrayOutputStream.toByteArray();
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public final y60 h(y60 y60Var, byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, y60Var, bArr, bArr2)) == null) {
+            try {
+                ByteBuffer allocate = ByteBuffer.allocate(bArr.length + 12 + bArr2.length);
+                allocate.put((byte) 108);
+                allocate.put((byte) 99);
+                allocate.put((byte) 112);
+                allocate.put((byte) 1);
+                allocate.putInt(bArr.length + bArr2.length);
+                allocate.putInt(bArr.length);
+                allocate.put(bArr);
+                allocate.put(bArr2);
+                y60Var.a = allocate.array();
+            } catch (Exception unused) {
+            }
+            return y60Var;
+        }
+        return (y60) invokeLLL.objValue;
     }
 }

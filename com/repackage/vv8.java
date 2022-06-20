@@ -1,65 +1,54 @@
 package com.repackage;
 
-import android.content.Intent;
-import android.media.MediaMetadataRetriever;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
 import android.text.TextUtils;
-import android.widget.RelativeLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.album.MediaFileInfo;
 import com.baidu.tbadk.album.VideoFileInfo;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
-import com.baidu.tbadk.core.atomData.TbFileVideoActivityConfig;
-import com.baidu.tbadk.core.atomData.WorkPublishManager;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.PostPrefixData;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.coreExtra.data.VideoInfo;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.frs.FrsTabInfoData;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.video.VideoConvertUtil;
-import com.baidu.tieba.write.video.AlbumVideoCompressingDialogView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
-import com.repackage.dq4;
-import java.io.File;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class vv8 implements vo8, Handler.Callback {
+public class vv8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragmentActivity a;
-    public VideoFileInfo b;
-    public String c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
-    public AlbumVideoCompressingDialogView g;
-    public VideoConvertUtil h;
-    public Handler i;
-    public hj7 j;
-    public boolean k;
-    public final CustomMessageListener l;
+    public List<jk4> a;
+    public String b;
+    public BaseFragmentActivity c;
+    public int d;
+    public LayoutInflater e;
 
     /* loaded from: classes7.dex */
-    public class a implements dq4.e {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+    }
 
-        public a(vv8 vv8Var) {
+    /* loaded from: classes7.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TbImageView a;
+        public TextView b;
+        public ImageView c;
+
+        public b(vv8 vv8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,61 +64,17 @@ public class vv8 implements vo8, Handler.Callback {
             }
         }
 
-        @Override // com.repackage.dq4.e
-        public void onClick(dq4 dq4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dq4Var) == null) {
-                dq4Var.dismiss();
-            }
+        public /* synthetic */ b(vv8 vv8Var, a aVar) {
+            this(vv8Var);
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vv8 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(vv8 vv8Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vv8Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vv8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof PostWriteCallBackData)) {
-                Intent intent = new Intent();
-                intent.putExtra(AlbumActivityConfig.FINISH_SELF, true);
-                this.a.a.setResult(-1, intent);
-                this.a.a.finish();
-            }
-        }
-    }
-
-    public vv8(BaseFragmentActivity baseFragmentActivity, String str, String str2, String str3) {
+    public vv8(BaseFragmentActivity baseFragmentActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity, str, str2, str3};
+            Object[] objArr = {baseFragmentActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -139,370 +84,89 @@ public class vv8 implements vo8, Handler.Callback {
                 return;
             }
         }
-        this.d = false;
-        this.e = false;
-        this.f = false;
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, lj7.class);
-        lj7 lj7Var = runTask != null ? (lj7) runTask.getData() : null;
-        if (lj7Var != null) {
-            this.j = lj7Var.get();
-        }
-        hj7 hj7Var = this.j;
-        if (hj7Var != null) {
-            hj7Var.g();
-        }
-        this.l = new b(this, 2001374);
-        this.a = baseFragmentActivity;
-        VideoConvertUtil videoConvertUtil = new VideoConvertUtil(baseFragmentActivity);
-        this.h = videoConvertUtil;
-        videoConvertUtil.o(this);
-        this.i = new Handler(Looper.getMainLooper(), this);
-        MessageManager.getInstance().registerListener(this.l);
+        this.c = baseFragmentActivity;
+        this.e = LayoutInflater.from(baseFragmentActivity.getPageContext().getPageActivity());
+        this.d = pi.k(this.c.getPageContext().getPageActivity()) / 2;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:24:0x0082 -> B:25:0x0085). Please submit an issue!!! */
-    public static VideoFileInfo e(String str) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public jk4 getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            File file = new File(str);
-            if (file.exists() && file.isFile()) {
-                VideoFileInfo videoFileInfo = new VideoFileInfo();
-                videoFileInfo.videoPath = str;
-                videoFileInfo.lastModified = file.lastModified();
-                MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-                try {
-                    try {
-                        try {
-                            mediaMetadataRetriever.setDataSource(str);
-                            videoFileInfo.videoDuration = jg.e(mediaMetadataRetriever.extractMetadata(9), 0);
-                            videoFileInfo.mimeType = mediaMetadataRetriever.extractMetadata(12);
-                            videoFileInfo.videoWidth = jg.e(mediaMetadataRetriever.extractMetadata(18), 0);
-                            videoFileInfo.videoHeight = jg.e(mediaMetadataRetriever.extractMetadata(19), 0);
-                            int e = jg.e(mediaMetadataRetriever.extractMetadata(24), 0);
-                            if (e == 90 || e == 270) {
-                                int i = videoFileInfo.videoWidth;
-                                videoFileInfo.videoWidth = videoFileInfo.videoHeight;
-                                videoFileInfo.videoHeight = i;
-                            }
-                            mediaMetadataRetriever.release();
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
-                            mediaMetadataRetriever.release();
-                        }
-                    } catch (Throwable th) {
-                        try {
-                            mediaMetadataRetriever.release();
-                        } catch (Exception e3) {
-                            e3.printStackTrace();
-                        }
-                        throw th;
-                    }
-                } catch (Exception e4) {
-                    e4.printStackTrace();
-                }
-                return videoFileInfo;
-            }
-            return null;
-        }
-        return (VideoFileInfo) invokeL.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? (jk4) ListUtils.getItem(this.a, i) : (jk4) invokeI.objValue;
     }
 
-    @Override // com.repackage.vo8
-    public void a(int i) {
+    public void b(List<jk4> list, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.i.sendEmptyMessage(2);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, str) == null) {
+            this.a = list;
+            this.b = str;
         }
     }
 
-    @Override // com.repackage.vo8
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            VideoConvertUtil videoConvertUtil = this.h;
-            if (videoConvertUtil != null) {
-                videoConvertUtil.a();
-            }
-            this.f = true;
-            if (this.c != null) {
-                File file = new File(this.c);
-                if (file.exists()) {
-                    file.delete();
-                }
-            }
-            h();
-            this.c = null;
-        }
-    }
-
-    public final void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.a.showLoadingDialog(null);
-            VideoFileInfo e = e(this.c);
-            VideoInfo videoInfo = new VideoInfo();
-            videoInfo.setVideoPath(this.c);
-            videoInfo.setVideoDuration(e.videoDuration / 1000);
-            videoInfo.setVideoWidth(e.videoWidth);
-            videoInfo.setVideoHeight(e.videoHeight);
-            videoInfo.setVideoLength(new File(e.videoPath).length());
-            videoInfo.setVideoSource(2);
-            videoInfo.setIsCompressedVideo(z);
-            TbFileVideoActivityConfig tbFileVideoActivityConfig = new TbFileVideoActivityConfig(this.a);
-            tbFileVideoActivityConfig.getIntent().putExtras(this.a.getIntent());
-            tbFileVideoActivityConfig.setFrom(1);
-            tbFileVideoActivityConfig.setVideoInfo(videoInfo);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921582, tbFileVideoActivityConfig));
-            if (WorkPublishManager.isWorkPublishLocate()) {
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_WORK_PUBLISH_ENTER_TYPE_CLICK).param("obj_locate", 2).param("obj_source", WorkPublishManager.isWorkPublishLocateVideoCenter() ? 2 : 1));
-            }
-            this.e = false;
-            this.c = null;
-            hj7 hj7Var = this.j;
-            if (hj7Var != null) {
-                hj7Var.d();
-            }
-        }
-    }
-
-    public void g(VideoFileInfo videoFileInfo, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, videoFileInfo, str, str2) == null) {
-            this.b = videoFileInfo;
-            if (videoFileInfo == null || this.a == null) {
-                return;
-            }
-            if (videoFileInfo.videoDuration > 600000) {
-                s();
-                return;
-            }
-            VideoConvertUtil videoConvertUtil = this.h;
-            if (videoConvertUtil == null || !videoConvertUtil.n()) {
-                String str3 = this.b.videoPath;
-                if (TextUtils.isEmpty(str3)) {
-                    li.N(this.a, R.string.obfuscated_res_0x7f0f0b35);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016328, str3));
-                    n(107);
-                } else if (!new File(str3).exists()) {
-                    li.N(this.a, R.string.obfuscated_res_0x7f0f0b35);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016328, str3));
-                    n(106);
-                } else {
-                    VideoFileInfo videoFileInfo2 = this.b;
-                    if (videoFileInfo2 != null) {
-                        this.c = videoFileInfo2.videoPath;
-                        f(false);
-                        n(102);
-                    }
-                }
-            }
-        }
-    }
-
-    public final void h() {
-        RelativeLayout relativeLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (relativeLayout = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09161e)) == null || this.g.getParent() == null) {
-            return;
-        }
-        relativeLayout.removeView(this.g);
-    }
-
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, message)) == null) {
-            this.i.removeMessages(5);
-            int i = message.what;
-            if (i == 1) {
-                this.i.removeMessages(1);
-                AlbumVideoCompressingDialogView albumVideoCompressingDialogView = this.g;
-                if (albumVideoCompressingDialogView != null && albumVideoCompressingDialogView.b()) {
-                    this.g.setPercent(message.arg1);
-                }
-                Handler handler = this.i;
-                handler.sendMessageDelayed(handler.obtainMessage(5), 60000L);
-            } else if (i == 2) {
-                if (!this.f) {
-                    li.N(this.a, R.string.obfuscated_res_0x7f0f0b32);
-                    n(103);
-                }
-                this.k = false;
-                this.e = false;
-                h();
-            } else if (i == 3) {
-                this.k = false;
-                this.e = true;
-                if (!StringUtils.isNull(this.c)) {
-                    File file = new File(this.c);
-                    this.c = this.c.replace("_tiebaconverting.mp4", DefaultHlsExtractorFactory.MP4_FILE_EXTENSION);
-                    file.renameTo(new File(this.c));
-                }
-                h();
-                if (!this.d) {
-                    f(true);
-                    hj7 hj7Var = this.j;
-                    if (hj7Var != null) {
-                        hj7Var.d();
-                    }
-                }
-            } else if (i == 4) {
-                this.k = false;
-                this.e = false;
-                h();
-                n(104);
-            } else if (i == 5) {
-                this.k = false;
-                li.N(this.a, R.string.obfuscated_res_0x7f0f0b32);
-                VideoConvertUtil videoConvertUtil = this.h;
-                if (videoConvertUtil != null && videoConvertUtil.n()) {
-                    d();
-                }
-                n(105);
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean i() {
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.k : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ListUtils.getCount(this.a) : invokeV.intValue;
     }
 
-    public void j() {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            VideoConvertUtil videoConvertUtil = this.h;
-            if (videoConvertUtil != null) {
-                videoConvertUtil.l();
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            if (view2 != null && (view2.getTag() instanceof b)) {
+                bVar = (b) view2.getTag();
+            } else {
+                view2 = this.e.inflate(R.layout.obfuscated_res_0x7f0d0114, viewGroup, false);
+                bVar = new b(this, null);
+                bVar.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f30);
+                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f42);
+                bVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f19);
+                bVar.a.setGifIconSupport(false);
+                bVar.a.setLongIconSupport(false);
+                view2.setTag(bVar);
             }
-            Handler handler = this.i;
-            if (handler != null) {
-                handler.removeMessages(5);
+            jk4 item = getItem(i);
+            if (item == null) {
+                view2.setVisibility(4);
+                return view2;
             }
-            hj7 hj7Var = this.j;
-            if (hj7Var != null) {
-                hj7Var.k("album");
+            view2.setVisibility(0);
+            if (!TextUtils.isEmpty(item.g())) {
+                String t = pi.t(bVar.b.getPaint(), item.g(), this.d);
+                bVar.b.setText(t + "(" + item.c() + SmallTailInfo.EMOTION_SUFFIX);
+            } else {
+                bVar.b.setText("");
             }
-            MessageManager.getInstance().unRegisterListener(this.l);
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (this.e && !TextUtils.isEmpty(this.c) && new File(this.c).exists()) {
-                f(true);
-                n(101);
+            String b2 = item.b();
+            if (!TextUtils.isEmpty(b2) && b2.equals(this.b)) {
+                bVar.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809ae, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+                bVar.c.setVisibility(0);
+            } else {
+                bVar.c.setVisibility(8);
             }
-            hj7 hj7Var = this.j;
-            if (hj7Var != null) {
-                hj7Var.e("album");
+            MediaFileInfo f = item.f();
+            if (f instanceof VideoFileInfo) {
+                bVar.a.J(((VideoFileInfo) f).videoPath, 37, false);
+            } else if (f instanceof ImageFileInfo) {
+                bVar.a.J(((ImageFileInfo) f).getFilePath(), 35, false);
             }
+            SkinManager.setViewTextColor(bVar.b, (int) R.color.CAM_X0105);
+            SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
+            return view2;
         }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.d = false;
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.d = true;
-            this.a.closeLoadingDialog();
-        }
-    }
-
-    public final void n(int i) {
-        hj7 hj7Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || (hj7Var = this.j) == null) {
-            return;
-        }
-        hj7Var.i(i, "album");
-    }
-
-    public void o(AntiData antiData, PostPrefixData postPrefixData, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048589, this, antiData, postPrefixData, str, str2) == null) {
-        }
-    }
-
-    @Override // com.repackage.vo8
-    public void onConvertAborted() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.i.sendEmptyMessage(4);
-        }
-    }
-
-    @Override // com.repackage.vo8
-    public void onConvertFailed() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.i.sendEmptyMessage(2);
-        }
-    }
-
-    @Override // com.repackage.vo8
-    public void onConvertProgress(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            Message obtain = Message.obtain();
-            obtain.what = 1;
-            obtain.arg1 = i;
-            this.i.sendMessage(obtain);
-        }
-    }
-
-    @Override // com.repackage.vo8
-    public void onConvertSuccess() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.i.sendEmptyMessage(3);
-        }
-    }
-
-    public void p(FrsTabInfoData frsTabInfoData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, frsTabInfoData) == null) {
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
-        }
-    }
-
-    public void r(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
-        }
-    }
-
-    public final void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            dq4 positiveButton = new dq4(this.a).setTitle(R.string.obfuscated_res_0x7f0f0b34).setPositiveButton(R.string.obfuscated_res_0x7f0f07e6, new a(this));
-            positiveButton.create(this.a.getPageContext());
-            positiveButton.setCanceledOnTouchOutside(false);
-            positiveButton.show();
-        }
+        return (View) invokeILL.objValue;
     }
 }

@@ -1,53 +1,29 @@
 package com.repackage;
 
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Method;
 /* loaded from: classes5.dex */
-public class d31 implements InvocationHandler {
+public class d31 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b31 a;
 
-    public d31(b31 b31Var) {
+    public static void a(View view2, View view3, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {b31Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLLI(65536, null, view2, view3, i) == null) {
+            b(view2, view3, i, i, i, i);
         }
-        this.a = b31Var;
     }
 
-    @Override // java.lang.reflect.InvocationHandler
-    public Object invoke(Object obj, Method method, Object[] objArr) throws Throwable {
-        InterceptResult invokeLLL;
+    public static void b(View view2, View view3, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, method, objArr)) == null) {
-            if (this.a != null) {
-                try {
-                    this.a.onTranslucent(((Boolean) objArr[0]).booleanValue());
-                    return null;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    this.a.onTranslucent(false);
-                    return null;
-                }
-            }
-            return null;
+        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{view2, view3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || view3 == null || view2 == null) {
+            return;
         }
-        return invokeLLL.objValue;
+        if (view2.getTouchDelegate() instanceof z21) {
+            ((z21) view2.getTouchDelegate()).a(view3, i, i2, i3, i4);
+        } else {
+            view2.setTouchDelegate(new z21(view3, i, i2, i3, i4));
+        }
     }
 }

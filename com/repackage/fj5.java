@@ -1,48 +1,50 @@
 package com.repackage;
 
 import android.content.Context;
-import android.text.Editable;
+import android.os.Bundle;
 import android.text.TextUtils;
-import android.text.TextWatcher;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class fj5 {
+import com.repackage.l88;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.regex.Pattern;
+/* loaded from: classes6.dex */
+public final class fj5 implements l88 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Pattern d;
+    public static fj5 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public EditText a;
-    public TextView b;
-    public ImageView c;
-    public TextWatcher d;
-    public c e;
-    public Context f;
-    public TbPageContext<?> g;
-    public View.OnClickListener h;
+    public final List<l88.a> a;
+    public final ConcurrentHashMap<String, l88.b> b;
+    public l88.c c;
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fj5 a;
+        public final /* synthetic */ l88.a a;
+        public final /* synthetic */ fj5 b;
 
-        public a(fj5 fj5Var) {
+        public a(fj5 fj5Var, l88.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fj5Var};
+                Object[] objArr = {fj5Var, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,166 +54,221 @@ public class fj5 {
                     return;
                 }
             }
-            this.a = fj5Var;
+            this.b = fj5Var;
+            this.a = aVar;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2 == this.a.b) {
-                    String charSequence2String = ki.charSequence2String(this.a.a.getText(), null);
-                    if (StringUtils.isNULL(charSequence2String)) {
-                        return;
-                    }
-                    if (charSequence2String.trim().length() != 0) {
-                        this.a.i(charSequence2String.trim());
-                        this.a.b.setClickable(false);
-                    } else if (charSequence2String.length() > 0) {
-                        this.a.g.showToast(R.string.obfuscated_res_0x7f0f08e7);
-                    }
-                } else if (view2 == this.a.c) {
-                    this.a.k("");
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.f(this.a);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements TextWatcher {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fj5 a;
-
-        public b(fj5 fj5Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755705888, "Lcom/repackage/fj5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fj5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = fj5Var;
-        }
-
-        @Override // android.text.TextWatcher
-        public void afterTextChanged(Editable editable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                if (TextUtils.isEmpty(editable)) {
-                    this.a.c.setVisibility(8);
-                } else {
-                    this.a.c.setVisibility(0);
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755705888, "Lcom/repackage/fj5;");
+                return;
             }
         }
-
-        @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
-            }
-        }
-
-        @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
-            }
-        }
+        d = Pattern.compile(UrlManager.patternText, 2);
+        e = new fj5();
     }
 
-    /* loaded from: classes5.dex */
-    public interface c {
-        void a(String str);
-    }
-
-    public fj5(TbPageContext<?> tbPageContext, View view2) {
+    public fj5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.h = new a(this);
-        this.g = tbPageContext;
-        this.f = tbPageContext.getPageActivity();
-        this.a = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f09152d);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091531);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09152c);
-        this.b.setOnClickListener(this.h);
-        this.c.setOnClickListener(this.h);
-        b bVar = new b(this);
-        this.d = bVar;
-        this.a.addTextChangedListener(bVar);
-        f(TbadkCoreApplication.getInst().getSkinType());
+        this.a = new LinkedList();
+        this.b = new ConcurrentHashMap<>();
+        this.c = null;
     }
 
-    public void f(int i) {
+    public static fj5 l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            SkinManager.setViewTextColor(this.b, R.color.CAM_X0111, 1);
-            this.a.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
-            SkinManager.setImageResource(this.c, R.drawable.icon_search_close);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? e : (fj5) invokeV.objValue;
+    }
+
+    @Override // com.repackage.l88
+    public boolean a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? !TextUtils.isEmpty(str) && d.matcher(str).find() : invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.l88
+    public void b(Context context, String[] strArr, boolean z, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, strArr, Boolean.valueOf(z), bundle}) == null) {
+            h(context, strArr, false, null, z, bundle);
         }
     }
 
-    public void g() {
+    @Override // com.repackage.l88
+    public boolean c(Context context, String[] strArr, Bundle bundle) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            li.x(this.f, this.a);
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, strArr, bundle)) == null) ? h(context, strArr, false, null, false, bundle) : invokeLLL.booleanValue;
+    }
+
+    public void e(l88.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            if (pi.C()) {
+                f(aVar);
+            } else {
+                qg.a().post(new a(this, aVar));
+            }
         }
     }
 
-    public void h() {
+    public final void f(l88.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.removeTextChangedListener(this.d);
-        }
-    }
-
-    public final void i(String str) {
-        c cVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (cVar = this.e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || this.a.contains(aVar)) {
             return;
         }
-        cVar.a(str);
+        this.a.add(aVar);
     }
 
-    public void j(boolean z) {
+    public boolean g(Context context, String str, String[] strArr, boolean z, l88.d dVar, boolean z2, Bundle bundle) {
+        InterceptResult invokeCommon;
+        boolean z3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.b.setClickable(z);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{context, str, strArr, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle})) == null) {
+            if (strArr == null || strArr.length == 0 || TextUtils.isEmpty(strArr[0])) {
+                return false;
+            }
+            String str2 = strArr[0];
+            l88.b bVar = this.b.get(m(str2));
+            if (bVar != null) {
+                bVar.a(context, j(k(str2)));
+                return true;
+            }
+            Iterator<l88.a> it = this.a.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    z3 = false;
+                    break;
+                }
+                l88.a next = it.next();
+                if (next != null && next.a(context, strArr) != 3) {
+                    z3 = true;
+                    break;
+                }
+            }
+            if (!z3 && this.c != null) {
+                if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
+                    return true;
+                }
+                n(context, str, strArr[0], z, dVar, z2, bundle);
+            }
+            return z3;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public boolean h(Context context, String[] strArr, boolean z, l88.d dVar, boolean z2, Bundle bundle) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{context, strArr, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle})) == null) ? g(context, "", strArr, z, dVar, z2, bundle) : invokeCommon.booleanValue;
+    }
+
+    public int i(Context context, String[] strArr) {
+        InterceptResult invokeLL;
+        int a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, context, strArr)) == null) {
+            if (strArr != null && strArr.length != 0) {
+                for (l88.a aVar : this.a) {
+                    if (aVar != null && (a2 = aVar.a(context, strArr)) != 3) {
+                        return a2;
+                    }
+                }
+            }
+            return 3;
+        }
+        return invokeLL.intValue;
+    }
+
+    public final Map<String, String> j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            HashMap hashMap = new HashMap();
+            String[] split = str.split("[&]");
+            if (split == null) {
+                hashMap.put(UrlManager.DEFAULT_PARAM, str);
+                return hashMap;
+            }
+            for (String str2 : split) {
+                String[] split2 = str2.split("[=]");
+                if (split2.length > 1) {
+                    hashMap.put(split2[0], split2[1]);
+                }
+            }
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public final String k(String str) {
+        InterceptResult invokeL;
+        int lastIndexOf;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            if (!StringUtils.isNull(str) && (lastIndexOf = str.lastIndexOf(":")) >= 0) {
+                return str.substring(lastIndexOf + 1);
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            return str.contains(":") ? str.substring(0, str.lastIndexOf(":")) : str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void n(Context context, String str, String str2, boolean z, l88.d dVar, boolean z2, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{context, str, str2, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle}) == null) && d.matcher(str2).find()) {
+            this.c.a(context, str, str2, z, dVar, z2, bundle);
         }
     }
 
-    public void k(String str) {
+    public void o(l88.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.a.setText(str);
-        }
-    }
-
-    public void l(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
-            this.e = cVar;
+        if (interceptable == null || interceptable.invokeL(1048588, this, cVar) == null) {
+            this.c = cVar;
         }
     }
 }

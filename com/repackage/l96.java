@@ -1,55 +1,49 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.R;
-import com.baidu.tieba.forumMember.member.ManagerApplyViewHolder;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.mobstat.Config;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.forbidden.fans.GetForbiddenFansResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class l96 extends fb6<m96, ManagerApplyViewHolder> {
-    public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: v */
-    public static final int obfuscated = 2131296938;
+public class l96 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gy4 t;
-    public View.OnClickListener u;
+    public zo4 a;
+    public ArrayList<k96> b;
+    public b c;
+    public HttpMessageListener d;
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ l96 a;
 
-        public a(l96 l96Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(l96 l96Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {l96Var};
+                Object[] objArr = {l96Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -58,127 +52,105 @@ public class l96 extends fb6<m96, ManagerApplyViewHolder> {
             this.a = l96Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                Object tag = view2.getTag(l96.obfuscated);
-                if (TbadkCoreApplication.isLogin() && StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
-                    this.a.q0(TbadkCoreApplication.getCurrentAccountInfo());
-                } else {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) f9.a(this.a.a), new String[]{tag.toString()});
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof GetForbiddenFansResponse)) {
+                GetForbiddenFansResponse getForbiddenFansResponse = (GetForbiddenFansResponse) httpResponsedMessage;
+                this.a.a = getForbiddenFansResponse.getPageData();
+                if (this.a.b == null) {
+                    this.a.b = new ArrayList();
+                }
+                if (this.a.a != null) {
+                    if (this.a.a.a() == 1) {
+                        this.a.b.clear();
+                    }
+                    if (getForbiddenFansResponse.getFansList() != null) {
+                        this.a.b.addAll(getForbiddenFansResponse.getFansList());
+                    }
+                }
+                if (this.a.c != null) {
+                    this.a.c.a(getForbiddenFansResponse.getError(), getForbiddenFansResponse.getErrorString(), this.a.b);
                 }
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755574200, "Lcom/repackage/l96;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755574200, "Lcom/repackage/l96;");
-        }
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(int i, String str, ArrayList<k96> arrayList);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l96(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
+    public l96() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.u = new a(this);
+        this.d = new a(this, CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS, TbConfig.SERVER_ADDRESS + TbConfig.GET_FORBIDDEN_FANS);
+        tbHttpMessageTask.setIsNeedLogin(true);
+        tbHttpMessageTask.setIsNeedTbs(true);
+        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
+        tbHttpMessageTask.setResponsedClass(GetForbiddenFansResponse.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        MessageManager.getInstance().registerListener(this.d);
     }
 
-    @Override // com.repackage.fb6, com.repackage.wm
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        p0(i, view2, viewGroup, (m96) obj, (ManagerApplyViewHolder) viewHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.wm
-    /* renamed from: o0 */
-    public ManagerApplyViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new ManagerApplyViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d032e, (ViewGroup) null)) : (ManagerApplyViewHolder) invokeL.objValue;
-    }
-
-    public void onDestroy() {
-        gy4 gy4Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (gy4Var = this.t) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            zo4 zo4Var = this.a;
+            return zo4Var != null && zo4Var.b() == 1;
         }
-        gy4Var.s();
+        return invokeV.booleanValue;
     }
 
-    public View p0(int i, View view2, ViewGroup viewGroup, m96 m96Var, ManagerApplyViewHolder managerApplyViewHolder) {
-        InterceptResult invokeCommon;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, m96Var, managerApplyViewHolder})) == null) {
-            super.S(i, view2, viewGroup, m96Var, managerApplyViewHolder);
-            if (m96Var != null && !m96Var.e() && managerApplyViewHolder != null) {
-                if (m96Var.e()) {
-                    managerApplyViewHolder.d.setVisibility(8);
-                    return view2;
-                }
-                if (managerApplyViewHolder.e != this.n) {
-                    SkinManager.setViewTextColor(managerApplyViewHolder.b, R.color.CAM_X0109, 1);
-                    SkinManager.setViewTextColor(managerApplyViewHolder.a, R.color.CAM_X0105, 1);
-                    SkinManager.setBackgroundResource(managerApplyViewHolder.c, R.drawable.frs_member_manito_bg);
-                }
-                int b = m96Var.b();
-                if (b > 0) {
-                    managerApplyViewHolder.b.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0298), StringHelper.numberUniformFormat(b)));
-                    managerApplyViewHolder.c.setTag(obfuscated, m96Var.a());
-                    managerApplyViewHolder.c.setOnClickListener(this.u);
-                    managerApplyViewHolder.c.setEnabled(true);
-                    managerApplyViewHolder.c.setClickable(true);
-                } else {
-                    managerApplyViewHolder.b.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f029a));
-                    managerApplyViewHolder.c.setEnabled(false);
-                    managerApplyViewHolder.c.setClickable(false);
-                }
-                managerApplyViewHolder.b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
-                managerApplyViewHolder.e = this.n;
-            }
-            return view2;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
+            httpMessage.addParam("rn", 20);
+            httpMessage.addParam(Config.PACKAGE_NAME, 1);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
-        return (View) invokeCommon.objValue;
     }
 
-    public final void q0(AccountData accountData) {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, accountData) == null) {
-            b9<?> a2 = f9.a(this.a);
-            Activity pageActivity = a2 instanceof TbPageContext ? ((TbPageContext) a2).getPageActivity() : null;
-            if (this.t == null) {
-                this.t = new gy4(pageActivity);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            zo4 zo4Var = this.a;
+            if (zo4Var == null || zo4Var.b() == 1) {
+                zo4 zo4Var2 = this.a;
+                int a2 = zo4Var2 != null ? 1 + zo4Var2.a() : 1;
+                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
+                httpMessage.addParam("rn", 20);
+                httpMessage.addParam(Config.PACKAGE_NAME, a2);
+                MessageManager.getInstance().sendMessage(httpMessage);
             }
-            this.t.p();
-            this.t.u(accountData);
-            this.t.z(1);
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.d);
+        }
+    }
+
+    public void j(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
+            this.c = bVar;
         }
     }
 }

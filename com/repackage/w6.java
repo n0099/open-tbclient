@@ -6,12 +6,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.z3;
 /* loaded from: classes7.dex */
-public class w6 extends s6 implements t6 {
+public class w6 extends u6 implements v6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a4 h;
+    public w3 h;
 
     public w6() {
         Interceptable interceptable = $ic;
@@ -27,46 +26,44 @@ public class w6 extends s6 implements t6 {
         }
     }
 
-    public void o(a4 a4Var) {
+    public w3 o() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, a4Var) == null) {
-            this.h = a4Var;
-            if (a4Var != null) {
-                j(a4Var.c());
-                h(a4Var.b());
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.h : (w3) invokeV.objValue;
+    }
+
+    public void p(w3 w3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w3Var) == null) {
+            this.h = w3Var;
+            if (w3Var != null) {
+                j(w3Var.k());
+                h(w3Var.j());
+                f(w3Var.g());
+                c(w3Var.f());
+                d(w3Var.d());
+                b(w3Var.e());
             }
         }
     }
 
-    public t6 p(i3 i3Var) {
+    public w6 q(k3 k3Var) {
         InterceptResult invokeL;
-        y3 y3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3Var)) == null) {
-            a4 a4Var = this.h;
-            if (a4Var instanceof z3.a) {
-                y3Var = new z3.b((z3.a) a4Var);
-            } else {
-                y3Var = new y3(a4Var);
-            }
-            y3Var.u(i3Var);
-            y3Var.z(a(), k());
-            v6 v6Var = new v6(y3Var);
-            v6Var.b(l());
-            v6Var.c(g());
-            v6Var.f(i());
-            v6Var.d(e());
-            return v6Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k3Var)) == null) {
+            w6 w6Var = new w6(this);
+            w6Var.h = new w3(w6Var.o(), k3Var);
+            return w6Var;
         }
-        return (t6) invokeL.objValue;
+        return (w6) invokeL.objValue;
     }
 
-    public w6(a4 a4Var) {
+    public w6(w3 w3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {a4Var};
+            Object[] objArr = {w3Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -76,7 +73,7 @@ public class w6 extends s6 implements t6 {
                 return;
             }
         }
-        o(a4Var);
+        p(w3Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -91,12 +88,12 @@ public class w6 extends s6 implements t6 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((t6) newInitContext.callArgs[0]);
+                super((v6) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        o(w6Var.h);
+        this.h = w6Var.h;
     }
 }

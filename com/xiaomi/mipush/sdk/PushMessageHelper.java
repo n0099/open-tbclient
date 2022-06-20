@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.hs;
-import com.xiaomi.push.ii;
+import com.xiaomi.push.hw;
+import com.xiaomi.push.im;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class PushMessageHelper {
@@ -63,56 +63,57 @@ public class PushMessageHelper {
         }
     }
 
-    public static MiPushCommandMessage generateCommandMessage(String str, List<String> list, long j, String str2, String str3) {
+    public static MiPushCommandMessage generateCommandMessage(String str, List<String> list, long j, String str2, String str3, List<String> list2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, list, Long.valueOf(j), str2, str3})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, list, Long.valueOf(j), str2, str3, list2})) == null) {
             MiPushCommandMessage miPushCommandMessage = new MiPushCommandMessage();
             miPushCommandMessage.setCommand(str);
             miPushCommandMessage.setCommandArguments(list);
             miPushCommandMessage.setResultCode(j);
             miPushCommandMessage.setReason(str2);
             miPushCommandMessage.setCategory(str3);
+            miPushCommandMessage.setAutoMarkPkgs(list2);
             return miPushCommandMessage;
         }
         return (MiPushCommandMessage) invokeCommon.objValue;
     }
 
-    public static MiPushMessage generateMessage(ii iiVar, hs hsVar, boolean z) {
+    public static MiPushMessage generateMessage(im imVar, hw hwVar, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, iiVar, hsVar, z)) == null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, imVar, hwVar, z)) == null) {
             MiPushMessage miPushMessage = new MiPushMessage();
-            miPushMessage.setMessageId(iiVar.m524a());
-            if (!TextUtils.isEmpty(iiVar.d())) {
+            miPushMessage.setMessageId(imVar.m498a());
+            if (!TextUtils.isEmpty(imVar.d())) {
                 miPushMessage.setMessageType(1);
-                miPushMessage.setAlias(iiVar.d());
-            } else if (!TextUtils.isEmpty(iiVar.c())) {
+                miPushMessage.setAlias(imVar.d());
+            } else if (!TextUtils.isEmpty(imVar.c())) {
                 miPushMessage.setMessageType(2);
-                miPushMessage.setTopic(iiVar.c());
-            } else if (TextUtils.isEmpty(iiVar.f())) {
+                miPushMessage.setTopic(imVar.c());
+            } else if (TextUtils.isEmpty(imVar.f())) {
                 miPushMessage.setMessageType(0);
             } else {
                 miPushMessage.setMessageType(3);
-                miPushMessage.setUserAccount(iiVar.f());
+                miPushMessage.setUserAccount(imVar.f());
             }
-            miPushMessage.setCategory(iiVar.e());
-            if (iiVar.a() != null) {
-                miPushMessage.setContent(iiVar.a().c());
+            miPushMessage.setCategory(imVar.e());
+            if (imVar.a() != null) {
+                miPushMessage.setContent(imVar.a().c());
             }
-            if (hsVar != null) {
+            if (hwVar != null) {
                 if (TextUtils.isEmpty(miPushMessage.getMessageId())) {
-                    miPushMessage.setMessageId(hsVar.m445a());
+                    miPushMessage.setMessageId(hwVar.m426a());
                 }
                 if (TextUtils.isEmpty(miPushMessage.getTopic())) {
-                    miPushMessage.setTopic(hsVar.m450b());
+                    miPushMessage.setTopic(hwVar.m431b());
                 }
-                miPushMessage.setDescription(hsVar.d());
-                miPushMessage.setTitle(hsVar.m453c());
-                miPushMessage.setNotifyType(hsVar.a());
-                miPushMessage.setNotifyId(hsVar.c());
-                miPushMessage.setPassThrough(hsVar.b());
-                miPushMessage.setExtra(hsVar.m446a());
+                miPushMessage.setDescription(hwVar.d());
+                miPushMessage.setTitle(hwVar.m434c());
+                miPushMessage.setNotifyType(hwVar.a());
+                miPushMessage.setNotifyId(hwVar.c());
+                miPushMessage.setPassThrough(hwVar.b());
+                miPushMessage.setExtra(hwVar.m427a());
             }
             miPushMessage.setNotified(z);
             return miPushMessage;
@@ -120,22 +121,22 @@ public class PushMessageHelper {
         return (MiPushMessage) invokeLLZ.objValue;
     }
 
-    public static hs generateMessage(MiPushMessage miPushMessage) {
+    public static hw generateMessage(MiPushMessage miPushMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, miPushMessage)) == null) {
-            hs hsVar = new hs();
-            hsVar.a(miPushMessage.getMessageId());
-            hsVar.b(miPushMessage.getTopic());
-            hsVar.d(miPushMessage.getDescription());
-            hsVar.c(miPushMessage.getTitle());
-            hsVar.c(miPushMessage.getNotifyId());
-            hsVar.a(miPushMessage.getNotifyType());
-            hsVar.b(miPushMessage.getPassThrough());
-            hsVar.a(miPushMessage.getExtra());
-            return hsVar;
+            hw hwVar = new hw();
+            hwVar.a(miPushMessage.getMessageId());
+            hwVar.b(miPushMessage.getTopic());
+            hwVar.d(miPushMessage.getDescription());
+            hwVar.c(miPushMessage.getTitle());
+            hwVar.c(miPushMessage.getNotifyId());
+            hwVar.a(miPushMessage.getNotifyType());
+            hwVar.b(miPushMessage.getPassThrough());
+            hwVar.a(miPushMessage.getExtra());
+            return hwVar;
         }
-        return (hs) invokeL.objValue;
+        return (hw) invokeL.objValue;
     }
 
     public static int getPushMode(Context context) {

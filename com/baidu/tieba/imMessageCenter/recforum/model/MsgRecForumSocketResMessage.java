@@ -1,9 +1,10 @@
 package com.baidu.tieba.imMessageCenter.recforum.model;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
@@ -38,23 +39,28 @@ public class MsgRecForumSocketResMessage extends SocketResponsedMessage {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        GetMsgRecForumlistResIdl getMsgRecForumlistResIdl;
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getMsgRecForumlistResIdl = (GetMsgRecForumlistResIdl) new Wire(new Class[0]).parseFrom(bArr, GetMsgRecForumlistResIdl.class)) == null) {
-            return;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            GetMsgRecForumlistResIdl getMsgRecForumlistResIdl = (GetMsgRecForumlistResIdl) new Wire(new Class[0]).parseFrom(bArr, GetMsgRecForumlistResIdl.class);
+            if (getMsgRecForumlistResIdl == null) {
+                return null;
+            }
+            Error error = getMsgRecForumlistResIdl.error;
+            if (error != null) {
+                setError(error.errorno.intValue());
+                setErrorString(getMsgRecForumlistResIdl.error.usermsg);
+            }
+            DataRes dataRes = getMsgRecForumlistResIdl.data;
+            if (dataRes != null) {
+                this.forumList = dataRes.forum_list;
+                this.pageInfo = dataRes.page_info;
+            }
+            return getMsgRecForumlistResIdl;
         }
-        Error error = getMsgRecForumlistResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(getMsgRecForumlistResIdl.error.usermsg);
-        }
-        DataRes dataRes = getMsgRecForumlistResIdl.data;
-        if (dataRes != null) {
-            this.forumList = dataRes.forum_list;
-            this.pageInfo = dataRes.page_info;
-        }
+        return invokeIL.objValue;
     }
 }

@@ -1,103 +1,304 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.core.Call;
-import com.baidu.searchbox.network.outback.core.MediaType;
-import com.baidu.searchbox.network.outback.core.Request;
-import com.baidu.searchbox.network.outback.core.Response;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a50;
+import java.io.BufferedInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.util.List;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public final class n50 implements a50.a {
+public class n50 implements j50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<a50> a;
-    public f50 b;
-    public final int c;
-    public final Request d;
-    public final Call e;
-    public int f;
+    public HttpURLConnection a;
+    public int b;
 
-    public n50(List<a50> list, f50 f50Var, int i, Request request, Call call) {
+    public n50(HttpURLConnection httpURLConnection) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list, f50Var, Integer.valueOf(i), request, call};
+            Object[] objArr = {httpURLConnection};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = list;
-        this.b = f50Var;
-        this.c = i;
-        this.d = request;
-        this.e = call;
+        this.b = 4;
+        this.a = httpURLConnection;
     }
 
-    @Override // com.repackage.a50.a
-    public Response a(Request request) throws IOException {
-        InterceptResult invokeL;
+    @Override // java.io.Closeable, java.lang.AutoCloseable
+    public void close() {
+        HttpURLConnection httpURLConnection;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, request)) == null) ? b(request, this.b) : (Response) invokeL.objValue;
-    }
-
-    public Response b(Request request, f50 f50Var) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, f50Var)) == null) {
-            if (this.c < this.a.size()) {
-                this.f++;
-                n50 n50Var = new n50(this.a, f50Var, this.c + 1, request, this.e);
-                a50 a50Var = this.a.get(this.c);
-                Response a = a50Var.a(n50Var);
-                if (a != null) {
-                    if (a.body() != null) {
-                        a.getStatRecord().responseLength = a.body().contentLength();
-                        a.getStatRecord().finishTs = System.currentTimeMillis();
-                        MediaType contentType = a.body().contentType();
-                        if (contentType != null) {
-                            a.getStatRecord().contentType = contentType.toString();
-                        }
-                        return a;
-                    }
-                    throw new IllegalStateException("interceptor " + a50Var + " returned a response with no body");
-                }
-                throw new NullPointerException("interceptor " + a50Var + " returned null");
-            }
-            throw new AssertionError();
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (httpURLConnection = this.a) == null) {
+            return;
         }
-        return (Response) invokeLL.objValue;
+        httpURLConnection.disconnect();
     }
 
-    public Call call() {
-        InterceptResult invokeV;
+    @Override // com.repackage.j50
+    public void disconnect() {
+        HttpURLConnection httpURLConnection;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (Call) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (httpURLConnection = this.a) == null) {
+            return;
+        }
+        try {
+            httpURLConnection.disconnect();
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
     }
 
-    @Override // com.repackage.a50.a
-    public f50 connection() {
+    @Override // com.repackage.j50
+    public int getCode() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (f50) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            try {
+                return this.a.getResponseCode();
+            } catch (IOException e) {
+                disconnect();
+                throw e;
+            }
+        }
+        return invokeV.intValue;
     }
 
-    @Override // com.repackage.a50.a
-    public Request request() {
+    @Override // com.repackage.j50
+    public Map<String, List<String>> getHeaders() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (Request) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.getHeaderFields() : (Map) invokeV.objValue;
+    }
+
+    @Override // com.repackage.j50
+    public InputStream getInputStream() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            try {
+                InputStream inputStream = this.a.getInputStream();
+                if (inputStream == null) {
+                    disconnect();
+                    return inputStream;
+                }
+                return new BufferedInputStream(new a(this, inputStream));
+            } catch (IOException e) {
+                disconnect();
+                throw e;
+            }
+        }
+        return (InputStream) invokeV.objValue;
+    }
+
+    @Override // com.repackage.j50
+    public String getMessage() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            try {
+                return this.a.getResponseMessage();
+            } catch (IOException e) {
+                disconnect();
+                throw e;
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.j50
+    public InputStream q() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            InputStream errorStream = getCode() >= 400 ? this.a.getErrorStream() : null;
+            return errorStream != null ? new a(this, errorStream) : errorStream;
+        }
+        return (InputStream) invokeV.objValue;
+    }
+
+    @Override // com.repackage.j50
+    public void t(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    @Override // com.repackage.j50
+    public int u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends InputStream {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public InputStream a;
+        public final /* synthetic */ n50 b;
+
+        public a(n50 n50Var, InputStream inputStream) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n50Var, inputStream};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = n50Var;
+            this.a = inputStream;
+        }
+
+        public final IOException a(IOException iOException) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iOException)) == null) {
+                this.b.disconnect();
+                return TextUtils.isEmpty(iOException.getMessage()) ? new IOException(iOException.getClass().getName(), iOException) : iOException;
+            }
+            return (IOException) invokeL.objValue;
+        }
+
+        @Override // java.io.InputStream
+        public int available() throws IOException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                try {
+                    return this.a.available();
+                } catch (IOException e) {
+                    throw a(e);
+                }
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
+        public void close() throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                try {
+                    if (read() >= 0) {
+                        this.a.close();
+                        this.b.disconnect();
+                        return;
+                    }
+                    this.a.close();
+                } catch (IOException e) {
+                    throw a(e);
+                }
+            }
+        }
+
+        @Override // java.io.InputStream
+        public synchronized void mark(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+                synchronized (this) {
+                    this.a.mark(i);
+                }
+            }
+        }
+
+        @Override // java.io.InputStream
+        public boolean markSupported() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.markSupported() : invokeV.booleanValue;
+        }
+
+        @Override // java.io.InputStream
+        public int read() throws IOException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                try {
+                    return this.a.read();
+                } catch (IOException e) {
+                    throw a(e);
+                }
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // java.io.InputStream
+        public synchronized void reset() throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                synchronized (this) {
+                    try {
+                        this.a.reset();
+                    } catch (IOException e) {
+                        throw a(e);
+                    }
+                }
+            }
+        }
+
+        @Override // java.io.InputStream
+        public long skip(long j) throws IOException {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
+                try {
+                    return this.a.skip(j);
+                } catch (IOException e) {
+                    throw a(e);
+                }
+            }
+            return invokeJ.longValue;
+        }
+
+        @Override // java.io.InputStream
+        public int read(byte[] bArr) throws IOException {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) {
+                try {
+                    return read(bArr, 0, bArr.length);
+                } catch (IOException e) {
+                    throw a(e);
+                }
+            }
+            return invokeL.intValue;
+        }
+
+        @Override // java.io.InputStream
+        public int read(byte[] bArr, int i, int i2) throws IOException {
+            InterceptResult invokeLII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048583, this, bArr, i, i2)) == null) {
+                try {
+                    return this.a.read(bArr, i, i2);
+                } catch (IOException e) {
+                    throw a(e);
+                }
+            }
+            return invokeLII.intValue;
+        }
     }
 }

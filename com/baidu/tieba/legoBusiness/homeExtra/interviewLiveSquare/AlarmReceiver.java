@@ -40,8 +40,8 @@ public class AlarmReceiver extends BroadcastReceiver {
             return;
         }
         String stringExtra2 = intent.getStringExtra("task_id");
-        String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f093a, intent.getStringExtra("title"));
-        String string2 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f09de);
+        String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f093f, intent.getStringExtra("title"));
+        String string2 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f09e3);
         Intent intent2 = new Intent(TbadkCoreApplication.getInst().getContext(), NotificationReceiver.class);
         int parseInt = Integer.parseInt(stringExtra2);
         intent2.putExtra("thread_id", intent.getStringExtra("tid"));

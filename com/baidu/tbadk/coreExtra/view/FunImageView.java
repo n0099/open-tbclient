@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kp6;
-import com.repackage.li;
+import com.repackage.nq6;
+import com.repackage.pi;
 /* loaded from: classes3.dex */
 public class FunImageView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -50,11 +50,11 @@ public class FunImageView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             removeAllViews();
-            ViewGroup i = kp6.j().i(context);
-            this.a = i;
-            if (i != null) {
-                SkinManager.setBackgroundColor(i, R.color.CAM_X0101, 0);
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(li.k(context), -2);
+            ViewGroup l = nq6.m().l(context);
+            this.a = l;
+            if (l != null) {
+                SkinManager.setBackgroundColor(l, R.color.CAM_X0101, 0);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(pi.k(context), -2);
                 layoutParams.addRule(14, -1);
                 layoutParams.addRule(15, -1);
                 addView(this.a, layoutParams);

@@ -18,13 +18,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.push.util.aa;
 import com.vivo.push.util.t;
+import com.vivo.push.util.z;
 import com.vivo.vms.IPCInvoke;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public static final Object a;
@@ -81,7 +81,7 @@ public final class b implements ServiceConnection {
         String b2 = t.b(context);
         this.d = b2;
         if (!TextUtils.isEmpty(b2) && !TextUtils.isEmpty(this.i)) {
-            this.c = aa.a(context, this.d) >= 1260;
+            this.c = z.a(context, this.d) >= 1260;
             b();
             return;
         }
@@ -220,7 +220,7 @@ public final class b implements ServiceConnection {
                 com.vivo.push.util.p.c(this.e, "push pkgname is null");
                 return false;
             }
-            boolean z = aa.a(this.e, this.d) >= 1260;
+            boolean z = z.a(this.e, this.d) >= 1260;
             this.c = z;
             return z;
         }

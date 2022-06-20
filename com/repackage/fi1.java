@@ -1,11 +1,14 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class fi1 implements sk1 {
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class fi1 implements kk1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -23,10 +26,31 @@ public class fi1 implements sk1 {
         }
     }
 
-    @Override // com.repackage.sk1
+    @Override // com.repackage.kk1
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.kk1
+    public void b(String str, io1 io1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, io1Var) == null) {
+        }
+    }
+
+    @Override // com.repackage.kk1
+    public void c(SwanAppActivity swanAppActivity, String str, io1 io1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, swanAppActivity, str, io1Var) == null) {
+        }
+    }
+
+    @Override // com.repackage.kk1
+    public void d(String str, String str2, JSONObject jSONObject, io1 io1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048579, this, str, str2, jSONObject, io1Var) == null) {
         }
     }
 }

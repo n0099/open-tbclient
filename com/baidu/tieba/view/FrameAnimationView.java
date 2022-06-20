@@ -15,10 +15,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fg;
-import com.repackage.ki;
-import com.repackage.mg;
-import com.repackage.um;
+import com.repackage.jg;
+import com.repackage.oi;
+import com.repackage.qg;
+import com.repackage.ym;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class FrameAnimationView extends TbImageView {
@@ -62,7 +62,7 @@ public class FrameAnimationView extends TbImageView {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                mg.a().removeCallbacks(this.a.D0);
+                qg.a().removeCallbacks(this.a.D0);
                 if (this.a.z0 != null) {
                     this.a.T();
                 }
@@ -107,12 +107,12 @@ public class FrameAnimationView extends TbImageView {
             }
             String frameUrl = getFrameUrl();
             this.v0++;
-            if (!ki.isEmpty(frameUrl)) {
-                um umVar = (um) fg.h().n(frameUrl, 10, new Object[0]);
-                if (umVar != null) {
-                    return umVar.p();
+            if (!oi.isEmpty(frameUrl)) {
+                ym ymVar = (ym) jg.h().n(frameUrl, 10, new Object[0]);
+                if (ymVar != null) {
+                    return ymVar.p();
                 }
-                fg.h().m(frameUrl, 10, null, this.C0);
+                jg.h().m(frameUrl, 10, null, this.C0);
             }
             return null;
         }
@@ -143,7 +143,7 @@ public class FrameAnimationView extends TbImageView {
             this.x0.set(0, 0, frameBitmap.getWidth(), this.w0.getHeight());
         }
         invalidate();
-        mg.a().postDelayed(this.D0, this.A0);
+        qg.a().postDelayed(this.D0, this.A0);
     }
 
     public final boolean U(List<String> list) {
@@ -175,7 +175,7 @@ public class FrameAnimationView extends TbImageView {
     public void W() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            mg.a().removeCallbacks(this.D0);
+            qg.a().removeCallbacks(this.D0);
         }
     }
 
@@ -224,7 +224,7 @@ public class FrameAnimationView extends TbImageView {
         if (U(list)) {
             return;
         }
-        mg.a().removeCallbacks(this.D0);
+        qg.a().removeCallbacks(this.D0);
         this.z0 = list;
         this.v0 = 0;
     }
@@ -264,11 +264,11 @@ public class FrameAnimationView extends TbImageView {
 
     public void setData(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || ki.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || oi.isEmpty(str)) {
             return;
         }
         this.B0 = true;
-        K(str, 10, false);
+        J(str, 10, false);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

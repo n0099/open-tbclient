@@ -18,7 +18,7 @@ import com.fun.ad.sdk.internal.api.utils.GlideHelper;
 import com.fun.module.ks.x;
 import com.kwad.sdk.api.KsImage;
 import com.kwad.sdk.api.KsNativeAd;
-import com.repackage.jg9;
+import com.repackage.rg9;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -138,7 +138,7 @@ public class KSNativeAdGroupImgAppDownloadView extends x {
             }
             this.j.setText(ksNativeAd.getAppName());
             this.k.setText(ksNativeAd.getActionDescription());
-            ksNativeAd.setDownloadListener(new jg9(ksNativeAd.getActionDescription(), this.k));
+            ksNativeAd.setDownloadListener(new rg9(ksNativeAd.getActionDescription(), this.k));
         }
     }
 

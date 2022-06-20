@@ -1,7 +1,19 @@
 package com.repackage;
-
-import com.repackage.hj;
 /* loaded from: classes5.dex */
 public interface ej {
-    hj.a a(String str, int i, gk gkVar) throws Exception;
+    boolean isOnCancle();
+
+    void onDeletedVoice(String str);
+
+    void onSendVoice(String str, int i);
+
+    void onShowErr(int i, String str);
+
+    void onShowRecordTime(int i);
+
+    void onShowRecording(int i);
+
+    void onStartedRecorder(boolean z);
+
+    void onStopingRecorder();
 }

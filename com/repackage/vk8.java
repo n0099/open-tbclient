@@ -1,91 +1,108 @@
 package com.repackage;
 
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.switchs.CreateCenterTipSwitch;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Calendar;
 /* loaded from: classes7.dex */
-public class vk8 extends CustomMessageListener {
+public class vk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final hk8 b;
+    public final dk8 b;
+    public final qk8 c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vk8(MainTabActivity mainTabActivity) {
-        super(2001011);
+    public vk8(MainTabActivity mainTabActivity, dk8 dk8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
+            Object[] objArr = {mainTabActivity, dk8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = mainTabActivity;
-        this.b = mainTabActivity.mLogicController;
+        this.b = dk8Var;
+        this.c = mainTabActivity.f;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-            boolean z = false;
-            if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                zk.e();
-                zk.h();
-                this.a.lastDay = UtilHelper.getCurrentDay();
-                ys4.k().x("last_resume_time", TbSingleton.getInstance().getLastResumeTime());
-                MainTabActivity mainTabActivity = this.a;
-                if (!mainTabActivity.isEnterImageViewActivity) {
-                    hk8 hk8Var = this.b;
-                    if (hk8Var == null || hk8Var.k() == null) {
-                        return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && CreateCenterTipSwitch.isOn()) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921538));
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            dk8 dk8Var = this.b;
+            if (dk8Var != null && dk8Var.y() != null && this.b.y().getAnimationView() != null && this.b.y().getAnimationView().getVisibility() != 0) {
+                this.b.y().setLottieView(false);
+            }
+            if (TbadkCoreApplication.getInst().getActivityPrizeData().isSwitchTurn()) {
+                if (!StringUtils.isNull(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getInst().getActivityPrizeData().isUserSatisfy()) {
+                    String h5Url = TbadkCoreApplication.getInst().getActivityPrizeData().getH5Url();
+                    if (!StringUtils.isNull(h5Url)) {
+                        ht4 k = ht4.k();
+                        if (k.h("activity_prize_get_tip" + TbadkCoreApplication.getCurrentAccount(), true)) {
+                            UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.a.getPageContext(), new String[]{h5Url}, true);
+                            ht4 k2 = ht4.k();
+                            k2.u("activity_prize_get_tip" + TbadkCoreApplication.getCurrentAccount(), false);
+                        }
                     }
-                    this.b.k().b();
-                    return;
                 }
-                mainTabActivity.isEnterImageViewActivity = false;
-                return;
-            }
-            String currentDay = UtilHelper.getCurrentDay();
-            if (!StringUtils.isNull(currentDay) && !currentDay.equals(this.a.lastDay)) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
-            }
-            MainTabActivity mainTabActivity2 = this.a;
-            if (mainTabActivity2.mCancelController == null) {
-                mainTabActivity2.mCancelController = new rn8();
-            }
-            rn8 rn8Var = this.a.mCancelController;
-            rn8Var.c(rn8Var.c);
-            this.a.mCancelController.c = TbadkCoreStatisticKey.AntiLocateValue.LOCATE_HOT_BOOT;
-            if (cg5.a()) {
-                int i = Calendar.getInstance().get(11);
-                cg5.a = (i >= 23 || i < 7) ? true : true;
-                hk8 hk8Var2 = this.b;
-                if (hk8Var2 == null || hk8Var2.k() == null) {
-                    return;
+                if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
+                    String myTabText = TbadkCoreApplication.getInst().getActivityPrizeData().getMyTabText();
+                    if (!StringUtils.isNull(myTabText)) {
+                        dk8 dk8Var2 = this.b;
+                        if (dk8Var2 != null) {
+                            dk8Var2.N(myTabText);
+                        }
+                    } else {
+                        dk8 dk8Var3 = this.b;
+                        if (dk8Var3 != null) {
+                            dk8Var3.N(null);
+                        }
+                    }
+                } else {
+                    dk8 dk8Var4 = this.b;
+                    if (dk8Var4 != null) {
+                        dk8Var4.N(null);
+                    }
                 }
-                this.b.k().b();
-                this.b.k().a();
+            } else {
+                dk8 dk8Var5 = this.b;
+                if (dk8Var5 != null) {
+                    dk8Var5.N(null);
+                }
             }
+            if (TbSingleton.getInstance().canShowPermDialog()) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921360, this.b));
+            }
+            vm4.b().l("1", "");
+            qk8 qk8Var = this.c;
+            if (qk8Var != null && qk8Var.i() != null) {
+                this.c.i().a();
+            }
+            a();
         }
     }
 }

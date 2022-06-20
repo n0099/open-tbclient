@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vd5;
+import com.repackage.se5;
 /* loaded from: classes3.dex */
 public class LargeImageView extends DragImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vd5 v0;
+    public se5 v0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LargeImageView(Context context) {
@@ -37,7 +37,7 @@ public class LargeImageView extends DragImageView {
                 return;
             }
         }
-        this.v0 = new vd5(this);
+        this.v0 = new se5(this);
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView
@@ -127,7 +127,7 @@ public class LargeImageView extends DragImageView {
                 return;
             }
         }
-        this.v0 = new vd5(this);
+        this.v0 = new se5(this);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -149,6 +149,6 @@ public class LargeImageView extends DragImageView {
                 return;
             }
         }
-        this.v0 = new vd5(this);
+        this.v0 = new se5(this);
     }
 }

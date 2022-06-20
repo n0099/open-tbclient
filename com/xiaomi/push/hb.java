@@ -1,7 +1,11 @@
 package com.xiaomi.push;
 
+import android.content.ContentValues;
 import android.content.Context;
-import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,278 +14,281 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.nio.channels.FileLock;
+import com.yy.hiidostatis.inner.BaseStatisContent;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 /* loaded from: classes8.dex */
 public class hb {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
+    public static volatile int a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public static long f445a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public static ao f446a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public static com.xiaomi.push.providers.a f447a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public static final Object f448a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public static String f449a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public static List<a> f450a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static class a implements Runnable {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Context a;
+        public int a;
 
         /* renamed from: a  reason: collision with other field name */
-        public he f449a;
+        public long f451a;
 
-        public a(Context context, he heVar) {
+        /* renamed from: a  reason: collision with other field name */
+        public String f452a;
+        public int b;
+
+        /* renamed from: b  reason: collision with other field name */
+        public long f453b;
+
+        /* renamed from: b  reason: collision with other field name */
+        public String f454b;
+
+        public a(String str, long j, int i, int i2, String str2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, heVar};
+                Object[] objArr = {str, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), str2, Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f449a = heVar;
-            this.a = context;
+            this.f452a = "";
+            this.f451a = 0L;
+            this.a = -1;
+            this.b = -1;
+            this.f454b = "";
+            this.f453b = 0L;
+            this.f452a = str;
+            this.f451a = j;
+            this.a = i;
+            this.b = i2;
+            this.f454b = str2;
+            this.f453b = j2;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public boolean a(a aVar) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                hb.c(this.a, this.f449a);
-            }
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? TextUtils.equals(aVar.f452a, this.f452a) && TextUtils.equals(aVar.f454b, this.f454b) && aVar.a == this.a && aVar.b == this.b && Math.abs(aVar.f451a - this.f451a) <= 5000 : invokeL.booleanValue;
         }
     }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-56373114, "Lcom/xiaomi/push/hb;")) == null) {
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-56373114, "Lcom/xiaomi/push/hb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-56373114, "Lcom/xiaomi/push/hb;");
+                return;
+            }
+        }
+        f446a = new ao(true);
+        a = -1;
+        f445a = System.currentTimeMillis();
+        f448a = new Object();
+        f450a = Collections.synchronizedList(new ArrayList());
+        f449a = "";
+        f447a = null;
+    }
+
+    public static int a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (a == -1) {
+                a = b(context);
+            }
+            return a;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            try {
+                return str.getBytes("UTF-8").length;
+            } catch (UnsupportedEncodingException unused) {
+                return str.getBytes().length;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public static long a(int i, long j, boolean z, long j2, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z), Long.valueOf(j2), Boolean.valueOf(z2)})) == null) {
+            if (z && z2) {
+                long j3 = f445a;
+                f445a = j2;
+                if (j2 - j3 > 30000 && j > 1024) {
+                    return j * 2;
+                }
+            }
+            return (j * (i == 0 ? 13 : 11)) / 10;
+        }
+        return invokeCommon.longValue;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static com.xiaomi.push.providers.a m384a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            com.xiaomi.push.providers.a aVar = f447a;
+            if (aVar != null) {
+                return aVar;
+            }
+            com.xiaomi.push.providers.a aVar2 = new com.xiaomi.push.providers.a(context);
+            f447a = aVar2;
+            return aVar2;
+        }
+        return (com.xiaomi.push.providers.a) invokeL.objValue;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static synchronized String m385a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            synchronized (hb.class) {
+                return !TextUtils.isEmpty(f449a) ? f449a : "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static void m387a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, context) == null) {
+            a = b(context);
+        }
+    }
+
+    public static void a(Context context, String str, long j, boolean z, long j2) {
+        int a2;
+        boolean isEmpty;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, str, Long.valueOf(j), Boolean.valueOf(z), Long.valueOf(j2)}) == null) || context == null || TextUtils.isEmpty(str) || !"com.xiaomi.xmsf".equals(context.getPackageName()) || "com.xiaomi.xmsf".equals(str) || -1 == (a2 = a(context))) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        synchronized (f448a) {
+            isEmpty = f450a.isEmpty();
+            a(new a(str, j2, a2, z ? 1 : 0, a2 == 0 ? m385a(context) : "", j));
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-56373114, "Lcom/xiaomi/push/hb;");
+        if (isEmpty) {
+            f446a.a(new hc(context), 5000L);
         }
     }
 
-    public static void a(Context context) {
+    public static void a(Context context, String str, long j, boolean z, boolean z2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            File file = new File(context.getFilesDir() + "/tdReadTemp");
-            if (file.exists()) {
-                return;
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{context, str, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2), Long.valueOf(j2)}) == null) {
+            a(context, str, a(a(context), j, z, j2, z2), z, j2);
+        }
+    }
+
+    public static void a(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65548, null, aVar) == null) {
+            for (a aVar2 : f450a) {
+                if (aVar2.a(aVar)) {
+                    aVar2.f453b += aVar.f453b;
+                    return;
+                }
             }
-            file.mkdirs();
+            f450a.add(aVar);
         }
     }
 
-    public static void a(Context context, he heVar) {
+    /* renamed from: a  reason: collision with other method in class */
+    public static synchronized void m388a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, heVar) == null) {
-            ai.a(context).a(new a(context, heVar));
+        if (interceptable == null || interceptable.invokeL(65549, null, str) == null) {
+            synchronized (hb.class) {
+                if (!m.m561d() && !TextUtils.isEmpty(str)) {
+                    f449a = str;
+                }
+            }
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x00a1, code lost:
-        r15 = "TinyData read from cache file failed cause lengthBuffer < 1 || too big. length:" + r7;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void a(Context context, he heVar, File file, byte[] bArr) {
-        String str;
+    public static int b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLLLL(65539, null, context, heVar, file, bArr) != null) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList();
-        byte[] bArr2 = new byte[4];
-        BufferedInputStream bufferedInputStream = null;
-        try {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
             try {
-                BufferedInputStream bufferedInputStream2 = new BufferedInputStream(new FileInputStream(file));
-                loop0: while (true) {
-                    int i = 0;
-                    int i2 = 0;
-                    while (true) {
-                        try {
-                            int read = bufferedInputStream2.read(bArr2);
-                            if (read == -1) {
-                                break loop0;
-                            } else if (read == 4) {
-                                int a2 = ac.a(bArr2);
-                                if (a2 < 1 || a2 > 10240) {
-                                    break loop0;
-                                }
-                                byte[] bArr3 = new byte[a2];
-                                int read2 = bufferedInputStream2.read(bArr3);
-                                if (read2 != a2) {
-                                    str = "TinyData read from cache file failed cause buffer size not equal length. size:" + read2 + "__length:" + a2;
-                                    break loop0;
-                                }
-                                byte[] a3 = h.a(bArr, bArr3);
-                                if (a3 != null && a3.length != 0) {
-                                    hj hjVar = new hj();
-                                    ip.a(hjVar, a3);
-                                    hjVar.a("item_size", String.valueOf(a3.length));
-                                    arrayList.add(hjVar);
-                                    i++;
-                                    i2 += a3.length;
-                                    if (i >= 8 || i2 >= 10240) {
-                                    }
-                                }
-                                com.xiaomi.channel.commonutils.logger.b.d("TinyData read from cache file failed cause decrypt fail");
-                            } else {
-                                str = "TinyData read from cache file failed cause lengthBuffer error. size:" + read;
-                                break loop0;
-                            }
-                        } catch (Exception e) {
-                            e = e;
-                            bufferedInputStream = bufferedInputStream2;
-                            com.xiaomi.channel.commonutils.logger.b.a(e);
-                            y.a(bufferedInputStream);
-                            return;
-                        } catch (Throwable th) {
-                            th = th;
-                            bufferedInputStream = bufferedInputStream2;
-                            y.a(bufferedInputStream);
-                            throw th;
-                        }
-                    }
-                    hc.a(context, heVar, arrayList);
-                    arrayList.clear();
+                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+                if (connectivityManager == null) {
+                    return -1;
                 }
-                com.xiaomi.channel.commonutils.logger.b.d(str);
-                hc.a(context, heVar, arrayList);
-                if (file != null && file.exists() && !file.delete()) {
-                    com.xiaomi.channel.commonutils.logger.b.m108a("TinyData delete reading temp file failed");
+                NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+                if (activeNetworkInfo == null) {
+                    return -1;
                 }
-                y.a(bufferedInputStream2);
-            } catch (Throwable th2) {
-                th = th2;
+                return activeNetworkInfo.getType();
+            } catch (Exception unused) {
+                return -1;
             }
-        } catch (Exception e2) {
-            e = e2;
         }
+        return invokeL.intValue;
     }
 
-    public static void b(Context context) {
+    public static void b(Context context, List<a> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
-            SharedPreferences.Editor edit = context.getSharedPreferences("mipush_extra", 4).edit();
-            edit.putLong("last_tiny_data_upload_timestamp", System.currentTimeMillis() / 1000);
-            edit.commit();
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:36:0x00bb  */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x00bf  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void c(Context context, he heVar) {
-        RandomAccessFile randomAccessFile;
-        File file;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, context, heVar) == null) {
-            if (a) {
-                com.xiaomi.channel.commonutils.logger.b.m108a("TinyData extractTinyData is running");
-                return;
-            }
-            a = true;
-            File file2 = new File(context.getFilesDir(), "tiny_data.data");
-            if (!file2.exists()) {
-                com.xiaomi.channel.commonutils.logger.b.m108a("TinyData no ready file to get data.");
-                return;
-            }
-            a(context);
-            byte[] a2 = com.xiaomi.push.service.bn.a(context);
-            FileLock fileLock = null;
+        if (interceptable == null || interceptable.invokeLL(65551, null, context, list) == null) {
             try {
-                File file3 = new File(context.getFilesDir(), "tiny_data.lock");
-                y.m681a(file3);
-                randomAccessFile = new RandomAccessFile(file3, "rw");
-                try {
-                    try {
-                        fileLock = randomAccessFile.getChannel().lock();
-                        file2.renameTo(new File(context.getFilesDir() + "/tdReadTemp/tiny_data.data"));
-                        if (fileLock != null && fileLock.isValid()) {
-                            try {
-                                fileLock.release();
-                            } catch (IOException e) {
-                                e = e;
-                                com.xiaomi.channel.commonutils.logger.b.a(e);
-                                y.a(randomAccessFile);
-                                file = new File(context.getFilesDir() + "/tdReadTemp/tiny_data.data");
-                                if (file.exists()) {
-                                }
-                            }
-                        }
-                    } catch (Exception e2) {
-                        e = e2;
-                        com.xiaomi.channel.commonutils.logger.b.a(e);
-                        if (fileLock != null && fileLock.isValid()) {
-                            try {
-                                fileLock.release();
-                            } catch (IOException e3) {
-                                e = e3;
-                                com.xiaomi.channel.commonutils.logger.b.a(e);
-                                y.a(randomAccessFile);
-                                file = new File(context.getFilesDir() + "/tdReadTemp/tiny_data.data");
-                                if (file.exists()) {
-                                }
-                            }
-                        }
-                        y.a(randomAccessFile);
-                        file = new File(context.getFilesDir() + "/tdReadTemp/tiny_data.data");
-                        if (file.exists()) {
-                        }
+                synchronized (com.xiaomi.push.providers.a.f816a) {
+                    SQLiteDatabase writableDatabase = m384a(context).getWritableDatabase();
+                    writableDatabase.beginTransaction();
+                    for (a aVar : list) {
+                        ContentValues contentValues = new ContentValues();
+                        contentValues.put("package_name", aVar.f452a);
+                        contentValues.put("message_ts", Long.valueOf(aVar.f451a));
+                        contentValues.put("network_type", Integer.valueOf(aVar.a));
+                        contentValues.put("bytes", Long.valueOf(aVar.f453b));
+                        contentValues.put("rcv", Integer.valueOf(aVar.b));
+                        contentValues.put(BaseStatisContent.IMSI, aVar.f454b);
+                        writableDatabase.insert("traffic", null, contentValues);
                     }
-                } catch (Throwable th) {
-                    th = th;
-                    if (fileLock != null && fileLock.isValid()) {
-                        try {
-                            fileLock.release();
-                        } catch (IOException e4) {
-                            com.xiaomi.channel.commonutils.logger.b.a(e4);
-                        }
-                    }
-                    y.a(randomAccessFile);
-                    throw th;
+                    writableDatabase.setTransactionSuccessful();
+                    writableDatabase.endTransaction();
                 }
-            } catch (Exception e5) {
-                e = e5;
-                randomAccessFile = null;
-            } catch (Throwable th2) {
-                th = th2;
-                randomAccessFile = null;
-                if (fileLock != null) {
-                    fileLock.release();
-                }
-                y.a(randomAccessFile);
-                throw th;
+            } catch (Throwable th) {
+                com.xiaomi.channel.commonutils.logger.b.a(th);
             }
-            y.a(randomAccessFile);
-            file = new File(context.getFilesDir() + "/tdReadTemp/tiny_data.data");
-            if (file.exists()) {
-                com.xiaomi.channel.commonutils.logger.b.m108a("TinyData no ready file to get data.");
-                return;
-            }
-            a(context, heVar, file, a2);
-            ha.a(false);
-            b(context);
-            a = false;
         }
     }
 }

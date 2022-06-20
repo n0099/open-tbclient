@@ -1,84 +1,65 @@
 package com.repackage;
 
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.pms.bean.ErrorInfo;
-import com.baidu.searchbox.pms.bean.PackageInfo;
-import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.concurrent.ConcurrentHashMap;
+import java.lang.reflect.Array;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.util.Arrays;
 /* loaded from: classes7.dex */
-public class yl extends DefaultDownloadCallback {
+public class yl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public DefaultDownloadCallback a;
 
-    public yl(DefaultDownloadCallback defaultDownloadCallback) {
+    public static void a(Object obj, String str, Object[] objArr) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {defaultDownloadCallback};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = defaultDownloadCallback;
-    }
-
-    @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
-    public void onDownloadError(PackageInfo packageInfo, ErrorInfo errorInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, packageInfo, errorInfo) == null) || errorInfo == null) {
-            return;
-        }
-        BdLog.e(errorInfo.errorMsg);
-        DefaultDownloadCallback defaultDownloadCallback = this.a;
-        if (defaultDownloadCallback != null) {
-            defaultDownloadCallback.onDownloadError(packageInfo, errorInfo);
+        if (interceptable == null || interceptable.invokeLLL(65536, null, obj, str, objArr) == null) {
+            Field b = b(obj, str);
+            Object[] objArr2 = (Object[]) b.get(obj);
+            Object[] objArr3 = (Object[]) Array.newInstance(objArr2.getClass().getComponentType(), objArr2.length + objArr.length);
+            System.arraycopy(objArr, 0, objArr3, 0, objArr.length);
+            System.arraycopy(objArr2, 0, objArr3, objArr.length, objArr2.length);
+            b.set(obj, objArr3);
         }
     }
 
-    @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
-    public void onDownloadSuccess(PackageInfo packageInfo, ErrorInfo errorInfo) {
+    public static Field b(Object obj, String str) throws NoSuchFieldException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, errorInfo) == null) || packageInfo == null || StringUtils.isNull(packageInfo.filePath) || StringUtils.isNull(packageInfo.name)) {
-            return;
-        }
-        File file = new File(packageInfo.filePath);
-        if (file.exists() && file.isFile()) {
-            String b = am.b(packageInfo.name);
-            File file2 = new File(b);
-            if ((!file2.exists() || file2.delete()) && file.renameTo(file2)) {
-                if (b.contains(".so")) {
-                    if (cm.a(BdBaseApplication.getInst().getContext(), am.a(packageInfo.name))) {
-                        ConcurrentHashMap<String, String> resHashMap = BdBaseApplication.getInst().getResHashMap();
-                        String str = packageInfo.name;
-                        resHashMap.put(str, am.a(str));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, obj, str)) == null) {
+            for (Class<?> cls = obj.getClass(); cls != null; cls = cls.getSuperclass()) {
+                try {
+                    Field declaredField = cls.getDeclaredField(str);
+                    if (!declaredField.isAccessible()) {
+                        declaredField.setAccessible(true);
                     }
-                    ((sl) ServiceManager.getService(sl.a)).a(packageInfo.name);
-                } else {
-                    ConcurrentHashMap<String, String> resHashMap2 = BdBaseApplication.getInst().getResHashMap();
-                    String str2 = packageInfo.name;
-                    resHashMap2.put(str2, am.a(str2));
-                }
-                DefaultDownloadCallback defaultDownloadCallback = this.a;
-                if (defaultDownloadCallback != null) {
-                    defaultDownloadCallback.onDownloadSuccess(packageInfo, errorInfo);
+                    return declaredField;
+                } catch (NoSuchFieldException e) {
+                    e.printStackTrace();
                 }
             }
+            throw new NoSuchFieldException("Field " + str + " not found in " + obj.getClass());
         }
+        return (Field) invokeLL.objValue;
+    }
+
+    public static Method c(Object obj, String str, Class<?>... clsArr) throws NoSuchMethodException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, obj, str, clsArr)) == null) {
+            for (Class<?> cls = obj.getClass(); cls != null; cls = cls.getSuperclass()) {
+                try {
+                    Method declaredMethod = cls.getDeclaredMethod(str, clsArr);
+                    if (!declaredMethod.isAccessible()) {
+                        declaredMethod.setAccessible(true);
+                    }
+                    return declaredMethod;
+                } catch (NoSuchMethodException unused) {
+                }
+            }
+            throw new NoSuchMethodException("Method " + str + " with parameters " + Arrays.asList(clsArr) + " not found in " + obj.getClass());
+        }
+        return (Method) invokeLLL.objValue;
     }
 }

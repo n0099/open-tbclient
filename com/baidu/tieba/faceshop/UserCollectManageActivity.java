@@ -32,41 +32,39 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.at4;
-import com.repackage.b76;
-import com.repackage.dq4;
-import com.repackage.f76;
-import com.repackage.kl7;
-import com.repackage.l76;
-import com.repackage.li;
-import com.repackage.v25;
-import com.repackage.w66;
+import com.repackage.b86;
+import com.repackage.f86;
+import com.repackage.jt4;
+import com.repackage.k35;
+import com.repackage.l86;
+import com.repackage.nq4;
+import com.repackage.pi;
+import com.repackage.vm7;
+import com.repackage.w76;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class UserCollectManageActivity extends BaseActivity<UserCollectManageActivity> implements l76.l, w66.e, w66.d, f76.c {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String KEY_SELECT_ALBUM_LIST = "selected_album_list";
+public class UserCollectManageActivity extends BaseActivity<UserCollectManageActivity> implements l86.l, w76.e, w76.d, f86.c {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View coverView;
-    public boolean isManageState;
-    public w66 mAdapter;
-    public RelativeLayout mControllerView;
-    public TextView mDelete;
-    public dq4 mDeleteDialog;
-    public DialogInterface.OnCancelListener mDialogCancelListener;
-    public GridView mGridView;
-    public at4 mLoadingDialog;
-    public TextView mManage;
-    public TextView mMoveFirst;
-    public NavigationBar mNavigationBar;
-    public View.OnClickListener mOnClickListener;
-    public PermissionJudgePolicy mPermissionJudgement;
-    public TextView mSaveLocal;
-    public f76 mUpLoadController;
-    public int skinType;
-    public View verticalLine;
+    public NavigationBar a;
+    public TextView b;
+    public GridView c;
+    public w76 d;
+    public RelativeLayout e;
+    public TextView f;
+    public TextView g;
+    public TextView h;
+    public View i;
+    public View j;
+    public boolean k;
+    public nq4 l;
+    public f86 m;
+    public jt4 n;
+    public DialogInterface.OnCancelListener o;
+    public PermissionJudgePolicy p;
+    public View.OnClickListener q;
 
     /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<Void, Void, List<CollectEmotionData>> {
@@ -99,14 +97,14 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                List<CollectEmotionData> q = b76.o().q(TbadkCoreApplication.getCurrentAccount());
+                List<CollectEmotionData> q = b86.o().q(TbadkCoreApplication.getCurrentAccount());
                 if (q == null || q.size() < 1) {
                     return null;
                 }
                 ArrayList arrayList = new ArrayList();
                 for (CollectEmotionData collectEmotionData : q) {
-                    if (!v25.f.equals(collectEmotionData.getSharpText()) && !TextUtils.isEmpty(collectEmotionData.pid)) {
-                        String str = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + v25.d() + "/" + collectEmotionData.pid + "_s.jpg";
+                    if (!k35.f.equals(collectEmotionData.getSharpText()) && !TextUtils.isEmpty(collectEmotionData.pid)) {
+                        String str = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + k35.d() + "/" + collectEmotionData.pid + "_s.jpg";
                         ImageFileInfo imageFileInfo = new ImageFileInfo();
                         imageFileInfo.setFilePath(str);
                         File file = new File(str);
@@ -128,8 +126,8 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
         public void onPostExecute(List<CollectEmotionData> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                this.a.mAdapter.i(list);
-                this.a.mAdapter.notifyDataSetChanged();
+                this.a.d.i(list);
+                this.a.d.notifyDataSetChanged();
             }
         }
     }
@@ -228,24 +226,24 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (kl7.o().p()) {
-                    li.N(view2.getContext(), R.string.obfuscated_res_0x7f0f05dc);
+                if (vm7.o().p()) {
+                    pi.N(view2.getContext(), R.string.obfuscated_res_0x7f0f05d0);
                     return;
                 }
                 UserCollectManageActivity userCollectManageActivity = this.a;
-                userCollectManageActivity.isManageState = !userCollectManageActivity.isManageState;
-                if (this.a.isManageState) {
-                    SkinManager.setNavbarTitleColor(this.a.mManage, R.color.CAM_X0302, R.color.s_navbar_title_color);
-                    this.a.mManage.setText(R.string.obfuscated_res_0x7f0f04f4);
-                    this.a.mControllerView.setVisibility(0);
-                    this.a.coverView.setVisibility(0);
+                userCollectManageActivity.k = !userCollectManageActivity.k;
+                if (this.a.k) {
+                    SkinManager.setNavbarTitleColor(this.a.b, R.color.CAM_X0302, R.color.s_navbar_title_color);
+                    this.a.b.setText(R.string.obfuscated_res_0x7f0f04e6);
+                    this.a.e.setVisibility(0);
+                    this.a.i.setVisibility(0);
                 } else {
-                    SkinManager.setViewTextColor(this.a.mManage, R.color.CAM_X0105, 1);
-                    this.a.mManage.setText(R.string.obfuscated_res_0x7f0f03f8);
-                    this.a.mControllerView.setVisibility(8);
-                    this.a.mDelete.setText(R.string.obfuscated_res_0x7f0f04a4);
+                    SkinManager.setViewTextColor(this.a.b, R.color.CAM_X0105, 1);
+                    this.a.b.setText(R.string.obfuscated_res_0x7f0f03e9);
+                    this.a.e.setVisibility(8);
+                    this.a.h.setText(R.string.obfuscated_res_0x7f0f0496);
                 }
-                this.a.mAdapter.j(this.a.isManageState);
+                this.a.d.j(this.a.k);
             }
         }
     }
@@ -277,38 +275,38 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.isManageState) {
-                ArrayList arrayList = new ArrayList(this.a.mAdapter.g());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.k) {
+                ArrayList arrayList = new ArrayList(this.a.d.g());
                 if (arrayList.size() == 0) {
                     return;
                 }
-                if (view2 == this.a.mDelete) {
-                    this.a.showDialog();
+                if (view2 == this.a.h) {
+                    this.a.N1();
                     return;
                 }
-                if (view2 != this.a.mMoveFirst) {
-                    if (view2 == this.a.mSaveLocal) {
+                if (view2 != this.a.f) {
+                    if (view2 == this.a.g) {
                         Activity pageActivity = this.a.getPageContext().getPageActivity();
-                        if (this.a.mPermissionJudgement == null) {
-                            this.a.mPermissionJudgement = new PermissionJudgePolicy();
+                        if (this.a.p == null) {
+                            this.a.p = new PermissionJudgePolicy();
                         }
-                        this.a.mPermissionJudgement.clearRequestPermissionList();
-                        this.a.mPermissionJudgement.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
-                        if (this.a.mPermissionJudgement.startRequestPermission(pageActivity)) {
+                        this.a.p.clearRequestPermissionList();
+                        this.a.p.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
+                        if (this.a.p.startRequestPermission(pageActivity)) {
                             return;
                         }
-                        l76.t().w(arrayList, this.a);
+                        l86.t().w(arrayList, this.a);
                     }
                 } else {
-                    l76.t().u(arrayList, true, this.a);
+                    l86.t().u(arrayList, true, this.a);
                 }
-                this.a.mAdapter.e();
+                this.a.d.e();
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class f implements dq4.e {
+    public class f implements nq4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UserCollectManageActivity a;
@@ -331,20 +329,20 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
             this.a = userCollectManageActivity;
         }
 
-        @Override // com.repackage.dq4.e
-        public void onClick(dq4 dq4Var) {
+        @Override // com.repackage.nq4.e
+        public void onClick(nq4 nq4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dq4Var) == null) {
-                l76.t().m(new ArrayList(this.a.mAdapter.g()), true, this.a);
-                dq4Var.dismiss();
-                this.a.mAdapter.e();
-                this.a.mDelete.setText(R.string.obfuscated_res_0x7f0f04a4);
+            if (interceptable == null || interceptable.invokeL(1048576, this, nq4Var) == null) {
+                l86.t().m(new ArrayList(this.a.d.g()), true, this.a);
+                nq4Var.dismiss();
+                this.a.d.e();
+                this.a.h.setText(R.string.obfuscated_res_0x7f0f0496);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class g implements dq4.e {
+    public class g implements nq4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UserCollectManageActivity a;
@@ -367,11 +365,11 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
             this.a = userCollectManageActivity;
         }
 
-        @Override // com.repackage.dq4.e
-        public void onClick(dq4 dq4Var) {
+        @Override // com.repackage.nq4.e
+        public void onClick(nq4 nq4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dq4Var) == null) {
-                dq4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, nq4Var) == null) {
+                nq4Var.dismiss();
             }
         }
     }
@@ -389,177 +387,175 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
                 return;
             }
         }
-        this.mOnClickListener = new e(this);
+        this.q = new e(this);
     }
 
-    private void initData() {
+    @Override // com.repackage.w76.e
+    public void B(List<CollectEmotionData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
-            new a(this).execute(new Void[0]);
-            this.mDialogCancelListener = new b(this);
-        }
-    }
-
-    private void initUI() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923a2);
-            this.mNavigationBar = navigationBar;
-            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f03f9));
-            this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c(this));
-            if (this.mNavigationBar.getBackImageView() != null) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mNavigationBar.getBackImageView(), R.drawable.obfuscated_res_0x7f0809dd, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            }
-            TextView addTextButton = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.obfuscated_res_0x7f0f03f8), new d(this));
-            this.mManage = addTextButton;
-            SkinManager.setViewTextColor(addTextButton, (int) R.color.CAM_X0105);
-            this.mGridView = (GridView) findViewById(R.id.obfuscated_res_0x7f09065d);
-            this.mControllerView = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906d9);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091423);
-            this.mMoveFirst = textView;
-            textView.setOnClickListener(this.mOnClickListener);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091bdc);
-            this.mSaveLocal = textView2;
-            textView2.setOnClickListener(this.mOnClickListener);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0922d0);
-            this.verticalLine = findViewById;
-            SkinManager.setBackgroundColor(findViewById, R.color.CAM_X0204);
-            TextView textView3 = (TextView) findViewById(R.id.obfuscated_res_0x7f09075a);
-            this.mDelete = textView3;
-            textView3.setOnClickListener(this.mOnClickListener);
-            this.coverView = findViewById(R.id.obfuscated_res_0x7f0906ee);
-            this.mGridView = (GridView) findViewById(R.id.obfuscated_res_0x7f09065d);
-            w66 w66Var = new w66(this);
-            this.mAdapter = w66Var;
-            w66Var.h(this);
-            this.mAdapter.notifyDataSetChanged();
-            this.mGridView.setAdapter((ListAdapter) this.mAdapter);
-            this.mLoadingDialog = new at4(getPageContext());
-            TiebaStatic.log("c12225");
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void showDialog() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65551, this) == null) {
-            if (this.mDeleteDialog == null) {
-                dq4 dq4Var = new dq4(getPageContext().getPageActivity());
-                this.mDeleteDialog = dq4Var;
-                dq4Var.setMessageId(R.string.obfuscated_res_0x7f0f03f6);
-                this.mDeleteDialog.setPositiveButton(R.string.obfuscated_res_0x7f0f04ea, new f(this));
-                this.mDeleteDialog.setNegativeButton(R.string.obfuscated_res_0x7f0f04e5, new g(this));
-                this.mDeleteDialog.setCancelable(true);
-                this.mDeleteDialog.create(getPageContext());
-            }
-            this.mDeleteDialog.show();
-        }
-    }
-
-    private void startUpload2Cdn(ArrayList<ImageFileInfo> arrayList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65552, this, arrayList) == null) || ListUtils.isEmpty(arrayList)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || list == null) {
             return;
         }
-        TiebaStatic.log(new StatisticItem("c12491").param("obj_param1", arrayList.size()));
-        showLoadingDialog(getPageContext().getString(R.string.obfuscated_res_0x7f0f111a), this.mDialogCancelListener);
-        this.mUpLoadController.a(arrayList, this);
+        if (list.size() == 0) {
+            this.i.setVisibility(0);
+            this.h.setText(R.string.obfuscated_res_0x7f0f0496);
+            return;
+        }
+        this.i.setVisibility(8);
+        this.h.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f03e8), Integer.valueOf(list.size())));
     }
 
-    @Override // com.repackage.f76.c
-    public void cdnFail() {
+    @Override // com.repackage.f86.c
+    public void C0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             closeLoadingDialog();
         }
     }
 
-    @Override // com.repackage.f76.c
-    public void cdnSuccess(List<String> list) {
+    public final void M1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09238f);
+            this.a = navigationBar;
+            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f03ea));
+            this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c(this));
+            if (this.a.getBackImageView() != null) {
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a.getBackImageView(), R.drawable.obfuscated_res_0x7f0809c8, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            }
+            TextView addTextButton = this.a.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.obfuscated_res_0x7f0f03e9), new d(this));
+            this.b = addTextButton;
+            SkinManager.setViewTextColor(addTextButton, (int) R.color.CAM_X0105);
+            this.c = (GridView) findViewById(R.id.obfuscated_res_0x7f09063e);
+            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906c4);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091415);
+            this.f = textView;
+            textView.setOnClickListener(this.q);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091bd4);
+            this.g = textView2;
+            textView2.setOnClickListener(this.q);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0922bd);
+            this.j = findViewById;
+            SkinManager.setBackgroundColor(findViewById, R.color.CAM_X0204);
+            TextView textView3 = (TextView) findViewById(R.id.obfuscated_res_0x7f090745);
+            this.h = textView3;
+            textView3.setOnClickListener(this.q);
+            this.i = findViewById(R.id.obfuscated_res_0x7f0906d9);
+            this.c = (GridView) findViewById(R.id.obfuscated_res_0x7f09063e);
+            w76 w76Var = new w76(this);
+            this.d = w76Var;
+            w76Var.h(this);
+            this.d.notifyDataSetChanged();
+            this.c.setAdapter((ListAdapter) this.d);
+            this.n = new jt4(getPageContext());
+            TiebaStatic.log("c12225");
+        }
+    }
+
+    public final void N1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (this.l == null) {
+                nq4 nq4Var = new nq4(getPageContext().getPageActivity());
+                this.l = nq4Var;
+                nq4Var.setMessageId(R.string.obfuscated_res_0x7f0f03e7);
+                this.l.setPositiveButton(R.string.obfuscated_res_0x7f0f04dc, new f(this));
+                this.l.setNegativeButton(R.string.obfuscated_res_0x7f0f04d7, new g(this));
+                this.l.setCancelable(true);
+                this.l.create(getPageContext());
+            }
+            this.l.show();
+        }
+    }
+
+    public final void O1(ArrayList<ImageFileInfo> arrayList) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) || ListUtils.isEmpty(arrayList)) {
+            return;
+        }
+        TiebaStatic.log(new StatisticItem("c12491").param("obj_param1", arrayList.size()));
+        showLoadingDialog(getPageContext().getString(R.string.obfuscated_res_0x7f0f1125), this.o);
+        this.m.a(arrayList, this);
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void closeLoadingDialog() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.n.h(false);
+        }
+    }
+
+    @Override // com.repackage.f86.c
+    public void d0(List<String> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             if (!ListUtils.isEmpty(list)) {
-                l76.t().k(list, this);
+                l86.t().k(list, this);
             } else {
                 closeLoadingDialog();
             }
         }
     }
 
-    @Override // com.repackage.w66.d
-    public void clickAdd() {
+    public final void initData() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            sendMessage(new CustomMessage(2002001, new UserAlbumActivityConfig(getPageContext().getPageActivity(), 25030)));
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            new a(this).execute(new Void[0]);
+            this.o = new b(this);
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity
-    public void closeLoadingDialog() {
+    @Override // com.repackage.w76.d
+    public void k1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.mLoadingDialog.h(false);
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            sendMessage(new CustomMessage(2002001, new UserAlbumActivityConfig(getPageContext().getPageActivity(), 25030)));
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048580, this, i, i2, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048585, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
-            if (i2 == -1 && i == 25030 && intent.getSerializableExtra(KEY_SELECT_ALBUM_LIST) != null) {
-                ArrayList<ImageFileInfo> arrayList = (ArrayList) intent.getSerializableExtra(KEY_SELECT_ALBUM_LIST);
+            if (i2 == -1 && i == 25030 && intent.getSerializableExtra("selected_album_list") != null) {
+                ArrayList<ImageFileInfo> arrayList = (ArrayList) intent.getSerializableExtra("selected_album_list");
                 if (ListUtils.isEmpty(arrayList)) {
                     return;
                 }
-                startUpload2Cdn(arrayList);
+                O1(arrayList);
             }
         }
-    }
-
-    @Override // com.repackage.w66.e
-    public void onChange(List<CollectEmotionData> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, list) == null) || list == null) {
-            return;
-        }
-        if (list.size() == 0) {
-            this.coverView.setVisibility(0);
-            this.mDelete.setText(R.string.obfuscated_res_0x7f0f04a4);
-            return;
-        }
-        this.coverView.setVisibility(8);
-        this.mDelete.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f03f7), Integer.valueOf(list.size())));
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.skinType = i;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
             super.onChangeSkinType(i);
             getLayoutMode().k(i == 1);
-            this.mAdapter.k(i);
-            this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-            SkinManager.setBackgroundColor(this.mControllerView, R.color.CAM_X0201, i);
-            SkinManager.setBackgroundColor(this.mGridView, R.color.CAM_X0201, i);
+            this.d.k(i);
+            this.a.onChangeSkinType(getPageContext(), i);
+            SkinManager.setBackgroundColor(this.e, R.color.CAM_X0201, i);
+            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0201, i);
             if (i != 1 && i != 4) {
-                SkinManager.setBackgroundColor(this.coverView, R.color.white_alpha70, i);
+                SkinManager.setBackgroundColor(this.i, R.color.white_alpha70, i);
             } else {
-                SkinManager.setBackgroundColor(this.coverView, R.color.common_color_10311, i);
+                SkinManager.setBackgroundColor(this.i, R.color.common_color_10311, i);
             }
-            SkinManager.setBackgroundColor(this.verticalLine, R.color.CAM_X0204, i);
+            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0204, i);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d01e1);
-            this.mUpLoadController = new f76();
-            initUI();
+            setContentView(R.layout.obfuscated_res_0x7f0d01de);
+            this.m = new f86();
+            M1();
             initData();
         }
     }
@@ -567,32 +563,32 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onDestroy();
-            this.mAdapter.h(null);
+            this.d.h(null);
         }
     }
 
-    @Override // com.repackage.l76.l
+    @Override // com.repackage.l86.l
     public void onResult(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048585, this, i, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeIII(1048589, this, i, i2, i3) == null) {
             if (i == 1) {
-                li.O(TbadkCoreApplication.getInst().getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f0cfa));
+                pi.O(TbadkCoreApplication.getInst().getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f0cff));
             } else if (i == 2) {
-                li.O(TbadkCoreApplication.getInst().getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f0cfa));
+                pi.O(TbadkCoreApplication.getInst().getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f0cff));
             } else if (i == 3) {
-                String format = String.format(getResources().getString(R.string.obfuscated_res_0x7f0f108d), Integer.valueOf(i2));
+                String format = String.format(getResources().getString(R.string.obfuscated_res_0x7f0f1098), Integer.valueOf(i2));
                 if (i3 != 0) {
-                    format = String.format(getResources().getString(R.string.obfuscated_res_0x7f0f108e), Integer.valueOf(i2), Integer.valueOf(i3));
+                    format = String.format(getResources().getString(R.string.obfuscated_res_0x7f0f1099), Integer.valueOf(i2), Integer.valueOf(i3));
                 }
-                li.O(TbadkCoreApplication.getInst().getContext(), format);
+                pi.O(TbadkCoreApplication.getInst().getContext(), format);
             } else if (i == 4) {
                 closeLoadingDialog();
                 if (i2 > 0) {
-                    li.O(TbadkCoreApplication.getInst().getContext(), getPageContext().getString(R.string.obfuscated_res_0x7f0f05ed));
+                    pi.O(TbadkCoreApplication.getInst().getContext(), getPageContext().getString(R.string.obfuscated_res_0x7f0f05e1));
                 } else {
-                    li.O(TbadkCoreApplication.getInst().getContext(), getPageContext().getString(R.string.obfuscated_res_0x7f0f05ec));
+                    pi.O(TbadkCoreApplication.getInst().getContext(), getPageContext().getString(R.string.obfuscated_res_0x7f0f05e0));
                 }
             }
             initData();
@@ -602,10 +598,10 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
     @Override // com.baidu.tbadk.BaseActivity
     public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, str, onCancelListener) == null) {
-            this.mLoadingDialog.e(null);
-            this.mLoadingDialog.j(getPageContext().getString(R.string.obfuscated_res_0x7f0f03fd));
-            this.mLoadingDialog.h(true);
+        if (interceptable == null || interceptable.invokeLL(1048590, this, str, onCancelListener) == null) {
+            this.n.e(null);
+            this.n.j(getPageContext().getString(R.string.obfuscated_res_0x7f0f03ee));
+            this.n.h(true);
         }
     }
 }

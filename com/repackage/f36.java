@@ -1,16 +1,16 @@
 package com.repackage;
 
+import android.webkit.JsPromptResult;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class f36 extends mn4 {
+public class f36 implements a36 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d36 d;
-    public List<e36> e;
 
     public f36() {
         Interceptable interceptable = $ic;
@@ -22,9 +22,26 @@ public class f36 extends mn4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        g(12);
+    }
+
+    @Override // com.repackage.a36
+    public void a(String str, String str2, String str3, String str4, JsPromptResult jsPromptResult) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLLL(1048576, this, str, str2, str3, str4, jsPromptResult) == null) && b().equals(str)) {
+            try {
+                z26.f().h(str2);
+            } catch (Throwable unused) {
+                z26.f().e();
+            }
+        }
+    }
+
+    @Override // com.repackage.a36
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "showH5Dialog" : (String) invokeV.objValue;
     }
 }

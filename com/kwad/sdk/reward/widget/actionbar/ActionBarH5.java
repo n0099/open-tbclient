@@ -42,13 +42,13 @@ public class ActionBarH5 extends FrameLayout implements d {
     }
 
     private void a(Context context) {
-        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d045f, this);
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091054);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091058);
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0459, this);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091044);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091048);
     }
 
     private void a(View view2, final boolean z) {
-        com.kwad.sdk.core.download.a.a.a(new a.C0296a(view2.getContext()).a(this.c).a(new a.b() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarH5.1
+        com.kwad.sdk.core.download.a.a.a(new a.C0304a(view2.getContext()).a(this.c).a(new a.b() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarH5.1
             @Override // com.kwad.sdk.core.download.a.a.b
             public void a() {
                 if (ActionBarH5.this.d != null) {

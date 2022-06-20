@@ -1,291 +1,221 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.message.SocketMessage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes7.dex */
-public class v9 {
+public class v9 extends u9<CustomMessage<?>, CustomMessageTask> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(LinkedList<x9> linkedList) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, linkedList)) == null) {
-            if (linkedList == null) {
-                return false;
-            }
-            Iterator<x9> it = linkedList.iterator();
-            while (it.hasNext()) {
-                x9 next = it.next();
-                if (next != null && next.i()) {
-                    next.g();
-                    if (next.o() >= next.l()) {
-                        return true;
-                    }
+    /* loaded from: classes7.dex */
+    public class a extends BdAsyncTask<String, String, CustomResponsedMessage<?>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public CustomMessage a;
+        public CustomMessageTask b;
+        public final /* synthetic */ v9 c;
+
+        public a(v9 v9Var, CustomMessage customMessage, CustomMessageTask customMessageTask) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v9Var, customMessage, customMessageTask};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void b(LinkedList<x9> linkedList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, linkedList) == null) || linkedList == null) {
-            return;
-        }
-        Iterator<x9> it = linkedList.iterator();
-        while (it.hasNext()) {
-            x9 next = it.next();
-            if (next != null) {
-                next.j();
+            this.c = v9Var;
+            this.a = null;
+            this.b = null;
+            setPriority(customMessageTask.getPriority());
+            setParallel(customMessageTask.getParallel());
+            if (customMessage != null) {
+                setTag(customMessage.getTag());
             }
+            setKey(String.valueOf(customMessageTask.getCmd()));
+            setParallel(customMessageTask.getTaskParallel());
+            if (customMessageTask.isImme()) {
+                setPriority(4);
+            }
+            this.a = customMessage;
+            this.b = customMessageTask;
         }
-    }
 
-    public static boolean c(LinkedList<x9> linkedList, int i, BdUniqueId bdUniqueId) {
-        InterceptResult invokeLIL;
-        SocketMessage m;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, linkedList, i, bdUniqueId)) == null) {
-            Iterator<x9> it = linkedList.iterator();
-            while (it.hasNext()) {
-                x9 next = it.next();
-                if (next != null && (m = next.m()) != null) {
-                    if (i != 0 && m.getTag() == bdUniqueId && i == m.getCmd()) {
-                        return true;
-                    }
-                    if (i == 0 && bdUniqueId != null && m.getTag() == bdUniqueId) {
-                        return true;
-                    }
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public CustomResponsedMessage doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                CustomMessageTask customMessageTask = this.b;
+                if (customMessageTask == null) {
+                    return null;
+                }
+                if (customMessageTask.getRunnable() == null) {
+                    BdLog.e("CustomTask :" + this.b.getClass().getName() + "did not contain a runnable!!");
+                    return null;
+                }
+                try {
+                    return this.b.getRunnable().run(this.a);
+                } catch (Exception e) {
+                    BdLog.detailException(e);
+                    return null;
                 }
             }
-            return false;
+            return (CustomResponsedMessage) invokeL.objValue;
         }
-        return invokeLIL.booleanValue;
-    }
 
-    public static boolean d(LinkedList<x9> linkedList, t9 t9Var, int i) {
-        InterceptResult invokeLLI;
-        SocketMessage m;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, linkedList, t9Var, i)) == null) {
-            if (t9Var == null) {
-                return false;
-            }
-            Iterator<x9> it = linkedList.iterator();
-            while (it.hasNext()) {
-                x9 next = it.next();
-                if (next != null && (m = next.m()) != null && m.getCmd() == i && t9Var.onFindMessage(m)) {
-                    return true;
+        public CustomMessage c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (CustomMessage) invokeV.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: d */
+        public void onPostExecute(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, customResponsedMessage) == null) {
+                if (customResponsedMessage != null) {
+                    customResponsedMessage.setOrginalMessage(this.a);
+                    this.c.a.dispatchResponsedMessage(customResponsedMessage);
+                    return;
                 }
+                BdLog.e("CustomTask :" + this.b.getClass().getName() + "returns a NULL!!");
             }
-            return false;
         }
-        return invokeLLI.booleanValue;
     }
 
-    public static boolean e(LinkedList<x9> linkedList, int i) {
-        InterceptResult invokeLI;
-        SocketMessage m;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v9(MessageManager messageManager) {
+        super(messageManager);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, linkedList, i)) == null) {
-            Iterator<x9> it = linkedList.iterator();
-            while (it.hasNext()) {
-                x9 next = it.next();
-                if (next != null && (m = next.m()) != null && m.getCmd() == i) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public static x9 f(LinkedList<x9> linkedList) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, linkedList)) == null) {
-            if (linkedList == null || linkedList.size() <= 0) {
-                return null;
-            }
-            return linkedList.peek();
-        }
-        return (x9) invokeL.objValue;
-    }
-
-    public static int g(x9 x9Var, LinkedList<x9> linkedList) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, x9Var, linkedList)) == null) {
-            if (x9Var == null || linkedList == null) {
-                return -1;
-            }
-            int size = linkedList.size();
-            int i = 0;
-            while (i < size && linkedList.get(i).n() <= x9Var.n()) {
-                i++;
-            }
-            return i;
-        }
-        return invokeLL.intValue;
-    }
-
-    public static boolean h(x9 x9Var, LinkedList<x9> linkedList) {
-        InterceptResult invokeLL;
-        int g;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, x9Var, linkedList)) == null) {
-            if (x9Var == null || linkedList == null || (g = g(x9Var, linkedList)) < 0 || g > linkedList.size()) {
-                return false;
-            }
-            linkedList.add(g, x9Var);
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean i(LinkedList<x9> linkedList, LinkedList<x9> linkedList2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65544, null, linkedList, linkedList2)) != null) {
-            return invokeLL.booleanValue;
-        }
-        if (linkedList == null || linkedList2 == null || linkedList2.size() <= 0) {
-            return false;
-        }
-        while (true) {
-            x9 poll = linkedList2.poll();
-            if (poll == null) {
-                return true;
-            }
-            h(poll, linkedList);
-        }
-    }
-
-    public static boolean j(LinkedList<x9> linkedList, LinkedList<x9> linkedList2, x9 x9Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, linkedList, linkedList2, x9Var)) == null) {
-            if (x9Var == null || linkedList == null || linkedList2 == null || !linkedList.remove(x9Var)) {
-                return false;
-            }
-            linkedList2.add(x9Var);
-            return true;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static x9 k(LinkedList<x9> linkedList) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, linkedList)) == null) {
-            if (linkedList == null) {
-                return null;
-            }
-            Iterator<x9> it = linkedList.iterator();
-            while (it.hasNext()) {
-                x9 next = it.next();
-                if (next != null && !next.i()) {
-                    it.remove();
-                    return next;
-                }
-            }
-            return null;
-        }
-        return (x9) invokeL.objValue;
-    }
-
-    public static x9 l(LinkedList<x9> linkedList) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, linkedList)) == null) {
-            if (linkedList == null || linkedList.size() <= 0) {
-                return null;
-            }
-            return linkedList.poll();
-        }
-        return (x9) invokeL.objValue;
-    }
-
-    public static void m(LinkedList<x9> linkedList, int i, BdUniqueId bdUniqueId) {
-        SocketMessage m;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65548, null, linkedList, i, bdUniqueId) == null) || linkedList == null) {
-            return;
-        }
-        Iterator<x9> it = linkedList.iterator();
-        while (it.hasNext()) {
-            x9 next = it.next();
-            if (next != null && (m = next.m()) != null && ((i != 0 && m.getTag() == bdUniqueId && i == m.getCmd()) || (i == 0 && bdUniqueId != null && m.getTag() == bdUniqueId))) {
-                it.remove();
-                next.w();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {messageManager};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((MessageManager) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static boolean n(x9 x9Var, LinkedList<x9> linkedList) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, x9Var, linkedList)) == null) {
-            if (x9Var == null || linkedList == null) {
-                return false;
-            }
-            return linkedList.remove(x9Var);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static void o(LinkedList<x9> linkedList, int i) {
-        SocketMessage m;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65550, null, linkedList, i) == null) {
-            Iterator<x9> it = linkedList.iterator();
-            while (it.hasNext()) {
-                x9 next = it.next();
-                if (next != null && (m = next.m()) != null && m.getCmd() == i) {
-                    it.remove();
-                }
-            }
-        }
-    }
-
-    public static x9 p(int i, LinkedList<x9> linkedList) {
+    @Override // com.repackage.r9
+    public LinkedList<CustomMessage<?>> e(int i, BdUniqueId bdUniqueId) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65551, null, i, linkedList)) == null) {
-            if (linkedList == null) {
-                return null;
-            }
-            Iterator<x9> it = linkedList.iterator();
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bdUniqueId)) == null) {
+            LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask = BdAsyncTask.searchAllTask(bdUniqueId, i != 0 ? String.valueOf(i) : null);
+            LinkedList<CustomMessage<?>> linkedList = new LinkedList<>();
+            Iterator<BdAsyncTask<?, ?, ?>> it = searchAllTask.iterator();
             while (it.hasNext()) {
-                x9 next = it.next();
-                if (next != null && next.q() == i) {
-                    it.remove();
-                    next.w();
-                    return next;
+                BdAsyncTask<?, ?, ?> next = it.next();
+                if (next instanceof a) {
+                    linkedList.add(((a) next).c());
                 }
             }
-            return null;
+            return linkedList;
         }
-        return (x9) invokeIL.objValue;
+        return (LinkedList) invokeIL.objValue;
     }
 
-    public static int q(LinkedList<x9> linkedList) {
+    @Override // com.repackage.r9
+    public void h(int i, BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bdUniqueId) == null) {
+            BdAsyncTask.removeAllTask(bdUniqueId, i != 0 ? String.valueOf(i) : null);
+        }
+    }
+
+    public LinkedList<CustomMessage<?>> i(BdUniqueId bdUniqueId) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, linkedList)) == null) {
-            if (linkedList == null) {
-                return 0;
-            }
-            return linkedList.size();
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bdUniqueId)) == null) ? e(0, bdUniqueId) : (LinkedList) invokeL.objValue;
+    }
+
+    public void j(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
+            h(0, bdUniqueId);
         }
-        return invokeL.intValue;
+    }
+
+    public <T> CustomResponsedMessage<T> k(CustomMessage customMessage, CustomMessageTask customMessageTask, Class<T> cls) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, customMessage, customMessageTask, cls)) == null) {
+            CustomResponsedMessage<T> customResponsedMessage = null;
+            if (customMessageTask == null) {
+                return null;
+            }
+            if (customMessageTask.getType() == CustomMessageTask.TASK_TYPE.SYNCHRONIZED) {
+                try {
+                    customResponsedMessage = (CustomResponsedMessage<T>) customMessageTask.getRunnable().run(customMessage);
+                } catch (Exception e) {
+                    BdLog.detailException(e);
+                }
+                if (customResponsedMessage != null) {
+                    this.a.dispatchResponsedMessage(customResponsedMessage);
+                }
+            } else {
+                new a(this, customMessage, customMessageTask).execute(new String[0]);
+            }
+            return customResponsedMessage;
+        }
+        return (CustomResponsedMessage) invokeLLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.r9
+    /* renamed from: l */
+    public void f(CustomMessage customMessage, CustomMessageTask customMessageTask) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048582, this, customMessage, customMessageTask) == null) || customMessage == null || customMessageTask == null) {
+            return;
+        }
+        if (customMessageTask.getType() == CustomMessageTask.TASK_TYPE.SYNCHRONIZED) {
+            CustomResponsedMessage<?> customResponsedMessage = null;
+            try {
+                customResponsedMessage = customMessageTask.getRunnable().run(customMessage);
+                if (customResponsedMessage != null) {
+                    customResponsedMessage.setOrginalMessage(customMessage);
+                }
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
+            if (customResponsedMessage != null) {
+                this.a.dispatchResponsedMessage(customResponsedMessage);
+                return;
+            }
+            return;
+        }
+        new a(this, customMessage, customMessageTask).execute(new String[0]);
     }
 }

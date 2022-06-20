@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.y01;
+import com.repackage.c11;
 /* loaded from: classes2.dex */
 public class BdTextProgressView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -45,9 +45,9 @@ public class BdTextProgressView extends View {
                 return;
             }
         }
-        h = y01.a(120.0f);
-        i = y01.a(15.0f);
-        y01.a(2.0f);
+        h = c11.a(120.0f);
+        i = c11.a(15.0f);
+        c11.a(2.0f);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

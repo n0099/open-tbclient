@@ -1,38 +1,36 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Response;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class oo1 extends no1 {
+public class oo1 extends lo1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a extends ResponseCallback<JSONObject> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
+        public final /* synthetic */ yy1 a;
         public final /* synthetic */ String b;
-        public final /* synthetic */ oo1 c;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ oo1 d;
 
-        public a(oo1 oo1Var, String str, String str2) {
+        public a(oo1 oo1Var, yy1 yy1Var, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {oo1Var, str, str2};
+                Object[] objArr = {oo1Var, yy1Var, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,73 +40,156 @@ public class oo1 extends no1 {
                     return;
                 }
             }
-            this.c = oo1Var;
-            this.a = str;
-            this.b = str2;
+            this.d = oo1Var;
+            this.a = yy1Var;
+            this.b = str;
+            this.c = str2;
         }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            String str;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                hw1.i("CallServiceApi", "Cloud capability request failed: " + this.a + "\n" + Log.getStackTraceString(exc));
-                oo1 oo1Var = this.c;
-                String str2 = this.b;
-                if (TextUtils.isEmpty(exc.getMessage())) {
-                    str = "请求失败";
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                yy1 yy1Var = this.a;
+                boolean z = true;
+                if (!((yy1Var == null || !yy1Var.w2(this.b, true)) ? false : false)) {
+                    sw1.c("NavigationBarApi", "set title fail");
+                    this.d.d(this.c, new sr1(1001));
+                }
+                this.d.d(this.c, new sr1(0));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yy1 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ JSONObject e;
+        public final /* synthetic */ oo1 f;
+
+        public b(oo1 oo1Var, yy1 yy1Var, String str, String str2, String str3, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oo1Var, yy1Var, str, str2, str3, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = oo1Var;
+            this.a = yy1Var;
+            this.b = str;
+            this.c = str2;
+            this.d = str3;
+            this.e = jSONObject;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                yy1 yy1Var = this.a;
+                if (yy1Var != null && yy1Var.E2(this.b, true)) {
+                    if (!this.a.u2(SwanAppConfigData.t(this.d), true)) {
+                        sw1.c("NavigationBarApi", "set title background fail");
+                        this.f.d(this.c, new sr1(1001));
+                        return;
+                    }
+                    JSONObject jSONObject = this.e;
+                    if (jSONObject != null) {
+                        this.a.s2(jSONObject.optInt("duration"), this.e.optString("timingFunc"));
+                        sw1.i("NavigationBarApi", "set action bar animator");
+                    }
+                    this.f.d(this.c, new sr1(0));
+                    return;
+                }
+                sw1.c("NavigationBarApi", "set title color fail");
+                this.f.d(this.c, new sr1(1001));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yy1 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ boolean c;
+        public final /* synthetic */ oo1 d;
+
+        public c(oo1 oo1Var, yy1 yy1Var, String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oo1Var, yy1Var, str, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = oo1Var;
+            this.a = yy1Var;
+            this.b = str;
+            this.c = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            boolean S1;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                yy1 yy1Var = this.a;
+                if (yy1Var == null) {
+                    sw1.c("NavigationBarApi", "swanAppFragment is null");
+                    this.d.d(this.b, new sr1(1001));
+                    return;
+                }
+                if (this.c) {
+                    S1 = yy1Var.N2();
                 } else {
-                    str = exc.getMessage() + "";
+                    S1 = yy1Var.S1();
                 }
-                oo1Var.d(str2, new hr1(1001, str));
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(JSONObject jSONObject, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) {
-                JSONObject jSONObject2 = new JSONObject();
-                try {
-                    jSONObject2.put("statusCode", String.valueOf(i));
-                    jSONObject2.put("data", jSONObject);
-                } catch (JSONException e) {
-                    hw1.b("CallServiceApi", Log.getStackTraceString(e));
+                if (!S1) {
+                    String str = this.c ? "show" : "hide";
+                    sw1.c("NavigationBarApi", str + " navigation loading progressbar fail");
+                    this.d.d(this.b, new sr1(1001));
+                    return;
                 }
-                hw1.b("CallServiceApi", "Cloud capability '" + this.a + "' request success: data:" + jSONObject2.toString());
-                this.c.d(this.b, new hr1(0, jSONObject2));
+                this.d.d(this.b, new sr1(0));
             }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public JSONObject parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
-                if (response == null || response.body() == null) {
-                    return null;
-                }
-                return hc3.d(response.body().string());
-            }
-            return (JSONObject) invokeLI.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public oo1(@NonNull in1 in1Var) {
-        super(in1Var);
+    public oo1(@NonNull tn1 tn1Var) {
+        super(tn1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {in1Var};
+            Object[] objArr = {tn1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((in1) newInitContext.callArgs[0]);
+                super((tn1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -116,51 +197,117 @@ public class oo1 extends no1 {
         }
     }
 
-    @Override // com.repackage.kn1
-    public String j() {
-        InterceptResult invokeV;
+    public sr1 A(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "CallServiceApi" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            q("#setNavigationBarTitle", false);
+            Pair<sr1, JSONObject> s = s(str);
+            sr1 sr1Var = (sr1) s.first;
+            if (sr1Var.isSuccess()) {
+                JSONObject jSONObject = (JSONObject) s.second;
+                if (jSONObject == null) {
+                    return new sr1(1001);
+                }
+                String optString = jSONObject.optString("title");
+                bz1 V = fl2.U().V();
+                if (V == null) {
+                    sw1.c("NavigationBarApi", "manager is null");
+                    return new sr1(1001);
+                }
+                String optString2 = jSONObject.optString("cb");
+                if (TextUtils.isEmpty(optString2)) {
+                    p("cb is empty", null, true);
+                    return new sr1(1001, "cb is empty");
+                }
+                md3.e0(new a(this, V.m(), optString, optString2));
+                return sr1.f();
+            }
+            return sr1Var;
+        }
+        return (sr1) invokeL.objValue;
     }
 
-    public hr1 x(String str) {
+    public sr1 B(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#callService", false);
-            if (hz2.a0() == null) {
-                hw1.b("CallServiceApi", "swan app is null");
-                return new hr1(1001, "swan app is null");
+            q("#showNavigationBarLoading", false);
+            sz2 b0 = sz2.b0();
+            if (b0 != null && b0.n0()) {
+                return new sr1(1001, "ui operation does not supported when app is invisible.");
             }
-            Pair<hr1, JSONObject> s = s(str);
-            hr1 hr1Var = (hr1) s.first;
-            if (hr1Var.isSuccess()) {
+            return x(str, true);
+        }
+        return (sr1) invokeL.objValue;
+    }
+
+    @Override // com.repackage.vn1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "NavigationBarApi" : (String) invokeV.objValue;
+    }
+
+    public final sr1 x(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) {
+            bz1 V = fl2.U().V();
+            if (V == null) {
+                sw1.c("NavigationBarApi", "manager is null");
+                return new sr1(1001);
+            }
+            Pair<sr1, JSONObject> s = s(str);
+            sr1 sr1Var = (sr1) s.first;
+            if (sr1Var.isSuccess()) {
+                String optString = ((JSONObject) s.second).optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    p("cb is empty", null, true);
+                    return new sr1(1001, "cb is empty");
+                }
+                md3.e0(new c(this, V.m(), optString, z));
+                return sr1.f();
+            }
+            return sr1Var;
+        }
+        return (sr1) invokeLZ.objValue;
+    }
+
+    public sr1 y(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            q("#hideNavigationBarLoading", false);
+            return x(str, false);
+        }
+        return (sr1) invokeL.objValue;
+    }
+
+    public sr1 z(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            q("#setNavigationBarColor", false);
+            bz1 V = fl2.U().V();
+            if (V == null) {
+                sw1.c("NavigationBarApi", "manager is null");
+                return new sr1(1001);
+            }
+            Pair<sr1, JSONObject> s = s(str);
+            sr1 sr1Var = (sr1) s.first;
+            if (sr1Var.isSuccess()) {
                 JSONObject jSONObject = (JSONObject) s.second;
                 String optString = jSONObject.optString("cb");
                 if (TextUtils.isEmpty(optString)) {
-                    hw1.b("CallServiceApi", "cb is empty");
-                    return new hr1(201, "cb is empty");
+                    p("cb is empty", null, true);
+                    return new sr1(1001, "cb is empty");
                 }
-                String optString2 = jSONObject.optString("service");
-                if (TextUtils.isEmpty(optString2)) {
-                    hw1.b("CallServiceApi", "service is empty");
-                    return new hr1(201, "service is empty");
-                }
-                y(optString2, jSONObject.optJSONObject("data"), optString);
-                return new hr1(0);
+                md3.e0(new b(this, V.m(), jSONObject.optString("frontColor"), optString, jSONObject.optString("backgroundColor"), jSONObject.optJSONObject("animation")));
+                return sr1.f();
             }
-            return hr1Var;
+            return sr1Var;
         }
-        return (hr1) invokeL.objValue;
-    }
-
-    public final void y(String str, JSONObject jSONObject, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject, str2) == null) {
-            po1 po1Var = new po1();
-            po1Var.g(str);
-            po1Var.f(jSONObject);
-            po1Var.c(new a(this, str, str2));
-        }
+        return (sr1) invokeL.objValue;
     }
 }

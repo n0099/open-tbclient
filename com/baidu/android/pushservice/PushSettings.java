@@ -256,7 +256,7 @@ public class PushSettings {
         if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, context)) == null) {
             long b2 = com.baidu.android.pushservice.i.i.b(context, "com.baidu.pushservice.track");
             if (b2 > 0) {
-                return System.currentTimeMillis() - b2 >= ((long) ((com.baidu.android.pushservice.b.d.h(context) * 3600) * 1000));
+                return System.currentTimeMillis() - b2 >= ((long) ((com.baidu.android.pushservice.b.d.i(context) * 3600) * 1000));
             }
             m(context);
             return false;

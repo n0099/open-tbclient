@@ -35,7 +35,7 @@ public class c {
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, context) == null) && context != null && d.g(context) && g.a(context) && PushSettings.n(context)) {
+        if ((interceptable == null || interceptable.invokeL(65539, null, context) == null) && context != null && d.h(context) && g.a(context) && PushSettings.n(context)) {
             e.a().a(new com.baidu.android.pushservice.g.c("upload_push_track", (short) 90, context) { // from class: com.baidu.android.pushservice.h.a.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

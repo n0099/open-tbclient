@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
-import com.repackage.ma0;
-import com.repackage.ya0;
+import com.repackage.cb0;
+import com.repackage.qa0;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -93,7 +93,7 @@ public final class LiveNpsGetSwitchManager {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, str, map)) == null) {
             String fullUrl = CommonUrlParamManager.getInstance().processUrl(str);
             if (map != null) {
-                String a = ya0.a(fullUrl, map);
+                String a = cb0.a(fullUrl, map);
                 Intrinsics.checkExpressionValueIsNotNull(a, "UrlUtil.addParam(fullUrl, params)");
                 return a;
             }
@@ -161,7 +161,7 @@ public final class LiveNpsGetSwitchManager {
     private final Map<String, String> getUrlParamsFromUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) ? ya0.d(ya0.b(str)) : (Map) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) ? cb0.d(cb0.b(str)) : (Map) invokeL.objValue;
     }
 
     private final Map<String, Object> transformMap(Map<String, String> map) {
@@ -198,7 +198,7 @@ public final class LiveNpsGetSwitchManager {
             Map<String, String> addLiveCommonParameters = addLiveCommonParameters(linkedHashMap, getUrlParamsFromUrl(addLiveCommonToUrl));
             liveNetwork.c(MapsKt__MapsKt.mapOf(TuplesKt.to(LiveNetConstants.EXTRA_KEY_ENABLE_STAT, Boolean.TRUE), TuplesKt.to(LiveNetConstants.EXTRA_KEY_REQUEST_FROM, 17), TuplesKt.to(LiveNetConstants.EXTRA_KEY_REQUEST_SUB_FROM, 136)));
             liveNetwork.e(addLiveCommonToUrl);
-            liveNetwork.b(transformMap(MapsKt__MapsKt.plus(new HashMap(addLiveCommonParameters), linkedHashMap)), new ma0<LiveMasterSwitchBean>(iMasterSwitchCallback) { // from class: com.baidu.searchbox.live.impl.LiveNpsGetSwitchManager$getMasterSwitch$1
+            liveNetwork.b(transformMap(MapsKt__MapsKt.plus(new HashMap(addLiveCommonParameters), linkedHashMap)), new qa0<LiveMasterSwitchBean>(iMasterSwitchCallback) { // from class: com.baidu.searchbox.live.impl.LiveNpsGetSwitchManager$getMasterSwitch$1
                 public static /* synthetic */ Interceptable $ic;
                 public final /* synthetic */ IMasterSwitchCallback $callback;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -222,7 +222,7 @@ public final class LiveNpsGetSwitchManager {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.repackage.ma0
+                @Override // com.repackage.qa0
                 public void onNetResponse(NetResponse netResponse, LiveMasterSwitchBean liveMasterSwitchBean) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, netResponse, liveMasterSwitchBean) == null) {
@@ -238,7 +238,7 @@ public final class LiveNpsGetSwitchManager {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.repackage.ma0
+                @Override // com.repackage.qa0
                 public LiveMasterSwitchBean onParseResponseInBackground(NetResponse netResponse) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;

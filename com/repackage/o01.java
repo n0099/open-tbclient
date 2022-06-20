@@ -1,119 +1,134 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Rect;
-import android.text.TextPaint;
-import android.text.TextUtils;
-import android.view.TouchDelegate;
-import android.view.View;
-import android.view.ViewParent;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.pm.ActivityInfo;
+import android.content.res.TypedArray;
+import android.os.Build;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.load.engine.GlideException;
-import com.repackage.zz0;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
 public class o01 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ float b;
-        public final /* synthetic */ View c;
-        public final /* synthetic */ View d;
-
-        public a(Context context, float f, View view2, View view3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, Float.valueOf(f), view2, view3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = f;
-            this.c = view2;
-            this.d = view3;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Rect rect = new Rect();
-                int a = zz0.c.a(this.a, this.b);
-                this.c.getHitRect(rect);
-                rect.left -= a;
-                rect.right += a;
-                rect.top -= a;
-                rect.bottom += a;
-                this.d.setTouchDelegate(new TouchDelegate(rect, this.c));
-            }
-        }
-    }
-
-    public static void a(Context context, View view2, float f) {
+    public static void a(@NonNull Activity activity, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{context, view2, Float.valueOf(f)}) == null) || view2 == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65536, null, activity, i) == null) || i == -1 || Build.VERSION.SDK_INT != 26 || activity.getApplicationInfo().targetSdkVersion <= 26 || !c(activity) || b(activity)) {
             return;
         }
-        ViewParent parent = view2.getParent();
-        if (View.class.isInstance(parent)) {
-            View view3 = (View) parent;
-            view3.post(new a(context, f, view2, view3));
+        try {
+            Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
+            declaredField.setAccessible(true);
+            Object obj = declaredField.get(activity);
+            Field declaredField2 = ActivityInfo.class.getDeclaredField("screenOrientation");
+            declaredField2.setAccessible(true);
+            if (declaredField2.getInt(obj) == -1) {
+                declaredField2.setInt(obj, i);
+            }
+        } catch (IllegalAccessException | NoSuchFieldException unused) {
         }
     }
 
-    public static String b(String str, String str2, float f, TextPaint textPaint) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, Float.valueOf(f), textPaint})) == null) {
-            if (TextUtils.isEmpty(str2)) {
-                str2 = "";
-            }
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            if (textPaint == null) {
-                textPaint = new TextPaint();
-            }
-            CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, f - textPaint.measureText(GlideException.IndentedAppendable.INDENT + str2), TextUtils.TruncateAt.END);
-            if (TextUtils.isEmpty(ellipsize)) {
-                return str2;
-            }
-            return ellipsize.toString() + GlideException.IndentedAppendable.INDENT + str2;
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static boolean c(View view2) {
+    @SuppressLint({"SoonBlockedPrivateApi"})
+    public static boolean b(@NonNull Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            if (view2 == null || !view2.isShown()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
+            try {
+                Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
+                declaredField.setAccessible(true);
+                Object obj = declaredField.get(activity);
+                Method declaredMethod = ActivityInfo.class.getDeclaredMethod("isFixedOrientation", new Class[0]);
+                declaredMethod.setAccessible(true);
+                return ((Boolean) declaredMethod.invoke(obj, new Object[0])).booleanValue();
+            } catch (IllegalAccessException | NoSuchFieldException | NoSuchMethodException | InvocationTargetException unused) {
                 return false;
             }
-            Rect rect = new Rect();
-            if (view2.getGlobalVisibleRect(rect)) {
-                long height = rect.height() * rect.width();
-                long height2 = view2.getHeight() * view2.getWidth();
-                return height2 > 0 && height * 100 >= height2 * 50;
-            }
-            return false;
         }
         return invokeL.booleanValue;
+    }
+
+    @SuppressLint({"PrivateApi"})
+    public static boolean c(@NonNull Activity activity) {
+        InterceptResult invokeL;
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
+            try {
+                Class<?> cls = Class.forName("com.android.internal.R$styleable");
+                Field declaredField = cls.getDeclaredField("Window");
+                declaredField.setAccessible(true);
+                TypedArray obtainStyledAttributes = activity.obtainStyledAttributes((int[]) declaredField.get(null));
+                Field declaredField2 = cls.getDeclaredField("Window_windowIsTranslucent");
+                declaredField2.setAccessible(true);
+                Field declaredField3 = cls.getDeclaredField("Window_windowSwipeToDismiss");
+                declaredField3.setAccessible(true);
+                Field declaredField4 = cls.getDeclaredField("Window_windowIsFloating");
+                declaredField4.setAccessible(true);
+                Object obj = declaredField2.get(null);
+                Object obj2 = declaredField3.get(null);
+                if (obj instanceof Integer) {
+                    z2 = obtainStyledAttributes.getBoolean(((Integer) obj).intValue(), false);
+                    z = (obj2 instanceof Integer) && !obtainStyledAttributes.hasValue(((Integer) obj).intValue()) && obtainStyledAttributes.getBoolean(((Integer) obj2).intValue(), false);
+                } else {
+                    z = false;
+                    z2 = false;
+                }
+                Object obj3 = declaredField4.get(null);
+                boolean z3 = obj3 instanceof Integer ? obtainStyledAttributes.getBoolean(((Integer) obj3).intValue(), false) : false;
+                obtainStyledAttributes.recycle();
+                return z3 || z2 || z;
+            } catch (ClassNotFoundException | IllegalAccessException | NoSuchFieldException unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static int d(@NonNull Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, activity)) != null) {
+            return invokeL.intValue;
+        }
+        int i = -1;
+        if (Build.VERSION.SDK_INT != 26 || activity.getApplicationInfo().targetSdkVersion <= 26 || !c(activity) || !b(activity)) {
+            return -1;
+        }
+        try {
+            Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
+            declaredField.setAccessible(true);
+            Object obj = declaredField.get(activity);
+            Field declaredField2 = ActivityInfo.class.getDeclaredField("screenOrientation");
+            declaredField2.setAccessible(true);
+            int i2 = declaredField2.getInt(obj);
+            if (i2 != -1) {
+                try {
+                    declaredField2.setInt(obj, -1);
+                } catch (IllegalAccessException e) {
+                    e = e;
+                    i = i2;
+                    e.printStackTrace();
+                    return i;
+                } catch (NoSuchFieldException e2) {
+                    e = e2;
+                    i = i2;
+                    e.printStackTrace();
+                    return i;
+                }
+            }
+            return i2;
+        } catch (IllegalAccessException e3) {
+            e = e3;
+        } catch (NoSuchFieldException e4) {
+            e = e4;
+        }
     }
 }

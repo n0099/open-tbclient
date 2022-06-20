@@ -15,53 +15,34 @@ import com.xiaomi.mipush.sdk.COSPushHelper;
 import com.xiaomi.mipush.sdk.FTOSPushHelper;
 import com.xiaomi.mipush.sdk.HWPushHelper;
 import com.xiaomi.mipush.sdk.MiPushClient;
-import com.xiaomi.mipush.sdk.ae;
-import com.xiaomi.mipush.sdk.an;
-import com.xiaomi.mipush.sdk.at;
+import com.xiaomi.mipush.sdk.af;
+import com.xiaomi.mipush.sdk.ao;
+import com.xiaomi.mipush.sdk.au;
 import com.xiaomi.mipush.sdk.b;
-import com.xiaomi.push.bg;
-import com.xiaomi.push.gq;
+import com.xiaomi.push.bj;
+import com.xiaomi.push.hb;
+import com.xiaomi.push.o;
 import com.xiaomi.push.service.ServiceClient;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes8.dex */
 public class NetworkStatusReceiver extends BroadcastReceiver {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 1;
-
-    /* renamed from: a  reason: collision with other field name */
-    public static BlockingQueue<Runnable> f951a = null;
-
-    /* renamed from: a  reason: collision with other field name */
-    public static ThreadPoolExecutor f952a = null;
-
-    /* renamed from: a  reason: collision with other field name */
-    public static boolean f953a = false;
-    public static int b = 1;
-    public static int c = 2;
+    public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with other field name */
-    public boolean f954b;
+    public boolean b;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-776277076, "Lcom/xiaomi/push/service/receivers/NetworkStatusReceiver;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-776277076, "Lcom/xiaomi/push/service/receivers/NetworkStatusReceiver;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-776277076, "Lcom/xiaomi/push/service/receivers/NetworkStatusReceiver;")) == null) {
+            return;
         }
-        f951a = new LinkedBlockingQueue();
-        f952a = new ThreadPoolExecutor(a, b, c, TimeUnit.SECONDS, f951a);
-        f953a = false;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-776277076, "Lcom/xiaomi/push/service/receivers/NetworkStatusReceiver;");
+        }
     }
 
     public NetworkStatusReceiver() {
@@ -77,8 +58,8 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        this.f954b = false;
-        this.f954b = true;
+        this.b = false;
+        this.b = true;
     }
 
     public NetworkStatusReceiver(Object obj) {
@@ -96,15 +77,15 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        this.f954b = false;
-        f953a = true;
+        this.b = false;
+        a = true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            if (!an.a(context).m142a() && b.m149a(context).m158c() && !b.m149a(context).m161f()) {
+            if (!ao.a(context).m119a() && b.m126a(context).m135c() && !b.m126a(context).m138f()) {
                 try {
                     Intent intent = new Intent();
                     intent.setComponent(new ComponentName(context, "com.xiaomi.push.service.XMPushService"));
@@ -114,27 +95,27 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
                     com.xiaomi.channel.commonutils.logger.b.a(e);
                 }
             }
-            gq.m397a(context);
-            if (bg.b(context) && an.a(context).m145b()) {
-                an.a(context).m146c();
+            hb.m387a(context);
+            if (bj.b(context) && ao.a(context).m122b()) {
+                ao.a(context).m123c();
             }
-            if (bg.b(context)) {
-                if ("syncing".equals(ae.a(context).a(at.a))) {
+            if (bj.b(context)) {
+                if ("syncing".equals(af.a(context).a(au.a))) {
                     MiPushClient.disablePush(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.b))) {
+                if ("syncing".equals(af.a(context).a(au.b))) {
                     MiPushClient.enablePush(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.c))) {
+                if ("syncing".equals(af.a(context).a(au.c))) {
                     MiPushClient.syncAssemblePushToken(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.d))) {
+                if ("syncing".equals(af.a(context).a(au.d))) {
                     MiPushClient.syncAssembleFCMPushToken(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.e))) {
+                if ("syncing".equals(af.a(context).a(au.e))) {
                     MiPushClient.syncAssembleCOSPushToken(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f))) {
+                if ("syncing".equals(af.a(context).a(au.f))) {
                     MiPushClient.syncAssembleFTOSPushToken(context);
                 }
                 if (HWPushHelper.needConnect() && HWPushHelper.shouldTryConnect(context)) {
@@ -150,15 +131,15 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f953a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? a : invokeV.booleanValue;
     }
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || this.f954b) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || this.b) {
             return;
         }
-        f952a.execute(new a(this, context));
+        o.a().post(new a(this, context));
     }
 }

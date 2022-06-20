@@ -1,5 +1,6 @@
 package com.baidu.tieba.enterForum.home;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cq4;
+import com.repackage.mq4;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
@@ -74,51 +75,95 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.time : (Integer) invokeV.objValue;
     }
 
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
+        DataRes dataRes;
+        String str;
+        Integer num;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, bArr)) == null) {
+            ForumRecommendResIdl forumRecommendResIdl = (ForumRecommendResIdl) new Wire(new Class[0]).parseFrom(bArr, ForumRecommendResIdl.class);
+            if (forumRecommendResIdl == null) {
+                return null;
+            }
+            Error error = forumRecommendResIdl.error;
+            if (error != null && (num = error.errorno) != null) {
+                setError(num.intValue());
+            }
+            Error error2 = forumRecommendResIdl.error;
+            if (error2 != null && (str = error2.usermsg) != null && str.length() > 0) {
+                setErrorString(forumRecommendResIdl.error.usermsg);
+            }
+            if (getError() == 0 && (dataRes = forumRecommendResIdl.data) != null) {
+                this.like_forum = dataRes.like_forum;
+                this.time = dataRes.time;
+                this.recommend_forum_info = dataRes.recommend_forum_info;
+                if (dataRes.hot_search != null) {
+                    HotSearchInfoData hotSearchInfoData = new HotSearchInfoData();
+                    this.hotSearchInfo = hotSearchInfoData;
+                    hotSearchInfoData.A(forumRecommendResIdl.data.hot_search);
+                }
+                DataRes dataRes2 = forumRecommendResIdl.data;
+                this.recommend_concern_forums = dataRes2.tag_recommend_forum;
+                this.sortType = Integer.valueOf(dataRes2.sort_type.intValue() == 0 ? 1 : forumRecommendResIdl.data.sort_type.intValue());
+                DataRes dataRes3 = forumRecommendResIdl.data;
+                this.forum_create_info = dataRes3.forum_create_info;
+                this.private_pop_info = dataRes3.private_forum_popinfo;
+                this.tabFeedList = dataRes3.nav_tab_info;
+                this.forum_popup_info = dataRes3.forum_popup_info;
+            }
+            return forumRecommendResIdl;
+        }
+        return invokeIL.objValue;
+    }
+
     public ForumCreateInfo getForumCreateInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.forum_create_info : (ForumCreateInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.forum_create_info : (ForumCreateInfo) invokeV.objValue;
     }
 
     public ForumPopupInfo getForumPopupInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.forum_popup_info : (ForumPopupInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.forum_popup_info : (ForumPopupInfo) invokeV.objValue;
     }
 
     public HotSearchInfoData getHotSearchInfoData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.hotSearchInfo : (HotSearchInfoData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.hotSearchInfo : (HotSearchInfoData) invokeV.objValue;
     }
 
     public PrivatePopInfo getPrivatePopInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.private_pop_info : (PrivatePopInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.private_pop_info : (PrivatePopInfo) invokeV.objValue;
     }
 
     public List<RecommendForumInfo> getRecommendConcernForums() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.recommend_concern_forums : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.recommend_concern_forums : (List) invokeV.objValue;
     }
 
     public Integer getSortType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.sortType : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.sortType : (Integer) invokeV.objValue;
     }
 
     public List<FrsTabInfo> getTabFeedList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.tabFeedList : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.tabFeedList : (List) invokeV.objValue;
     }
 
     public void setSortType(Integer num) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, num) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, num) == null) {
             this.sortType = num;
         }
     }
@@ -130,46 +175,7 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
         if (!(interceptable == null || interceptable.invokeIL(1048580, this, i, bArr) == null) || bArr == null || bArr.length <= 0 || getError() != 0) {
             return;
         }
-        cq4.f();
-        cq4.e("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).a(EnterForumModel.FORUMRECOMMEND_CACHE_KEY, bArr);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        ForumRecommendResIdl forumRecommendResIdl;
-        DataRes dataRes;
-        String str;
-        Integer num;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048582, this, i, bArr) == null) || (forumRecommendResIdl = (ForumRecommendResIdl) new Wire(new Class[0]).parseFrom(bArr, ForumRecommendResIdl.class)) == null) {
-            return;
-        }
-        Error error = forumRecommendResIdl.error;
-        if (error != null && (num = error.errorno) != null) {
-            setError(num.intValue());
-        }
-        Error error2 = forumRecommendResIdl.error;
-        if (error2 != null && (str = error2.usermsg) != null && str.length() > 0) {
-            setErrorString(forumRecommendResIdl.error.usermsg);
-        }
-        if (getError() == 0 && (dataRes = forumRecommendResIdl.data) != null) {
-            this.like_forum = dataRes.like_forum;
-            this.time = dataRes.time;
-            this.recommend_forum_info = dataRes.recommend_forum_info;
-            if (dataRes.hot_search != null) {
-                HotSearchInfoData hotSearchInfoData = new HotSearchInfoData();
-                this.hotSearchInfo = hotSearchInfoData;
-                hotSearchInfoData.z(forumRecommendResIdl.data.hot_search);
-            }
-            DataRes dataRes2 = forumRecommendResIdl.data;
-            this.recommend_concern_forums = dataRes2.tag_recommend_forum;
-            this.sortType = Integer.valueOf(dataRes2.sort_type.intValue() == 0 ? 1 : forumRecommendResIdl.data.sort_type.intValue());
-            DataRes dataRes3 = forumRecommendResIdl.data;
-            this.forum_create_info = dataRes3.forum_create_info;
-            this.private_pop_info = dataRes3.private_forum_popinfo;
-            this.tabFeedList = dataRes3.nav_tab_info;
-            this.forum_popup_info = dataRes3.forum_popup_info;
-        }
+        mq4.f();
+        mq4.e("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).a(EnterForumModel.FORUMRECOMMEND_CACHE_KEY, bArr);
     }
 }

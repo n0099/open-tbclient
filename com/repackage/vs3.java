@@ -1,17 +1,19 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes7.dex */
 public class vs3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile vs3 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
+    public List<xs3> a;
 
     public vs3() {
         Interceptable interceptable = $ic;
@@ -23,28 +25,54 @@ public class vs3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new CopyOnWriteArrayList();
+    }
+
+    public static vs3 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (vs3.class) {
+                    if (b == null) {
+                        b = new vs3();
+                    }
+                }
+            }
+            return b;
+        }
+        return (vs3) invokeV.objValue;
+    }
+
+    public void a(xs3 xs3Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, xs3Var) == null) || xs3Var == null || this.a.contains(xs3Var)) {
+            return;
+        }
+        this.a.add(xs3Var);
+    }
+
+    public void c(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+            for (xs3 xs3Var : this.a) {
+                if (i == 16) {
+                    xs3Var.c();
+                } else if (i == 17) {
+                    xs3Var.b(str);
+                }
+                d(xs3Var);
             }
         }
     }
 
-    public static vs3 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void d(xs3 xs3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            vs3 vs3Var = new vs3();
-            vs3Var.a = jSONObject.optInt("state");
-            vs3Var.b = jSONObject.optString("msg");
-            return vs3Var;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xs3Var) == null) && this.a.contains(xs3Var)) {
+            this.a.remove(xs3Var);
         }
-        return (vs3) invokeL.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "CheckPayAuthModel{state=" + this.a + ", msg='" + this.b + "'}";
-        }
-        return (String) invokeV.objValue;
     }
 }

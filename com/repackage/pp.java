@@ -1,186 +1,95 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.os.SystemClock;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.component.buoy.BuoyComponent;
+import com.baidu.bdtask.component.buoy.TaskBuoyViewData;
+import com.baidu.bdtask.component.buoy.TaskBuoyViewModel;
+import com.baidu.bdtask.ctrl.model.TaskStatus;
+import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.op;
 /* loaded from: classes6.dex */
-public class pp {
+public final class pp extends BuoyComponent {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public final long b;
-    public long c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
-    public boolean g;
-    public op h;
-    public long i;
-    public Handler j;
 
-    /* loaded from: classes6.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pp a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(pp ppVar, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ppVar, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ppVar;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            long j;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                synchronized (this.a) {
-                    if (!this.a.d && !this.a.f) {
-                        long j2 = this.a.i;
-                        long elapsedRealtime = this.a.c - SystemClock.elapsedRealtime();
-                        long j3 = 0;
-                        if (elapsedRealtime <= 0) {
-                            this.a.g = true;
-                            this.a.i = this.a.a;
-                            this.a.h.a(0L, Math.max(this.a.i - j2, 0L));
-                            this.a.h.onFinish();
-                        } else {
-                            long elapsedRealtime2 = SystemClock.elapsedRealtime();
-                            this.a.i = this.a.a - elapsedRealtime;
-                            this.a.h.a(elapsedRealtime, Math.max(this.a.i - j2, 0L));
-                            long elapsedRealtime3 = SystemClock.elapsedRealtime() - elapsedRealtime2;
-                            if (elapsedRealtime < this.a.b) {
-                                j = elapsedRealtime - elapsedRealtime3;
-                                if (j < 0) {
-                                    sendMessageDelayed(obtainMessage(1), j3);
-                                }
-                            } else {
-                                j = this.a.b - elapsedRealtime3;
-                                while (j < 0) {
-                                    j += this.a.b;
-                                }
-                            }
-                            j3 = j;
-                            sendMessageDelayed(obtainMessage(1), j3);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public pp(long j, long j2, op opVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pp(is<TaskBuoyViewData, TaskBuoyViewModel> isVar, TaskBuoyViewModel taskBuoyViewModel, TaskInfo taskInfo) {
+        super(isVar, taskBuoyViewModel, taskInfo);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), opVar};
+            Object[] objArr = {isVar, taskBuoyViewModel, taskInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((is) objArr2[0], (TaskBuoyViewModel) objArr2[1], (TaskInfo) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = false;
-        this.e = false;
-        this.f = false;
-        this.g = false;
-        this.i = 0L;
-        this.j = new a(this, Looper.getMainLooper());
-        this.a = j;
-        this.b = j2;
-        this.i = 0L;
-        this.h = opVar;
     }
 
-    public final synchronized pp b() {
-        InterceptResult invokeV;
+    @Override // com.repackage.dp
+    public void b(TaskInfo taskInfo, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                this.d = false;
-                this.g = false;
-                this.f = false;
-                this.e = false;
-                if (this.a <= 0) {
-                    this.g = true;
-                    this.h.onFinish();
-                    return this;
-                }
-                this.c = SystemClock.elapsedRealtime() + this.a;
-                this.j.sendMessage(this.j.obtainMessage(1));
-                this.h.onStart();
-                this.e = true;
-                return this;
-            }
+        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, taskInfo, i, str) == null) || i == 304) {
+            return;
         }
-        return (pp) invokeV.objValue;
+        p();
     }
 
-    public final synchronized void e() {
+    @Override // com.baidu.bdtask.component.buoy.BuoyComponent
+    public float q(TaskInfo taskInfo, TaskStatus taskStatus) {
+        InterceptResult invokeLL;
+        int repeat;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                if (!this.f && !this.d && !this.g && this.e) {
-                    SystemClock.elapsedRealtime();
-                    this.f = true;
-                    this.d = false;
-                    this.g = false;
-                    this.h.onPause();
-                    this.j.removeMessages(1);
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, taskStatus)) == null) {
+            if (taskInfo.isClickAction() && (repeat = taskInfo.getTaskRule().getRepeat()) != 0) {
+                return taskStatus.getProcess().getRepeatTimes() / repeat;
             }
+            return 0.0f;
         }
+        return invokeLL.floatValue;
     }
 
-    public final synchronized void h() {
+    @Override // com.baidu.bdtask.component.buoy.BuoyComponent
+    public long r(TaskInfo taskInfo, TaskStatus taskStatus) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                this.d = true;
-                this.f = false;
-                this.g = false;
-                this.e = false;
-                this.j.removeMessages(1);
-                this.h.onCancel();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, taskInfo, taskStatus)) == null) {
+            if (taskInfo.isClickAction()) {
+                return taskInfo.getTaskRule().getRepeat();
             }
+            return 0L;
         }
+        return invokeLL.longValue;
     }
 
-    public final synchronized void j() {
+    @Override // com.baidu.bdtask.component.buoy.BuoyComponent
+    public float s(TaskInfo taskInfo, TaskStatus taskStatus) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                this.h = new op.a();
-                h();
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, taskInfo, taskStatus)) == null) {
+            return 1.0f;
         }
+        return invokeLL.floatValue;
+    }
+
+    @Override // com.baidu.bdtask.component.buoy.BuoyComponent
+    public boolean t(TaskStatus taskStatus) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, taskStatus)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

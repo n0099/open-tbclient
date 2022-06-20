@@ -7,6 +7,7 @@ import android.util.Log;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.CameraActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -867,7 +868,7 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, xmlPullParser)) == null) {
-            String attributeValue = xmlPullParser.getAttributeValue(null, "contentType");
+            String attributeValue = xmlPullParser.getAttributeValue(null, CameraActivityConfig.KEY_CONTENT_TYPE);
             if (TextUtils.isEmpty(attributeValue)) {
                 return -1;
             }

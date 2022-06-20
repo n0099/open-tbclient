@@ -7,14 +7,14 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 /* loaded from: classes5.dex */
 public class a {
     public AdTemplate a;
-    public InterfaceC0320a b;
+    public InterfaceC0328a b;
     @Nullable
     public b c;
     public boolean d = false;
 
     /* renamed from: com.kwad.sdk.draw.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0320a {
+    public interface InterfaceC0328a {
         void a();
     }
 
@@ -28,7 +28,7 @@ public class a {
     }
 
     public void a() {
-        InterfaceC0320a interfaceC0320a;
+        InterfaceC0328a interfaceC0328a;
         if (this.d) {
             return;
         }
@@ -37,14 +37,14 @@ public class a {
             return;
         }
         b bVar = this.c;
-        if ((bVar == null || !bVar.a()) && (interfaceC0320a = this.b) != null) {
-            interfaceC0320a.a();
+        if ((bVar == null || !bVar.a()) && (interfaceC0328a = this.b) != null) {
+            interfaceC0328a.a();
         }
     }
 
     @MainThread
-    public void a(InterfaceC0320a interfaceC0320a) {
-        this.b = interfaceC0320a;
+    public void a(InterfaceC0328a interfaceC0328a) {
+        this.b = interfaceC0328a;
     }
 
     @MainThread

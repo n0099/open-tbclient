@@ -1,17 +1,21 @@
 package com.xiaomi.push;
 
-import android.text.TextUtils;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FilenameFilter;
+import com.xiaomi.clientreport.processor.IEventProcessor;
+import com.xiaomi.clientreport.processor.IPerfProcessor;
 /* loaded from: classes8.dex */
-public final class bs implements FilenameFilter {
+public class bs implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public com.xiaomi.clientreport.processor.c f140a;
 
     public bs() {
         Interceptable interceptable = $ic;
@@ -27,10 +31,47 @@ public final class bs implements FilenameFilter {
         }
     }
 
-    @Override // java.io.FilenameFilter
-    public boolean accept(File file, String str) {
-        InterceptResult invokeLL;
+    public void a(Context context) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, str)) == null) ? (TextUtils.isEmpty(str) || str.toLowerCase().endsWith(".lock")) ? false : true : invokeLL.booleanValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            this.a = context;
+        }
+    }
+
+    public void a(com.xiaomi.clientreport.processor.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
+            this.f140a = cVar;
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        bw a;
+        String str;
+        long currentTimeMillis;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            try {
+                if (this.f140a != null) {
+                    this.f140a.a();
+                }
+                com.xiaomi.channel.commonutils.logger.b.c("begin read and send perf / event");
+                if (this.f140a instanceof IEventProcessor) {
+                    a = bw.a(this.a);
+                    str = "event_last_upload_time";
+                    currentTimeMillis = System.currentTimeMillis();
+                } else if (!(this.f140a instanceof IPerfProcessor)) {
+                    return;
+                } else {
+                    a = bw.a(this.a);
+                    str = "perf_last_upload_time";
+                    currentTimeMillis = System.currentTimeMillis();
+                }
+                a.m206a("sp_client_report_status", str, currentTimeMillis);
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
+            }
+        }
     }
 }

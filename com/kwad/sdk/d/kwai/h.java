@@ -32,7 +32,7 @@ public class h extends b {
             imageView.setVisibility(8);
         } else {
             imageView.setVisibility(0);
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080bcb);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080bb6);
             KSImageLoader.loadWithRadius(imageView, au, adTemplate, g);
         }
         TextView textView = aVar.b;
@@ -85,7 +85,7 @@ public class h extends b {
         if (TextUtils.isEmpty(au)) {
             imageView.setVisibility(8);
         } else {
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080bcb);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080bb6);
             KSImageLoader.loadWithRadius(imageView, au, adTemplate, g);
             imageView.setVisibility(0);
         }
@@ -100,9 +100,9 @@ public class h extends b {
         AdTemplate adTemplate = cVar.a;
         this.d = adTemplate;
         this.c = com.kwad.sdk.core.response.a.d.j(adTemplate);
-        this.e.a = (ImageView) this.b.e.findViewById(R.id.obfuscated_res_0x7f091001);
-        this.e.b = (TextView) this.b.e.findViewById(R.id.obfuscated_res_0x7f091005);
-        this.e.c = (TextView) this.b.e.findViewById(R.id.obfuscated_res_0x7f090ffc);
+        this.e.a = (ImageView) this.b.e.findViewById(R.id.obfuscated_res_0x7f090ff1);
+        this.e.b = (TextView) this.b.e.findViewById(R.id.obfuscated_res_0x7f090ff5);
+        this.e.c = (TextView) this.b.e.findViewById(R.id.obfuscated_res_0x7f090fec);
         if (com.kwad.sdk.core.response.a.a.B(this.c)) {
             b(this.a, this.e, this.c, this.d);
             a(this.b.e);

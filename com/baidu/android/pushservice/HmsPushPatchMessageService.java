@@ -99,7 +99,7 @@ public class HmsPushPatchMessageService extends HmsMessageService {
             super.onNewToken(str);
             if (!PushSettings.l(this) || Build.VERSION.SDK_INT >= 29) {
                 try {
-                    if (!com.baidu.android.pushservice.b.d.l(this) || TextUtils.isEmpty(str)) {
+                    if (!com.baidu.android.pushservice.b.d.m(this) || TextUtils.isEmpty(str)) {
                         return;
                     }
                     e.a((Context) this, str);

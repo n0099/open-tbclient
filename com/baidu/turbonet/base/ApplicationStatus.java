@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.base.BaseChromiumApplication;
 import com.baidu.turbonet.base.annotations.CalledByNative;
 import com.baidu.turbonet.base.annotations.JNINamespace;
-import com.repackage.hz8;
+import com.repackage.pz8;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -27,8 +27,8 @@ public class ApplicationStatus {
     public static Activity c;
     public static f d;
     public static final Map<Activity, d> e;
-    public static final hz8<e> f;
-    public static final hz8<f> g;
+    public static final pz8<e> f;
+    public static final pz8<f> g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -220,8 +220,8 @@ public class ApplicationStatus {
         }
         a = new Object();
         e = new ConcurrentHashMap();
-        f = new hz8<>();
-        g = new hz8<>();
+        f = new pz8<>();
+        g = new pz8<>();
     }
 
     public ApplicationStatus() {
@@ -296,7 +296,7 @@ public class ApplicationStatus {
     public static void i(BaseChromiumApplication baseChromiumApplication) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, null, baseChromiumApplication) == null) {
-            baseChromiumApplication.registerWindowFocusChangedListener(new a());
+            baseChromiumApplication.b(new a());
             baseChromiumApplication.registerActivityLifecycleCallbacks(new b());
         }
     }
@@ -368,7 +368,7 @@ public class ApplicationStatus {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-        public hz8<e> b;
+        public pz8<e> b;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -384,13 +384,13 @@ public class ApplicationStatus {
                 }
             }
             this.a = 6;
-            this.b = new hz8<>();
+            this.b = new pz8<>();
         }
 
-        public hz8<e> a() {
+        public pz8<e> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (hz8) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (pz8) invokeV.objValue;
         }
 
         public int b() {

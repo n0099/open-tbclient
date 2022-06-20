@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dc5;
+import com.repackage.qc5;
 import tbclient.GetUserFreeChance.DataReq;
 import tbclient.GetUserFreeChance.GetUserFreeChanceReqIdl;
 /* loaded from: classes3.dex */
@@ -45,7 +45,7 @@ public class FreeGiftChanceRequest extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.scene_from = this.from;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                dc5.a(builder, true);
+                qc5.a(builder, true);
             }
             GetUserFreeChanceReqIdl.Builder builder2 = new GetUserFreeChanceReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f24;
-import com.repackage.h24;
+import com.repackage.q24;
+import com.repackage.s24;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class UserInfoButton extends ApiButton {
@@ -18,7 +18,7 @@ public class UserInfoButton extends ApiButton {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public class a implements h24.b {
+    public class a implements s24.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UserInfoButton a;
@@ -41,11 +41,11 @@ public class UserInfoButton extends ApiButton {
             this.a = userInfoButton;
         }
 
-        @Override // com.repackage.h24.b
+        @Override // com.repackage.s24.b
         public void a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                this.a.v(jSONObject);
+                this.a.u(jSONObject);
             }
         }
     }
@@ -74,16 +74,16 @@ public class UserInfoButton extends ApiButton {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            new h24().a(new a(this));
+            new s24().a(new a(this));
         }
     }
 
-    public void v(JSONObject jSONObject) {
+    public void u(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            f24 f24Var = new f24();
-            f24Var.data = jSONObject;
-            k(f24Var);
+            q24 q24Var = new q24();
+            q24Var.data = jSONObject;
+            k(q24Var);
         }
     }
 

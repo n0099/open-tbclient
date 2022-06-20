@@ -35,6 +35,7 @@ public class MediaBrowserProtocol {
     public static final String DATA_ROOT_HINTS = "data_root_hints";
     public static final String DATA_SEARCH_EXTRAS = "data_search_extras";
     public static final String DATA_SEARCH_QUERY = "data_search_query";
+    public static final String EXTRA_CALLING_PID = "extra_calling_pid";
     public static final String EXTRA_CLIENT_VERSION = "extra_client_version";
     public static final String EXTRA_MESSENGER_BINDER = "extra_messenger";
     public static final String EXTRA_SERVICE_VERSION = "extra_service_version";

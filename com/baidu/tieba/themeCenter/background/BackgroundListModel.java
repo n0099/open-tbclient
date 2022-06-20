@@ -19,12 +19,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hm8;
-import com.repackage.ig8;
-import com.repackage.im8;
-import com.repackage.ln8;
-import com.repackage.wa;
-import com.repackage.ys4;
+import com.repackage.bh8;
+import com.repackage.ht4;
+import com.repackage.pm8;
+import com.repackage.qm8;
+import com.repackage.tn8;
+import com.repackage.za;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -32,7 +32,7 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BackgroundListActivity a;
-    public ln8 b;
+    public tn8 b;
     public List<DressItemData> c;
     public List<DressItemData> d;
     public DressItemData e;
@@ -41,11 +41,11 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
     public boolean h;
     public boolean i;
     public boolean j;
-    public wa k;
-    public wa l;
+    public za k;
+    public za l;
 
     /* loaded from: classes4.dex */
-    public class a extends wa {
+    public class a extends za {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BackgroundListModel a;
@@ -72,7 +72,7 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
             this.a = backgroundListModel;
         }
 
-        @Override // com.repackage.wa
+        @Override // com.repackage.za
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
@@ -106,10 +106,10 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
                         this.a.d.addAll(this.a.c);
                     }
                 } else {
-                    BackgroundListModel.A(this.a);
+                    BackgroundListModel.B(this.a);
                 }
                 if (this.a.f != null) {
-                    this.a.Q();
+                    this.a.R();
                     this.a.f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.b, this.a.d);
                 }
             }
@@ -117,7 +117,7 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends wa {
+    public class b extends za {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BackgroundListModel a;
@@ -144,10 +144,10 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
             this.a = backgroundListModel;
         }
 
-        @Override // com.repackage.wa
+        @Override // com.repackage.za
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            DressItemData P;
-            DressItemData P2;
+            DressItemData Q;
+            DressItemData Q2;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
                 return;
@@ -156,25 +156,25 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
                 BackgroundSetRequestMessage backgroundSetRequestMessage = (BackgroundSetRequestMessage) responsedMessage.getmOrginalMessage().getExtra();
                 int propId = backgroundSetRequestMessage.getPropId();
                 if (responsedMessage.getError() == 0) {
-                    if (propId == this.a.a.getPropId() && (P = this.a.P(propId)) != null) {
-                        TiebaStatic.log(new StatisticItem("c10286").param("obj_id", propId).param("obj_type", P.getFreeUserLevel()));
+                    if (propId == this.a.a.C1() && (Q = this.a.Q(propId)) != null) {
+                        TiebaStatic.log(new StatisticItem("c10286").param("obj_id", propId).param("obj_type", Q.getFreeUserLevel()));
                     }
-                    ys4 k = ys4.k();
+                    ht4 k = ht4.k();
                     k.w("current_used_personal_background_" + TbadkCoreApplication.getCurrentAccount(), propId);
-                    this.a.V(propId);
+                    this.a.W(propId);
                     this.a.f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.b, this.a.d);
                 } else if (responsedMessage.getError() == 2270014) {
                 } else {
-                    int i = im8.b;
-                    if (responsedMessage.getError() == im8.c) {
-                        i = im8.a;
+                    int i = qm8.b;
+                    if (responsedMessage.getError() == qm8.c) {
+                        i = qm8.a;
                     }
                     boolean fromDetail = backgroundSetRequestMessage.getFromDetail();
                     if (fromDetail) {
                         return;
                     }
-                    if ((backgroundSetRequestMessage.getRequestUniqueId() == null || backgroundSetRequestMessage.getRequestUniqueId() == this.a.getUniqueId()) && propId == this.a.a.getPropId() && (P2 = this.a.P(propId)) != null) {
-                        this.a.U(i, responsedMessage.getErrorString(), P2, fromDetail);
+                    if ((backgroundSetRequestMessage.getRequestUniqueId() == null || backgroundSetRequestMessage.getRequestUniqueId() == this.a.getUniqueId()) && propId == this.a.a.C1() && (Q2 = this.a.Q(propId)) != null) {
+                        this.a.V(i, responsedMessage.getErrorString(), Q2, fromDetail);
                     }
                 }
             }
@@ -183,7 +183,7 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
 
     /* loaded from: classes4.dex */
     public interface c {
-        void a(int i, String str, ln8 ln8Var, List<DressItemData> list);
+        void a(int i, String str, tn8 tn8Var, List<DressItemData> list);
     }
 
     public BackgroundListModel(BackgroundListActivity backgroundListActivity) {
@@ -210,24 +210,24 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
         DressItemData dressItemData = new DressItemData();
         this.e = dressItemData;
         dressItemData.setPropsId(0);
-        this.e.setTitle(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f048b));
+        this.e.setTitle(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f047c));
         ArrayList arrayList = new ArrayList();
         this.d = arrayList;
         arrayList.add(this.e);
         this.j = backgroundListActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
         registerTask();
         registerListener(this.k);
-        S();
+        T();
         registerListener(this.l);
     }
 
-    public static /* synthetic */ int A(BackgroundListModel backgroundListModel) {
+    public static /* synthetic */ int B(BackgroundListModel backgroundListModel) {
         int i = backgroundListModel.g;
         backgroundListModel.g = i - 1;
         return i;
     }
 
-    public final DressItemData P(int i) {
+    public final DressItemData Q(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
@@ -244,51 +244,51 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
         return (DressItemData) invokeI.objValue;
     }
 
-    public final void Q() {
-        DressItemData P;
+    public final void R() {
+        DressItemData Q;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.i && (P = P(0)) != null) {
-            P.setInUse(true);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.i && (Q = Q(0)) != null) {
+            Q.setInUse(true);
         }
     }
 
-    public boolean R() {
+    public boolean S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.j : invokeV.booleanValue;
     }
 
-    public final void S() {
+    public final void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ig8.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
-            ig8.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
+            bh8.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
+            bh8.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
         }
     }
 
-    public void T(c cVar) {
+    public void U(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
             this.f = cVar;
         }
     }
 
-    public void U(int i, String str, DressItemData dressItemData, boolean z) {
+    public void V(int i, String str, DressItemData dressItemData, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), str, dressItemData, Boolean.valueOf(z)}) == null) {
             int i2 = (dressItemData == null || dressItemData.getFreeUserLevel() != 101) ? 0 : 9;
             if (StringUtils.isNull(str)) {
                 return;
             }
-            if (i == im8.a) {
-                hm8.d(this.a.getPageContext(), z ? 4 : 2, str, i2, MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND, MemberPayStatistic.CLICK_ZONE_OPENDE_BUTTON);
-            } else if (i == im8.b) {
-                hm8.c(this.a.getPageContext(), z ? 4 : 2, str, i2);
+            if (i == qm8.a) {
+                pm8.d(this.a.getPageContext(), z ? 4 : 2, str, i2, MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND, MemberPayStatistic.CLICK_ZONE_OPENDE_BUTTON);
+            } else if (i == qm8.b) {
+                pm8.c(this.a.getPageContext(), z ? 4 : 2, str, i2);
             }
         }
     }
 
-    public final void V(int i) {
+    public final void W(int i) {
         List<DressItemData> list;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || (list = this.d) == null || list.size() <= 0) {
@@ -341,12 +341,12 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            ig8.h(309021, BackgroundListSocketResponseMessage.class, false, false);
-            ig8.c(309021, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_LIST, TbConfig.PERSONAL_BACKGROUND_LIST_PAGE, BackgroundListHttpResponseMessage.class, false, false, false, false);
+            bh8.h(309021, BackgroundListSocketResponseMessage.class, false, false);
+            bh8.c(309021, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_LIST, TbConfig.PERSONAL_BACKGROUND_LIST_PAGE, BackgroundListHttpResponseMessage.class, false, false, false, false);
         }
     }
 
-    public void y() {
+    public void z() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.h) {
             this.g++;

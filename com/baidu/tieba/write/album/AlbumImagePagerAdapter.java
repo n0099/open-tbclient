@@ -94,8 +94,8 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i)) == null) {
-            View inflate = this.b.inflate(R.layout.obfuscated_res_0x7f0d0111, (ViewGroup) null);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090367);
+            View inflate = this.b.inflate(R.layout.obfuscated_res_0x7f0d0110, (ViewGroup) null);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09036a);
             tbImageView.setTag(null);
             tbImageView.setDefaultBgResource(0);
             tbImageView.setDefaultResource(0);
@@ -110,7 +110,7 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
             ImageFileInfo b = b(i);
             if (b != null) {
                 tbImageView2.L(b.getFilePath(), 35, false, true);
-                tbImageView.K(b.getFilePath(), 36, false);
+                tbImageView.J(b.getFilePath(), 36, false);
                 this.d.put(Integer.valueOf(i), Boolean.TRUE);
             }
             viewGroup.addView(inflate, 0);

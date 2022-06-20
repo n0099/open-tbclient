@@ -18,9 +18,10 @@ import com.vivo.push.PushClient;
 import com.vivo.push.cache.ClientConfigManagerImpl;
 import com.vivo.push.e;
 import com.vivo.push.util.ContextDelegate;
+import com.vivo.push.util.VivoPushException;
 import com.vivo.push.util.p;
 import com.vivo.push.util.r;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PushServiceReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public static HandlerThread a;
@@ -28,7 +29,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
     public static a c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,7 +73,13 @@ public class PushServiceReceiver extends BroadcastReceiver {
                 if (ClientConfigManagerImpl.getInstance(this.a).isCancleBroadcastReceiver()) {
                     return;
                 }
-                PushClient.getInstance(this.a).initialize();
+                try {
+                    PushClient.getInstance(this.a).initialize();
+                } catch (VivoPushException e) {
+                    e.printStackTrace();
+                    Context context3 = this.a;
+                    p.a(context3, " 初始化异常 error= " + e.getMessage());
+                }
             }
         }
     }

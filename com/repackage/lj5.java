@@ -1,86 +1,114 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetAddressList.friendList;
-import tbclient.GetAddressList.listData;
-import tbclient.GetAddressList.robotsList;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class lj5 {
+public class lj5 extends ls4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<px4> b;
 
-    public lj5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lj5(js4 js4Var) {
+        super(js4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {js4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((js4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public List<px4> a() {
+    @ms4(isAsync = false, value = "showDeviceInfo")
+    private JSONObject showDeviceInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.b == null) {
-                this.b = new ArrayList();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            String cuid = TbadkCoreApplication.getInst().getCuid();
+            String str = Build.VERSION.RELEASE;
+            String str2 = Build.MODEL;
+            int k = pi.k(getContext());
+            int i = pi.i(getContext());
+            String str3 = String.valueOf(k) + "," + String.valueOf(i);
+            String versionName = TbadkCoreApplication.getInst().getVersionName();
+            try {
+                jSONObject.put("systemName", "android");
+                jSONObject.put("systemVersion", str);
+                jSONObject.put("model", str2);
+                jSONObject.put("cuid", cuid);
+                jSONObject.put("resolution", str3);
+                jSONObject.put("appVersion", versionName);
+            } catch (JSONException unused) {
             }
-            return this.b;
+            return jSONObject;
         }
-        return (List) invokeV.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 
-    public String b() {
+    @ms4(isAsync = false, value = "showNetStatus")
+    private JSONObject showNetStatus() {
+        InterceptResult invokeV;
+        int i;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (ni.H()) {
+                i = 1;
+                str = "WIFI";
+            } else if (ni.t()) {
+                i = 3;
+                str = "2G";
+            } else if (ni.u()) {
+                i = 4;
+                str = "3G";
+            } else if (ni.v()) {
+                i = 5;
+                str = "4G";
+            } else {
+                i = 0;
+                str = "NotReachable";
+            }
+            try {
+                jSONObject.put("netStatus", i);
+                jSONObject.put("netDesc", str);
+            } catch (JSONException unused) {
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    @ms4(isAsync = false, value = "showToast")
+    private void showToast(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65539, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        BdToast.c(getContext(), jSONObject.optString("message")).n();
+    }
+
+    @Override // com.repackage.ls4
+    public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public void c(listData listdata) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, listdata) == null) || listdata == null) {
-            return;
-        }
-        this.a = listdata.key;
-        if (listdata.friend_list != null) {
-            this.b = new ArrayList();
-            for (friendList friendlist : listdata.friend_list) {
-                px4 px4Var = new px4();
-                px4Var.i(friendlist);
-                px4Var.j(this.a);
-                this.b.add(px4Var);
-            }
-        }
-    }
-
-    public void d(robotsList robotslist) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, robotslist) == null) || robotslist == null) {
-            return;
-        }
-        this.a = robotslist.key;
-        if (robotslist.friend_list != null) {
-            this.b = new ArrayList();
-            for (friendList friendlist : robotslist.friend_list) {
-                px4 px4Var = new px4();
-                px4Var.i(friendlist);
-                px4Var.j(this.a);
-                this.b.add(px4Var);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_Utils" : (String) invokeV.objValue;
     }
 }

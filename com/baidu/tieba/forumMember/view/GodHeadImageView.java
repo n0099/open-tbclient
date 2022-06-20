@@ -179,7 +179,7 @@ public class GodHeadImageView extends FrameLayout {
     public void e(String str, int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            this.a.K(str, i2, z);
+            this.a.J(str, i2, z);
         }
     }
 

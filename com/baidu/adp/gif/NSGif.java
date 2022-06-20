@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hi;
-import com.repackage.ii;
-import com.repackage.kb;
-import com.repackage.pg;
+import com.repackage.li;
+import com.repackage.mi;
+import com.repackage.nb;
+import com.repackage.tg;
 /* loaded from: classes.dex */
-public class NSGif implements kb {
+public class NSGif implements nb {
     public static /* synthetic */ Interceptable $ic;
     public static final String e;
     public static boolean f;
@@ -63,7 +63,7 @@ public class NSGif implements kb {
     }
 
     /* loaded from: classes.dex */
-    public static class b extends ii {
+    public static class b extends mi {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -81,7 +81,7 @@ public class NSGif implements kb {
             }
         }
 
-        @Override // com.repackage.ii
+        @Override // com.repackage.mi
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -104,7 +104,7 @@ public class NSGif implements kb {
             }
         }
         e = BdBaseApplication.getInst().getCacheDir().getAbsolutePath();
-        f = hi.d().i("nsgif_jni", 2, new b());
+        f = li.d().i("nsgif_jni", 2, new b());
     }
 
     public NSGif(long j) {
@@ -174,7 +174,7 @@ public class NSGif implements kb {
 
     public static native boolean nativeWriteTo(long j, Bitmap bitmap);
 
-    @Override // com.repackage.kb
+    @Override // com.repackage.nb
     public boolean a(Bitmap bitmap, Canvas canvas) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -187,7 +187,7 @@ public class NSGif implements kb {
         return invokeLL.booleanValue;
     }
 
-    @Override // com.repackage.kb
+    @Override // com.repackage.nb
     public int b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -201,14 +201,14 @@ public class NSGif implements kb {
         return invokeI.intValue;
     }
 
-    @Override // com.repackage.kb
+    @Override // com.repackage.nb
     public boolean c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? nativeDecodeFrame(this.a, i) : invokeI.booleanValue;
     }
 
-    @Override // com.repackage.kb
+    @Override // com.repackage.nb
     public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -217,7 +217,7 @@ public class NSGif implements kb {
                 return;
             }
             this.a = 0L;
-            pg.a().c(new a(this, j));
+            tg.a().c(new a(this, j));
         }
     }
 
@@ -232,21 +232,21 @@ public class NSGif implements kb {
         }
     }
 
-    @Override // com.repackage.kb
+    @Override // com.repackage.nb
     public int getFrameCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : invokeV.intValue;
     }
 
-    @Override // com.repackage.kb
+    @Override // com.repackage.nb
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c : invokeV.intValue;
     }
 
-    @Override // com.repackage.kb
+    @Override // com.repackage.nb
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

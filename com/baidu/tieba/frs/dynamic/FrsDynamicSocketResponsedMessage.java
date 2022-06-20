@@ -1,5 +1,6 @@
 package com.baidu.tieba.frs.dynamic;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ve6;
+import com.repackage.vf6;
 import tbclient.Error;
 import tbclient.StarTrends.StarTrendsResIdl;
 /* loaded from: classes3.dex */
-public class FrsDynamicSocketResponsedMessage extends MvcSocketResponsedMessage<ve6, StarTrendsResIdl> {
+public class FrsDynamicSocketResponsedMessage extends MvcSocketResponsedMessage<vf6, StarTrendsResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ve6 responseData;
+    public vf6 responseData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsDynamicSocketResponsedMessage() {
@@ -34,22 +35,16 @@ public class FrsDynamicSocketResponsedMessage extends MvcSocketResponsedMessage<
         }
     }
 
-    @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage
-    public Class<StarTrendsResIdl> getProtobufResponseIdlClass() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? StarTrendsResIdl.class : (Class) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage, com.baidu.tbadk.message.websockt.TbSocketReponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         Error error;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
-            ve6 ve6Var = new ve6();
-            this.responseData = ve6Var;
-            StarTrendsResIdl a = ve6Var.a(bArr);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            vf6 vf6Var = new vf6();
+            this.responseData = vf6Var;
+            StarTrendsResIdl a = vf6Var.a(bArr);
             if (a != null && (error = a.error) != null) {
                 Integer num = error.errorno;
                 if (num != null) {
@@ -59,6 +54,15 @@ public class FrsDynamicSocketResponsedMessage extends MvcSocketResponsedMessage<
                 setErrorString(a.error.usermsg);
             }
             setData(this.responseData);
+            return a;
         }
+        return invokeIL.objValue;
+    }
+
+    @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage
+    public Class<StarTrendsResIdl> getProtobufResponseIdlClass() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? StarTrendsResIdl.class : (Class) invokeV.objValue;
     }
 }

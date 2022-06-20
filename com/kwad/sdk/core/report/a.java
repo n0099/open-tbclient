@@ -19,11 +19,11 @@ public class a {
 
     /* renamed from: com.kwad.sdk.core.report.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0306a extends com.kwad.sdk.core.response.kwai.a {
+    public static class C0314a extends com.kwad.sdk.core.response.kwai.a {
         public int a;
         public String b;
 
-        public C0306a(int i, String str) {
+        public C0314a(int i, String str) {
             this.a = i;
             this.b = str;
         }
@@ -122,10 +122,10 @@ public class a {
         a(adTemplate, i, aVar, jSONObject);
     }
 
-    public static void a(AdTemplate adTemplate, C0306a c0306a) {
+    public static void a(AdTemplate adTemplate, C0314a c0314a) {
         p.a aVar = new p.a();
-        if (c0306a != null) {
-            aVar.m = c0306a.toJson().toString();
+        if (c0314a != null) {
+            aVar.m = c0314a.toJson().toString();
         }
         a(adTemplate, 40, aVar, (JSONObject) null);
     }
@@ -224,7 +224,7 @@ public class a {
     public static void c(AdTemplate adTemplate, int i, @Nullable JSONObject jSONObject) {
         p.a aVar = new p.a();
         aVar.d = i;
-        a(adTemplate, 140, aVar, jSONObject);
+        a(adTemplate, (int) Cea708Decoder.COMMAND_DLW, aVar, jSONObject);
     }
 
     public static void c(@Nullable AdTemplate adTemplate, p.a aVar) {
@@ -254,7 +254,7 @@ public class a {
         p.a aVar = new p.a();
         aVar.p = com.kwad.sdk.core.response.a.a.v(com.kwad.sdk.core.response.a.d.j(adTemplate));
         aVar.d = i;
-        a(adTemplate, 140, aVar, jSONObject);
+        a(adTemplate, (int) Cea708Decoder.COMMAND_DLW, aVar, jSONObject);
     }
 
     public static void d(@Nullable AdTemplate adTemplate, p.a aVar) {

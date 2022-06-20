@@ -1,5 +1,9 @@
 package com.repackage;
+
+import java.util.List;
 /* loaded from: classes6.dex */
 public interface nn2<T> {
-    T make() throws IllegalAccessException, InstantiationException;
+    void f(String str);
+
+    void g(List<T> list);
 }

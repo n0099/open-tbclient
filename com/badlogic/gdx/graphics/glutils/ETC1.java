@@ -12,9 +12,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f7;
-import com.repackage.g8;
-import com.repackage.h3;
+import com.repackage.h7;
+import com.repackage.i8;
+import com.repackage.j3;
 import java.io.BufferedInputStream;
 import java.io.DataInputStream;
 import java.nio.ByteBuffer;
@@ -113,7 +113,7 @@ public class ETC1 {
     public static native boolean isValidPKM(ByteBuffer byteBuffer, int i);
 
     /* loaded from: classes.dex */
-    public static final class a implements f7 {
+    public static final class a implements h7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;
@@ -153,7 +153,7 @@ public class ETC1 {
             }
         }
 
-        @Override // com.repackage.f7
+        @Override // com.repackage.h7
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -187,13 +187,13 @@ public class ETC1 {
             return (String) invokeV.objValue;
         }
 
-        public a(h3 h3Var) {
+        public a(j3 j3Var) {
             DataInputStream dataInputStream;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {h3Var};
+                Object[] objArr = {j3Var};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -207,7 +207,7 @@ public class ETC1 {
             DataInputStream dataInputStream2 = null;
             try {
                 try {
-                    dataInputStream = new DataInputStream(new BufferedInputStream(new GZIPInputStream(h3Var.m())));
+                    dataInputStream = new DataInputStream(new BufferedInputStream(new GZIPInputStream(j3Var.m())));
                 } catch (Exception e) {
                     e = e;
                 }
@@ -223,7 +223,7 @@ public class ETC1 {
                     } else {
                         this.c.position(0);
                         this.c.limit(this.c.capacity());
-                        g8.a(dataInputStream);
+                        i8.a(dataInputStream);
                         this.a = ETC1.getWidthPKM(this.c, 0);
                         this.b = ETC1.getHeightPKM(this.c, 0);
                         int i3 = ETC1.a;
@@ -236,11 +236,11 @@ public class ETC1 {
             } catch (Exception e2) {
                 e = e2;
                 dataInputStream2 = dataInputStream;
-                throw new GdxRuntimeException("Couldn't load pkm file '" + h3Var + "'", e);
+                throw new GdxRuntimeException("Couldn't load pkm file '" + j3Var + "'", e);
             } catch (Throwable th2) {
                 th = th2;
                 dataInputStream2 = dataInputStream;
-                g8.a(dataInputStream2);
+                i8.a(dataInputStream2);
                 throw th;
             }
         }

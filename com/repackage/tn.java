@@ -1,9 +1,16 @@
 package com.repackage;
 
-import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import java.util.List;
 /* loaded from: classes7.dex */
-public interface tn {
-    void b(View view2, jn jnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j);
+public interface tn<V extends ViewGroup> {
+    void a(List<an> list);
+
+    List<nn> getData();
+
+    on getListAdapter();
+
+    V getListView();
+
+    void setData(List<? extends nn> list);
 }

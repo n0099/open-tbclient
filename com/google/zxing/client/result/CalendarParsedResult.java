@@ -18,7 +18,7 @@ import java.util.Locale;
 import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class CalendarParsedResult extends ParsedResult {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern DATE_TIME;

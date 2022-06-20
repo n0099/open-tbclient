@@ -13,7 +13,7 @@ import com.vivo.push.util.ContextDelegate;
 import com.vivo.push.util.p;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ClientConfigManagerImpl implements d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ClientConfigManager";
@@ -102,37 +102,16 @@ public class ClientConfigManagerImpl implements d {
         return (Set) invokeV.objValue;
     }
 
-    public int getNotifyStyle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            try {
-                String c = preparePushConfigSettings().c("DPL");
-                if (!TextUtils.isEmpty(c)) {
-                    try {
-                        return Integer.parseInt(c);
-                    } catch (NumberFormatException e) {
-                        e.printStackTrace();
-                    }
-                }
-            } catch (NumberFormatException e2) {
-                e2.printStackTrace();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
     public String getSuitTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? preparePushConfigSettings().c("CSPT") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? preparePushConfigSettings().c("CSPT") : (String) invokeV.objValue;
     }
 
     public String getValueByKey(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -145,7 +124,7 @@ public class ClientConfigManagerImpl implements d {
     public Set<Long> getWhiteLogList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             HashSet hashSet = new HashSet();
             String valueByKey = getValueByKey("WLL");
             if (!TextUtils.isEmpty(valueByKey)) {
@@ -171,7 +150,7 @@ public class ClientConfigManagerImpl implements d {
         InterceptResult invokeV;
         int parseInt;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(1048582, this)) != null) {
+        if (interceptable != null && (invokeV = interceptable.invokeV(1048581, this)) != null) {
             return invokeV.booleanValue;
         }
         String c = preparePushConfigSettings().c("PSM");
@@ -191,7 +170,7 @@ public class ClientConfigManagerImpl implements d {
     public boolean isDebug() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             this.mAppConfigSettings.c();
             return a.a(this.mAppConfigSettings.b());
         }
@@ -201,7 +180,7 @@ public class ClientConfigManagerImpl implements d {
     public boolean isEnablePush() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             prepareAppConfig();
             com.vivo.push.model.a c = this.mAppConfigSettings.c(this.mContext.getPackageName());
             if (c != null) {
@@ -217,7 +196,7 @@ public class ClientConfigManagerImpl implements d {
         InterceptResult invokeJ;
         String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
             String c = preparePushConfigSettings().c("BL");
             if (!TextUtils.isEmpty(c)) {
                 for (String str : c.split(",")) {
@@ -238,6 +217,6 @@ public class ClientConfigManagerImpl implements d {
     public boolean isDebug(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? a.a(i) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? a.a(i) : invokeI.booleanValue;
     }
 }

@@ -18,12 +18,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ef8;
-import com.repackage.f05;
-import com.repackage.n05;
-import com.repackage.sz4;
+import com.repackage.c15;
+import com.repackage.h05;
+import com.repackage.u05;
+import com.repackage.xf8;
 /* loaded from: classes3.dex */
-public class SendView extends TextView implements f05 {
+public class SendView extends TextView implements u05 {
     public static /* synthetic */ Interceptable $ic = null;
     public static int f = 1;
     public static int g;
@@ -62,7 +62,7 @@ public class SendView extends TextView implements f05 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.g(new sz4(8, -1, null));
+                this.a.L(new h05(8, -1, null));
             }
         }
     }
@@ -109,80 +109,19 @@ public class SendView extends TextView implements f05 {
         setEnabled(false);
         setTextSize(0, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b5));
         setTextColor(getContext().getResources().getColor(R.color.CAM_X0110));
-        setText(R.string.obfuscated_res_0x7f0f1113);
+        setText(R.string.obfuscated_res_0x7f0f111e);
         setOnClickListener(new a(this));
     }
 
-    public void a(int i) {
+    @Override // com.repackage.i05
+    public void C(h05 h05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (i == g) {
-                boolean[] zArr = this.c;
-                if (!zArr[0] && !zArr[1] && !zArr[2] && !zArr[3] && !zArr[4]) {
-                    setEnabled(false);
-                } else {
-                    setEnabled(true);
-                }
-            } else if (i == f) {
-                if (this.c[1]) {
-                    setEnabled(true);
-                } else {
-                    setEnabled(false);
-                }
-            }
-        }
-    }
-
-    @Override // com.repackage.f05
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setVisibility(0);
-        }
-    }
-
-    @Override // com.repackage.f05
-    public void g(sz4 sz4Var) {
-        EditorTools editorTools;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sz4Var) == null) || (editorTools = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, h05Var) == null) || h05Var == null) {
             return;
         }
-        editorTools.A(sz4Var);
-    }
-
-    @Override // com.repackage.f05
-    public int getToolId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    @Override // com.repackage.f05
-    public void hide() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            setVisibility(8);
-        }
-    }
-
-    @Override // com.repackage.f05
-    public void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            setClickable(false);
-        }
-    }
-
-    @Override // com.repackage.tz4
-    public void onAction(sz4 sz4Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, sz4Var) == null) || sz4Var == null) {
-            return;
-        }
-        int i = sz4Var.a;
+        int i = h05Var.a;
         if (i == 4) {
-            Object obj = sz4Var.c;
+            Object obj = h05Var.c;
             if (obj != null && (!(obj instanceof String) || !StringUtils.isNull((String) obj))) {
                 this.c[0] = true;
             } else {
@@ -210,13 +149,13 @@ public class SendView extends TextView implements f05 {
                     this.c[2] = false;
                     break;
                 case 12:
-                    Object obj2 = sz4Var.c;
-                    if (obj2 instanceof n05) {
-                        n05 n05Var = (n05) obj2;
-                        WriteImagesInfo writeImagesInfo = n05Var.a;
+                    Object obj2 = h05Var.c;
+                    if (obj2 instanceof c15) {
+                        c15 c15Var = (c15) obj2;
+                        WriteImagesInfo writeImagesInfo = c15Var.a;
                         if (writeImagesInfo != null) {
                             if (writeImagesInfo.getChosedFiles() != null) {
-                                this.d[0] = n05Var.a.getChosedFiles().size();
+                                this.d[0] = c15Var.a.getChosedFiles().size();
                             } else {
                                 this.d[0] = 0;
                             }
@@ -248,16 +187,77 @@ public class SendView extends TextView implements f05 {
         a(this.e);
     }
 
-    @Override // com.repackage.f05
-    public void onChangeSkinType(int i) {
+    @Override // com.repackage.u05
+    public void L(h05 h05Var) {
+        EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            int color = SkinManager.getColor(i, (int) R.color.CAM_X0302);
-            setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{ef8.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), ef8.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h05Var) == null) || (editorTools = this.a) == null) {
+            return;
+        }
+        editorTools.A(h05Var);
+    }
+
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            if (i == g) {
+                boolean[] zArr = this.c;
+                if (!zArr[0] && !zArr[1] && !zArr[2] && !zArr[3] && !zArr[4]) {
+                    setEnabled(false);
+                } else {
+                    setEnabled(true);
+                }
+            } else if (i == f) {
+                if (this.c[1]) {
+                    setEnabled(true);
+                } else {
+                    setEnabled(false);
+                }
+            }
         }
     }
 
-    @Override // com.repackage.f05
+    @Override // com.repackage.u05
+    public int getToolId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    @Override // com.repackage.u05
+    public void hide() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            setVisibility(8);
+        }
+    }
+
+    @Override // com.repackage.u05
+    public void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            setClickable(false);
+        }
+    }
+
+    @Override // com.repackage.u05
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            int color = SkinManager.getColor(i, (int) R.color.CAM_X0302);
+            setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{xf8.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), xf8.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
+        }
+    }
+
+    @Override // com.repackage.u05
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            setVisibility(0);
+        }
+    }
+
+    @Override // com.repackage.u05
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, editorTools) == null) {
@@ -265,7 +265,7 @@ public class SendView extends TextView implements f05 {
         }
     }
 
-    @Override // com.repackage.f05
+    @Override // com.repackage.u05
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {

@@ -170,7 +170,7 @@ public class CSSParser {
         public static final MediaType tty;
 
         /* renamed from: tv  reason: collision with root package name */
-        public static final MediaType f1016tv;
+        public static final MediaType f1055tv;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -196,7 +196,7 @@ public class CSSParser {
             screen = new MediaType("screen", 7);
             tty = new MediaType("tty", 8);
             MediaType mediaType = new MediaType(Config.TARGET_SDK_VERSION, 9);
-            f1016tv = mediaType;
+            f1055tv = mediaType;
             $VALUES = new MediaType[]{all, aural, braille, embossed, handheld, print, projection, screen, tty, mediaType};
         }
 

@@ -1,12 +1,7 @@
 package com.repackage;
 
-import android.os.Bundle;
-import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,12 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.z84;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class e32 {
+public class e32 extends c32 implements z84 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public f32 a;
 
     static {
         InterceptResult invokeClinit;
@@ -34,57 +32,57 @@ public final class e32 {
                 return;
             }
         }
-        b = rf1.a;
+        zi2.g0().getSwitch("swan_pms_http_request_retry_use_default_net_lib", false);
+        b = false;
     }
 
-    public e32() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e32(rz2 rz2Var) {
+        super(rz2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {rz2Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((rz2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = f32.a;
     }
 
-    public final void a(@NonNull gw2 gw2Var, @NonNull PrefetchEvent prefetchEvent, @Nullable PMSAppInfo pMSAppInfo) {
+    @NonNull
+    public static aa4 K() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, gw2Var, prefetchEvent, pMSAppInfo) == null) {
-            Bundle bundle = new Bundle();
-            bundle.setClassLoader(PrefetchEvent.class.getClassLoader());
-            bundle.putParcelable("swan_app_bundle_prefetch", prefetchEvent);
-            if (pMSAppInfo == null) {
-                pMSAppInfo = c74.i().u(prefetchEvent.appId);
-            }
-            if (pMSAppInfo == null) {
-                return;
-            }
-            bundle.putParcelable("swan_app_prefetch_pms_info", pMSAppInfo);
-            if (this.a.a(prefetchEvent, pMSAppInfo, bundle)) {
-                xv2 e = xv2.e();
-                zv2 zv2Var = new zv2(120, bundle);
-                zv2Var.b(gw2Var.b);
-                zv2Var.p(false);
-                e.h(zv2Var);
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b ? zi2.r0() : new ca4() : (aa4) invokeV.objValue;
+    }
+
+    @Override // com.repackage.c32, com.repackage.z84
+    public void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, z84.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
+            K().b(str, map, map2, jSONObject, aVar);
         }
     }
 
-    public void b(@NonNull PrefetchEvent prefetchEvent, @NonNull gw2 gw2Var, @Nullable PMSAppInfo pMSAppInfo) {
+    @Override // com.repackage.c32, com.repackage.z84
+    public void k(String str, Map<String, String> map, Map<String, String> map2, z84.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, prefetchEvent, gw2Var, pMSAppInfo) == null) {
-            a(gw2Var, prefetchEvent, pMSAppInfo);
-            gw2Var.i0(prefetchEvent);
-            if (b) {
-                Log.d("PrefetchMessenger", "onPrefetchReady event: " + prefetchEvent);
-                Log.d("PrefetchMessenger", "onPrefetchReady client id: " + gw2Var.b.index);
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, map2, aVar) == null) {
+            String b2 = st2.b();
+            if (b2 != null) {
+                if (map == null) {
+                    map = new HashMap<>();
+                }
+                map.put("launchid", b2);
             }
+            K().k(str, map, map2, aVar);
         }
     }
 }

@@ -5,11 +5,14 @@ import android.content.pm.PackageInfo;
 import android.content.pm.ProviderInfo;
 import android.content.res.Resources;
 import android.net.Uri;
+import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.main.invoke.IInvoker;
 import com.baidu.nps.main.invoke.InvokeException;
 import com.baidu.nps.pm.BundleInfo;
+import com.baidu.nps.stub.ModuleInit;
 import com.baidu.nps.utils.Constant;
 import com.baidu.nps.utils.ContextHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,8 +20,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m51;
-import com.repackage.s51;
+import com.repackage.d61;
+import com.repackage.f61;
+import com.repackage.i51;
 import com.repackage.u51;
 /* loaded from: classes2.dex */
 public class Bundle {
@@ -26,12 +30,13 @@ public class Bundle {
     public static final String CLAZZ_SUFFIX_INVOKER = ".Invoker";
     public static final String EXTRA_KEY_CLAZZ = "clazz";
     public static final String EXTRA_KEY_PKG = "pkg";
+    public static final String KEY_BUNDLE_INIT = "MODULE_INIT";
     public static final String METHOD_VALUE_BIND_PROVIDER = "bind_provider_impl";
     public static final String SCHEME_CONTENT = "content";
     public transient /* synthetic */ FieldHolder $fh;
     public BundleInfo mBundleInfo;
     public IInvoker mInvoker;
-    public m51 mRuntime;
+    public u51 mRuntime;
 
     public Bundle(BundleInfo bundleInfo) {
         Interceptable interceptable = $ic;
@@ -51,16 +56,15 @@ public class Bundle {
         this.mBundleInfo = bundleInfo;
     }
 
-    private boolean bindProviders() {
-        InterceptResult invokeV;
+    private boolean bindProviders(PackageInfo packageInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            Application applicationContext = ContextHolder.getApplicationContext();
-            PackageInfo a = u51.a(s51.d(applicationContext, this.mBundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), 138);
-            if (a == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, packageInfo)) == null) {
+            if (packageInfo == null) {
                 return false;
             }
-            ProviderInfo[] providerInfoArr = a.providers;
+            Application applicationContext = ContextHolder.getApplicationContext();
+            ProviderInfo[] providerInfoArr = packageInfo.providers;
             if (providerInfoArr != null) {
                 for (ProviderInfo providerInfo : providerInfoArr) {
                     android.os.Bundle bundle = new android.os.Bundle();
@@ -72,23 +76,53 @@ public class Bundle {
             }
             return true;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
+    }
+
+    private boolean initBundle(PackageInfo packageInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, packageInfo)) == null) {
+            if (packageInfo == null) {
+                return false;
+            }
+            Application applicationContext = ContextHolder.getApplicationContext();
+            try {
+                android.os.Bundle bundle = packageInfo.applicationInfo != null ? packageInfo.applicationInfo.metaData : null;
+                if (bundle != null) {
+                    String charSequence = bundle.getCharSequence(KEY_BUNDLE_INIT, "").toString();
+                    if (TextUtils.isEmpty(charSequence)) {
+                        return true;
+                    }
+                    ((ModuleInit) this.mRuntime.c().loadClass(charSequence).newInstance()).init(applicationContext);
+                    return true;
+                }
+                return true;
+            } catch (Exception e) {
+                i51.a().b().recordException(3, e.toString(), packageInfo.packageName);
+                return true;
+            }
+        }
+        return invokeL.booleanValue;
     }
 
     private synchronized boolean initIfNeed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             synchronized (this) {
                 if (this.mRuntime != null) {
                     return true;
                 }
-                m51 b = m51.b(this.mBundleInfo);
+                u51 b = u51.b(this.mBundleInfo);
                 this.mRuntime = b;
                 if (b == null) {
                     return false;
                 }
-                bindProviders();
+                Application applicationContext = ContextHolder.getApplicationContext();
+                PackageInfo a = f61.a(d61.d(applicationContext, this.mBundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), 138);
+                initBundle(a);
+                bindProviders(a);
                 return true;
             }
         }
@@ -99,7 +133,7 @@ public class Bundle {
     private synchronized boolean instantiateInvokerIfNeed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             synchronized (this) {
                 if (this.mInvoker != null) {
                     return true;
@@ -170,13 +204,13 @@ public class Bundle {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, cls)) == null) {
             initIfNeed();
-            m51 m51Var = this.mRuntime;
-            if (m51Var != null) {
+            u51 u51Var = this.mRuntime;
+            if (u51Var != null) {
                 try {
                     if (cls == null) {
-                        return m51Var.c().loadClass(str);
+                        return u51Var.c().loadClass(str);
                     }
-                    return m51Var.c().loadClass(str).asSubclass(cls);
+                    return u51Var.c().loadClass(str).asSubclass(cls);
                 } catch (ClassNotFoundException e) {
                     throw new InvokeException(18, Log.getStackTraceString(e));
                 }

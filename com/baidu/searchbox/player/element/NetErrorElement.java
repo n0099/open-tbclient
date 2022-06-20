@@ -86,10 +86,10 @@ public class NetErrorElement extends AbsElement {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.mRootView == null) {
-                this.mRootView = (LinearLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0150, null);
+                this.mRootView = (LinearLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d014f, null);
             }
-            this.mTextNetError = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09218b);
-            Button button = (Button) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0903f6);
+            this.mTextNetError = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092187);
+            Button button = (Button) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0903f0);
             this.mBtnRetry = button;
             button.setOnClickListener(this.mParent);
         }

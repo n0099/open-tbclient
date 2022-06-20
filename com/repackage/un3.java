@@ -1,9 +1,19 @@
 package com.repackage;
 
-import android.view.View;
+import com.baidu.swan.game.ad.downloader.exception.DownloadException;
 /* loaded from: classes7.dex */
 public interface un3 {
-    void d(String str, String str2);
+    void a();
 
-    void f(View view2);
+    void b(DownloadException downloadException);
+
+    void c();
+
+    void d();
+
+    void e(long j, long j2);
+
+    void f(long j, long j2);
+
+    void onStart();
 }

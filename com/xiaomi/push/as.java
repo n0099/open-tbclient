@@ -1,71 +1,50 @@
 package com.xiaomi.push;
 
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.content.pm.PackageInfo;
+import android.os.IBinder;
 import android.os.Looper;
-import android.os.SystemClock;
-import android.text.TextUtils;
+import android.os.Parcel;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Method;
-import java.lang.reflect.Proxy;
 /* loaded from: classes8.dex */
-public class as implements ar, InvocationHandler {
+public class as implements au {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[][] a;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile int f105a;
+    public volatile int f100a;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile long f106a;
+    public Context f101a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f107a;
+    public ServiceConnection f102a;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile a f108a;
+    public final Object f103a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Class f109a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public final Object f110a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public Method f111a;
-    public Class b;
+    public volatile String f104a;
+    public volatile String b;
 
     /* renamed from: b  reason: collision with other field name */
-    public Method f112b;
-    public Method c;
-    public Method d;
-    public Method e;
-    public Method f;
-    public Method g;
+    public volatile boolean f105b;
 
     /* loaded from: classes8.dex */
-    public class a {
+    public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ as a;
-
-        /* renamed from: a  reason: collision with other field name */
-        public Boolean f113a;
-
-        /* renamed from: a  reason: collision with other field name */
-        public String f114a;
-        public String b;
-        public String c;
-        public String d;
 
         public a(as asVar) {
             Interceptable interceptable = $ic;
@@ -83,44 +62,102 @@ public class as implements ar, InvocationHandler {
                 }
             }
             this.a = asVar;
-            this.f113a = null;
-            this.f114a = null;
-            this.b = null;
-            this.c = null;
-            this.d = null;
         }
 
         public /* synthetic */ a(as asVar, at atVar) {
             this(asVar);
         }
 
-        public boolean a() {
-            InterceptResult invokeV;
+        /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+        @Override // android.content.ServiceConnection
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (!TextUtils.isEmpty(this.f114a) || !TextUtils.isEmpty(this.b) || !TextUtils.isEmpty(this.c) || !TextUtils.isEmpty(this.d)) {
-                    this.f113a = Boolean.TRUE;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
+                try {
+                    this.a.f104a = b.a(iBinder);
+                    this.a.f105b = b.m167a(iBinder);
+                    this.a.b();
+                    this.a.f100a = 2;
+                    synchronized (this.a.f103a) {
+                        try {
+                            this.a.f103a.notifyAll();
+                        } catch (Exception unused) {
+                        }
+                    }
+                } catch (Exception unused2) {
+                    this.a.b();
+                    this.a.f100a = 2;
+                    synchronized (this.a.f103a) {
+                        try {
+                            this.a.f103a.notifyAll();
+                        } catch (Exception unused3) {
+                        }
+                    }
+                } catch (Throwable th) {
+                    this.a.b();
+                    this.a.f100a = 2;
+                    synchronized (this.a.f103a) {
+                        try {
+                            this.a.f103a.notifyAll();
+                        } catch (Exception unused4) {
+                        }
+                        throw th;
+                    }
                 }
-                return this.f113a != null;
             }
-            return invokeV.booleanValue;
+        }
+
+        @Override // android.content.ServiceConnection
+        public void onServiceDisconnected(ComponentName componentName) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+            }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-56379314, "Lcom/xiaomi/push/as;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes8.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static String a(IBinder iBinder) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, iBinder)) == null) {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
+                    iBinder.transact(1, obtain, obtain2, 0);
+                    obtain2.readException();
+                    return obtain2.readString();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-56379314, "Lcom/xiaomi/push/as;");
-                return;
-            }
+            return (String) invokeL.objValue;
         }
-        a = new String[][]{new String[]{"com.bun.supplier.IIdentifierListener", "com.bun.supplier.IdSupplier"}, new String[]{"com.bun.miitmdid.core.IIdentifierListener", "com.bun.miitmdid.supplier.IdSupplier"}};
+
+        /* renamed from: a  reason: collision with other method in class */
+        public static boolean m167a(IBinder iBinder) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iBinder)) == null) {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
+                    iBinder.transact(2, obtain, obtain2, 0);
+                    obtain2.readException();
+                    return obtain2.readInt() != 0;
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+            return invokeL.booleanValue;
+        }
     }
 
     public as(Context context) {
@@ -129,307 +166,97 @@ public class as implements ar, InvocationHandler {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f109a = null;
+        this.f100a = 0;
+        this.f104a = null;
+        this.f105b = false;
         this.b = null;
-        this.f111a = null;
-        this.f112b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.f110a = new Object();
-        this.f105a = 0;
-        this.f106a = 0L;
-        this.f108a = null;
-        this.f107a = context.getApplicationContext();
-        a(context);
-        b(context);
-    }
-
-    public static Class<?> a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            try {
-                return t.a(context, str);
-            } catch (Throwable unused) {
-                return null;
-            }
-        }
-        return (Class) invokeLL.objValue;
-    }
-
-    public static <T> T a(Method method, Object obj, Object... objArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, method, obj, objArr)) == null) {
-            if (method != null) {
-                try {
-                    T t = (T) method.invoke(obj, objArr);
-                    if (t != null) {
-                        return t;
-                    }
-                    return null;
-                } catch (Throwable unused) {
-                    return null;
-                }
-            }
-            return null;
-        }
-        return (T) invokeLLL.objValue;
-    }
-
-    public static Method a(Class<?> cls, String str, Class<?>... clsArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, str, clsArr)) == null) {
-            if (cls != null) {
-                try {
-                    return cls.getMethod(str, clsArr);
-                } catch (Throwable unused) {
-                    return null;
-                }
-            }
-            return null;
-        }
-        return (Method) invokeLLL.objValue;
+        this.f103a = new Object();
+        this.f101a = context;
+        a();
     }
 
     private void a() {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            synchronized (this.f110a) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            this.f102a = new a(this, null);
+            Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
+            intent.setPackage("com.huawei.hwid");
+            try {
+                z = this.f101a.bindService(intent, this.f102a, 1);
+            } catch (Exception unused) {
+                z = false;
+            }
+            this.f100a = z ? 1 : 2;
+        }
+    }
+
+    private void a(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65542, this, str) == null) && this.f100a == 1 && Looper.myLooper() != Looper.getMainLooper()) {
+            synchronized (this.f103a) {
                 try {
-                    this.f110a.notifyAll();
+                    com.xiaomi.channel.commonutils.logger.b.m84a("huawei's " + str + " wait...");
+                    this.f103a.wait(3000L);
                 } catch (Exception unused) {
                 }
             }
         }
     }
 
-    private void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, this, context) == null) {
-            Class<?> a2 = a(context, "com.bun.miitmdid.core.MdidSdk");
-            Class<?> cls = null;
-            Class<?> cls2 = null;
-            int i = 0;
-            while (true) {
-                String[][] strArr = a;
-                if (i >= strArr.length) {
-                    break;
-                }
-                String[] strArr2 = strArr[i];
-                Class<?> a3 = a(context, strArr2[0]);
-                Class<?> a4 = a(context, strArr2[1]);
-                if (a3 != null && a4 != null) {
-                    b("found class in index " + i);
-                    cls2 = a4;
-                    cls = a3;
-                    break;
-                }
-                i++;
-                cls2 = a4;
-                cls = a3;
-            }
-            this.f109a = a2;
-            this.f111a = a(a2, "InitSdk", Context.class, cls);
-            this.b = cls;
-            this.f112b = a(cls2, "getUDID", new Class[0]);
-            this.c = a(cls2, "getOAID", new Class[0]);
-            this.d = a(cls2, "getVAID", new Class[0]);
-            this.e = a(cls2, "getAAID", new Class[0]);
-            this.f = a(cls2, "isSupported", new Class[0]);
-            this.g = a(cls2, "shutDown", new Class[0]);
-        }
-    }
-
-    private void a(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, this, str) == null) && this.f108a == null) {
-            long j = this.f106a;
-            long elapsedRealtime = SystemClock.elapsedRealtime() - Math.abs(j);
-            int i = this.f105a;
-            if (elapsedRealtime > 3000 && i < 3) {
-                synchronized (this.f110a) {
-                    if (this.f106a == j && this.f105a == i) {
-                        b("retry, current count is " + i);
-                        this.f105a = this.f105a + 1;
-                        b(this.f107a);
-                        j = this.f106a;
-                        elapsedRealtime = SystemClock.elapsedRealtime() - Math.abs(j);
-                    }
-                }
-            }
-            if (this.f108a != null || j < 0 || elapsedRealtime > 3000 || Looper.myLooper() == Looper.getMainLooper()) {
-                return;
-            }
-            synchronized (this.f110a) {
-                if (this.f108a == null) {
-                    try {
-                        b(str + " wait...");
-                        this.f110a.wait(3000L);
-                    } catch (Exception unused) {
-                    }
-                }
-            }
-        }
-    }
-
-    public static boolean a(Object obj) {
+    public static boolean a(Context context) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, obj)) == null) ? (obj instanceof Boolean) || (obj instanceof Character) || (obj instanceof Byte) || (obj instanceof Short) || (obj instanceof Integer) || (obj instanceof Long) || (obj instanceof Float) || (obj instanceof Double) : invokeL.booleanValue;
-    }
-
-    private void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, this, context) == null) {
-            long elapsedRealtime = SystemClock.elapsedRealtime();
-            long j = -elapsedRealtime;
-            Class cls = this.b;
-            if (cls != null) {
-                try {
-                    ClassLoader classLoader = cls.getClassLoader();
-                    if (classLoader == null) {
-                        classLoader = context.getClassLoader();
-                    }
-                    a(this.f111a, this.f109a.newInstance(), context, Proxy.newProxyInstance(classLoader, new Class[]{this.b}, this));
-                } catch (Throwable th) {
-                    b("call init sdk error:" + th);
-                }
-                this.f106a = elapsedRealtime;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            try {
+                PackageInfo packageInfo = context.getPackageManager().getPackageInfo("com.huawei.hwid", 128);
+                z = (packageInfo.applicationInfo.flags & 1) != 0;
+                a = packageInfo.versionCode >= 20602000;
+            } catch (Exception unused) {
             }
-            elapsedRealtime = j;
-            this.f106a = elapsedRealtime;
+            return z;
         }
+        return invokeL.booleanValue;
     }
 
-    public static void b(String str) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b() {
+        ServiceConnection serviceConnection;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
-            com.xiaomi.channel.commonutils.logger.b.m108a("mdid:" + str);
+        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || (serviceConnection = this.f102a) == null) {
+            return;
+        }
+        try {
+            this.f101a.unbindService(serviceConnection);
+        } catch (Exception unused) {
         }
     }
 
-    @Override // com.xiaomi.push.ar
+    @Override // com.xiaomi.push.au
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            a("getUDID");
-            if (this.f108a == null) {
-                return null;
-            }
-            return this.f108a.f114a;
+            a("getOAID");
+            return this.f104a;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.xiaomi.push.ar
+    @Override // com.xiaomi.push.au
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            a("isSupported");
-            return this.f108a != null && Boolean.TRUE.equals(this.f108a.f113a);
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.xiaomi.push.ar
-    /* renamed from: b */
-    public String mo187b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            a("getOAID");
-            if (this.f108a == null) {
-                return null;
-            }
-            return this.f108a.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.xiaomi.push.ar
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            a("getVAID");
-            if (this.f108a == null) {
-                return null;
-            }
-            return this.f108a.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.xiaomi.push.ar
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            a("getAAID");
-            if (this.f108a == null) {
-                return null;
-            }
-            return this.f108a.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // java.lang.reflect.InvocationHandler
-    public Object invoke(Object obj, Method method, Object[] objArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, obj, method, objArr)) == null) {
-            this.f106a = SystemClock.elapsedRealtime();
-            if (objArr != null) {
-                a aVar = new a(this, null);
-                int length = objArr.length;
-                int i = 0;
-                while (true) {
-                    if (i >= length) {
-                        break;
-                    }
-                    Object obj2 = objArr[i];
-                    if (obj2 != null && !a(obj2)) {
-                        aVar.f114a = (String) a(this.f112b, obj2, new Object[0]);
-                        aVar.b = (String) a(this.c, obj2, new Object[0]);
-                        aVar.c = (String) a(this.d, obj2, new Object[0]);
-                        aVar.d = (String) a(this.e, obj2, new Object[0]);
-                        aVar.f113a = (Boolean) a(this.f, obj2, new Object[0]);
-                        a(this.g, obj2, new Object[0]);
-                        if (aVar.a()) {
-                            StringBuilder sb = new StringBuilder();
-                            sb.append("has get succ, check duplicate:");
-                            sb.append(this.f108a != null);
-                            b(sb.toString());
-                            synchronized (as.class) {
-                                if (this.f108a == null) {
-                                    this.f108a = aVar;
-                                }
-                            }
-                        }
-                    }
-                    i++;
-                }
-            }
-            a();
-            return null;
-        }
-        return invokeLLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a : invokeV.booleanValue;
     }
 }

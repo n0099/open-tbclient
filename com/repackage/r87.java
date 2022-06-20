@@ -1,35 +1,67 @@
 package com.repackage;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.VideoRecommentPlayActivityConfig;
+import android.widget.ListView;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.model.MsglistModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class r87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdTypeRecyclerView a;
-    public ArrayList<jn> b;
-    public List<wm> c;
-    public n87 d;
-    public n87 e;
-    public p87 f;
-    public p87 g;
-    public p87 h;
+    public final ArrayList<q87> a;
 
-    public r87(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ListView a;
+        public final /* synthetic */ List b;
+        public final /* synthetic */ q87 c;
+        public final /* synthetic */ ChatMessage d;
+        public final /* synthetic */ ChatMessage e;
+
+        public a(r87 r87Var, ListView listView, List list, q87 q87Var, ChatMessage chatMessage, ChatMessage chatMessage2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r87Var, listView, list, q87Var, chatMessage, chatMessage2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = listView;
+            this.b = list;
+            this.c = q87Var;
+            this.d = chatMessage;
+            this.e = chatMessage2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.getLastVisiblePosition() == this.b.size() - 1) {
+                this.c.b(this.a, this.d, this.e);
+            }
+        }
+    }
+
+    public r87() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,101 +71,30 @@ public class r87 {
                 return;
             }
         }
-        this.c = new LinkedList();
-        if (tbPageContext == null || bdTypeRecyclerView == null) {
+        ArrayList<q87> arrayList = new ArrayList<>(2);
+        this.a = arrayList;
+        arrayList.add(new p87());
+        this.a.add(new s87());
+    }
+
+    public void a(MsglistModel msglistModel, ListView listView) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, msglistModel, listView) == null) || msglistModel == null || msglistModel.getData() == null) {
             return;
         }
-        this.a = bdTypeRecyclerView;
-        b(tbPageContext);
-    }
-
-    public void a(int i) {
-        BdTypeRecyclerView bdTypeRecyclerView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (bdTypeRecyclerView = this.a) == null) {
+        List<ChatMessage> chatMessages = msglistModel.getData().getChatMessages();
+        if (ListUtils.isEmpty(chatMessages)) {
             return;
         }
-        bdTypeRecyclerView.E(i);
-    }
-
-    public final void b(TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
-            n87 n87Var = new n87(tbPageContext, l87.x);
-            this.d = n87Var;
-            n87Var.b0(VideoRecommentPlayActivityConfig.FROM_AGREE_PAGE);
-            n87 n87Var2 = new n87(tbPageContext, l87.y);
-            this.e = n87Var2;
-            n87Var2.b0(VideoRecommentPlayActivityConfig.FROM_AGREE_PAGE);
-            p87 p87Var = new p87(tbPageContext, l87.B);
-            this.f = p87Var;
-            p87Var.b0(VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE);
-            p87 p87Var2 = new p87(tbPageContext, l87.A);
-            this.g = p87Var2;
-            p87Var2.b0(VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE);
-            p87 p87Var3 = new p87(tbPageContext, l87.z);
-            this.h = p87Var3;
-            p87Var3.b0(VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE);
-            this.c.add(this.d);
-            this.c.add(this.e);
-            this.c.add(this.f);
-            this.c.add(this.g);
-            this.c.add(this.h);
-            this.a.a(this.c);
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.getAdapter().notifyDataSetChanged();
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            for (wm wmVar : this.c) {
+        ChatMessage chatMessage = (ChatMessage) ListUtils.getItem(chatMessages, ListUtils.getCount(chatMessages) - 1);
+        ChatMessage chatMessage2 = (ChatMessage) ListUtils.getItem(chatMessages, ListUtils.getCount(chatMessages) - 2);
+        Iterator<q87> it = this.a.iterator();
+        while (it.hasNext()) {
+            q87 next = it.next();
+            if (next.a(chatMessage, chatMessage2)) {
+                listView.postDelayed(new a(this, listView, chatMessages, next, chatMessage, chatMessage2), 200L);
+                return;
             }
-        }
-    }
-
-    public void e(tn tnVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, tnVar) == null) {
-            for (wm wmVar : this.c) {
-                if (wmVar != null) {
-                    wmVar.V(tnVar);
-                }
-            }
-        }
-    }
-
-    public void f(ArrayList<jn> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
-            this.a.setData(arrayList);
-            this.b = arrayList;
-        }
-    }
-
-    public void g(un unVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, unVar) == null) {
-            for (wm wmVar : this.c) {
-                if (wmVar != null) {
-                    wmVar.W(unVar);
-                }
-            }
-        }
-    }
-
-    public void h(nw5 nw5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, nw5Var) == null) {
-            this.h.c0(nw5Var);
-            this.g.c0(nw5Var);
-            this.f.c0(nw5Var);
         }
     }
 }

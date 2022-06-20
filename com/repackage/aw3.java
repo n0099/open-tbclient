@@ -1,16 +1,18 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class aw3 implements rw3 {
+public final class aw3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a72 a;
 
     public aw3() {
         Interceptable interceptable = $ic;
@@ -26,48 +28,48 @@ public class aw3 implements rw3 {
         }
     }
 
-    @Override // com.repackage.rw3
-    public boolean a(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z, @NonNull mc2 mc2Var) {
-        InterceptResult invokeCommon;
+    public boolean a(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, Boolean.valueOf(z), mc2Var})) == null) {
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            a72 a72Var = this.a;
+            if (a72Var == null) {
+                return false;
+            }
+            boolean f = bw3.f(a72Var.p());
+            boolean f2 = bw3.f(this.a.z());
+            JSEvent jSEvent = null;
+            if (f || f2) {
+                jSEvent = bw3.j(motionEvent);
+            }
+            boolean dispatchEvent = f ? this.a.dispatchEvent(jSEvent) : false;
+            if (f2 && this.a.w0()) {
+                this.a.z().dispatchEvent(jSEvent);
+            }
+            bw3.g(true);
+            return dispatchEvent;
         }
-        return invokeCommon.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.rw3
-    public void b(String str, String str2, String str3, String str4, String str5) {
+    public void b(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4, str5) == null) {
-        }
-    }
-
-    @Override // com.repackage.rw3
-    public void c(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-        }
-    }
-
-    @Override // com.repackage.rw3
-    public void d(@NonNull String str, @NonNull String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-        }
-    }
-
-    @Override // com.repackage.rw3
-    public void e(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            bw3.m(i, i2);
         }
     }
 
-    @Override // com.repackage.rw3
-    public void f(@NonNull String str) {
+    public void c(a72 a72Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, a72Var) == null) {
+            this.a = a72Var;
+        }
+    }
+
+    public void d(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            bw3.l(i, i2);
         }
     }
 }

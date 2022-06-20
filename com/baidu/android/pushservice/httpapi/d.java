@@ -55,7 +55,7 @@ public class d extends c {
             } catch (Exception e) {
                 new b.c(((a) this).a).a(Log.getStackTraceString(e)).a();
             }
-            if (!com.baidu.android.pushservice.b.d.q(((a) this).a) || com.baidu.android.pushservice.b.d.c(((a) this).a)) {
+            if (!com.baidu.android.pushservice.b.d.r(((a) this).a) || com.baidu.android.pushservice.b.d.c(((a) this).a)) {
                 com.baidu.android.pushservice.a.e eVar = new com.baidu.android.pushservice.a.e();
                 eVar.b(((a) this).b.d);
                 eVar.a(((a) this).b.e);

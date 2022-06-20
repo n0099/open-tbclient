@@ -1,7 +1,7 @@
 package com.repackage;
 
-import android.view.View;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface oz0 {
-    void a(View view2, float f, float f2);
+    void a(JSONObject jSONObject);
 }

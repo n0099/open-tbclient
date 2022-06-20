@@ -9,10 +9,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jz8;
-import com.repackage.mz8;
-import com.repackage.nz8;
 import com.repackage.rz8;
+import com.repackage.uz8;
+import com.repackage.vz8;
+import com.repackage.zz8;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -47,12 +47,62 @@ public class OkHttp3Interceptor implements Interceptor {
     public TurbonetEngine b;
 
     /* loaded from: classes4.dex */
-    public class a implements nz8 {
+    public class a implements vz8 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zz8 a;
+
+        public a(OkHttp3Interceptor okHttp3Interceptor, zz8 zz8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {okHttp3Interceptor, zz8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zz8Var;
+        }
+
+        @Override // com.repackage.vz8
+        public void a(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+                this.a.disconnect();
+            }
+        }
+
+        @Override // com.repackage.vz8
+        public void b(Exception exc, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc, j) == null) {
+                this.a.disconnect();
+            }
+        }
+
+        @Override // com.repackage.vz8
+        public void onComplete(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+                this.a.disconnect();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements vz8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ rz8 a;
+        public final /* synthetic */ OkHttp3Interceptor b;
 
-        public a(OkHttp3Interceptor okHttp3Interceptor, rz8 rz8Var) {
+        public b(OkHttp3Interceptor okHttp3Interceptor, rz8 rz8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,95 +117,45 @@ public class OkHttp3Interceptor implements Interceptor {
                     return;
                 }
             }
+            this.b = okHttp3Interceptor;
             this.a = rz8Var;
         }
 
-        @Override // com.repackage.nz8
+        @Override // com.repackage.vz8
         public void a(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                this.a.disconnect();
+                rz8 rz8Var = this.a;
+                rz8Var.e = j;
+                rz8Var.c();
+                rz8 rz8Var2 = this.a;
+                rz8Var2.c = -12;
+                rz8Var2.d(this.b.b);
             }
         }
 
-        @Override // com.repackage.nz8
+        @Override // com.repackage.vz8
         public void b(Exception exc, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc, j) == null) {
-                this.a.disconnect();
-            }
-        }
-
-        @Override // com.repackage.nz8
-        public void onComplete(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-                this.a.disconnect();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements nz8 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jz8 a;
-        public final /* synthetic */ OkHttp3Interceptor b;
-
-        public b(OkHttp3Interceptor okHttp3Interceptor, jz8 jz8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {okHttp3Interceptor, jz8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = okHttp3Interceptor;
-            this.a = jz8Var;
-        }
-
-        @Override // com.repackage.nz8
-        public void a(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                jz8 jz8Var = this.a;
-                jz8Var.e = j;
-                jz8Var.c();
-                jz8 jz8Var2 = this.a;
-                jz8Var2.c = -12;
-                jz8Var2.d(this.b.b);
-            }
-        }
-
-        @Override // com.repackage.nz8
-        public void b(Exception exc, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc, j) == null) {
-                jz8 jz8Var = this.a;
-                jz8Var.e = j;
-                jz8Var.c();
+                rz8 rz8Var = this.a;
+                rz8Var.e = j;
+                rz8Var.c();
                 this.a.a(exc);
                 this.a.d(this.b.b);
             }
         }
 
-        @Override // com.repackage.nz8
+        @Override // com.repackage.vz8
         public void onComplete(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-                jz8 jz8Var = this.a;
-                jz8Var.e = j;
-                jz8Var.c();
-                jz8 jz8Var2 = this.a;
-                jz8Var2.c = 0;
-                jz8Var2.d(this.b.b);
+                rz8 rz8Var = this.a;
+                rz8Var.e = j;
+                rz8Var.c();
+                rz8 rz8Var2 = this.a;
+                rz8Var2.c = 0;
+                rz8Var2.d(this.b.b);
             }
         }
     }
@@ -253,8 +253,8 @@ public class OkHttp3Interceptor implements Interceptor {
             if (c == null) {
                 return chain.proceed(request);
             }
-            jz8 jz8Var = new jz8(request.url().toString());
-            jz8Var.b = request.method();
+            rz8 rz8Var = new rz8(request.url().toString());
+            rz8Var.b = request.method();
             Request.Builder newBuilder = request.newBuilder();
             RequestBody body = request.body();
             if (body != null) {
@@ -279,8 +279,8 @@ public class OkHttp3Interceptor implements Interceptor {
                 newBuilder.header("Cookie", b(loadForRequest));
             }
             Response proceed = chain.proceed(newBuilder.build());
-            jz8Var.b();
-            jz8Var.d = proceed.code();
+            rz8Var.b();
+            rz8Var.d = proceed.code();
             ResponseBody body2 = proceed.body();
             RealResponseBody realResponseBody = body2 instanceof RealResponseBody ? (RealResponseBody) body2 : null;
             if (this.a != CookieJar.NO_COOKIES) {
@@ -291,7 +291,7 @@ public class OkHttp3Interceptor implements Interceptor {
             }
             if (realResponseBody != null) {
                 try {
-                    c.set(realResponseBody, Okio.buffer(Okio.source(new mz8(body2.source().inputStream(), new b(this, jz8Var)))));
+                    c.set(realResponseBody, Okio.buffer(Okio.source(new uz8(body2.source().inputStream(), new b(this, rz8Var)))));
                 } catch (IllegalAccessException e2) {
                     Log.e("tn_OkHttp3Intercept", "Can not set ProxyInputStream to Okio's InputStream", e2);
                 }
@@ -311,43 +311,43 @@ public class OkHttp3Interceptor implements Interceptor {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chain)) == null) {
             Request request = chain.request();
             if (e != null && !this.b.f() && (!d || chain.call() != null)) {
-                rz8 rz8Var = new rz8(new URL(request.url().toString()), this.b);
-                rz8Var.p();
+                zz8 zz8Var = new zz8(new URL(request.url().toString()), this.b);
+                zz8Var.p();
                 if (d && chain.call().isCanceled()) {
-                    rz8Var.disconnect();
+                    zz8Var.disconnect();
                     return c(chain, request);
                 }
                 if (d) {
-                    rz8Var.setReadTimeout(chain.readTimeoutMillis());
-                    rz8Var.setConnectTimeout(chain.connectTimeoutMillis());
+                    zz8Var.setReadTimeout(chain.readTimeoutMillis());
+                    zz8Var.setConnectTimeout(chain.connectTimeoutMillis());
                 }
                 Headers headers = request.headers();
                 for (String str : headers.names()) {
-                    rz8Var.addRequestProperty(str, headers.get(str));
+                    zz8Var.addRequestProperty(str, headers.get(str));
                 }
                 List<Cookie> loadForRequest = this.a.loadForRequest(request.url());
                 if (loadForRequest != null && !loadForRequest.isEmpty()) {
-                    rz8Var.addRequestProperty("Cookie", b(loadForRequest));
+                    zz8Var.addRequestProperty("Cookie", b(loadForRequest));
                 }
-                rz8Var.setRequestMethod(request.method());
+                zz8Var.setRequestMethod(request.method());
                 try {
                     if (request.body() != null) {
                         if (request.body().contentType() != null) {
-                            rz8Var.setRequestProperty("Content-Type", request.body().contentType().toString());
+                            zz8Var.setRequestProperty("Content-Type", request.body().contentType().toString());
                         }
-                        rz8Var.setDoOutput(true);
-                        OutputStream outputStream = rz8Var.getOutputStream();
+                        zz8Var.setDoOutput(true);
+                        OutputStream outputStream = zz8Var.getOutputStream();
                         BufferedSink buffer = Okio.buffer(Okio.sink(outputStream));
                         request.body().writeTo(buffer);
                         buffer.flush();
                         outputStream.close();
                     }
-                    int responseCode = rz8Var.getResponseCode();
+                    int responseCode = zz8Var.getResponseCode();
                     if (d && chain.call().isCanceled()) {
-                        rz8Var.disconnect();
+                        zz8Var.disconnect();
                         return c(chain, request);
                     }
-                    String str2 = rz8Var.y().e().toString();
+                    String str2 = zz8Var.y().e().toString();
                     try {
                         protocol = Protocol.get(str2);
                     } catch (IOException unused) {
@@ -355,9 +355,9 @@ public class OkHttp3Interceptor implements Interceptor {
                         protocol = Protocol.HTTP_1_1;
                     }
                     Response.Builder builder = new Response.Builder();
-                    builder.request(request).protocol(protocol).code(responseCode).message(rz8Var.getResponseMessage());
+                    builder.request(request).protocol(protocol).code(responseCode).message(zz8Var.getResponseMessage());
                     Headers.Builder builder2 = new Headers.Builder();
-                    for (Map.Entry<String, List<String>> entry : rz8Var.getHeaderFields().entrySet()) {
+                    for (Map.Entry<String, List<String>> entry : zz8Var.getHeaderFields().entrySet()) {
                         for (String str3 : entry.getValue()) {
                             if (entry.getKey() != null && !entry.getKey().isEmpty() && entry.getValue() != null) {
                                 builder.addHeader(entry.getKey(), str3);
@@ -373,11 +373,11 @@ public class OkHttp3Interceptor implements Interceptor {
                         }
                     }
                     if (responseCode >= 200 && responseCode < 400) {
-                        errorStream = rz8Var.getInputStream();
+                        errorStream = zz8Var.getInputStream();
                     } else {
-                        errorStream = rz8Var.getErrorStream();
+                        errorStream = zz8Var.getErrorStream();
                     }
-                    BufferedSource buffer2 = Okio.buffer(Okio.source(new mz8(errorStream, new a(this, rz8Var))));
+                    BufferedSource buffer2 = Okio.buffer(Okio.source(new uz8(errorStream, new a(this, zz8Var))));
                     if (builder2.get("Content-Length") == null) {
                         j = -1L;
                     } else {
@@ -397,14 +397,14 @@ public class OkHttp3Interceptor implements Interceptor {
                     } catch (Exception e3) {
                         Log.e("tn_OkHttp3Intercept", "unexpected error:" + e3.toString());
                     }
-                    String responseMessage = rz8Var.getResponseMessage();
+                    String responseMessage = zz8Var.getResponseMessage();
                     if (responseMessage == null) {
                         responseMessage = "";
                     }
                     return builder.message(responseMessage).build();
                 } catch (IOException e4) {
                     Log.e("tn_OkHttp3Intercept", "Write data or build connection caught exception: " + e4.toString());
-                    rz8Var.disconnect();
+                    zz8Var.disconnect();
                     return c(chain, request);
                 }
             }

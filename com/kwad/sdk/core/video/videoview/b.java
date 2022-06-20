@@ -47,7 +47,7 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
     public c.e u;
     public c.h v;
     public c.b w;
-    public c.InterfaceC0307c x;
+    public c.InterfaceC0315c x;
     public c.d y;
     public c.a z;
 
@@ -96,8 +96,8 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
                 }
             }
         };
-        this.x = new c.InterfaceC0307c() { // from class: com.kwad.sdk.core.video.videoview.b.4
-            @Override // com.kwad.sdk.core.video.kwai.c.InterfaceC0307c
+        this.x = new c.InterfaceC0315c() { // from class: com.kwad.sdk.core.video.videoview.b.4
+            @Override // com.kwad.sdk.core.video.kwai.c.InterfaceC0315c
             public boolean a(com.kwad.sdk.core.video.kwai.c cVar, int i, int i2) {
                 if (i != -38) {
                     b.this.a = -1;

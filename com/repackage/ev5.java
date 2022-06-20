@@ -1,320 +1,121 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dv5;
-import com.repackage.wt8;
 /* loaded from: classes5.dex */
-public class ev5 implements dv5 {
+public class ev5 extends mw5<zt5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wt8 a;
-    public TextView b;
-    public dv5.c c;
-    public dv5.b d;
-    public dv5.a e;
+    public TextView i;
+    public ProgressBar j;
+    public FrameLayout k;
+    public TextView l;
+    public TextView m;
+    public TextView n;
 
-    /* loaded from: classes5.dex */
-    public class a implements wt8.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ev5 a;
-
-        public a(ev5 ev5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ev5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ev5Var;
-        }
-
-        @Override // com.repackage.wt8.a
-        public float a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.a.d != null) {
-                    return this.a.d.a();
-                }
-                return 1.0f;
-            }
-            return invokeV.floatValue;
-        }
-
-        @Override // com.repackage.wt8.a
-        public void b(float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
-                if (this.a.e != null) {
-                    this.a.e.a(f);
-                }
-                TextView textView = this.a.b;
-                ev5 ev5Var = this.a;
-                textView.setText(ev5Var.h(ev5Var.getProgress()));
-            }
-        }
-
-        @Override // com.repackage.wt8.a
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a.c == null) {
-                return;
-            }
-            this.a.c.a();
-        }
-
-        @Override // com.repackage.wt8.a
-        public void onProgress(float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
-                this.a.b.setText(this.a.h(f));
-            }
-        }
-    }
-
-    public ev5(wt8 wt8Var, TextView textView, dv5.c cVar, dv5.b bVar, dv5.a aVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ev5(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wt8Var, textView, cVar, bVar, aVar};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = wt8Var;
-        this.b = textView;
-        this.c = cVar;
-        this.d = bVar;
-        this.e = aVar;
-        i();
+        r(h());
     }
 
-    @Override // com.repackage.dv5
-    public boolean a() {
+    @Override // com.repackage.mw5
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            wt8 wt8Var = this.a;
-            if (wt8Var != null) {
-                wt8Var.a();
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0100 : invokeV.intValue;
     }
 
-    @Override // com.repackage.dv5
-    public boolean b() {
-        InterceptResult invokeV;
+    @Override // com.repackage.mw5
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            wt8 wt8Var = this.a;
-            if (wt8Var != null) {
-                return wt8Var.b();
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.dv5
-    public int getMaxDuration() {
-        InterceptResult invokeV;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            wt8 wt8Var = this.a;
-            if (wt8Var != null) {
-                return wt8Var.getMaxDuration();
-            }
-            return 0;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
         }
-        return invokeV.intValue;
     }
 
-    @Override // com.repackage.dv5
-    public float getProgress() {
-        InterceptResult invokeV;
+    public final void r(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            wt8 wt8Var = this.a;
-            if (wt8Var != null) {
-                return wt8Var.getProgress();
-            }
-            return 0.0f;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901fc);
+            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0911f4);
+            this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0911f5);
+            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090213);
+            this.j = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0901fd);
+            this.k = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0911f8);
+            h().setOnClickListener(this);
         }
-        return invokeV.floatValue;
     }
 
-    @Override // com.repackage.dv5
-    public int getSlideNum() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.mw5
+    /* renamed from: s */
+    public void i(zt5 zt5Var) {
+        wt5 c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            wt8 wt8Var = this.a;
-            if (wt8Var != null) {
-                return wt8Var.getSlideNum();
-            }
-            return 0;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, zt5Var) == null) || (c = zt5Var.c()) == null || c.b() == null) {
+            return;
         }
-        return invokeV.intValue;
-    }
-
-    public final String h(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
-            if (f >= getMaxDuration()) {
-                f = getMaxDuration();
-            }
-            if (f > 60.0f) {
-                return ((int) (f / 60.0f)) + "'" + String.format("%.1f", Float.valueOf(f % 60.0f));
-            }
-            return String.format("%.1f", Float.valueOf(f));
+        String str = "LV." + c.b().yy_level_id;
+        if (!TextUtils.isEmpty(c.b().yy_level_name)) {
+            str = c.b().yy_level_name + str;
+            this.m.setText(c.b().yy_level_name);
         }
-        return (String) invokeF.objValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            wt8 wt8Var = this.a;
-            if (wt8Var == null) {
-                return false;
-            }
-            wt8Var.setOnProgressListener(new a(this));
-            return true;
+        this.i.setText(str);
+        if (c.b().yy_levelup_exp <= c.b().yy_level_exp) {
+            this.m.setVisibility(8);
+            this.n.setVisibility(8);
+            this.l.setVisibility(8);
+            this.j.setVisibility(8);
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.dv5
-    public boolean pause() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            wt8 wt8Var = this.a;
-            if (wt8Var != null) {
-                wt8Var.stop();
-                return true;
-            }
-            return false;
+        if (!TextUtils.isEmpty(c.b().yy_level_next_name)) {
+            this.n.setText(c.b().yy_level_next_name);
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.dv5
-    public boolean reset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            wt8 wt8Var = this.a;
-            if (wt8Var != null) {
-                wt8Var.reset();
-                return true;
-            }
-            return false;
+        long j = c.b().yy_levelup_exp;
+        long j2 = c.b().yy_level_exp;
+        this.j.setMax((int) j);
+        this.j.setProgress((int) j2);
+        if (TextUtils.isEmpty(c.b().yy_level_next_name) || c.b().yy_levelup_exp <= c.b().yy_level_exp) {
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.dv5
-    public boolean setMaxDuration(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            wt8 wt8Var = this.a;
-            if (wt8Var != null) {
-                wt8Var.setMaxDuration(i);
-                this.a.invalidate();
-                return true;
-            }
-            return false;
+        String string = this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f021d);
+        int i = (int) ((((float) (c.b().yy_levelup_exp - c.b().yy_level_exp)) * 100.0f) / ((float) c.b().yy_levelup_exp));
+        if (i <= 0) {
+            i = 1;
         }
-        return invokeI.booleanValue;
-    }
-
-    @Override // com.repackage.dv5
-    public boolean setMinDuration(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            wt8 wt8Var = this.a;
-            if (wt8Var != null) {
-                wt8Var.setMinDuration(i);
-                this.a.invalidate();
-                return true;
-            }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    @Override // com.repackage.dv5
-    public boolean setProgress(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
-            wt8 wt8Var = this.a;
-            if (wt8Var != null) {
-                wt8Var.setProgress(j);
-                return true;
-            }
-            return false;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    @Override // com.repackage.dv5
-    public boolean setShowDeleteLastTip(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
-            wt8 wt8Var = this.a;
-            if (wt8Var != null) {
-                wt8Var.setShowDeleteLastTip(z);
-                return true;
-            }
-            return false;
-        }
-        return invokeZ.booleanValue;
-    }
-
-    @Override // com.repackage.dv5
-    public boolean start() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            wt8 wt8Var = this.a;
-            if (wt8Var != null) {
-                wt8Var.start();
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
+        this.l.setText(String.format(string, c.b().yy_level_next_name, i + "%"));
     }
 }

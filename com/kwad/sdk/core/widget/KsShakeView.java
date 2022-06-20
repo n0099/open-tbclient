@@ -98,7 +98,7 @@ public class KsShakeView extends FrameLayout {
         this.b = obtainStyledAttributes.getInteger(6, 1);
         this.g = obtainStyledAttributes.getColor(1, Color.parseColor("#B3FFFFFF"));
         this.h = obtainStyledAttributes.getDimension(2, 1.0f);
-        this.j = obtainStyledAttributes.getResourceId(5, R.drawable.obfuscated_res_0x7f080be0);
+        this.j = obtainStyledAttributes.getResourceId(5, R.drawable.obfuscated_res_0x7f080bcb);
         this.i = obtainStyledAttributes.getDimension(0, a.a(context, 10.0f));
         obtainStyledAttributes.recycle();
         this.a = new ImageView(getContext());
@@ -187,7 +187,7 @@ public class KsShakeView extends FrameLayout {
 
     public void a(int i) {
         this.b = i;
-        setIconDrawableRes(i != 2 ? R.drawable.obfuscated_res_0x7f080be0 : R.drawable.obfuscated_res_0x7f080be1);
+        setIconDrawableRes(i != 2 ? R.drawable.obfuscated_res_0x7f080bcb : R.drawable.obfuscated_res_0x7f080bcc);
     }
 
     public void a(AnimatorListenerAdapter animatorListenerAdapter) {

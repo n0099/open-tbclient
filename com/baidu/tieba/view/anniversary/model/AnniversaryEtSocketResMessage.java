@@ -1,5 +1,6 @@
 package com.baidu.tieba.view.anniversary.model;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bt8;
+import com.repackage.jt8;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.VideoTemplate.VideoTemplateResIdl;
@@ -15,7 +16,7 @@ import tbclient.VideoTemplate.VideoTemplateResIdl;
 public class AnniversaryEtSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bt8 resultData;
+    public jt8 resultData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AnniversaryEtSocketResMessage() {
@@ -35,29 +36,33 @@ public class AnniversaryEtSocketResMessage extends SocketResponsedMessage {
         }
     }
 
-    public bt8 getResultData() {
-        InterceptResult invokeV;
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.resultData : (bt8) invokeV.objValue;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            VideoTemplateResIdl videoTemplateResIdl = (VideoTemplateResIdl) new Wire(new Class[0]).parseFrom(bArr, VideoTemplateResIdl.class);
+            if (videoTemplateResIdl != null) {
+                Error error = videoTemplateResIdl.error;
+                if (error != null) {
+                    setError(error.errorno.intValue());
+                    setErrorString(videoTemplateResIdl.error.usermsg);
+                }
+                if (videoTemplateResIdl.data != null) {
+                    jt8 jt8Var = new jt8();
+                    this.resultData = jt8Var;
+                    jt8Var.g(videoTemplateResIdl.data);
+                }
+            }
+            return videoTemplateResIdl;
+        }
+        return invokeIL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        VideoTemplateResIdl videoTemplateResIdl;
+    public jt8 getResultData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (videoTemplateResIdl = (VideoTemplateResIdl) new Wire(new Class[0]).parseFrom(bArr, VideoTemplateResIdl.class)) == null) {
-            return;
-        }
-        Error error = videoTemplateResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(videoTemplateResIdl.error.usermsg);
-        }
-        if (videoTemplateResIdl.data != null) {
-            bt8 bt8Var = new bt8();
-            this.resultData = bt8Var;
-            bt8Var.g(videoTemplateResIdl.data);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.resultData : (jt8) invokeV.objValue;
     }
 }

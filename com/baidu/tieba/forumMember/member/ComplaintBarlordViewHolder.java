@@ -39,9 +39,9 @@ public class ComplaintBarlordViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = 3;
-        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090311);
-        this.c = view2.findViewById(R.id.obfuscated_res_0x7f090ec5);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090312);
-        this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090310);
+        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090314);
+        this.c = view2.findViewById(R.id.obfuscated_res_0x7f090eb8);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090315);
+        this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090313);
     }
 }

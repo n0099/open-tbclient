@@ -1,5 +1,9 @@
 package com.repackage;
+
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes7.dex */
-public interface yn extends zn {
-    void d(boolean z, int i, int i2, int i3, int i4);
+public interface yn {
+    boolean a(View view2, nn nnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j);
 }

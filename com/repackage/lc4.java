@@ -1,160 +1,101 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.IOException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.internal.ETAG;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class lc4 {
+public class lc4 extends za4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final hc4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755533900, "Lcom/repackage/lc4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755533900, "Lcom/repackage/lc4;");
-                return;
+    public lc4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = hc4.d();
     }
 
-    public static String a(String... strArr) {
-        InterceptResult invokeL;
+    @Override // com.repackage.za4
+    public JSONArray c() {
+        InterceptResult invokeV;
+        List<r84> w;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, strArr)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONArray jSONArray = new JSONArray();
             JSONObject jSONObject = new JSONObject();
-            if (strArr != null) {
-                try {
-                    if (strArr.length > 0 && strArr.length % 2 == 0) {
-                        for (int i = 0; i < strArr.length; i += 2) {
-                            String str = strArr[i];
-                            String str2 = strArr[i + 1];
-                            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                                jSONObject.put(str, str2);
-                            }
-                        }
-                    }
-                } catch (Exception e) {
-                    q64.b().G("PMSFileUtil", "#createErrorJson put异常", e);
-                }
+            try {
+                jSONObject.put("type", "bbasp_core");
+                jSONObject.put("version_name", b74.b().J(0));
+                jSONObject.put("version_code", b74.b().w(0));
+                jSONArray.put(jSONObject);
+            } catch (JSONException unused) {
             }
-            return "errmsg:" + jSONObject.toString();
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("type", "bbasp_game");
+                jSONObject2.put("version_name", b74.b().J(1));
+                jSONObject2.put("version_code", b74.b().w(1));
+                jSONArray.put(jSONObject2);
+            } catch (JSONException unused2) {
+            }
+            JSONObject jSONObject3 = new JSONObject();
+            try {
+                jSONObject3.put("type", ETAG.KEY_EXTENSION);
+                jSONObject3.put("version_name", b74.b().v(0));
+                jSONObject3.put("version_code", b74.b().j(0));
+                jSONArray.put(jSONObject3);
+            } catch (JSONException unused3) {
+            }
+            JSONObject jSONObject4 = new JSONObject();
+            try {
+                jSONObject4.put("type", "extension_game");
+                jSONObject4.put("version_name", b74.b().v(1));
+                jSONObject4.put("version_code", b74.b().j(1));
+                jSONArray.put(jSONObject4);
+            } catch (JSONException unused4) {
+            }
+            try {
+                w = n74.i().w(f(10));
+            } catch (JSONException unused5) {
+            }
+            if (w == null) {
+                return jSONArray;
+            }
+            for (r84 r84Var : w) {
+                JSONObject jSONObject5 = new JSONObject();
+                jSONObject5.put("type", "ddl");
+                jSONObject5.put("bundle_id", r84Var.g);
+                jSONObject5.put("version_code", r84Var.i);
+                jSONObject5.put("version_name", r84Var.j);
+                jSONArray.put(jSONObject5);
+            }
+            return jSONArray;
         }
-        return (String) invokeL.objValue;
+        return (JSONArray) invokeV.objValue;
     }
 
-    @Nullable
-    public static g84 b(String str, long j, long j2, @Nullable List<g84> list) {
-        InterceptResult invokeCommon;
+    public final String f(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), list})) == null) {
-            List<g84> s = c74.i().s(str, j, j2);
-            if (s != null) {
-                while (!s.isEmpty()) {
-                    g84 remove = s.remove(0);
-                    if (q64.b().r(remove)) {
-                        return remove;
-                    }
-                    if (list != null) {
-                        list.add(remove);
-                    }
-                }
-                return null;
-            }
-            return null;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return "SELECT * from (SELECT * from (SELECT * from swan_plugin ORDER BY update_time) group by bundle_id) order by update_time DESC limit 0," + i + ParamableElem.DIVIDE_PARAM;
         }
-        return (g84) invokeCommon.objValue;
-    }
-
-    public static File c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                a.i("PMSFileUtil", "#generateFilePath parentDir为空 fileName=" + str2);
-                return null;
-            }
-            File file = new File(str);
-            if (!file.exists() && !file.mkdirs()) {
-                q64.b().y("PMSFileUtil", "cannot mkdir in : " + file);
-                return null;
-            }
-            String e = e(str, str2);
-            String str3 = e;
-            for (int i = 0; i < 1000; i++) {
-                File file2 = new File(str3);
-                try {
-                    if (!file2.exists() && file2.createNewFile()) {
-                        return file2;
-                    }
-                } catch (IOException e2) {
-                    a.g("PMSFileUtil", "#generateFilePath 失败", e2);
-                }
-                str3 = e + "_" + i;
-            }
-            a.i("PMSFileUtil", "#generateFilePath 创建临时路径失败");
-            return null;
-        }
-        return (File) invokeLL.objValue;
-    }
-
-    public static File d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            File dir = context.getDir("pms_dir", 0);
-            if (!dir.exists()) {
-                dir.mkdir();
-            }
-            return dir;
-        }
-        return (File) invokeL.objValue;
-    }
-
-    public static String e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) ? f(str, str2, File.separator) : (String) invokeLL.objValue;
-    }
-
-    public static String f(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str2;
-            }
-            if (TextUtils.isEmpty(str2)) {
-                return str;
-            }
-            if (str.endsWith(str3)) {
-                if (str2.startsWith(str3)) {
-                    return str.concat(str2.substring(str3.length()));
-                }
-                return str.concat(str2);
-            } else if (str2.startsWith(str3)) {
-                return str.concat(str2);
-            } else {
-                return str.concat(str3).concat(str2);
-            }
-        }
-        return (String) invokeLLL.objValue;
+        return (String) invokeI.objValue;
     }
 }

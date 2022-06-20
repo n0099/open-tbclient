@@ -11,8 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ge5;
-import com.repackage.jg;
+import com.repackage.df5;
+import com.repackage.ng;
 import java.io.File;
 import java.util.Arrays;
 import org.json.JSONObject;
@@ -41,7 +41,7 @@ public class AgreeMaterial extends OrmObject {
         public String tid;
 
         /* loaded from: classes3.dex */
-        public class a implements ge5.a {
+        public class a implements df5.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Data a;
@@ -64,7 +64,7 @@ public class AgreeMaterial extends OrmObject {
                 this.a = data;
             }
 
-            @Override // com.repackage.ge5.a
+            @Override // com.repackage.df5.a
             public void a(boolean z, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
@@ -78,7 +78,7 @@ public class AgreeMaterial extends OrmObject {
         }
 
         /* loaded from: classes3.dex */
-        public class b implements ge5.a {
+        public class b implements df5.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Data a;
@@ -101,7 +101,7 @@ public class AgreeMaterial extends OrmObject {
                 this.a = data;
             }
 
-            @Override // com.repackage.ge5.a
+            @Override // com.repackage.df5.a
             public void a(boolean z, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
@@ -128,7 +128,7 @@ public class AgreeMaterial extends OrmObject {
             }
         }
 
-        public static Data B(JSONObject jSONObject) {
+        public static Data C(JSONObject jSONObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
@@ -149,27 +149,35 @@ public class AgreeMaterial extends OrmObject {
             return (Data) invokeL.objValue;
         }
 
+        public final void A(String str, df5.a aVar) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) || StringUtils.isNull(str)) {
+                return;
+            }
+            new df5(TBLottieAnimationView.getAnimationPath(), str, aVar).execute(new Void[0]);
+        }
+
         /* JADX WARN: Code restructure failed: missing block: B:30:0x008c, code lost:
             if (java.util.Arrays.asList(r8.fid.split(",")).contains(r11) != false) goto L13;
          */
         /* JADX WARN: Code restructure failed: missing block: B:39:0x00bb, code lost:
-            if (com.baidu.tbadk.dynamicres.data.AgreeMaterial.z(r8.nightDirName + r9) == false) goto L29;
+            if (com.baidu.tbadk.dynamicres.data.AgreeMaterial.A(r8.nightDirName + r9) == false) goto L29;
          */
         /* JADX WARN: Removed duplicated region for block: B:33:0x0091  */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public String A(String str, String str2, String str3) {
+        public String B(String str, String str2, String str3) {
             InterceptResult invokeLLL;
             StringBuilder sb;
             String str4;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3)) == null) {
                 long currentTimeMillis = System.currentTimeMillis() / 1000;
-                long g = jg.g(this.startTime, 0L);
-                long g2 = jg.g(this.endTime, 0L);
+                long g = ng.g(this.startTime, 0L);
+                long g2 = ng.g(this.endTime, 0L);
                 if (currentTimeMillis >= g && currentTimeMillis < g2 && !StringUtils.isNull(this.dayDirName)) {
-                    if (AgreeMaterial.z(this.dayDirName + str)) {
+                    if (AgreeMaterial.A(this.dayDirName + str)) {
                         boolean z = false;
                         if (!this.all) {
                             if (!StringUtils.isNull(str2) && !StringUtils.isNull(this.tid) && Arrays.asList(this.tid.split(",")).contains(str2)) {
@@ -210,20 +218,12 @@ public class AgreeMaterial extends OrmObject {
             return (String) invokeLLL.objValue;
         }
 
-        public void y() {
+        public void z() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                z(this.dayRes, new a(this));
-                z(this.nightRes, new b(this));
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                A(this.dayRes, new a(this));
+                A(this.nightRes, new b(this));
             }
-        }
-
-        public final void z(String str, ge5.a aVar) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, aVar) == null) || StringUtils.isNull(str)) {
-                return;
-            }
-            new ge5(TBLottieAnimationView.getAnimationPath(), str, aVar).execute(new Void[0]);
         }
     }
 
@@ -241,32 +241,32 @@ public class AgreeMaterial extends OrmObject {
         }
     }
 
-    public static AgreeMaterial A(JSONObject jSONObject) {
+    public static boolean A(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            AgreeMaterial agreeMaterial = new AgreeMaterial();
-            agreeMaterial.staticData = Data.B(jSONObject.optJSONObject("static"));
-            agreeMaterial.singleTapData = Data.B(jSONObject.optJSONObject("single_point"));
-            agreeMaterial.doubleTapData = Data.B(jSONObject.optJSONObject("double_click"));
-            agreeMaterial.longPressData = Data.B(jSONObject.optJSONObject("long_press"));
-            return agreeMaterial;
-        }
-        return (AgreeMaterial) invokeL.objValue;
-    }
-
-    public static boolean z(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(TBLottieAnimationView.getAnimationPath());
             sb.append(str);
             return new File(sb.toString()).exists();
         }
         return invokeL.booleanValue;
+    }
+
+    public static AgreeMaterial B(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            AgreeMaterial agreeMaterial = new AgreeMaterial();
+            agreeMaterial.staticData = Data.C(jSONObject.optJSONObject("static"));
+            agreeMaterial.singleTapData = Data.C(jSONObject.optJSONObject("single_point"));
+            agreeMaterial.doubleTapData = Data.C(jSONObject.optJSONObject("double_click"));
+            agreeMaterial.longPressData = Data.C(jSONObject.optJSONObject("long_press"));
+            return agreeMaterial;
+        }
+        return (AgreeMaterial) invokeL.objValue;
     }
 }

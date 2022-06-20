@@ -1,17 +1,14 @@
 package com.repackage;
 
-import android.content.Context;
+import android.content.Intent;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes7.dex */
 public interface u11 {
     public static final u11 a = new a();
@@ -36,40 +33,51 @@ public interface u11 {
         }
 
         @Override // com.repackage.u11
-        public boolean a(Context context, String str, String str2, @Nullable pg0 pg0Var) {
-            InterceptResult invokeLLLL;
+        public boolean a(Intent intent) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, str, str2, pg0Var)) == null) {
-                if (str != null) {
-                    if (str.startsWith(lg0.f) || str.startsWith("nadcorevendor://")) {
-                        HashMap hashMap = new HashMap();
-                        hashMap.put(TiebaStatic.Params.REFER, str2);
-                        hashMap.put("from_web_view", Boolean.TRUE);
-                        gg0.e(str, context, hashMap, pg0Var);
-                        return true;
-                    }
-                    return false;
-                }
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
                 return false;
             }
-            return invokeLLLL.booleanValue;
+            return invokeL.booleanValue;
         }
     }
 
-    @Autowired
     /* loaded from: classes7.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
+        public static u11 a;
         public transient /* synthetic */ FieldHolder $fh;
 
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-7226946, "Lcom/repackage/u11$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-7226946, "Lcom/repackage/u11$b;");
+                    return;
+                }
+            }
+            a = t11.e();
+        }
+
         @NonNull
-        @Inject(force = false)
         public static u11 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? u11.a : (u11) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                if (a == null) {
+                    a = u11.a;
+                }
+                return a;
+            }
+            return (u11) invokeV.objValue;
         }
     }
 
-    boolean a(Context context, String str, String str2, @Nullable pg0 pg0Var);
+    boolean a(Intent intent);
 }

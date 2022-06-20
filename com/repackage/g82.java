@@ -1,7 +1,66 @@
 package com.repackage;
 
-import androidx.collection.ArraySet;
+import android.app.Activity;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface g82 {
-    ArraySet<String> a();
+public abstract class g82 implements rl2 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755724240, "Lcom/repackage/g82;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755724240, "Lcom/repackage/g82;");
+                return;
+            }
+        }
+        a = cg1.a;
+    }
+
+    public g82() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.repackage.rl2
+    public void a(boolean z, Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZL(1048576, this, z, activity) == null) && i82.a() && !z) {
+            long currentTimeMillis = a ? System.currentTimeMillis() : 0L;
+            boolean B = jd3.B();
+            if (a) {
+                long currentTimeMillis2 = System.currentTimeMillis();
+                Log.d("DiskCleanerLifecycleObserver", "detect all process is on baground cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms");
+            }
+            if (B) {
+                boolean n = k82.n();
+                sw1.k("DiskCleanerLifecycleObserver", "all app process in background，run clean task");
+                e82.c().d().u(null, n, 16);
+                k82.p(false);
+            }
+        }
+    }
 }

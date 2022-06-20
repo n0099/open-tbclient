@@ -45,25 +45,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eu4;
-import com.repackage.gt7;
-import com.repackage.hz5;
-import com.repackage.iz5;
-import com.repackage.ki;
-import com.repackage.kp7;
-import com.repackage.ly5;
+import com.repackage.dr4;
+import com.repackage.h06;
+import com.repackage.i06;
+import com.repackage.l06;
 import com.repackage.lz5;
-import com.repackage.mr8;
-import com.repackage.mz5;
-import com.repackage.o66;
-import com.repackage.oz5;
+import com.repackage.m06;
+import com.repackage.nu7;
+import com.repackage.o06;
+import com.repackage.o76;
+import com.repackage.oi;
+import com.repackage.ou4;
 import com.repackage.p06;
-import com.repackage.po4;
-import com.repackage.pz5;
-import com.repackage.ry5;
-import com.repackage.s06;
-import com.repackage.sy5;
-import com.repackage.uq4;
+import com.repackage.p16;
+import com.repackage.rq7;
+import com.repackage.rz5;
+import com.repackage.s16;
+import com.repackage.sz5;
+import com.repackage.ur8;
+import com.repackage.zo4;
 import com.tachikoma.core.component.input.ReturnKeyType;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -94,8 +94,8 @@ public final class VideoDanmuController {
     public final Lazy C;
     public final DanmakuPlayer D;
     public boolean E;
-    public final oz5 F;
-    public ly5 G;
+    public final o06 F;
+    public lz5 G;
     public final PbDanmuModel H;
     public final f I;
     public final GestureDetector J;
@@ -127,7 +127,7 @@ public final class VideoDanmuController {
     public final RectF z;
 
     /* loaded from: classes4.dex */
-    public static final class a implements s06 {
+    public static final class a implements s16 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoDanmuController a;
@@ -150,17 +150,17 @@ public final class VideoDanmuController {
             this.a = videoDanmuController;
         }
 
-        @Override // com.repackage.s06
-        public void a(ry5 item) {
-            po4 y;
+        @Override // com.repackage.s16
+        public void a(rz5 item) {
+            zo4 y;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, item) == null) {
                 Intrinsics.checkNotNullParameter(item, "item");
                 this.a.u++;
                 if ((((float) this.a.u) * 1.0f) / ((float) this.a.t) >= 0.5f) {
-                    kp7 j0 = this.a.H.j0();
-                    if ((j0 == null || (y = j0.y()) == null || y.b() != 1) ? false : true) {
-                        this.a.H.p0(false);
+                    rq7 k0 = this.a.H.k0();
+                    if ((k0 == null || (y = k0.y()) == null || y.b() != 1) ? false : true) {
+                        this.a.H.q0(false);
                     }
                 }
                 if (this.a.x) {
@@ -173,7 +173,7 @@ public final class VideoDanmuController {
 
     /* loaded from: classes4.dex */
     public interface b {
-        boolean a(PostData postData, kp7 kp7Var);
+        boolean a(PostData postData, rq7 rq7Var);
     }
 
     /* loaded from: classes4.dex */
@@ -219,7 +219,7 @@ public final class VideoDanmuController {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e)) == null) {
                 Intrinsics.checkNotNullParameter(e, "e");
-                sy5 C = this.a.C(e);
+                sz5 C = this.a.C(e);
                 if ((C != null && C.g() == 8) || (B = this.a.B()) == null) {
                     return false;
                 }
@@ -261,14 +261,14 @@ public final class VideoDanmuController {
         }
 
         @Override // com.baidu.tieba.videoplay.danmu.PbDanmuModel.g
-        public void b(kp7 kp7Var) {
+        public void b(rq7 rq7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kp7Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rq7Var) == null) {
             }
         }
 
         @Override // com.baidu.tieba.videoplay.danmu.PbDanmuModel.g
-        public void c(boolean z, int i, int i2, int i3, kp7 pbData, String str, int i4) {
+        public void c(boolean z, int i, int i2, int i3, rq7 pbData, String str, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), pbData, str, Integer.valueOf(i4)}) == null) {
                 Intrinsics.checkNotNullParameter(pbData, "pbData");
@@ -350,17 +350,17 @@ public final class VideoDanmuController {
                     return;
                 }
                 PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage = (PbPageReadLocalResponseMessage) responsedMessage;
-                kp7 pbData = pbPageReadLocalResponseMessage.getPbData();
+                rq7 pbData = pbPageReadLocalResponseMessage.getPbData();
                 if (pbData == null) {
                     this.a.w = false;
                     return;
                 }
                 ThreadData O = pbData.O();
                 if (O != null) {
-                    this.a.H.Z(O);
+                    this.a.H.a0(O);
                 }
                 this.a.w = true;
-                this.a.H.r0(pbData, pbPageReadLocalResponseMessage.getUpdateType(), pbPageReadLocalResponseMessage.getErrorString());
+                this.a.H.s0(pbData, pbPageReadLocalResponseMessage.getUpdateType(), pbPageReadLocalResponseMessage.getErrorString());
             }
         }
     }
@@ -412,19 +412,19 @@ public final class VideoDanmuController {
         danmakuPlayer.e(danmakuView);
         Unit unit = Unit.INSTANCE;
         this.D = danmakuPlayer;
-        this.F = new oz5();
+        this.F = new o06();
         MapsKt__MapsKt.emptyMap();
-        ly5 ly5Var = new ly5(0, 0L, 0L, 0L, 0.0f, 0.0f, 0.0f, 0.0f, false, 0, false, false, 0, 0, 0, 0, 0, 0, 0, 0, null, null, 4194303, null);
-        ly5Var.y(u());
-        List<iz5> i5 = ly5Var.i();
+        lz5 lz5Var = new lz5(0, 0L, 0L, 0L, 0.0f, 0.0f, 0.0f, 0.0f, false, 0, false, false, 0, 0, 0, 0, 0, 0, 0, 0, null, null, 4194303, null);
+        lz5Var.y(u());
+        List<i06> i5 = lz5Var.i();
         LinkedHashMap linkedHashMap = new LinkedHashMap(RangesKt___RangesKt.coerceAtLeast(MapsKt__MapsJVMKt.mapCapacity(CollectionsKt__IterablesKt.collectionSizeOrDefault(i5, 10)), 16));
         for (Object obj : i5) {
-            linkedHashMap.put(Integer.valueOf(((iz5) obj).a()), obj);
+            linkedHashMap.put(Integer.valueOf(((i06) obj).a()), obj);
         }
-        ly5Var.z(v());
-        ly5Var.B(0.7f);
+        lz5Var.z(v());
+        lz5Var.B(0.7f);
         Unit unit2 = Unit.INSTANCE;
-        this.G = ly5Var;
+        this.G = lz5Var;
         this.H = new PbDanmuModel(this.a);
         this.I = new f(this);
         this.J = new GestureDetector(this.a.getPageActivity(), new d(this));
@@ -444,14 +444,14 @@ public final class VideoDanmuController {
 
     public final String A(TbRichText tbRichText) {
         InterceptResult invokeL;
-        ArrayList<TbRichTextData> A;
+        ArrayList<TbRichTextData> B;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tbRichText)) == null) {
-            if (tbRichText == null || (A = tbRichText.A()) == null) {
+            if (tbRichText == null || (B = tbRichText.B()) == null) {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
-            Iterator<TbRichTextData> it = A.iterator();
+            Iterator<TbRichTextData> it = B.iterator();
             boolean z = false;
             while (true) {
                 if (!it.hasNext()) {
@@ -460,7 +460,7 @@ public final class VideoDanmuController {
                 TbRichTextData next = it.next();
                 if (next != null) {
                     if (next.getType() == 1) {
-                        String spannableStringBuilder = next.I().toString();
+                        String spannableStringBuilder = next.J().toString();
                         Intrinsics.checkNotNullExpressionValue(spannableStringBuilder, "item.spannableString.toString()");
                         String replace = new Regex("\n").replace(spannableStringBuilder, " ");
                         int y = y(replace) + 0;
@@ -481,7 +481,7 @@ public final class VideoDanmuController {
             String sb2 = sb.toString();
             Intrinsics.checkNotNullExpressionValue(sb2, "sb.toString()");
             if ((TextUtils.isEmpty(sb2) || !StringsKt__StringsJVMKt.endsWith$default(sb2, StringHelper.STRING_MORE, false, 2, null)) && !TextUtils.isEmpty(sb2) && z) {
-                return sb2 + '[' + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f052f) + ']';
+                return sb2 + '[' + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0523) + ']';
             }
             return sb2;
         }
@@ -494,19 +494,19 @@ public final class VideoDanmuController {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.o : (b) invokeV.objValue;
     }
 
-    public final sy5 C(MotionEvent motionEvent) {
+    public final sz5 C(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
             this.z.set(motionEvent.getX() - this.s, motionEvent.getY() - this.s, motionEvent.getX() + this.s, motionEvent.getY() + this.s);
-            List<ry5> k = this.D.k(this.z);
-            ry5 ry5Var = k == null ? null : (ry5) CollectionsKt___CollectionsKt.firstOrNull((List<? extends Object>) k);
-            if (ry5Var == null) {
+            List<rz5> k = this.D.k(this.z);
+            rz5 rz5Var = k == null ? null : (rz5) CollectionsKt___CollectionsKt.firstOrNull((List<? extends Object>) k);
+            if (rz5Var == null) {
                 return null;
             }
-            return ry5Var.e();
+            return rz5Var.e();
         }
-        return (sy5) invokeL.objValue;
+        return (sz5) invokeL.objValue;
     }
 
     public final int D(Intent intent) {
@@ -521,25 +521,25 @@ public final class VideoDanmuController {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.p : (c) invokeV.objValue;
     }
 
-    public final kp7 F() {
+    public final rq7 F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            kp7 kp7Var = this.H.C;
-            Intrinsics.checkNotNullExpressionValue(kp7Var, "pbDanmuModel.mPbData");
-            return kp7Var;
+            rq7 rq7Var = this.H.C;
+            Intrinsics.checkNotNullExpressionValue(rq7Var, "pbDanmuModel.mPbData");
+            return rq7Var;
         }
-        return (kp7) invokeV.objValue;
+        return (rq7) invokeV.objValue;
     }
 
-    public final p06 G() {
+    public final p16 G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (p06) this.B.getValue() : (p06) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (p16) this.B.getValue() : (p16) invokeV.objValue;
     }
 
     public final void H() {
-        ly5 b2;
+        lz5 b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             b2 = r1.b((r43 & 1) != 0 ? r1.a : 0, (r43 & 2) != 0 ? r1.b : 0L, (r43 & 4) != 0 ? r1.c : 0L, (r43 & 8) != 0 ? r1.d : 0L, (r43 & 16) != 0 ? r1.e : 0.0f, (r43 & 32) != 0 ? r1.f : 0.0f, (r43 & 64) != 0 ? r1.g : 0.0f, (r43 & 128) != 0 ? r1.h : 0.0f, (r43 & 256) != 0 ? r1.i : false, (r43 & 512) != 0 ? r1.j : 0, (r43 & 1024) != 0 ? r1.k : false, (r43 & 2048) != 0 ? r1.l : false, (r43 & 4096) != 0 ? r1.m : 0, (r43 & 8192) != 0 ? r1.n : 0, (r43 & 16384) != 0 ? r1.o : 0, (r43 & 32768) != 0 ? r1.p : 0, (r43 & 65536) != 0 ? r1.q : 0, (r43 & 131072) != 0 ? r1.r : 0, (r43 & 262144) != 0 ? r1.s : 0, (r43 & 524288) != 0 ? r1.t : 0, (r43 & 1048576) != 0 ? r1.u : null, (r43 & 2097152) != 0 ? this.G.v : null);
@@ -553,7 +553,7 @@ public final class VideoDanmuController {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.H.setUniqueId(this.b);
             K();
-            gt7.b().p(this.H.a0(), this.H.f0());
+            nu7.b().p(this.H.b0(), this.H.g0());
             J();
         }
     }
@@ -561,7 +561,7 @@ public final class VideoDanmuController {
     public final void J() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.H.G0(new e(this));
+            this.H.H0(new e(this));
             this.I.setTag(this.b);
             MessageManager.getInstance().registerListener(this.I);
         }
@@ -580,11 +580,11 @@ public final class VideoDanmuController {
             createNormalCfg.setFromVideoPageType(this.f);
             createNormalCfg.setForceInterceptStimeStat(true);
             this.H.initWithIntent(createNormalCfg.getIntent());
-            this.H.I0(2);
+            this.H.J0(2);
             PbDanmuModel pbDanmuModel = this.H;
             Intent intent = createNormalCfg.getIntent();
             Intrinsics.checkNotNullExpressionValue(intent, "config.intent");
-            pbDanmuModel.E0(D(intent));
+            pbDanmuModel.F0(D(intent));
         }
     }
 
@@ -597,14 +597,14 @@ public final class VideoDanmuController {
     public final void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.H.J();
+            this.H.K();
         }
     }
 
-    public final void N(kp7 kp7Var) {
+    public final void N(rq7 rq7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, kp7Var) == null) {
-            this.H.r0(kp7Var, 3, "");
+        if (interceptable == null || interceptable.invokeL(1048589, this, rq7Var) == null) {
+            this.H.s0(rq7Var, 3, "");
         }
     }
 
@@ -612,7 +612,7 @@ public final class VideoDanmuController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, key) == null) {
             Intrinsics.checkNotNullParameter(key, "key");
-            TiebaStatic.log(mr8.b(key, this.e.thread_id, this.f));
+            TiebaStatic.log(ur8.b(key, this.e.thread_id, this.f));
         }
     }
 
@@ -621,7 +621,7 @@ public final class VideoDanmuController {
         if (interceptable == null || interceptable.invokeL(1048591, this, danmuOnClickListener) == null) {
             Intrinsics.checkNotNullParameter(danmuOnClickListener, "danmuOnClickListener");
             this.o = danmuOnClickListener;
-            z().setOnTouchListener(new View.OnTouchListener() { // from class: com.repackage.lr8
+            z().setOnTouchListener(new View.OnTouchListener() { // from class: com.repackage.tr8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -662,7 +662,7 @@ public final class VideoDanmuController {
             this.D.s();
             this.o = null;
             this.p = null;
-            this.H.G0(null);
+            this.H.H0(null);
             MessageManager.getInstance().unRegisterListener(this.I);
         }
     }
@@ -676,7 +676,7 @@ public final class VideoDanmuController {
             }
             this.r = this.h;
             this.D.x(this.G);
-            gt7.b().p(this.H.a0(), this.H.f0());
+            nu7.b().p(this.H.b0(), this.H.g0());
         }
     }
 
@@ -687,7 +687,7 @@ public final class VideoDanmuController {
             if (danmu.length() == 0) {
                 return;
             }
-            this.D.v(new sy5(Random.Default.nextLong(), this.D.j() + this.l, danmu, danmu, 1, this.q, this.a.getPageActivity().getResources().getColor(R.color.CAM_X0201), this.j, 8, this.m, null, new PostData(), 0, 0.0f, 13312, null));
+            this.D.v(new sz5(Random.Default.nextLong(), this.D.j() + this.l, danmu, danmu, 1, this.q, this.a.getPageActivity().getResources().getColor(R.color.CAM_X0201), this.j, 8, this.m, null, new PostData(), 0, 0.0f, 13312, null));
         }
     }
 
@@ -713,7 +713,7 @@ public final class VideoDanmuController {
     }
 
     public final void Z() {
-        ly5 b2;
+        lz5 b2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && TbSingleton.getInstance().isDanmuSwitchOpen()) {
             b2 = r2.b((r43 & 1) != 0 ? r2.a : 0, (r43 & 2) != 0 ? r2.b : 0L, (r43 & 4) != 0 ? r2.c : 0L, (r43 & 8) != 0 ? r2.d : 0L, (r43 & 16) != 0 ? r2.e : 0.0f, (r43 & 32) != 0 ? r2.f : 0.0f, (r43 & 64) != 0 ? r2.g : 0.0f, (r43 & 128) != 0 ? r2.h : 0.0f, (r43 & 256) != 0 ? r2.i : false, (r43 & 512) != 0 ? r2.j : 0, (r43 & 1024) != 0 ? r2.k : true, (r43 & 2048) != 0 ? r2.l : false, (r43 & 4096) != 0 ? r2.m : 0, (r43 & 8192) != 0 ? r2.n : 0, (r43 & 16384) != 0 ? r2.o : 0, (r43 & 32768) != 0 ? r2.p : 0, (r43 & 65536) != 0 ? r2.q : 0, (r43 & 131072) != 0 ? r2.r : 0, (r43 & 262144) != 0 ? r2.s : 0, (r43 & 524288) != 0 ? r2.t : 0, (r43 & 1048576) != 0 ? r2.u : null, (r43 & 2097152) != 0 ? this.G.v : null);
@@ -736,12 +736,12 @@ public final class VideoDanmuController {
         }
     }
 
-    public final void b0(kp7 kp7Var) {
+    public final void b0(rq7 rq7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, kp7Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048602, this, rq7Var) == null) {
             this.G.D();
             this.r = this.h;
-            N(kp7Var);
+            N(rq7Var);
         }
     }
 
@@ -791,24 +791,24 @@ public final class VideoDanmuController {
             int color = this.a.getResources().getColor(R.color.CAM_X0201);
             int i3 = 0;
             for (PostData postData : list) {
-                if (postData.A() != i) {
-                    String A = A(postData.P());
+                if (postData.B() != i) {
+                    String A = A(postData.Q());
                     if (!TextUtils.isEmpty(A)) {
                         if (Intrinsics.areEqual(postData.s().getUserId(), this.e.author_info.user_id)) {
                             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(Intrinsics.stringPlus("楼主", A));
-                            float[] y = uq4.y(R.string.J_X04);
+                            float[] y = dr4.y(R.string.J_X04);
                             int dimenPixelSize3 = UtilHelper.getDimenPixelSize(R.dimen.T_X10);
                             dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
                             int dimenPixelSize4 = UtilHelper.getDimenPixelSize(R.dimen.tbds6);
-                            eu4 eu4Var = new eu4(R.color.CAM_X0302, (int) y[i2], dimenPixelSize3, R.color.CAM_X0101, 0, 0, 0);
-                            eu4Var.a(dimenPixelSize2);
-                            eu4Var.b(dimenPixelSize4);
-                            spannableStringBuilder.setSpan(eu4Var, i2, 2, 17);
+                            ou4 ou4Var = new ou4(R.color.CAM_X0302, (int) y[i2], dimenPixelSize3, R.color.CAM_X0101, 0, 0, 0);
+                            ou4Var.a(dimenPixelSize2);
+                            ou4Var.b(dimenPixelSize4);
+                            spannableStringBuilder.setSpan(ou4Var, i2, 2, 17);
                             dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds73);
                             str2 = spannableStringBuilder;
                         } else if (postData.q().agreeNum >= this.n) {
                             SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(Intrinsics.stringPlus(" ", A));
-                            spannableStringBuilder2.setSpan(new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080827, R.color.CAM_X0201, EMRichTextAnyIconSpan.IconType.PIC), i2, i, 17);
+                            spannableStringBuilder2.setSpan(new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f08080c, R.color.CAM_X0201, EMRichTextAnyIconSpan.IconType.PIC), i2, i, 17);
                             dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds42);
                             dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
                             str2 = spannableStringBuilder2;
@@ -816,7 +816,7 @@ public final class VideoDanmuController {
                             str = A;
                             f2 = 0.0f;
                             int i4 = i3 + 1;
-                            arrayList.add(new sy5(Random.Default.nextLong(), this.v, str.toString(), str, 1, this.q, color, this.j, 1, i4, null, postData, 0, f2, 5120, null));
+                            arrayList.add(new sz5(Random.Default.nextLong(), this.v, str.toString(), str, 1, this.q, color, this.j, 1, i4, null, postData, 0, f2, 5120, null));
                             this.v += this.k;
                             i3 = i4 % this.g;
                             i = 1;
@@ -825,7 +825,7 @@ public final class VideoDanmuController {
                         f2 = dimenPixelSize + dimenPixelSize2;
                         str = str2;
                         int i42 = i3 + 1;
-                        arrayList.add(new sy5(Random.Default.nextLong(), this.v, str.toString(), str, 1, this.q, color, this.j, 1, i42, null, postData, 0, f2, 5120, null));
+                        arrayList.add(new sz5(Random.Default.nextLong(), this.v, str.toString(), str, 1, this.q, color, this.j, 1, i42, null, postData, 0, f2, 5120, null));
                         this.v += this.k;
                         i3 = i42 % this.g;
                         i = 1;
@@ -837,10 +837,10 @@ public final class VideoDanmuController {
         }
     }
 
-    public final List<iz5> u() {
+    public final List<i06> u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? CollectionsKt__CollectionsKt.listOf((Object[]) new iz5[]{new pz5(), this.F, new mz5(false, 1, null), new hz5(VideoDanmuController$createDataFilters$1.INSTANCE), new lz5()}) : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? CollectionsKt__CollectionsKt.listOf((Object[]) new i06[]{new p06(), this.F, new m06(false, 1, null), new h06(VideoDanmuController$createDataFilters$1.INSTANCE), new l06()}) : (List) invokeV.objValue;
     }
 
     public final List<Object> v() {
@@ -864,7 +864,7 @@ public final class VideoDanmuController {
             if (y <= i) {
                 return str4;
             }
-            int b2 = o66.b(str);
+            int b2 = o76.b(str);
             if (b2 == 0) {
                 String cutChineseAndEnglishWithEmoji = StringHelper.cutChineseAndEnglishWithEmoji(str, i, str2);
                 Intrinsics.checkNotNullExpressionValue(cutChineseAndEnglishWithEmoji, "cutChineseAndEnglishWithEmoji(string, length, end)");
@@ -907,7 +907,7 @@ public final class VideoDanmuController {
                         int length2 = str7.length();
                         i7 = 0;
                         while (i7 < length2) {
-                            i5 += ki.isChinese(str7.charAt(i7)) ? 2 : 1;
+                            i5 += oi.isChinese(str7.charAt(i7)) ? 2 : 1;
                             if (i5 >= i) {
                                 break;
                             }
@@ -961,7 +961,7 @@ public final class VideoDanmuController {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048609, this, str, strArr, i)) == null) {
             String[] strArr2 = new String[strArr.length + i];
-            Matcher matcher = o66.a.matcher(str);
+            Matcher matcher = o76.a.matcher(str);
             int i2 = 0;
             int i3 = 0;
             while (matcher.find()) {
@@ -1002,7 +1002,7 @@ public final class VideoDanmuController {
             if (str == null) {
                 return 0;
             }
-            Matcher matcher = o66.a.matcher(str);
+            Matcher matcher = o76.a.matcher(str);
             int i2 = 0;
             while (matcher.find()) {
                 String group = matcher.group();

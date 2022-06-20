@@ -33,24 +33,24 @@ public final class SingleBtnDialog extends a {
     }
 
     @Override // com.baidu.bdtask.ui.components.dialog.a
-    public int c() {
+    public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d072c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d072b : invokeV.intValue;
     }
 
     @Override // com.baidu.bdtask.ui.components.dialog.a
-    public void d() {
+    public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.d();
+            super.f();
             TaskDialogViewData a = a();
             if (a != null) {
-                TextView btn = (TextView) findViewById(R.id.obfuscated_res_0x7f09079b);
-                ImageView btnImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f09079c);
+                TextView btn = (TextView) findViewById(R.id.obfuscated_res_0x7f090786);
+                ImageView btnImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f090787);
                 Intrinsics.checkExpressionValueIsNotNull(btn, "btn");
                 Intrinsics.checkExpressionValueIsNotNull(btnImage, "btnImage");
-                a(btn, btnImage, a.getBackBtnTxt(), a.getBackBtnTxtColor(), a.getBackBtnBgUrl(), new SingleBtnDialog$initExtraView$1(this, a));
+                b(btn, btnImage, a.getBackBtnTxt(), a.getBackBtnTxtColor(), a.getBackBtnBgUrl(), new SingleBtnDialog$initExtraView$1(this, a));
             }
         }
     }

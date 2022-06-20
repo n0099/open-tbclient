@@ -19,14 +19,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PolyNoticeDialog extends BaseDialogFragment implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout layoutActionOfBtn;
-    public TextView leftActionBtn;
-    public a optionOnClickListener;
-    public TextView rightActionBtn;
-    public TextView singleBtn;
-    public ImageView tipsImageView;
-    public TextView tipsTv;
-    public TextView titleTv;
+    public TextView a;
+    public TextView b;
+    public ImageView c;
+    public TextView d;
+    public LinearLayout e;
+    public TextView f;
+    public TextView g;
+    public a h;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -52,17 +52,86 @@ public class PolyNoticeDialog extends BaseDialogFragment implements View.OnClick
     }
 
     @Override // com.baidu.poly.widget.BaseDialogFragment
-    public int getLayoutResId() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06d7 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06d5 : invokeV.intValue;
+    }
+
+    public void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            this.d.setVisibility(8);
+            this.e.setVisibility(0);
+            this.f.setText(str);
+            this.g.setText(str2);
+        }
+    }
+
+    public void c(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.h = aVar;
+        }
+    }
+
+    public void d(boolean z) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (textView = this.g) == null) {
+            return;
+        }
+        textView.setEnabled(z);
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.d.setVisibility(0);
+            this.d.setText(str);
+            this.e.setVisibility(8);
+        }
+    }
+
+    public void f(String str) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (textView = this.b) == null) {
+            return;
+        }
+        textView.setText(str);
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.a.setText(str);
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.c.setVisibility(0);
+            this.c.startAnimation(AnimationUtils.loadAnimation(this.c.getContext(), R.anim.obfuscated_res_0x7f010092));
+        }
+    }
+
+    public void i() {
+        ImageView imageView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (imageView = this.c) == null) {
+            return;
+        }
+        imageView.clearAnimation();
+        this.c.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) || (aVar = this.optionOnClickListener) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, view2) == null) || (aVar = this.h) == null) {
             return;
         }
         aVar.onOptionClick(view2.getId());
@@ -71,9 +140,9 @@ public class PolyNoticeDialog extends BaseDialogFragment implements View.OnClick
     @Override // android.app.DialogFragment, android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dialogInterface) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, dialogInterface) == null) {
             super.onDismiss(dialogInterface);
-            a aVar = this.optionOnClickListener;
+            a aVar = this.h;
             if (aVar != null) {
                 aVar.onDismiss();
             }
@@ -83,91 +152,22 @@ public class PolyNoticeDialog extends BaseDialogFragment implements View.OnClick
     @Override // android.app.Fragment
     public void onViewCreated(View view2, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, view2, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048587, this, view2, bundle) == null) {
             super.onViewCreated(view2, bundle);
-            this.titleTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09187b);
-            this.tipsTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09187a);
-            this.tipsImageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091877);
-            this.singleBtn = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091879);
-            this.layoutActionOfBtn = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091875);
-            this.leftActionBtn = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091876);
-            this.rightActionBtn = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091878);
-            this.singleBtn.setOnClickListener(this);
-            this.leftActionBtn.setOnClickListener(this);
-            this.rightActionBtn.setOnClickListener(this);
-            a aVar = this.optionOnClickListener;
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091872);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091871);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09186e);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091870);
+            this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09186c);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09186d);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09186f);
+            this.d.setOnClickListener(this);
+            this.f.setOnClickListener(this);
+            this.g.setOnClickListener(this);
+            a aVar = this.h;
             if (aVar != null) {
                 aVar.a();
             }
         }
-    }
-
-    public void setActionLayoutBtnText(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            this.singleBtn.setVisibility(8);
-            this.layoutActionOfBtn.setVisibility(0);
-            this.leftActionBtn.setText(str);
-            this.rightActionBtn.setText(str2);
-        }
-    }
-
-    public void setOptionOnClickListener(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            this.optionOnClickListener = aVar;
-        }
-    }
-
-    public void setRightBtnEnable(boolean z) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (textView = this.rightActionBtn) == null) {
-            return;
-        }
-        textView.setEnabled(z);
-    }
-
-    public void setSingleBtnText(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.singleBtn.setVisibility(0);
-            this.singleBtn.setText(str);
-            this.layoutActionOfBtn.setVisibility(8);
-        }
-    }
-
-    public void setTips(String str) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || (textView = this.tipsTv) == null) {
-            return;
-        }
-        textView.setText(str);
-    }
-
-    public void setTitle(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.titleTv.setText(str);
-        }
-    }
-
-    public void startLoadingAnim() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.tipsImageView.setVisibility(0);
-            this.tipsImageView.startAnimation(AnimationUtils.loadAnimation(this.tipsImageView.getContext(), R.anim.obfuscated_res_0x7f010090));
-        }
-    }
-
-    public void stopLoadingAnim() {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (imageView = this.tipsImageView) == null) {
-            return;
-        }
-        imageView.clearAnimation();
-        this.tipsImageView.setVisibility(8);
     }
 }

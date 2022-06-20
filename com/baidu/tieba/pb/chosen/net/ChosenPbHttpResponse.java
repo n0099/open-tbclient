@@ -3,15 +3,14 @@ package com.baidu.tieba.pb.chosen.net;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pb.chosen.PbChosenActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cq4;
-import com.repackage.qe;
-import com.repackage.wo7;
+import com.repackage.dq7;
+import com.repackage.mq4;
+import com.repackage.te;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
@@ -23,7 +22,7 @@ import tbclient.ExcPbPage.UserInfo;
 import tbclient.Post;
 import tbclient.User;
 /* loaded from: classes3.dex */
-public class ChosenPbHttpResponse extends HttpResponsedMessage implements wo7 {
+public class ChosenPbHttpResponse extends HttpResponsedMessage implements dq7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<Post> postList;
@@ -51,49 +50,49 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements wo7 {
         }
     }
 
-    @Override // com.repackage.wo7
+    @Override // com.repackage.dq7
     public int getErroCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? super.getError() : invokeV.intValue;
     }
 
-    @Override // com.repackage.wo7
+    @Override // com.repackage.dq7
     public String getErrorText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? getErrorString() : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.wo7
+    @Override // com.repackage.dq7
     public List<Post> getPostList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.postList : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.wo7
+    @Override // com.repackage.dq7
     public ExcellentPbThreadInfo getThreadInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.threadInfo : (ExcellentPbThreadInfo) invokeV.objValue;
     }
 
-    @Override // com.repackage.wo7
+    @Override // com.repackage.dq7
     public UserInfo getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.userInfo : (UserInfo) invokeV.objValue;
     }
 
-    @Override // com.repackage.wo7
+    @Override // com.repackage.dq7
     public List<User> getUserList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.userList : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.wo7
+    @Override // com.repackage.dq7
     public boolean isEmpty() {
         InterceptResult invokeV;
         List<ExcContent> list;
@@ -114,10 +113,10 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements wo7 {
             if (bArr == null || bArr.length <= 0) {
                 return;
             }
-            cq4.f();
-            qe<byte[]> d = cq4.d("tb.pb_normal");
-            d.remove(PbChosenActivity.CHOSEN_PB_TABLE_NAME);
-            d.g(PbChosenActivity.CHOSEN_PB_TABLE_NAME, bArr);
+            mq4.f();
+            te<byte[]> d = mq4.d("tb.pb_normal");
+            d.remove("chosen_pb_page_cache");
+            d.g("chosen_pb_page_cache", bArr);
         }
     }
 

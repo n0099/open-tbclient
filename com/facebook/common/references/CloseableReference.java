@@ -153,7 +153,7 @@ public final class CloseableReference<T> implements Cloneable, Closeable {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
                 if (isValid()) {
-                    return m100clone();
+                    return m76clone();
                 }
                 return null;
             }
@@ -276,7 +276,7 @@ public final class CloseableReference<T> implements Cloneable, Closeable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public synchronized CloseableReference<T> m100clone() {
+    public synchronized CloseableReference<T> m76clone() {
         InterceptResult invokeV;
         CloseableReference<T> closeableReference;
         Interceptable interceptable = $ic;

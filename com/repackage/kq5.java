@@ -1,90 +1,112 @@
 package com.repackage;
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.R;
+import com.baidu.tieba.ala.alasquare.special_forum.subtab.view.SpecialLiveDoubleViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class kq5 extends nv5<gq5> {
+public class kq5 extends an<gr5, SpecialLiveDoubleViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lq5 i;
-    public lq5 j;
+    public TbPageContext<?> i;
+    public wq5 j;
+    public or5 k;
+    public int l;
+    public long m;
+    public String n;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kq5(TbPageContext<?> tbPageContext, boolean z) {
-        super(tbPageContext);
+    public kq5(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), gr5.c);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Boolean.valueOf(z)};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = new lq5(j(), z);
-        this.j = new lq5(j(), z);
-        ViewGroup viewGroup = (ViewGroup) k();
-        View view2 = new View(getContext());
-        viewGroup.addView(this.i.k());
-        viewGroup.addView(view2, new LinearLayout.LayoutParams(j().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224), -1));
-        viewGroup.addView(this.j.k());
+        this.m = 0L;
+        this.n = "";
+        this.i = tbPageContext;
     }
 
-    @Override // com.repackage.nv5
-    public int d() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.an
+    /* renamed from: Z */
+    public SpecialLiveDoubleViewHolder M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d00fe : invokeV.intValue;
-    }
-
-    @Override // com.repackage.nv5
-    public void m(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.i.m(tbPageContext, i);
-            this.j.m(tbPageContext, i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            wq5 wq5Var = new wq5(this.i, viewGroup);
+            this.j = wq5Var;
+            or5 or5Var = this.k;
+            if (or5Var != null) {
+                wq5Var.t(or5Var);
+            }
+            return new SpecialLiveDoubleViewHolder(this.j);
         }
+        return (SpecialLiveDoubleViewHolder) invokeL.objValue;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.n = str;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.nv5
-    /* renamed from: s */
-    public void l(gq5 gq5Var) {
+    @Override // com.repackage.an
+    /* renamed from: a0 */
+    public View S(int i, View view2, ViewGroup viewGroup, gr5 gr5Var, SpecialLiveDoubleViewHolder specialLiveDoubleViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, gq5Var) == null) || gq5Var == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, gr5Var, specialLiveDoubleViewHolder})) == null) {
+            specialLiveDoubleViewHolder.a.s(gr5Var, this.l, this.m, this.n);
+            return specialLiveDoubleViewHolder.b();
         }
-        this.i.l(gq5Var.a);
-        this.j.l(gq5Var.b);
+        return (View) invokeCommon.objValue;
     }
 
-    public void t(pq5 pq5Var) {
+    public void b0(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, pq5Var) == null) {
-            this.i.z(pq5Var);
-            this.j.z(pq5Var);
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.m = j;
+        }
+    }
+
+    public void c0(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.l = i;
+        }
+    }
+
+    public void d0(or5 or5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, or5Var) == null) {
+            this.k = or5Var;
+            wq5 wq5Var = this.j;
+            if (wq5Var != null) {
+                wq5Var.t(or5Var);
+            }
         }
     }
 }

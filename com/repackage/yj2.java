@@ -1,187 +1,94 @@
 package com.repackage;
 
-import android.os.Bundle;
-import android.text.TextUtils;
+import android.content.Context;
+import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xj2;
-import java.util.Map;
 /* loaded from: classes7.dex */
-public class yj2 extends hv2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static Map<String, ae3<Bundle>> h;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int f;
-    public String g;
+public interface yj2 {
 
     /* loaded from: classes7.dex */
-    public class a implements ae3<Bundle> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ yj2 b;
-
-        public a(yj2 yj2Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yj2Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = yj2Var;
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ae3
-        /* renamed from: a */
-        public void onCallback(Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-                this.b.g = bundle.getString("key_launch_app_id");
-                this.b.f = bundle.getInt("key_launch_status");
-                if (TextUtils.equals(this.a, this.b.g)) {
-                    yj2 yj2Var = this.b;
-                    yj2Var.d.putInt("ok", yj2Var.f);
-                    this.b.c();
-                }
-                yj2.h.remove(this.a);
-            }
-        }
+    public interface a {
+        void b(yj2 yj2Var);
     }
 
     /* loaded from: classes7.dex */
-    public static class b implements ae3<Bundle> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ xj2.e b;
-
-        public b(String str, xj2.e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = eVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ae3
-        /* renamed from: a */
-        public void onCallback(Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-                String string = bundle.getString("key_launch_app_id");
-                int i = bundle.getInt("key_launch_status");
-                if (TextUtils.equals(this.a, string)) {
-                    if (i == 0) {
-                        this.b.b();
-                    } else {
-                        this.b.a();
-                    }
-                }
-                yj2.h.remove(this.a);
-            }
-        }
+    public interface b {
+        boolean f(yj2 yj2Var, int i, int i2);
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755139952, "Lcom/repackage/yj2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755139952, "Lcom/repackage/yj2;");
-                return;
-            }
-        }
-        boolean z = rf1.a;
-        h = new nd4();
+    /* loaded from: classes7.dex */
+    public interface c {
+        void c(yj2 yj2Var);
     }
 
-    public yj2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.f = -1;
-        this.g = "";
+    /* loaded from: classes7.dex */
+    public interface d {
+        void e(yj2 yj2Var);
     }
 
-    public static void j(String str, xj2.e eVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65543, null, str, eVar) == null) || TextUtils.isEmpty(str) || eVar == null) {
-            return;
-        }
-        h.put(str, new b(str, eVar));
+    /* loaded from: classes7.dex */
+    public interface e {
+        void a(yj2 yj2Var);
     }
 
-    public static void k(String str) {
-        ae3<Bundle> ae3Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65544, null, str) == null) || (ae3Var = h.get(str)) == null) {
-            return;
-        }
-        Bundle bundle = new Bundle();
-        bundle.putString("key_launch_app_id", str);
-        bundle.putInt("key_launch_status", 1);
-        ae3Var.onCallback(bundle);
+    /* loaded from: classes7.dex */
+    public interface f {
+        void d(yj2 yj2Var);
     }
 
-    public static void l(String str) {
-        ae3<Bundle> ae3Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65545, null, str) == null) || (ae3Var = h.get(str)) == null) {
-            return;
-        }
-        Bundle bundle = new Bundle();
-        bundle.putString("key_launch_app_id", str);
-        bundle.putInt("key_launch_status", 0);
-        ae3Var.onCallback(bundle);
-    }
+    void a(FrameLayout frameLayout);
 
-    @Override // com.repackage.hv2
-    public void b(@NonNull Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            String string = bundle.getString("desAppId");
-            h.put(string, new a(this, string));
-        }
-    }
+    void b();
+
+    void c();
+
+    void d(boolean z);
+
+    yj2 e(Context context, @NonNull mo2 mo2Var);
+
+    void f();
+
+    void g(a aVar);
+
+    int getCurrentPosition();
+
+    int getDuration();
+
+    void h(mo2 mo2Var, boolean z);
+
+    void i(String str);
+
+    boolean isEnd();
+
+    boolean isPlaying();
+
+    void j(e eVar);
+
+    void k(f fVar);
+
+    void l(boolean z, int i);
+
+    void m(d dVar);
+
+    void mute(boolean z);
+
+    void n(mo2 mo2Var);
+
+    void o(mo2 mo2Var);
+
+    boolean onBackPressed();
+
+    void p(b bVar);
+
+    void pause();
+
+    int q(String str);
+
+    void r(c cVar);
+
+    void resume();
+
+    void seekTo(int i);
+
+    void stop();
 }

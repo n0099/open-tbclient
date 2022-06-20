@@ -1,231 +1,302 @@
 package com.xiaomi.push.service;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer;
+import com.xiaomi.push.cv;
+import com.xiaomi.push.df;
+import com.xiaomi.push.dx;
+import com.xiaomi.push.ez;
+import com.xiaomi.push.fj;
+import com.xiaomi.push.fl;
+import com.xiaomi.push.fx;
+import com.xiaomi.push.gk;
+import com.xiaomi.push.gl;
+import com.xiaomi.push.gm;
+import com.xiaomi.push.gn;
+import com.xiaomi.push.hb;
+import com.xiaomi.push.service.bg;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.util.Date;
 /* loaded from: classes8.dex */
 public class be {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 8;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public XMPushService a;
 
-    /* renamed from: a  reason: collision with other field name */
-    public byte[] f906a;
-    public int b;
-    public int c;
-    public int d;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1071163139, "Lcom/xiaomi/push/service/be;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1071163139, "Lcom/xiaomi/push/service/be;");
-        }
-    }
-
-    public be() {
+    public be(XMPushService xMPushService) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {xMPushService};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = IMediaPlayer.SHARED_PLAYER_ON_INFO_EXTRA;
-        this.f906a = new byte[256];
-        this.c = 0;
-        this.b = 0;
+        this.a = xMPushService;
     }
 
-    public static int a(byte b) {
-        InterceptResult invokeB;
+    private void a(gk gkVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeB = interceptable.invokeB(65538, null, b)) == null) ? b >= 0 ? b : b + 256 : invokeB.intValue;
-    }
-
-    private void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.c = 0;
-            this.b = 0;
+        if (interceptable == null || interceptable.invokeL(65537, this, gkVar) == null) {
+            String c = gkVar.c();
+            if (TextUtils.isEmpty(c)) {
+                return;
+            }
+            String[] split = c.split(ParamableElem.DIVIDE_PARAM);
+            com.xiaomi.push.cr a = cv.a().a(fx.a(), false);
+            if (a == null || split.length <= 0) {
+                return;
+            }
+            a.a(split);
+            this.a.a(20, (Exception) null);
+            this.a.a(true);
         }
     }
 
-    private void a(int i, byte[] bArr, boolean z) {
+    private void b(gn gnVar) {
+        bg.b a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i), bArr, Boolean.valueOf(z)}) == null) {
-            int length = bArr.length;
-            for (int i2 = 0; i2 < 256; i2++) {
-                this.f906a[i2] = (byte) i2;
+        if (interceptable == null || interceptable.invokeL(65538, this, gnVar) == null) {
+            String l = gnVar.l();
+            String k = gnVar.k();
+            if (TextUtils.isEmpty(l) || TextUtils.isEmpty(k) || (a = bg.a().a(k, l)) == null) {
+                return;
             }
-            this.c = 0;
-            this.b = 0;
-            while (true) {
-                int i3 = this.b;
-                if (i3 >= i) {
-                    break;
+            hb.a(this.a, a.f926a, hb.a(gnVar.m366a()), true, true, System.currentTimeMillis());
+        }
+    }
+
+    private void c(fl flVar) {
+        bg.b a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, this, flVar) == null) {
+            String g = flVar.g();
+            String num = Integer.toString(flVar.a());
+            if (TextUtils.isEmpty(g) || TextUtils.isEmpty(num) || (a = bg.a().a(num, g)) == null) {
+                return;
+            }
+            hb.a(this.a, a.f926a, flVar.c(), true, true, System.currentTimeMillis());
+        }
+    }
+
+    public void a(fl flVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, flVar) == null) {
+            if (5 != flVar.a()) {
+                c(flVar);
+            }
+            try {
+                b(flVar);
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.a("handle Blob chid = " + flVar.a() + " cmd = " + flVar.m330a() + " packetid = " + flVar.e() + " failure ", e);
+            }
+        }
+    }
+
+    public void a(gn gnVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gnVar) == null) {
+            if (!"5".equals(gnVar.k())) {
+                b(gnVar);
+            }
+            String k = gnVar.k();
+            if (TextUtils.isEmpty(k)) {
+                k = "1";
+                gnVar.l("1");
+            }
+            if (k.equals("0")) {
+                com.xiaomi.channel.commonutils.logger.b.m84a("Received wrong packet with chid = 0 : " + gnVar.m366a());
+            }
+            if (gnVar instanceof gl) {
+                gk a = gnVar.a("kick");
+                if (a != null) {
+                    String l = gnVar.l();
+                    String a2 = a.a("type");
+                    String a3 = a.a("reason");
+                    com.xiaomi.channel.commonutils.logger.b.m84a("kicked by server, chid=" + k + " res=" + bg.b.a(l) + " type=" + a2 + " reason=" + a3);
+                    if (!"wait".equals(a2)) {
+                        this.a.a(k, l, 3, a3, a2);
+                        bg.a().m636a(k, l);
+                        return;
+                    }
+                    bg.b a4 = bg.a().a(k, l);
+                    if (a4 != null) {
+                        this.a.a(a4);
+                        a4.a(bg.c.a, 3, 0, a3, a2);
+                        return;
+                    }
+                    return;
                 }
-                int a2 = ((this.c + a(this.f906a[i3])) + a(bArr[this.b % length])) % 256;
-                this.c = a2;
-                a(this.f906a, this.b, a2);
-                this.b++;
-            }
-            if (i != 256) {
-                this.d = ((this.c + a(this.f906a[i])) + a(bArr[i % length])) % 256;
-            }
-            if (z) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("S_");
-                int i4 = i - 1;
-                sb.append(i4);
-                sb.append(":");
-                for (int i5 = 0; i5 <= i; i5++) {
-                    sb.append(" ");
-                    sb.append(a(this.f906a[i5]));
+            } else if (gnVar instanceof gm) {
+                gm gmVar = (gm) gnVar;
+                if ("redir".equals(gmVar.b())) {
+                    gk a5 = gmVar.a("hosts");
+                    if (a5 != null) {
+                        a(a5);
+                        return;
+                    }
+                    return;
                 }
-                sb.append("   j_");
-                sb.append(i4);
-                sb.append("=");
-                sb.append(this.c);
-                sb.append("   j_");
-                sb.append(i);
-                sb.append("=");
-                sb.append(this.d);
-                sb.append("   S_");
-                sb.append(i4);
-                sb.append("[j_");
-                sb.append(i4);
-                sb.append("]=");
-                sb.append(a(this.f906a[this.c]));
-                sb.append("   S_");
-                sb.append(i4);
-                sb.append("[j_");
-                sb.append(i);
-                sb.append("]=");
-                sb.append(a(this.f906a[this.d]));
-                if (this.f906a[1] != 0) {
-                    sb.append("   S[1]!=0");
+            }
+            this.a.m589b().a(this.a, k, gnVar);
+        }
+    }
+
+    public void b(fl flVar) {
+        StringBuilder sb;
+        String a;
+        String str;
+        bg.c cVar;
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, flVar) == null) {
+            String m330a = flVar.m330a();
+            if (flVar.a() != 0) {
+                String num = Integer.toString(flVar.a());
+                if (!"SECMSG".equals(flVar.m330a())) {
+                    if (!"BIND".equals(m330a)) {
+                        if ("KICK".equals(m330a)) {
+                            dx.g a2 = dx.g.a(flVar.m334a());
+                            String g = flVar.g();
+                            String a3 = a2.a();
+                            String b = a2.b();
+                            com.xiaomi.channel.commonutils.logger.b.m84a("kicked by server, chid=" + num + " res= " + bg.b.a(g) + " type=" + a3 + " reason=" + b);
+                            if (!"wait".equals(a3)) {
+                                this.a.a(num, g, 3, b, a3);
+                                bg.a().m636a(num, g);
+                                return;
+                            }
+                            bg.b a4 = bg.a().a(num, g);
+                            if (a4 != null) {
+                                this.a.a(a4);
+                                a4.a(bg.c.a, 3, 0, b, a3);
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    }
+                    dx.d a5 = dx.d.a(flVar.m334a());
+                    String g2 = flVar.g();
+                    bg.b a6 = bg.a().a(num, g2);
+                    if (a6 == null) {
+                        return;
+                    }
+                    if (a5.a()) {
+                        com.xiaomi.channel.commonutils.logger.b.m84a("SMACK: channel bind succeeded, chid=" + flVar.a());
+                        a6.a(bg.c.c, 1, 0, (String) null, (String) null);
+                        return;
+                    }
+                    String a7 = a5.a();
+                    if ("auth".equals(a7)) {
+                        if ("invalid-sig".equals(a5.b())) {
+                            com.xiaomi.channel.commonutils.logger.b.m84a("SMACK: bind error invalid-sig token = " + a6.c + " sec = " + a6.h);
+                            fj.a(0, ez.T.a(), 1, null, 0);
+                        }
+                        cVar = bg.c.a;
+                        i = 1;
+                        i2 = 5;
+                    } else if (!"cancel".equals(a7)) {
+                        if ("wait".equals(a7)) {
+                            this.a.a(a6);
+                            a6.a(bg.c.a, 1, 7, a5.b(), a7);
+                        }
+                        str = "SMACK: channel bind failed, chid=" + num + " reason=" + a5.b();
+                        com.xiaomi.channel.commonutils.logger.b.m84a(str);
+                    } else {
+                        cVar = bg.c.a;
+                        i = 1;
+                        i2 = 7;
+                    }
+                    a6.a(cVar, i, i2, a5.b(), a7);
+                    bg.a().m636a(num, g2);
+                    str = "SMACK: channel bind failed, chid=" + num + " reason=" + a5.b();
+                    com.xiaomi.channel.commonutils.logger.b.m84a(str);
+                } else if (!flVar.m333a()) {
+                    this.a.m589b().a(this.a, num, flVar);
+                    return;
+                } else {
+                    sb = new StringBuilder();
+                    sb.append("Recv SECMSG errCode = ");
+                    sb.append(flVar.b());
+                    sb.append(" errStr = ");
+                    a = flVar.m337c();
                 }
-                com.xiaomi.channel.commonutils.logger.b.m108a(sb.toString());
-            }
-        }
-    }
-
-    private void a(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, bArr) == null) {
-            a(256, bArr, false);
-        }
-    }
-
-    public static void a(byte[] bArr, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65542, null, bArr, i, i2) == null) {
-            byte b = bArr[i];
-            bArr[i] = bArr[i2];
-            bArr[i2] = b;
-        }
-    }
-
-    public static byte[] a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, str2)) == null) {
-            byte[] m218a = com.xiaomi.push.bj.m218a(str);
-            byte[] bytes = str2.getBytes();
-            byte[] bArr = new byte[m218a.length + 1 + bytes.length];
-            for (int i = 0; i < m218a.length; i++) {
-                bArr[i] = m218a[i];
-            }
-            bArr[m218a.length] = 95;
-            for (int i2 = 0; i2 < bytes.length; i2++) {
-                bArr[m218a.length + 1 + i2] = bytes[i2];
-            }
-            return bArr;
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static byte[] a(byte[] bArr, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, bArr, str)) == null) ? a(bArr, com.xiaomi.push.bj.m218a(str)) : (byte[]) invokeLL.objValue;
-    }
-
-    public static byte[] a(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, bArr, bArr2)) == null) {
-            byte[] bArr3 = new byte[bArr2.length];
-            be beVar = new be();
-            beVar.a(bArr);
-            beVar.a();
-            for (int i = 0; i < bArr2.length; i++) {
-                bArr3[i] = (byte) (bArr2[i] ^ beVar.m648a());
-            }
-            return bArr3;
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static byte[] a(byte[] bArr, byte[] bArr2, boolean z, int i, int i2) {
-        InterceptResult invokeCommon;
-        byte[] bArr3;
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{bArr, bArr2, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            if (i < 0 || i > bArr2.length || i + i2 > bArr2.length) {
-                throw new IllegalArgumentException("start = " + i + " len = " + i2);
-            }
-            if (z) {
-                bArr3 = bArr2;
-                i3 = i;
+            } else if ("PING".equals(m330a)) {
+                byte[] m334a = flVar.m334a();
+                if (m334a != null && m334a.length > 0) {
+                    dx.j a8 = dx.j.a(m334a);
+                    if (a8.b()) {
+                        bv.a().a(a8.a());
+                    }
+                }
+                if (!"com.xiaomi.xmsf".equals(this.a.getPackageName())) {
+                    this.a.m586a();
+                }
+                if ("1".equals(flVar.e())) {
+                    com.xiaomi.channel.commonutils.logger.b.m84a("received a server ping");
+                } else {
+                    fj.b();
+                }
+                this.a.m590b();
+                return;
+            } else if ("SYNC".equals(m330a)) {
+                if ("CONF".equals(flVar.m336b())) {
+                    bv.a().a(dx.b.a(flVar.m334a()));
+                    return;
+                } else if (TextUtils.equals("U", flVar.m336b())) {
+                    dx.k a9 = dx.k.a(flVar.m334a());
+                    df.a(this.a).a(a9.a(), a9.b(), new Date(a9.a()), new Date(a9.b()), a9.c() * 1024, a9.e());
+                    fl flVar2 = new fl();
+                    flVar2.a(0);
+                    flVar2.a(flVar.m330a(), "UCA");
+                    flVar2.a(flVar.e());
+                    XMPushService xMPushService = this.a;
+                    xMPushService.a(new bt(xMPushService, flVar2));
+                    return;
+                } else if (!TextUtils.equals("P", flVar.m336b())) {
+                    return;
+                } else {
+                    dx.i a10 = dx.i.a(flVar.m334a());
+                    fl flVar3 = new fl();
+                    flVar3.a(0);
+                    flVar3.a(flVar.m330a(), "PCA");
+                    flVar3.a(flVar.e());
+                    dx.i iVar = new dx.i();
+                    if (a10.a()) {
+                        iVar.a(a10.a());
+                    }
+                    flVar3.a(iVar.m298a(), (String) null);
+                    XMPushService xMPushService2 = this.a;
+                    xMPushService2.a(new bt(xMPushService2, flVar3));
+                    sb = new StringBuilder();
+                    sb.append("ACK msgP: id = ");
+                    a = flVar.e();
+                }
+            } else if (!"NOTIFY".equals(flVar.m330a())) {
+                return;
             } else {
-                bArr3 = new byte[i2];
-                i3 = 0;
+                dx.h a11 = dx.h.a(flVar.m334a());
+                sb = new StringBuilder();
+                sb.append("notify by server err = ");
+                sb.append(a11.c());
+                sb.append(" desc = ");
+                a = a11.a();
             }
-            be beVar = new be();
-            beVar.a(bArr);
-            beVar.a();
-            for (int i4 = 0; i4 < i2; i4++) {
-                bArr3[i3 + i4] = (byte) (bArr2[i + i4] ^ beVar.m648a());
-            }
-            return bArr3;
+            sb.append(a);
+            str = sb.toString();
+            com.xiaomi.channel.commonutils.logger.b.m84a(str);
         }
-        return (byte[]) invokeCommon.objValue;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public byte m648a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = (this.b + 1) % 256;
-            this.b = i;
-            int a2 = (this.c + a(this.f906a[i])) % 256;
-            this.c = a2;
-            a(this.f906a, this.b, a2);
-            byte[] bArr = this.f906a;
-            return bArr[(a(bArr[this.b]) + a(this.f906a[this.c])) % 256];
-        }
-        return invokeV.byteValue;
     }
 }

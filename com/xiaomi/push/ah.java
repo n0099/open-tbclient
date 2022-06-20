@@ -1,46 +1,31 @@
 package com.xiaomi.push;
 
-import android.app.KeyguardManager;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
 public class ah {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "10.237.14.141";
+
+    /* renamed from: a  reason: collision with other field name */
+    public static boolean f87a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            try {
-                return ((KeyguardManager) context.getSystemService("keyguard")).inKeyguardRestrictedInputMode();
-            } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.a(e);
-                return false;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-56379655, "Lcom/xiaomi/push/ah;")) == null) {
+            return;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            Intent intent = null;
-            try {
-                intent = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
-            } catch (Exception unused) {
-            }
-            if (intent == null) {
-                return false;
-            }
-            int intExtra = intent.getIntExtra("status", -1);
-            return intExtra == 2 || intExtra == 5;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-        return invokeL.booleanValue;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-56379655, "Lcom/xiaomi/push/ah;");
+        }
     }
 }

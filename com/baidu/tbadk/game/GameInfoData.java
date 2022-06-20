@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jg;
-import com.repackage.w55;
+import com.repackage.l65;
+import com.repackage.ng;
 import java.io.Serializable;
 import java.util.List;
 import tbclient.GameInfo;
@@ -19,7 +19,7 @@ import tbclient.GetGameDetailNew.CodeInfo;
 import tbclient.GetGameDetailNew.GiftPkgInfo;
 import tbclient.GetNewGameList.NewGameInfo;
 /* loaded from: classes3.dex */
-public class GameInfoData implements Serializable, w55 {
+public class GameInfoData implements Serializable, l65 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int APP_TYPE = 1;
     public static final int H5_TYPE = 2;
@@ -102,7 +102,7 @@ public class GameInfoData implements Serializable, w55 {
     private String dealPackageSize(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) ? String.format("%.1f", Float.valueOf(jg.d(str, 0.0f))) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) ? String.format("%.1f", Float.valueOf(ng.d(str, 0.0f))) : (String) invokeL.objValue;
     }
 
     public static GameInfoData fromGameInfo(GameInfo gameInfo) {

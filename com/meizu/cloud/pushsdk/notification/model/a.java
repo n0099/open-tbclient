@@ -3,8 +3,8 @@ package com.meizu.cloud.pushsdk.notification.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
-import com.repackage.ni9;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
@@ -42,10 +42,10 @@ public class a implements Parcelable {
         try {
             c = !TextUtils.isEmpty(messageV3.getNotificationMessage()) ? a(new JSONObject(messageV3.getNotificationMessage()).getJSONObject("data").getJSONObject("extra").getJSONObject("no")) : null;
         } catch (Exception e) {
-            ni9.b("NotifyOption", "parse flyme NotifyOption setting error " + e.getMessage() + " so get from notificationMessage");
+            DebugLogger.e("NotifyOption", "parse flyme NotifyOption setting error " + e.getMessage() + " so get from notificationMessage");
             c = c(messageV3.getNotificationMessage());
         }
-        ni9.d("NotifyOption", "current notify option is " + c);
+        DebugLogger.i("NotifyOption", "current notify option is " + c);
         return c;
     }
 
@@ -66,7 +66,7 @@ public class a implements Parcelable {
             return aVar;
         }
         str = "no such tag NotifyOption";
-        ni9.b("NotifyOption", str);
+        DebugLogger.e("NotifyOption", str);
         return aVar;
     }
 
@@ -84,7 +84,7 @@ public class a implements Parcelable {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e) {
-                ni9.b("NotifyOption", "parse json string error " + e.getMessage());
+                DebugLogger.e("NotifyOption", "parse json string error " + e.getMessage());
             }
             return a(jSONObject);
         }
@@ -99,7 +99,7 @@ public class a implements Parcelable {
             }
             return b(new JSONObject(str).getString("no"));
         } catch (JSONException e) {
-            ni9.b("NotifyOption", "parse notificationMessage error " + e.getMessage());
+            DebugLogger.e("NotifyOption", "parse notificationMessage error " + e.getMessage());
             return null;
         }
     }

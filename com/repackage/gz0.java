@@ -1,67 +1,172 @@
 package com.repackage;
 
-import android.content.Context;
-import android.widget.Toast;
-import androidx.annotation.NonNull;
-import androidx.annotation.StringRes;
+import android.os.SystemClock;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.nadcore.thread.executor.BaseExecutorCell;
+import com.baidu.nadcore.thread.task.ElasticTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface gz0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "toast");
-    public static final gz0 b = new a();
+public class gz0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public volatile vy0 a;
+    public volatile vy0 b;
+    public volatile vy0 c;
+    public int d;
+    public long e;
 
-    /* loaded from: classes6.dex */
-    public static class a implements gz0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public gz0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.d = 0;
+        this.e = 0L;
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            double a = hz0.f().g().a();
+            if (a >= sy0.j && 3 != this.d) {
+                if ((a >= sy0.k) || SystemClock.elapsedRealtime() - this.e > sy0.m) {
+                    g();
+                    this.e = SystemClock.elapsedRealtime();
+                    hz0.f().j(sy0.m + 10);
+                    return 1;
                 }
             }
-        }
-
-        @Override // com.repackage.gz0
-        public void a(@NonNull Context context, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
-                Toast.makeText(context, str, 0).show();
+            if (this.d == 0 || a >= sy0.l || SystemClock.elapsedRealtime() - this.e <= sy0.n) {
+                return 0;
             }
+            b();
+            this.e = SystemClock.elapsedRealtime();
+            hz0.f().j(sy0.n + 10);
+            return -1;
         }
+        return invokeV.intValue;
+    }
 
-        @Override // com.repackage.gz0
-        public void b(@NonNull Context context, @StringRes int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i) == null) {
-                Toast.makeText(context, i, 0).show();
-            }
-        }
-
-        @Override // com.repackage.gz0
-        public void c(@NonNull Context context, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, context, i, i2) == null) {
-                Toast.makeText(context, i, i2).show();
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            int i = this.d;
+            if (1 == i) {
+                e().j();
+                this.d = 0;
+            } else if (2 == i) {
+                f().j();
+                this.d = 1;
+            } else if (3 == i) {
+                d().j();
+                this.d = 2;
             }
         }
     }
 
-    void a(@NonNull Context context, String str);
+    public boolean c(ElasticTask elasticTask) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, elasticTask)) == null) {
+            int i = this.d;
+            if (i == 0) {
+                return false;
+            }
+            if (i == 1) {
+                return e().c(elasticTask);
+            }
+            if (i == 2) {
+                if (e().c(elasticTask)) {
+                    return true;
+                }
+                return f().c(elasticTask);
+            } else if (i == 3) {
+                if (e().c(elasticTask) || f().c(elasticTask)) {
+                    return true;
+                }
+                return d().c(elasticTask);
+            } else {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
 
-    void b(@NonNull Context context, @StringRes int i);
+    public vy0 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.c == null) {
+                synchronized (this) {
+                    if (this.c == null) {
+                        this.c = (vy0) BaseExecutorCell.b(sy0.i, BaseExecutorCell.ExecutorType.DREDGE_DISASTER);
+                    }
+                }
+            }
+            return this.c;
+        }
+        return (vy0) invokeV.objValue;
+    }
 
-    void c(@NonNull Context context, @StringRes int i, int i2);
+    public vy0 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.a == null) {
+                synchronized (this) {
+                    if (this.a == null) {
+                        this.a = (vy0) BaseExecutorCell.b(sy0.g, BaseExecutorCell.ExecutorType.DREDGE_NORMAL);
+                    }
+                }
+            }
+            return this.a;
+        }
+        return (vy0) invokeV.objValue;
+    }
+
+    public vy0 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.b == null) {
+                synchronized (this) {
+                    if (this.b == null) {
+                        this.b = (vy0) BaseExecutorCell.b(sy0.h, BaseExecutorCell.ExecutorType.DREDGE_NORMAL);
+                    }
+                }
+            }
+            return this.b;
+        }
+        return (vy0) invokeV.objValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            int i = this.d;
+            if (i == 0) {
+                e().i();
+                this.d = 1;
+            } else if (1 == i) {
+                f().i();
+                this.d = 2;
+            } else if (2 == i) {
+                d().i();
+                this.d = 3;
+            }
+        }
+    }
 }

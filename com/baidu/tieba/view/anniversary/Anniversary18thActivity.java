@@ -14,6 +14,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
 import com.baidu.tbadk.core.dialog.TBAlertConfig;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -32,36 +33,35 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bt8;
-import com.repackage.ef8;
-import com.repackage.li;
-import com.repackage.rq4;
-import com.repackage.uq4;
-import com.repackage.wq4;
-import com.repackage.xs8;
-import com.repackage.ys8;
+import com.repackage.dr4;
+import com.repackage.fr4;
+import com.repackage.ft8;
+import com.repackage.gt8;
+import com.repackage.jt8;
+import com.repackage.pi;
+import com.repackage.xf8;
 /* loaded from: classes4.dex */
-public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivity> implements ys8 {
+public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivity> implements gt8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public EMTextView activitive;
-    public LinearLayout activityMain;
-    public TbImageView backImageView;
-    public int curProgressNumber;
-    public MaxureLayerView layerView;
-    public String mCoverPath;
-    public PermissionJudgePolicy mPermissionJudgePolicy;
-    public ImageView mRightArrow;
-    public String mTopicId;
-    public String mTopicName;
-    public String mVideoPath;
-    public RelativeLayout maxureMain;
-    public EMTextView maxureTip;
-    public AnniversaryEtModel model;
-    public NavigationBar navigationBar;
-    public bt8 resultData;
-    public EMTextView shareVideoBtn;
-    public LinearLayout shareVideoOuder;
+    public AnniversaryEtModel a;
+    public NavigationBar b;
+    public RelativeLayout c;
+    public TbImageView d;
+    public EMTextView e;
+    public EMTextView f;
+    public EMTextView g;
+    public ImageView h;
+    public LinearLayout i;
+    public LinearLayout j;
+    public String k;
+    public String l;
+    public String m;
+    public String n;
+    public int o;
+    public jt8 p;
+    public MaxureLayerView q;
+    public PermissionJudgePolicy r;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -91,8 +91,8 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.curProgressNumber > 0 && this.a.curProgressNumber < 100) {
-                    this.a.popupMaxureDialog();
+                if (this.a.o > 0 && this.a.o < 100) {
+                    this.a.I1();
                 } else {
                     this.a.finish();
                 }
@@ -128,10 +128,10 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.curProgressNumber == 100 && !TextUtils.isEmpty(this.a.mVideoPath)) {
-                    xs8.n(this.a.getPageContext(), this.a.mVideoPath, this.a.mCoverPath, this.a.mTopicName, this.a.mTopicId);
+                if (this.a.o == 100 && !TextUtils.isEmpty(this.a.k)) {
+                    ft8.n(this.a.getPageContext(), this.a.k, this.a.l, this.a.n, this.a.m);
                 } else {
-                    li.O(TbadkCoreApplication.getInst(), this.a.getString(R.string.obfuscated_res_0x7f0f120b));
+                    pi.O(TbadkCoreApplication.getInst(), this.a.getString(R.string.obfuscated_res_0x7f0f1218));
                 }
             }
         }
@@ -164,12 +164,12 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.resultData == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.p == null) {
                 return;
             }
             UrlManager urlManager = UrlManager.getInstance();
             TbPageContext<Anniversary18thActivity> pageContext = this.a.getPageContext();
-            urlManager.dealOneLink(pageContext, new String[]{"http://tieba.baidu.com/mo/q/checkurl?url=" + this.a.resultData.a()});
+            urlManager.dealOneLink(pageContext, new String[]{"http://tieba.baidu.com/mo/q/checkurl?url=" + this.a.p.a()});
         }
     }
 
@@ -240,10 +240,10 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
         public void onPermissionsGranted() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.model == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.a == null) {
                 return;
             }
-            this.a.model.B(this.a.resultData);
+            this.a.a.C(this.a.p);
         }
     }
 
@@ -281,7 +281,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
                 return;
             }
             alertDialog.dismiss();
-            this.b.model.cancel();
+            this.b.a.cancel();
             this.b.finish();
         }
     }
@@ -337,83 +337,125 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         }
     }
 
-    private void init() {
+    public final void I1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0914f2);
-            this.navigationBar = navigationBar;
-            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).setOnClickListener(new a(this));
-            this.maxureMain = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091383);
-            this.backImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091ee8);
-            this.maxureTip = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091468);
-            this.shareVideoBtn = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091cd1);
-            this.shareVideoOuder = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091cd2);
-            this.activitive = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091467);
-            MaxureLayerView maxureLayerView = (MaxureLayerView) findViewById(R.id.obfuscated_res_0x7f09138c);
-            this.layerView = maxureLayerView;
-            maxureLayerView.c(true);
-            this.layerView.d(ef8.a(SkinManager.getColor(0, (int) R.color.CAM_X0611), SkinManager.RESOURCE_ALPHA_DISABLE));
-            this.layerView.g(getResources().getColor(R.color.CAM_X0101));
-            this.layerView.f(ef8.a(SkinManager.getColor(0, (int) R.color.CAM_X0611), uq4.a(R.string.A_X05)));
-            this.layerView.e(ef8.a(SkinManager.getColor(0, (int) R.color.CAM_X0101), SkinManager.RESOURCE_ALPHA_PRESS));
-            this.layerView.h(UtilHelper.getDimenPixelSize(R.dimen.T_X07));
-            this.mRightArrow = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a93);
-            this.activityMain = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090072);
-            this.backImageView.setAutoChangeStyle(false);
-            this.backImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.backImageView.setDrawCorner(true);
-            this.backImageView.setConrers(15);
-            this.backImageView.setRadiusById(R.string.J_X06);
-            this.backImageView.setPlaceHolderAutoChangeSkinType(2);
-            this.backImageView.setDrawBorder(false);
-            wq4.d(this.shareVideoBtn).A(R.string.F_X02);
-            this.shareVideoOuder.setBackgroundDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080815, WebPManager.ResourceStateType.NORMAL));
-            this.shareVideoBtn.setOnClickListener(new b(this));
-            this.activityMain.setOnClickListener(new c(this));
-            onUpdateProgress(0);
-            this.model.A(1);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TBAlertConfig.a aVar = new TBAlertConfig.a(getString(R.string.obfuscated_res_0x7f0f0e72), TBAlertConfig.OperateBtnStyle.MAIN);
+            TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0366, TBAlertConfig.OperateBtnStyle.SECONDARY);
+            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(TbadkCoreApplication.getInst().getCurrentActivity());
+            tBAlertBuilder.q(getString(R.string.obfuscated_res_0x7f0f1217));
+            tBAlertBuilder.n(getString(R.string.obfuscated_res_0x7f0f1216));
+            tBAlertBuilder.l(true);
+            tBAlertBuilder.o(aVar2, aVar);
+            tBAlertBuilder.g(false);
+            AlertDialog s = tBAlertBuilder.s();
+            aVar.a(new f(this, s));
+            aVar2.a(new g(this, s));
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void popupMaxureDialog() {
+    @Override // com.repackage.gt8
+    public void K0(jt8 jt8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            TBAlertConfig.a aVar = new TBAlertConfig.a(getString(R.string.obfuscated_res_0x7f0f0e6a), TBAlertConfig.OperateBtnStyle.MAIN);
-            TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0376, TBAlertConfig.OperateBtnStyle.SECONDARY);
-            rq4 rq4Var = new rq4(TbadkCoreApplication.getInst().getCurrentActivity());
-            rq4Var.v(getString(R.string.obfuscated_res_0x7f0f120a));
-            rq4Var.p(getString(R.string.obfuscated_res_0x7f0f1209));
-            rq4Var.n(true);
-            rq4Var.r(aVar2, aVar);
-            rq4Var.i(false);
-            AlertDialog x = rq4Var.x();
-            aVar.a(new f(this, x));
-            aVar2.a(new g(this, x));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jt8Var) == null) {
+            this.p = jt8Var;
+            TbImageView tbImageView = this.d;
+            if (tbImageView != null) {
+                tbImageView.J(jt8Var.b(), 10, false);
+            }
+            if (this.r == null) {
+                this.r = new PermissionJudgePolicy();
+            }
+            this.r.clearRequestPermissionList();
+            this.r.appendRequestPermission(this, "android.permission.WRITE_EXTERNAL_STORAGE");
+            this.r.setDialogClickListener(new d(this));
+            this.r.setOnPermissionsGrantedListener(new e(this));
+            if (this.r.startRequestPermission(this)) {
+            }
+        }
+    }
+
+    @Override // com.repackage.gt8
+    public void P0(String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3, str4) == null) {
+            this.k = ft8.m(getPageContext(), str);
+            this.l = str2;
+            this.n = str3;
+            this.m = str4;
+            this.q.setVisibility(8);
+            this.e.setText(getString(R.string.obfuscated_res_0x7f0f121a));
+        }
+    }
+
+    @Override // com.repackage.gt8
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.o = i;
+            this.q.setProgress(i);
+        }
+    }
+
+    public final void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0914e4);
+            this.b = navigationBar;
+            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).setOnClickListener(new a(this));
+            this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09137a);
+            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091ede);
+            this.e = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09145a);
+            this.f = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091cc8);
+            this.j = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091cc9);
+            this.g = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091459);
+            MaxureLayerView maxureLayerView = (MaxureLayerView) findViewById(R.id.obfuscated_res_0x7f091383);
+            this.q = maxureLayerView;
+            maxureLayerView.c(true);
+            this.q.d(xf8.a(SkinManager.getColor(0, (int) R.color.CAM_X0611), SkinManager.RESOURCE_ALPHA_DISABLE));
+            this.q.g(getResources().getColor(R.color.CAM_X0101));
+            this.q.f(xf8.a(SkinManager.getColor(0, (int) R.color.CAM_X0611), dr4.a(R.string.A_X05)));
+            this.q.e(xf8.a(SkinManager.getColor(0, (int) R.color.CAM_X0101), SkinManager.RESOURCE_ALPHA_PRESS));
+            this.q.h(UtilHelper.getDimenPixelSize(R.dimen.T_X07));
+            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a8a);
+            this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090072);
+            this.d.setAutoChangeStyle(false);
+            this.d.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.d.setDrawCorner(true);
+            this.d.setConrers(15);
+            this.d.setRadiusById(R.string.J_X06);
+            this.d.setPlaceHolderAutoChangeSkinType(2);
+            this.d.setDrawBorder(false);
+            fr4.d(this.f).A(R.string.F_X02);
+            this.j.setBackgroundDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0807fa, WebPManager.ResourceStateType.NORMAL));
+            this.f.setOnClickListener(new b(this));
+            this.i.setOnClickListener(new c(this));
+            c(0);
+            this.a.B(1);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            this.navigationBar.onChangeSkinType(getPageContext(), 0);
-            if (this.navigationBar.getBackImageView() != null) {
-                this.navigationBar.getBackImageView().setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f08060f, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS, false));
+            this.b.onChangeSkinType(getPageContext(), 0);
+            if (this.b.getBackImageView() != null) {
+                this.b.getBackImageView().setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f08060d, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS, false));
             }
-            this.mRightArrow.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_list_arrow16_right, SkinManager.getColor(0, (int) R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
+            this.h.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_list_arrow16_right, SkinManager.getColor(0, (int) R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d002a);
             setSwipeBackEnabled(false);
-            this.model = new AnniversaryEtModel(getPageContext(), this);
+            this.a = new AnniversaryEtModel(getPageContext(), this);
             init();
         }
     }
@@ -421,27 +463,27 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            AnniversaryEtModel anniversaryEtModel = this.model;
+            AnniversaryEtModel anniversaryEtModel = this.a;
             if (anniversaryEtModel != null) {
                 anniversaryEtModel.cancel();
             }
         }
     }
 
-    @Override // com.repackage.ys8
+    @Override // com.repackage.gt8
     public void onError(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
-            li.O(TbadkCoreApplication.getInst(), str);
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, str) == null) {
+            pi.O(TbadkCoreApplication.getInst(), str);
         }
     }
 
-    @Override // com.repackage.ys8
+    @Override // com.repackage.gt8
     public void onFinish() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             finish();
         }
     }
@@ -451,9 +493,9 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         InterceptResult invokeIL;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, keyEvent)) == null) {
-            if (i == 4 && (i2 = this.curProgressNumber) > 0 && i2 < 100) {
-                popupMaxureDialog();
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, keyEvent)) == null) {
+            if (i == 4 && (i2 = this.o) > 0 && i2 < 100) {
+                I1();
                 return true;
             }
             return super.onKeyDown(i, keyEvent);
@@ -461,24 +503,11 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         return invokeIL.booleanValue;
     }
 
-    @Override // com.repackage.ys8
-    public void onMuxerSucess(String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048582, this, str, str2, str3, str4) == null) {
-            this.mVideoPath = xs8.m(getPageContext(), str);
-            this.mCoverPath = str2;
-            this.mTopicName = str3;
-            this.mTopicId = str4;
-            this.layerView.setVisibility(8);
-            this.maxureTip.setText(getString(R.string.obfuscated_res_0x7f0f120d));
-        }
-    }
-
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         PermissionJudgePolicy permissionJudgePolicy;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048583, this, i, strArr, iArr) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048587, this, i, strArr, iArr) == null) {
             super.onRequestPermissionsResult(i, strArr, iArr);
             if (iArr == null || iArr.length <= 0 || strArr == null || strArr.length <= 0) {
                 return;
@@ -493,36 +522,6 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
                     return;
                 }
             }
-        }
-    }
-
-    @Override // com.repackage.ys8
-    public void onResponeSucess(bt8 bt8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bt8Var) == null) {
-            this.resultData = bt8Var;
-            TbImageView tbImageView = this.backImageView;
-            if (tbImageView != null) {
-                tbImageView.K(bt8Var.b(), 10, false);
-            }
-            if (this.mPermissionJudgePolicy == null) {
-                this.mPermissionJudgePolicy = new PermissionJudgePolicy();
-            }
-            this.mPermissionJudgePolicy.clearRequestPermissionList();
-            this.mPermissionJudgePolicy.appendRequestPermission(this, "android.permission.WRITE_EXTERNAL_STORAGE");
-            this.mPermissionJudgePolicy.setDialogClickListener(new d(this));
-            this.mPermissionJudgePolicy.setOnPermissionsGrantedListener(new e(this));
-            if (this.mPermissionJudgePolicy.startRequestPermission(this)) {
-            }
-        }
-    }
-
-    @Override // com.repackage.ys8
-    public void onUpdateProgress(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.curProgressNumber = i;
-            this.layerView.setProgress(i);
         }
     }
 }

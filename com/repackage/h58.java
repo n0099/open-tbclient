@@ -1,5 +1,21 @@
 package com.repackage;
+
+import android.view.View;
 /* loaded from: classes6.dex */
 public interface h58 {
-    void showRecycleBinRedTip(boolean z);
+    int getCurrentPosition();
+
+    String getPlayUrl();
+
+    View getVideoContainer();
+
+    boolean isFullScreen();
+
+    boolean isPlayStarted();
+
+    boolean isPlaying();
+
+    void startPlay();
+
+    void stopPlay();
 }

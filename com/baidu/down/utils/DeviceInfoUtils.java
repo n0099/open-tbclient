@@ -16,7 +16,7 @@ import java.io.FileFilter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.regex.Pattern;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class DeviceInfoUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;

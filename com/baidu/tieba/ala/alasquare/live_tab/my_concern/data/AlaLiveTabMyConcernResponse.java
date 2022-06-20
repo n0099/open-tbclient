@@ -3,13 +3,14 @@ package com.baidu.tieba.ala.alasquare.live_tab.my_concern.data;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.zn5;
+import com.repackage.xo5;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -18,7 +19,7 @@ import org.json.JSONObject;
 public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<zn5> followCloseList;
+    public List<xo5> followCloseList;
     public int followCloseNum;
     public List<ThreadData> followList;
     public int followStatus;
@@ -62,7 +63,7 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
             this.followStatus = optJSONObject.optInt(DI.FOLLOW_STATUS);
             this.followCloseNum = optJSONObject.optInt("follow_close_num");
             this.pn = optJSONObject.optInt(Config.PACKAGE_NAME);
-            this.totalFollowCount = optJSONObject.optInt("total_follow_num");
+            this.totalFollowCount = optJSONObject.optInt(PersonListActivityConfig.TOTLEFOLLOWNUM);
             JSONArray optJSONArray = optJSONObject.optJSONArray("follow_list");
             if (optJSONArray != null) {
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
@@ -79,9 +80,9 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                     JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
                     if (optJSONObject3 != null) {
-                        zn5 zn5Var = new zn5();
-                        zn5Var.e(optJSONObject3);
-                        this.followCloseList.add(zn5Var);
+                        xo5 xo5Var = new xo5();
+                        xo5Var.c(optJSONObject3);
+                        this.followCloseList.add(xo5Var);
                     }
                 }
             }

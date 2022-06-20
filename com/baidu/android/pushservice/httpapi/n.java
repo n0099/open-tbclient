@@ -42,8 +42,8 @@ public class n extends d {
             if (com.baidu.android.pushservice.b.d.b(((a) this).a)) {
                 hashMap.put("new_channel_id", com.baidu.android.pushservice.j.a(((a) this).a).c());
             }
-            hashMap.put("app_alone_conn", (com.baidu.android.pushservice.b.d.e(((a) this).a) ? 1 : 0) + "");
-            hashMap.put("manufacture", com.baidu.android.pushservice.i.m.a(false));
+            hashMap.put("app_alone_conn", (com.baidu.android.pushservice.b.d.f(((a) this).a) ? 1 : 0) + "");
+            hashMap.put("manufacture", com.baidu.android.pushservice.i.m.c(((a) this).a, false));
             hashMap.put("proxy_mode", (com.baidu.android.pushservice.b.d.c(((a) this).a) ? 1 : 0) + "");
         }
     }

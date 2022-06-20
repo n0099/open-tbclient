@@ -1,35 +1,15 @@
 package com.repackage;
+
+import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
 /* loaded from: classes7.dex */
 public interface yt8 {
     void a();
 
-    void b(long j);
+    void b(CloudMusicData.MusicTagList.MusicList musicList, int i);
 
-    void c(double d);
+    void c();
 
-    void d(int i);
+    void d(CloudMusicData.MusicTagList musicTagList);
 
-    void e(int i, int i2);
-
-    void f(int i, int i2);
-
-    void g(int i, int i2, int i3);
-
-    void h();
-
-    void i();
-
-    void j(int i, au8 au8Var);
-
-    void k();
-
-    void l(double d);
-
-    void m();
-
-    void n(long j, long j2);
-
-    void o(long j, long j2);
-
-    void onClick();
+    void e(int i);
 }

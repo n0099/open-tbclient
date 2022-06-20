@@ -1,6 +1,6 @@
 package com.meizu.cloud.pushsdk.c.f;
 
-import com.repackage.ni9;
+import com.meizu.cloud.pushinternal.DebugLogger;
 /* loaded from: classes5.dex */
 public class c {
     public static int a;
@@ -23,19 +23,19 @@ public class c {
 
     public static void a(String str, String str2, Object... objArr) {
         if (a >= 1) {
-            ni9.b(a(str), a(str2, objArr));
+            DebugLogger.e(a(str), a(str2, objArr));
         }
     }
 
     public static void b(String str, String str2, Object... objArr) {
         if (a >= 2) {
-            ni9.a(a(str), a(str2, objArr));
+            DebugLogger.d(a(str), a(str2, objArr));
         }
     }
 
     public static void c(String str, String str2, Object... objArr) {
         if (a >= 3) {
-            ni9.d(a(str), a(str2, objArr));
+            DebugLogger.i(a(str), a(str2, objArr));
         }
     }
 }

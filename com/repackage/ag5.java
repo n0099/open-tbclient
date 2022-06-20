@@ -1,81 +1,27 @@
 package com.repackage;
 
-import android.view.MotionEvent;
-import android.view.VelocityTracker;
-import android.view.View;
-import android.view.ViewConfiguration;
+import android.content.Context;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Calendar;
 /* loaded from: classes5.dex */
 public class ag5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public b b;
-    public VelocityTracker c;
-    public float d;
-    public float e;
-    public long f;
-    public long g;
-    public boolean h;
-    public boolean i;
-    public int j;
-    public int k;
-    public int l;
+    public bg5 a;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ag5 a;
-
-        public a(ag5 ag5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ag5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ag5Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.i || !this.a.h || this.a.b == null) {
-                return;
-            }
-            this.a.b.onViewClick();
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        void K(float f, float f2);
-
-        void onViewClick();
-
-        void onViewDragToRight();
-    }
-
-    public ag5(View view2) {
+    public ag5(Context context, hg5 hg5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
+            Object[] objArr = {context, hg5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -85,79 +31,179 @@ public class ag5 {
                 return;
             }
         }
-        this.a = view2;
-        ViewConfiguration viewConfiguration = ViewConfiguration.get(view2.getContext());
-        if (viewConfiguration != null) {
-            this.l = viewConfiguration.getScaledPagingTouchSlop();
-        }
-        this.k = ViewConfiguration.getMaximumFlingVelocity();
-        this.j = ViewConfiguration.getMinimumFlingVelocity();
+        bg5 bg5Var = new bg5(2);
+        this.a = bg5Var;
+        bg5Var.A = context;
+        bg5Var.a = hg5Var;
     }
 
-    public boolean d(MotionEvent motionEvent) {
+    public mg5 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new mg5(this.a) : (mg5) invokeV.objValue;
+    }
+
+    public ag5 b(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+            this.a.T = z;
+            return this;
+        }
+        return (ag5) invokeZ.objValue;
+    }
+
+    public ag5 c(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            this.a.R = z;
+            return this;
+        }
+        return (ag5) invokeZ.objValue;
+    }
+
+    public ag5 d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            this.a.P = i;
+            return this;
+        }
+        return (ag5) invokeI.objValue;
+    }
+
+    public ag5 e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            this.a.H = i;
+            return this;
+        }
+        return (ag5) invokeI.objValue;
+    }
+
+    public ag5 f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            this.a.L = i;
+            return this;
+        }
+        return (ag5) invokeI.objValue;
+    }
+
+    public ag5 g(Calendar calendar) {
         InterceptResult invokeL;
-        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            if (this.c == null) {
-                this.c = VelocityTracker.obtain();
-            }
-            this.c.addMovement(motionEvent);
-            int action = motionEvent.getAction();
-            if (action == 0) {
-                this.d = motionEvent.getX();
-                this.e = motionEvent.getY();
-                this.f = System.currentTimeMillis();
-                this.h = true;
-            } else if (action == 1) {
-                long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.f < 100 && currentTimeMillis - this.g < 500) {
-                    this.i = true;
-                } else {
-                    this.i = false;
-                }
-                VelocityTracker velocityTracker = this.c;
-                velocityTracker.computeCurrentVelocity(1000, this.k);
-                if (Math.abs(velocityTracker.getYVelocity()) > this.j && Math.abs(this.e - motionEvent.getY()) > 50.0f) {
-                    this.i = false;
-                    this.h = false;
-                }
-                if (this.i) {
-                    b bVar2 = this.b;
-                    if (bVar2 != null) {
-                        bVar2.K(motionEvent.getRawX(), motionEvent.getRawY());
-                    }
-                } else if (Math.abs(this.d - motionEvent.getX()) > this.l && (this.d - motionEvent.getX()) - 50.0f > Math.abs(this.e - motionEvent.getY()) && (bVar = this.b) != null) {
-                    bVar.onViewDragToRight();
-                }
-                if (!this.i && this.h && Math.abs(this.d - motionEvent.getX()) < 30.0f && Math.abs(this.e - motionEvent.getY()) < 30.0f) {
-                    this.a.postDelayed(new a(this), 300L);
-                }
-                this.g = currentTimeMillis;
-                e();
-            } else if (action == 3) {
-                e();
-            }
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, calendar)) == null) {
+            this.a.e = calendar;
+            return this;
         }
-        return invokeL.booleanValue;
+        return (ag5) invokeL.objValue;
     }
 
-    public final void e() {
-        VelocityTracker velocityTracker;
+    public ag5 h(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (velocityTracker = this.c) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
+            this.a.y = viewGroup;
+            return this;
         }
-        velocityTracker.clear();
-        this.c.recycle();
-        this.c = null;
+        return (ag5) invokeL.objValue;
     }
 
-    public void f(b bVar) {
+    public ag5 i(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.b = bVar;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            this.a.O = i;
+            return this;
         }
+        return (ag5) invokeI.objValue;
+    }
+
+    public ag5 j(String str, String str2, String str3, String str4, String str5, String str6) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
+            bg5 bg5Var = this.a;
+            bg5Var.l = str;
+            bg5Var.m = str2;
+            bg5Var.n = str3;
+            bg5Var.o = str4;
+            bg5Var.p = str5;
+            bg5Var.q = str6;
+            return this;
+        }
+        return (ag5) invokeCommon.objValue;
+    }
+
+    public ag5 k(int i, cg5 cg5Var) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, cg5Var)) == null) {
+            bg5 bg5Var = this.a;
+            bg5Var.x = i;
+            bg5Var.c = cg5Var;
+            return this;
+        }
+        return (ag5) invokeIL.objValue;
+    }
+
+    public ag5 l(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048587, this, f)) == null) {
+            this.a.Q = f;
+            return this;
+        }
+        return (ag5) invokeF.objValue;
+    }
+
+    public ag5 m(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+            this.a.N = i;
+            return this;
+        }
+        return (ag5) invokeI.objValue;
+    }
+
+    public ag5 n(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
+            this.a.M = i;
+            return this;
+        }
+        return (ag5) invokeI.objValue;
+    }
+
+    public ag5 o(int i, int i2, int i3, int i4, int i5, int i6) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
+            bg5 bg5Var = this.a;
+            bg5Var.r = i;
+            bg5Var.s = i2;
+            bg5Var.t = i3;
+            bg5Var.u = i4;
+            bg5Var.v = i5;
+            bg5Var.w = i6;
+            return this;
+        }
+        return (ag5) invokeCommon.objValue;
+    }
+
+    public ag5 p(boolean[] zArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, zArr)) == null) {
+            this.a.d = zArr;
+            return this;
+        }
+        return (ag5) invokeL.objValue;
     }
 }

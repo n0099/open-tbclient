@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cq4;
+import com.repackage.mq4;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
@@ -133,8 +133,8 @@ public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
         if (!(interceptable == null || interceptable.invokeIL(1048580, this, i, bArr) == null) || bArr == null || bArr.length <= 0 || getError() != 0) {
             return;
         }
-        cq4.f();
-        cq4.e("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).a(EnterForumModel.FORUMRECOMMEND_CACHE_KEY, bArr);
+        mq4.f();
+        mq4.e("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).a(EnterForumModel.FORUMRECOMMEND_CACHE_KEY, bArr);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -163,7 +163,7 @@ public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
             if (dataRes.hot_search != null) {
                 HotSearchInfoData hotSearchInfoData = new HotSearchInfoData();
                 this.hotSearchInfo = hotSearchInfoData;
-                hotSearchInfoData.z(forumRecommendResIdl.data.hot_search);
+                hotSearchInfoData.A(forumRecommendResIdl.data.hot_search);
             }
             DataRes dataRes2 = forumRecommendResIdl.data;
             this.recommend_concern_forums = dataRes2.tag_recommend_forum;

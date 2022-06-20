@@ -103,8 +103,8 @@ public class d extends FrameLayout implements h {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d045c, this);
-            this.b = (TKLayout) findViewById(R.id.obfuscated_res_0x7f09111a);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0456, this);
+            this.b = (TKLayout) findViewById(R.id.obfuscated_res_0x7f09110a);
             b();
         }
     }

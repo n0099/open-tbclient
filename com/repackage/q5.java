@@ -1,89 +1,171 @@
 package com.repackage;
 
-import com.badlogic.gdx.utils.BufferUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.graphics.TextureData;
+import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.ByteBuffer;
-import java.nio.ShortBuffer;
 /* loaded from: classes6.dex */
-public class q5 implements r5 {
+public class q5 implements TextureData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ShortBuffer a;
-    public final ByteBuffer b;
-    public final boolean c;
-    public int d;
-    public final boolean e;
+    public final j3 a;
+    public int b;
+    public int c;
+    public Pixmap.Format d;
+    public Pixmap e;
+    public boolean f;
+    public boolean g;
 
-    public q5(boolean z, int i) {
+    public q5(j3 j3Var, Pixmap pixmap, Pixmap.Format format, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
+            Object[] objArr = {j3Var, pixmap, format, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        boolean z2 = i == 0;
-        this.e = z2;
-        ByteBuffer e = BufferUtils.e((z2 ? 1 : i) * 2);
-        this.b = e;
-        ShortBuffer asShortBuffer = e.asShortBuffer();
-        this.a = asShortBuffer;
-        this.c = true;
-        asShortBuffer.flip();
-        this.b.flip();
-        this.d = b1.f.n();
-    }
-
-    @Override // com.repackage.r5, com.repackage.f7
-    public void dispose() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b1.f.E(34963, 0);
-            b1.f.b(this.d);
-            this.d = 0;
-            if (this.c) {
-                BufferUtils.b(this.b);
+        this.b = 0;
+        this.c = 0;
+        this.g = false;
+        this.a = j3Var;
+        this.e = pixmap;
+        this.d = format;
+        this.f = z;
+        if (pixmap != null) {
+            this.b = pixmap.n();
+            this.c = this.e.l();
+            if (format == null) {
+                this.d = this.e.h();
             }
         }
     }
 
-    @Override // com.repackage.r5
-    public int e() {
+    @Override // com.badlogic.gdx.graphics.TextureData
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : invokeV.booleanValue;
+    }
+
+    @Override // com.badlogic.gdx.graphics.TextureData
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.e) {
-                return 0;
-            }
-            return this.a.limit();
+            return true;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.r5
-    public ShortBuffer getBuffer() {
+    @Override // com.badlogic.gdx.graphics.TextureData
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            throw new GdxRuntimeException("This TextureData implementation does not upload data itself");
+        }
+    }
+
+    @Override // com.badlogic.gdx.graphics.TextureData
+    public Pixmap d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (ShortBuffer) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.g) {
+                this.g = false;
+                Pixmap pixmap = this.e;
+                this.e = null;
+                return pixmap;
+            }
+            throw new GdxRuntimeException("Call prepare() before calling getPixmap()");
+        }
+        return (Pixmap) invokeV.objValue;
     }
 
-    @Override // com.repackage.r5
-    public void invalidate() {
+    @Override // com.badlogic.gdx.graphics.TextureData
+    public Pixmap.Format e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d = b1.f.n();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (Pixmap.Format) invokeV.objValue;
+    }
+
+    @Override // com.badlogic.gdx.graphics.TextureData
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : invokeV.booleanValue;
+    }
+
+    @Override // com.badlogic.gdx.graphics.TextureData
+    public int getHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    @Override // com.badlogic.gdx.graphics.TextureData
+    public TextureData.TextureDataType getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? TextureData.TextureDataType.Pixmap : (TextureData.TextureDataType) invokeV.objValue;
+    }
+
+    @Override // com.badlogic.gdx.graphics.TextureData
+    public int getWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    @Override // com.badlogic.gdx.graphics.TextureData
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return true;
         }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.badlogic.gdx.graphics.TextureData
+    public void prepare() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            if (!this.g) {
+                if (this.e == null) {
+                    if (this.a.d().equals("cim")) {
+                        this.e = p3.a(this.a);
+                    } else {
+                        this.e = new Pixmap(this.a);
+                    }
+                    this.b = this.e.n();
+                    this.c = this.e.l();
+                    if (this.d == null) {
+                        this.d = this.e.h();
+                    }
+                }
+                this.g = true;
+                return;
+            }
+            throw new GdxRuntimeException("Already prepared");
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.a.toString() : (String) invokeV.objValue;
     }
 }

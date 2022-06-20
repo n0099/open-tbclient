@@ -18,15 +18,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jn;
-import com.repackage.ru4;
+import com.repackage.bv4;
+import com.repackage.nn;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class BdBaseViewPagerContainer extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdBaseViewPagerContainerHolder a;
-    public ru4 b;
+    public bv4 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdBaseViewPagerContainer(Context context) {
@@ -59,7 +59,7 @@ public class BdBaseViewPagerContainer extends RelativeLayout {
         SkinManager.setBackgroundColor(bdBaseViewPagerContainerHolder.e, R.color.CAM_X0204);
         SkinManager.setViewTextColor(bdBaseViewPagerContainerHolder.c, R.color.CAM_X0109, 1);
         SkinManager.setBackgroundColor(bdBaseViewPagerContainerHolder.c, R.color.CAM_X0201);
-        bdBaseViewPagerContainerHolder.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f7b));
+        bdBaseViewPagerContainerHolder.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f86));
         bdBaseViewPagerContainerHolder.d.setSelector(SkinManager.getDrawable(R.drawable.icon_choose_dot_s));
         bdBaseViewPagerContainerHolder.d.setDrawable(SkinManager.getDrawable(R.drawable.icon_choose_dot_n));
     }
@@ -67,11 +67,11 @@ public class BdBaseViewPagerContainer extends RelativeLayout {
     public final void b(Context context, ViewGroup viewGroup, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, viewGroup, z) == null) {
-            BdBaseViewPagerContainerHolder bdBaseViewPagerContainerHolder = new BdBaseViewPagerContainerHolder(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0146, viewGroup, z), context);
+            BdBaseViewPagerContainerHolder bdBaseViewPagerContainerHolder = new BdBaseViewPagerContainerHolder(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0145, viewGroup, z), context);
             this.a = bdBaseViewPagerContainerHolder;
             a(bdBaseViewPagerContainerHolder);
             BdBaseViewPagerContainerHolder bdBaseViewPagerContainerHolder2 = this.a;
-            this.b = new ru4(context, bdBaseViewPagerContainerHolder2.f, bdBaseViewPagerContainerHolder2.d, bdBaseViewPagerContainerHolder2.c, 4, false, true);
+            this.b = new bv4(context, bdBaseViewPagerContainerHolder2.f, bdBaseViewPagerContainerHolder2.d, bdBaseViewPagerContainerHolder2.c, 4, false, true);
         }
     }
 
@@ -113,7 +113,7 @@ public class BdBaseViewPagerContainer extends RelativeLayout {
         }
     }
 
-    public void setDatas(List<jn> list) {
+    public void setDatas(List<nn> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             this.b.k(list);

@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.dialog;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -147,8 +148,9 @@ public final class TBAlertConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
-        public OperateBtnStyle b;
-        public View.OnClickListener c;
+        public int b;
+        public OperateBtnStyle c;
+        public View.OnClickListener d;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public a(@NonNull String str, @NonNull OperateBtnStyle operateBtnStyle) {
@@ -158,14 +160,14 @@ public final class TBAlertConfig {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, operateBtnStyle};
-                interceptable.invokeUnInit(65538, newInitContext);
+                interceptable.invokeUnInit(65539, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this((String) objArr2[0], (OperateBtnStyle) objArr2[1], (View.OnClickListener) objArr2[2]);
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
+                    interceptable.invokeInitBody(65539, newInitContext);
                     return;
                 }
             }
@@ -174,7 +176,7 @@ public final class TBAlertConfig {
         public void a(View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
-                this.c = onClickListener;
+                this.d = onClickListener;
             }
         }
 
@@ -199,24 +201,46 @@ public final class TBAlertConfig {
             }
         }
 
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public a(@NonNull String str, @NonNull OperateBtnStyle operateBtnStyle, View.OnClickListener onClickListener) {
+            this(str, 0, operateBtnStyle, onClickListener);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, operateBtnStyle, onClickListener};
-                interceptable.invokeUnInit(65539, newInitContext);
+                interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    this((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (OperateBtnStyle) objArr2[2], (View.OnClickListener) objArr2[3]);
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65539, newInitContext);
+                    interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        public a(@NonNull String str, int i, @NonNull OperateBtnStyle operateBtnStyle, View.OnClickListener onClickListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i), operateBtnStyle, onClickListener};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
                     return;
                 }
             }
             this.a = str;
-            this.b = operateBtnStyle;
-            this.c = onClickListener;
+            this.b = i;
+            this.c = operateBtnStyle;
+            this.d = onClickListener;
         }
 
         public a(@StringRes int i, @NonNull OperateBtnStyle operateBtnStyle, View.OnClickListener onClickListener) {
@@ -235,8 +259,8 @@ public final class TBAlertConfig {
                 }
             }
             this.a = TbadkCoreApplication.getInst().getResources().getString(i);
-            this.b = operateBtnStyle;
-            this.c = onClickListener;
+            this.c = operateBtnStyle;
+            this.d = onClickListener;
         }
     }
 

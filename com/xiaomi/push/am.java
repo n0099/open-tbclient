@@ -1,52 +1,63 @@
 package com.xiaomi.push;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import android.content.SharedPreferences;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.al;
 /* loaded from: classes8.dex */
-public class am extends Handler {
+public class am extends al.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ al a;
 
+    /* renamed from: a  reason: collision with other field name */
+    public final /* synthetic */ String f92a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public final /* synthetic */ boolean f93a;
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public am(al alVar, Looper looper) {
-        super(looper);
+    public am(al alVar, al.a aVar, boolean z, String str) {
+        super(aVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {alVar, looper};
+            Object[] objArr = {alVar, aVar, Boolean.valueOf(z), str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Looper) newInitContext.callArgs[0]);
+                super((al.a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = alVar;
+        this.f93a = z;
+        this.f92a = str;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    @Override // com.xiaomi.push.al.b
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-            al.b bVar = (al.b) message.obj;
-            int i = message.what;
-            if (i == 0) {
-                bVar.a();
-            } else if (i == 1) {
-                bVar.mo280c();
-            }
-            super.handleMessage(message);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.a();
         }
+    }
+
+    @Override // com.xiaomi.push.al.b
+    public void b() {
+        SharedPreferences sharedPreferences;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f93a) {
+            return;
+        }
+        sharedPreferences = this.a.f88a;
+        sharedPreferences.edit().putLong(this.f92a, System.currentTimeMillis()).commit();
     }
 }

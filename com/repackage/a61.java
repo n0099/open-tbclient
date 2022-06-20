@@ -1,16 +1,16 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.app.Activity;
 /* loaded from: classes5.dex */
-public class a61 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface a61 {
 
-    public static void a(boolean z, String str, Object... objArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Boolean.valueOf(z), str, objArr}) == null) && !z) {
-            throw new IllegalArgumentException(String.format(str, objArr));
-        }
+    /* loaded from: classes5.dex */
+    public interface a {
     }
+
+    void a(String str);
+
+    String b(Activity activity, String str, a aVar);
+
+    void c(String str, String str2, int i);
 }

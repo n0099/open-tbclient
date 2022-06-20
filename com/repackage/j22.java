@@ -1,23 +1,20 @@
 package com.repackage;
 
-import android.os.Bundle;
-import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class j22 {
+public class j22 extends u12 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean l;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,116 +30,42 @@ public class j22 {
                 return;
             }
         }
-        a = rf1.a;
+        l = cg1.a;
     }
 
-    public static void a(Message message) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j22(boolean z, boolean z2) {
+        super(z, z2);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, message) == null) || message == null) {
-            return;
-        }
-        Object obj = message.obj;
-        if (obj instanceof Bundle) {
-            Bundle bundle = (Bundle) obj;
-            String string = bundle.getString("eventType");
-            HashMap hashMap = new HashMap();
-            hashMap.put("eventType", string);
-            JSONObject jSONObject = new JSONObject();
-            if (TextUtils.equals(string, "checkForUpdate")) {
-                try {
-                    jSONObject.put("hasUpdate", bundle.getBoolean("hasUpdate"));
-                } catch (JSONException e) {
-                    if (a) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            hashMap.put("data", jSONObject.toString());
-            i92 i92Var = new i92("updateStatusChange", hashMap);
-            SwanAppActivity activity = uk2.U().getActivity();
-            if (activity != null && activity.getFrameType() == 1) {
-                pi2.i().w(string, bundle.getBoolean("hasUpdate"));
-            } else {
-                uk2.U().u(i92Var);
-            }
-        }
-    }
-
-    public static void b(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65538, null, str, z) == null) {
-            hw1.k("SwanAppPkgUpdateManager", "send checkForUpdate msg, hasUpdate=" + z);
-            Bundle bundle = new Bundle();
-            bundle.putBoolean("hasUpdate", z);
-            d("checkForUpdate", str, bundle);
-        }
-    }
-
-    public static void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            hw1.k("SwanAppPkgUpdateManager", "send update failed msg");
-            d("updateFailed", str, null);
-        }
-    }
-
-    public static void d(String str, String str2, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, bundle) == null) {
-            if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
-                if (bundle == null) {
-                    bundle = new Bundle();
-                }
-                bundle.putString("eventType", str);
-                xv2 e = xv2.e();
-                zv2 zv2Var = new zv2(107, bundle);
-                zv2Var.c(str2);
-                e.h(zv2Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Boolean) objArr2[0]).booleanValue(), ((Boolean) objArr2[1]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            hw1.k("SwanAppPkgUpdateManager", "appId is empty or eventType is empty");
+        }
+        if (l) {
+            Log.d("PreloadMasterManagerMulti", "PreloadMasterManagerMulti created");
         }
     }
 
-    public static void e(String str) {
+    public boolean w(PMSAppInfo pMSAppInfo, PrefetchEvent.c cVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            if (a) {
-                Log.d("SwanAppPkgUpdateManager", "send update ready msg");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, pMSAppInfo, cVar)) == null) {
+            if (this.e == null || this.e.b == null) {
+                return false;
             }
-            d("updateReady", str, null);
+            return (pMSAppInfo.versionCode == this.e.b.versionCode && TextUtils.equals(pMSAppInfo.appId, this.e.a) && !m(cVar, this.e.c)) ? false : true;
         }
-    }
-
-    public static void f(String str, String str2, boolean z) {
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65542, null, str, str2, z) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode == -1330233754) {
-                if (str.equals("updateFailed")) {
-                    c = 1;
-                }
-                c = 65535;
-            } else if (hashCode != -1317168438) {
-                if (hashCode == -585906598 && str.equals("updateReady")) {
-                    c = 0;
-                }
-                c = 65535;
-            } else {
-                if (str.equals("checkForUpdate")) {
-                    c = 2;
-                }
-                c = 65535;
-            }
-            if (c == 0) {
-                e(str2);
-            } else if (c == 1) {
-                c(str2);
-            } else if (c != 2) {
-            } else {
-                b(str2, z);
-            }
-        }
+        return invokeLL.booleanValue;
     }
 }

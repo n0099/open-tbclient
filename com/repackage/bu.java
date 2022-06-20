@@ -2,11 +2,10 @@ package com.repackage;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bu implements zr {
+public final class bu implements cs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,13 +23,11 @@ public class bu implements zr {
         }
     }
 
-    @Override // com.repackage.zr
-    public boolean a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.cs
+    public void a(String str, bs bsVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return true;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, bsVar) == null) {
+            bsVar.onError();
         }
-        return invokeV.booleanValue;
     }
 }

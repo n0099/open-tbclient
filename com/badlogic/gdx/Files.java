@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h3;
+import com.repackage.j3;
 /* loaded from: classes.dex */
 public interface Files {
 
@@ -77,13 +77,13 @@ public interface Files {
         }
     }
 
-    h3 a(String str);
+    j3 a(String str);
 
     String b();
 
-    h3 d(String str, FileType fileType);
+    j3 d(String str, FileType fileType);
 
     String e();
 
-    h3 f(String str);
+    j3 f(String str);
 }

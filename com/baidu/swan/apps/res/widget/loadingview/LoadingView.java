@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.it2;
-import com.repackage.oi2;
-import com.repackage.qy2;
-import com.repackage.rt2;
-import com.repackage.v43;
+import com.repackage.bz2;
+import com.repackage.cu2;
+import com.repackage.g53;
+import com.repackage.tt2;
+import com.repackage.zi2;
 /* loaded from: classes2.dex */
-public class LoadingView extends FrameLayout implements qy2<LoadingView> {
+public class LoadingView extends FrameLayout implements bz2<LoadingView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -30,7 +30,7 @@ public class LoadingView extends FrameLayout implements qy2<LoadingView> {
     public TextView c;
 
     /* loaded from: classes2.dex */
-    public class a implements v43 {
+    public class a implements g53 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LoadingView a;
@@ -78,21 +78,21 @@ public class LoadingView extends FrameLayout implements qy2<LoadingView> {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View d = it2.e() ? rt2.a().d(R.layout.obfuscated_res_0x7f0d00b7) : null;
+            View d = tt2.e() ? cu2.a().d(R.layout.obfuscated_res_0x7f0d00b6) : null;
             if (d != null) {
-                addView(d, 0, new LinearLayout.LayoutParams(-2, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07063e)));
+                addView(d, 0, new LinearLayout.LayoutParams(-2, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07063a)));
             } else {
-                LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00b7, (ViewGroup) this, true);
+                LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00b6, (ViewGroup) this, true);
             }
-            this.a = findViewById(R.id.obfuscated_res_0x7f091acd);
-            this.b = (SmoothProgressBar) findViewById(R.id.obfuscated_res_0x7f0912d3);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0913ca);
+            this.a = findViewById(R.id.obfuscated_res_0x7f091ac5);
+            this.b = (SmoothProgressBar) findViewById(R.id.obfuscated_res_0x7f0912ca);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0913c2);
             setPageResources();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.qy2
+    @Override // com.repackage.bz2
     public LoadingView getLoadingView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -104,7 +104,7 @@ public class LoadingView extends FrameLayout implements qy2<LoadingView> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onAttachedToWindow();
-            oi2.M().f(this, new a(this));
+            zi2.M().f(this, new a(this));
         }
     }
 
@@ -113,7 +113,7 @@ public class LoadingView extends FrameLayout implements qy2<LoadingView> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDetachedFromWindow();
-            oi2.M().g(this);
+            zi2.M().g(this);
         }
     }
 
@@ -129,11 +129,11 @@ public class LoadingView extends FrameLayout implements qy2<LoadingView> {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             View view2 = this.a;
             if (view2 != null) {
-                view2.setBackground(view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080187));
+                view2.setBackground(view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080186));
             }
             SmoothProgressBar smoothProgressBar = this.b;
             if (smoothProgressBar != null) {
-                smoothProgressBar.setIndeterminateDrawable(smoothProgressBar.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08018b));
+                smoothProgressBar.setIndeterminateDrawable(smoothProgressBar.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08018a));
             }
             TextView textView = this.c;
             if (textView != null) {

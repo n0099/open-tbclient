@@ -1,70 +1,239 @@
 package com.repackage;
 
-import android.annotation.TargetApi;
+import android.content.Context;
+import android.os.Build;
+import android.os.Handler;
+import android.text.TextUtils;
+import android.util.Base64;
+import android.util.Pair;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.utils.BaseUtils;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@TargetApi(9)
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.UVEventType;
+import java.net.URLEncoder;
+import java.util.Iterator;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class ne1 implements le1<ne1> {
+public class ne1 extends le1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public oe1 c;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ne1() {
-        this(5);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ne1(Context context, Handler handler) {
+        super(context, handler);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, handler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                this(((Integer) newInitContext.callArgs[0]).intValue());
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (Handler) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = context;
+        this.c = oe1.a(context);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(ne1 ne1Var) {
-        InterceptResult invokeL;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ne1Var)) == null) ? ne1Var.a - this.a : invokeL.intValue;
-    }
-
-    public abstract void b();
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            b();
-        }
-    }
-
-    public ne1(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("0", this.b.getPackageName());
+                jSONObject.put("6", df1.k(this.b));
+                jSONObject.put("7", kf1.a(this.b));
+                return c("q/1/qc", df1.c(this.b, jSONObject, ""));
+            } catch (Throwable th) {
+                df1.d(th);
+                return "";
             }
         }
-        this.a = i;
+        return (String) invokeV.objValue;
+    }
+
+    public String c(String str, JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject)) == null) {
+            try {
+                byte[] f = df1.f();
+                String b = this.c.b(str, URLEncoder.encode(Base64.encodeToString(ff1.h(f, hf1.b(ef1.a(this.b)).getBytes()), 0)));
+                if (TextUtils.isEmpty(b)) {
+                    return "";
+                }
+                String a = a(b, this.c.e(f, jSONObject.toString()));
+                if (TextUtils.isEmpty(a)) {
+                    return "";
+                }
+                JSONObject jSONObject2 = new JSONObject(a);
+                jSONObject2.optString(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
+                String optString = jSONObject2.optString("skey");
+                return new String(ff1.e(Base64.decode(jSONObject2.optString("data").getBytes(), 0), ff1.g(Base64.decode(optString.getBytes(), 0), hf1.b(ef1.a(this.b)).getBytes())));
+            } catch (Throwable th) {
+                df1.d(th);
+                return "";
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public String d(JSONObject jSONObject, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, jSONObject, j)) == null) {
+            try {
+                JSONObject f = f(true, false);
+                f.put("40", pe1.c(this.b, true, false, "login"));
+                f.put("41", pe1.b(this.b, "login"));
+                f.put("24", "");
+                f.put("73", fe1.c().f());
+                if (fe1.c().i()) {
+                    f.put("50", lf1.a(this.b));
+                    f.put("60", pe1.h(this.b, "login"));
+                    Pair<Integer, String[]> d = lf1.d(this.b);
+                    if (d != null) {
+                        f.put(UVEventType.PAY_WALLET_BANNER_SHOW, d.first);
+                        String[] strArr = (String[]) d.second;
+                        if (strArr.length == 4) {
+                            f.put("14", strArr[0]);
+                            f.put("18", strArr[1]);
+                            f.put("15", strArr[2]);
+                            f.put("19", strArr[3]);
+                        }
+                    }
+                }
+                return c("q/1/qmini", df1.c(this.b, e(f, jSONObject), "1077102"));
+            } catch (Throwable th) {
+                df1.d(th);
+                return "";
+            }
+        }
+        return (String) invokeLJ.objValue;
+    }
+
+    public final JSONObject e(JSONObject jSONObject, JSONObject jSONObject2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, jSONObject, jSONObject2)) == null) {
+            if (jSONObject == null && jSONObject2 == null) {
+                return null;
+            }
+            if (jSONObject == null) {
+                return jSONObject2;
+            }
+            if (jSONObject2 == null) {
+                return jSONObject;
+            }
+            try {
+                Iterator<String> keys = jSONObject2.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    jSONObject.put(next, jSONObject2.opt(next));
+                }
+            } catch (Throwable th) {
+                df1.d(th);
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeLL.objValue;
+    }
+
+    public final JSONObject f(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                g(jSONObject, "21", "");
+                g(jSONObject, "22", "");
+                g(jSONObject, "23", "");
+            } catch (Throwable th) {
+                df1.d(th);
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeCommon.objValue;
+    }
+
+    public final void g(JSONObject jSONObject, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048581, this, jSONObject, str, str2) == null) || jSONObject == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            if (TextUtils.isEmpty(str2)) {
+                jSONObject.put(str, "");
+            } else {
+                jSONObject.put(str, str2);
+            }
+        } catch (Throwable th) {
+            df1.d(th);
+        }
+    }
+
+    public boolean h(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) {
+            try {
+                JSONObject f = f(false, true);
+                f.put("24", "");
+                f.put("40", pe1.c(this.b, false, true, "prelogin"));
+                f.put("41", pe1.b(this.b, "prelogin"));
+                f.put("27", pe1.e(this.b, "prelogin"));
+                f.put(com.tencent.connect.common.Constants.VIA_ACT_TYPE_TWENTY_EIGHT, pe1.g(this.b, "prelogin"));
+                f.put("60", pe1.h(this.b, "prelogin"));
+                f.put(BaseUtils.METHOD_SENDMESSAGE, String.valueOf(Build.VERSION.SDK_INT));
+                f.put("50", lf1.a(this.b));
+                Pair<Integer, String[]> d = lf1.d(this.b);
+                if (d != null) {
+                    f.put(UVEventType.PAY_WALLET_BANNER_SHOW, d.first);
+                    String[] strArr = (String[]) d.second;
+                    if (strArr.length == 4) {
+                        f.put("14", strArr[0]);
+                        f.put("18", strArr[1]);
+                        f.put("15", strArr[2]);
+                        f.put("19", strArr[3]);
+                    }
+                }
+                JSONObject jSONObject2 = new JSONObject(c("q/1/qpre", df1.c(this.b, e(f, jSONObject), "1077104")));
+                if (jSONObject2.optInt("0", 0) == 0) {
+                    fe1.c().e(this.b, jSONObject2);
+                    return true;
+                }
+            } catch (Throwable th) {
+                df1.d(th);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public String i(JSONObject jSONObject, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048583, this, jSONObject, j)) == null) {
+            try {
+                return c("q/1/qv", df1.c(this.b, e(f(true, false), jSONObject), ""));
+            } catch (Throwable th) {
+                df1.d(th);
+                return "";
+            }
+        }
+        return (String) invokeLJ.objValue;
     }
 }

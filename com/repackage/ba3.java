@@ -1,50 +1,43 @@
 package com.repackage;
 
 import android.content.Context;
-import android.net.wifi.ScanResult;
-import android.net.wifi.SupplicantState;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
-import android.os.Handler;
-import android.os.Looper;
-import androidx.core.content.ContextCompat;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.system.wifi.listener.SwanWifiBroadcastReceiver;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
+import com.repackage.aa3;
+import com.tachikoma.core.component.anim.AnimationProperty;
+import java.util.Arrays;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class ba3 implements ca3, da3 {
+public class ba3 extends p13 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public WifiManager b;
-    public SwanWifiBroadcastReceiver c;
-    public final da3 d;
-    public boolean e;
-    public volatile List<ae3<ha3<ga3>>> f;
-    public final z93 g;
 
     /* loaded from: classes5.dex */
-    public class a implements z93 {
+    public class a implements aa3.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ba3 a;
+        public final /* synthetic */ UnitedSchemeEntity a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ kq1 c;
+        public final /* synthetic */ ba3 d;
 
-        public a(ba3 ba3Var) {
+        public a(ba3 ba3Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, kq1 kq1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ba3Var};
+                Object[] objArr = {ba3Var, unitedSchemeEntity, callbackHandler, kq1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -54,500 +47,114 @@ public abstract class ba3 implements ca3, da3 {
                     return;
                 }
             }
-            this.a = ba3Var;
+            this.d = ba3Var;
+            this.a = unitedSchemeEntity;
+            this.b = callbackHandler;
+            this.c = kq1Var;
         }
 
-        @Override // com.repackage.z93
-        public void a(WifiInfo wifiInfo) {
+        @Override // com.repackage.aa3.b
+        public void a(float[] fArr) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, wifiInfo) == null) {
-                if (wifiInfo == null) {
-                    wifiInfo = this.a.b.getConnectionInfo();
-                }
-                this.a.m(wifiInfo);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, fArr) == null) && fArr != null && fArr.length == 3) {
+                this.d.k(this.a, this.b, this.c, fArr);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ae3 a;
-        public final /* synthetic */ ba3 b;
-
-        public b(ba3 ba3Var, ae3 ae3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ba3Var, ae3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ba3Var;
-            this.a = ae3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                WifiInfo wifiInfo = null;
-                if (!this.b.e) {
-                    this.b.g(com.kuaishou.weapon.un.w0.X3, "not init", null, this.a);
-                } else if (!this.b.b.isWifiEnabled()) {
-                    this.b.g(12005, "wifi is not on", null, this.a);
-                } else if (!bd3.K(this.b.a)) {
-                    this.b.g(12006, "LBS is not on", null, this.a);
-                } else if (ContextCompat.checkSelfPermission(this.b.a, "android.permission.ACCESS_FINE_LOCATION") != 0) {
-                    this.b.g(12012, "no location permission", null, this.a);
-                } else {
-                    WifiInfo connectionInfo = this.b.b.getConnectionInfo();
-                    if (connectionInfo == null || connectionInfo.getSupplicantState() == SupplicantState.COMPLETED) {
-                        wifiInfo = connectionInfo;
-                    }
-                    ba3 ba3Var = this.b;
-                    ba3Var.g(0, "success", new ga3(wifiInfo, ja3.a(ia3.b(ba3Var.a, ba3Var.b, wifiInfo))), this.a);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements da3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public volatile List<ae3<ha3<List<ga3>>>> a;
-        public boolean b;
-        public List<ae3<ha3<Void>>> c;
-        public Lock d;
-        public Handler e;
-        public List<ScanResult> f;
-        public Runnable g;
-        public aa3 h;
-        public final /* synthetic */ ba3 i;
-
-        /* loaded from: classes5.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c a;
-
-            public a(c cVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = cVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.d.lock();
-                    try {
-                        if (this.a.b) {
-                            this.a.m(this.a.f);
-                            this.a.b = false;
-                        }
-                    } finally {
-                        this.a.d.unlock();
-                    }
-                }
-            }
-        }
-
-        /* loaded from: classes5.dex */
-        public class b implements aa3 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c a;
-
-            public b(c cVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = cVar;
-            }
-
-            @Override // com.repackage.aa3
-            public void a(List<ScanResult> list) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                    this.a.f = list;
-                    this.a.d.lock();
-                    try {
-                        if (this.a.b) {
-                            this.a.e.removeCallbacks(this.a.g);
-                            this.a.m(list);
-                            this.a.b = false;
-                        }
-                    } finally {
-                        this.a.d.unlock();
-                    }
-                }
-            }
-        }
-
-        /* renamed from: com.repackage.ba3$c$c  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class RunnableC0386c implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ae3 a;
-            public final /* synthetic */ c b;
-
-            public RunnableC0386c(c cVar, ae3 ae3Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar, ae3Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = cVar;
-                this.a = ae3Var;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (!this.b.i.e) {
-                        this.b.i.g(com.kuaishou.weapon.un.w0.X3, "not init", null, this.a);
-                    } else if (!this.b.i.b.isWifiEnabled()) {
-                        this.b.i.g(12005, "wifi is not on", null, this.a);
-                    } else if (!bd3.K(this.b.i.a)) {
-                        this.b.i.g(12006, "LBS is not on", null, this.a);
-                    } else if (ContextCompat.checkSelfPermission(this.b.i.a, "android.permission.ACCESS_FINE_LOCATION") == 0) {
-                        this.b.d.lock();
-                        try {
-                            if (this.b.b) {
-                                this.b.c.add(this.a);
-                                return;
-                            }
-                            this.b.b = true;
-                            this.b.d.unlock();
-                            this.b.e.postDelayed(this.b.g, 6000L);
-                            this.b.i.b.startScan();
-                            this.b.i.g(0, "success", null, this.a);
-                        } finally {
-                            this.b.d.unlock();
-                        }
-                    } else {
-                        this.b.i.g(12012, "no location permission", null, this.a);
-                    }
-                }
-            }
-        }
-
-        public c(ba3 ba3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ba3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.i = ba3Var;
-            this.a = new CopyOnWriteArrayList();
-            this.b = false;
-            this.c = new CopyOnWriteArrayList();
-            this.d = new ReentrantLock();
-            this.e = new Handler(Looper.getMainLooper());
-            this.g = new a(this);
-            b bVar = new b(this);
-            this.h = bVar;
-            ba3Var.c.setScanListener(bVar);
-        }
-
-        @Override // com.repackage.da3
-        public boolean b(ae3<ha3<List<ga3>>> ae3Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ae3Var)) == null) {
-                if (ae3Var == null) {
-                    return false;
-                }
-                List<ae3<ha3<List<ga3>>>> list = this.a;
-                if (list.contains(ae3Var)) {
-                    return list.remove(ae3Var);
-                }
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // com.repackage.da3
-        public void c(ae3<ha3<Void>> ae3Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ae3Var) == null) || ae3Var == null) {
-                return;
-            }
-            bc3.k(new RunnableC0386c(this, ae3Var), "wifiScan");
-        }
-
-        @Override // com.repackage.da3
-        public boolean d(ae3<ha3<List<ga3>>> ae3Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ae3Var)) == null) {
-                if (ae3Var == null) {
-                    return false;
-                }
-                List<ae3<ha3<List<ga3>>>> list = this.a;
-                if (list.contains(ae3Var)) {
-                    return true;
-                }
-                return list.add(ae3Var);
-            }
-            return invokeL.booleanValue;
-        }
-
-        public final void m(List<ScanResult> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-                ArrayList arrayList = new ArrayList();
-                if (list != null) {
-                    for (ScanResult scanResult : list) {
-                        arrayList.add(new ga3(scanResult));
-                    }
-                }
-                List<ae3<ha3<List<ga3>>>> list2 = this.a;
-                for (ae3<ha3<List<ga3>>> ae3Var : list2) {
-                    this.i.g(0, "success", arrayList, ae3Var);
-                }
-                List<ae3<ha3<Void>>> list3 = this.c;
-                this.c = new CopyOnWriteArrayList();
-                for (ae3<ha3<Void>> ae3Var2 : list3) {
-                    this.i.g(0, "success", null, ae3Var2);
-                    for (ae3<ha3<List<ga3>>> ae3Var3 : list2) {
-                        this.i.g(0, "success", arrayList, ae3Var3);
-                    }
-                }
-            }
-        }
-
-        public void n() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.a = new CopyOnWriteArrayList();
-            }
-        }
-    }
-
-    public ba3(Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ba3(p03 p03Var) {
+        super(p03Var, "/swanAPI/startDeviceMotion");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {p03Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = false;
-        this.f = new CopyOnWriteArrayList();
-        this.g = new a(this);
-        this.a = context;
-        this.b = (WifiManager) context.getApplicationContext().getSystemService("wifi");
-        SwanWifiBroadcastReceiver swanWifiBroadcastReceiver = new SwanWifiBroadcastReceiver(this.b);
-        this.c = swanWifiBroadcastReceiver;
-        swanWifiBroadcastReceiver.setConnectSuccessListener(this.g);
-        this.d = new c(this);
     }
 
-    @Override // com.repackage.da3
-    public boolean b(ae3<ha3<List<ga3>>> ae3Var) {
-        InterceptResult invokeL;
+    @Override // com.repackage.p13
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, sz2 sz2Var) {
+        InterceptResult invokeLLLL;
+        int i;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ae3Var)) == null) ? this.d.b(ae3Var) : invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.da3
-    public void c(ae3<ha3<Void>> ae3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ae3Var) == null) {
-            this.d.c(ae3Var);
-        }
-    }
-
-    @Override // com.repackage.da3
-    public boolean d(ae3<ha3<List<ga3>>> ae3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ae3Var)) == null) ? this.d.d(ae3Var) : invokeL.booleanValue;
-    }
-
-    public <ResultType> void g(int i, String str, ResultType resulttype, ae3<ha3<ResultType>> ae3Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, resulttype, ae3Var}) == null) || ae3Var == null) {
-            return;
-        }
-        ha3<ResultType> ha3Var = new ha3<>();
-        ha3Var.a = i;
-        ha3Var.b = str;
-        ha3Var.c = resulttype;
-        ae3Var.onCallback(ha3Var);
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.c.unregisterSelf(this.a);
-            this.f = new CopyOnWriteArrayList();
-            ((c) this.d).n();
-            o(false);
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.c.unregisterSelf(this.a);
-            o(false);
-        }
-    }
-
-    public void j(ae3<ha3<ga3>> ae3Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, ae3Var) == null) || ae3Var == null) {
-            return;
-        }
-        bc3.k(new b(this, ae3Var), "getConnectedWifi");
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.c.registerSelf(this.a);
-            o(true);
-        }
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.e : invokeV.booleanValue;
-    }
-
-    public final void m(WifiInfo wifiInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, wifiInfo) == null) {
-            for (ae3<ha3<ga3>> ae3Var : this.f) {
-                g(0, "success", new ga3(wifiInfo, ja3.a(ia3.b(this.a, this.b, wifiInfo))), ae3Var);
-            }
-        }
-    }
-
-    public boolean n(ae3<ha3<ga3>> ae3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, ae3Var)) == null) {
-            if (ae3Var == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, sz2Var)) == null) {
+            if (sz2Var == null) {
+                sw1.c("StartDeviceMotionAction", "none swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal swanApp");
                 return false;
-            }
-            List<ae3<ha3<ga3>>> list = this.f;
-            if (list.contains(ae3Var)) {
+            } else if (context == null) {
+                sw1.c("StartDeviceMotionAction", "none context");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal context");
+                return false;
+            } else {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    sw1.c("StartDeviceMotionAction", "none params");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
+                }
+                String optString = optParamsAsJo.optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    sw1.c("StartDeviceMotionAction", "cb is empty");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                String optString2 = optParamsAsJo.optString("interval");
+                if ("ui".equals(optString2)) {
+                    i = 2;
+                } else {
+                    i = "game".equals(optString2) ? 1 : 3;
+                }
+                sw1.i("StartDeviceMotionAction", "startSensor===");
+                kq1 kq1Var = new kq1("deviceMotionChange", optParamsAsJo, optString);
+                if (!aa3.h().l(i, new a(this, unitedSchemeEntity, callbackHandler, kq1Var))) {
+                    sw1.c("StartDeviceMotionAction", "start system sensor fail");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "start system sensor fail");
+                    return false;
+                }
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                kq1Var.a(unitedSchemeEntity, callbackHandler);
                 return true;
             }
-            return list.add(ae3Var);
         }
-        return invokeL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public void o(boolean z) {
+    public final void k(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, kq1 kq1Var, float[] fArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    public void p(ae3<ha3<Void>> ae3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, ae3Var) == null) {
-            if (this.e) {
-                g(0, "success", null, ae3Var);
-                return;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity, callbackHandler, kq1Var, fArr) == null) {
+            JSONObject jSONObject = new JSONObject();
+            double[] dArr = new double[3];
+            double d = fArr[0] - 1.5707963267948966d;
+            if (d < 0.0d) {
+                d += 6.283185307179586d;
             }
-            k();
-            g(0, "success", null, ae3Var);
-        }
-    }
-
-    public void q(ae3<ha3<Void>> ae3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, ae3Var) == null) {
-            if (!this.e) {
-                g(0, "success", null, ae3Var);
-                return;
+            dArr[0] = Math.toDegrees(d);
+            dArr[1] = Math.toDegrees(-fArr[2]);
+            dArr[2] = Math.toDegrees(-fArr[1]);
+            if (p13.b) {
+                Log.i("SwanAppAction", "deviceMotionChange: " + Arrays.toString(dArr));
             }
-            i();
-            g(0, "success", null, ae3Var);
-        }
-    }
-
-    public boolean r(ae3<ha3<ga3>> ae3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, ae3Var)) == null) {
-            if (ae3Var == null) {
-                return false;
+            try {
+                jSONObject.put(AnimationProperty.OPACITY, (float) dArr[0]);
+                jSONObject.put("beta", (float) dArr[1]);
+                jSONObject.put("gamma", (float) dArr[2]);
+                kq1Var.c(unitedSchemeEntity, callbackHandler, jSONObject);
+            } catch (JSONException e) {
+                sw1.c("StartDeviceMotionAction", "handle orientation,json error，" + e.toString());
+                kq1Var.e(unitedSchemeEntity, callbackHandler, "Json error");
             }
-            List<ae3<ha3<ga3>>> list = this.f;
-            if (list.contains(ae3Var)) {
-                return list.remove(ae3Var);
-            }
-            return true;
         }
-        return invokeL.booleanValue;
     }
 }

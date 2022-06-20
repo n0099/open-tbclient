@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.r7;
+import com.repackage.t7;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class Circle implements Serializable {
@@ -79,7 +79,7 @@ public class Circle implements Serializable {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? ((((r7.b(this.radius) + 41) * 41) + r7.b(this.x)) * 41) + r7.b(this.y) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? ((((t7.b(this.radius) + 41) * 41) + t7.b(this.x)) * 41) + t7.b(this.y) : invokeV.intValue;
     }
 
     public boolean overlaps(Circle circle) {

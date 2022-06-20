@@ -46,7 +46,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ag5;
+import com.repackage.xg5;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -101,7 +101,7 @@ public class VerticalViewPager extends ViewGroup {
     public g l;
     public int l0;
     public int m;
-    public ag5 m0;
+    public xg5 m0;
     public Drawable n;
     public int o;
     public int p;
@@ -2469,13 +2469,13 @@ public class VerticalViewPager extends ViewGroup {
         }
     }
 
-    public void setEventListener(ag5.b bVar) {
-        ag5 ag5Var;
+    public void setEventListener(xg5.b bVar) {
+        xg5 xg5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048638, this, bVar) == null) || (ag5Var = this.m0) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048638, this, bVar) == null) || (xg5Var = this.m0) == null) {
             return;
         }
-        ag5Var.f(bVar);
+        xg5Var.f(bVar);
     }
 
     public void setNeedHanleTouch(boolean z) {
@@ -2606,7 +2606,7 @@ public class VerticalViewPager extends ViewGroup {
             if (ViewCompat.getImportantForAccessibility(this) == 0) {
                 ViewCompat.setImportantForAccessibility(this, 1);
             }
-            this.m0 = new ag5(this);
+            this.m0 = new xg5(this);
         }
     }
 

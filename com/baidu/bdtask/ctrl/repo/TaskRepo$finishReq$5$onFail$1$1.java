@@ -15,16 +15,16 @@ import kotlin.jvm.internal.Lambda;
 public final class TaskRepo$finishReq$5$onFail$1$1 extends Lambda implements Function0<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ a.b.RunnableC0070a this$0;
+    public final /* synthetic */ a.b.RunnableC0072a this$0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TaskRepo$finishReq$5$onFail$1$1(a.b.RunnableC0070a runnableC0070a) {
+    public TaskRepo$finishReq$5$onFail$1$1(a.b.RunnableC0072a runnableC0072a) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {runnableC0070a};
+            Object[] objArr = {runnableC0072a};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,7 +35,7 @@ public final class TaskRepo$finishReq$5$onFail$1$1 extends Lambda implements Fun
                 return;
             }
         }
-        this.this$0 = runnableC0070a;
+        this.this$0 = runnableC0072a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

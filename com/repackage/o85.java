@@ -1,62 +1,164 @@
 package com.repackage;
 
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.relogin.ReloginManager;
-import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class o85 extends na {
-    public static /* synthetic */ Interceptable $ic;
+public class o85 extends p85 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int b = 100;
+    public static int c = 10;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o85(int i) {
-        super(i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static int a;
+        public static int b;
+        public static int c;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+                vg a2 = p85.a();
+                a2.b("action", "imbusy");
+                a2.b("totalNum", String.valueOf(a));
+                a2.b("tfailNum", String.valueOf(b));
+                a2.b("qfailNum", String.valueOf(c));
+                BdStatisticsManager.getInstance().performance("im", a2);
+                b();
+            }
+        }
+
+        public static void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+                a = 0;
+                b = 0;
+                c = 0;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ra
-    /* renamed from: c */
-    public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage)) == null) {
-            if ((httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1001536) && (httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
-                HttpMessage httpMessage = (HttpMessage) httpResponsedMessage.getOrginalMessage();
-                ReloginManager g = ReloginManager.g();
-                if (((JsonHttpResponsedMessage) httpResponsedMessage).getError() == 1) {
-                    if (httpMessage.removeParam("reloin_key") == null) {
-                        httpMessage.addParam("reloin_key", "reloin_value");
-                        g.l((HttpMessage) httpResponsedMessage.getOrginalMessage());
-                    } else {
-                        g.f(null);
-                    }
-                    return null;
-                }
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static int a;
+        public static long b;
+        public static long c;
+        public static long d;
+        public static int e;
+        public static int f;
+        public static long g;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+                vg a2 = p85.a();
+                a2.b("action", "imcost");
+                a2.b("dect", String.valueOf(b));
+                a2.b("dlsize", String.valueOf(c));
+                a2.b("dbt", String.valueOf(d));
+                a2.b("pnum", String.valueOf(e));
+                a2.b("reqcost", String.valueOf(g));
+                a2.b("cpu", String.valueOf(f));
+                a2.b("totalNum", String.valueOf(a));
+                BdStatisticsManager.getInstance().performance("im", a2);
+                b();
             }
-            return httpResponsedMessage;
         }
-        return (HttpResponsedMessage) invokeL.objValue;
+
+        public static void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+                a = 0;
+                b = 0L;
+                c = 0L;
+                d = 0L;
+                e = 0;
+                f = 0;
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755485819, "Lcom/repackage/o85;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755485819, "Lcom/repackage/o85;");
+        }
+    }
+
+    public o85() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static void b(boolean z, boolean z2, boolean z3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+            a.a++;
+            if (z2) {
+                a.b++;
+            } else if (z3) {
+                a.c++;
+            }
+            if (a.a > b) {
+                a.a();
+            }
+        }
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65539, null) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow()) {
+            if (b.a > c) {
+                b.a();
+            }
+            if (a.a > c) {
+                a.a();
+            }
+        }
+    }
+
+    public void c(l85 l85Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, l85Var) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow()) {
+            if (b.a < b) {
+                b.b += l85Var.b;
+                b.c += l85Var.c;
+                b.d += l85Var.d;
+                b.e += l85Var.e;
+                b.g += l85Var.f;
+                b.f += l85Var.g;
+                b.a++;
+                return;
+            }
+            b.a();
+        }
     }
 }

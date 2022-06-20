@@ -1,75 +1,81 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bi {
+public class bi extends af {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Object a(Object obj, Field field) {
-        InterceptResult invokeLL;
+    public bi() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, obj, field)) == null) {
-            Object obj2 = null;
-            if (obj == null || field == null) {
-                return null;
-            }
-            boolean isAccessible = field.isAccessible();
-            try {
-                field.setAccessible(true);
-                obj2 = field.get(obj);
-                field.setAccessible(isAccessible);
-                return obj2;
-            } catch (Throwable unused) {
-                return obj2;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return invokeLL.objValue;
     }
 
-    public static Field b(Class<?> cls, Class<?> cls2) {
-        InterceptResult invokeLL;
-        Field[] declaredFields;
+    @Override // com.repackage.af
+    public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, cls2)) == null) {
-            if (cls == null) {
-                return null;
-            }
-            while (cls != Object.class) {
-                try {
-                    for (Field field : cls.getDeclaredFields()) {
-                        if (cls2.isAssignableFrom(field.getType())) {
-                            return field;
-                        }
-                    }
-                    continue;
-                } catch (Throwable unused) {
-                }
-                cls = cls.getSuperclass();
-            }
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        }
+    }
+
+    @Override // com.repackage.af
+    public String[] getCrashKeys() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return null;
         }
-        return (Field) invokeLL.objValue;
+        return (String[]) invokeV.objValue;
     }
 
-    public static List<Field> c(Object obj, Class<?> cls) {
-        InterceptResult invokeLL;
-        Field[] declaredFields;
+    @Override // com.repackage.af
+    public int getDefaultType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, obj, cls)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (Field field : obj.getClass().getDeclaredFields()) {
-                if (field.getType().isAssignableFrom(cls)) {
-                    arrayList.add(field);
-                }
-            }
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 0;
         }
-        return (List) invokeLL.objValue;
+        return invokeV.intValue;
+    }
+
+    @Override // com.repackage.af
+    public int getMaxCrashTimes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 10;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.repackage.af
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "need_more_logs" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.af
+    public int getOffType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 }

@@ -8,12 +8,12 @@ import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class a extends com.kwad.sdk.reward.b.a {
     public b b = new b();
-    public final C0330a c = new C0330a(com.kwad.sdk.core.config.b.aA());
+    public final C0338a c = new C0338a(com.kwad.sdk.core.config.b.aA());
 
     /* renamed from: com.kwad.sdk.reward.b.kwai.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0330a extends com.kwad.sdk.reward.b.a {
-        public C0330a(int i) {
+    public static class C0338a extends com.kwad.sdk.reward.b.a {
+        public C0338a(int i) {
             this.a = String.format("浏览详情页%s秒", i + "");
         }
     }

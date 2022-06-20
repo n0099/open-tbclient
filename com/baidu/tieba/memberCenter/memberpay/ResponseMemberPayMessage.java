@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oh7;
+import com.repackage.zi7;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ResponseMemberPayMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public oh7 mData;
+    public zi7 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseMemberPayMessage(int i) {
@@ -43,22 +43,22 @@ public class ResponseMemberPayMessage extends JsonHttpResponsedMessage {
             int statusCode = getStatusCode();
             int error = getError();
             if (statusCode == 200 && error == 0 && jSONObject != null) {
-                oh7 oh7Var = new oh7();
-                this.mData = oh7Var;
-                oh7Var.a(jSONObject);
+                zi7 zi7Var = new zi7();
+                this.mData = zi7Var;
+                zi7Var.a(jSONObject);
             }
         }
     }
 
-    public oh7 getMemberPayResult() {
+    public zi7 getMemberPayResult() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (this.mData == null) {
-                this.mData = new oh7();
+                this.mData = new zi7();
             }
             return this.mData;
         }
-        return (oh7) invokeV.objValue;
+        return (zi7) invokeV.objValue;
     }
 }

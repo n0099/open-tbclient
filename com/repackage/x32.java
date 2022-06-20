@@ -1,122 +1,52 @@
 package com.repackage;
 
-import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.SapiWebView;
+import com.baidu.clientupdate.download.DownloadManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.core.prefetch.image.config.image.SystemStrategyImpl;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebResourceResponse;
-import com.repackage.c42;
-import com.repackage.z32;
 import java.io.File;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes7.dex */
-public class x32 extends v32 implements q32 {
+public class x32 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n32 b;
-    public k32 c;
-    public File d;
-    public b e;
+    public z32 a;
+    public y32 b;
+    public File c;
+    public long d;
+    public int e;
+    public int f;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ x32 d;
-
-        public a(x32 x32Var, String str, int i, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x32Var, str, Integer.valueOf(i), str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = x32Var;
-            this.a = str;
-            this.b = i;
-            this.c = str2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.d.e.onError(this.a, this.b, this.c);
-            }
-        }
     }
 
     /* loaded from: classes7.dex */
-    public interface b {
-        void onError(String str, int i, String str2);
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements z32.a {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public k32 a;
-        public String b;
+        public z32 a;
+        public y32 b;
+        public File c;
+        public long d;
+        public int e;
+        public int f;
 
-        /* loaded from: classes7.dex */
-        public class a implements l32 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ File a;
-
-            public a(c cVar, File file) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar, file};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = file;
-            }
-
-            @Override // com.repackage.l32
-            public void a() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    kf4.L(this.a);
-                }
-            }
-        }
-
-        public c(x32 x32Var, k32 k32Var, String str) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x32Var, k32Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -126,201 +56,196 @@ public class x32 extends v32 implements q32 {
                     return;
                 }
             }
-            this.a = k32Var;
-            this.b = str;
+            this.e = 0;
+            this.f = 0;
         }
 
-        @Override // com.repackage.z32.a
-        public void a(File file) {
+        public b g(z32 z32Var) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, file) == null) {
-                try {
-                    this.a.a(this.b, file, new a(this, file));
-                } catch (Exception e) {
-                    if (q32.a) {
-                        Log.d("HybridIntercept", Log.getStackTraceString(e));
-                    }
-                }
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, z32Var)) == null) {
+                this.a = z32Var;
+                return this;
             }
+            return (b) invokeL.objValue;
         }
 
-        @Override // com.repackage.z32.a
-        public void b(File file) {
+        public b h(y32 y32Var) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file) == null) && q32.a) {
-                Log.e("HybridIntercept", "writer file fail, file = " + file);
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y32Var)) == null) {
+                this.b = y32Var;
+                return this;
             }
+            return (b) invokeL.objValue;
+        }
+
+        public b i(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+                this.d = j;
+                return this;
+            }
+            return (b) invokeJ.objValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x32(@NonNull Context context, k32 k32Var) {
-        super(context, k32Var);
+    /* loaded from: classes7.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static final x32 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(80537371, "Lcom/repackage/x32$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(80537371, "Lcom/repackage/x32$c;");
+                    return;
+                }
+            }
+            a = new x32(null);
+        }
+    }
+
+    public /* synthetic */ x32(a aVar) {
+        this();
+    }
+
+    public static x32 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.a : (x32) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return AppRuntime.getAppContext().getExternalCacheDir() + File.separator + "swan_hybrid";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public File b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.c == null) {
+                String o = uf4.o();
+                if (TextUtils.isEmpty(o)) {
+                    return null;
+                }
+                this.c = new File(o, "swan_hybrid");
+            }
+            return this.c;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public z32 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a == null) {
+                this.a = new a42();
+            }
+            return this.a;
+        }
+        return (z32) invokeV.objValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.e <= 0) {
+                this.e = 60000;
+            }
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public y32 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.b == null) {
+                this.b = new SystemStrategyImpl();
+            }
+            return this.b;
+        }
+        return (y32) invokeV.objValue;
+    }
+
+    public long g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.d <= 0) {
+                this.d = DownloadManager.MIN_LEFT_SIZE;
+            }
+            return this.d;
+        }
+        return invokeV.longValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.f <= 0) {
+                this.f = 60000;
+            }
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public void i(b bVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) || bVar == null) {
+            return;
+        }
+        this.a = bVar.a;
+        this.b = bVar.b;
+        this.c = bVar.c;
+        this.d = bVar.d;
+        this.e = bVar.e;
+        this.f = bVar.f;
+        if (b42.a) {
+            Log.d("HybridIntercept", toString());
+        }
+    }
+
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return "SwanHybridInterceptConfig{CacheKeyProvider=" + this.a + ", InterceptStrategy=" + this.b + ", CacheFolder=" + this.c + ", MaxCacheSize=" + (this.d / 1048576) + "MB, ConnectTimeout=" + this.e + ", ReadTimeout=" + this.f + '}';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public x32() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, k32Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (k32) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = m32.a().f();
-        this.d = new File(m32.a().b(), "image_temp");
-        this.c = k32Var;
-        if (k32Var == null) {
-            h(context);
-        }
-    }
-
-    @Override // com.repackage.c42
-    public WebResourceResponse a(@NonNull c42.a aVar) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            String d = aVar.d();
-            if (!i(aVar)) {
-                return aVar.b(d, aVar.getRequestHeaders(), aVar.c());
-            }
-            String f = f(d);
-            InputStream inputStream = null;
-            k32 k32Var = this.c;
-            if (k32Var != null && !k32Var.isClosed()) {
-                inputStream = this.c.get(f);
-            }
-            if (inputStream != null) {
-                if (q32.a) {
-                    Log.d("HybridIntercept", "adopt cached image, url = " + f);
-                }
-                return new WebResourceResponse(aVar.getMimeType(), "UTF-8", inputStream);
-            }
-            w32 a2 = a42.a(f, g(aVar));
-            if (a2 != null && (i = a2.a) >= 400 && this.e != null) {
-                d(f, i, a2.b);
-            }
-            WebResourceResponse c2 = c(a2);
-            if (c2 != null && c2.getData() != null) {
-                c2.setData(new b42(c2.getData(), new z32(new File(this.d, m32.a().d().a(f)), new c(this, this.c, f))));
-            }
-            if (q32.a) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("download image, response = ");
-                sb.append(c2 != null);
-                sb.append(" ; url = ");
-                sb.append(f);
-                Log.e("HybridIntercept", sb.toString());
-            }
-            return c2;
-        }
-        return (WebResourceResponse) invokeL.objValue;
-    }
-
-    public final WebResourceResponse c(w32 w32Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w32Var)) == null) {
-            if (w32Var == null) {
-                return null;
-            }
-            String str = w32Var.e;
-            if (str != null && str.toLowerCase().contains("html")) {
-                w32Var.e = SapiWebView.DATA_MIME_TYPE;
-                w32Var.d = "UTF-8";
-            }
-            if (ob3.f()) {
-                return new WebResourceResponse(w32Var.e, w32Var.d, w32Var.a, w32Var.b, w32Var.c, w32Var.f);
-            }
-            return new WebResourceResponse(w32Var.e, "UTF-8", w32Var.f);
-        }
-        return (WebResourceResponse) invokeL.objValue;
-    }
-
-    public final void d(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, str, i, str2) == null) {
-            bd3.q().post(new a(this, str, i, str2));
-        }
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "image" : (String) invokeV.objValue;
-    }
-
-    public String f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            if (str.startsWith("intercept") && str.length() > 9) {
-                str = str.substring(9);
-            }
-            if (q32.a) {
-                Log.d("HybridIntercept", "remote request url = " + str);
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public Map<String, String> g(@NonNull c42.a aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, aVar)) == null) {
-            Map<String, String> requestHeaders = aVar.getRequestHeaders();
-            if (requestHeaders == null) {
-                requestHeaders = new HashMap<>();
-            }
-            String f = d83.l().f(f(aVar.d()), requestHeaders.get("Cookie"));
-            if (!TextUtils.isEmpty(f)) {
-                requestHeaders.put("Cookie", f);
-                if (q32.a) {
-                    Log.d("HybridIntercept", "addCookiesToHeader cookie: " + f);
-                }
-            }
-            return requestHeaders;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    public final void h(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            File b2 = m32.a().b();
-            String e = e();
-            if (!TextUtils.isEmpty(e)) {
-                b2 = new File(b2, e);
-            }
-            if (q32.a) {
-                Log.d("HybridIntercept", "init default disk cache provider, path = " + b2);
-            }
-            kf4.l(b2);
-            this.c = oi2.U().b(context, b2, m32.a().g());
-        }
-    }
-
-    public boolean i(@NonNull c42.a aVar) {
-        InterceptResult invokeL;
-        Map<String, String> requestHeaders;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, aVar)) == null) {
-            if (aVar.c()) {
-                return this.b.a(aVar) && (requestHeaders = aVar.getRequestHeaders()) != null && requestHeaders.containsKey("Accept") && (str = requestHeaders.get("Accept")) != null && str.startsWith("image");
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 }

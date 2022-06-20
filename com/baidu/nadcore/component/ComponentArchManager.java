@@ -20,8 +20,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vg0;
-import com.repackage.wg0;
+import com.repackage.ah0;
+import com.repackage.zg0;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
 import kotlin.Metadata;
@@ -32,7 +32,7 @@ public class ComponentArchManager implements LifecycleObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CopyOnWriteArrayList<IComponentPlugin> a;
-    public final SimpleArrayMap<Class<? extends wg0>, wg0> b;
+    public final SimpleArrayMap<Class<? extends ah0>, ah0> b;
     public final Context c;
     public final Lifecycle d;
 
@@ -70,20 +70,20 @@ public class ComponentArchManager implements LifecycleObserver {
         throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: registerComponent");
     }
 
+    public void e(ViewGroup parentView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, parentView) == null) {
+            Intrinsics.checkNotNullParameter(parentView, "parentView");
+            for (IComponentPlugin iComponentPlugin : this.a) {
+                iComponentPlugin.i(parentView);
+            }
+        }
+    }
+
     public final Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (Context) invokeV.objValue;
-    }
-
-    public void i(ViewGroup parentView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parentView) == null) {
-            Intrinsics.checkNotNullParameter(parentView, "parentView");
-            for (IComponentPlugin iComponentPlugin : this.a) {
-                iComponentPlugin.h(parentView);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (Context) invokeV.objValue;
     }
 
     public final void j(IComponentPlugin iComponentPlugin) {
@@ -93,9 +93,9 @@ public class ComponentArchManager implements LifecycleObserver {
             if (context != null) {
                 iComponentPlugin.d((Activity) context);
                 iComponentPlugin.injectContext(this.c);
-                iComponentPlugin.f(this);
-                iComponentPlugin.e();
-                iComponentPlugin.g();
+                iComponentPlugin.g(this);
+                iComponentPlugin.f();
+                iComponentPlugin.h();
                 return;
             }
             throw new NullPointerException("null cannot be cast to non-null type android.app.Activity");
@@ -110,7 +110,7 @@ public class ComponentArchManager implements LifecycleObserver {
         }
     }
 
-    public final void l(vg0 event) {
+    public final void l(zg0 event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, event) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
@@ -173,16 +173,16 @@ public class ComponentArchManager implements LifecycleObserver {
         }
     }
 
-    public <T extends wg0> T q(Class<T> clazz) {
+    public <T extends ah0> T q(Class<T> clazz) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, clazz)) == null) {
             Intrinsics.checkNotNullParameter(clazz, "clazz");
-            wg0 wg0Var = this.b.get(clazz);
-            if (!(wg0Var instanceof wg0)) {
-                wg0Var = null;
+            ah0 ah0Var = this.b.get(clazz);
+            if (!(ah0Var instanceof ah0)) {
+                ah0Var = null;
             }
-            return (T) wg0Var;
+            return (T) ah0Var;
         }
         return (T) invokeL.objValue;
     }
@@ -200,7 +200,7 @@ public class ComponentArchManager implements LifecycleObserver {
         }
     }
 
-    public final void t(Class<? extends wg0> clazz, wg0 componentService) {
+    public final void t(Class<? extends ah0> clazz, ah0 componentService) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, clazz, componentService) == null) {
             Intrinsics.checkNotNullParameter(clazz, "clazz");

@@ -1,40 +1,44 @@
 package com.repackage;
 
-import android.content.Context;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.BjhArticleLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.ThemeCardInUserData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mw;
 /* loaded from: classes5.dex */
-public class ay extends tw {
+public class ay extends sw implements fx<ThreadData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout h;
-    public BjhArticleLayout i;
-    public om4 j;
-    public int k;
+    public TbPageContext e;
+    public TbImageView f;
+    public boolean g;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ay a;
+        public final /* synthetic */ ThemeCardInUserData a;
+        public final /* synthetic */ ay b;
 
-        public a(ay ayVar) {
+        public a(ay ayVar, ThemeCardInUserData themeCardInUserData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ayVar};
+                Object[] objArr = {ayVar, themeCardInUserData};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,115 +48,90 @@ public class ay extends tw {
                     return;
                 }
             }
-            this.a = ayVar;
+            this.b = ayVar;
+            this.a = themeCardInUserData;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            ay ayVar;
-            mw.a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (aVar = (ayVar = this.a).e) == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(this.b.e.getPageActivity(), this.a.getCardId())));
             }
-            aVar.a(ayVar.j);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ay(Context context) {
-        super(context);
+    public ay(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = 3;
+        this.g = true;
+        this.e = tbPageContext;
+        h(-1);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(pi.f(tbPageContext.getPageActivity(), R.dimen.obfuscated_res_0x7f070264), pi.f(tbPageContext.getPageActivity(), R.dimen.obfuscated_res_0x7f0702d5));
+        layoutParams.addRule(11);
+        layoutParams.topMargin = pi.f(tbPageContext.getPageActivity(), R.dimen.tbds30);
+        layoutParams.rightMargin = pi.f(tbPageContext.getPageActivity(), R.dimen.tbds30);
+        i(layoutParams);
+        TbImageView tbImageView = new TbImageView(tbPageContext.getPageActivity());
+        this.f = tbImageView;
+        g(tbImageView);
     }
 
-    @Override // com.repackage.mw
-    public View g() {
-        InterceptResult invokeV;
+    public void l(ThreadData threadData) {
+        MetaData author;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.h == null) {
-                LinearLayout linearLayout = new LinearLayout(this.b);
-                this.h = linearLayout;
-                SkinManager.setBackgroundColor(linearLayout, R.color.CAM_X0206);
-                this.h.setOrientation(1);
-                this.h.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            }
-            this.h.removeAllViews();
-            if (this.i == null) {
-                BjhArticleLayout bjhArticleLayout = new BjhArticleLayout(this.b);
-                this.i = bjhArticleLayout;
-                bjhArticleLayout.setJumpToPbListener(new a(this));
-            }
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.topMargin = this.b.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
-            layoutParams.leftMargin = this.b.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
-            layoutParams.rightMargin = this.b.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
-            layoutParams.bottomMargin = this.b.getResources().getDimensionPixelSize(R.dimen.M_H_X005);
-            this.h.addView(this.i, layoutParams);
-            return this.h;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.repackage.mw
-    public void l(nw5<om4> nw5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nw5Var) == null) {
-            super.l(nw5Var);
-            BjhArticleLayout bjhArticleLayout = this.i;
-            if (bjhArticleLayout != null) {
-                bjhArticleLayout.setSubClickListener(nw5Var);
-            }
-        }
-    }
-
-    @Override // com.repackage.cx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) || i == this.k) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) == null) || threadData == null || this.f == null || (author = threadData.getAuthor()) == null) {
             return;
         }
-        this.k = i;
-        SkinManager.setBackgroundColor(this.h, R.color.CAM_X0206);
-        BjhArticleLayout bjhArticleLayout = this.i;
-        if (bjhArticleLayout != null) {
-            bjhArticleLayout.onChangeSkinType(tbPageContext, i);
+        ThemeCardInUserData themeCard = author.getThemeCard();
+        if (themeCard != null && !StringUtils.isNull(themeCard.getCardImageUrlAndroid()) && !threadData.isHeadLinePost) {
+            if (this.g && (this.f.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f.getLayoutParams();
+                layoutParams.rightMargin = pi.f(this.e.getPageActivity(), R.dimen.tbds106);
+                this.f.setLayoutParams(layoutParams);
+            }
+            this.f.setVisibility(0);
+            this.f.setImageDrawable(null);
+            this.f.J(themeCard.getCardImageUrlAndroid(), 10, false);
+            this.f.setOnClickListener(new a(this, themeCard));
+            return;
         }
+        this.f.setVisibility(8);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.bx
-    /* renamed from: t */
-    public void a(om4 om4Var) {
+    @Override // com.repackage.fx
+    /* renamed from: m */
+    public void a(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, om4Var) == null) {
-            this.j = om4Var;
-            BjhArticleLayout bjhArticleLayout = this.i;
-            if (bjhArticleLayout != null) {
-                bjhArticleLayout.a(om4Var);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) {
+            l(threadData);
         }
     }
 
-    public void u(mw.a aVar) {
+    public void n(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            this.e = aVar;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public void o(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
+            this.f.setPageId(bdUniqueId);
         }
     }
 }

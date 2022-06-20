@@ -1,143 +1,132 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ThreadFactory;
-import rx.internal.util.RxThreadFactory;
 /* loaded from: classes5.dex */
-public class bz9 {
+public final class bz9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final bz9 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755809552, "Lcom/repackage/bz9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public static class a extends dv9<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yu9 e;
+
+        public a(yu9 yu9Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yu9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755809552, "Lcom/repackage/bz9;");
-                return;
+            this.e = yu9Var;
+        }
+
+        @Override // com.repackage.yu9
+        public void onCompleted() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.e.onCompleted();
             }
         }
-        a = new bz9();
-    }
 
-    public bz9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        @Override // com.repackage.yu9
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                this.e.onError(th);
+            }
+        }
+
+        @Override // com.repackage.yu9
+        public void onNext(T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+                this.e.onNext(t);
             }
         }
     }
 
-    public static tu9 a() {
+    /* loaded from: classes5.dex */
+    public static class b extends dv9<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dv9 e;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(dv9 dv9Var, dv9 dv9Var2) {
+            super(dv9Var);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dv9Var, dv9Var2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((dv9) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = dv9Var2;
+        }
+
+        @Override // com.repackage.yu9
+        public void onCompleted() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.e.onCompleted();
+            }
+        }
+
+        @Override // com.repackage.yu9
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                this.e.onError(th);
+            }
+        }
+
+        @Override // com.repackage.yu9
+        public void onNext(T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+                this.e.onNext(t);
+            }
+        }
+    }
+
+    public static <T> dv9<T> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b(new RxThreadFactory("RxComputationScheduler-")) : (tu9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? b(wy9.a()) : (dv9) invokeV.objValue;
     }
 
-    public static tu9 b(ThreadFactory threadFactory) {
+    public static <T> dv9<T> b(yu9<? super T> yu9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, threadFactory)) == null) {
-            if (threadFactory != null) {
-                return new lw9(threadFactory);
-            }
-            throw new NullPointerException("threadFactory == null");
-        }
-        return (tu9) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, yu9Var)) == null) ? new a(yu9Var) : (dv9) invokeL.objValue;
     }
 
-    public static tu9 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? d(new RxThreadFactory("RxIoScheduler-")) : (tu9) invokeV.objValue;
-    }
-
-    public static tu9 d(ThreadFactory threadFactory) {
+    public static <T> dv9<T> c(dv9<? super T> dv9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, threadFactory)) == null) {
-            if (threadFactory != null) {
-                return new kw9(threadFactory);
-            }
-            throw new NullPointerException("threadFactory == null");
-        }
-        return (tu9) invokeL.objValue;
-    }
-
-    public static tu9 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f(new RxThreadFactory("RxNewThreadScheduler-")) : (tu9) invokeV.objValue;
-    }
-
-    public static tu9 f(ThreadFactory threadFactory) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, threadFactory)) == null) {
-            if (threadFactory != null) {
-                return new pw9(threadFactory);
-            }
-            throw new NullPointerException("threadFactory == null");
-        }
-        return (tu9) invokeL.objValue;
-    }
-
-    public static bz9 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? a : (bz9) invokeV.objValue;
-    }
-
-    public tu9 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (tu9) invokeV.objValue;
-    }
-
-    public tu9 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (tu9) invokeV.objValue;
-    }
-
-    public tu9 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (tu9) invokeV.objValue;
-    }
-
-    @Deprecated
-    public dv9 k(dv9 dv9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, dv9Var)) == null) ? dv9Var : (dv9) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, dv9Var)) == null) ? new b(dv9Var, dv9Var) : (dv9) invokeL.objValue;
     }
 }

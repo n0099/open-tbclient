@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ez2;
+import com.repackage.pz2;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\n\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\n \u0002*\u0004\u0018\u00010\u00010\u0001H\n¢\u0006\u0002\b\u0003"}, d2 = {"<anonymous>", "Lcom/baidu/swan/apps/runtime/EventSubscriber;", "kotlin.jvm.PlatformType", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
-public final class QuotaSaver$eventSubscriber$2 extends Lambda implements Function0<ez2> {
+public final class QuotaSaver$eventSubscriber$2 extends Lambda implements Function0<pz2> {
     public static /* synthetic */ Interceptable $ic;
     public static final QuotaSaver$eventSubscriber$2 INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,14 +55,14 @@ public final class QuotaSaver$eventSubscriber$2 extends Lambda implements Functi
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
-    public final ez2 invoke() {
+    public final pz2 invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ez2 ez2Var = new ez2();
-            ez2Var.e(QuotaSaver.l, "event_messenger_call");
-            return ez2Var;
+            pz2 pz2Var = new pz2();
+            pz2Var.f(QuotaSaver.l, "event_messenger_call");
+            return pz2Var;
         }
-        return (ez2) invokeV.objValue;
+        return (pz2) invokeV.objValue;
     }
 }

@@ -1,14 +1,11 @@
 package com.repackage;
-
-import java.nio.Buffer;
-import java.nio.IntBuffer;
 /* loaded from: classes6.dex */
-public interface l3 extends k3 {
-    void A(int i, IntBuffer intBuffer);
+public interface l3 {
+    boolean a();
 
-    void O(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, Buffer buffer);
+    boolean b();
 
-    void c(int i, IntBuffer intBuffer);
+    void f();
 
-    void v(int i, IntBuffer intBuffer);
+    void prepare();
 }

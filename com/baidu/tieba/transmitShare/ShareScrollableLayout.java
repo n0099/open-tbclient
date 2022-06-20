@@ -15,11 +15,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nn8;
+import com.repackage.vn8;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class ShareScrollableLayout extends LinearLayout implements nn8 {
+public class ShareScrollableLayout extends LinearLayout implements vn8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
@@ -49,7 +49,7 @@ public class ShareScrollableLayout extends LinearLayout implements nn8 {
         d();
     }
 
-    @Override // com.repackage.nn8
+    @Override // com.repackage.vn8
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -61,7 +61,7 @@ public class ShareScrollableLayout extends LinearLayout implements nn8 {
         }
     }
 
-    @Override // com.repackage.nn8
+    @Override // com.repackage.vn8
     public void b(int i, @NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, view2) == null) {
@@ -92,7 +92,7 @@ public class ShareScrollableLayout extends LinearLayout implements nn8 {
         }
     }
 
-    @Override // com.repackage.nn8
+    @Override // com.repackage.vn8
     @NonNull
     public View getView() {
         InterceptResult invokeV;
@@ -100,7 +100,7 @@ public class ShareScrollableLayout extends LinearLayout implements nn8 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // android.view.ViewGroup, com.repackage.nn8
+    @Override // android.view.ViewGroup, com.repackage.vn8
     public void removeAllViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -109,7 +109,7 @@ public class ShareScrollableLayout extends LinearLayout implements nn8 {
         }
     }
 
-    @Override // com.repackage.nn8
+    @Override // com.repackage.vn8
     public void setItemParams(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {

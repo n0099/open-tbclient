@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MemberPayActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FROM = "from";
@@ -110,7 +110,7 @@ public class MemberPayActivityConfig extends IntentConfig {
     public void setSceneId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            getIntent().putExtra("scene_id", str);
+            getIntent().putExtra(SCENE_ID, str);
         }
     }
 
@@ -212,7 +212,7 @@ public class MemberPayActivityConfig extends IntentConfig {
         getIntent().putExtra("member_type", i);
         getIntent().putExtra("st_type", str);
         getIntent().putExtra("from", i2);
-        getIntent().putExtra("scene_id", str2);
+        getIntent().putExtra(SCENE_ID, str2);
         getIntent().putExtra("pay_type", i3);
     }
 

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b9;
+import com.repackage.d9;
 /* loaded from: classes4.dex */
 public class TransparentNavigationBar extends NavigationBar {
     public static /* synthetic */ Interceptable $ic;
@@ -36,9 +36,9 @@ public class TransparentNavigationBar extends NavigationBar {
     }
 
     @Override // com.baidu.tbadk.core.view.NavigationBar
-    public void onChangeSkinType(b9<?> b9Var, int i) {
+    public void onChangeSkinType(d9<?> d9Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, b9Var, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048576, this, d9Var, i) == null) {
             SkinManager.setBackgroundColor(this, R.color.common_color_10094);
             initPadding();
         }

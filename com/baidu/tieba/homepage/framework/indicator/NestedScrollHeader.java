@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -23,6 +24,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaTabFeedActivityConfig;
@@ -44,27 +46,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.appbar.AppBarLayout;
-import com.repackage.dz4;
-import com.repackage.li;
-import com.repackage.ul4;
-import com.repackage.wq4;
+import com.repackage.cz6;
+import com.repackage.em4;
+import com.repackage.fr4;
+import com.repackage.jz4;
+import com.repackage.pi;
+import com.repackage.sz4;
+import com.repackage.xf8;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class NestedScrollHeader extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public PublishButton b;
-    public ImageView c;
-    public TextView d;
-    public float e;
-    public View f;
-    public ImageView g;
+    public PublishButton a;
+    public ImageView b;
+    public TextView c;
+    public float d;
+    public View e;
+    public ImageView f;
+    public FrameLayout g;
     public TBLottieAnimationView h;
-    public Context i;
-    public View.OnClickListener j;
-    public CustomMessageListener k;
+    public TBLottieAnimationView i;
+    public Context j;
+    public View.OnClickListener k;
     public CustomMessageListener l;
+    public CustomMessageListener m;
 
     /* loaded from: classes3.dex */
     public class a implements ViewTreeObserver.OnGlobalLayoutListener {
@@ -134,24 +140,24 @@ public class NestedScrollHeader extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 try {
-                    if (this.a.d != view2) {
-                        if (this.a.b != view2) {
-                            if (this.a.g != view2) {
-                                if (this.a.h == view2) {
+                    if (this.a.c != view2) {
+                        if (this.a.a != view2) {
+                            if (this.a.f != view2) {
+                                if (this.a.g == view2) {
                                     this.a.k();
                                     new AlaTabFeedActivityConfig(this.a.getContext()).start();
-                                } else if (this.a.c == view2) {
+                                } else if (this.a.b == view2) {
                                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new DebugToolActivityConfig(this.a.getContext())));
                                 }
                             } else {
                                 HashMap hashMap = new HashMap();
                                 hashMap.put("open_flag", "1");
-                                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a.i, "GameCenterListPage", hashMap)));
+                                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a.j, "GameCenterListPage", hashMap)));
                                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RECOMMEND_GAMECENTER).param("obj_type", "1"));
                             }
                         } else if (WriteActivityConfig.isAsyncWriting()) {
                         } else {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921452, new dz4(1)));
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921452, new sz4(1)));
                             TiebaStatic.log(new StatisticItem(CommonStatisticKey.UBS_TEST_PUBLISH_BUTTON_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()));
                         }
                     } else {
@@ -233,7 +239,7 @@ public class NestedScrollHeader extends RelativeLayout {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371) {
-                this.a.n();
+                this.a.o();
             }
         }
     }
@@ -276,38 +282,45 @@ public class NestedScrollHeader extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(4012);
-            this.i = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d049b, (ViewGroup) this, true);
-            this.b = (PublishButton) findViewById(R.id.obfuscated_res_0x7f091949);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091c01);
-            this.f = findViewById(R.id.obfuscated_res_0x7f090c20);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090c14);
-            this.h = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f09128b);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090747);
-            TBLottieAnimationView tBLottieAnimationView = this.h;
-            if (tBLottieAnimationView != null) {
-                tBLottieAnimationView.setImageAssetsFolder("lottie_home_live_entrance/");
-                this.h.setAnimation(R.raw.obfuscated_res_0x7f11003d);
-                this.h.setRepeatMode(1);
-                this.h.setRepeatCount(-1);
-                this.h.setSpeed(0.67f);
-                this.h.playAnimation();
-            }
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090747);
-            this.b.setOnClickListener(this.j);
-            this.d.setOnClickListener(this.j);
-            this.g.setOnClickListener(this.j);
-            this.c.setOnClickListener(this.j);
-            this.c.setVisibility(ul4.h() ? 0 : 8);
-            this.h.setOnClickListener(this.j);
+            this.j = context;
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0499, (ViewGroup) this, true);
+            this.a = (PublishButton) findViewById(R.id.obfuscated_res_0x7f091940);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091bf9);
+            this.e = findViewById(R.id.obfuscated_res_0x7f090c10);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090c03);
+            this.g = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091281);
+            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f091280);
+            this.h = tBLottieAnimationView;
+            tBLottieAnimationView.setImageAssetsFolder("lottie_home_live_entrance/");
+            this.h.setAnimation(R.raw.obfuscated_res_0x7f11003d);
+            this.h.setRepeatMode(1);
+            this.h.setRepeatCount(-1);
+            this.h.setSpeed(0.67f);
+            this.h.playAnimation();
+            TBLottieAnimationView tBLottieAnimationView2 = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f091282);
+            this.i = tBLottieAnimationView2;
+            tBLottieAnimationView2.setImageAssetsFolder("lottie_home_live_entrance_lh/");
+            this.i.setAnimation(R.raw.obfuscated_res_0x7f11003e);
+            this.i.setRepeatMode(1);
+            this.i.setRepeatCount(-1);
+            this.i.setSpeed(0.67f);
+            this.i.playAnimation();
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090732);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090732);
+            this.a.setOnClickListener(this.k);
+            this.c.setOnClickListener(this.k);
+            this.f.setOnClickListener(this.k);
+            this.b.setOnClickListener(this.k);
+            this.b.setVisibility(em4.h() ? 0 : 8);
+            this.g.setOnClickListener(this.k);
             if (TbSingleton.getInstance().isAuditPackageSwitchOn()) {
-                this.g.setVisibility(0);
+                this.f.setVisibility(0);
             } else {
-                this.g.setVisibility(8);
+                this.f.setVisibility(8);
             }
-            n();
+            o();
             getViewTreeObserver().addOnGlobalLayoutListener(new a(this));
-            m();
+            n();
             SpeedStatsManager.getInstance().addStatsTimeStamp(4013);
         }
     }
@@ -315,8 +328,8 @@ public class NestedScrollHeader extends RelativeLayout {
     public void j(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            MessageManager.getInstance().registerListener(this.k);
             MessageManager.getInstance().registerListener(this.l);
+            MessageManager.getInstance().registerListener(this.m);
         }
     }
 
@@ -334,52 +347,68 @@ public class NestedScrollHeader extends RelativeLayout {
         }
     }
 
-    public void m() {
-        int skinType;
+    public final void m(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.a) {
-            return;
+        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
+            jz4 f2 = cz6.f(TbadkApplication.getInst().getHomeBarShowTabName());
+            if (f2 != null) {
+                setBackgroundColor(xf8.a(xf8.f(cz6.d(f2)), 1.0f - f));
+            } else {
+                SkinManager.setBackgroundColorWithAlpha(this, R.color.CAM_X0208, 1.0f - f, TbadkCoreApplication.getInst().getSkinType());
+            }
         }
-        this.a = skinType;
-        wq4 d2 = wq4.d(this.d);
-        d2.v(R.color.CAM_X0109);
-        d2.n(R.string.J_X01);
-        d2.f(R.color.CAM_X0210);
-        SkinManager.setBackgroundColorWithAlpha(this, R.color.CAM_X0208, 1.0f - this.e, TbadkCoreApplication.getInst().getSkinType());
-        WebPManager.setMaskDrawable(this.g, R.drawable.icon_home_new_games, WebPManager.ResourceStateType.NORMAL);
-        SkinManager.setImageResource(this.c, R.drawable.obfuscated_res_0x7f0806c9);
-        int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds42);
-        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a35, SkinManager.getColor(R.color.CAM_X0109), WebPManager.ResourceStateType.NORMAL);
-        pureDrawable.setBounds(0, 0, dimenPixelSize, dimenPixelSize);
-        this.d.setCompoundDrawables(pureDrawable, null, null, null);
     }
 
-    public final void n() {
+    public void n() {
+        Drawable pureDrawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (!UbsABTestHelper.isHomeLiveTestA() && !UbsABTestHelper.isHomeLiveTestB()) {
-                this.h.setVisibility(8);
-            } else {
-                if (this.h.getVisibility() != 0) {
-                    l();
+            if (TbadkApplication.getInst().isUseLuckyHeader()) {
+                fr4 d2 = fr4.d(this.c);
+                d2.v(R.color.CAM_X0619);
+                d2.n(R.string.J_X01);
+                d2.f(R.color.CAM_X0613);
+                WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080740, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
+                pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a20, SkinManager.getColor(R.color.CAM_X0619), WebPManager.ResourceStateType.NORMAL);
+                if (this.g.getVisibility() == 0) {
+                    this.h.setVisibility(8);
+                    this.i.setVisibility(0);
                 }
-                this.h.setVisibility(0);
+                m(this.d);
+            } else {
+                fr4 d3 = fr4.d(this.c);
+                d3.v(R.color.CAM_X0109);
+                d3.n(R.string.J_X01);
+                d3.f(R.color.CAM_X0210);
+                WebPManager.setMaskDrawable(this.f, R.drawable.icon_home_new_games, WebPManager.ResourceStateType.NORMAL);
+                pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a20, SkinManager.getColor(R.color.CAM_X0109), WebPManager.ResourceStateType.NORMAL);
+                if (this.g.getVisibility() == 0) {
+                    this.h.setVisibility(0);
+                    this.i.setVisibility(8);
+                }
+                SkinManager.setBackgroundColorWithAlpha(this, R.color.CAM_X0208, 1.0f - this.d, TbadkCoreApplication.getInst().getSkinType());
             }
-            o(this.h.getVisibility() == 0);
+            this.a.r();
+            SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f0806c7);
+            int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds42);
+            pureDrawable.setBounds(0, 0, dimenPixelSize, dimenPixelSize);
+            this.c.setCompoundDrawables(pureDrawable, null, null, null);
         }
     }
 
-    public final void o(boolean z) {
+    public final void o() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || this.d == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            if (!UbsABTestHelper.isHomeLiveTestA() && !UbsABTestHelper.isHomeLiveTestB()) {
+                this.g.setVisibility(8);
+            } else {
+                if (this.g.getVisibility() != 0) {
+                    l();
+                }
+                this.g.setVisibility(0);
+            }
+            p(this.g.getVisibility() == 0);
         }
-        int f = li.f(getContext(), R.dimen.M_W_X007);
-        if (z) {
-            f = li.f(getContext(), R.dimen.M_W_X002);
-        }
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.d.getLayoutParams();
-        layoutParams.setMargins(f, layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -387,8 +416,8 @@ public class NestedScrollHeader extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onAttachedToWindow();
-            MessageManager.getInstance().registerListener(this.k);
             MessageManager.getInstance().registerListener(this.l);
+            MessageManager.getInstance().registerListener(this.m);
         }
     }
 
@@ -397,8 +426,8 @@ public class NestedScrollHeader extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDetachedFromWindow();
-            MessageManager.getInstance().unRegisterListener(this.k);
             MessageManager.getInstance().unRegisterListener(this.l);
+            MessageManager.getInstance().unRegisterListener(this.m);
         }
     }
 
@@ -422,48 +451,65 @@ public class NestedScrollHeader extends RelativeLayout {
         }
     }
 
-    public void p(float f) {
+    public final void p(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048588, this, f) == null) || f < 0.0f || f > 1.0f) {
+        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || this.c == null) {
             return;
         }
-        this.e = f;
-        SkinManager.setBackgroundColorWithAlpha(this, R.color.CAM_X0208, 1.0f - f, TbadkCoreApplication.getInst().getSkinType());
-        if (this.c.getVisibility() == 0 && this.c.getAlpha() != f) {
-            this.c.setAlpha(f);
+        int f = pi.f(getContext(), R.dimen.M_W_X007);
+        if (z) {
+            f = pi.f(getContext(), R.dimen.M_W_X002);
         }
-        if (this.c.getVisibility() == 0 && this.c.getAlpha() != f) {
-            this.c.setAlpha(f);
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
+        layoutParams.setMargins(f, layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
+    }
+
+    public void q(float f) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeF(1048589, this, f) == null) || f < 0.0f || f > 1.0f) {
+            return;
         }
-        if (this.g.getVisibility() == 0 && this.g.getAlpha() != f) {
-            this.g.setAlpha(f);
-        }
-        if (this.d.getAlpha() != f) {
-            this.d.setAlpha(f);
+        this.d = f;
+        if (TbadkApplication.getInst().isUseLuckyHeader()) {
+            m(f);
+        } else {
+            SkinManager.setBackgroundColorWithAlpha(this, R.color.CAM_X0208, 1.0f - f, TbadkCoreApplication.getInst().getSkinType());
         }
         if (this.b.getVisibility() == 0 && this.b.getAlpha() != f) {
             this.b.setAlpha(f);
-            this.b.setScrollAlpha(f);
         }
-        if (this.h.getVisibility() != 0 || this.h.getAlpha() == f) {
+        if (this.b.getVisibility() == 0 && this.b.getAlpha() != f) {
+            this.b.setAlpha(f);
+        }
+        if (this.f.getVisibility() == 0 && this.f.getAlpha() != f) {
+            this.f.setAlpha(f);
+        }
+        if (this.c.getAlpha() != f) {
+            this.c.setAlpha(f);
+        }
+        if (this.a.getVisibility() == 0 && this.a.getAlpha() != f) {
+            this.a.setAlpha(f);
+            this.a.setScrollAlpha(f);
+        }
+        if (this.g.getVisibility() != 0 || this.g.getAlpha() == f) {
             return;
         }
-        this.h.setAlpha(f);
+        this.g.setAlpha(f);
     }
 
     public void setGameLayoutVisible(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.f.setVisibility(z ? 0 : 8);
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            this.e.setVisibility(z ? 0 : 8);
         }
     }
 
     public void setSearchHint(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, str) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.d.setText(str);
+        this.c.setText(str);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -506,11 +552,10 @@ public class NestedScrollHeader extends RelativeLayout {
                 return;
             }
         }
-        this.a = 3;
-        this.e = 1.0f;
-        this.j = new b(this);
-        this.k = new c(this, 2921396);
-        this.l = new d(this, 2001371);
+        this.d = 1.0f;
+        this.k = new b(this);
+        this.l = new c(this, 2921396);
+        this.m = new d(this, 2001371);
         i(context);
     }
 }

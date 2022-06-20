@@ -1,225 +1,441 @@
 package com.xiaomi.push;
 
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.biometrics.base.http.HttpClientWrap;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.UnknownHostException;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import com.xiaomi.push.gl;
+import com.xiaomi.push.gp;
+import com.xiaomi.push.gr;
+import com.xiaomi.push.service.bg;
+import java.io.ByteArrayInputStream;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlPullParserFactory;
 /* loaded from: classes8.dex */
-public final class gv {
+public class gv {
     public static /* synthetic */ Interceptable $ic;
+    public static XmlPullParser a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public ew a;
-
-        /* renamed from: a  reason: collision with other field name */
-        public String f436a;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-56373455, "Lcom/xiaomi/push/gv;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-56373455, "Lcom/xiaomi/push/gv;");
         }
     }
 
-    public static a a(Exception exc) {
-        InterceptResult invokeL;
+    public static gk a(String str, String str2, XmlPullParser xmlPullParser) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, exc)) == null) {
-            m399a(exc);
-            boolean z = exc instanceof fw;
-            Exception exc2 = exc;
-            if (z) {
-                fw fwVar = (fw) exc;
-                exc2 = exc;
-                if (fwVar.a() != null) {
-                    exc2 = fwVar.a();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, xmlPullParser)) == null) {
+            Object m371a = gu.a().m371a("all", "xm:chat");
+            if (m371a == null || !(m371a instanceof com.xiaomi.push.service.k)) {
+                return null;
+            }
+            return ((com.xiaomi.push.service.k) m371a).b(xmlPullParser);
+        }
+        return (gk) invokeLLL.objValue;
+    }
+
+    public static gl a(XmlPullParser xmlPullParser, fw fwVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, xmlPullParser, fwVar)) == null) {
+            String attributeValue = xmlPullParser.getAttributeValue("", "id");
+            String attributeValue2 = xmlPullParser.getAttributeValue("", "to");
+            String attributeValue3 = xmlPullParser.getAttributeValue("", "from");
+            String attributeValue4 = xmlPullParser.getAttributeValue("", "chid");
+            gl.a a2 = gl.a.a(xmlPullParser.getAttributeValue("", "type"));
+            HashMap hashMap = new HashMap();
+            boolean z = false;
+            for (int i = 0; i < xmlPullParser.getAttributeCount(); i++) {
+                String attributeName = xmlPullParser.getAttributeName(i);
+                hashMap.put(attributeName, xmlPullParser.getAttributeValue("", attributeName));
+            }
+            gl glVar = null;
+            gr grVar = null;
+            while (!z) {
+                int next = xmlPullParser.next();
+                if (next == 2) {
+                    String name = xmlPullParser.getName();
+                    String namespace = xmlPullParser.getNamespace();
+                    if (name.equals("error")) {
+                        grVar = m375a(xmlPullParser);
+                    } else {
+                        glVar = new gl();
+                        glVar.a(a(name, namespace, xmlPullParser));
+                    }
+                } else if (next == 3 && xmlPullParser.getName().equals("iq")) {
+                    z = true;
                 }
             }
-            a aVar = new a();
-            String message = exc2.getMessage();
-            if (exc2.getCause() != null) {
-                message = exc2.getCause().getMessage();
+            if (glVar == null) {
+                if (gl.a.a == a2 || gl.a.b == a2) {
+                    gw gwVar = new gw();
+                    gwVar.k(attributeValue);
+                    gwVar.m(attributeValue3);
+                    gwVar.n(attributeValue2);
+                    gwVar.a(gl.a.d);
+                    gwVar.l(attributeValue4);
+                    gwVar.a(new gr(gr.a.e));
+                    fwVar.a(gwVar);
+                    com.xiaomi.channel.commonutils.logger.b.d("iq usage error. send packet in packet parser.");
+                    return null;
+                }
+                glVar = new gx();
             }
-            String str = exc2.getClass().getSimpleName() + ":" + message;
-            int a2 = fn.a(exc2);
-            if (a2 != 0) {
-                aVar.a = ew.a(ew.l.a() + a2);
-            }
-            if (aVar.a == null) {
-                aVar.a = ew.t;
-            }
-            if (aVar.a == ew.t) {
-                aVar.f436a = str;
-            }
-            return aVar;
+            glVar.k(attributeValue);
+            glVar.m(attributeValue2);
+            glVar.l(attributeValue4);
+            glVar.n(attributeValue3);
+            glVar.a(a2);
+            glVar.a(grVar);
+            glVar.a(hashMap);
+            return glVar;
         }
-        return (a) invokeL.objValue;
+        return (gl) invokeLL.objValue;
+    }
+
+    public static gn a(XmlPullParser xmlPullParser) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, xmlPullParser)) == null) {
+            boolean z = false;
+            String str2 = null;
+            if ("1".equals(xmlPullParser.getAttributeValue("", "s"))) {
+                String attributeValue = xmlPullParser.getAttributeValue("", "chid");
+                String attributeValue2 = xmlPullParser.getAttributeValue("", "id");
+                String attributeValue3 = xmlPullParser.getAttributeValue("", "from");
+                String attributeValue4 = xmlPullParser.getAttributeValue("", "to");
+                String attributeValue5 = xmlPullParser.getAttributeValue("", "type");
+                bg.b a2 = com.xiaomi.push.service.bg.a().a(attributeValue, attributeValue4);
+                if (a2 == null) {
+                    a2 = com.xiaomi.push.service.bg.a().a(attributeValue, attributeValue3);
+                }
+                if (a2 != null) {
+                    gn gnVar = null;
+                    while (!z) {
+                        int next = xmlPullParser.next();
+                        if (next == 2) {
+                            if (!"s".equals(xmlPullParser.getName())) {
+                                throw new gh("error while receiving a encrypted message with wrong format");
+                            }
+                            if (xmlPullParser.next() != 4) {
+                                throw new gh("error while receiving a encrypted message with wrong format");
+                            }
+                            String text = xmlPullParser.getText();
+                            if ("5".equals(attributeValue) || "6".equals(attributeValue)) {
+                                gm gmVar = new gm();
+                                gmVar.l(attributeValue);
+                                gmVar.b(true);
+                                gmVar.n(attributeValue3);
+                                gmVar.m(attributeValue4);
+                                gmVar.k(attributeValue2);
+                                gmVar.f(attributeValue5);
+                                gk gkVar = new gk("s", null, null, null);
+                                gkVar.m363a(text);
+                                gmVar.a(gkVar);
+                                return gmVar;
+                            }
+                            a(com.xiaomi.push.service.bp.a(com.xiaomi.push.service.bp.a(a2.h, attributeValue2), text));
+                            a.next();
+                            gnVar = a(a);
+                        } else if (next == 3 && xmlPullParser.getName().equals("message")) {
+                            z = true;
+                        }
+                    }
+                    if (gnVar != null) {
+                        return gnVar;
+                    }
+                    throw new gh("error while receiving a encrypted message with wrong format");
+                }
+                throw new gh("the channel id is wrong while receiving a encrypted message");
+            }
+            gm gmVar2 = new gm();
+            String attributeValue6 = xmlPullParser.getAttributeValue("", "id");
+            if (attributeValue6 == null) {
+                attributeValue6 = "ID_NOT_AVAILABLE";
+            }
+            gmVar2.k(attributeValue6);
+            gmVar2.m(xmlPullParser.getAttributeValue("", "to"));
+            gmVar2.n(xmlPullParser.getAttributeValue("", "from"));
+            gmVar2.l(xmlPullParser.getAttributeValue("", "chid"));
+            gmVar2.a(xmlPullParser.getAttributeValue("", "appid"));
+            try {
+                str = xmlPullParser.getAttributeValue("", "transient");
+            } catch (Exception unused) {
+                str = null;
+            }
+            try {
+                String attributeValue7 = xmlPullParser.getAttributeValue("", "seq");
+                if (!TextUtils.isEmpty(attributeValue7)) {
+                    gmVar2.b(attributeValue7);
+                }
+            } catch (Exception unused2) {
+            }
+            try {
+                String attributeValue8 = xmlPullParser.getAttributeValue("", "mseq");
+                if (!TextUtils.isEmpty(attributeValue8)) {
+                    gmVar2.c(attributeValue8);
+                }
+            } catch (Exception unused3) {
+            }
+            try {
+                String attributeValue9 = xmlPullParser.getAttributeValue("", "fseq");
+                if (!TextUtils.isEmpty(attributeValue9)) {
+                    gmVar2.d(attributeValue9);
+                }
+            } catch (Exception unused4) {
+            }
+            try {
+                String attributeValue10 = xmlPullParser.getAttributeValue("", "status");
+                if (!TextUtils.isEmpty(attributeValue10)) {
+                    gmVar2.e(attributeValue10);
+                }
+            } catch (Exception unused5) {
+            }
+            gmVar2.a(!TextUtils.isEmpty(str) && str.equalsIgnoreCase("true"));
+            gmVar2.f(xmlPullParser.getAttributeValue("", "type"));
+            String b = b(xmlPullParser);
+            if (b == null || "".equals(b.trim())) {
+                gn.q();
+            } else {
+                gmVar2.j(b);
+            }
+            while (!z) {
+                int next2 = xmlPullParser.next();
+                if (next2 == 2) {
+                    String name = xmlPullParser.getName();
+                    String namespace = xmlPullParser.getNamespace();
+                    if (TextUtils.isEmpty(namespace)) {
+                        namespace = "xm";
+                    }
+                    if (name.equals("subject")) {
+                        b(xmlPullParser);
+                        gmVar2.g(m376a(xmlPullParser));
+                    } else if (name.equals(TtmlNode.TAG_BODY)) {
+                        String attributeValue11 = xmlPullParser.getAttributeValue("", HttpClientWrap.c);
+                        String m376a = m376a(xmlPullParser);
+                        if (TextUtils.isEmpty(attributeValue11)) {
+                            gmVar2.h(m376a);
+                        } else {
+                            gmVar2.a(m376a, attributeValue11);
+                        }
+                    } else if (name.equals("thread")) {
+                        if (str2 == null) {
+                            str2 = xmlPullParser.nextText();
+                        }
+                    } else if (name.equals("error")) {
+                        gmVar2.a(m375a(xmlPullParser));
+                    } else {
+                        gmVar2.a(a(name, namespace, xmlPullParser));
+                    }
+                } else if (next2 == 3 && xmlPullParser.getName().equals("message")) {
+                    z = true;
+                }
+            }
+            gmVar2.i(str2);
+            return gmVar2;
+        }
+        return (gn) invokeL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m399a(Exception exc) {
+    public static gp m373a(XmlPullParser xmlPullParser) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, exc) == null) && exc == null) {
-            throw null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, xmlPullParser)) == null) {
+            gp.b bVar = gp.b.a;
+            String attributeValue = xmlPullParser.getAttributeValue("", "type");
+            if (attributeValue != null && !attributeValue.equals("")) {
+                try {
+                    bVar = gp.b.valueOf(attributeValue);
+                } catch (IllegalArgumentException unused) {
+                    PrintStream printStream = System.err;
+                    printStream.println("Found invalid presence type " + attributeValue);
+                }
+            }
+            gp gpVar = new gp(bVar);
+            gpVar.m(xmlPullParser.getAttributeValue("", "to"));
+            gpVar.n(xmlPullParser.getAttributeValue("", "from"));
+            gpVar.l(xmlPullParser.getAttributeValue("", "chid"));
+            String attributeValue2 = xmlPullParser.getAttributeValue("", "id");
+            if (attributeValue2 == null) {
+                attributeValue2 = "ID_NOT_AVAILABLE";
+            }
+            gpVar.k(attributeValue2);
+            boolean z = false;
+            while (!z) {
+                int next = xmlPullParser.next();
+                if (next == 2) {
+                    String name = xmlPullParser.getName();
+                    String namespace = xmlPullParser.getNamespace();
+                    if (name.equals("status")) {
+                        gpVar.a(xmlPullParser.nextText());
+                    } else if (name.equals("priority")) {
+                        try {
+                            gpVar.a(Integer.parseInt(xmlPullParser.nextText()));
+                        } catch (NumberFormatException unused2) {
+                        } catch (IllegalArgumentException unused3) {
+                            gpVar.a(0);
+                        }
+                    } else if (name.equals("show")) {
+                        String nextText = xmlPullParser.nextText();
+                        try {
+                            gpVar.a(gp.a.valueOf(nextText));
+                        } catch (IllegalArgumentException unused4) {
+                            PrintStream printStream2 = System.err;
+                            printStream2.println("Found invalid presence mode " + nextText);
+                        }
+                    } else if (name.equals("error")) {
+                        gpVar.a(m375a(xmlPullParser));
+                    } else {
+                        gpVar.a(a(name, namespace, xmlPullParser));
+                    }
+                } else if (next == 3 && xmlPullParser.getName().equals("presence")) {
+                    z = true;
+                }
+            }
+            return gpVar;
+        }
+        return (gp) invokeL.objValue;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static gq m374a(XmlPullParser xmlPullParser) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, xmlPullParser)) == null) {
+            gq gqVar = null;
+            boolean z = false;
+            while (!z) {
+                int next = xmlPullParser.next();
+                if (next == 2) {
+                    gqVar = new gq(xmlPullParser.getName());
+                } else if (next == 3 && xmlPullParser.getName().equals("error")) {
+                    z = true;
+                }
+            }
+            return gqVar;
+        }
+        return (gq) invokeL.objValue;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static gr m375a(XmlPullParser xmlPullParser) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, xmlPullParser)) == null) {
+            ArrayList arrayList = new ArrayList();
+            boolean z = false;
+            String str = "-1";
+            String str2 = null;
+            String str3 = null;
+            for (int i = 0; i < xmlPullParser.getAttributeCount(); i++) {
+                if (xmlPullParser.getAttributeName(i).equals("code")) {
+                    str = xmlPullParser.getAttributeValue("", "code");
+                }
+                if (xmlPullParser.getAttributeName(i).equals("type")) {
+                    str3 = xmlPullParser.getAttributeValue("", "type");
+                }
+                if (xmlPullParser.getAttributeName(i).equals("reason")) {
+                    str2 = xmlPullParser.getAttributeValue("", "reason");
+                }
+            }
+            String str4 = null;
+            String str5 = null;
+            while (!z) {
+                int next = xmlPullParser.next();
+                if (next == 2) {
+                    if (xmlPullParser.getName().equals("text")) {
+                        str5 = xmlPullParser.nextText();
+                    } else {
+                        String name = xmlPullParser.getName();
+                        String namespace = xmlPullParser.getNamespace();
+                        if ("urn:ietf:params:xml:ns:xmpp-stanzas".equals(namespace)) {
+                            str4 = name;
+                        } else {
+                            arrayList.add(a(name, namespace, xmlPullParser));
+                        }
+                    }
+                } else if (next == 3) {
+                    if (xmlPullParser.getName().equals("error")) {
+                        z = true;
+                    }
+                } else if (next == 4) {
+                    str5 = xmlPullParser.getText();
+                }
+            }
+            return new gr(Integer.parseInt(str), str3 == null ? "cancel" : str3, str2, str4, str5, arrayList);
+        }
+        return (gr) invokeL.objValue;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static String m376a(XmlPullParser xmlPullParser) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65543, null, xmlPullParser)) != null) {
+            return (String) invokeL.objValue;
+        }
+        int depth = xmlPullParser.getDepth();
+        String str = "";
+        while (true) {
+            if (xmlPullParser.next() == 3 && xmlPullParser.getDepth() == depth) {
+                return str;
+            }
+            str = str + xmlPullParser.getText();
         }
     }
 
-    public static a b(Exception exc) {
-        InterceptResult invokeL;
-        ew ewVar;
-        ew ewVar2;
-        Throwable cause;
+    public static void a(byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, exc)) == null) {
-            m399a(exc);
-            boolean z = exc instanceof fw;
-            Exception exc2 = exc;
-            if (z) {
-                fw fwVar = (fw) exc;
-                exc2 = exc;
-                if (fwVar.a() != null) {
-                    exc2 = fwVar.a();
+        if (interceptable == null || interceptable.invokeL(65544, null, bArr) == null) {
+            if (a == null) {
+                try {
+                    XmlPullParser newPullParser = XmlPullParserFactory.newInstance().newPullParser();
+                    a = newPullParser;
+                    newPullParser.setFeature("http://xmlpull.org/v1/doc/features.html#process-namespaces", true);
+                } catch (XmlPullParserException e) {
+                    e.printStackTrace();
                 }
             }
-            a aVar = new a();
-            String message = exc2.getMessage();
-            if (exc2.getCause() != null) {
-                message = exc2.getCause().getMessage();
-            }
-            int a2 = fn.a(exc2);
-            String str = exc2.getClass().getSimpleName() + ":" + message;
-            if (a2 != 0) {
-                ew a3 = ew.a(ew.v.a() + a2);
-                aVar.a = a3;
-                if (a3 == ew.G && (cause = exc2.getCause()) != null && (cause instanceof UnknownHostException)) {
-                    ewVar = ew.F;
-                }
-                ewVar2 = aVar.a;
-                if (ewVar2 != ew.D || ewVar2 == ew.E || ewVar2 == ew.G) {
-                    aVar.f436a = str;
-                }
-                return aVar;
-            }
-            ewVar = ew.E;
-            aVar.a = ewVar;
-            ewVar2 = aVar.a;
-            if (ewVar2 != ew.D) {
-            }
-            aVar.f436a = str;
-            return aVar;
+            a.setInput(new InputStreamReader(new ByteArrayInputStream(bArr)));
         }
-        return (a) invokeL.objValue;
     }
 
-    public static a c(Exception exc) {
+    public static String b(XmlPullParser xmlPullParser) {
         InterceptResult invokeL;
-        ew ewVar;
-        ew ewVar2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, exc)) == null) {
-            m399a(exc);
-            boolean z = exc instanceof fw;
-            Exception exc2 = exc;
-            if (z) {
-                fw fwVar = (fw) exc;
-                exc2 = exc;
-                if (fwVar.a() != null) {
-                    exc2 = fwVar.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, xmlPullParser)) == null) {
+            for (int i = 0; i < xmlPullParser.getAttributeCount(); i++) {
+                String attributeName = xmlPullParser.getAttributeName(i);
+                if ("xml:lang".equals(attributeName) || (WebvttCueParser.TAG_LANG.equals(attributeName) && "xml".equals(xmlPullParser.getAttributePrefix(i)))) {
+                    return xmlPullParser.getAttributeValue(i);
                 }
             }
-            a aVar = new a();
-            String message = exc2.getMessage();
-            if (exc2.getCause() != null) {
-                message = exc2.getCause().getMessage();
-            }
-            int a2 = fn.a(exc2);
-            String str = exc2.getClass().getSimpleName() + ":" + message;
-            if (a2 == 105) {
-                ewVar = ew.L;
-            } else if (a2 == 199) {
-                ewVar = ew.O;
-            } else if (a2 == 499) {
-                aVar.a = ew.R;
-                if (message.startsWith("Terminal binding condition encountered: item-not-found")) {
-                    ewVar = ew.Q;
-                }
-                ewVar2 = aVar.a;
-                if (ewVar2 != ew.O || ewVar2 == ew.P || ewVar2 == ew.R) {
-                    aVar.f436a = str;
-                }
-                return aVar;
-            } else {
-                ewVar = a2 != 109 ? a2 != 110 ? ew.P : ew.N : ew.M;
-            }
-            aVar.a = ewVar;
-            ewVar2 = aVar.a;
-            if (ewVar2 != ew.O) {
-            }
-            aVar.f436a = str;
-            return aVar;
+            return null;
         }
-        return (a) invokeL.objValue;
-    }
-
-    public static a d(Exception exc) {
-        InterceptResult invokeL;
-        ew ewVar;
-        ew ewVar2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, exc)) == null) {
-            m399a(exc);
-            boolean z = exc instanceof fw;
-            Exception exc2 = exc;
-            if (z) {
-                fw fwVar = (fw) exc;
-                exc2 = exc;
-                if (fwVar.a() != null) {
-                    exc2 = fwVar.a();
-                }
-            }
-            a aVar = new a();
-            String message = exc2.getMessage();
-            int a2 = fn.a(exc2);
-            String str = exc2.getClass().getSimpleName() + ":" + message;
-            if (a2 == 105) {
-                ewVar = ew.X;
-            } else if (a2 == 199) {
-                ewVar = ew.aa;
-            } else if (a2 == 499) {
-                aVar.a = ew.ad;
-                if (message.startsWith("Terminal binding condition encountered: item-not-found")) {
-                    ewVar = ew.ac;
-                }
-                ewVar2 = aVar.a;
-                if (ewVar2 != ew.aa || ewVar2 == ew.ab || ewVar2 == ew.ad) {
-                    aVar.f436a = str;
-                }
-                return aVar;
-            } else {
-                ewVar = a2 != 109 ? a2 != 110 ? ew.ab : ew.Z : ew.Y;
-            }
-            aVar.a = ewVar;
-            ewVar2 = aVar.a;
-            if (ewVar2 != ew.aa) {
-            }
-            aVar.f436a = str;
-            return aVar;
-        }
-        return (a) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 }

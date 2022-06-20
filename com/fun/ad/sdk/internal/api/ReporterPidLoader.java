@@ -12,7 +12,7 @@ import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.flavor.Flavors;
 import com.fun.ad.sdk.internal.api.flavor.RCInterceptor;
 import com.fun.ad.sdk.internal.api.ripper.AdRipper;
-import com.repackage.ng9;
+import com.repackage.vg9;
 /* loaded from: classes4.dex */
 public abstract class ReporterPidLoader<A> extends BasePidLoader<A> {
     public static /* synthetic */ Interceptable $ic;
@@ -142,8 +142,8 @@ public abstract class ReporterPidLoader<A> extends BasePidLoader<A> {
             super.onAdShow(a, strArr);
             this.mReporter.recordShowSucceed(z, strArr);
             AdRipper adRipper = this.mAdRipper;
-            ng9 ng9Var = this.mReporter.mAdIdent;
-            adRipper.report(a, ng9Var.a, ng9Var.c);
+            vg9 vg9Var = this.mReporter.mAdIdent;
+            adRipper.report(a, vg9Var.a, vg9Var.c);
         }
     }
 

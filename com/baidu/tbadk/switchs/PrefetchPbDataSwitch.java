@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ys4;
+import com.repackage.ht4;
 @ModifyClass
 /* loaded from: classes3.dex */
 public class PrefetchPbDataSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String PREFETCH_PB_DATA_INIT_ENABLE = "prefetch_pb_data_12_24";
+    public static final String PREFETCH_PB_DATA_INIT_ENABLE = "prefetch_pb_data_12_25_5";
     public static final int TYPE_FORCE_ON = 2;
     public static final int TYPE_OFF = 0;
     public static final int TYPE_ON = 1;
@@ -58,7 +58,7 @@ public class PrefetchPbDataSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (type > 2) {
-                int l = ys4.k().l("key_prefetch_pb_data_init", 0);
+                int l = ht4.k().l("key_prefetch_pb_data_init", 0);
                 type = l;
                 if (l == 2) {
                     switchOn = true;
@@ -73,7 +73,7 @@ public class PrefetchPbDataSwitch extends BaseNormalSwitch {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.repackage.xe
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.repackage.af
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

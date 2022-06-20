@@ -8,15 +8,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i3;
-import com.repackage.x7;
-import com.repackage.y7;
+import com.repackage.a8;
+import com.repackage.k3;
+import com.repackage.z7;
 /* loaded from: classes.dex */
 public class Table$DebugRect extends Rectangle {
     public static /* synthetic */ Interceptable $ic;
-    public static x7<Table$DebugRect> pool;
+    public static z7<Table$DebugRect> pool;
     public transient /* synthetic */ FieldHolder $fh;
-    public i3 color;
+    public k3 color;
 
     static {
         InterceptResult invokeClinit;
@@ -31,7 +31,7 @@ public class Table$DebugRect extends Rectangle {
                 return;
             }
         }
-        pool = y7.a(Table$DebugRect.class);
+        pool = a8.a(Table$DebugRect.class);
     }
 
     public Table$DebugRect() {

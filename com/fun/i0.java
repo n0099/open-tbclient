@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.repackage.tb9;
+import com.repackage.bc9;
 import java.util.HashSet;
 import java.util.Iterator;
 /* loaded from: classes4.dex */
@@ -112,7 +112,7 @@ public class i0 {
             synchronized (hashSet) {
                 hashSet.add(bVar);
             }
-            ((tb9.b) bVar).onActiveNetworkInfo(a);
+            ((bc9.b) bVar).onActiveNetworkInfo(a);
         }
     }
 }

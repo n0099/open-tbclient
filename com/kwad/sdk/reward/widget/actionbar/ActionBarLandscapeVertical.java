@@ -65,25 +65,25 @@ public class ActionBarLandscapeVertical extends FrameLayout implements d {
     }
 
     private void a(Context context) {
-        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0460, this);
-        this.a = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09111f);
-        this.b = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091121);
-        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091001);
-        this.d = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091004);
-        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091000);
-        this.f = findViewById(R.id.obfuscated_res_0x7f09113e);
-        this.g = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091012);
-        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091003);
-        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091091);
-        this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090ffc);
-        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f090ffe);
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d045a, this);
+        this.a = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09110f);
+        this.b = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091111);
+        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ff1);
+        this.d = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f090ff4);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090ff0);
+        this.f = findViewById(R.id.obfuscated_res_0x7f09112e);
+        this.g = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091002);
+        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f090ff3);
+        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091081);
+        this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090fec);
+        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f090fee);
         this.k = textProgressBar;
         textProgressBar.setTextDimen(com.kwad.sdk.a.kwai.a.a(getContext(), 16.0f));
         this.k.setTextColor(-1);
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f090fff);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f090fef);
         this.l = findViewById;
         new f(findViewById, this);
-        this.m = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f090fd8);
+        this.m = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f090fc8);
     }
 
     private KsAppDownloadListener getAppDownloadListener() {
@@ -130,7 +130,7 @@ public class ActionBarLandscapeVertical extends FrameLayout implements d {
     }
 
     public void a(View view2, final boolean z) {
-        com.kwad.sdk.core.download.a.a.a(new a.C0296a(view2.getContext()).a(this.n).a(this.q).a(view2 == this.k).a(view2 == this.l ? 1 : 2).a(new a.b() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarLandscapeVertical.2
+        com.kwad.sdk.core.download.a.a.a(new a.C0304a(view2.getContext()).a(this.n).a(this.q).a(view2 == this.k).a(view2 == this.l ? 1 : 2).a(new a.b() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarLandscapeVertical.2
             @Override // com.kwad.sdk.core.download.a.a.b
             public void a() {
                 if (ActionBarLandscapeVertical.this.p != null) {

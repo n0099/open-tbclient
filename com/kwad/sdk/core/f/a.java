@@ -26,13 +26,13 @@ import com.kwad.sdk.utils.i;
 /* loaded from: classes5.dex */
 public class a {
     public static String a = "";
-    public static InterfaceC0298a b;
+    public static InterfaceC0306a b;
     public static boolean c;
     public static boolean d;
 
     /* renamed from: com.kwad.sdk.core.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0298a {
+    public interface InterfaceC0306a {
         @WorkerThread
         void a(String str);
     }
@@ -82,7 +82,7 @@ public class a {
         }
         c(context);
         if (com.kwad.sdk.g.a.a()) {
-            com.kwad.sdk.g.a.a(context, new a.InterfaceC0324a() { // from class: com.kwad.sdk.core.f.a.1
+            com.kwad.sdk.g.a.a(context, new a.InterfaceC0332a() { // from class: com.kwad.sdk.core.f.a.1
             });
         } else if (com.kwad.sdk.g.b.a()) {
             com.kwad.sdk.g.b.a(context, new b.a() { // from class: com.kwad.sdk.core.f.a.2
@@ -296,9 +296,9 @@ public class a {
     }
 
     public static void h() {
-        InterfaceC0298a interfaceC0298a = b;
-        if (interfaceC0298a != null) {
-            interfaceC0298a.a(a);
+        InterfaceC0306a interfaceC0306a = b;
+        if (interfaceC0306a != null) {
+            interfaceC0306a.a(a);
         }
     }
 }

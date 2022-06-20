@@ -1,126 +1,192 @@
 package com.repackage;
 
 import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.sapi2.ecommerce.activity.AddressEditActivity;
-import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
+import com.baidu.searchbox.v8engine.V8ExceptionInfo;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Response;
+import com.repackage.pk2;
+import java.io.File;
+import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class m63 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ String b;
+        public final /* synthetic */ HashMap a;
+        public final /* synthetic */ File b;
         public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ SwanInterfaceType e;
 
-        public a(int i, String str, String str2, String str3, SwanInterfaceType swanInterfaceType) {
+        public a(HashMap hashMap, File file, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), str, str2, str3, swanInterfaceType};
+                Object[] objArr = {hashMap, file, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = i;
-            this.b = str;
-            this.c = str2;
-            this.d = str3;
-            this.e = swanInterfaceType;
+            this.a = hashMap;
+            this.b = file;
+            this.c = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
+            gk1 u;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i = this.a;
-                boolean z = (i == 2000 || i == 0) ? false : true;
-                String n = a63.n(gz2.J().l());
-                JSONObject jSONObject = new JSONObject();
-                hc3.f(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, gz2.J().getAppId());
-                hc3.f(jSONObject, "hostName", oi2.n().a());
-                hc3.f(jSONObject, "network", hf4.e());
-                hc3.f(jSONObject, "launchid", gz2.J().r().V().V());
-                if (z) {
-                    hc3.f(jSONObject, "response", this.b);
-                    hc3.f(jSONObject, "statusCode", this.c);
-                    hc3.f(jSONObject, "request_url", this.d);
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (u = zi2.u()) == null) {
+                return;
+            }
+            u.a(this.a, this.b, null, "error_js");
+            if (m63.a) {
+                Log.d("V8StabilityHelper", "extraData :" + this.a.toString());
+                Log.d("V8StabilityHelper", "filePath :" + this.c);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755547385, "Lcom/repackage/m63;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755547385, "Lcom/repackage/m63;");
+                return;
+            }
+        }
+        a = cg1.a;
+    }
+
+    public static void b(V8ExceptionInfo v8ExceptionInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, v8ExceptionInfo) == null) {
+            if (v8ExceptionInfo == null) {
+                if (a) {
+                    Log.d("V8StabilityHelper", "empty exceptionInfo");
+                    return;
                 }
-                m63.d(n, this.e.getClassify(), this.e.getInterfaceName(), this.a, jSONObject, z);
+                return;
             }
+            c(v8ExceptionInfo);
+            d(v8ExceptionInfo);
         }
     }
 
-    public static void a(SwanInterfaceType swanInterfaceType) {
+    public static void c(V8ExceptionInfo v8ExceptionInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, swanInterfaceType) == null) {
-            c(swanInterfaceType, 2000, null, null);
-        }
-    }
-
-    public static void b(SwanInterfaceType swanInterfaceType, int i, String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{swanInterfaceType, Integer.valueOf(i), str, str2, str3}) == null) {
-            bc3.j(new a(i, str3, str2, str, swanInterfaceType), "onInterfaceStabilityStatistic");
-        }
-    }
-
-    public static void c(SwanInterfaceType swanInterfaceType, int i, String str, Response response) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(65538, null, swanInterfaceType, i, str, response) == null) {
-            String str3 = null;
-            if (response != null) {
-                String valueOf = String.valueOf(response.code());
-                str3 = response.request().url().toString();
-                str2 = valueOf;
-            } else {
-                str2 = null;
+        if (interceptable == null || interceptable.invokeL(65539, null, v8ExceptionInfo) == null) {
+            if (!zi2.g0().B()) {
+                if (a) {
+                    Log.d("V8StabilityHelper", "stability switch off");
+                    return;
+                }
+                return;
             }
-            b(swanInterfaceType, i, str3, str2, str);
-        }
-    }
-
-    public static void d(String str, String str2, String str3, int i, JSONObject jSONObject, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, str2, str3, Integer.valueOf(i), jSONObject, Boolean.valueOf(z)}) == null) {
-            JSONObject jSONObject2 = new JSONObject();
+            sz2 M = sz2.M();
+            pk2.a Y = M != null ? M.Y() : null;
+            lb3 lb3Var = new lb3();
+            lb3Var.k(5L);
+            lb3Var.i(37L);
+            t63 t63Var = new t63();
+            t63Var.p(lb3Var);
+            t63Var.r(Y);
+            t63Var.q(l63.n(rz2.K().l()));
+            t63Var.m(sz2.g0());
+            JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject2.put("from", str);
-                jSONObject2.put("type", str2);
-                if (!TextUtils.isEmpty(str3)) {
-                    jSONObject2.put("page", str3);
+                if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionMsg)) {
+                    jSONObject.put("exceptionMsg", v8ExceptionInfo.exceptionMsg);
                 }
-                jSONObject2.put("value", String.valueOf(i));
-                if (jSONObject != null) {
-                    jSONObject2.put("ext", jSONObject);
+                if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionTrace)) {
+                    jSONObject.put("exceptionTrace", v8ExceptionInfo.exceptionTrace);
                 }
-                o53.k("874", jSONObject2);
-                if (z) {
-                    o53.i("2486", AddressEditActivity.CHINA_REGION_CODE, jSONObject2);
+                if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionType)) {
+                    jSONObject.put("exceptionType", v8ExceptionInfo.exceptionType);
                 }
+                t63Var.e(jSONObject);
             } catch (JSONException e) {
-                if (hz2.v) {
+                if (a) {
                     e.printStackTrace();
+                }
+            }
+            l63.R(t63Var);
+        }
+    }
+
+    public static void d(V8ExceptionInfo v8ExceptionInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, v8ExceptionInfo) == null) {
+            if (!zi2.g0().H()) {
+                if (a) {
+                    Log.d("V8StabilityHelper", "upload js switch off");
+                }
+            } else if (TextUtils.isEmpty(v8ExceptionInfo.filePath)) {
+            } else {
+                String str = v8ExceptionInfo.filePath;
+                if (str.startsWith("script:")) {
+                    if (a) {
+                        Log.d("V8StabilityHelper", "file path start with js code prefix");
+                        return;
+                    }
+                    return;
+                }
+                SwanCoreVersion e = x83.e(rz2.K().l());
+                if (e == null || TextUtils.isEmpty(e.swanCorePath)) {
+                    return;
+                }
+                if (!str.startsWith(e.swanCorePath)) {
+                    if (a) {
+                        Log.d("V8StabilityHelper", "file path is not swan core path");
+                        return;
+                    }
+                    return;
+                }
+                File file = new File(str);
+                if (file.exists()) {
+                    HashMap hashMap = new HashMap();
+                    sz2 M = sz2.M();
+                    if (!TextUtils.isEmpty(sz2.g0())) {
+                        hashMap.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, sz2.g0());
+                    }
+                    if (M != null && !TextUtils.isEmpty(M.k0())) {
+                        hashMap.put("appVersion", M.k0());
+                    }
+                    if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionMsg)) {
+                        hashMap.put("exceptionMsg", v8ExceptionInfo.exceptionMsg);
+                    }
+                    if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionTrace)) {
+                        hashMap.put("exceptionTrace", v8ExceptionInfo.exceptionTrace);
+                    }
+                    if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionType)) {
+                        hashMap.put("exceptionType", v8ExceptionInfo.exceptionType);
+                    }
+                    mc3.k(new a(hashMap, file, str), "error_js");
                 }
             }
         }

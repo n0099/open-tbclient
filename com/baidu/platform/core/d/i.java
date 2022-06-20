@@ -5,6 +5,7 @@ import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.route.MassTransitRoutePlanOption;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
+import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -71,7 +72,7 @@ public class i extends com.baidu.platform.base.e {
             com.baidu.platform.util.a aVar6 = this.a;
             aVar6.a("page_index", massTransitRoutePlanOption.mPageIndex + "");
             com.baidu.platform.util.a aVar7 = this.a;
-            aVar7.a("page_size", massTransitRoutePlanOption.mPageSize + "");
+            aVar7.a(SuggestAddrField.KEY_PAGE_SIZE, massTransitRoutePlanOption.mPageSize + "");
             this.a.a("coord_type", massTransitRoutePlanOption.mCoordType);
             this.a.a("output", "json");
             this.a.a("from", "android_map_sdk");

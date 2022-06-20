@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import com.kwad.proguard.annotations.DoNotStrip;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 @DoNotStrip
@@ -34,7 +35,7 @@ public final class YogaDisplay {
             }
         }
         FLEX = new YogaDisplay("FLEX", 0, 0);
-        YogaDisplay yogaDisplay = new YogaDisplay("NONE", 1, 1);
+        YogaDisplay yogaDisplay = new YogaDisplay(HlsPlaylistParser.METHOD_NONE, 1, 1);
         NONE = yogaDisplay;
         $VALUES = new YogaDisplay[]{FLEX, yogaDisplay};
     }

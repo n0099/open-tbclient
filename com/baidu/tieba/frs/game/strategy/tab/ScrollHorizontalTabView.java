@@ -23,15 +23,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
-import com.repackage.th6;
+import com.repackage.pi;
+import com.repackage.ti6;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<th6> a;
+    public final List<ti6> a;
     public final List<TextView> b;
     public final int c;
     public final int d;
@@ -258,10 +258,10 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         public void onPageSelected(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                th6 th6Var = (th6) ListUtils.getItem(this.a.a, i);
-                if (this.a.o == null || this.a.o.a(i, th6Var)) {
+                ti6 ti6Var = (ti6) ListUtils.getItem(this.a.a, i);
+                if (this.a.o == null || this.a.o.a(i, ti6Var)) {
                     if (this.a.o != null) {
-                        this.a.o.b(i, th6Var);
+                        this.a.o.b(i, ti6Var);
                     }
                     if (this.a.e) {
                         if (this.a.f != i) {
@@ -284,9 +284,9 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
 
     /* loaded from: classes3.dex */
     public interface f {
-        boolean a(int i, th6 th6Var);
+        boolean a(int i, ti6 ti6Var);
 
-        void b(int i, th6 th6Var);
+        void b(int i, ti6 ti6Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -309,8 +309,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
         this.a = new ArrayList();
         this.b = new ArrayList();
-        this.c = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds4);
-        this.d = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds84);
+        this.c = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds4);
+        this.d = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds84);
         this.e = false;
         this.f = 0;
         this.g = SkinManager.getColor(R.color.CAM_X0106);
@@ -328,10 +328,10 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
             int size = this.a.size();
             int size2 = this.b.size();
             for (int i = 0; i < size && i < size2; i++) {
-                th6 th6Var = this.a.get(i);
+                ti6 ti6Var = this.a.get(i);
                 TextView textView = this.b.get(i);
-                if (th6Var != null && textView != null) {
-                    textView.setText(th6Var.b);
+                if (ti6Var != null && textView != null) {
+                    textView.setText(ti6Var.b);
                 }
             }
         }
@@ -421,7 +421,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
     }
 
-    public void setData(List<th6> list) {
+    public void setData(List<ti6> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             this.a.clear();
@@ -519,7 +519,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
             if (z) {
                 int[] iArr = new int[2];
                 ((View) ListUtils.getItem(this.b, i)).getLocationOnScreen(iArr);
-                int k = li.k(getContext()) - iArr[0];
+                int k = pi.k(getContext()) - iArr[0];
                 int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070256);
                 if (iArr[0] < 0) {
                     post(new c(this, dimensionPixelSize));
@@ -556,8 +556,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
         this.a = new ArrayList();
         this.b = new ArrayList();
-        this.c = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds4);
-        this.d = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds84);
+        this.c = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds4);
+        this.d = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds84);
         this.e = false;
         this.f = 0;
         this.g = SkinManager.getColor(R.color.CAM_X0106);
@@ -590,8 +590,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
         this.a = new ArrayList();
         this.b = new ArrayList();
-        this.c = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds4);
-        this.d = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds84);
+        this.c = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds4);
+        this.d = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds84);
         this.e = false;
         this.f = 0;
         this.g = SkinManager.getColor(R.color.CAM_X0106);

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
+import com.repackage.pi;
 /* loaded from: classes4.dex */
 public class RecordLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -27,9 +27,9 @@ public class RecordLayout extends RelativeLayout {
 
     /* loaded from: classes4.dex */
     public interface a {
-        void onTouchToLeft();
+        void F0();
 
-        void onTouchToRight();
+        void u1();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -58,7 +58,7 @@ public class RecordLayout extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.c = ViewConfiguration.getMaximumFlingVelocity();
             this.b = ViewConfiguration.getMinimumFlingVelocity();
-            this.d = li.f(getContext(), R.dimen.obfuscated_res_0x7f070250);
+            this.d = pi.f(getContext(), R.dimen.obfuscated_res_0x7f070250);
         }
     }
 
@@ -78,17 +78,17 @@ public class RecordLayout extends RelativeLayout {
                     float xVelocity = this.a.getXVelocity();
                     int rawX = (int) (motionEvent.getRawX() - this.e);
                     if (Math.abs(xVelocity) <= this.b || Math.abs(rawX) <= this.d) {
-                        if (Math.abs(rawX) > li.k(getContext()) * 0.5d) {
+                        if (Math.abs(rawX) > pi.k(getContext()) * 0.5d) {
                             if (rawX > 0) {
-                                this.f.onTouchToRight();
+                                this.f.u1();
                             } else {
-                                this.f.onTouchToRight();
+                                this.f.u1();
                             }
                         }
                     } else if (rawX > 0) {
-                        this.f.onTouchToRight();
+                        this.f.u1();
                     } else {
-                        this.f.onTouchToLeft();
+                        this.f.F0();
                     }
                     this.a.clear();
                     this.a.recycle();

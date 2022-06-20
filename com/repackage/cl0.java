@@ -1,9 +1,24 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
+import android.app.Activity;
+import android.os.Bundle;
 /* loaded from: classes5.dex */
-public interface cl0 {
-    void a();
+public interface cl0 extends dl0 {
+    void onActivityCreated(Activity activity, Bundle bundle);
 
-    void b(Bitmap bitmap);
+    void onActivityDestroyed(Activity activity);
+
+    void onActivityPaused(Activity activity);
+
+    void onActivityResumed(Activity activity);
+
+    void onActivitySaveInstanceState(Activity activity, Bundle bundle);
+
+    void onActivityStarted(Activity activity);
+
+    void onActivityStopped(Activity activity);
+
+    void onBackgroundToForeground(Activity activity);
+
+    void onForegroundToBackground(Activity activity);
 }

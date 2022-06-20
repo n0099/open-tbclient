@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
+import com.repackage.pi;
 import java.util.LinkedList;
 import java.util.Queue;
 /* loaded from: classes3.dex */
@@ -450,7 +450,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                 this.g = Integer.MAX_VALUE;
                 this.i = new Scroller(getContext());
                 this.j = new GestureDetector(getContext(), this.z);
-                this.q = li.k(getContext()) / 2;
+                this.q = pi.k(getContext()) / 2;
                 this.a = ViewConfigurationCompat.getScaledPagingTouchSlop(ViewConfiguration.get(getContext()));
             }
         }
@@ -480,18 +480,18 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                             this.t = MotionEventCompat.getY(motionEvent, actionIndex);
                             SwipeBackLayout.c cVar = this.w;
                             if (cVar != null) {
-                                cVar.disableSwipeBack();
+                                cVar.I0();
                             }
                         }
                     } else if (action != 2) {
                         SwipeBackLayout.c cVar2 = this.w;
                         if (cVar2 != null) {
-                            cVar2.enableSwipeBack();
+                            cVar2.b0();
                         }
                     } else {
                         SwipeBackLayout.c cVar3 = this.w;
                         if (cVar3 != null) {
-                            cVar3.disableSwipeBack();
+                            cVar3.I0();
                         }
                         j(motionEvent);
                         if (this.v) {
@@ -503,7 +503,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                 this.v = false;
                 SwipeBackLayout.c cVar4 = this.w;
                 if (cVar4 != null) {
-                    cVar4.enableSwipeBack();
+                    cVar4.b0();
                 }
                 return super.onInterceptTouchEvent(motionEvent);
             }
@@ -584,23 +584,23 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                 this.u = MotionEventCompat.getPointerId(motionEvent, MotionEventCompat.getActionIndex(motionEvent));
                 SwipeBackLayout.c cVar = this.w;
                 if (cVar != null) {
-                    cVar.disableSwipeBack();
+                    cVar.I0();
                 }
             } else if (action == 1) {
                 this.v = false;
                 SwipeBackLayout.c cVar2 = this.w;
                 if (cVar2 != null) {
-                    cVar2.enableSwipeBack();
+                    cVar2.b0();
                 }
             } else if (action != 2) {
                 SwipeBackLayout.c cVar3 = this.w;
                 if (cVar3 != null) {
-                    cVar3.enableSwipeBack();
+                    cVar3.b0();
                 }
             } else {
                 SwipeBackLayout.c cVar4 = this.w;
                 if (cVar4 != null) {
-                    cVar4.disableSwipeBack();
+                    cVar4.I0();
                 }
                 if (!this.v) {
                     j(motionEvent);

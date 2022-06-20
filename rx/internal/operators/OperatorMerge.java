@@ -9,17 +9,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ex9;
-import com.repackage.hx9;
-import com.repackage.kz9;
-import com.repackage.lv9;
-import com.repackage.ny9;
-import com.repackage.qu9;
-import com.repackage.qx9;
-import com.repackage.su9;
-import com.repackage.wu9;
-import com.repackage.zw9;
-import com.repackage.zx9;
+import com.repackage.dv9;
+import com.repackage.gx9;
+import com.repackage.gy9;
+import com.repackage.lx9;
+import com.repackage.ox9;
+import com.repackage.rz9;
+import com.repackage.sv9;
+import com.repackage.uy9;
+import com.repackage.xu9;
+import com.repackage.xx9;
+import com.repackage.zu9;
 import java.util.ArrayList;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -30,14 +30,14 @@ import rx.exceptions.OnErrorThrowable;
 import rx.internal.util.ScalarSynchronousObservable;
 import rx.internal.util.atomic.SpscExactAtomicArrayQueue;
 /* loaded from: classes8.dex */
-public final class OperatorMerge<T> implements qu9.b<T, qu9<? extends T>> {
+public final class OperatorMerge<T> implements xu9.b<T, xu9<? extends T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean a;
     public final int b;
 
     /* loaded from: classes8.dex */
-    public static final class MergeProducer<T> extends AtomicLong implements su9 {
+    public static final class MergeProducer<T> extends AtomicLong implements zu9 {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1214379189873595503L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +67,7 @@ public final class OperatorMerge<T> implements qu9.b<T, qu9<? extends T>> {
             return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? addAndGet(-i) : invokeI.longValue;
         }
 
-        @Override // com.repackage.su9
+        @Override // com.repackage.zu9
         public void request(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
@@ -78,7 +78,7 @@ public final class OperatorMerge<T> implements qu9.b<T, qu9<? extends T>> {
                     }
                 } else if (get() == Long.MAX_VALUE) {
                 } else {
-                    lv9.b(this, j);
+                    sv9.b(this, j);
                     this.subscriber.i();
                 }
             }
@@ -132,14 +132,14 @@ public final class OperatorMerge<T> implements qu9.b<T, qu9<? extends T>> {
     }
 
     /* loaded from: classes8.dex */
-    public static final class c<T> extends wu9<T> {
+    public static final class c<T> extends dv9<T> {
         public static /* synthetic */ Interceptable $ic;
         public static final int j;
         public transient /* synthetic */ FieldHolder $fh;
         public final d<T> e;
         public final long f;
         public volatile boolean g;
-        public volatile zw9 h;
+        public volatile gx9 h;
         public int i;
 
         static {
@@ -155,7 +155,7 @@ public final class OperatorMerge<T> implements qu9.b<T, qu9<? extends T>> {
                     return;
                 }
             }
-            j = zw9.c / 4;
+            j = gx9.c / 4;
         }
 
         public c(d<T> dVar, long j2) {
@@ -177,11 +177,11 @@ public final class OperatorMerge<T> implements qu9.b<T, qu9<? extends T>> {
             this.f = j2;
         }
 
-        @Override // com.repackage.wu9
+        @Override // com.repackage.dv9
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i = zw9.c;
+                int i = gx9.c;
                 this.i = i;
                 e(i);
             }
@@ -195,7 +195,7 @@ public final class OperatorMerge<T> implements qu9.b<T, qu9<? extends T>> {
                     this.i = i;
                     return;
                 }
-                int i2 = zw9.c;
+                int i2 = gx9.c;
                 this.i = i2;
                 int i3 = i2 - i;
                 if (i3 > 0) {
@@ -204,7 +204,7 @@ public final class OperatorMerge<T> implements qu9.b<T, qu9<? extends T>> {
             }
         }
 
-        @Override // com.repackage.ru9
+        @Override // com.repackage.yu9
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -213,7 +213,7 @@ public final class OperatorMerge<T> implements qu9.b<T, qu9<? extends T>> {
             }
         }
 
-        @Override // com.repackage.ru9
+        @Override // com.repackage.yu9
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
@@ -223,7 +223,7 @@ public final class OperatorMerge<T> implements qu9.b<T, qu9<? extends T>> {
             }
         }
 
-        @Override // com.repackage.ru9
+        @Override // com.repackage.yu9
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
@@ -233,16 +233,16 @@ public final class OperatorMerge<T> implements qu9.b<T, qu9<? extends T>> {
     }
 
     /* loaded from: classes8.dex */
-    public static final class d<T> extends wu9<qu9<? extends T>> {
+    public static final class d<T> extends dv9<xu9<? extends T>> {
         public static /* synthetic */ Interceptable $ic;
         public static final c<?>[] v;
         public transient /* synthetic */ FieldHolder $fh;
-        public final wu9<? super T> e;
+        public final dv9<? super T> e;
         public final boolean f;
         public final int g;
         public MergeProducer<T> h;
         public volatile Queue<Object> i;
-        public volatile kz9 j;
+        public volatile rz9 j;
         public volatile ConcurrentLinkedQueue<Throwable> k;
         public volatile boolean l;
         public boolean m;
@@ -271,12 +271,12 @@ public final class OperatorMerge<T> implements qu9.b<T, qu9<? extends T>> {
             v = new c[0];
         }
 
-        public d(wu9<? super T> wu9Var, boolean z, int i) {
+        public d(dv9<? super T> dv9Var, boolean z, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {wu9Var, Boolean.valueOf(z), Integer.valueOf(i)};
+                Object[] objArr = {dv9Var, Boolean.valueOf(z), Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -286,7 +286,7 @@ public final class OperatorMerge<T> implements qu9.b<T, qu9<? extends T>> {
                     return;
                 }
             }
-            this.e = wu9Var;
+            this.e = dv9Var;
             this.f = z;
             this.g = i;
             this.o = new Object();
@@ -376,7 +376,7 @@ public final class OperatorMerge<T> implements qu9.b<T, qu9<? extends T>> {
                 return;
             }
             try {
-                wu9<? super T> wu9Var = this.e;
+                dv9<? super T> dv9Var = this.e;
                 while (!h()) {
                     Queue<Object> queue = this.i;
                     long j2 = this.h.get();
@@ -400,7 +400,7 @@ public final class OperatorMerge<T> implements qu9.b<T, qu9<? extends T>> {
                                     obj = poll;
                                     break;
                                 }
-                                wu9Var.onNext((Object) NotificationLite.e(poll));
+                                dv9Var.onNext((Object) NotificationLite.e(poll));
                                 i++;
                                 i4++;
                                 j--;
@@ -429,7 +429,7 @@ public final class OperatorMerge<T> implements qu9.b<T, qu9<? extends T>> {
                             t();
                             return;
                         }
-                        wu9Var.onCompleted();
+                        dv9Var.onCompleted();
                         return;
                     }
                     if (length > 0) {
@@ -461,12 +461,12 @@ public final class OperatorMerge<T> implements qu9.b<T, qu9<? extends T>> {
                                     if (h()) {
                                         return;
                                     }
-                                    zw9 zw9Var = cVar.h;
-                                    if (zw9Var == null || (obj2 = zw9Var.i()) == null) {
+                                    gx9 gx9Var = cVar.h;
+                                    if (gx9Var == null || (obj2 = gx9Var.i()) == null) {
                                         break;
                                     }
                                     try {
-                                        wu9Var.onNext((Object) NotificationLite.e(obj2));
+                                        dv9Var.onNext((Object) NotificationLite.e(obj2));
                                         j--;
                                         i8++;
                                     }
@@ -481,8 +481,8 @@ public final class OperatorMerge<T> implements qu9.b<T, qu9<? extends T>> {
                                 }
                             } while (obj2 != null);
                             boolean z5 = cVar.g;
-                            zw9 zw9Var2 = cVar.h;
-                            if (z5 && (zw9Var2 == null || zw9Var2.e())) {
+                            gx9 gx9Var2 = cVar.h;
+                            if (z5 && (gx9Var2 == null || gx9Var2.e())) {
                                 s(cVar);
                                 if (h()) {
                                     return;
@@ -604,31 +604,31 @@ public final class OperatorMerge<T> implements qu9.b<T, qu9<? extends T>> {
             }
         }
 
-        public kz9 n() {
+        public rz9 n() {
             InterceptResult invokeV;
-            kz9 kz9Var;
+            rz9 rz9Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                kz9 kz9Var2 = this.j;
-                if (kz9Var2 == null) {
+                rz9 rz9Var2 = this.j;
+                if (rz9Var2 == null) {
                     boolean z = false;
                     synchronized (this) {
-                        kz9Var = this.j;
-                        if (kz9Var == null) {
-                            kz9 kz9Var3 = new kz9();
-                            this.j = kz9Var3;
-                            kz9Var = kz9Var3;
+                        rz9Var = this.j;
+                        if (rz9Var == null) {
+                            rz9 rz9Var3 = new rz9();
+                            this.j = rz9Var3;
+                            rz9Var = rz9Var3;
                             z = true;
                         }
                     }
                     if (z) {
-                        b(kz9Var);
+                        b(rz9Var);
                     }
-                    return kz9Var;
+                    return rz9Var;
                 }
-                return kz9Var2;
+                return rz9Var2;
             }
-            return (kz9) invokeV.objValue;
+            return (rz9) invokeV.objValue;
         }
 
         public Queue<Throwable> o() {
@@ -650,7 +650,7 @@ public final class OperatorMerge<T> implements qu9.b<T, qu9<? extends T>> {
             return (Queue) invokeV.objValue;
         }
 
-        @Override // com.repackage.ru9
+        @Override // com.repackage.yu9
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -659,7 +659,7 @@ public final class OperatorMerge<T> implements qu9.b<T, qu9<? extends T>> {
             }
         }
 
-        @Override // com.repackage.ru9
+        @Override // com.repackage.yu9
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048586, this, th) == null) {
@@ -672,23 +672,23 @@ public final class OperatorMerge<T> implements qu9.b<T, qu9<? extends T>> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: rx.internal.operators.OperatorMerge$d<T> */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.repackage.ru9
+        @Override // com.repackage.yu9
         /* renamed from: p */
-        public void onNext(qu9<? extends T> qu9Var) {
+        public void onNext(xu9<? extends T> xu9Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048588, this, qu9Var) == null) || qu9Var == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048588, this, xu9Var) == null) || xu9Var == null) {
                 return;
             }
-            if (qu9Var == qu9.c()) {
+            if (xu9Var == xu9.c()) {
                 j();
-            } else if (qu9Var instanceof ScalarSynchronousObservable) {
-                v(((ScalarSynchronousObservable) qu9Var).E());
+            } else if (xu9Var instanceof ScalarSynchronousObservable) {
+                v(((ScalarSynchronousObservable) xu9Var).E());
             } else {
                 long j = this.q;
                 this.q = 1 + j;
                 c cVar = new c(this, j);
                 g(cVar);
-                qu9Var.B(cVar);
+                xu9Var.B(cVar);
                 i();
             }
         }
@@ -701,13 +701,13 @@ public final class OperatorMerge<T> implements qu9.b<T, qu9<? extends T>> {
                 if (queue == null) {
                     int i = this.g;
                     if (i == Integer.MAX_VALUE) {
-                        queue = new hx9<>(zw9.c);
+                        queue = new ox9<>(gx9.c);
                     } else {
-                        if (qx9.a(i)) {
-                            if (ny9.b()) {
-                                spscExactAtomicArrayQueue = new zx9<>(i);
+                        if (xx9.a(i)) {
+                            if (uy9.b()) {
+                                spscExactAtomicArrayQueue = new gy9<>(i);
                             } else {
-                                spscExactAtomicArrayQueue = new ex9<>(i);
+                                spscExactAtomicArrayQueue = new lx9<>(i);
                             }
                         } else {
                             spscExactAtomicArrayQueue = new SpscExactAtomicArrayQueue<>(i);
@@ -727,14 +727,14 @@ public final class OperatorMerge<T> implements qu9.b<T, qu9<? extends T>> {
         public void r(c<T> cVar, T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048590, this, cVar, t) == null) {
-                zw9 zw9Var = cVar.h;
-                if (zw9Var == null) {
-                    zw9Var = zw9.b();
-                    cVar.b(zw9Var);
-                    cVar.h = zw9Var;
+                gx9 gx9Var = cVar.h;
+                if (gx9Var == null) {
+                    gx9Var = gx9.b();
+                    cVar.b(gx9Var);
+                    cVar.h = gx9Var;
                 }
                 try {
-                    zw9Var.g(NotificationLite.h(t));
+                    gx9Var.g(NotificationLite.h(t));
                 } catch (IllegalStateException e) {
                     if (cVar.isUnsubscribed()) {
                         return;
@@ -751,9 +751,9 @@ public final class OperatorMerge<T> implements qu9.b<T, qu9<? extends T>> {
         public void s(c<T> cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048591, this, cVar) == null) {
-                zw9 zw9Var = cVar.h;
-                if (zw9Var != null) {
-                    zw9Var.j();
+                gx9 gx9Var = cVar.h;
+                if (gx9Var != null) {
+                    gx9Var.j();
                 }
                 this.j.b(cVar);
                 synchronized (this.o) {
@@ -849,8 +849,8 @@ public final class OperatorMerge<T> implements qu9.b<T, qu9<? extends T>> {
                     }
                 }
                 if (z) {
-                    zw9 zw9Var = cVar.h;
-                    if (zw9Var != null && !zw9Var.e()) {
+                    gx9 gx9Var = cVar.h;
+                    if (gx9Var != null && !gx9Var.e()) {
                         r(cVar, t);
                         k();
                         return;
@@ -895,22 +895,22 @@ public final class OperatorMerge<T> implements qu9.b<T, qu9<? extends T>> {
         return (OperatorMerge) invokeZ.objValue;
     }
 
-    @Override // com.repackage.qu9.b, com.repackage.iv9
+    @Override // com.repackage.xu9.b, com.repackage.pv9
     public /* bridge */ /* synthetic */ Object call(Object obj) {
-        return call((wu9) ((wu9) obj));
+        return call((dv9) ((dv9) obj));
     }
 
-    public wu9<qu9<? extends T>> call(wu9<? super T> wu9Var) {
+    public dv9<xu9<? extends T>> call(dv9<? super T> dv9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wu9Var)) == null) {
-            d dVar = new d(wu9Var, this.a, this.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dv9Var)) == null) {
+            d dVar = new d(dv9Var, this.a, this.b);
             MergeProducer<T> mergeProducer = new MergeProducer<>(dVar);
             dVar.h = mergeProducer;
-            wu9Var.b(dVar);
-            wu9Var.f(mergeProducer);
+            dv9Var.b(dVar);
+            dv9Var.f(mergeProducer);
             return dVar;
         }
-        return (wu9) invokeL.objValue;
+        return (dv9) invokeL.objValue;
     }
 }

@@ -9,6 +9,8 @@ public interface IBundleInfo {
 
     String getDescription();
 
+    int getDownloadType();
+
     String getDownloadUrl();
 
     String getExt();
@@ -21,7 +23,13 @@ public interface IBundleInfo {
 
     String getName();
 
+    String getNetworkStrategy();
+
     String getPackageName();
+
+    String getPatchMD5();
+
+    String getPatchUrl();
 
     String getSignature();
 
@@ -79,7 +87,13 @@ public interface IBundleInfo {
 
     void setNeedRemove(boolean z);
 
+    void setNetworkStrategy(String str);
+
     void setPackageName(String str);
+
+    void setPatchMD5(String str);
+
+    void setPatchUrl(String str);
 
     void setRemovable(boolean z);
 

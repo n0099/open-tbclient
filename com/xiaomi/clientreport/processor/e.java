@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.clientreport.data.PerfClientReport;
-import com.xiaomi.push.y;
+import com.xiaomi.push.ab;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.Closeable;
@@ -27,14 +27,14 @@ public class e {
 
     public static PerfClientReport a(PerfClientReport perfClientReport, String str) {
         InterceptResult invokeLL;
-        long[] m119a;
+        long[] m95a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, perfClientReport, str)) == null) {
-            if (perfClientReport == null || (m119a = m119a(str)) == null) {
+            if (perfClientReport == null || (m95a = m95a(str)) == null) {
                 return null;
             }
-            perfClientReport.perfCounts = m119a[0];
-            perfClientReport.perfLatencies = m119a[1];
+            perfClientReport.perfCounts = m95a[0];
+            perfClientReport.perfLatencies = m95a[1];
             return perfClientReport;
         }
         return (PerfClientReport) invokeLL.objValue;
@@ -46,15 +46,15 @@ public class e {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             PerfClientReport perfClientReport = null;
             try {
-                String[] m120a = m120a(str);
-                if (m120a == null || m120a.length < 4 || TextUtils.isEmpty(m120a[0]) || TextUtils.isEmpty(m120a[1]) || TextUtils.isEmpty(m120a[2]) || TextUtils.isEmpty(m120a[3])) {
+                String[] m96a = m96a(str);
+                if (m96a == null || m96a.length < 4 || TextUtils.isEmpty(m96a[0]) || TextUtils.isEmpty(m96a[1]) || TextUtils.isEmpty(m96a[2]) || TextUtils.isEmpty(m96a[3])) {
                     return null;
                 }
                 perfClientReport = PerfClientReport.getBlankInstance();
-                perfClientReport.production = Integer.parseInt(m120a[0]);
-                perfClientReport.clientInterfaceId = m120a[1];
-                perfClientReport.reportType = Integer.parseInt(m120a[2]);
-                perfClientReport.code = Integer.parseInt(m120a[3]);
+                perfClientReport.production = Integer.parseInt(m96a[0]);
+                perfClientReport.clientInterfaceId = m96a[1];
+                perfClientReport.reportType = Integer.parseInt(m96a[2]);
+                perfClientReport.code = Integer.parseInt(m96a[3]);
                 return perfClientReport;
             } catch (Exception unused) {
                 com.xiaomi.channel.commonutils.logger.b.c("parse per key error");
@@ -74,7 +74,7 @@ public class e {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static HashMap<String, String> m118a(String str) {
+    public static HashMap<String, String> m94a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, str)) != null) {
@@ -102,16 +102,16 @@ public class e {
                         e = e;
                         bufferedReader = bufferedReader2;
                         com.xiaomi.channel.commonutils.logger.b.a(e);
-                        y.a(bufferedReader);
+                        ab.a(bufferedReader);
                         return hashMap;
                     } catch (Throwable th) {
                         th = th;
                         bufferedReader = bufferedReader2;
-                        y.a(bufferedReader);
+                        ab.a(bufferedReader);
                         throw th;
                     }
                 }
-                y.a(bufferedReader2);
+                ab.a(bufferedReader2);
             } catch (Exception e2) {
                 e = e2;
             }
@@ -155,7 +155,7 @@ public class e {
             try {
                 file = new File(str + ".lock");
                 try {
-                    y.m681a(file);
+                    ab.m156a(file);
                     randomAccessFile = new RandomAccessFile(file, "rw");
                     try {
                         FileLock lock = randomAccessFile.getChannel().lock();
@@ -184,8 +184,8 @@ public class e {
                                                 com.xiaomi.channel.commonutils.logger.b.a(e2);
                                             }
                                         }
-                                        y.a(randomAccessFile);
-                                        y.a(randomAccessFile2);
+                                        ab.a(randomAccessFile);
+                                        ab.a(randomAccessFile2);
                                     } catch (Throwable th) {
                                         th = th;
                                         if (fileLock != null && fileLock.isValid()) {
@@ -195,8 +195,8 @@ public class e {
                                                 com.xiaomi.channel.commonutils.logger.b.a(e3);
                                             }
                                         }
-                                        y.a(randomAccessFile);
-                                        y.a(randomAccessFile2);
+                                        ab.a(randomAccessFile);
+                                        ab.a(randomAccessFile2);
                                         if (file != null) {
                                             file.delete();
                                         }
@@ -207,8 +207,8 @@ public class e {
                                     fileLock = lock;
                                     if (fileLock != null) {
                                     }
-                                    y.a(randomAccessFile);
-                                    y.a(randomAccessFile2);
+                                    ab.a(randomAccessFile);
+                                    ab.a(randomAccessFile2);
                                     if (file != null) {
                                     }
                                     throw th;
@@ -221,8 +221,8 @@ public class e {
                                     com.xiaomi.channel.commonutils.logger.b.a(e4);
                                 }
                             }
-                            y.a(randomAccessFile);
-                            y.a((Closeable) randomAccessFile2);
+                            ab.a(randomAccessFile);
+                            ab.a((Closeable) randomAccessFile2);
                         } catch (Exception e5) {
                             e = e5;
                             randomAccessFile2 = 0;
@@ -245,8 +245,8 @@ public class e {
                     if (fileLock != null && fileLock.isValid()) {
                         fileLock.release();
                     }
-                    y.a(randomAccessFile);
-                    y.a(randomAccessFile2);
+                    ab.a(randomAccessFile);
+                    ab.a(randomAccessFile2);
                 } catch (Throwable th5) {
                     th = th5;
                     randomAccessFile = null;
@@ -254,8 +254,8 @@ public class e {
                     if (fileLock != null) {
                         fileLock.release();
                     }
-                    y.a(randomAccessFile);
-                    y.a(randomAccessFile2);
+                    ab.a(randomAccessFile);
+                    ab.a(randomAccessFile2);
                     if (file != null) {
                     }
                     throw th;
@@ -310,11 +310,11 @@ public class e {
                 } catch (Exception e2) {
                     e = e2;
                     com.xiaomi.channel.commonutils.logger.b.a(e);
-                    y.a(bufferedWriter);
+                    ab.a(bufferedWriter);
                 }
             } catch (Throwable th2) {
                 th = th2;
-                y.a((Closeable) r1);
+                ab.a((Closeable) r1);
                 throw th;
             }
         } catch (Exception e3) {
@@ -323,10 +323,10 @@ public class e {
         } catch (Throwable th3) {
             r1 = 0;
             th = th3;
-            y.a((Closeable) r1);
+            ab.a((Closeable) r1);
             throw th;
         }
-        y.a(bufferedWriter);
+        ab.a(bufferedWriter);
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, INVOKE] complete} */
@@ -339,32 +339,32 @@ public class e {
         FileLock fileLock = null;
         try {
             File file = new File(str + ".lock");
-            y.m681a(file);
+            ab.m156a(file);
             randomAccessFile = new RandomAccessFile(file, "rw");
         } catch (Throwable unused) {
             randomAccessFile = null;
         }
         try {
             fileLock = randomAccessFile.getChannel().lock();
-            HashMap<String, String> m118a = m118a(str);
+            HashMap<String, String> m94a = m94a(str);
             for (com.xiaomi.clientreport.data.a aVar : aVarArr) {
                 if (aVar != null) {
                     String a = a((PerfClientReport) aVar);
                     long j = ((PerfClientReport) aVar).perfCounts;
                     long j2 = ((PerfClientReport) aVar).perfLatencies;
                     if (!TextUtils.isEmpty(a) && j > 0 && j2 >= 0) {
-                        a(m118a, a, j, j2);
+                        a(m94a, a, j, j2);
                     }
                 }
             }
-            a(str, m118a);
+            a(str, m94a);
             if (fileLock != null && fileLock.isValid()) {
                 try {
                     fileLock.release();
                 } catch (IOException e) {
                     e = e;
                     com.xiaomi.channel.commonutils.logger.b.a(e);
-                    y.a(randomAccessFile);
+                    ab.a(randomAccessFile);
                 }
             }
         } catch (Throwable unused2) {
@@ -376,10 +376,10 @@ public class e {
                     } catch (IOException e2) {
                         e = e2;
                         com.xiaomi.channel.commonutils.logger.b.a(e);
-                        y.a(randomAccessFile);
+                        ab.a(randomAccessFile);
                     }
                 }
-                y.a(randomAccessFile);
+                ab.a(randomAccessFile);
             } catch (Throwable th) {
                 if (fileLock != null && fileLock.isValid()) {
                     try {
@@ -388,11 +388,11 @@ public class e {
                         com.xiaomi.channel.commonutils.logger.b.a(e3);
                     }
                 }
-                y.a(randomAccessFile);
+                ab.a(randomAccessFile);
                 throw th;
             }
         }
-        y.a(randomAccessFile);
+        ab.a(randomAccessFile);
     }
 
     public static void a(HashMap<String, String> hashMap, String str, long j, long j2) {
@@ -403,12 +403,12 @@ public class e {
             if (TextUtils.isEmpty(str2)) {
                 sb = new StringBuilder();
             } else {
-                long[] m119a = m119a(str2);
-                if (m119a == null || m119a[0] <= 0 || m119a[1] < 0) {
+                long[] m95a = m95a(str2);
+                if (m95a == null || m95a[0] <= 0 || m95a[1] < 0) {
                     sb = new StringBuilder();
                 } else {
-                    j += m119a[0];
-                    j2 += m119a[1];
+                    j += m95a[0];
+                    j2 += m95a[1];
                     sb = new StringBuilder();
                 }
             }
@@ -420,7 +420,7 @@ public class e {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static long[] m119a(String str) {
+    public static long[] m95a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
@@ -441,7 +441,7 @@ public class e {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String[] m120a(String str) {
+    public static String[] m96a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {

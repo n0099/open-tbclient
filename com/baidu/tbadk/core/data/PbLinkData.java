@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sw5;
+import com.repackage.rx5;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.PbLinkInfo;
 /* loaded from: classes3.dex */
-public class PbLinkData extends sw5 implements Serializable {
+public class PbLinkData extends rx5 implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String extTxt;
@@ -69,7 +69,7 @@ public class PbLinkData extends sw5 implements Serializable {
         this.urlType = pbLinkInfo.url_type.intValue();
     }
 
-    @Override // com.repackage.sw5
+    @Override // com.repackage.rx5
     public int sort() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

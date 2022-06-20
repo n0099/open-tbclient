@@ -27,7 +27,7 @@ public class a {
 
     /* renamed from: com.kwai.adclient.kscommerciallogger.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static final class C0348a {
+    public static final class C0356a {
         public static /* synthetic */ Interceptable $ic;
         public static a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +68,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0348a.a() : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0356a.a() : (a) invokeV.objValue;
     }
 
     private void b(@NonNull com.kwai.adclient.kscommerciallogger.model.a aVar) {

@@ -23,8 +23,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mg;
-import com.repackage.nt4;
+import com.repackage.qg;
+import com.repackage.wt4;
 /* loaded from: classes4.dex */
 public class ScreenTopToast extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -158,12 +158,12 @@ public class ScreenTopToast extends LinearLayout {
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
             }
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0725, this);
-            this.a = (ShadowLinearLayout) findViewById(R.id.obfuscated_res_0x7f091beb);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091bec);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091bea);
-            this.d = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091be9);
-            this.d.setConfig(new nt4());
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0724, this);
+            this.a = (ShadowLinearLayout) findViewById(R.id.obfuscated_res_0x7f091be3);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091be4);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091be2);
+            this.d = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091be1);
+            this.d.setConfig(new wt4());
             f();
             h();
         }
@@ -172,8 +172,8 @@ public class ScreenTopToast extends LinearLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01008c);
-            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100b8);
+            this.e = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01008e);
+            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100ba);
             this.f = loadAnimation;
             loadAnimation.setAnimationListener(new a(this));
             this.g = new b(this);
@@ -199,7 +199,7 @@ public class ScreenTopToast extends LinearLayout {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            mg.a().removeCallbacks(this.g);
+            qg.a().removeCallbacks(this.g);
             clearAnimation();
         }
     }
@@ -259,7 +259,7 @@ public class ScreenTopToast extends LinearLayout {
         viewGroup.addView(this, -1, -2);
         this.h = true;
         startAnimation(this.e);
-        mg.a().postDelayed(this.g, 5000L);
+        qg.a().postDelayed(this.g, 5000L);
     }
 
     @Override // android.view.View

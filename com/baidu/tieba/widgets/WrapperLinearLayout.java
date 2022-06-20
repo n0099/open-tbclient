@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wq4;
+import com.repackage.fr4;
 /* loaded from: classes4.dex */
 public class WrapperLinearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -41,7 +41,7 @@ public class WrapperLinearLayout extends LinearLayout {
     public void onConfigurationChanged(Configuration configuration) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, configuration) == null) {
-            wq4 d = wq4.d(this);
+            fr4 d = fr4.d(this);
             d.n(R.string.J_X14);
             d.f(R.color.CAM_X0212);
         }

@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes8.dex */
 public final class Emitter$BackpressureMode {
@@ -32,7 +33,7 @@ public final class Emitter$BackpressureMode {
                 return;
             }
         }
-        NONE = new Emitter$BackpressureMode("NONE", 0);
+        NONE = new Emitter$BackpressureMode(HlsPlaylistParser.METHOD_NONE, 0);
         ERROR = new Emitter$BackpressureMode("ERROR", 1);
         BUFFER = new Emitter$BackpressureMode("BUFFER", 2);
         DROP = new Emitter$BackpressureMode("DROP", 3);

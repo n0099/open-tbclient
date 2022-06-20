@@ -23,9 +23,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c90;
-import com.repackage.p80;
-import com.repackage.z70;
+import com.repackage.d80;
+import com.repackage.g90;
+import com.repackage.t80;
 import java.util.ArrayList;
 import java.util.List;
 import kotlin.Metadata;
@@ -100,7 +100,7 @@ public final class LiveSubTabAdapter extends RecyclerView.Adapter<LiveFeedBaseHo
                 if (view3.getContext() != null) {
                     LiveFeedPageSdk f2 = LiveFeedPageSdk.f();
                     Intrinsics.checkNotNullExpressionValue(f2, "LiveFeedPageSdk.getInstance()");
-                    c90 g = f2.g();
+                    g90 g = f2.g();
                     View view4 = this.d.itemView;
                     Intrinsics.checkNotNullExpressionValue(view4, "holder.itemView");
                     g.invokeScheme(view4.getContext(), str);
@@ -177,7 +177,7 @@ public final class LiveSubTabAdapter extends RecyclerView.Adapter<LiveFeedBaseHo
                 if (this.b) {
                     LiveBaseItemView liveBaseItemView2 = liveFeedBaseHolder.a;
                     if (liveBaseItemView2 != null) {
-                        ((LiveLoadMoreView) liveBaseItemView2).setLoadMoreLabel(R.string.obfuscated_res_0x7f0f0a09);
+                        ((LiveLoadMoreView) liveBaseItemView2).setLoadMoreLabel(R.string.obfuscated_res_0x7f0f0a0d);
                         LiveBaseItemView liveBaseItemView3 = liveFeedBaseHolder.a;
                         if (liveBaseItemView3 == null) {
                             throw new NullPointerException("null cannot be cast to non-null type com.baidu.live.business.LiveLoadMoreView");
@@ -194,13 +194,13 @@ public final class LiveSubTabAdapter extends RecyclerView.Adapter<LiveFeedBaseHo
                     if (liveBaseItemView4 == null) {
                         throw new NullPointerException("null cannot be cast to non-null type com.baidu.live.business.LiveLoadMoreView");
                     }
-                    ((LiveLoadMoreView) liveBaseItemView4).setLoadMoreLabel(R.string.obfuscated_res_0x7f0f0a0b);
+                    ((LiveLoadMoreView) liveBaseItemView4).setLoadMoreLabel(R.string.obfuscated_res_0x7f0f0a0f);
                 } else {
                     LiveBaseItemView liveBaseItemView5 = liveFeedBaseHolder.a;
                     if (liveBaseItemView5 == null) {
                         throw new NullPointerException("null cannot be cast to non-null type com.baidu.live.business.LiveLoadMoreView");
                     }
-                    ((LiveLoadMoreView) liveBaseItemView5).setLoadMoreLabel(R.string.obfuscated_res_0x7f0f0a0a);
+                    ((LiveLoadMoreView) liveBaseItemView5).setLoadMoreLabel(R.string.obfuscated_res_0x7f0f0a0e);
                 }
                 LiveBaseItemView liveBaseItemView6 = liveFeedBaseHolder.a;
                 if (liveBaseItemView6 == null) {
@@ -250,12 +250,12 @@ public final class LiveSubTabAdapter extends RecyclerView.Adapter<LiveFeedBaseHo
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), liveRoomEntity, context, Integer.valueOf(i)}) == null) {
             if (liveRoomEntity.needLogShow || !z) {
-                p80.c(liveRoomEntity.nid, z, !z);
+                t80.c(liveRoomEntity.nid, z, !z);
                 String str = this.e ? "chenjinshi" : "zhibopindao";
                 if (z) {
-                    z70.u(context, this.f, str, i + 1, this.g, this.h, liveRoomEntity);
+                    d80.u(context, this.f, str, i + 1, this.g, this.h, liveRoomEntity);
                 } else {
-                    z70.o(context, this.f, str, i + 1, this.g, this.h, liveRoomEntity);
+                    d80.o(context, this.f, str, i + 1, this.g, this.h, liveRoomEntity);
                 }
                 liveRoomEntity.needLogShow = false;
             }
@@ -387,7 +387,7 @@ public final class LiveSubTabAdapter extends RecyclerView.Adapter<LiveFeedBaseHo
         }
     }
 
-    public final void q(String str) {
+    public final void p(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
             Intrinsics.checkNotNullParameter(str, "<set-?>");

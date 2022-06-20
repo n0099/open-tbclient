@@ -1,6 +1,7 @@
 package com.baidu.tieba.enterForum.view;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,8 +23,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b36;
-import com.repackage.li;
+import com.repackage.b46;
+import com.repackage.pi;
 /* loaded from: classes3.dex */
 public class ForumHeaderView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -31,7 +32,7 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     public LinearLayout a;
     public TextView b;
     public ImageView c;
-    public b36 d;
+    public b46 d;
     public int e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -60,10 +61,10 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(1);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d047c, (ViewGroup) this, true);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c0e);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091c36);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c20);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0476, (ViewGroup) this, true);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c06);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091c2e);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c18);
             setDescendantFocusability(262144);
             this.a.setOnClickListener(this);
         }
@@ -72,9 +73,9 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b36 b36Var = this.d;
-            if (b36Var != null && b36Var.a) {
-                if (b36Var.b > 0) {
+            b46 b46Var = this.d;
+            if (b46Var != null && b46Var.a) {
+                if (b46Var.b > 0) {
                     SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
                     SkinManager.setViewTextColor(this.b, (int) R.color.white_alpha50);
                     SkinManager.setBackgroundResource(this.a, R.drawable.enter_forum_search_ad_bg);
@@ -111,14 +112,14 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            super.onMeasure(View.MeasureSpec.makeMeasureSpec(li.k(getContext()), 1073741824), View.MeasureSpec.makeMeasureSpec(li.f(getContext(), R.dimen.tbds114), 1073741824));
+            super.onMeasure(View.MeasureSpec.makeMeasureSpec(pi.k(getContext()), 1073741824), View.MeasureSpec.makeMeasureSpec(pi.f(getContext(), R.dimen.tbds114), 1073741824));
         }
     }
 
-    public void setAdState(b36 b36Var) {
+    public void setAdState(b46 b46Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, b36Var) == null) {
-            this.d = b36Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, b46Var) == null) {
+            this.d = b46Var;
             b();
         }
     }
@@ -132,9 +133,13 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
 
     public void setSearchHint(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.b.setText(str);
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.b == null) {
+            return;
         }
+        if (TextUtils.isEmpty(str)) {
+            str = "";
+        }
+        this.b.setText(str);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

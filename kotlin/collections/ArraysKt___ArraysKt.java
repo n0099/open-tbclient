@@ -1176,7 +1176,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final <T> Double m1063maxOfOrNull(T[] tArr, Function1<? super T, Double> function1) {
+    public static final <T> Double m1068maxOfOrNull(T[] tArr, Function1<? super T, Double> function1) {
         int i = 1;
         if (tArr.length == 0) {
             return null;
@@ -1405,7 +1405,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final <T> Double m1099minOfOrNull(T[] tArr, Function1<? super T, Double> function1) {
+    public static final <T> Double m1104minOfOrNull(T[] tArr, Function1<? super T, Double> function1) {
         int i = 1;
         if (tArr.length == 0) {
             return null;
@@ -2161,11 +2161,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final <T> int sumOfUInt(T[] tArr, Function1<? super T, UInt> function1) {
-        int m782constructorimpl = UInt.m782constructorimpl(0);
+        int m787constructorimpl = UInt.m787constructorimpl(0);
         for (T t : tArr) {
-            m782constructorimpl = UInt.m782constructorimpl(m782constructorimpl + function1.invoke(t).m833unboximpl());
+            m787constructorimpl = UInt.m787constructorimpl(m787constructorimpl + function1.invoke(t).m838unboximpl());
         }
-        return m782constructorimpl;
+        return m787constructorimpl;
     }
 
     @SinceKotlin(version = "1.5")
@@ -2174,11 +2174,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final <T> long sumOfULong(T[] tArr, Function1<? super T, ULong> function1) {
-        long m860constructorimpl = ULong.m860constructorimpl(0);
+        long m865constructorimpl = ULong.m865constructorimpl(0);
         for (T t : tArr) {
-            m860constructorimpl = ULong.m860constructorimpl(m860constructorimpl + function1.invoke(t).m911unboximpl());
+            m865constructorimpl = ULong.m865constructorimpl(m865constructorimpl + function1.invoke(t).m916unboximpl());
         }
-        return m860constructorimpl;
+        return m865constructorimpl;
     }
 
     public static final <T> List<T> take(T[] take, int i) {
@@ -4165,11 +4165,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final int sumOfUInt(byte[] bArr, Function1<? super Byte, UInt> function1) {
-        int m782constructorimpl = UInt.m782constructorimpl(0);
+        int m787constructorimpl = UInt.m787constructorimpl(0);
         for (byte b : bArr) {
-            m782constructorimpl = UInt.m782constructorimpl(m782constructorimpl + function1.invoke(Byte.valueOf(b)).m833unboximpl());
+            m787constructorimpl = UInt.m787constructorimpl(m787constructorimpl + function1.invoke(Byte.valueOf(b)).m838unboximpl());
         }
-        return m782constructorimpl;
+        return m787constructorimpl;
     }
 
     @SinceKotlin(version = "1.5")
@@ -4178,11 +4178,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final long sumOfULong(byte[] bArr, Function1<? super Byte, ULong> function1) {
-        long m860constructorimpl = ULong.m860constructorimpl(0);
+        long m865constructorimpl = ULong.m865constructorimpl(0);
         for (byte b : bArr) {
-            m860constructorimpl = ULong.m860constructorimpl(m860constructorimpl + function1.invoke(Byte.valueOf(b)).m911unboximpl());
+            m865constructorimpl = ULong.m865constructorimpl(m865constructorimpl + function1.invoke(Byte.valueOf(b)).m916unboximpl());
         }
-        return m860constructorimpl;
+        return m865constructorimpl;
     }
 
     public static final HashSet<Integer> toHashSet(int[] toHashSet) {
@@ -6455,7 +6455,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final Double m1057maxOfOrNull(byte[] bArr, Function1<? super Byte, Double> function1) {
+    public static final Double m1062maxOfOrNull(byte[] bArr, Function1<? super Byte, Double> function1) {
         int i = 1;
         if (bArr.length == 0) {
             return null;
@@ -6564,7 +6564,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final Double m1093minOfOrNull(byte[] bArr, Function1<? super Byte, Double> function1) {
+    public static final Double m1098minOfOrNull(byte[] bArr, Function1<? super Byte, Double> function1) {
         int i = 1;
         if (bArr.length == 0) {
             return null;
@@ -6924,11 +6924,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final int sumOfUInt(short[] sArr, Function1<? super Short, UInt> function1) {
-        int m782constructorimpl = UInt.m782constructorimpl(0);
+        int m787constructorimpl = UInt.m787constructorimpl(0);
         for (short s : sArr) {
-            m782constructorimpl = UInt.m782constructorimpl(m782constructorimpl + function1.invoke(Short.valueOf(s)).m833unboximpl());
+            m787constructorimpl = UInt.m787constructorimpl(m787constructorimpl + function1.invoke(Short.valueOf(s)).m838unboximpl());
         }
-        return m782constructorimpl;
+        return m787constructorimpl;
     }
 
     @SinceKotlin(version = "1.5")
@@ -6937,11 +6937,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final long sumOfULong(short[] sArr, Function1<? super Short, ULong> function1) {
-        long m860constructorimpl = ULong.m860constructorimpl(0);
+        long m865constructorimpl = ULong.m865constructorimpl(0);
         for (short s : sArr) {
-            m860constructorimpl = ULong.m860constructorimpl(m860constructorimpl + function1.invoke(Short.valueOf(s)).m911unboximpl());
+            m865constructorimpl = ULong.m865constructorimpl(m865constructorimpl + function1.invoke(Short.valueOf(s)).m916unboximpl());
         }
-        return m860constructorimpl;
+        return m865constructorimpl;
     }
 
     public static final <C extends Collection<? super Integer>> C toCollection(int[] toCollection, C destination) {
@@ -8843,11 +8843,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final int sumOfUInt(int[] iArr, Function1<? super Integer, UInt> function1) {
-        int m782constructorimpl = UInt.m782constructorimpl(0);
+        int m787constructorimpl = UInt.m787constructorimpl(0);
         for (int i : iArr) {
-            m782constructorimpl = UInt.m782constructorimpl(m782constructorimpl + function1.invoke(Integer.valueOf(i)).m833unboximpl());
+            m787constructorimpl = UInt.m787constructorimpl(m787constructorimpl + function1.invoke(Integer.valueOf(i)).m838unboximpl());
         }
-        return m782constructorimpl;
+        return m787constructorimpl;
     }
 
     @SinceKotlin(version = "1.5")
@@ -8856,11 +8856,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final long sumOfULong(int[] iArr, Function1<? super Integer, ULong> function1) {
-        long m860constructorimpl = ULong.m860constructorimpl(0);
+        long m865constructorimpl = ULong.m865constructorimpl(0);
         for (int i : iArr) {
-            m860constructorimpl = ULong.m860constructorimpl(m860constructorimpl + function1.invoke(Integer.valueOf(i)).m911unboximpl());
+            m865constructorimpl = ULong.m865constructorimpl(m865constructorimpl + function1.invoke(Integer.valueOf(i)).m916unboximpl());
         }
-        return m860constructorimpl;
+        return m865constructorimpl;
     }
 
     public static final List<Float> toMutableList(float[] toMutableList) {
@@ -10024,7 +10024,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final Double m1064maxOfOrNull(short[] sArr, Function1<? super Short, Double> function1) {
+    public static final Double m1069maxOfOrNull(short[] sArr, Function1<? super Short, Double> function1) {
         int i = 1;
         if (sArr.length == 0) {
             return null;
@@ -10121,7 +10121,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final Double m1100minOfOrNull(short[] sArr, Function1<? super Short, Double> function1) {
+    public static final Double m1105minOfOrNull(short[] sArr, Function1<? super Short, Double> function1) {
         int i = 1;
         if (sArr.length == 0) {
             return null;
@@ -10431,11 +10431,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final int sumOfUInt(long[] jArr, Function1<? super Long, UInt> function1) {
-        int m782constructorimpl = UInt.m782constructorimpl(0);
+        int m787constructorimpl = UInt.m787constructorimpl(0);
         for (long j : jArr) {
-            m782constructorimpl = UInt.m782constructorimpl(m782constructorimpl + function1.invoke(Long.valueOf(j)).m833unboximpl());
+            m787constructorimpl = UInt.m787constructorimpl(m787constructorimpl + function1.invoke(Long.valueOf(j)).m838unboximpl());
         }
-        return m782constructorimpl;
+        return m787constructorimpl;
     }
 
     @SinceKotlin(version = "1.5")
@@ -10444,11 +10444,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final long sumOfULong(long[] jArr, Function1<? super Long, ULong> function1) {
-        long m860constructorimpl = ULong.m860constructorimpl(0);
+        long m865constructorimpl = ULong.m865constructorimpl(0);
         for (long j : jArr) {
-            m860constructorimpl = ULong.m860constructorimpl(m860constructorimpl + function1.invoke(Long.valueOf(j)).m911unboximpl());
+            m865constructorimpl = ULong.m865constructorimpl(m865constructorimpl + function1.invoke(Long.valueOf(j)).m916unboximpl());
         }
-        return m860constructorimpl;
+        return m865constructorimpl;
     }
 
     public static final List<Integer> takeLastWhile(int[] takeLastWhile, Function1<? super Integer, Boolean> predicate) {
@@ -11574,11 +11574,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final int sumOfUInt(float[] fArr, Function1<? super Float, UInt> function1) {
-        int m782constructorimpl = UInt.m782constructorimpl(0);
+        int m787constructorimpl = UInt.m787constructorimpl(0);
         for (float f : fArr) {
-            m782constructorimpl = UInt.m782constructorimpl(m782constructorimpl + function1.invoke(Float.valueOf(f)).m833unboximpl());
+            m787constructorimpl = UInt.m787constructorimpl(m787constructorimpl + function1.invoke(Float.valueOf(f)).m838unboximpl());
         }
-        return m782constructorimpl;
+        return m787constructorimpl;
     }
 
     @SinceKotlin(version = "1.5")
@@ -11587,11 +11587,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final long sumOfULong(float[] fArr, Function1<? super Float, ULong> function1) {
-        long m860constructorimpl = ULong.m860constructorimpl(0);
+        long m865constructorimpl = ULong.m865constructorimpl(0);
         for (float f : fArr) {
-            m860constructorimpl = ULong.m860constructorimpl(m860constructorimpl + function1.invoke(Float.valueOf(f)).m911unboximpl());
+            m865constructorimpl = ULong.m865constructorimpl(m865constructorimpl + function1.invoke(Float.valueOf(f)).m916unboximpl());
         }
-        return m860constructorimpl;
+        return m865constructorimpl;
     }
 
     public static final List<Character> toMutableList(char[] toMutableList) {
@@ -12616,7 +12616,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final Double m1061maxOfOrNull(int[] iArr, Function1<? super Integer, Double> function1) {
+    public static final Double m1066maxOfOrNull(int[] iArr, Function1<? super Integer, Double> function1) {
         int i = 1;
         if (iArr.length == 0) {
             return null;
@@ -12689,7 +12689,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final Double m1097minOfOrNull(int[] iArr, Function1<? super Integer, Double> function1) {
+    public static final Double m1102minOfOrNull(int[] iArr, Function1<? super Integer, Double> function1) {
         int i = 1;
         if (iArr.length == 0) {
             return null;
@@ -12852,11 +12852,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final int sumOfUInt(double[] dArr, Function1<? super Double, UInt> function1) {
-        int m782constructorimpl = UInt.m782constructorimpl(0);
+        int m787constructorimpl = UInt.m787constructorimpl(0);
         for (double d : dArr) {
-            m782constructorimpl = UInt.m782constructorimpl(m782constructorimpl + function1.invoke(Double.valueOf(d)).m833unboximpl());
+            m787constructorimpl = UInt.m787constructorimpl(m787constructorimpl + function1.invoke(Double.valueOf(d)).m838unboximpl());
         }
-        return m782constructorimpl;
+        return m787constructorimpl;
     }
 
     @SinceKotlin(version = "1.5")
@@ -12865,11 +12865,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final long sumOfULong(double[] dArr, Function1<? super Double, ULong> function1) {
-        long m860constructorimpl = ULong.m860constructorimpl(0);
+        long m865constructorimpl = ULong.m865constructorimpl(0);
         for (double d : dArr) {
-            m860constructorimpl = ULong.m860constructorimpl(m860constructorimpl + function1.invoke(Double.valueOf(d)).m911unboximpl());
+            m865constructorimpl = ULong.m865constructorimpl(m865constructorimpl + function1.invoke(Double.valueOf(d)).m916unboximpl());
         }
-        return m860constructorimpl;
+        return m865constructorimpl;
     }
 
     public static final <R, V> List<V> zip(double[] zip, R[] other, Function2<? super Double, ? super R, ? extends V> transform) {
@@ -13563,11 +13563,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final int sumOfUInt(boolean[] zArr, Function1<? super Boolean, UInt> function1) {
-        int m782constructorimpl = UInt.m782constructorimpl(0);
+        int m787constructorimpl = UInt.m787constructorimpl(0);
         for (boolean z : zArr) {
-            m782constructorimpl = UInt.m782constructorimpl(m782constructorimpl + function1.invoke(Boolean.valueOf(z)).m833unboximpl());
+            m787constructorimpl = UInt.m787constructorimpl(m787constructorimpl + function1.invoke(Boolean.valueOf(z)).m838unboximpl());
         }
-        return m782constructorimpl;
+        return m787constructorimpl;
     }
 
     @SinceKotlin(version = "1.5")
@@ -13576,11 +13576,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final long sumOfULong(boolean[] zArr, Function1<? super Boolean, ULong> function1) {
-        long m860constructorimpl = ULong.m860constructorimpl(0);
+        long m865constructorimpl = ULong.m865constructorimpl(0);
         for (boolean z : zArr) {
-            m860constructorimpl = ULong.m860constructorimpl(m860constructorimpl + function1.invoke(Boolean.valueOf(z)).m911unboximpl());
+            m865constructorimpl = ULong.m865constructorimpl(m865constructorimpl + function1.invoke(Boolean.valueOf(z)).m916unboximpl());
         }
-        return m860constructorimpl;
+        return m865constructorimpl;
     }
 
     public static final List<Integer> take(int[] take, int i) {
@@ -14060,7 +14060,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final Double m1062maxOfOrNull(long[] jArr, Function1<? super Long, Double> function1) {
+    public static final Double m1067maxOfOrNull(long[] jArr, Function1<? super Long, Double> function1) {
         int i = 1;
         if (jArr.length == 0) {
             return null;
@@ -14133,7 +14133,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final Double m1098minOfOrNull(long[] jArr, Function1<? super Long, Double> function1) {
+    public static final Double m1103minOfOrNull(long[] jArr, Function1<? super Long, Double> function1) {
         int i = 1;
         if (jArr.length == 0) {
             return null;
@@ -14369,11 +14369,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final int sumOfUInt(char[] cArr, Function1<? super Character, UInt> function1) {
-        int m782constructorimpl = UInt.m782constructorimpl(0);
+        int m787constructorimpl = UInt.m787constructorimpl(0);
         for (char c : cArr) {
-            m782constructorimpl = UInt.m782constructorimpl(m782constructorimpl + function1.invoke(Character.valueOf(c)).m833unboximpl());
+            m787constructorimpl = UInt.m787constructorimpl(m787constructorimpl + function1.invoke(Character.valueOf(c)).m838unboximpl());
         }
-        return m782constructorimpl;
+        return m787constructorimpl;
     }
 
     @SinceKotlin(version = "1.5")
@@ -14382,11 +14382,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final long sumOfULong(char[] cArr, Function1<? super Character, ULong> function1) {
-        long m860constructorimpl = ULong.m860constructorimpl(0);
+        long m865constructorimpl = ULong.m865constructorimpl(0);
         for (char c : cArr) {
-            m860constructorimpl = ULong.m860constructorimpl(m860constructorimpl + function1.invoke(Character.valueOf(c)).m911unboximpl());
+            m865constructorimpl = ULong.m865constructorimpl(m865constructorimpl + function1.invoke(Character.valueOf(c)).m916unboximpl());
         }
-        return m860constructorimpl;
+        return m865constructorimpl;
     }
 
     public static final List<Double> takeLastWhile(double[] takeLastWhile, Function1<? super Double, Boolean> predicate) {
@@ -15476,7 +15476,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final Double m1060maxOfOrNull(float[] fArr, Function1<? super Float, Double> function1) {
+    public static final Double m1065maxOfOrNull(float[] fArr, Function1<? super Float, Double> function1) {
         int i = 1;
         if (fArr.length == 0) {
             return null;
@@ -15577,7 +15577,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final Double m1096minOfOrNull(float[] fArr, Function1<? super Float, Double> function1) {
+    public static final Double m1101minOfOrNull(float[] fArr, Function1<? super Float, Double> function1) {
         int i = 1;
         if (fArr.length == 0) {
             return null;
@@ -16826,7 +16826,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final Double m1059maxOfOrNull(double[] dArr, Function1<? super Double, Double> function1) {
+    public static final Double m1064maxOfOrNull(double[] dArr, Function1<? super Double, Double> function1) {
         int i = 1;
         if (dArr.length == 0) {
             return null;
@@ -16899,7 +16899,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final Double m1095minOfOrNull(double[] dArr, Function1<? super Double, Double> function1) {
+    public static final Double m1100minOfOrNull(double[] dArr, Function1<? super Double, Double> function1) {
         int i = 1;
         if (dArr.length == 0) {
             return null;
@@ -17556,7 +17556,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final Double m1065maxOfOrNull(boolean[] zArr, Function1<? super Boolean, Double> function1) {
+    public static final Double m1070maxOfOrNull(boolean[] zArr, Function1<? super Boolean, Double> function1) {
         int i = 1;
         if (zArr.length == 0) {
             return null;
@@ -17629,7 +17629,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final Double m1101minOfOrNull(boolean[] zArr, Function1<? super Boolean, Double> function1) {
+    public static final Double m1106minOfOrNull(boolean[] zArr, Function1<? super Boolean, Double> function1) {
         int i = 1;
         if (zArr.length == 0) {
             return null;
@@ -18255,7 +18255,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final Double m1058maxOfOrNull(char[] cArr, Function1<? super Character, Double> function1) {
+    public static final Double m1063maxOfOrNull(char[] cArr, Function1<? super Character, Double> function1) {
         int i = 1;
         if (cArr.length == 0) {
             return null;
@@ -18328,7 +18328,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final Double m1094minOfOrNull(char[] cArr, Function1<? super Character, Double> function1) {
+    public static final Double m1099minOfOrNull(char[] cArr, Function1<? super Character, Double> function1) {
         int i = 1;
         if (cArr.length == 0) {
             return null;
@@ -18795,7 +18795,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final <T> float m1045maxOf(T[] tArr, Function1<? super T, Float> function1) {
+    public static final <T> float m1050maxOf(T[] tArr, Function1<? super T, Float> function1) {
         int i = 1;
         if (!(tArr.length == 0)) {
             float floatValue = function1.invoke(tArr[0]).floatValue();
@@ -18818,7 +18818,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final <T> Float m1072maxOfOrNull(T[] tArr, Function1<? super T, Float> function1) {
+    public static final <T> Float m1077maxOfOrNull(T[] tArr, Function1<? super T, Float> function1) {
         int i = 1;
         if (tArr.length == 0) {
             return null;
@@ -18841,7 +18841,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final <T> float m1081minOf(T[] tArr, Function1<? super T, Float> function1) {
+    public static final <T> float m1086minOf(T[] tArr, Function1<? super T, Float> function1) {
         int i = 1;
         if (!(tArr.length == 0)) {
             float floatValue = function1.invoke(tArr[0]).floatValue();
@@ -18864,7 +18864,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final <T> Float m1108minOfOrNull(T[] tArr, Function1<? super T, Float> function1) {
+    public static final <T> Float m1113minOfOrNull(T[] tArr, Function1<? super T, Float> function1) {
         int i = 1;
         if (tArr.length == 0) {
             return null;
@@ -19162,7 +19162,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final float m1039maxOf(byte[] bArr, Function1<? super Byte, Float> function1) {
+    public static final float m1044maxOf(byte[] bArr, Function1<? super Byte, Float> function1) {
         int i = 1;
         if (!(bArr.length == 0)) {
             float floatValue = function1.invoke(Byte.valueOf(bArr[0])).floatValue();
@@ -19185,7 +19185,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final Float m1066maxOfOrNull(byte[] bArr, Function1<? super Byte, Float> function1) {
+    public static final Float m1071maxOfOrNull(byte[] bArr, Function1<? super Byte, Float> function1) {
         int i = 1;
         if (bArr.length == 0) {
             return null;
@@ -19208,7 +19208,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final float m1075minOf(byte[] bArr, Function1<? super Byte, Float> function1) {
+    public static final float m1080minOf(byte[] bArr, Function1<? super Byte, Float> function1) {
         int i = 1;
         if (!(bArr.length == 0)) {
             float floatValue = function1.invoke(Byte.valueOf(bArr[0])).floatValue();
@@ -19231,7 +19231,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final Float m1102minOfOrNull(byte[] bArr, Function1<? super Byte, Float> function1) {
+    public static final Float m1107minOfOrNull(byte[] bArr, Function1<? super Byte, Float> function1) {
         int i = 1;
         if (bArr.length == 0) {
             return null;
@@ -19498,7 +19498,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final float m1046maxOf(short[] sArr, Function1<? super Short, Float> function1) {
+    public static final float m1051maxOf(short[] sArr, Function1<? super Short, Float> function1) {
         int i = 1;
         if (!(sArr.length == 0)) {
             float floatValue = function1.invoke(Short.valueOf(sArr[0])).floatValue();
@@ -19521,7 +19521,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final Float m1073maxOfOrNull(short[] sArr, Function1<? super Short, Float> function1) {
+    public static final Float m1078maxOfOrNull(short[] sArr, Function1<? super Short, Float> function1) {
         int i = 1;
         if (sArr.length == 0) {
             return null;
@@ -19544,7 +19544,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final float m1082minOf(short[] sArr, Function1<? super Short, Float> function1) {
+    public static final float m1087minOf(short[] sArr, Function1<? super Short, Float> function1) {
         int i = 1;
         if (!(sArr.length == 0)) {
             float floatValue = function1.invoke(Short.valueOf(sArr[0])).floatValue();
@@ -19567,7 +19567,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final Float m1109minOfOrNull(short[] sArr, Function1<? super Short, Float> function1) {
+    public static final Float m1114minOfOrNull(short[] sArr, Function1<? super Short, Float> function1) {
         int i = 1;
         if (sArr.length == 0) {
             return null;
@@ -19831,7 +19831,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final float m1043maxOf(int[] iArr, Function1<? super Integer, Float> function1) {
+    public static final float m1048maxOf(int[] iArr, Function1<? super Integer, Float> function1) {
         int i = 1;
         if (!(iArr.length == 0)) {
             float floatValue = function1.invoke(Integer.valueOf(iArr[0])).floatValue();
@@ -19854,7 +19854,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final Float m1070maxOfOrNull(int[] iArr, Function1<? super Integer, Float> function1) {
+    public static final Float m1075maxOfOrNull(int[] iArr, Function1<? super Integer, Float> function1) {
         int i = 1;
         if (iArr.length == 0) {
             return null;
@@ -19877,7 +19877,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final float m1079minOf(int[] iArr, Function1<? super Integer, Float> function1) {
+    public static final float m1084minOf(int[] iArr, Function1<? super Integer, Float> function1) {
         int i = 1;
         if (!(iArr.length == 0)) {
             float floatValue = function1.invoke(Integer.valueOf(iArr[0])).floatValue();
@@ -19900,7 +19900,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final Float m1106minOfOrNull(int[] iArr, Function1<? super Integer, Float> function1) {
+    public static final Float m1111minOfOrNull(int[] iArr, Function1<? super Integer, Float> function1) {
         int i = 1;
         if (iArr.length == 0) {
             return null;
@@ -20008,7 +20008,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final float m1044maxOf(long[] jArr, Function1<? super Long, Float> function1) {
+    public static final float m1049maxOf(long[] jArr, Function1<? super Long, Float> function1) {
         int i = 1;
         if (!(jArr.length == 0)) {
             float floatValue = function1.invoke(Long.valueOf(jArr[0])).floatValue();
@@ -20031,7 +20031,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final Float m1071maxOfOrNull(long[] jArr, Function1<? super Long, Float> function1) {
+    public static final Float m1076maxOfOrNull(long[] jArr, Function1<? super Long, Float> function1) {
         int i = 1;
         if (jArr.length == 0) {
             return null;
@@ -20054,7 +20054,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final float m1080minOf(long[] jArr, Function1<? super Long, Float> function1) {
+    public static final float m1085minOf(long[] jArr, Function1<? super Long, Float> function1) {
         int i = 1;
         if (!(jArr.length == 0)) {
             float floatValue = function1.invoke(Long.valueOf(jArr[0])).floatValue();
@@ -20077,7 +20077,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final Float m1107minOfOrNull(long[] jArr, Function1<? super Long, Float> function1) {
+    public static final Float m1112minOfOrNull(long[] jArr, Function1<? super Long, Float> function1) {
         int i = 1;
         if (jArr.length == 0) {
             return null;
@@ -20202,7 +20202,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final float m1042maxOf(float[] fArr, Function1<? super Float, Float> function1) {
+    public static final float m1047maxOf(float[] fArr, Function1<? super Float, Float> function1) {
         int i = 1;
         if (!(fArr.length == 0)) {
             float floatValue = function1.invoke(Float.valueOf(fArr[0])).floatValue();
@@ -20225,7 +20225,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final Float m1069maxOfOrNull(float[] fArr, Function1<? super Float, Float> function1) {
+    public static final Float m1074maxOfOrNull(float[] fArr, Function1<? super Float, Float> function1) {
         int i = 1;
         if (fArr.length == 0) {
             return null;
@@ -20248,7 +20248,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final float m1078minOf(float[] fArr, Function1<? super Float, Float> function1) {
+    public static final float m1083minOf(float[] fArr, Function1<? super Float, Float> function1) {
         int i = 1;
         if (!(fArr.length == 0)) {
             float floatValue = function1.invoke(Float.valueOf(fArr[0])).floatValue();
@@ -20271,7 +20271,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final Float m1105minOfOrNull(float[] fArr, Function1<? super Float, Float> function1) {
+    public static final Float m1110minOfOrNull(float[] fArr, Function1<? super Float, Float> function1) {
         int i = 1;
         if (fArr.length == 0) {
             return null;
@@ -20352,7 +20352,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final float m1041maxOf(double[] dArr, Function1<? super Double, Float> function1) {
+    public static final float m1046maxOf(double[] dArr, Function1<? super Double, Float> function1) {
         int i = 1;
         if (!(dArr.length == 0)) {
             float floatValue = function1.invoke(Double.valueOf(dArr[0])).floatValue();
@@ -20375,7 +20375,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final Float m1068maxOfOrNull(double[] dArr, Function1<? super Double, Float> function1) {
+    public static final Float m1073maxOfOrNull(double[] dArr, Function1<? super Double, Float> function1) {
         int i = 1;
         if (dArr.length == 0) {
             return null;
@@ -20398,7 +20398,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final float m1077minOf(double[] dArr, Function1<? super Double, Float> function1) {
+    public static final float m1082minOf(double[] dArr, Function1<? super Double, Float> function1) {
         int i = 1;
         if (!(dArr.length == 0)) {
             float floatValue = function1.invoke(Double.valueOf(dArr[0])).floatValue();
@@ -20421,7 +20421,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final Float m1104minOfOrNull(double[] dArr, Function1<? super Double, Float> function1) {
+    public static final Float m1109minOfOrNull(double[] dArr, Function1<? super Double, Float> function1) {
         int i = 1;
         if (dArr.length == 0) {
             return null;
@@ -20504,7 +20504,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final float m1047maxOf(boolean[] zArr, Function1<? super Boolean, Float> function1) {
+    public static final float m1052maxOf(boolean[] zArr, Function1<? super Boolean, Float> function1) {
         int i = 1;
         if (!(zArr.length == 0)) {
             float floatValue = function1.invoke(Boolean.valueOf(zArr[0])).floatValue();
@@ -20527,7 +20527,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final Float m1074maxOfOrNull(boolean[] zArr, Function1<? super Boolean, Float> function1) {
+    public static final Float m1079maxOfOrNull(boolean[] zArr, Function1<? super Boolean, Float> function1) {
         int i = 1;
         if (zArr.length == 0) {
             return null;
@@ -20550,7 +20550,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final float m1083minOf(boolean[] zArr, Function1<? super Boolean, Float> function1) {
+    public static final float m1088minOf(boolean[] zArr, Function1<? super Boolean, Float> function1) {
         int i = 1;
         if (!(zArr.length == 0)) {
             float floatValue = function1.invoke(Boolean.valueOf(zArr[0])).floatValue();
@@ -20573,7 +20573,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final Float m1110minOfOrNull(boolean[] zArr, Function1<? super Boolean, Float> function1) {
+    public static final Float m1115minOfOrNull(boolean[] zArr, Function1<? super Boolean, Float> function1) {
         int i = 1;
         if (zArr.length == 0) {
             return null;
@@ -20627,7 +20627,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final float m1040maxOf(char[] cArr, Function1<? super Character, Float> function1) {
+    public static final float m1045maxOf(char[] cArr, Function1<? super Character, Float> function1) {
         int i = 1;
         if (!(cArr.length == 0)) {
             float floatValue = function1.invoke(Character.valueOf(cArr[0])).floatValue();
@@ -20650,7 +20650,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final Float m1067maxOfOrNull(char[] cArr, Function1<? super Character, Float> function1) {
+    public static final Float m1072maxOfOrNull(char[] cArr, Function1<? super Character, Float> function1) {
         int i = 1;
         if (cArr.length == 0) {
             return null;
@@ -20673,7 +20673,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final float m1076minOf(char[] cArr, Function1<? super Character, Float> function1) {
+    public static final float m1081minOf(char[] cArr, Function1<? super Character, Float> function1) {
         int i = 1;
         if (!(cArr.length == 0)) {
             float floatValue = function1.invoke(Character.valueOf(cArr[0])).floatValue();
@@ -20696,7 +20696,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final Float m1103minOfOrNull(char[] cArr, Function1<? super Character, Float> function1) {
+    public static final Float m1108minOfOrNull(char[] cArr, Function1<? super Character, Float> function1) {
         int i = 1;
         if (cArr.length == 0) {
             return null;
@@ -20779,7 +20779,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final <T, R extends Comparable<? super R>> R m1054maxOf(T[] tArr, Function1<? super T, ? extends R> function1) {
+    public static final <T, R extends Comparable<? super R>> R m1059maxOf(T[] tArr, Function1<? super T, ? extends R> function1) {
         int i = 1;
         if (!(tArr.length == 0)) {
             R invoke = function1.invoke(tArr[0]);
@@ -20830,7 +20830,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final <T, R extends Comparable<? super R>> R m1090minOf(T[] tArr, Function1<? super T, ? extends R> function1) {
+    public static final <T, R extends Comparable<? super R>> R m1095minOf(T[] tArr, Function1<? super T, ? extends R> function1) {
         int i = 1;
         if (!(tArr.length == 0)) {
             R invoke = function1.invoke(tArr[0]);
@@ -20979,7 +20979,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final <R extends Comparable<? super R>> R m1048maxOf(byte[] bArr, Function1<? super Byte, ? extends R> function1) {
+    public static final <R extends Comparable<? super R>> R m1053maxOf(byte[] bArr, Function1<? super Byte, ? extends R> function1) {
         int i = 1;
         if (!(bArr.length == 0)) {
             R invoke = function1.invoke(Byte.valueOf(bArr[0]));
@@ -21005,7 +21005,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final <R extends Comparable<? super R>> R m1084minOf(byte[] bArr, Function1<? super Byte, ? extends R> function1) {
+    public static final <R extends Comparable<? super R>> R m1089minOf(byte[] bArr, Function1<? super Byte, ? extends R> function1) {
         int i = 1;
         if (!(bArr.length == 0)) {
             R invoke = function1.invoke(Byte.valueOf(bArr[0]));
@@ -21141,7 +21141,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final <R extends Comparable<? super R>> R m1055maxOf(short[] sArr, Function1<? super Short, ? extends R> function1) {
+    public static final <R extends Comparable<? super R>> R m1060maxOf(short[] sArr, Function1<? super Short, ? extends R> function1) {
         int i = 1;
         if (!(sArr.length == 0)) {
             R invoke = function1.invoke(Short.valueOf(sArr[0]));
@@ -21167,7 +21167,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final <R extends Comparable<? super R>> R m1091minOf(short[] sArr, Function1<? super Short, ? extends R> function1) {
+    public static final <R extends Comparable<? super R>> R m1096minOf(short[] sArr, Function1<? super Short, ? extends R> function1) {
         int i = 1;
         if (!(sArr.length == 0)) {
             R invoke = function1.invoke(Short.valueOf(sArr[0]));
@@ -21259,7 +21259,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final <R extends Comparable<? super R>> R m1052maxOf(int[] iArr, Function1<? super Integer, ? extends R> function1) {
+    public static final <R extends Comparable<? super R>> R m1057maxOf(int[] iArr, Function1<? super Integer, ? extends R> function1) {
         int i = 1;
         if (!(iArr.length == 0)) {
             R invoke = function1.invoke(Integer.valueOf(iArr[0]));
@@ -21285,7 +21285,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final <R extends Comparable<? super R>> R m1088minOf(int[] iArr, Function1<? super Integer, ? extends R> function1) {
+    public static final <R extends Comparable<? super R>> R m1093minOf(int[] iArr, Function1<? super Integer, ? extends R> function1) {
         int i = 1;
         if (!(iArr.length == 0)) {
             R invoke = function1.invoke(Integer.valueOf(iArr[0]));
@@ -21394,7 +21394,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final <R extends Comparable<? super R>> R m1053maxOf(long[] jArr, Function1<? super Long, ? extends R> function1) {
+    public static final <R extends Comparable<? super R>> R m1058maxOf(long[] jArr, Function1<? super Long, ? extends R> function1) {
         int i = 1;
         if (!(jArr.length == 0)) {
             R invoke = function1.invoke(Long.valueOf(jArr[0]));
@@ -21420,7 +21420,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final <R extends Comparable<? super R>> R m1089minOf(long[] jArr, Function1<? super Long, ? extends R> function1) {
+    public static final <R extends Comparable<? super R>> R m1094minOf(long[] jArr, Function1<? super Long, ? extends R> function1) {
         int i = 1;
         if (!(jArr.length == 0)) {
             R invoke = function1.invoke(Long.valueOf(jArr[0]));
@@ -21529,7 +21529,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final <R extends Comparable<? super R>> R m1051maxOf(float[] fArr, Function1<? super Float, ? extends R> function1) {
+    public static final <R extends Comparable<? super R>> R m1056maxOf(float[] fArr, Function1<? super Float, ? extends R> function1) {
         int i = 1;
         if (!(fArr.length == 0)) {
             R invoke = function1.invoke(Float.valueOf(fArr[0]));
@@ -21580,7 +21580,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final <R extends Comparable<? super R>> R m1087minOf(float[] fArr, Function1<? super Float, ? extends R> function1) {
+    public static final <R extends Comparable<? super R>> R m1092minOf(float[] fArr, Function1<? super Float, ? extends R> function1) {
         int i = 1;
         if (!(fArr.length == 0)) {
             R invoke = function1.invoke(Float.valueOf(fArr[0]));
@@ -21713,7 +21713,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final <R extends Comparable<? super R>> R m1050maxOf(double[] dArr, Function1<? super Double, ? extends R> function1) {
+    public static final <R extends Comparable<? super R>> R m1055maxOf(double[] dArr, Function1<? super Double, ? extends R> function1) {
         int i = 1;
         if (!(dArr.length == 0)) {
             R invoke = function1.invoke(Double.valueOf(dArr[0]));
@@ -21739,7 +21739,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final <R extends Comparable<? super R>> R m1086minOf(double[] dArr, Function1<? super Double, ? extends R> function1) {
+    public static final <R extends Comparable<? super R>> R m1091minOf(double[] dArr, Function1<? super Double, ? extends R> function1) {
         int i = 1;
         if (!(dArr.length == 0)) {
             R invoke = function1.invoke(Double.valueOf(dArr[0]));
@@ -21831,7 +21831,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final <R extends Comparable<? super R>> R m1056maxOf(boolean[] zArr, Function1<? super Boolean, ? extends R> function1) {
+    public static final <R extends Comparable<? super R>> R m1061maxOf(boolean[] zArr, Function1<? super Boolean, ? extends R> function1) {
         int i = 1;
         if (!(zArr.length == 0)) {
             R invoke = function1.invoke(Boolean.valueOf(zArr[0]));
@@ -21857,7 +21857,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final <R extends Comparable<? super R>> R m1092minOf(boolean[] zArr, Function1<? super Boolean, ? extends R> function1) {
+    public static final <R extends Comparable<? super R>> R m1097minOf(boolean[] zArr, Function1<? super Boolean, ? extends R> function1) {
         int i = 1;
         if (!(zArr.length == 0)) {
             R invoke = function1.invoke(Boolean.valueOf(zArr[0]));
@@ -21899,7 +21899,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final <R extends Comparable<? super R>> R m1049maxOf(char[] cArr, Function1<? super Character, ? extends R> function1) {
+    public static final <R extends Comparable<? super R>> R m1054maxOf(char[] cArr, Function1<? super Character, ? extends R> function1) {
         int i = 1;
         if (!(cArr.length == 0)) {
             R invoke = function1.invoke(Character.valueOf(cArr[0]));
@@ -21925,7 +21925,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final <R extends Comparable<? super R>> R m1085minOf(char[] cArr, Function1<? super Character, ? extends R> function1) {
+    public static final <R extends Comparable<? super R>> R m1090minOf(char[] cArr, Function1<? super Character, ? extends R> function1) {
         int i = 1;
         if (!(cArr.length == 0)) {
             R invoke = function1.invoke(Character.valueOf(cArr[0]));

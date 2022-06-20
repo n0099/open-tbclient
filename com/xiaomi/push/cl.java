@@ -1,60 +1,98 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.database.sqlite.SQLiteDatabase;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.text.SimpleDateFormat;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.xiaomi.push.cj;
 /* loaded from: classes8.dex */
-public class cl {
+public class cl implements Runnable {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static SimpleDateFormat f169a;
-    public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ cj.a f169a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-56377609, "Lcom/xiaomi/push/cl;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-56377609, "Lcom/xiaomi/push/cl;");
+    public cl(cj.a aVar, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar, context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
-        f169a = simpleDateFormat;
-        a = simpleDateFormat.format(Long.valueOf(System.currentTimeMillis()));
+        this.f169a = aVar;
+        this.a = context;
     }
 
-    public static hj a(Context context, String str) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, IGET, IGET, INVOKE] complete} */
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            SQLiteDatabase sQLiteDatabase = null;
+            try {
+                try {
+                    sQLiteDatabase = this.f169a.a();
+                    if (sQLiteDatabase != null && sQLiteDatabase.isOpen()) {
+                        sQLiteDatabase.beginTransaction();
+                        this.f169a.a(this.a, sQLiteDatabase);
+                        sQLiteDatabase.setTransactionSuccessful();
+                    }
+                    if (sQLiteDatabase != null) {
+                        try {
+                            sQLiteDatabase.endTransaction();
+                        } catch (Exception e) {
+                            e = e;
+                            com.xiaomi.channel.commonutils.logger.b.a(e);
+                            this.f169a.a(this.a);
+                        }
+                    }
+                    if (this.f169a.f160a != null) {
+                        this.f169a.f160a.close();
+                    }
+                } catch (Exception e2) {
+                    com.xiaomi.channel.commonutils.logger.b.a(e2);
+                    if (sQLiteDatabase != null) {
+                        try {
+                            sQLiteDatabase.endTransaction();
+                        } catch (Exception e3) {
+                            e = e3;
+                            com.xiaomi.channel.commonutils.logger.b.a(e);
+                            this.f169a.a(this.a);
+                        }
+                    }
+                    if (this.f169a.f160a != null) {
+                        this.f169a.f160a.close();
+                    }
+                }
+                this.f169a.a(this.a);
+            } catch (Throwable th) {
+                if (sQLiteDatabase != null) {
+                    try {
+                        sQLiteDatabase.endTransaction();
+                    } catch (Exception e4) {
+                        com.xiaomi.channel.commonutils.logger.b.a(e4);
+                        this.f169a.a(this.a);
+                        throw th;
+                    }
+                }
+                if (this.f169a.f160a != null) {
+                    this.f169a.f160a.close();
+                }
+                this.f169a.a(this.a);
+                throw th;
             }
-            hj hjVar = new hj();
-            hjVar.d("category_push_stat");
-            hjVar.a("push_sdk_stat_channel");
-            hjVar.a(1L);
-            hjVar.b(str);
-            hjVar.a(true);
-            hjVar.b(System.currentTimeMillis());
-            hjVar.g(bu.a(context).m230a());
-            hjVar.e("com.xiaomi.xmsf");
-            hjVar.f("");
-            hjVar.c("push_stat");
-            return hjVar;
         }
-        return (hj) invokeLL.objValue;
     }
 }

@@ -1,30 +1,16 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface l61 {
-    void a(Activity activity, String str, String str2);
+public class l61 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void aLiAuth(Activity activity, String str, r61<JSONObject> r61Var);
-
-    boolean b(Context context);
-
-    void c(Activity activity, String str, g61 g61Var);
-
-    void d(Context context, JSONObject jSONObject, g61 g61Var);
-
-    void e(Activity activity, String str, g61 g61Var);
-
-    void f(Context context, JSONObject jSONObject);
-
-    void g(Bundle bundle);
-
-    void h(String str);
-
-    void i(Activity activity, JSONObject jSONObject, g61 g61Var);
-
-    String j(Context context);
+    public static void a(boolean z, String str, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Boolean.valueOf(z), str, objArr}) == null) && !z) {
+            throw new IllegalArgumentException(String.format(str, objArr));
+        }
+    }
 }

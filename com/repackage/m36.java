@@ -1,22 +1,6 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.data.VisitedForumData;
-import com.baidu.tieba.enterForum.data.RecentlyVisitedForumData;
-import com.baidu.tieba.enterForum.home.RecentlyVisitedForumHttpResponseMessage;
-import com.baidu.tieba.enterForum.home.RecentlyVisitedForumRequestMessage;
-import com.baidu.tieba.enterForum.home.RecentlyVisitedForumSocketResponseMessage;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,484 +8,191 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class m36 {
+public class m36 extends z05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RecentlyVisitedForumData a;
-    public boolean b;
-    public boolean c;
-    public boolean d;
-    public f e;
-    public CustomMessageListener f;
-    public CustomMessageListener g;
-    public wa h;
 
-    /* loaded from: classes6.dex */
-    public class a extends mc5<Object> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m36 a;
-
-        public a(m36 m36Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755550175, "Lcom/repackage/m36;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m36Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = m36Var;
-        }
-
-        @Override // com.repackage.mc5
-        public Object doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                cq4.f();
-                qe<String> h = cq4.h("tb.recently_visited_forum", TbadkCoreApplication.getCurrentAccount() == null ? "local" : TbadkCoreApplication.getCurrentAccount());
-                if (h != null && this.a.a != null) {
-                    h.g("recently_visited_forum", OrmObject.jsonStrWithObject(this.a.a));
-                }
-                return null;
-            }
-            return invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends BdAsyncTask<Void, Void, RecentlyVisitedForumData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m36 a;
-
-        public b(m36 m36Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m36Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = m36Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public RecentlyVisitedForumData doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                cq4.f();
-                qe<String> h = cq4.h("tb.recently_visited_forum", "local");
-                RecentlyVisitedForumData recentlyVisitedForumData = null;
-                RecentlyVisitedForumData recentlyVisitedForumData2 = (h == null || ki.isEmpty(h.get("recently_visited_forum"))) ? null : (RecentlyVisitedForumData) OrmObject.objectWithJsonStr(h.get("recently_visited_forum"), RecentlyVisitedForumData.class);
-                if (TbadkCoreApplication.getCurrentAccount() != null) {
-                    if (h != null) {
-                        h.g("recently_visited_forum", "");
-                    }
-                    cq4.f();
-                    qe<String> h2 = cq4.h("tb.recently_visited_forum", TbadkCoreApplication.getCurrentAccount());
-                    if (h2 == null || StringUtils.isNull(h2.get("recently_visited_forum"))) {
-                        return recentlyVisitedForumData2;
-                    }
-                    try {
-                        recentlyVisitedForumData = (RecentlyVisitedForumData) OrmObject.objectWithJsonStr(h2.get("recently_visited_forum"), RecentlyVisitedForumData.class);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    if (recentlyVisitedForumData2 != null) {
-                        recentlyVisitedForumData2.mergeForumData(recentlyVisitedForumData);
-                        h2.g("recently_visited_forum", OrmObject.jsonStrWithObject(recentlyVisitedForumData2));
-                        return recentlyVisitedForumData2;
-                    }
-                    return recentlyVisitedForumData;
-                }
-                return recentlyVisitedForumData2;
-            }
-            return (RecentlyVisitedForumData) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(RecentlyVisitedForumData recentlyVisitedForumData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recentlyVisitedForumData) == null) {
-                this.a.b = false;
-                if (recentlyVisitedForumData != null) {
-                    this.a.x(recentlyVisitedForumData.getForumData(), true);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m36 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(m36 m36Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m36Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = m36Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755550175, "Lcom/repackage/m36;");
                 return;
             }
-            this.a.q((VisitedForumData) customResponsedMessage.getData());
         }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m36 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(m36 m36Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m36Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = m36Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
-                return;
-            }
-            this.a.m();
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class e extends wa {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m36 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(m36 m36Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m36Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = m36Var;
-        }
-
-        @Override // com.repackage.wa
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.c = false;
-                if (responsedMessage == null) {
-                    return;
-                }
-                if (responsedMessage instanceof RecentlyVisitedForumHttpResponseMessage) {
-                    this.a.s((RecentlyVisitedForumHttpResponseMessage) responsedMessage);
-                } else if (responsedMessage instanceof RecentlyVisitedForumSocketResponseMessage) {
-                    this.a.t((RecentlyVisitedForumSocketResponseMessage) responsedMessage);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface f {
-        void a(LinkedList<VisitedForumData> linkedList, boolean z);
-
-        void b(int i);
-
-        void onNotify();
-    }
-
-    /* loaded from: classes6.dex */
-    public static class g {
-        public static /* synthetic */ Interceptable $ic;
-        public static m36 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-234264002, "Lcom/repackage/m36$g;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-234264002, "Lcom/repackage/m36$g;");
-                    return;
-                }
-            }
-            a = new m36(null);
-        }
-    }
-
-    public /* synthetic */ m36(a aVar) {
-        this();
-    }
-
-    public static m36 l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? g.a : (m36) invokeV.objValue;
-    }
-
-    public void i(VisitedForumData visitedForumData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, visitedForumData) == null) {
-            p(visitedForumData);
-        }
-    }
-
-    public RecentlyVisitedForumData j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (RecentlyVisitedForumData) invokeV.objValue;
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            RecentlyVisitedForumData recentlyVisitedForumData = this.a;
-            if (recentlyVisitedForumData == null || recentlyVisitedForumData.getForumData() == null || this.a.getForumData().size() < 1) {
-                return "";
-            }
-            ArrayList<VisitedForumData> arrayList = new ArrayList(this.a.getForumData());
-            JSONArray jSONArray = new JSONArray();
-            for (VisitedForumData visitedForumData : arrayList) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("forum_id", jg.g(visitedForumData.getForumId(), 0L));
-                    jSONObject.put("visit_time", visitedForumData.getVisitedTime());
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
-                jSONArray.put(jSONObject);
-            }
-            return jSONArray.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = true;
-            b bVar = new b(this);
-            bVar.setPriority(3);
-            bVar.execute(new Void[0]);
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.c) {
-            return;
-        }
-        RecentlyVisitedForumRequestMessage recentlyVisitedForumRequestMessage = new RecentlyVisitedForumRequestMessage();
-        recentlyVisitedForumRequestMessage.setForumData(this.a.getForumData());
-        this.c = MessageManager.getInstance().sendMessage(recentlyVisitedForumRequestMessage);
-    }
-
-    public void o() {
-        f fVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (fVar = this.e) == null) {
-            return;
-        }
-        fVar.a(this.a.getForumData(), this.d);
-    }
-
-    public final void p(VisitedForumData visitedForumData) {
-        int deleteForumItem;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, visitedForumData) == null) || visitedForumData == null || (deleteForumItem = this.a.deleteForumItem(visitedForumData)) < 0) {
-            return;
-        }
-        f fVar = this.e;
-        if (fVar != null) {
-            fVar.b(deleteForumItem);
-        }
-        v(visitedForumData);
-        y();
-    }
-
-    public final void q(VisitedForumData visitedForumData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, visitedForumData) == null) || visitedForumData == null) {
-            return;
-        }
-        this.a.addForumItem(visitedForumData);
-        this.a.trimSize(20);
-        o();
-        y();
-        l().n();
-    }
-
-    public void r() {
-        f fVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (fVar = this.e) == null) {
-            return;
-        }
-        fVar.onNotify();
-    }
-
-    public final void s(RecentlyVisitedForumHttpResponseMessage recentlyVisitedForumHttpResponseMessage) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, recentlyVisitedForumHttpResponseMessage) == null) || recentlyVisitedForumHttpResponseMessage == null || recentlyVisitedForumHttpResponseMessage.getForumData() == null) {
-            return;
-        }
-        x(recentlyVisitedForumHttpResponseMessage.getForumData(), false);
-    }
-
-    public final void t(RecentlyVisitedForumSocketResponseMessage recentlyVisitedForumSocketResponseMessage) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, recentlyVisitedForumSocketResponseMessage) == null) || recentlyVisitedForumSocketResponseMessage == null || recentlyVisitedForumSocketResponseMessage.getForumData() == null) {
-            return;
-        }
-        x(recentlyVisitedForumSocketResponseMessage.getForumData(), false);
-    }
-
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            MessageManager.getInstance().registerListener(this.h);
-            MessageManager.getInstance().registerListener(this.f);
-            MessageManager.getInstance().registerListener(this.g);
-        }
-    }
-
-    public final void v(VisitedForumData visitedForumData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, visitedForumData) == null) && TbadkCoreApplication.isLogin()) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_DELETE_HISTORY_FORUM);
-            httpMessage.addParam("forum_id", jg.g(visitedForumData.getForumId(), 0L));
-            MessageManager.getInstance().sendMessage(httpMessage);
-        }
-    }
-
-    public void w(f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, fVar) == null) {
-            this.e = fVar;
-        }
-    }
-
-    public final void x(LinkedList<VisitedForumData> linkedList, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048590, this, linkedList, z) == null) || linkedList == null) {
-            return;
-        }
-        this.a.setForumData(linkedList);
-        this.a.trimSize(20);
-        this.d = z;
-        o();
-    }
-
-    public void y() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || this.b) {
-            return;
-        }
-        pc5.b(new a(this), null);
+        z05.a.put("video_icon", Integer.valueOf((int) R.drawable.ico_link_video));
+        HashMap<String, Integer> hashMap = z05.a;
+        Integer valueOf = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b49);
+        hashMap.put("image_emoticon34", valueOf);
+        HashMap<String, Integer> hashMap2 = z05.a;
+        Integer valueOf2 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b4a);
+        hashMap2.put("image_emoticon35", valueOf2);
+        HashMap<String, Integer> hashMap3 = z05.a;
+        Integer valueOf3 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b4b);
+        hashMap3.put("image_emoticon36", valueOf3);
+        HashMap<String, Integer> hashMap4 = z05.a;
+        Integer valueOf4 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b4c);
+        hashMap4.put("image_emoticon37", valueOf4);
+        HashMap<String, Integer> hashMap5 = z05.a;
+        Integer valueOf5 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b4d);
+        hashMap5.put("image_emoticon38", valueOf5);
+        HashMap<String, Integer> hashMap6 = z05.a;
+        Integer valueOf6 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b50);
+        hashMap6.put("image_emoticon40", valueOf6);
+        HashMap<String, Integer> hashMap7 = z05.a;
+        Integer valueOf7 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b4e);
+        hashMap7.put("image_emoticon39", valueOf7);
+        HashMap<String, Integer> hashMap8 = z05.a;
+        Integer valueOf8 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b51);
+        hashMap8.put("image_emoticon41", valueOf8);
+        HashMap<String, Integer> hashMap9 = z05.a;
+        Integer valueOf9 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b52);
+        hashMap9.put("image_emoticon42", valueOf9);
+        HashMap<String, Integer> hashMap10 = z05.a;
+        Integer valueOf10 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b53);
+        hashMap10.put("image_emoticon43", valueOf10);
+        HashMap<String, Integer> hashMap11 = z05.a;
+        Integer valueOf11 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b54);
+        hashMap11.put("image_emoticon44", valueOf11);
+        HashMap<String, Integer> hashMap12 = z05.a;
+        Integer valueOf12 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b55);
+        hashMap12.put("image_emoticon45", valueOf12);
+        HashMap<String, Integer> hashMap13 = z05.a;
+        Integer valueOf13 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b56);
+        hashMap13.put("image_emoticon46", valueOf13);
+        HashMap<String, Integer> hashMap14 = z05.a;
+        Integer valueOf14 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b57);
+        hashMap14.put("image_emoticon47", valueOf14);
+        HashMap<String, Integer> hashMap15 = z05.a;
+        Integer valueOf15 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b58);
+        hashMap15.put("image_emoticon48", valueOf15);
+        z05.a.put("image_emoticon49", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b59));
+        z05.a.put("image_emoticon50", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b5b));
+        z05.a.put("image_emoticon77", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b6e));
+        z05.a.put("image_emoticon78", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b6f));
+        z05.a.put("image_emoticon79", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b70));
+        z05.a.put("image_emoticon80", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b72));
+        z05.a.put("image_emoticon81", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b73));
+        z05.a.put("image_emoticon82", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b74));
+        z05.a.put("image_emoticon83", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b75));
+        z05.a.put("image_emoticon84", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b76));
+        z05.a.put("image_emoticon101", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b0b));
+        z05.a.put("image_emoticon102", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b0c));
+        z05.a.put("image_emoticon103", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b0d));
+        z05.a.put("image_emoticon104", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b0e));
+        z05.a.put("image_emoticon105", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b0f));
+        z05.a.put("image_emoticon106", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b10));
+        z05.a.put("image_emoticon107", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b11));
+        z05.a.put("image_emoticon108", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b12));
+        z05.a.put("image_emoticon109", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b13));
+        z05.a.put("image_emoticon110", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b15));
+        z05.a.put("image_emoticon111", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b16));
+        z05.a.put("image_emoticon112", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b17));
+        z05.a.put("image_emoticon113", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b18));
+        z05.a.put("image_emoticon114", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b19));
+        z05.a.put("image_emoticon115", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b1a));
+        z05.a.put("image_emoticon116", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b1b));
+        z05.a.put("image_emoticon117", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b1c));
+        z05.a.put("image_emoticon118", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b1d));
+        z05.a.put("image_emoticon119", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b1e));
+        z05.a.put("image_emoticon120", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b20));
+        z05.a.put("image_emoticon121", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b21));
+        z05.a.put("image_emoticon122", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b22));
+        z05.a.put("image_emoticon123", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b23));
+        z05.a.put("image_emoticon124", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b24));
+        z05.b.add(valueOf);
+        z05.b.add(valueOf2);
+        z05.b.add(valueOf3);
+        z05.b.add(valueOf4);
+        z05.b.add(valueOf5);
+        z05.b.add(valueOf6);
+        z05.b.add(valueOf7);
+        z05.b.add(valueOf8);
+        z05.b.add(valueOf10);
+        z05.b.add(valueOf11);
+        z05.b.add(valueOf15);
+        z05.b.add(valueOf14);
+        z05.b.add(valueOf13);
+        z05.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b5b));
+        z05.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b6e));
+        z05.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b6f));
+        z05.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b70));
+        z05.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b72));
+        z05.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b73));
+        z05.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b74));
+        z05.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b75));
+        z05.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b76));
+        z05.b.add(valueOf12);
+        z05.b.add(valueOf9);
+        z05.c.put("#(爱心)", valueOf);
+        z05.c.put("#(心碎)", valueOf2);
+        z05.c.put("#(玫瑰)", valueOf3);
+        z05.c.put("#(礼物)", valueOf4);
+        z05.c.put("#(彩虹)", valueOf5);
+        z05.c.put("#(星星月亮)", valueOf7);
+        z05.c.put("#(太阳)", valueOf6);
+        z05.c.put("#(钱币)", valueOf8);
+        z05.c.put("#(灯泡)", valueOf9);
+        z05.c.put("#(茶杯)", valueOf10);
+        z05.c.put("#(蛋糕)", valueOf11);
+        z05.c.put("#(音乐)", valueOf12);
+        z05.c.put("#(haha)", valueOf13);
+        z05.c.put("#(胜利)", valueOf14);
+        z05.c.put("#(大拇指)", valueOf15);
+        z05.c.put("#(弱)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b59));
+        z05.c.put("#(OK)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b5b));
+        z05.c.put("#(沙发)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b6e));
+        z05.c.put("#(手纸)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b6f));
+        z05.c.put("#(香蕉)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b70));
+        z05.c.put("#(便便)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b72));
+        z05.c.put("#(药丸)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b73));
+        z05.c.put("#(红领巾)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b74));
+        z05.c.put("#(蜡烛)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b75));
+        z05.c.put("#(三道杠)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b76));
+        z05.c.put("#(不跟丑人说话)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b0b));
+        z05.c.put("#(么么哒)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b0c));
+        z05.c.put("#(亲亲才能起来)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b0d));
+        z05.c.put("#(伦家只是宝宝)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b0e));
+        z05.c.put("#(你是我的人)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b0f));
+        z05.c.put("#(假装看不见)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b10));
+        z05.c.put("#(单身等撩)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b11));
+        z05.c.put("#(吓到宝宝了)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b12));
+        z05.c.put("#(哈哈哈)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b13));
+        z05.c.put("#(嗯嗯)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b15));
+        z05.c.put("#(好幸福)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b16));
+        z05.c.put("#(宝宝不开心)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b17));
+        z05.c.put("#(小姐姐别走)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b18));
+        z05.c.put("#(小姐姐在吗)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b19));
+        z05.c.put("#(小姐姐来啦)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b1a));
+        z05.c.put("#(小姐姐来玩呀)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b1b));
+        z05.c.put("#(我养你)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b1c));
+        z05.c.put("#(我是不会骗你的)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b1d));
+        z05.c.put("#(扎心了)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b1e));
+        z05.c.put("#(无聊)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b20));
+        z05.c.put("#(月亮代表我的心)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b21));
+        z05.c.put("#(来追我呀)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b22));
+        z05.c.put("#(爱你的形状)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b23));
+        z05.c.put("#(白眼)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b24));
     }
 
     public m36() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.b = false;
-        this.c = false;
-        this.f = new c(this, 2016564);
-        this.g = new d(this, 2005016);
-        this.h = new e(this, CmdConfigHttp.CMD_GET_HISTORY_FORUM, 309601);
-        this.a = new RecentlyVisitedForumData();
-        u();
-        m();
     }
 }

@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.u60;
-import com.repackage.v60;
-import com.repackage.w60;
+import com.repackage.a70;
+import com.repackage.y60;
+import com.repackage.z60;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes.dex */
-public class QuicMessageHandler extends v60 implements QuicEventCallbackListener {
+/* loaded from: classes2.dex */
+public class QuicMessageHandler extends z60 implements QuicEventCallbackListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -57,7 +57,7 @@ public class QuicMessageHandler extends v60 implements QuicEventCallbackListener
         initGlobalRef(this);
     }
 
-    @Override // com.repackage.v60
+    @Override // com.repackage.z60
     public InputStream b() throws EOFException, IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -67,16 +67,16 @@ public class QuicMessageHandler extends v60 implements QuicEventCallbackListener
         return (InputStream) invokeV.objValue;
     }
 
-    @Override // com.repackage.v60
-    public void c(w60 w60Var) {
+    @Override // com.repackage.z60
+    public void c(a70 a70Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w60Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a70Var) == null) {
         }
     }
 
     public native void closeStream(int i);
 
-    @Override // com.repackage.v60
+    @Override // com.repackage.z60
     public boolean d() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -86,22 +86,22 @@ public class QuicMessageHandler extends v60 implements QuicEventCallbackListener
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.v60
-    public w60 e(String str, int i) {
+    @Override // com.repackage.z60
+    public a70 e(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, str, i)) == null) {
             return null;
         }
-        return (w60) invokeLI.objValue;
+        return (a70) invokeLI.objValue;
     }
 
     public native void enableQuicCache(boolean z, String str);
 
-    @Override // com.repackage.v60
-    public void f(u60 u60Var) throws IOException {
+    @Override // com.repackage.z60
+    public void f(y60 y60Var) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, u60Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, y60Var) == null) {
         }
     }
 

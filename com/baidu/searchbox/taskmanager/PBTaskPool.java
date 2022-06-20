@@ -28,7 +28,6 @@ import com.baidu.searchbox.task.async.homeready.ApplicationIdleTask;
 import com.baidu.searchbox.task.async.homeready.GetYYCloudTask;
 import com.baidu.searchbox.task.async.homeready.InitCookieTask;
 import com.baidu.searchbox.task.async.homeready.InitCyberPlayerTask;
-import com.baidu.searchbox.task.async.homeready.InitFlutterFragmentTask;
 import com.baidu.searchbox.task.async.homeready.InitMaintabFragmentTask;
 import com.baidu.searchbox.task.async.homeready.InitSDKIdleTask;
 import com.baidu.searchbox.task.async.homeready.InitUnionIDTask;
@@ -201,7 +200,6 @@ public class PBTaskPool extends BaseTaskPool {
                 arrayList.add(new GetYYCloudTask());
                 arrayList.add(new InitCookieTask());
                 arrayList.add(new InitMaintabFragmentTask());
-                arrayList.add(new InitFlutterFragmentTask());
                 arrayList.add(new InitUnionIDTask());
                 arrayList.add(new MaintabAsyncInitTask());
                 arrayList.add(new LaunchStatTask());

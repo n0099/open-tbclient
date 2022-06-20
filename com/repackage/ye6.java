@@ -1,93 +1,165 @@
 package com.repackage;
 
 import android.view.View;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.tbadkCore.FrsRequestData;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.widget.layout.ConstrainImageGroup;
+import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
 /* loaded from: classes7.dex */
-public class ye6 implements fg6 {
+public class ye6 extends mw5<ze6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbImageView i;
+    public TextView j;
+    public TextView k;
+    public View l;
+    public RelativeLayout m;
+    public ConstrainImageGroup n;
 
-    public ye6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ye6(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        View h = h();
+        this.i = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f0900d7);
+        this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0900ef);
+        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09009a);
+        this.n = (ConstrainImageGroup) h.findViewById(R.id.obfuscated_res_0x7f0900ac);
+        this.l = h.findViewById(R.id.obfuscated_res_0x7f090f24);
+        this.m = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f090a8e);
+        h.setOnClickListener(this);
     }
 
-    @Override // com.repackage.fg6
-    public void a(jo6 jo6Var, FrsViewData frsViewData) {
+    @Override // com.repackage.mw5
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, jo6Var, frsViewData) == null) || jo6Var == null || frsViewData == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d02ea : invokeV.intValue;
+    }
+
+    @Override // com.repackage.mw5
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || this.a == i) {
             return;
         }
-        ArrayList<jn> threadList = frsViewData.getThreadList();
-        if (ListUtils.isEmpty(threadList)) {
+        this.a = i;
+        SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0109);
+        SkinManager.setBackgroundResource(this.m, R.drawable.ad_list_item_bg);
+        this.n.b();
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.mw5
+    /* renamed from: r */
+    public void i(ze6 ze6Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, ze6Var) == null) || ze6Var == null) {
             return;
         }
-        ArrayList arrayList = new ArrayList();
-        Iterator<jn> it = threadList.iterator();
-        while (it.hasNext()) {
-            jn next = it.next();
-            if (next.getType() == ThreadData.TYPE_TOP) {
-                arrayList.add(next);
+        this.i.setPlaceHolder(1);
+        this.i.J(ze6Var.h(), 10, false);
+        this.i.setRadius(pi.f(getContext(), R.dimen.tbds26));
+        this.i.setDrawerType(1);
+        this.i.setDrawBorder(true);
+        this.i.setBorderColor(SkinManager.getColor(R.color.black_alpha15));
+        this.i.setBorderWidth(pi.f(getContext(), R.dimen.tbds1));
+        this.i.setDefaultResource(R.drawable.obfuscated_res_0x7f081224);
+        this.i.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081224);
+        this.j.setText(ze6Var.f());
+        this.k.setText(ze6Var.c());
+        SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0109);
+        SkinManager.setBackgroundResource(this.m, R.drawable.ad_list_item_bg);
+        if (ListUtils.getCount(ze6Var.n()) > 0) {
+            bf5 bf5Var = new bf5(3);
+            bf5Var.d(1.0d);
+            this.n.setVisibility(0);
+            this.n.setFromCDN(true);
+            this.n.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20));
+            this.n.setImageProcessor(bf5Var);
+            this.n.setImageMediaList(ze6Var.n());
+            if (!ze6Var.l()) {
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, pi.f(getContext(), R.dimen.tbds16));
+                layoutParams.addRule(12);
+                this.l.setLayoutParams(layoutParams);
+                SkinManager.setBackgroundColor(this.l, R.color.CAM_X0204);
+                this.l.setVisibility(0);
+                return;
             }
-        }
-        frsViewData.setTopThreadList(arrayList);
-    }
-
-    @Override // com.repackage.fg6
-    public void b(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            view2.setVisibility(8);
-        }
-    }
-
-    @Override // com.repackage.fg6
-    public void c(jo6 jo6Var, lb6 lb6Var, FrsViewData frsViewData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, jo6Var, lb6Var, frsViewData) == null) || jo6Var == null || lb6Var == null || frsViewData == null) {
+            this.l.setVisibility(8);
             return;
         }
-        jo6Var.s();
-        if (frsViewData == null || frsViewData.getForum() == null) {
+        this.n.setVisibility(8);
+        if (!ze6Var.l()) {
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, pi.f(getContext(), R.dimen.tbds1));
+            layoutParams2.addRule(12);
+            this.l.setLayoutParams(layoutParams2);
+            SkinManager.setBackgroundColor(this.l, R.color.CAM_X0204);
+            this.l.setVisibility(0);
             return;
         }
-        lb6Var.Y0(frsViewData.getForum().getFrsBannerData());
+        this.l.setVisibility(8);
     }
 
-    @Override // com.repackage.fg6
-    public int d(int i, FrsRequestData frsRequestData) {
-        InterceptResult invokeIL;
+    public void s(eg<TbImageView> egVar) {
+        ConstrainImageGroup constrainImageGroup;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, frsRequestData)) == null) ? xn6.e(i, frsRequestData) : invokeIL.intValue;
-    }
-
-    @Override // com.repackage.fg6
-    public boolean e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return false;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, egVar) == null) || (constrainImageGroup = this.n) == null) {
+            return;
         }
-        return invokeI.booleanValue;
+        constrainImageGroup.setImageViewPool(egVar);
+    }
+
+    public void t(eg<ConstrainImageLayout> egVar) {
+        ConstrainImageGroup constrainImageGroup;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, egVar) == null) || (constrainImageGroup = this.n) == null) {
+            return;
+        }
+        constrainImageGroup.setConstrainLayoutPool(egVar);
+    }
+
+    public void u(double d) {
+        ConstrainImageGroup constrainImageGroup;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Double.valueOf(d)}) == null) || (constrainImageGroup = this.n) == null) {
+            return;
+        }
+        constrainImageGroup.setSingleImageRatio(d);
     }
 }

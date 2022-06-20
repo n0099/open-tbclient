@@ -15,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 /* loaded from: classes3.dex */
 public class NoDataViewFactory {
     public static /* synthetic */ Interceptable $ic;
@@ -52,7 +53,7 @@ public class NoDataViewFactory {
                     return;
                 }
             }
-            NONE = new ImgType("NONE", 0);
+            NONE = new ImgType(HlsPlaylistParser.METHOD_NONE, 0);
             CREATE = new ImgType("CREATE", 1);
             NODATA = new ImgType("NODATA", 2);
             FINDBAR = new ImgType("FINDBAR", 3);

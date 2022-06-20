@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.Cif;
-import com.repackage.db1;
-import com.repackage.gw4;
-import com.repackage.rf;
+import com.repackage.lf;
+import com.repackage.ob1;
+import com.repackage.rw4;
+import com.repackage.uf;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class HttpsExperimentFetcher extends db1<Cif> {
+public class HttpsExperimentFetcher extends ob1<lf> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,7 +28,7 @@ public class HttpsExperimentFetcher extends db1<Cif> {
     }
 
     /* loaded from: classes2.dex */
-    public static final class HttpsExperimentImpl implements Cif {
+    public static final class HttpsExperimentImpl implements lf {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -46,12 +46,12 @@ public class HttpsExperimentFetcher extends db1<Cif> {
             }
         }
 
-        @Override // com.repackage.Cif
-        public List<rf> getHttpsWhileList() {
+        @Override // com.repackage.lf
+        public List<uf> getHttpsWhileList() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                gw4 httpsWhileData = TbadkCoreApplication.getInst().getHttpsWhileData();
+                rw4 httpsWhileData = TbadkCoreApplication.getInst().getHttpsWhileData();
                 if (httpsWhileData == null) {
                     return null;
                 }
@@ -60,12 +60,12 @@ public class HttpsExperimentFetcher extends db1<Cif> {
             return (List) invokeV.objValue;
         }
 
-        @Override // com.repackage.Cif
+        @Override // com.repackage.lf
         public boolean isFullHttps() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                gw4 httpsWhileData = TbadkCoreApplication.getInst().getHttpsWhileData();
+                rw4 httpsWhileData = TbadkCoreApplication.getInst().getHttpsWhileData();
                 if (httpsWhileData == null) {
                     return false;
                 }
@@ -74,14 +74,14 @@ public class HttpsExperimentFetcher extends db1<Cif> {
             return invokeV.booleanValue;
         }
 
-        @Override // com.repackage.Cif
+        @Override // com.repackage.lf
         public boolean isIpv6() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Ipv6TestSwitch.isOn() : invokeV.booleanValue;
         }
 
-        @Override // com.repackage.Cif
+        @Override // com.repackage.lf
         public boolean isSwitchOn() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -109,10 +109,10 @@ public class HttpsExperimentFetcher extends db1<Cif> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.repackage.db1
-    public Cif createService() throws ServiceNotFoundException {
+    @Override // com.repackage.ob1
+    public lf createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new HttpsExperimentImpl(null) : (Cif) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new HttpsExperimentImpl(null) : (lf) invokeV.objValue;
     }
 }

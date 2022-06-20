@@ -1,21 +1,25 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.win.opensdk.PBError;
+import com.win.opensdk.PBNativeListener;
+import com.win.opensdk.core.Info;
 /* loaded from: classes7.dex */
-public class sq9 {
+public class sq9 implements aq9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ xl9 a;
+    public final /* synthetic */ mk9 a;
 
-    public sq9(xl9 xl9Var) {
+    public sq9(mk9 mk9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xl9Var};
+            Object[] objArr = {mk9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -25,33 +29,42 @@ public class sq9 {
                 return;
             }
         }
-        this.a = xl9Var;
+        this.a = mk9Var;
     }
 
-    public void a(int i, int i2) {
+    @Override // com.repackage.aq9
+    public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && i == 1 && i2 == 0) {
-            xl9 xl9Var = this.a;
-            yl9 yl9Var = xl9Var.e;
-            if (yl9Var != null && !xl9Var.f && !xl9Var.k && !xl9.x) {
-                if (yl9Var != null) {
-                    yl9Var.e();
-                    return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.aq9
+    public void a(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            Info info = (Info) obj;
+            try {
+                this.a.c = info;
+                if (this.a.f != null) {
+                    if (info == null || info.getType() != 11) {
+                        this.a.f.onFail(PBError.PID_TYPE_ERROR);
+                    } else if (this.a.g()) {
+                        this.a.f.onLoaded();
+                    }
                 }
-                return;
-            }
-            xl9 xl9Var2 = this.a;
-            if (xl9Var2.e == null || xl9Var2.f || !xl9Var2.k || xl9.x) {
-                return;
-            }
-            ok9 ok9Var = xl9Var2.b.a;
-            if (((ok9Var == null || !ok9Var.f()) ? -1 : ok9Var.c.getOpent()) == 1) {
-                xl9 xl9Var3 = this.a;
-                if (xl9Var3.e == null || !xl9Var3.r.isShown()) {
-                    return;
-                }
-                this.a.e.e();
+            } catch (Exception unused) {
             }
         }
+    }
+
+    @Override // com.repackage.aq9
+    public void onFail(PBError pBError) {
+        PBNativeListener pBNativeListener;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (pBNativeListener = this.a.f) == null) {
+            return;
+        }
+        pBNativeListener.onFail(pBError);
     }
 }

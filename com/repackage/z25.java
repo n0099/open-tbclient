@@ -1,7 +1,11 @@
 package com.repackage;
 
-import com.baidu.tbadk.img.ImageFileInfo;
+import android.view.View;
 /* loaded from: classes7.dex */
 public interface z25 {
-    String a(ImageFileInfo imageFileInfo);
+    void b();
+
+    View getView();
+
+    void onClick();
 }

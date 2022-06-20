@@ -1,438 +1,154 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tbadk.core.view.PushPermissionDialogViewV2;
-import com.baidu.tieba.R;
-import com.baidu.tieba.view.BdTopToast;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dq4;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class by4 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public static Map<String, String> b;
+    public static boolean c;
+    public static boolean d;
+    public static int e;
+    public static int f;
+    public static boolean g;
+    public static String h;
+    public static Map<String, String> i;
+    public static int j;
+    public static int k;
+    public static boolean l;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ay4 a;
-
-        public a(ay4 ay4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ay4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ay4Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.v();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gl4 a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ dq4 c;
-
-        public b(gl4 gl4Var, int i, dq4 dq4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gl4Var, Integer.valueOf(i), dq4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gl4Var;
-            this.b = i;
-            this.c = dq4Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                gl4 gl4Var = this.a;
-                if (gl4Var != null) {
-                    gl4Var.a();
-                }
-                by4.c(this.b, true);
-                this.c.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gl4 a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ dq4 c;
-
-        public c(gl4 gl4Var, int i, dq4 dq4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gl4Var, Integer.valueOf(i), dq4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gl4Var;
-            this.b = i;
-            this.c = dq4Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                gl4 gl4Var = this.a;
-                if (gl4Var != null) {
-                    gl4Var.b();
-                }
-                by4.c(this.b, false);
-                this.c.dismiss();
-            }
-        }
-    }
-
-    public static String b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i == 2 ? "im" : i == 3 ? "reply_message_bar" : i == 4 ? "forum_sign" : "default" : (String) invokeI.objValue;
-    }
-
-    public static void c(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            TiebaStatic.log(new StatisticItem("c13673").param("obj_type", z ? 1 : 2).param("obj_source", i == 2 ? 12 : i == 3 ? 11 : 0));
-        }
-    }
-
-    public static void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
-            TiebaStatic.log(new StatisticItem("c13674").param("obj_source", i == 2 ? 12 : i == 3 ? 11 : 0));
-        }
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static Map<String, String> e(String str) {
-        InterceptResult invokeL;
-        char c2;
-        String string;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            HashMap hashMap = new HashMap();
-            String string2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f3e);
-            switch (str.hashCode()) {
-                case -1130769265:
-                    if (str.equals("forum_follow")) {
-                        c2 = 0;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -841017829:
-                    if (str.equals("forum_sign")) {
-                        c2 = 1;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -429621401:
-                    if (str.equals("reply_pb")) {
-                        c2 = 2;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -426397178:
-                    if (str.equals("reply_message_bar")) {
-                        c2 = 3;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 3364:
-                    if (str.equals("im")) {
-                        c2 = 4;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                default:
-                    c2 = 65535;
-                    break;
-            }
-            if (c2 == 0) {
-                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f3a);
-            } else if (c2 == 1) {
-                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f3b);
-            } else if (c2 == 2 || c2 == 3) {
-                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f3d);
-            } else if (c2 != 4) {
-                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f39);
-            } else {
-                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f3c);
-            }
-            qw4 qw4Var = null;
-            pw4 pushStrategyConfig = TbSingleton.getInstance().getPushStrategyConfig();
-            if (pushStrategyConfig != null && pushStrategyConfig.d()) {
-                qw4Var = pushStrategyConfig.c(str);
-            }
-            if (qw4Var != null && !TextUtils.isEmpty(qw4Var.c())) {
-                string2 = qw4Var.c();
-            }
-            if (qw4Var != null && !TextUtils.isEmpty(qw4Var.b())) {
-                string = qw4Var.b();
-            }
-            hashMap.put("view_params_key_title", string2);
-            hashMap.put("view_params_key_desc", string);
-            hashMap.put("view_params_key_source", str);
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    public static boolean f(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, context, i)) == null) {
-            pw4 pushStrategyConfig = TbSingleton.getInstance().getPushStrategyConfig();
-            boolean z = false;
-            int b2 = (pushStrategyConfig == null || !pushStrategyConfig.d()) ? 0 : pushStrategyConfig.b();
-            if (b2 <= 0) {
-                b2 = 7;
-            }
-            Date date = new Date(ys4.k().m("push_permission_dialog_scene_cold_start_key", 0L));
-            Date date2 = new Date(ys4.k().m("push_permission_dialog_scene_interaction_key", 0L));
-            long currentTimeMillis = System.currentTimeMillis();
-            Date date3 = new Date(currentTimeMillis);
-            if (i == 0 && TimeHelper.getDayDifference(date3, date2) >= b2 && !TimeHelper.isSameDay(date3, date)) {
-                z = true;
-            }
-            if (i == 1 && TimeHelper.getDayDifference(date3, date) >= b2 && !TimeHelper.isSameDay(date3, date2)) {
-                z = true;
-            }
-            if (z) {
-                if (i == 0) {
-                    ys4.k().x("push_permission_dialog_scene_interaction_key", currentTimeMillis);
-                } else if (i == 1) {
-                    ys4.k().x("push_permission_dialog_scene_cold_start_key", currentTimeMillis);
-                }
-            }
-            return z;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public static ay4 g(TbPageContext<?> tbPageContext, Map<String, String> map, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{tbPageContext, map, Long.valueOf(j)})) == null) {
-            if (tbPageContext == null || map == null) {
-                return null;
-            }
-            ay4 ay4Var = new ay4(tbPageContext, map);
-            if (j <= 0) {
-                ay4Var.v();
-            } else {
-                mg.a().postDelayed(new a(ay4Var), j);
-            }
-            return ay4Var;
-        }
-        return (ay4) invokeCommon.objValue;
-    }
-
-    public static ay4 h(TbPageContext<?> tbPageContext, String str, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{tbPageContext, str, Long.valueOf(j)})) == null) ? i(tbPageContext, str, j, null) : (ay4) invokeCommon.objValue;
-    }
-
-    public static ay4 i(TbPageContext<?> tbPageContext, String str, long j, Map<String, String> map) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{tbPageContext, str, Long.valueOf(j), map})) == null) {
-            if (tbPageContext == null || tbPageContext.getPageActivity() == null) {
-                return null;
-            }
-            Map<String, String> e = e(str);
-            if (map != null) {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    e.put(entry.getKey(), entry.getValue());
-                }
-            }
-            boolean areNotificationsEnabled = NotificationManagerCompat.from(tbPageContext.getPageActivity()).areNotificationsEnabled();
-            char c2 = 65535;
-            switch (str.hashCode()) {
-                case -1130769265:
-                    if (str.equals("forum_follow")) {
-                        c2 = 4;
-                        break;
-                    }
-                    break;
-                case -841017829:
-                    if (str.equals("forum_sign")) {
-                        c2 = 5;
-                        break;
-                    }
-                    break;
-                case -485371922:
-                    if (str.equals("homepage")) {
-                        c2 = 0;
-                        break;
-                    }
-                    break;
-                case -429621401:
-                    if (str.equals("reply_pb")) {
-                        c2 = 1;
-                        break;
-                    }
-                    break;
-                case -426397178:
-                    if (str.equals("reply_message_bar")) {
-                        c2 = 3;
-                        break;
-                    }
-                    break;
-                case 3530173:
-                    if (str.equals("sign")) {
-                        c2 = 2;
-                        break;
-                    }
-                    break;
-                case 949444906:
-                    if (str.equals("collect")) {
-                        c2 = 6;
-                        break;
-                    }
-                    break;
-            }
-            switch (c2) {
-                case 0:
-                    if (UbsABTestHelper.isPushOpenPlan3() || areNotificationsEnabled) {
-                        return null;
-                    }
-                    return g(tbPageContext, e, j);
-                case 1:
-                    if (UbsABTestHelper.isPushOpenPlan1()) {
-                        return null;
-                    }
-                    boolean x = ex4.d().x();
-                    if (areNotificationsEnabled && x) {
-                        return null;
-                    }
-                    return g(tbPageContext, e, j);
-                case 2:
-                    return UbsABTestHelper.isPushOpenPlan1() ? null : null;
-                case 3:
-                    return UbsABTestHelper.isPushOpenPlan1() ? null : null;
-                case 4:
-                    return g(tbPageContext, e, j);
-                case 5:
-                    return g(tbPageContext, e, j);
-                case 6:
-                    if (areNotificationsEnabled) {
-                        return null;
-                    }
-                    return g(tbPageContext, e, j);
-                default:
-                    throw new IllegalStateException("Unexpected value: " + str);
-            }
-        }
-        return (ay4) invokeCommon.objValue;
-    }
-
-    public static void j(TbPageContext<?> tbPageContext, int i, gl4 gl4Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65545, null, tbPageContext, i, gl4Var) == null) || tbPageContext == null || tbPageContext.getPageActivity() == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755810668, "Lcom/repackage/by4;")) == null) {
             return;
         }
-        dq4 dq4Var = new dq4(tbPageContext.getPageActivity());
-        dq4Var.setCancelable(false);
-        dq4Var.setPositiveButton((String) null, (dq4.e) null);
-        dq4Var.setNegativeButton((String) null, (dq4.e) null);
-        dq4Var.setContentViewSize(7);
-        PushPermissionDialogViewV2 pushPermissionDialogViewV2 = new PushPermissionDialogViewV2(tbPageContext.getPageActivity());
-        Map<String, String> e = e(b(i));
-        pushPermissionDialogViewV2.setTitle(e.get("view_params_key_title"));
-        pushPermissionDialogViewV2.setDescription(e.get("view_params_key_title"));
-        dq4Var.setContentView(pushPermissionDialogViewV2);
-        if (pushPermissionDialogViewV2.getConfirmButton() != null) {
-            pushPermissionDialogViewV2.getConfirmButton().setOnClickListener(new b(gl4Var, i, dq4Var));
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-        if (pushPermissionDialogViewV2.getCancelButton() != null) {
-            pushPermissionDialogViewV2.getCancelButton().setOnClickListener(new c(gl4Var, i, dq4Var));
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755810668, "Lcom/repackage/by4;");
         }
-        dq4Var.create(tbPageContext).show();
-        d(i);
     }
 
-    public static void k(Activity activity) {
+    public static int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65546, null, activity) == null) || activity == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (!c) {
+                return ht4.k().l("video_report_config_upload_number", 5);
+            }
+            return f;
+        }
+        return invokeV.intValue;
+    }
+
+    public static int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (!c) {
+                return ht4.k().l("video_report_config_upload_type", 0);
+            }
+            return e;
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (!c) {
+                return ht4.k().h("video_report_config_switch", true);
+            }
+            return d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void d(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        View findViewById = activity.findViewById(16908290);
-        if (findViewById instanceof ViewGroup) {
-            BdTopToast bdTopToast = new BdTopToast(activity, 3000);
-            bdTopToast.i(true);
-            bdTopToast.h(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f35));
-            bdTopToast.j((ViewGroup) findViewById);
+        c = true;
+        d = jSONObject.optInt("switch", 1) != 0;
+        ht4.k().u("video_report_config_switch", d);
+        e = jSONObject.optInt("upload_type", 0);
+        ht4.k().w("video_report_config_upload_type", e);
+        f = jSONObject.optInt("upload_number", 5);
+        ht4.k().w("video_report_config_upload_number", f);
+        j = jSONObject.optInt("prepare_max_wait_time", 10000);
+        ht4.k().w("video_report_prepare_max_wait_time", j);
+        k = jSONObject.optInt("prepare_max_loading_time", 3000);
+        ht4.k().w("video_report_prepare_max_loading_time", k);
+        l = jSONObject.optInt("is_open_prepare_time", 0) == 1;
+        ht4.k().u("video_report_is_open_prepare_time", l);
+        g = jSONObject.optInt("moov_check", 0) != 0;
+        ht4.k().u("video_report_config_moov_check", g);
+        String optString = jSONObject.optString("android_debug_type");
+        h = optString;
+        if (!StringUtils.isNull(optString)) {
+            ht4.k().y("video_report_config_debug_type", h);
+            e(h);
+        }
+        String optString2 = jSONObject.optString("step_cache_strategy");
+        a = optString2;
+        if (StringUtils.isNull(optString2)) {
+            return;
+        }
+        ht4.k().y("video_report_config_step_cache_strategy", a);
+        f(a);
+    }
+
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65541, null, str) == null) || StringUtils.isNull(str)) {
+            return;
+        }
+        if (i == null) {
+            i = new HashMap();
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            i.put("debug_avformat_open_input", jSONObject.optString("debug_avformat_open_input"));
+            i.put("debug_dns_strategy", jSONObject.optString("debug_dns_strategy"));
+            i.put("debug_url_null_strategy", jSONObject.optString("debug_url_null_strategy"));
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    public static void f(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65542, null, str) == null) || StringUtils.isNull(str)) {
+            return;
+        }
+        if (b == null) {
+            b = new HashMap();
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            b.put("step_cache_force_use_proxy", jSONObject.optString("step_cache_force_use_proxy"));
+            b.put("step_cache_switch", jSONObject.optString("step_cache_switch"));
+            b.put("step_cache_rush_hour", jSONObject.optString("step_cache_rush_hour"));
+            b.put("step_cache_rush_hour_cache_duration", jSONObject.optString("step_cache_rush_hour_cache_duration"));
+            b.put("step_cache_normol_cache_duration", jSONObject.optString("step_cache_normol_cache_duration"));
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
     }
 }

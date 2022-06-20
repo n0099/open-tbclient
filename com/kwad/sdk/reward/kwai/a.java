@@ -78,13 +78,13 @@ public class a extends d implements View.OnClickListener {
 
     /* renamed from: com.kwad.sdk.reward.kwai.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0335a {
+    public static class C0343a {
         public CharSequence a;
         public CharSequence b;
         public CharSequence c;
         public CharSequence d;
 
-        public C0335a(@NonNull CouponInfo couponInfo) {
+        public C0343a(@NonNull CouponInfo couponInfo) {
             this.a = couponInfo.displayTitle;
             this.b = couponInfo.displayValue;
             this.c = !TextUtils.isEmpty(couponInfo.displayBase) ? String.format("满%s可用", couponInfo.displayBase) : "";
@@ -92,7 +92,7 @@ public class a extends d implements View.OnClickListener {
         }
 
         @Nullable
-        public static C0335a a(AdTemplate adTemplate) {
+        public static C0343a a(AdTemplate adTemplate) {
             List<CouponInfo> list;
             AdProductInfo aK = com.kwad.sdk.core.response.a.a.aK(com.kwad.sdk.core.response.a.d.j(adTemplate));
             if (aK == null || (list = aK.couponList) == null || list.size() <= 0) {
@@ -102,11 +102,11 @@ public class a extends d implements View.OnClickListener {
         }
 
         @Nullable
-        public static C0335a a(CouponInfo couponInfo) {
+        public static C0343a a(CouponInfo couponInfo) {
             if (couponInfo == null) {
                 return null;
             }
-            return new C0335a(couponInfo);
+            return new C0343a(couponInfo);
         }
 
         public CharSequence a() {
@@ -138,7 +138,7 @@ public class a extends d implements View.OnClickListener {
 
     public a(Context context, @Nullable ViewGroup viewGroup, @Nullable int[] iArr) {
         this.b = iArr;
-        ViewGroup viewGroup2 = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0448, viewGroup, false);
+        ViewGroup viewGroup2 = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0442, viewGroup, false);
         this.a = viewGroup2;
         a(context, viewGroup2);
     }
@@ -161,35 +161,35 @@ public class a extends d implements View.OnClickListener {
     }
 
     private void a(Context context, ViewGroup viewGroup) {
-        this.c = viewGroup.findViewById(R.id.obfuscated_res_0x7f091028);
-        this.d = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091026);
-        this.e = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09102b);
-        this.f = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091029);
-        this.g = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09102a);
-        Button button = (Button) viewGroup.findViewById(R.id.obfuscated_res_0x7f091027);
+        this.c = viewGroup.findViewById(R.id.obfuscated_res_0x7f091018);
+        this.d = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091016);
+        this.e = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09101b);
+        this.f = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091019);
+        this.g = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09101a);
+        Button button = (Button) viewGroup.findViewById(R.id.obfuscated_res_0x7f091017);
         this.h = button;
         button.setOnClickListener(this);
     }
 
-    private void a(C0335a c0335a) {
-        if (c0335a == null) {
+    private void a(C0343a c0343a) {
+        if (c0343a == null) {
             return;
         }
         TextView textView = this.e;
         if (textView != null) {
-            textView.setText(c0335a.a());
+            textView.setText(c0343a.a());
         }
         TextView textView2 = this.f;
         if (textView2 != null) {
-            textView2.setText(c0335a.a(this.a.getContext()));
+            textView2.setText(c0343a.a(this.a.getContext()));
         }
         TextView textView3 = this.g;
         if (textView3 != null) {
-            textView3.setText(c0335a.b());
+            textView3.setText(c0343a.b());
         }
         Button button = this.h;
         if (button != null) {
-            button.setText(c0335a.c());
+            button.setText(c0343a.c());
         }
     }
 
@@ -252,7 +252,7 @@ public class a extends d implements View.OnClickListener {
     @Override // com.kwad.sdk.reward.d.d
     public void a(AdTemplate adTemplate) {
         super.a(adTemplate);
-        a(C0335a.a(adTemplate));
+        a(C0343a.a(adTemplate));
         this.a.post(new AnonymousClass1(adTemplate, com.kwad.sdk.core.config.b.aN()));
     }
 

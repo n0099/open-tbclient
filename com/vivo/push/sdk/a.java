@@ -2,11 +2,13 @@ package com.vivo.push.sdk;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.os.Build;
+import android.os.Bundle;
 import android.os.Message;
 import android.text.TextUtils;
+import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,14 +18,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.vivo.push.b.x;
+import com.vivo.push.c.d;
+import com.vivo.push.e;
 import com.vivo.push.q;
 import com.vivo.push.util.ContextDelegate;
 import com.vivo.push.util.p;
 import com.vivo.push.util.t;
+import com.vivo.push.util.u;
+import com.vivo.push.util.z;
 import java.lang.reflect.Method;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a extends q {
     public static /* synthetic */ Interceptable $ic;
     public static a c;
@@ -31,7 +39,6 @@ public final class a extends q {
     public transient /* synthetic */ FieldHolder $fh;
     public String d;
     public String f;
-    public long g;
 
     static {
         InterceptResult invokeClinit;
@@ -81,6 +88,83 @@ public final class a extends q {
         return (a) invokeV.objValue;
     }
 
+    private boolean c(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, intent)) == null) {
+            if (Build.VERSION.SDK_INT < 18) {
+                return true;
+            }
+            String c2 = z.c(this.a, "com.vivo.pushservice");
+            p.d("CommandWorker", " 配置的验签参数 = ".concat(String.valueOf(c2)));
+            if (TextUtils.equals(c2, "1")) {
+                String stringExtra = intent.getStringExtra("security_avoid_pull_rsa");
+                String stringExtra2 = intent.getStringExtra("security_avoid_rsa_public_key");
+                if (!TextUtils.isEmpty(stringExtra) && !TextUtils.isEmpty(stringExtra2)) {
+                    try {
+                        if (d.a(this.a).a().a("com.vivo.pushservice".getBytes("UTF-8"), u.a(stringExtra2), Base64.decode(stringExtra, 2))) {
+                            p.d("CommandWorker", " RSA验签通过  ");
+                            return true;
+                        }
+                    } catch (Exception e2) {
+                        p.a("CommandWorker", "checkIntentIsSecurity Exception: " + e2.getMessage());
+                    }
+                    p.d("CommandWorker", " RSA验签 不通过  ");
+                    return false;
+                }
+                p.a("CommandWorker", "!decrypt.equals, so securityContent == " + stringExtra + " or publickKey isempty ");
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    private int d(Intent intent) {
+        InterceptResult invokeL;
+        String stringExtra;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, intent)) == null) {
+            if (!TextUtils.isEmpty(this.f) && this.f.contains("CommandService")) {
+                if (!(intent != null && b(intent) && c(intent))) {
+                    p.a("CommandWorker", " !checkIntentIsSecurity(intent)");
+                    return 2151;
+                }
+            }
+            String packageName = this.a.getPackageName();
+            try {
+                stringExtra = intent.getStringExtra("command_type");
+            } catch (Exception e2) {
+                p.a("CommandWorker", e2);
+            }
+            if (!TextUtils.isEmpty(stringExtra) && stringExtra.equals("reflect_receiver")) {
+                int intExtra = intent.getIntExtra("command", -1);
+                if (intExtra < 0) {
+                    intExtra = intent.getIntExtra("method", -1);
+                }
+                if (e.contains(Integer.valueOf(intExtra)) && t.c(this.a, packageName) && !t.c(this.a)) {
+                    p.a("CommandWorker", "METHOD_ON_MESSAGE is not support");
+                    return 2153;
+                }
+                String action = intent.getAction();
+                if (TextUtils.isEmpty(this.d)) {
+                    String a = a(this.a, packageName, action);
+                    this.d = a;
+                    if (TextUtils.isEmpty(a)) {
+                        p.d("CommandWorker", " reflectReceiver error: receiver for: " + action + " not found, package: " + packageName);
+                        intent.setPackage(packageName);
+                        this.a.sendBroadcast(intent);
+                        return 2152;
+                    }
+                }
+                return 0;
+            }
+            p.a("CommandWorker", "commandTypeStr is not satisfy == ".concat(String.valueOf(stringExtra)));
+            return 2151;
+        }
+        return invokeL.intValue;
+    }
+
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -90,55 +174,39 @@ public final class a extends q {
 
     @Override // com.vivo.push.q
     public final void b(Message message) {
-        String stringExtra;
+        Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, message) == null) {
             Intent intent = (Intent) message.obj;
-            if (intent != null && this.a != null) {
-                if (!TextUtils.isEmpty(this.f) && this.f.contains("CommandService") && !b(intent)) {
-                    p.a("CommandWorker", " !checkIntentIsSecurity(intent)");
+            if (intent != null && (context = this.a) != null) {
+                String packageName = context.getPackageName();
+                int d = d(intent);
+                if (d > 0) {
+                    x xVar = new x(d);
+                    HashMap<String, String> hashMap = new HashMap<>();
+                    if (intent != null) {
+                        Bundle extras = intent.getExtras();
+                        hashMap.put("messageID", String.valueOf(extras != null ? extras.getLong("notify_id", 404000044642424832L) : 404000044642424832L));
+                    }
+                    String b = z.b(this.a, packageName);
+                    if (!TextUtils.isEmpty(b)) {
+                        hashMap.put("remoteAppId", b);
+                    }
+                    xVar.a(hashMap);
+                    e.a().a(xVar);
                     return;
                 }
-                String packageName = this.a.getPackageName();
                 try {
-                    stringExtra = intent.getStringExtra("command_type");
+                    Class<?> cls = Class.forName(this.d);
+                    Object newInstance = cls.getConstructor(new Class[0]).newInstance(new Object[0]);
+                    Method method = cls.getMethod("onReceive", Context.class, Intent.class);
+                    intent.setClassName(packageName, this.d);
+                    method.invoke(newInstance, ContextDelegate.getContext(this.a).getApplicationContext(), intent);
+                    return;
                 } catch (Exception e2) {
-                    p.a("CommandWorker", e2);
+                    p.b("CommandWorker", "reflect e: ", e2);
+                    return;
                 }
-                if (!TextUtils.isEmpty(stringExtra) && stringExtra.equals("reflect_receiver")) {
-                    int intExtra = intent.getIntExtra("command", -1);
-                    if (intExtra < 0) {
-                        intExtra = intent.getIntExtra("method", -1);
-                    }
-                    if (e.contains(Integer.valueOf(intExtra)) && t.c(this.a, packageName) && !t.c(this.a)) {
-                        p.a("CommandWorker", "METHOD_ON_MESSAGE is not support");
-                        return;
-                    }
-                    String action = intent.getAction();
-                    if (TextUtils.isEmpty(this.d)) {
-                        String a = a(this.a, packageName, action);
-                        this.d = a;
-                        if (TextUtils.isEmpty(a)) {
-                            p.d("CommandWorker", " reflectReceiver error: receiver for: " + action + " not found, package: " + packageName);
-                            intent.setPackage(packageName);
-                            this.a.sendBroadcast(intent);
-                            return;
-                        }
-                    }
-                    try {
-                        Class<?> cls = Class.forName(this.d);
-                        Object newInstance = cls.getConstructor(new Class[0]).newInstance(new Object[0]);
-                        Method method = cls.getMethod("onReceive", Context.class, Intent.class);
-                        intent.setClassName(packageName, this.d);
-                        method.invoke(newInstance, ContextDelegate.getContext(this.a).getApplicationContext(), intent);
-                        return;
-                    } catch (Exception e3) {
-                        p.b("CommandWorker", "reflect e: ", e3);
-                        return;
-                    }
-                }
-                p.a("CommandWorker", "commandTypeStr is not satisfy == ".concat(String.valueOf(stringExtra)));
-                return;
             }
             p.d("CommandWorker", " handleMessage error: intent : " + intent + ", mContext: " + this.a);
         }
@@ -192,27 +260,8 @@ public final class a extends q {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, intent)) == null) {
-            if (intent == null) {
-                return false;
-            }
-            PackageManager packageManager = this.a.getPackageManager();
-            if (this.g <= 0) {
-                try {
-                    PackageInfo packageInfo = packageManager.getPackageInfo("com.vivo.pushservice", 0);
-                    if (packageInfo != null) {
-                        this.g = packageInfo.versionCode;
-                        p.a("CommandWorker", "push service version:" + this.g);
-                    }
-                } catch (Exception e2) {
-                    p.a("CommandWorker", "getPackageInfo exception:" + e2.getMessage());
-                }
-            }
-            if (this.g >= 4040000) {
-                String stringExtra = intent.getStringExtra("security_avoid_pull");
-                if (TextUtils.isEmpty(stringExtra)) {
-                    p.a("CommandWorker", "checkIntentIsSecurityTextUtils.isEmpty");
-                    return false;
-                }
+            String stringExtra = intent.getStringExtra("security_avoid_pull");
+            if (!TextUtils.isEmpty(stringExtra)) {
                 try {
                     String b = com.vivo.push.util.a.a(this.a).b(stringExtra);
                     if ("com.vivo.pushservice".equals(b)) {
@@ -220,11 +269,12 @@ public final class a extends q {
                     }
                     p.a("CommandWorker", "!decrypt.equals, so decrypt == ".concat(String.valueOf(b)));
                     return false;
-                } catch (Exception e3) {
-                    p.a("CommandWorker", "checkIntentIsSecurity Exception: " + e3.getMessage());
+                } catch (Exception e2) {
+                    p.a("CommandWorker", "checkIntentIsSecurity Exception: " + e2.getMessage());
                     return false;
                 }
             }
+            p.a("CommandWorker", "checkIntentIsSecurityTextUtils.isEmpty");
             return true;
         }
         return invokeL.booleanValue;

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.um;
+import com.repackage.ym;
 /* loaded from: classes3.dex */
 public class SimpleBlurLoaderProc extends SimpleLoaderProc {
     public static /* synthetic */ Interceptable $ic;
@@ -36,7 +36,7 @@ public class SimpleBlurLoaderProc extends SimpleLoaderProc {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
-    public um decodeToResourceWithWH(byte[] bArr, int i, int i2) {
+    public ym decodeToResourceWithWH(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
@@ -48,9 +48,9 @@ public class SimpleBlurLoaderProc extends SimpleLoaderProc {
             if (fastblur != p) {
                 p.recycle();
             }
-            return new um(fastblur);
+            return new ym(fastblur);
         }
-        return (um) invokeLII.objValue;
+        return (ym) invokeLII.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.SimpleLoaderProc, com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc

@@ -1,16 +1,19 @@
 package com.repackage;
 
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
-public class ej4 extends zi4 {
+public class ej4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final fj4 a;
 
     public ej4() {
         Interceptable interceptable = $ic;
@@ -22,32 +25,45 @@ public class ej4 extends zi4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new fj4();
     }
 
-    @Override // com.repackage.yi4
-    public String a(String[] strArr, Map<String, String> map) {
-        InterceptResult invokeLL;
+    public dj4 a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, strArr, map)) == null) {
-            if (strArr == null || strArr.length == 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            String str2 = null;
+            if (oi.isEmpty(str)) {
                 return null;
             }
-            String substring = strArr[0].substring(1);
-            StringBuilder sb = new StringBuilder("com.baidu.tieba://unidispatch/pb");
-            sb.append("?tid=");
-            sb.append(substring);
-            c(strArr, sb, map, 1);
-            return sb.toString();
+            Matcher matcher = Pattern.compile("\\$[0-9A-Za-z@_]{5,200}[#$]", 2).matcher(str);
+            if (matcher.find()) {
+                String group = matcher.group();
+                Matcher matcher2 = Pattern.compile("\\$[0-9A-Za-z@_]{1,100}[!]", 2).matcher(str);
+                String d = matcher2.find() ? hj4.d(matcher2.group()) : null;
+                if (d != null && d.startsWith("Y")) {
+                    gj4.a(d);
+                    str2 = b(group);
+                }
+                return new dj4(group, str2, d);
+            }
+            return null;
         }
-        return (String) invokeLL.objValue;
+        return (dj4) invokeL.objValue;
     }
 
-    @Override // com.repackage.yi4
-    public String b() {
-        InterceptResult invokeV;
+    public final String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "t" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            return this.a.a(hj4.f(str.replaceAll("\\$", "")));
+        }
+        return (String) invokeL.objValue;
     }
 }

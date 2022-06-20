@@ -1,9 +1,7 @@
 package com.xiaomi.push;
 
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,28 +9,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import com.xiaomi.mipush.sdk.MiPushClient;
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes8.dex */
-public class ey implements iq<ey, Object>, Serializable, Cloneable {
+public final class ey {
     public static /* synthetic */ Interceptable $ic;
-    public static final iy a;
+    public static final ey a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final jg f336a;
-    public static final iy b;
-    public static final iy c;
+    public static final /* synthetic */ ey[] f325a;
+    public static final ey b;
+    public static final ey c;
+    public static final ey d;
+    public static final ey e;
+    public static final ey f;
+    public static final ey g;
+    public static final ey h;
+    public static final ey i;
+    public static final ey j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f337a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public List<ex> f338a;
-
-    /* renamed from: b  reason: collision with other field name */
-    public String f339b;
+    public final String f326a;
 
     static {
         InterceptResult invokeClinit;
@@ -47,288 +45,69 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
                 return;
             }
         }
-        f336a = new jg("StatsEvents");
-        a = new iy("", Constants.GZIP_CAST_TYPE, (short) 1);
-        b = new iy("", Constants.GZIP_CAST_TYPE, (short) 2);
-        c = new iy("", (byte) 15, (short) 3);
+        a = new ey("COMMAND_REGISTER", 0, MiPushClient.COMMAND_REGISTER);
+        b = new ey("COMMAND_UNREGISTER", 1, MiPushClient.COMMAND_UNREGISTER);
+        c = new ey("COMMAND_SET_ALIAS", 2, MiPushClient.COMMAND_SET_ALIAS);
+        d = new ey("COMMAND_UNSET_ALIAS", 3, MiPushClient.COMMAND_UNSET_ALIAS);
+        e = new ey("COMMAND_SET_ACCOUNT", 4, MiPushClient.COMMAND_SET_ACCOUNT);
+        f = new ey("COMMAND_UNSET_ACCOUNT", 5, MiPushClient.COMMAND_UNSET_ACCOUNT);
+        g = new ey("COMMAND_SUBSCRIBE_TOPIC", 6, MiPushClient.COMMAND_SUBSCRIBE_TOPIC);
+        h = new ey("COMMAND_UNSUBSCRIBE_TOPIC", 7, MiPushClient.COMMAND_UNSUBSCRIBE_TOPIC);
+        i = new ey("COMMAND_SET_ACCEPT_TIME", 8, MiPushClient.COMMAND_SET_ACCEPT_TIME);
+        ey eyVar = new ey("COMMAND_CHK_VDEVID", 9, "check-vdeviceid");
+        j = eyVar;
+        f325a = new ey[]{a, b, c, d, e, f, g, h, i, eyVar};
     }
 
-    public ey() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ey(String str, List<ex> list) {
-        this();
+    public ey(String str, int i2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, list};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this();
+            Object[] objArr = {str, Integer.valueOf(i2), str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                String str3 = (String) objArr2[0];
+                ((Integer) objArr2[1]).intValue();
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f337a = str;
-        this.f338a = list;
+        this.f326a = str2;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(ey eyVar) {
+    public static int a(String str) {
         InterceptResult invokeL;
-        int a2;
-        int a3;
-        int a4;
+        ey[] values;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eyVar)) == null) {
-            if (ey.class.equals(eyVar.getClass())) {
-                int compareTo = Boolean.valueOf(m338a()).compareTo(Boolean.valueOf(eyVar.m338a()));
-                if (compareTo != 0) {
-                    return compareTo;
-                }
-                if (!m338a() || (a4 = ir.a(this.f337a, eyVar.f337a)) == 0) {
-                    int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(eyVar.b()));
-                    if (compareTo2 != 0) {
-                        return compareTo2;
-                    }
-                    if (!b() || (a3 = ir.a(this.f339b, eyVar.f339b)) == 0) {
-                        int compareTo3 = Boolean.valueOf(c()).compareTo(Boolean.valueOf(eyVar.c()));
-                        if (compareTo3 != 0) {
-                            return compareTo3;
-                        }
-                        if (!c() || (a2 = ir.a(this.f338a, eyVar.f338a)) == 0) {
-                            return 0;
-                        }
-                        return a2;
-                    }
-                    return a3;
-                }
-                return a4;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            int i2 = -1;
+            if (TextUtils.isEmpty(str)) {
+                return -1;
             }
-            return ey.class.getName().compareTo(eyVar.getClass().getName());
+            for (ey eyVar : values()) {
+                if (eyVar.f326a.equals(str)) {
+                    i2 = en.a(eyVar);
+                }
+            }
+            return i2;
         }
         return invokeL.intValue;
     }
 
-    public ey a(String str) {
+    public static ey valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.f339b = str;
-            return this;
-        }
-        return (ey) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (ey) Enum.valueOf(ey.class, str) : (ey) invokeL.objValue;
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.f337a == null) {
-                throw new jc("Required field 'uuid' was not present! Struct: " + toString());
-            } else if (this.f338a != null) {
-            } else {
-                throw new jc("Required field 'events' was not present! Struct: " + toString());
-            }
-        }
-    }
-
-    @Override // com.xiaomi.push.iq
-    public void a(jb jbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(1048579, this, jbVar) != null) {
-            return;
-        }
-        jbVar.m562a();
-        while (true) {
-            iy m558a = jbVar.m558a();
-            byte b2 = m558a.a;
-            if (b2 == 0) {
-                jbVar.f();
-                a();
-                return;
-            }
-            short s = m558a.f791a;
-            if (s == 1) {
-                if (b2 == 11) {
-                    this.f337a = jbVar.m563a();
-                    jbVar.g();
-                }
-                je.a(jbVar, b2);
-                jbVar.g();
-            } else if (s != 2) {
-                if (s == 3 && b2 == 15) {
-                    iz m559a = jbVar.m559a();
-                    this.f338a = new ArrayList(m559a.f792a);
-                    for (int i = 0; i < m559a.f792a; i++) {
-                        ex exVar = new ex();
-                        exVar.a(jbVar);
-                        this.f338a.add(exVar);
-                    }
-                    jbVar.i();
-                    jbVar.g();
-                }
-                je.a(jbVar, b2);
-                jbVar.g();
-            } else {
-                if (b2 == 11) {
-                    this.f339b = jbVar.m563a();
-                    jbVar.g();
-                }
-                je.a(jbVar, b2);
-                jbVar.g();
-            }
-        }
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public boolean m338a() {
+    public static ey[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f337a != null : invokeV.booleanValue;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public boolean m339a(ey eyVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, eyVar)) == null) {
-            if (eyVar == null) {
-                return false;
-            }
-            boolean m338a = m338a();
-            boolean m338a2 = eyVar.m338a();
-            if ((m338a || m338a2) && !(m338a && m338a2 && this.f337a.equals(eyVar.f337a))) {
-                return false;
-            }
-            boolean b2 = b();
-            boolean b3 = eyVar.b();
-            if ((b2 || b3) && !(b2 && b3 && this.f339b.equals(eyVar.f339b))) {
-                return false;
-            }
-            boolean c2 = c();
-            boolean c3 = eyVar.c();
-            if (c2 || c3) {
-                return c2 && c3 && this.f338a.equals(eyVar.f338a);
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.xiaomi.push.iq
-    public void b(jb jbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, jbVar) == null) {
-            a();
-            jbVar.a(f336a);
-            if (this.f337a != null) {
-                jbVar.a(a);
-                jbVar.a(this.f337a);
-                jbVar.b();
-            }
-            if (this.f339b != null && b()) {
-                jbVar.a(b);
-                jbVar.a(this.f339b);
-                jbVar.b();
-            }
-            if (this.f338a != null) {
-                jbVar.a(c);
-                jbVar.a(new iz((byte) 12, this.f338a.size()));
-                for (ex exVar : this.f338a) {
-                    exVar.b(jbVar);
-                }
-                jbVar.e();
-                jbVar.b();
-            }
-            jbVar.c();
-            jbVar.m566a();
-        }
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f339b != null : invokeV.booleanValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f338a != null : invokeV.booleanValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, obj)) == null) {
-            if (obj != null && (obj instanceof ey)) {
-                return m339a((ey) obj);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            StringBuilder sb = new StringBuilder("StatsEvents(");
-            sb.append("uuid:");
-            String str = this.f337a;
-            if (str == null) {
-                sb.append(StringUtil.NULL_STRING);
-            } else {
-                sb.append(str);
-            }
-            if (b()) {
-                sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                sb.append("operator:");
-                String str2 = this.f339b;
-                if (str2 == null) {
-                    sb.append(StringUtil.NULL_STRING);
-                } else {
-                    sb.append(str2);
-                }
-            }
-            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            sb.append("events:");
-            List<ex> list = this.f338a;
-            if (list == null) {
-                sb.append(StringUtil.NULL_STRING);
-            } else {
-                sb.append(list);
-            }
-            sb.append(SmallTailInfo.EMOTION_SUFFIX);
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ey[]) f325a.clone() : (ey[]) invokeV.objValue;
     }
 }

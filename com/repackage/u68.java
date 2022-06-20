@@ -1,32 +1,34 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
-import tbclient.App;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class u68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public boolean b;
+    public int c;
+    public boolean d;
+    public List<i68> e;
 
     /* loaded from: classes7.dex */
-    public static class a implements Comparator<co4> {
+    public static class a extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,309 +47,267 @@ public class u68 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(co4 co4Var, co4 co4Var2) {
-            InterceptResult invokeLL;
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Void doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, co4Var, co4Var2)) == null) {
-                if (co4Var.d() && co4Var2.d()) {
-                    return co4Var.h() - co4Var2.h();
-                }
-                if (co4Var.d() || co4Var2.d()) {
-                    return co4Var.d() ? -1 : 1;
-                }
-                return (co4Var.o() == null ? -1 : u68.g(co4Var.o())) - (co4Var2.o() != null ? u68.g(co4Var2.o()) : -1);
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+                pk7.a(rk7.b);
+                pk7.a(rk7.c);
+                pk7.a(rk7.d);
+                return null;
             }
-            return invokeLL.intValue;
+            return (Void) invokeL.objValue;
         }
     }
 
-    public static Set<jn> a(List<jn> list, int i, String str) {
-        InterceptResult invokeLIL;
-        AdvertAppInfo o;
-        AdvertAppInfo o2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65536, null, list, i, str)) == null) {
-            HashSet hashSet = new HashSet();
-            if (db7.e(list)) {
-                return hashSet;
-            }
-            Set<jn> a2 = a98.a(str);
-            if (a2 == null) {
-                a2 = new HashSet();
-            }
-            for (jn jnVar : list) {
-                if (jnVar != null) {
-                    for (jn jnVar2 : a2) {
-                        if ((jnVar instanceof co4) && (o2 = ((co4) jnVar).o()) != null && jnVar2.hashCode() == o2.hashCode()) {
-                            o2.i = ((AdvertAppInfo) jnVar2).i;
-                        }
-                    }
-                    if ((jnVar instanceof co4) && (o = ((co4) jnVar).o()) != null && o.i == null) {
-                        tm4 tm4Var = new tm4();
-                        o.i = tm4Var;
-                        tm4Var.a = str;
-                        tm4Var.b = i;
-                        tm4Var.g = o.g;
-                        tm4Var.h = false;
-                        hashSet.add(o);
-                    }
-                }
-            }
-            a2.addAll(hashSet);
-            a98.b(str, a2);
-            return hashSet;
-        }
-        return (Set) invokeLIL.objValue;
-    }
+    /* loaded from: classes7.dex */
+    public class b extends BdAsyncTask<v68, Void, Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static int b(@NonNull List<jn> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            int i = 0;
-            if (db7.e(list)) {
-                return 0;
-            }
-            int i2 = -1;
-            for (int i3 = db7.i(list) - 1; i3 >= 0 && !(db7.d(list, i3) instanceof co4); i3--) {
-                if (db7.d(list, i3) instanceof rp4) {
-                    int i4 = ((rp4) db7.d(list, i3)).position;
-                    if (i4 != i2) {
-                        i++;
-                        i2 = i4;
-                    }
-                } else {
-                    i++;
-                }
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public static void c(List<jn> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, list) == null) || db7.e(list)) {
-            return;
-        }
-        Iterator<jn> it = list.iterator();
-        while (it.hasNext()) {
-            if (it.next() instanceof co4) {
-                it.remove();
-            }
-        }
-    }
-
-    public static void d(String str, List list) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, list) == null) || TextUtils.isEmpty(str) || db7.e(list)) {
-            return;
-        }
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            Object next = it.next();
-            boolean z = next instanceof co4;
-            if (z || (next instanceof App)) {
-                if (next instanceof App) {
-                    str2 = v68.a((App) next);
-                } else {
-                    if (z) {
-                        co4 co4Var = (co4) next;
-                        if (co4Var.o() != null) {
-                            str2 = co4Var.o().a;
-                        }
-                    }
-                    str2 = "";
-                }
-                if (TextUtils.equals(str, str2)) {
-                    it.remove();
+        public b(u68 u68Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u68Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
-    }
 
-    public static String e(List<jn> list, boolean z) {
-        InterceptResult invokeLZ;
-        co4 co4Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, list, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (!z && !db7.e(list)) {
-                int i = 0;
-                for (int i2 = db7.i(list) - 1; i2 >= 0 && i < 6; i2--) {
-                    if ((db7.d(list, i2) instanceof co4) && (co4Var = (co4) db7.d(list, i2)) != null && !l(co4Var.o())) {
-                        sb.append(co4Var.h() + 1);
-                        sb.append(",");
-                        i++;
-                    }
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Void doInBackground(v68... v68VarArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, v68VarArr)) == null) {
+                if (v68VarArr == null || v68VarArr.length != 1 || v68VarArr[0] == null) {
+                    return null;
                 }
-                if (sb.length() <= 1) {
-                    return sb.toString();
+                v68 v68Var = v68VarArr[0];
+                synchronized ("debug") {
+                    File file = new File(rk7.e + rk7.a + v68Var.b + rk7.a + "debug");
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(v68Var.a.a().toString());
+                    sb.append("\n");
+                    pk7.g(file, sb.toString(), true);
                 }
-                sb.deleteCharAt(sb.length() - 1);
-                return sb.toString();
+                return null;
             }
-            return sb.toString();
+            return (Void) invokeL.objValue;
         }
-        return (String) invokeLZ.objValue;
     }
 
-    public static String f(@NonNull AdvertAppInfo advertAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, advertAppInfo)) == null) {
-            return "#Nad=" + advertAppInfo.g;
-        }
-        return (String) invokeL.objValue;
-    }
+    /* loaded from: classes7.dex */
+    public class c extends BdAsyncTask<o68, Void, Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static int g(AdvertAppInfo advertAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, advertAppInfo)) == null) {
-            if (advertAppInfo == null) {
-                return 0;
-            }
-            if (TextUtils.isEmpty(advertAppInfo.f)) {
-                return -1;
-            }
-            return jg.e(advertAppInfo.f, -1);
-        }
-        return invokeL.intValue;
-    }
-
-    public static List<co4> h(List<App> list, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, list, str)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (db7.e(list)) {
-                return arrayList;
-            }
-            Log.e("frs", "src ad list size " + list.size());
-            for (App app : list) {
-                AdvertAppInfo advertAppInfo = new AdvertAppInfo();
-                advertAppInfo.s(app);
-                advertAppInfo.j = str;
-                int k = k(advertAppInfo);
-                if (k != 0) {
-                    c98.h(advertAppInfo, 1, k);
-                } else {
-                    arrayList.add(advertAppInfo);
+        public c(u68 u68Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u68Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            Log.e("frs", "src ad jiaoyan size " + arrayList.size());
-            return arrayList;
         }
-        return (List) invokeLL.objValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Void doInBackground(o68... o68VarArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, o68VarArr)) == null) {
+                if (o68VarArr == null || o68VarArr.length != 1 || o68VarArr[0] == null) {
+                    return null;
+                }
+                o68 o68Var = o68VarArr[0];
+                synchronized ("kpi") {
+                    pk7.g(new File(rk7.e + rk7.a + o68Var.d + rk7.a + "kpi"), u68.e(o68Var.a, o68Var.b, o68Var.c).toString(), false);
+                }
+                return null;
+            }
+            return (Void) invokeL.objValue;
+        }
     }
 
-    public static List<co4> i(List<co4> list, List<jn> list2, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65544, null, list, list2, i)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (db7.e(list)) {
-                return arrayList;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755308902, "Lcom/repackage/u68;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            o(list);
-            int i2 = 0;
-            for (int i3 = 0; i3 < list.size(); i3++) {
-                co4 co4Var = (co4) db7.d(list, i3);
-                if (co4Var != null && co4Var.o() != null) {
-                    int i4 = db7.i(list2);
-                    int g = g(co4Var.o()) - 1;
-                    if (g < 0) {
-                        n(co4Var.o());
-                    } else {
-                        int h = co4Var.d() ? co4Var.h() : g + i;
-                        if (h > i4) {
-                            n(co4Var.o());
-                        } else {
-                            co4Var.setPosition(h);
-                            db7.b(list2, co4Var, h);
-                            arrayList.add(co4Var);
-                        }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755308902, "Lcom/repackage/u68;");
+                return;
+            }
+        }
+        if (ji.c()) {
+            new a().execute(new Void[0]);
+        }
+    }
+
+    public u68(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = true;
+        this.c = 0;
+        this.d = false;
+        this.a = str;
+        this.e = new ArrayList();
+    }
+
+    public static final JSONObject e(boolean z, int i, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)})) == null) {
+            JSONObject jSONObject = new JSONObject();
+            int i2 = 1;
+            try {
+                jSONObject.put("postSuccess", (z2 && z) ? 1 : 0);
+                jSONObject.put("errorTimes", i);
+                if (!z2) {
+                    i2 = 0;
+                }
+                jSONObject.put("posted", i2);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeCommon.objValue;
+    }
+
+    public void a(i68 i68Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, i68Var) == null) {
+            this.e.add(i68Var);
+            c();
+            m(i68Var);
+            l();
+        }
+    }
+
+    public JSONObject b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                JSONArray jSONArray = new JSONArray();
+                if (!ListUtils.isEmpty(this.e)) {
+                    int size = this.e.size();
+                    for (int i = 0; i < size; i++) {
+                        jSONArray.put(this.e.get(i).a());
                     }
                 }
+                jSONObject.put("running", jSONArray);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            while (i < db7.i(list2)) {
-                jn jnVar = list2.get(i);
-                if (jnVar instanceof co4) {
-                    i2++;
-                } else if (jnVar instanceof BaseCardInfo) {
-                    ((BaseCardInfo) jnVar).position += i2;
-                }
-                i++;
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && ji.c()) {
+            File file = new File(rk7.e + rk7.a + this.a + rk7.a);
+            if (file.exists()) {
+                return;
             }
-            return arrayList;
-        }
-        return (List) invokeLLI.objValue;
-    }
-
-    public static boolean j(@Nullable String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return str.startsWith("#Nad=");
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static int k(@Nullable AdvertAppInfo advertAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, advertAppInfo)) == null) {
-            int q = advertAppInfo.q();
-            if (g(advertAppInfo) < 0) {
-                return 23;
-            }
-            return q;
-        }
-        return invokeL.intValue;
-    }
-
-    public static boolean l(AdvertAppInfo advertAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, advertAppInfo)) == null) ? advertAppInfo.b() : invokeL.booleanValue;
-    }
-
-    public static void m(AdvertAppInfo advertAppInfo, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65548, null, advertAppInfo, i) == null) {
-            c98.h(advertAppInfo, 1, i);
+            file.mkdir();
         }
     }
 
-    public static void n(AdvertAppInfo advertAppInfo) {
+    public JSONObject d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, null, advertAppInfo) == null) {
-            m(advertAppInfo, 23);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? e(this.b, this.c, this.d) : (JSONObject) invokeV.objValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.c++;
         }
     }
 
-    public static void o(List<co4> list) {
+    public boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, null, list) == null) {
-            Collections.sort(list, new a());
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c > 0 : invokeV.booleanValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : invokeV.booleanValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.b = false;
         }
     }
 
-    public static void p(List<jn> list) {
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65551, null, list) == null) {
-            for (int i = 0; i < db7.i(list); i++) {
-                if (db7.d(list, i) instanceof co4) {
-                    ((co4) db7.d(list, i)).setPosition(i);
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.b = true;
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.d = true;
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && ji.c()) {
+            new c(this).execute(new o68(this.b, this.c, this.d, this.a));
+        }
+    }
+
+    public final void m(i68 i68Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, i68Var) == null) && ji.c() && i68Var != null) {
+            new b(this).execute(new v68(i68Var, this.a));
         }
     }
 }

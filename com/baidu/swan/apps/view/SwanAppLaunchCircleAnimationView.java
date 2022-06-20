@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.k54;
+import com.repackage.v54;
 /* loaded from: classes2.dex */
 public class SwanAppLaunchCircleAnimationView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -123,7 +123,7 @@ public class SwanAppLaunchCircleAnimationView extends View {
             g();
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
             this.f = ofFloat;
-            ofFloat.setInterpolator(new k54(0.4f, 0.0f, 0.6f, 1.0f));
+            ofFloat.setInterpolator(new v54(0.4f, 0.0f, 0.6f, 1.0f));
             this.f.setRepeatCount(-1);
             this.f.setRepeatMode(1);
             this.f.setDuration(800L);

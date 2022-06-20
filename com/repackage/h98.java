@@ -1,89 +1,79 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class h98 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final Context b;
-    public final ViewGroup c;
 
-    public h98(Context context, ViewGroup viewGroup) {
+    public static int a(int i, g98 g98Var) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, viewGroup};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, g98Var)) == null) {
+            if (i <= 0) {
+                return g98Var.a();
             }
+            if (g98Var.c()) {
+                return i + g98Var.b();
+            }
+            return i + g98Var.b() + 1;
         }
-        this.a = 0;
-        this.b = context;
-        this.c = viewGroup;
+        return invokeIL.intValue;
     }
 
-    public final boolean a(String str, String str2) {
-        InterceptResult invokeLL;
+    public static <T> boolean b(@NonNull List<T> list, int i, @NonNull g98 g98Var, int i2, @Nullable T t, @Nullable i98 i98Var, @Nullable j98 j98Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if ("apk_download".equals(str)) {
-                return "apk_download".equals(str2);
-            }
-            if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(str)) {
-                return TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(str2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{list, Integer.valueOf(i), g98Var, Integer.valueOf(i2), t, i98Var, j98Var})) == null) {
+            if (g98Var.a() != -1 && g98Var.b() != -1) {
+                int a = a(i2, g98Var);
+                if (i98Var != null && t != null) {
+                    if (i <= i2) {
+                        if (j98Var != 0) {
+                            j98Var.a(i, a);
+                        }
+                        return false;
+                    }
+                    int i3 = i + 1;
+                    if (i3 < a) {
+                        if (j98Var != 0) {
+                            j98Var.a(i, a);
+                        }
+                        return false;
+                    }
+                    int i4 = i > a ? i3 : a;
+                    int i5 = oc7.i(list);
+                    if (i4 >= i5 && (i98Var.b() || i4 > i5)) {
+                        if (j98Var != 0) {
+                            j98Var.d(i, i4, i5, i98Var, t);
+                        }
+                        return false;
+                    }
+                    i98Var.a(i4);
+                    if (i98Var.b()) {
+                        if (j98Var != 0) {
+                            j98Var.e(i, i4, oc7.d(list, i4), i98Var, t);
+                            return true;
+                        }
+                        return true;
+                    }
+                    oc7.b(list, t, i4);
+                    if (j98Var != 0) {
+                        j98Var.c(i, i4, i98Var, t);
+                        return true;
+                    }
+                    return true;
+                } else if (j98Var != 0) {
+                    j98Var.a(i, a);
+                }
             }
             return false;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public i98 b(t88 t88Var, i98 i98Var) {
-        InterceptResult invokeLL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t88Var, i98Var)) == null) {
-            if (t88Var == null || (str = t88Var.a) == null) {
-                return i98Var;
-            }
-            if (i98Var == null || !a(str, i98Var.a)) {
-                ViewGroup viewGroup = this.c;
-                if (viewGroup == null) {
-                    return null;
-                }
-                viewGroup.removeAllViews();
-                if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(t88Var.a)) {
-                    if (this.a == 2) {
-                        return new g98(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d085d, this.c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
-                    }
-                    return new e98(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d07ed, this.c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
-                } else if ("apk_download".equals(t88Var.a)) {
-                    if (this.a == 2) {
-                        return new f98(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d085c, this.c, true), "apk_download");
-                    }
-                    return new d98(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d07ec, this.c, true), "apk_download");
-                } else {
-                    return null;
-                }
-            }
-            return i98Var;
-        }
-        return (i98) invokeLL.objValue;
+        return invokeCommon.booleanValue;
     }
 }

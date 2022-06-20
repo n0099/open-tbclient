@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 @DoNotStrip
 /* loaded from: classes.dex */
@@ -34,7 +35,7 @@ public final class CriusDisplay {
             }
         }
         FLEX = new CriusDisplay("FLEX", 0, 0);
-        CriusDisplay criusDisplay = new CriusDisplay("NONE", 1, 1);
+        CriusDisplay criusDisplay = new CriusDisplay(HlsPlaylistParser.METHOD_NONE, 1, 1);
         NONE = criusDisplay;
         $VALUES = new CriusDisplay[]{FLEX, criusDisplay};
     }

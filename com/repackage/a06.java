@@ -1,77 +1,52 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Comparator;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class a06 {
+public final class a06 implements Comparator<o0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final <T extends yy5> T a(zy5 zy5Var, Class<T> type, l0 entity, ry5 item) {
-        InterceptResult invokeLLLL;
-        T t;
+    public a06() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, zy5Var, type, entity, item)) == null) {
-            Intrinsics.checkNotNullParameter(zy5Var, "<this>");
-            Intrinsics.checkNotNullParameter(type, "type");
-            Intrinsics.checkNotNullParameter(entity, "entity");
-            Intrinsics.checkNotNullParameter(item, "item");
-            k0 f = zy5Var.f();
-            if (f == null || (t = (T) f.h(type)) == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            entity.a(t);
-            t.b(item);
-            return t;
         }
-        return (T) invokeLLLL.objValue;
     }
 
-    public static final long b(zy5 zy5Var) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    /* renamed from: a */
+    public int compare(o0 entity1, o0 entity2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, zy5Var)) == null) {
-            Intrinsics.checkNotNullParameter(zy5Var, "<this>");
-            return d(zy5Var).a();
-        }
-        return invokeL.longValue;
-    }
-
-    public static final r06 c(zy5 zy5Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, zy5Var)) == null) {
-            Intrinsics.checkNotNullParameter(zy5Var, "<this>");
-            return zy5Var.i().d();
-        }
-        return (r06) invokeL.objValue;
-    }
-
-    public static final u06 d(zy5 zy5Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, zy5Var)) == null) {
-            Intrinsics.checkNotNullParameter(zy5Var, "<this>");
-            return zy5Var.i().f();
-        }
-        return (u06) invokeL.objValue;
-    }
-
-    public static final boolean e(zy5 zy5Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, zy5Var)) == null) {
-            Intrinsics.checkNotNullParameter(zy5Var, "<this>");
-            k0 f = zy5Var.f();
-            xy5 xy5Var = f instanceof xy5 ? (xy5) f : null;
-            if (xy5Var == null) {
-                return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, entity1, entity2)) == null) {
+            Intrinsics.checkNotNullParameter(entity1, "entity1");
+            Intrinsics.checkNotNullParameter(entity2, "entity2");
+            d06 b = b16.b(entity2);
+            rz5 a = b == null ? null : b.a();
+            if (a == null) {
+                return 0;
             }
-            return xy5Var.x();
+            d06 b2 = b16.b(entity1);
+            rz5 a2 = b2 != null ? b2.a() : null;
+            if (a2 == null) {
+                return 0;
+            }
+            return a2.compareTo(a);
         }
-        return invokeL.booleanValue;
+        return invokeLL.intValue;
     }
 }

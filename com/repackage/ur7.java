@@ -1,38 +1,51 @@
 package com.repackage;
 
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.widget.ImageView;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.util.DisplayMetrics;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.EditText;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.as7;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
-public class ur7 extends ne5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static double L = 0.5d;
+public abstract class ur7<V extends as7, D extends IBaseDialogData> implements zr7 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public AlertDialog a;
+    public TbPageContext b;
+    public Context c;
+    public DialogInterface.OnKeyListener d;
+    public DialogInterface.OnCancelListener e;
+    public int f;
+    public boolean g;
+    public V h;
 
     /* loaded from: classes7.dex */
-    public class a implements TbImageView.h {
+    public class a implements ViewHelper.ViewCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ur7 a;
+        public final /* synthetic */ AtomicBoolean a;
 
-        public a(ur7 ur7Var) {
+        public a(ur7 ur7Var, AtomicBoolean atomicBoolean) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ur7Var};
+                Object[] objArr = {ur7Var, atomicBoolean};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,128 +55,117 @@ public class ur7 extends ne5 {
                     return;
                 }
             }
-            this.a = ur7Var;
+            this.a = atomicBoolean;
         }
 
-        @Override // com.baidu.tbadk.widget.TbImageView.h
-        public void a(TbImageView tbImageView, Canvas canvas) {
+        @Override // com.baidu.tbadk.core.util.ViewHelper.ViewCallback
+        public boolean onViewFound(View view2) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, tbImageView, canvas) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+                if (view2 instanceof EditText) {
+                    this.a.set(true);
+                    return true;
+                }
+                return false;
             }
-        }
-
-        @Override // com.baidu.tbadk.widget.TbImageView.h
-        public void b(TbImageView tbImageView, Canvas canvas) {
-            int i;
-            float f;
-            float f2;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) || tbImageView == null || tbImageView.getImageMatrix() == null || tbImageView.getScaleType() != ImageView.ScaleType.MATRIX) {
-                return;
-            }
-            Matrix imageMatrix = tbImageView.getImageMatrix();
-            um m = u25.k().m(fg.h().g(tbImageView.getUrl(), this.a.s ? 17 : 18));
-            int i2 = 0;
-            if (m != null) {
-                i2 = m.r();
-                i = m.m();
-            } else {
-                i = 0;
-            }
-            if (i2 == 0 || i == 0) {
-                return;
-            }
-            int width = (tbImageView.getWidth() - tbImageView.getPaddingLeft()) - tbImageView.getPaddingRight();
-            int height = (tbImageView.getHeight() - tbImageView.getPaddingTop()) - tbImageView.getPaddingBottom();
-            if (i2 * height > width * i) {
-                f = height;
-                f2 = i;
-            } else {
-                f = width;
-                f2 = i2;
-            }
-            float f3 = f / f2;
-            imageMatrix.setScale(f3, f3);
-            imageMatrix.postTranslate(0.0f, 0.0f);
+            return invokeL.booleanValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755251273, "Lcom/repackage/ur7;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755251273, "Lcom/repackage/ur7;");
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ur7(ne5 ne5Var) {
-        super(ne5Var);
+    public ur7(TbPageContext tbPageContext, V v, D d) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ne5Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {tbPageContext, v, d};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ne5) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        k(true);
-        t();
-        o(TbConfig.getPostLineSpace(), 1.0f);
-        y(0);
-        l(li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds30));
-        m(li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12));
-        i(li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
-        r(li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004), li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004));
-        j(li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004));
-        this.H = li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds749);
-        this.I = li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
-        li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
-        this.J = new a(this);
+        this.f = -1;
+        this.g = false;
+        this.b = tbPageContext;
+        this.c = tbPageContext.getPageActivity();
+        this.h = v;
+        d(d);
     }
 
-    @Override // com.repackage.ne5
-    public int[] e(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
+    public void d(D d) {
+        V v;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i, i2, i3, i4)) == null) {
-            if (i2 <= 0 || i <= 0 || i3 <= 0 || i4 <= 0) {
-                return null;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, d) == null) || (v = this.h) == null) {
+            return;
+        }
+        v.b(d);
+    }
+
+    @Override // com.repackage.zr7
+    public void dismiss() {
+        AlertDialog alertDialog;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (alertDialog = this.a) == null) {
+            return;
+        }
+        sg.a(alertDialog, this.b.getPageActivity());
+    }
+
+    @Override // com.repackage.zr7
+    public void show() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            AlertDialog alertDialog = this.a;
+            if (alertDialog != null) {
+                sg.i(alertDialog, this.b.getPageActivity());
+                return;
             }
-            if (this.t) {
-                float f = ne5.K;
-                if (f > 1.0f) {
-                    float f2 = i;
-                    if (f2 * f <= i3 * L) {
-                        i3 = (int) (f2 * f);
-                    }
-                    i2 = (i2 * i3) / i;
-                    if (i2 > 4096) {
-                        this.q = ImageView.ScaleType.MATRIX;
-                        i = i3;
-                        i2 = 4096;
-                    } else {
-                        this.q = ImageView.ScaleType.CENTER_CROP;
-                        i = i3;
-                    }
+            if (this.g) {
+                this.a = new AlertDialog.Builder(this.c, R.style.obfuscated_res_0x7f1003e6).create();
+            } else {
+                this.a = new AlertDialog.Builder(this.c).create();
+            }
+            this.a.setCanceledOnTouchOutside(c());
+            this.a.setCancelable(b());
+            this.a.setOnKeyListener(this.d);
+            DialogInterface.OnCancelListener onCancelListener = this.e;
+            if (onCancelListener != null) {
+                this.a.setOnCancelListener(onCancelListener);
+            }
+            sg.i(this.a, this.b.getPageActivity());
+            if (this.a.getWindow().getDecorView().getParent() == null) {
+                return;
+            }
+            Window window = this.a.getWindow();
+            if (this.f == -1) {
+                this.f = 17;
+            }
+            window.setGravity(this.f);
+            window.setBackgroundDrawableResource(R.drawable.obfuscated_res_0x7f081224);
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            attributes.dimAmount = 0.7f;
+            attributes.width = -1;
+            DisplayMetrics r = pi.r(this.b.getPageActivity());
+            if (r != null) {
+                int a2 = a();
+                if (UtilHelper.getRealScreenOrientation(this.c) == 2) {
+                    attributes.width = r.heightPixels - (a2 * 2);
+                } else {
+                    attributes.width = r.widthPixels - (a2 * 2);
                 }
             }
-            return new int[]{i, i2};
+            attributes.height = -2;
+            window.setAttributes(attributes);
+            window.setContentView(this.h.getViewGroup());
+            AtomicBoolean atomicBoolean = new AtomicBoolean(false);
+            ViewHelper.processAllViewsIn(this.h.getViewGroup(), false, new a(this, atomicBoolean));
+            if (atomicBoolean.get()) {
+                window.clearFlags(131080);
+            }
         }
-        return (int[]) invokeIIII.objValue;
     }
 }

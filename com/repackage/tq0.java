@@ -1,15 +1,17 @@
 package com.repackage;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.event.InternalSyncControlEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class tq0 extends yq0 {
+public abstract class tq0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ArrayList<pu0> a;
 
     public tq0() {
         Interceptable interceptable = $ic;
@@ -21,43 +23,41 @@ public class tq0 extends yq0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList<>();
+    }
+
+    public void b(@NonNull pu0 pu0Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, pu0Var) == null) || this.a.contains(pu0Var)) {
+            return;
+        }
+        kx0.b(this.a, pu0Var);
+    }
+
+    public void c(@NonNull ir0 ir0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ir0Var) == null) {
+            int size = this.a.size();
+            for (int i = 0; i < size; i++) {
+                pu0 pu0Var = (pu0) kx0.d(this.a, i);
+                if (pu0Var != null) {
+                    if (i == 0) {
+                        pu0Var.d(ir0Var);
+                    } else {
+                        pu0Var.d(ir0.a(ir0Var));
+                    }
+                }
             }
         }
     }
 
-    public void d() {
+    public void d(@NonNull pu0 pu0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            er0 w = qq0.w(InternalSyncControlEvent.INTERNAL_ACTION_PAUSE);
-            w.s(1);
-            c(w);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            er0 w = qq0.w(InternalSyncControlEvent.INTERNAL_ACTION_RESUME);
-            w.s(1);
-            c(w);
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            er0 w = qq0.w(InternalSyncControlEvent.INTERNAL_ACTION_START);
-            w.s(1);
-            c(w);
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            er0 w = qq0.w(InternalSyncControlEvent.INTERNAL_ACTION_STOP);
-            w.s(1);
-            c(w);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pu0Var) == null) {
+            kx0.j(this.a, pu0Var);
         }
     }
 }

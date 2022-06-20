@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 import tbclient.AlaShareInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaShareInfoData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public class AlaShareInfoData extends OrmObject {
         }
     }
 
-    public void y(AlaShareInfo alaShareInfo) {
+    public void z(AlaShareInfo alaShareInfo) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, alaShareInfo) == null) || alaShareInfo == null) {
             return;

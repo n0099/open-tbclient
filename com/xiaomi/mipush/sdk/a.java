@@ -11,8 +11,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.ek;
-import com.xiaomi.push.el;
+import com.xiaomi.push.en;
+import com.xiaomi.push.eo;
 import java.util.HashSet;
 import java.util.Set;
 @TargetApi(14)
@@ -76,9 +76,9 @@ public class a implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityResumed(Activity activity) {
         Intent intent;
-        el a;
+        eo a;
         String packageName;
-        String m324a;
+        String m304a;
         int i;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, activity) == null) || (intent = activity.getIntent()) == null) {
@@ -91,19 +91,19 @@ public class a implements Application.ActivityLifecycleCallbacks {
         }
         this.a.add(stringExtra);
         if (intExtra == 3000) {
-            a = el.a(activity.getApplicationContext());
+            a = eo.a(activity.getApplicationContext());
             packageName = activity.getPackageName();
-            m324a = ek.m324a(intExtra);
+            m304a = en.m304a(intExtra);
             i = 3008;
         } else if (intExtra != 1000) {
             return;
         } else {
-            a = el.a(activity.getApplicationContext());
+            a = eo.a(activity.getApplicationContext());
             packageName = activity.getPackageName();
-            m324a = ek.m324a(intExtra);
+            m304a = en.m304a(intExtra);
             i = 1008;
         }
-        a.a(packageName, m324a, stringExtra, i, null);
+        a.a(packageName, m304a, stringExtra, i, null);
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks

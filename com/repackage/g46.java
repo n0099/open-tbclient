@@ -1,19 +1,23 @@
 package com.repackage;
 
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import tbclient.ForumGuide.LikeForum;
 /* loaded from: classes6.dex */
 public class g46 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public ArrayList<e46> a;
 
     public g46() {
         Interceptable interceptable = $ic;
@@ -25,55 +29,55 @@ public class g46 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList<>();
     }
 
-    public static g46 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Iterator<e46> it = this.a.iterator();
+            while (it.hasNext()) {
+                it.next().L(0);
             }
-            g46 g46Var = new g46();
-            g46Var.d(h46.a(jSONObject.optJSONObject(Config.TRACE_VISIT_RECENT_DAY)));
-            g46Var.c(h46.a(jSONObject.optJSONObject("dark")));
-            g46Var.f(h46.a(jSONObject.optJSONObject(SkinManager.SKIN_TYPE_STR_NIGHT)));
-            g46Var.e(jSONObject.toString());
-            return g46Var;
         }
-        return (g46) invokeL.objValue;
     }
 
-    public String a() {
+    public ArrayList<e46> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
     }
 
-    public void c(h46 h46Var) {
+    public void c(List<?> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h46Var) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || list == null) {
+            return;
         }
+        d(list, null);
     }
 
-    public void d(h46 h46Var) {
+    public void d(List<?> list, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, h46Var) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, list, context) == null) || list == null) {
+            return;
         }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void f(h46 h46Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, h46Var) == null) {
+        try {
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                if (!(list.get(i) instanceof LikeForum)) {
+                    return;
+                }
+                e46 e46Var = new e46();
+                e46Var.I((LikeForum) list.get(i));
+                if (!TextUtils.isEmpty(e46Var.r())) {
+                    this.a.add(e46Var);
+                }
+            }
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
     }
 }

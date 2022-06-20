@@ -1,9 +1,6 @@
 package com.xiaomi.push;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,26 +8,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.Serializable;
-import java.util.BitSet;
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes8.dex */
-public class hx implements iq<hx, Object>, Serializable, Cloneable {
+public final class hx {
     public static /* synthetic */ Interceptable $ic;
-    public static final iy a;
+    public static final hx a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final jg f579a;
-    public static final iy b;
+    public static final /* synthetic */ hx[] f543a;
+    public static final hx b;
+    public static final hx c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f580a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public BitSet f581a;
-
-    /* renamed from: b  reason: collision with other field name */
-    public int f582b;
+    public final int f544a;
 
     static {
         InterceptResult invokeClinit;
@@ -45,205 +36,67 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
                 return;
             }
         }
-        f579a = new jg("XmPushActionCheckClientInfo");
-        a = new iy("", (byte) 8, (short) 1);
-        b = new iy("", (byte) 8, (short) 2);
+        a = new hx("RegIdExpired", 0, 0);
+        b = new hx("PackageUnregistered", 1, 1);
+        hx hxVar = new hx("Init", 2, 2);
+        c = hxVar;
+        f543a = new hx[]{a, b, hxVar};
     }
 
-    public hx() {
+    public hx(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                String str2 = (String) objArr2[0];
+                ((Integer) objArr2[1]).intValue();
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f581a = new BitSet(2);
+        this.f544a = i2;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(hx hxVar) {
-        InterceptResult invokeL;
-        int a2;
-        int a3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hxVar)) == null) {
-            if (hx.class.equals(hxVar.getClass())) {
-                int compareTo = Boolean.valueOf(m465a()).compareTo(Boolean.valueOf(hxVar.m465a()));
-                if (compareTo != 0) {
-                    return compareTo;
-                }
-                if (!m465a() || (a3 = ir.a(this.f580a, hxVar.f580a)) == 0) {
-                    int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(hxVar.b()));
-                    if (compareTo2 != 0) {
-                        return compareTo2;
-                    }
-                    if (!b() || (a2 = ir.a(this.f582b, hxVar.f582b)) == 0) {
-                        return 0;
-                    }
-                    return a2;
-                }
-                return a3;
-            }
-            return hx.class.getName().compareTo(hxVar.getClass().getName());
-        }
-        return invokeL.intValue;
-    }
-
-    public hx a(int i) {
+    public static hx a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            this.f580a = i;
-            a(true);
-            return this;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        return null;
+                    }
+                    return c;
+                }
+                return b;
+            }
+            return a;
         }
         return (hx) invokeI.objValue;
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.xiaomi.push.iq
-    public void a(jb jbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jbVar) == null) {
-            jbVar.m562a();
-            while (true) {
-                iy m558a = jbVar.m558a();
-                byte b2 = m558a.a;
-                if (b2 == 0) {
-                    break;
-                }
-                short s = m558a.f791a;
-                if (s != 1) {
-                    if (s == 2 && b2 == 8) {
-                        this.f582b = jbVar.m556a();
-                        b(true);
-                        jbVar.g();
-                    }
-                    je.a(jbVar, b2);
-                    jbVar.g();
-                } else {
-                    if (b2 == 8) {
-                        this.f580a = jbVar.m556a();
-                        a(true);
-                        jbVar.g();
-                    }
-                    je.a(jbVar, b2);
-                    jbVar.g();
-                }
-            }
-            jbVar.f();
-            if (!m465a()) {
-                throw new jc("Required field 'miscConfigVersion' was not found in serialized data! Struct: " + toString());
-            } else if (b()) {
-                a();
-            } else {
-                throw new jc("Required field 'pluginConfigVersion' was not found in serialized data! Struct: " + toString());
-            }
-        }
-    }
-
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f581a.set(0, z);
-        }
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public boolean m465a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f581a.get(0) : invokeV.booleanValue;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public boolean m466a(hx hxVar) {
+    public static hx valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, hxVar)) == null) ? hxVar != null && this.f580a == hxVar.f580a && this.f582b == hxVar.f582b : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (hx) Enum.valueOf(hx.class, str) : (hx) invokeL.objValue;
     }
 
-    public hx b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            this.f582b = i;
-            b(true);
-            return this;
-        }
-        return (hx) invokeI.objValue;
-    }
-
-    @Override // com.xiaomi.push.iq
-    public void b(jb jbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jbVar) == null) {
-            a();
-            jbVar.a(f579a);
-            jbVar.a(a);
-            jbVar.a(this.f580a);
-            jbVar.b();
-            jbVar.a(b);
-            jbVar.a(this.f582b);
-            jbVar.b();
-            jbVar.c();
-            jbVar.m566a();
-        }
-    }
-
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f581a.set(1, z);
-        }
-    }
-
-    public boolean b() {
+    public static hx[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f581a.get(1) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (hx[]) f543a.clone() : (hx[]) invokeV.objValue;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, obj)) == null) {
-            if (obj != null && (obj instanceof hx)) {
-                return m466a((hx) obj);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return "XmPushActionCheckClientInfo(miscConfigVersion:" + this.f580a + StringUtil.ARRAY_ELEMENT_SEPARATOR + "pluginConfigVersion:" + this.f582b + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f544a : invokeV.intValue;
     }
 }

@@ -46,6 +46,6 @@ public class b extends com.kwad.sdk.draw.kwai.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.b = (FrameLayout) a(R.id.obfuscated_res_0x7f09108c);
+        this.b = (FrameLayout) a(R.id.obfuscated_res_0x7f09107c);
     }
 }

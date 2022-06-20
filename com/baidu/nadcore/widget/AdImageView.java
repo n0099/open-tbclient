@@ -20,13 +20,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g31;
-import com.repackage.s21;
+import com.repackage.k31;
+import com.repackage.w21;
 /* loaded from: classes2.dex */
 public class AdImageView extends AppCompatImageView implements IAdImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final g31 a;
+    public final k31 a;
     public IAdImageView.ImageScaleType b;
     public final Path c;
 
@@ -51,49 +51,83 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
         }
     }
 
+    public void f(String str, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048576, this, str, i, i2) == null) {
+            w21.a().a(str, this, i, i2);
+        }
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                setImageBitmap(null);
+            } else {
+                w21.a().e(str, this);
+            }
+        }
+    }
+
     @NonNull
-    public g31 getConfig() {
+    public k31 getConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (g31) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (k31) invokeV.objValue;
     }
 
     public IAdImageView.ImageScaleType getImageScaleType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (IAdImageView.ImageScaleType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (IAdImageView.ImageScaleType) invokeV.objValue;
     }
 
-    public void m(String str, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, str, i, i2) == null) {
-            s21.a().a(str, this, i, i2);
-        }
-    }
-
-    public void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                setImageBitmap(null);
-            } else {
-                s21.a().e(str, this);
-            }
-        }
-    }
-
-    public void o(String str) {
+    public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            s21.a().c(str);
+            w21.a().c(str);
         }
+    }
+
+    public final void m(AttributeSet attributeSet) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, attributeSet) == null) || attributeSet == null) {
+            return;
+        }
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04006e, R.attr.obfuscated_res_0x7f0400df, R.attr.obfuscated_res_0x7f0400e0, R.attr.obfuscated_res_0x7f040146, R.attr.obfuscated_res_0x7f040258, R.attr.obfuscated_res_0x7f0402e9, R.attr.obfuscated_res_0x7f0402fc, R.attr.obfuscated_res_0x7f0403d8, R.attr.obfuscated_res_0x7f0403de, R.attr.obfuscated_res_0x7f040434, R.attr.obfuscated_res_0x7f04053f, R.attr.obfuscated_res_0x7f040544});
+        int resourceId = obtainStyledAttributes.getResourceId(5, 0);
+        if (resourceId != 0) {
+            this.a.a = resourceId;
+        }
+        int resourceId2 = obtainStyledAttributes.getResourceId(4, 0);
+        if (resourceId2 != 0) {
+            this.a.c = resourceId2;
+        }
+        k31.a aVar = new k31.a();
+        if (obtainStyledAttributes.getBoolean(3, false)) {
+            aVar.a = true;
+        } else {
+            int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(0, 0);
+            if (dimensionPixelSize > 0) {
+                float floatValue = Integer.valueOf(dimensionPixelSize).floatValue();
+                aVar.b = new float[]{floatValue, floatValue, floatValue, floatValue};
+            } else {
+                aVar.b = new float[]{obtainStyledAttributes.getDimensionPixelSize(8, 0), obtainStyledAttributes.getDimensionPixelSize(11, 0), obtainStyledAttributes.getDimensionPixelSize(7, 0), obtainStyledAttributes.getDimensionPixelSize(10, 0)};
+            }
+        }
+        this.a.d = aVar;
+        int i = obtainStyledAttributes.getInt(6, -1);
+        if (i >= 0) {
+            setScaleType(IAdImageView.a0[i]);
+        }
+        obtainStyledAttributes.recycle();
     }
 
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
-            g31.a aVar = getConfig().d;
+        if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
+            k31.a aVar = getConfig().d;
             if (aVar == null) {
                 super.onDraw(canvas);
                 return;
@@ -133,46 +167,12 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
         }
     }
 
-    public final void q(AttributeSet attributeSet) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, attributeSet) == null) || attributeSet == null) {
-            return;
-        }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04006e, R.attr.obfuscated_res_0x7f0400df, R.attr.obfuscated_res_0x7f0400e0, R.attr.obfuscated_res_0x7f040146, R.attr.obfuscated_res_0x7f040258, R.attr.obfuscated_res_0x7f0402e9, R.attr.obfuscated_res_0x7f0402fc, R.attr.obfuscated_res_0x7f0403d8, R.attr.obfuscated_res_0x7f0403de, R.attr.obfuscated_res_0x7f040434, R.attr.obfuscated_res_0x7f04053f, R.attr.obfuscated_res_0x7f040544});
-        int resourceId = obtainStyledAttributes.getResourceId(5, 0);
-        if (resourceId != 0) {
-            this.a.a = resourceId;
-        }
-        int resourceId2 = obtainStyledAttributes.getResourceId(4, 0);
-        if (resourceId2 != 0) {
-            this.a.c = resourceId2;
-        }
-        g31.a aVar = new g31.a();
-        if (obtainStyledAttributes.getBoolean(3, false)) {
-            aVar.a = true;
-        } else {
-            int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(0, 0);
-            if (dimensionPixelSize > 0) {
-                float floatValue = Integer.valueOf(dimensionPixelSize).floatValue();
-                aVar.b = new float[]{floatValue, floatValue, floatValue, floatValue};
-            } else {
-                aVar.b = new float[]{obtainStyledAttributes.getDimensionPixelSize(8, 0), obtainStyledAttributes.getDimensionPixelSize(11, 0), obtainStyledAttributes.getDimensionPixelSize(7, 0), obtainStyledAttributes.getDimensionPixelSize(10, 0)};
-            }
-        }
-        this.a.d = aVar;
-        int i = obtainStyledAttributes.getInt(6, -1);
-        if (i >= 0) {
-            setScaleType(IAdImageView.a0[i]);
-        }
-        obtainStyledAttributes.recycle();
-    }
-
     public void setBorder(float f, @ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)}) == null) {
-            g31.a aVar = this.a.d;
+            k31.a aVar = this.a.d;
             if (aVar == null) {
-                aVar = new g31.a();
+                aVar = new k31.a();
             }
             aVar.c = f;
             aVar.d = i;
@@ -183,9 +183,9 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
     public void setCircle() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            g31.a aVar = this.a.d;
+            k31.a aVar = this.a.d;
             if (aVar == null) {
-                aVar = new g31.a();
+                aVar = new k31.a();
             }
             aVar.a = true;
             this.a.d = aVar;
@@ -218,9 +218,9 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
     public void setRadius(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            g31.a aVar = this.a.d;
+            k31.a aVar = this.a.d;
             if (aVar == null) {
-                aVar = new g31.a();
+                aVar = new k31.a();
             }
             aVar.a = false;
             aVar.b = new float[]{f, f2, f3, f4};
@@ -268,8 +268,8 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
                 return;
             }
         }
-        this.a = new g31();
+        this.a = new k31();
         this.c = new Path();
-        q(attributeSet);
+        m(attributeSet);
     }
 }

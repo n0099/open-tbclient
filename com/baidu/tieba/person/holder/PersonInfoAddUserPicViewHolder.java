@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jn;
-import com.repackage.qy7;
+import com.repackage.nn;
+import com.repackage.xz7;
 /* loaded from: classes3.dex */
 public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -23,7 +23,7 @@ public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
     public ImageView b;
     public TextView c;
     public int d;
-    public jn e;
+    public nn e;
     public View.OnClickListener f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -50,24 +50,24 @@ public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
         this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09200a);
     }
 
-    public void c(jn jnVar) {
+    public void c(nn nnVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jnVar) == null) && (jnVar instanceof qy7)) {
-            this.e = jnVar;
-            qy7 qy7Var = (qy7) jnVar;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, nnVar) == null) && (nnVar instanceof xz7)) {
+            this.e = nnVar;
+            xz7 xz7Var = (xz7) nnVar;
             SkinManager.setImageResource(this.b, R.drawable.icon_mine_pic_add);
-            if (qy7Var.a() > 0) {
-                this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0822), Integer.valueOf(qy7Var.a())));
+            if (xz7Var.a() > 0) {
+                this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f081f), Integer.valueOf(xz7Var.a())));
             }
             b().setOnClickListener(this.f);
             e(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public jn d() {
+    public nn d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (jn) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (nn) invokeV.objValue;
     }
 
     public void e(int i) {

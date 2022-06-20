@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.bq;
+import com.xiaomi.push.bt;
 /* loaded from: classes8.dex */
 public class Config {
     public static /* synthetic */ Interceptable $ic = null;
@@ -187,7 +187,7 @@ public class Config {
             int unused = builder.mEventEncrypted;
             this.mEventEncrypted = true;
         }
-        this.mAESKey = !TextUtils.isEmpty(builder.mAESKey) ? builder.mAESKey : bq.a(context);
+        this.mAESKey = !TextUtils.isEmpty(builder.mAESKey) ? builder.mAESKey : bt.a(context);
         this.mMaxFileLength = builder.mMaxFileLength > -1 ? builder.mMaxFileLength : 1048576L;
         if (builder.mEventUploadFrequency > -1) {
             this.mEventUploadFrequency = builder.mEventUploadFrequency;
@@ -218,7 +218,7 @@ public class Config {
     public static Config defaultConfig(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? getBuilder().setEventEncrypted(true).setAESKey(bq.a(context)).setMaxFileLength(1048576L).setEventUploadSwitchOpen(false).setEventUploadFrequency(86400L).setPerfUploadSwitchOpen(false).setPerfUploadFrequency(86400L).build(context) : (Config) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? getBuilder().setEventEncrypted(true).setAESKey(bt.a(context)).setMaxFileLength(1048576L).setEventUploadSwitchOpen(false).setEventUploadFrequency(86400L).setPerfUploadSwitchOpen(false).setPerfUploadFrequency(86400L).build(context) : (Config) invokeL.objValue;
     }
 
     public static Builder getBuilder() {

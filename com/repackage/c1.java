@@ -1,19 +1,15 @@
 package com.repackage;
 /* loaded from: classes5.dex */
 public interface c1 {
-    boolean a(int i, int i2, int i3, int i4);
+    void a(String str, String str2, Throwable th);
 
-    boolean b(int i, int i2, int i3, int i4);
+    void b(String str, String str2, Throwable th);
 
-    boolean c(float f, float f2);
+    void debug(String str, String str2);
 
-    boolean d(int i, int i2, int i3);
+    void error(String str, String str2);
 
-    boolean e(int i, int i2);
+    void error(String str, String str2, Throwable th);
 
-    boolean f(int i);
-
-    boolean g(int i);
-
-    boolean h(char c);
+    void log(String str, String str2);
 }

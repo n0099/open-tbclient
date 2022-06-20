@@ -1,95 +1,67 @@
 package com.repackage;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class d28 {
+public class d28 extends an<p38, CardViewHolder<r48>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext i;
 
-    public static void a(String str, List<jn> list) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d28(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, str, list) == null) || StringUtils.isNull(str)) {
-            return;
-        }
-        if (list == null) {
-            list = new ArrayList<>();
-        }
-        JSONArray jSONArray = new JSONArray();
-        int size = list.size();
-        for (int i = 0; i < size; i++) {
-            jn jnVar = list.get(i);
-            if (jnVar instanceof hz4) {
-                hz4 hz4Var = (hz4) jnVar;
-                if (!hz4Var.e()) {
-                    jSONArray.put(hz4Var.a());
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        jSONArray.put(str);
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
-        httpMessage.addParam("pic_list", jSONArray.toString());
-        MessageManager.getInstance().sendMessage(httpMessage);
+        this.i = tbPageContext;
     }
 
-    public static void b(hz4 hz4Var, List<jn> list) {
-        hz4 hz4Var2;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.an
+    /* renamed from: Z */
+    public CardViewHolder<r48> M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, hz4Var, list) == null) || hz4Var == null || ListUtils.isEmpty(list) || StringUtils.isNull(hz4Var.a())) {
-            return;
-        }
-        JSONArray jSONArray = new JSONArray();
-        int size = list.size();
-        for (int i = 0; i < size; i++) {
-            jn jnVar = list.get(i);
-            if ((jnVar instanceof hz4) && (hz4Var2 = (hz4) jnVar) != hz4Var && !hz4Var2.e()) {
-                jSONArray.put(hz4Var2.a());
-            }
-        }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
-        httpMessage.addParam("pic_list", jSONArray.toString());
-        if (jSONArray.length() <= 0) {
-            httpMessage.addParam("truncat", 1);
-        } else {
-            httpMessage.addParam("truncat", 0);
-        }
-        MessageManager.getInstance().sendMessage(httpMessage);
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new CardViewHolder<>(new r48(this.i)) : (CardViewHolder) invokeL.objValue;
     }
 
-    public static String c(TbPageContext tbPageContext, String str) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.an
+    /* renamed from: a0 */
+    public View S(int i, View view2, ViewGroup viewGroup, p38 p38Var, CardViewHolder<r48> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tbPageContext, str)) == null) {
-            if (tbPageContext == null || StringUtils.isNull(str)) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, p38Var, cardViewHolder})) == null) {
+            if (cardViewHolder == null || cardViewHolder.c() == null || p38Var == null) {
                 return null;
             }
-            if (tbPageContext.getResources().getDisplayMetrics().densityDpi > 240.0f) {
-                return "http://tb.himg.baidu.com/sys/portraith/item/" + str;
-            }
-            return "http://tb.himg.baidu.com/sys/portraitl/item/" + str;
+            cardViewHolder.c().i(p38Var);
+            return cardViewHolder.c().h();
         }
-        return (String) invokeLL.objValue;
-    }
-
-    public static void d(hz4 hz4Var, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, hz4Var, bdUniqueId) == null) || hz4Var == null || StringUtils.isNull(hz4Var.a()) || !ListUtils.isEmpty(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
-            return;
-        }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT);
-        httpMessage.addParam("pic_url", hz4Var.a());
-        httpMessage.setTag(bdUniqueId);
-        MessageManager.getInstance().sendMessage(httpMessage);
+        return (View) invokeCommon.objValue;
     }
 }

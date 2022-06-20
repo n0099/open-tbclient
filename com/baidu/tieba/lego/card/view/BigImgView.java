@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
+import com.repackage.pi;
 /* loaded from: classes3.dex */
 public class BigImgView extends BaseCardView<BigImgCard> {
     public static /* synthetic */ Interceptable $ic;
@@ -55,16 +55,16 @@ public class BigImgView extends BaseCardView<BigImgCard> {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bigImgCard) == null) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.m.getLayoutParams();
             if (bigImgCard.getRatio() > 0.0d) {
-                int ratio = (int) (bigImgCard.getRatio() * li.k(getContext()));
+                int ratio = (int) (bigImgCard.getRatio() * pi.k(getContext()));
                 if (Math.abs(ratio - layoutParams.height) > 10) {
                     layoutParams.height = ratio;
                     this.m.setLayoutParams(layoutParams);
                 }
             } else {
-                layoutParams.height = (int) ((li.k(getContext()) * 0.5f) + 0.5f);
+                layoutParams.height = (int) ((pi.k(getContext()) * 0.5f) + 0.5f);
                 this.m.setLayoutParams(layoutParams);
             }
-            this.m.K(bigImgCard.getUrl(), 10, false);
+            this.m.J(bigImgCard.getUrl(), 10, false);
         }
     }
 

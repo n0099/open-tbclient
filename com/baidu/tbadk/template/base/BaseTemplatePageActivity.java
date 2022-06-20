@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.z85;
+import com.repackage.m95;
 /* loaded from: classes3.dex */
 public abstract class BaseTemplatePageActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public z85 mPageLoader;
-    public ViewGroup mRootLayout;
+    public m95 a;
+    public ViewGroup b;
 
     public BaseTemplatePageActivity() {
         Interceptable interceptable = $ic;
@@ -30,18 +30,18 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
         }
     }
 
-    public abstract z85 buildPageTemplate();
+    public abstract m95 A1();
 
-    public abstract int getLayoutR();
+    public abstract int B1();
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            z85 z85Var = this.mPageLoader;
-            if (z85Var != null) {
-                z85Var.h(i);
+            m95 m95Var = this.a;
+            if (m95Var != null) {
+                m95Var.h(i);
             }
         }
     }
@@ -51,10 +51,10 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            ViewGroup viewGroup = (ViewGroup) getLayoutInflater().inflate(getLayoutR(), (ViewGroup) null);
-            this.mRootLayout = viewGroup;
+            ViewGroup viewGroup = (ViewGroup) getLayoutInflater().inflate(B1(), (ViewGroup) null);
+            this.b = viewGroup;
             setContentView(viewGroup);
-            this.mPageLoader = buildPageTemplate();
+            this.a = A1();
         }
     }
 
@@ -63,9 +63,9 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            z85 z85Var = this.mPageLoader;
-            if (z85Var != null) {
-                z85Var.i();
+            m95 m95Var = this.a;
+            if (m95Var != null) {
+                m95Var.i();
             }
         }
     }
@@ -75,9 +75,9 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onPause();
-            z85 z85Var = this.mPageLoader;
-            if (z85Var != null) {
-                z85Var.j();
+            m95 m95Var = this.a;
+            if (m95Var != null) {
+                m95Var.j();
             }
         }
     }
@@ -87,9 +87,9 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onResume();
-            z85 z85Var = this.mPageLoader;
-            if (z85Var != null) {
-                z85Var.k();
+            m95 m95Var = this.a;
+            if (m95Var != null) {
+                m95Var.k();
             }
         }
     }

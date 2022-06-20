@@ -1,30 +1,33 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.repackage.pn1;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface aj1 {
-    @NonNull
-    l43 a(Activity activity, boolean z, String str, String str2);
+public class aj1 implements rl1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    q43 b(Activity activity, pn1.d dVar, Bundle bundle);
+    public aj1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    @NonNull
-    r43 c(Activity activity, String str, String str2, boolean z, boolean z2);
-
-    @NonNull
-    m43 d(Context context, boolean z, boolean z2, String[] strArr, String str, boolean z3);
-
-    @NonNull
-    p43 e(Context context);
-
-    @NonNull
-    o43 f(Context context);
-
-    @NonNull
-    n43 g(Context context, String str);
+    @Override // com.repackage.rl1
+    public void a(HybridUbcFlow hybridUbcFlow) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, hybridUbcFlow) == null) {
+        }
+    }
 }

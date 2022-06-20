@@ -1,17 +1,21 @@
 package com.repackage;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class f94 {
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+/* loaded from: classes6.dex */
+public class f94<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static f94 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public v84 a;
+    public final List<T> a;
 
     public f94() {
         Interceptable interceptable = $ic;
@@ -26,90 +30,78 @@ public class f94 {
                 return;
             }
         }
-        this.a = new v84();
+        this.a = new ArrayList();
     }
 
-    public static f94 b() {
+    public synchronized T c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            f94 f94Var = b;
-            if (f94Var != null) {
-                return f94Var;
-            }
-            synchronized (f94.class) {
-                if (b == null) {
-                    b = new f94();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (this.a.isEmpty()) {
+                    return null;
                 }
+                T t = this.a.get(0);
+                this.a.remove(0);
+                return t;
             }
-            return b;
         }
-        return (f94) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    public r84 a(h94 h94Var) {
+    public synchronized T d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                if (this.a.isEmpty()) {
+                    return null;
+                }
+                return this.a.get(0);
+            }
+        }
+        return (T) invokeV.objValue;
+    }
+
+    public T e(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, h94Var)) == null) {
-            if (h94Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
+            if (t != null) {
+                for (int size = this.a.size() - 1; size >= 0; size--) {
+                    if (t.equals(this.a.get(size))) {
+                        return this.a.get(size);
+                    }
+                }
                 return null;
             }
-            return new m94(h94Var, false);
+            return null;
         }
-        return (r84) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public synchronized boolean c(String str) {
-        InterceptResult invokeL;
-        boolean e;
+    @NonNull
+    public Iterator<T> f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            synchronized (this) {
-                e = this.a.e(str);
-            }
-            return e;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.iterator() : (Iterator) invokeV.objValue;
     }
 
-    public synchronized boolean d(String str) {
-        InterceptResult invokeL;
-        boolean f;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(",Queue Size:" + this.a.size());
             synchronized (this) {
-                f = this.a.f(str);
+                int i = 0;
+                for (T t : this.a) {
+                    sb.append(":[" + i + PreferencesUtil.RIGHT_MOUNT + t);
+                    i++;
+                }
             }
-            return f;
+            return sb.toString();
         }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized void e(d94 d94Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, d94Var) == null) {
-            synchronized (this) {
-                this.a.c(d94Var);
-            }
-        }
-    }
-
-    public synchronized <T> void f(h94<T> h94Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, h94Var) == null) {
-            synchronized (this) {
-                h94Var.s(false);
-                this.a.h(h94Var);
-            }
-        }
-    }
-
-    public synchronized void g(d94 d94Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, d94Var) == null) {
-            synchronized (this) {
-                this.a.i(d94Var);
-            }
-        }
+        return (String) invokeV.objValue;
     }
 }

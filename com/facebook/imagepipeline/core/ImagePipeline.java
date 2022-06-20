@@ -36,8 +36,8 @@ import com.facebook.imagepipeline.producers.ThreadHandoffProducerQueue;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
-import com.repackage.e0;
-import com.repackage.f0;
+import com.repackage.h0;
+import com.repackage.i0;
 import java.util.Set;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.atomic.AtomicLong;
@@ -756,14 +756,14 @@ public class ImagePipeline {
         } : (Supplier) invokeLLLL.objValue;
     }
 
-    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: com.repackage.e0<java.lang.Boolean, com.repackage.f0<java.lang.Boolean>>, com.repackage.e0<java.lang.Boolean, com.repackage.f0<TContinuationResult>> */
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: com.repackage.h0<java.lang.Boolean, com.repackage.i0<java.lang.Boolean>>, com.repackage.h0<java.lang.Boolean, com.repackage.i0<TContinuationResult>> */
     public DataSource<Boolean> isInDiskCache(ImageRequest imageRequest) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, imageRequest)) == null) {
             CacheKey encodedCacheKey = this.mCacheKeyFactory.getEncodedCacheKey(imageRequest, null);
             SimpleDataSource create = SimpleDataSource.create();
-            this.mMainBufferedDiskCache.contains(encodedCacheKey).g(new e0<Boolean, f0<Boolean>>(this, encodedCacheKey) { // from class: com.facebook.imagepipeline.core.ImagePipeline.6
+            this.mMainBufferedDiskCache.contains(encodedCacheKey).g(new h0<Boolean, i0<Boolean>>(this, encodedCacheKey) { // from class: com.facebook.imagepipeline.core.ImagePipeline.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ImagePipeline this$0;
@@ -790,19 +790,19 @@ public class ImagePipeline {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.repackage.e0
-                public f0<Boolean> then(f0<Boolean> f0Var) throws Exception {
+                @Override // com.repackage.h0
+                public i0<Boolean> then(i0<Boolean> i0Var) throws Exception {
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, f0Var)) == null) {
-                        if (f0Var.n() || f0Var.p() || !f0Var.l().booleanValue()) {
+                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, i0Var)) == null) {
+                        if (i0Var.n() || i0Var.p() || !i0Var.l().booleanValue()) {
                             return this.this$0.mSmallImageBufferedDiskCache.contains(this.val$cacheKey);
                         }
-                        return f0.j(Boolean.TRUE);
+                        return i0.j(Boolean.TRUE);
                     }
-                    return (f0) invokeL2.objValue;
+                    return (i0) invokeL2.objValue;
                 }
-            }).e(new e0<Boolean, Void>(this, create) { // from class: com.facebook.imagepipeline.core.ImagePipeline.5
+            }).e(new h0<Boolean, Void>(this, create) { // from class: com.facebook.imagepipeline.core.ImagePipeline.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ImagePipeline this$0;
@@ -828,12 +828,12 @@ public class ImagePipeline {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.repackage.e0
-                public Void then(f0<Boolean> f0Var) throws Exception {
+                @Override // com.repackage.h0
+                public Void then(i0<Boolean> i0Var) throws Exception {
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f0Var)) == null) {
-                        this.val$dataSource.setResult(Boolean.valueOf((f0Var.n() || f0Var.p() || !f0Var.l().booleanValue()) ? false : true));
+                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i0Var)) == null) {
+                        this.val$dataSource.setResult(Boolean.valueOf((i0Var.n() || i0Var.p() || !i0Var.l().booleanValue()) ? false : true));
                         return null;
                     }
                     return (Void) invokeL2.objValue;

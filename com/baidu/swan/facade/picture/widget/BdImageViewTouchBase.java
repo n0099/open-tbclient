@@ -19,6 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 /* loaded from: classes2.dex */
 public abstract class BdImageViewTouchBase extends ImageView {
     public static /* synthetic */ Interceptable $ic;
@@ -72,7 +73,7 @@ public abstract class BdImageViewTouchBase extends ImageView {
                     return;
                 }
             }
-            NONE = new DisplayType("NONE", 0);
+            NONE = new DisplayType(HlsPlaylistParser.METHOD_NONE, 0);
             FIT_TO_SCREEN = new DisplayType("FIT_TO_SCREEN", 1);
             DisplayType displayType = new DisplayType("FIT_IF_BIGGER", 2);
             FIT_IF_BIGGER = displayType;

@@ -59,7 +59,7 @@ public class f extends com.kwad.sdk.f.kwai.a implements View.OnClickListener {
     };
 
     private void b(int i) {
-        com.kwad.sdk.core.download.a.a.a(new a.C0296a(this.b.getContext()).a(this.f).a(i).a(this.h).a(new a.b() { // from class: com.kwad.sdk.f.a.f.3
+        com.kwad.sdk.core.download.a.a.a(new a.C0304a(this.b.getContext()).a(this.f).a(i).a(this.h).a(new a.b() { // from class: com.kwad.sdk.f.a.f.3
             @Override // com.kwad.sdk.core.download.a.a.b
             public void a() {
                 com.kwad.sdk.core.report.a.a(f.this.f, 2, ((com.kwad.sdk.f.kwai.a) f.this).a.c.getTouchCoords());
@@ -109,10 +109,10 @@ public class f extends com.kwad.sdk.f.kwai.a implements View.OnClickListener {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.b = (ViewGroup) a(R.id.obfuscated_res_0x7f091126);
-        this.c = (ImageView) a(R.id.obfuscated_res_0x7f091001);
-        this.d = (TextView) a(R.id.obfuscated_res_0x7f091003);
-        this.e = (TextView) a(R.id.obfuscated_res_0x7f090ffd);
+        this.b = (ViewGroup) a(R.id.obfuscated_res_0x7f091116);
+        this.c = (ImageView) a(R.id.obfuscated_res_0x7f090ff1);
+        this.d = (TextView) a(R.id.obfuscated_res_0x7f090ff3);
+        this.e = (TextView) a(R.id.obfuscated_res_0x7f090fed);
     }
 
     @Override // android.view.View.OnClickListener

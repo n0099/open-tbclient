@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ki;
+import com.repackage.oi;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class JumpYYLiveHttpResponseMessage extends JsonHttpResponsedMessage {
@@ -64,7 +64,7 @@ public class JumpYYLiveHttpResponseMessage extends JsonHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             YyExtData yyExtData = this.mYyExtData;
-            return (yyExtData == null || ki.isEmpty(yyExtData.mSid) || ki.isEmpty(this.mYyExtData.mSsid)) ? false : true;
+            return (yyExtData == null || oi.isEmpty(yyExtData.mSid) || oi.isEmpty(this.mYyExtData.mSsid)) ? false : true;
         }
         return invokeV.booleanValue;
     }

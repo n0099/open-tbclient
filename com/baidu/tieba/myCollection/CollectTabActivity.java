@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -23,21 +24,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fi4;
-import com.repackage.pl4;
-import com.repackage.tj7;
-import com.repackage.uj7;
-import com.repackage.vj7;
-import com.repackage.z35;
+import com.repackage.el7;
+import com.repackage.fl7;
+import com.repackage.gl7;
+import com.repackage.o45;
+import com.repackage.pi4;
+import com.repackage.zl4;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class CollectTabActivity extends BaseFragmentActivity {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String FRAGMENTS_TAG = "android:support:fragments";
-    public static final String SCHEME_MY_COLLECT = "tbmycollection://";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tj7 mController;
-    public CustomMessageListener mEditorEnableListener;
+    public el7 a;
+    public CustomMessageListener b;
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -74,10 +73,10 @@ public class CollectTabActivity extends BaseFragmentActivity {
                 Bundle bundle = (Bundle) customResponsedMessage.getData();
                 boolean z = bundle.getBoolean("is_enable_edit", true);
                 int i = bundle.getInt("fragment_type", -1);
-                if (i == -1 || i != this.a.mController.f()) {
+                if (i == -1 || i != this.a.a.f()) {
                     return;
                 }
-                this.a.mController.k(z);
+                this.a.a.k(z);
             }
         }
     }
@@ -95,60 +94,22 @@ public class CollectTabActivity extends BaseFragmentActivity {
                 return;
             }
         }
-        this.mEditorEnableListener = new a(this, 2022209);
+        this.b = new a(this, 2022209);
     }
 
-    private void checkSchemeFromIntent(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, this, intent) == null) || intent == null) {
-            return;
-        }
-        String dataString = intent.getDataString();
-        if (StringUtils.isNull(dataString) || !dataString.startsWith(SCHEME_MY_COLLECT)) {
-            return;
-        }
-        String decode = Uri.decode(intent.getData().getEncodedPath());
-        if (decode.startsWith("//")) {
-            decode = decode.substring(2);
-        }
-        Map<String, String> paramPair = UrlManager.getParamPair(decode);
-        if (paramPair != null) {
-            StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE).param("obj_locate", paramPair.get("obj_locate")).param("obj_type", 1).param("obj_source", paramPair.get("obj_source")).param(TiebaStatic.Params.OBJ_PARAM2, paramPair.get(TiebaStatic.Params.OBJ_PARAM2)).param(TiebaStatic.Params.OBJ_TO, 4).param("obj_name", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, 1);
-            fi4.b(param, paramPair);
-            TiebaStatic.log(param);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.f75
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.t75
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "a081" : (String) invokeV.objValue;
     }
 
-    public void initTabsOnActivityCreated() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            pl4 pl4Var = new pl4(getPageContext().getPageActivity());
-            ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
-            pl4Var.a(threadDelegateStatic);
-            if (pl4Var.getContext() != null) {
-                z35 b = threadDelegateStatic.b();
-                if (b == null) {
-                    return;
-                }
-                b.a.setArguments(new Bundle());
-            }
-            this.mController.h(pl4Var.b());
-        }
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
-            Fragment e = this.mController.e();
+            Fragment e = this.a.e();
             if (e != null) {
                 e.onActivityResult(i, i2, intent);
             }
@@ -158,43 +119,43 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.changeSkinType(i);
-            this.mController.j(i);
+            this.a.j(i);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2 == this.mController.d()) {
-            boolean z = !this.mController.i();
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && view2 == this.a.d()) {
+            boolean z = !this.a.i();
             if (z) {
-                vj7.a("c14067");
+                gl7.a("c14067");
             }
-            this.mController.b(z);
+            this.a.b(z);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d01e2);
-            this.mController = new tj7(this);
-            registerListener(this.mEditorEnableListener);
-            initTabsOnActivityCreated();
-            checkSchemeFromIntent(getIntent());
+            setContentView(R.layout.obfuscated_res_0x7f0d01df);
+            this.a = new el7(this);
+            registerListener(this.b);
+            s0();
+            r0(getIntent());
         }
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, intent) == null) {
             super.onNewIntent(intent);
-            checkSchemeFromIntent(intent);
+            r0(intent);
             setIntent(intent);
         }
     }
@@ -202,20 +163,20 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onPause();
-            uj7.b().f(false);
+            fl7.b().f(false);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onResume();
-            vj7.a("c14061");
-            uj7.b().f(true);
-            uj7.b().e(false);
+            gl7.a("c14061");
+            fl7.b().f(true);
+            fl7.b().e(false);
             NotificationHelper.cancelNotification(getPageContext().getPageActivity(), 28);
         }
     }
@@ -223,14 +184,52 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             try {
                 super.onSaveInstanceState(bundle);
             } catch (Exception unused) {
             }
             if (bundle != null) {
-                bundle.remove("android:support:fragments");
+                bundle.remove(FragmentActivity.FRAGMENTS_TAG);
             }
+        }
+    }
+
+    public final void r0(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, intent) == null) || intent == null) {
+            return;
+        }
+        String dataString = intent.getDataString();
+        if (StringUtils.isNull(dataString) || !dataString.startsWith("tbmycollection://")) {
+            return;
+        }
+        String decode = Uri.decode(intent.getData().getEncodedPath());
+        if (decode.startsWith("//")) {
+            decode = decode.substring(2);
+        }
+        Map<String, String> paramPair = UrlManager.getParamPair(decode);
+        if (paramPair != null) {
+            StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE).param("obj_locate", paramPair.get("obj_locate")).param("obj_type", 1).param("obj_source", paramPair.get("obj_source")).param(TiebaStatic.Params.OBJ_PARAM2, paramPair.get(TiebaStatic.Params.OBJ_PARAM2)).param(TiebaStatic.Params.OBJ_TO, 4).param("obj_name", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, 1);
+            pi4.b(param, paramPair);
+            TiebaStatic.log(param);
+        }
+    }
+
+    public void s0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            zl4 zl4Var = new zl4(getPageContext().getPageActivity());
+            ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
+            zl4Var.a(threadDelegateStatic);
+            if (zl4Var.getContext() != null) {
+                o45 b = threadDelegateStatic.b();
+                if (b == null) {
+                    return;
+                }
+                b.a.setArguments(new Bundle());
+            }
+            this.a.h(zl4Var.b());
         }
     }
 }

@@ -1,159 +1,125 @@
 package com.xiaomi.push.service;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes8.dex */
-public final class bk implements ai {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile bk a;
+public abstract class bk {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String A = "ext_cloud_attr";
+    public static String B = "ext_pkg_name";
+    public static String C = "ext_notify_id";
+    public static String D = "ext_clicked_button";
+    public static String E = "ext_notify_type";
+    public static String F = "ext_session";
+    public static String G = "sig";
+    public static String H = "ext_notify_title";
+    public static String I = "ext_notify_description";
+    public static String J = "ext_messenger";
+    public static String K = "title";
+    public static String L = "description";
+    public static String M = "notifyId";
+    public static String N = "dump";
+    public static String a = "1";
+    public static String b = "2";
+    public static String c = "3";
+    public static String d = "com.xiaomi.push.OPEN_CHANNEL";
+    public static String e = "com.xiaomi.push.SEND_MESSAGE";
+    public static String f = "com.xiaomi.push.SEND_IQ";
+    public static String g = "com.xiaomi.push.BATCH_SEND_MESSAGE";
+    public static String h = "com.xiaomi.push.SEND_PRES";
+    public static String i = "com.xiaomi.push.CLOSE_CHANNEL";
+    public static String j = "com.xiaomi.push.FORCE_RECONN";
+    public static String k = "com.xiaomi.push.RESET_CONN";
+    public static String l = "com.xiaomi.push.UPDATE_CHANNEL_INFO";
+    public static String m = "com.xiaomi.push.SEND_STATS";
+    public static String n = "com.xiaomi.push.HANDLE_FCM_MSG";
+    public static String o = "com.xiaomi.push.CHANGE_HOST";
+    public static String p = "com.xiaomi.push.PING_TIMER";
+    public static String q = "ext_user_id";
+    public static String r = "ext_user_server";
+    public static String s = "ext_user_res";
+    public static String t = "ext_chid";
+    public static String u = "ext_sid";
+    public static String v = "ext_token";
+    public static String w = "ext_auth_method";
+    public static String x = "ext_security";
+    public static String y = "ext_kick";
+    public static String z = "ext_client_attr";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with other field name */
-    public long f915a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public Context f916a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public SharedPreferences f917a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public ConcurrentHashMap<String, a> f918a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public volatile boolean f919a;
-
-    /* loaded from: classes8.dex */
-    public static abstract class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-
-        /* renamed from: a  reason: collision with other field name */
-        public String f920a;
-
-        public a(String str, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Long.valueOf(j)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f920a = str;
-            this.a = j;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1071163325, "Lcom/xiaomi/push/service/bk;")) == null) {
+            return;
         }
-
-        public abstract void a(bk bkVar);
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || bk.a == null) {
-                return;
-            }
-            Context context = bk.a.f916a;
-            if (com.xiaomi.push.bg.d(context)) {
-                long currentTimeMillis = System.currentTimeMillis();
-                SharedPreferences sharedPreferences = bk.a.f917a;
-                if (currentTimeMillis - sharedPreferences.getLong(":ts-" + this.f920a, 0L) > this.a || com.xiaomi.push.af.a(context)) {
-                    SharedPreferences.Editor edit = bk.a.f917a.edit();
-                    com.xiaomi.push.r.a(edit.putLong(":ts-" + this.f920a, System.currentTimeMillis()));
-                    a(bk.a);
-                }
-            }
-        }
-    }
-
-    public bk(Context context) {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1071163325, "Lcom/xiaomi/push/service/bk;");
+        }
+    }
+
+    public static String a(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) {
+            switch (i2) {
+                case 0:
+                    return "ERROR_OK";
+                case 1:
+                    return "ERROR_SERVICE_NOT_INSTALLED";
+                case 2:
+                    return "ERROR_NETWORK_NOT_AVAILABLE";
+                case 3:
+                    return "ERROR_NETWORK_FAILED";
+                case 4:
+                    return "ERROR_ACCESS_DENIED";
+                case 5:
+                    return "ERROR_AUTH_FAILED";
+                case 6:
+                    return "ERROR_MULTI_LOGIN";
+                case 7:
+                    return "ERROR_SERVER_ERROR";
+                case 8:
+                    return "ERROR_RECEIVE_TIMEOUT";
+                case 9:
+                    return "ERROR_READ_ERROR";
+                case 10:
+                    return "ERROR_SEND_ERROR";
+                case 11:
+                    return "ERROR_RESET";
+                case 12:
+                    return "ERROR_NO_CLIENT";
+                case 13:
+                    return "ERROR_SERVER_STREAM";
+                case 14:
+                    return "ERROR_THREAD_BLOCK";
+                case 15:
+                    return "ERROR_SERVICE_DESTROY";
+                case 16:
+                    return "ERROR_SESSION_CHANGED";
+                case 17:
+                    return "ERROR_READ_TIMEOUT";
+                case 18:
+                    return "ERROR_CONNECTIING_TIMEOUT";
+                case 19:
+                    return "ERROR_USER_BLOCKED";
+                case 20:
+                    return "ERROR_REDIRECT";
+                case 21:
+                    return "ERROR_BIND_TIMEOUT";
+                case 22:
+                    return "ERROR_PING_TIMEOUT";
+                default:
+                    return String.valueOf(i2);
             }
         }
-        this.f919a = false;
-        this.f918a = new ConcurrentHashMap<>();
-        this.f916a = context.getApplicationContext();
-        this.f917a = context.getSharedPreferences("sync", 0);
-    }
-
-    public static bk a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (a == null) {
-                synchronized (bk.class) {
-                    if (a == null) {
-                        a = new bk(context);
-                    }
-                }
-            }
-            return a;
-        }
-        return (bk) invokeL.objValue;
-    }
-
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            SharedPreferences sharedPreferences = this.f917a;
-            return sharedPreferences.getString(str + ":" + str2, "");
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Override // com.xiaomi.push.service.ai
-    /* renamed from: a  reason: collision with other method in class */
-    public void mo657a() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f919a) {
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.f915a < 3600000) {
-            return;
-        }
-        this.f915a = currentTimeMillis;
-        this.f919a = true;
-        com.xiaomi.push.ai.a(this.f916a).a(new bl(this), (int) (Math.random() * 10.0d));
-    }
-
-    public void a(a aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) && this.f918a.putIfAbsent(aVar.f920a, aVar) == null) {
-            com.xiaomi.push.ai.a(this.f916a).a(aVar, ((int) (Math.random() * 30.0d)) + 10);
-        }
-    }
-
-    public void a(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
-            SharedPreferences.Editor edit = a.f917a.edit();
-            com.xiaomi.push.r.a(edit.putString(str + ":" + str2, str3));
-        }
+        return (String) invokeI.objValue;
     }
 }

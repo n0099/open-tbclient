@@ -12,6 +12,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowManager;
 import android.webkit.URLUtil;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.utils.Constant;
@@ -34,27 +35,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.og;
-import com.repackage.ts4;
-import com.repackage.uh5;
-import com.repackage.wh5;
+import com.repackage.ct4;
+import com.repackage.ri5;
+import com.repackage.sg;
+import com.repackage.ti5;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class UpdateDialog extends BaseActivity<UpdateDialog> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String mAsUrl;
-    public CombineDownload mCombineDownload;
-    public VersionData mData;
-    public boolean mDownloadAs;
-    public boolean mDownloadOther;
-    public boolean mDownloadTieba;
-    public boolean mIsBackgroundDownloading;
-    public boolean mIsDownloading;
-    public boolean mIsForceUpdate;
-    public PermissionJudgePolicy mPermissionJudgement;
-    public uh5 mSupportDialog;
-    public f mUpadateBroadcast;
+    public boolean a;
+    public boolean b;
+    public boolean c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
+    public VersionData g;
+    public CombineDownload h;
+    public String i;
+    public ri5 j;
+    public f k;
+    public PermissionJudgePolicy l;
 
     /* loaded from: classes3.dex */
     public class a implements DialogInterface.OnCancelListener {
@@ -84,7 +85,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.a.mSupportDialog.dismiss();
+                this.a.j.dismiss();
                 this.a.finish();
             }
         }
@@ -123,8 +124,8 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a.mData.forceUpdate()) {
-                    ts4.e(this.a.a.getPageContext().getPageActivity(), 200);
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a.g.forceUpdate()) {
+                    ct4.e(this.a.a.getPageContext().getPageActivity(), 200);
                 }
             }
         }
@@ -151,7 +152,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.a.mSupportDialog.dismiss();
+                this.a.j.dismiss();
                 this.a.mHandler.postDelayed(new a(this), 100L);
             }
         }
@@ -185,10 +186,10 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.mIsDownloading) {
-                    this.a.stopUpdataService();
+                if (this.a.a) {
+                    this.a.S1();
                 }
-                this.a.mSupportDialog.dismiss();
+                this.a.j.dismiss();
                 this.a.finish();
             }
         }
@@ -222,15 +223,15 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.mSupportDialog.r();
+                this.a.j.r();
                 UpdateDialog updateDialog = this.a;
-                updateDialog.startUpdate(updateDialog.mDownloadTieba, this.a.mDownloadAs, this.a.mDownloadOther);
+                updateDialog.R1(updateDialog.c, this.a.d, this.a.e);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class e implements uh5.f {
+    public class e implements ri5.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UpdateDialog a;
@@ -253,45 +254,45 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             this.a = updateDialog;
         }
 
-        @Override // com.repackage.uh5.f
+        @Override // com.repackage.ri5.f
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 TiebaStatic.log(new StatisticItem("c14382").addParam("obj_locate", 1));
-                this.a.mIsDownloading = true;
+                this.a.a = true;
                 UpdateDialog updateDialog = this.a;
-                if (updateDialog.startUpdate(true, false, z && wh5.c(updateDialog.getPageContext().getPageActivity(), this.a.mCombineDownload))) {
-                    this.a.mSupportDialog.t(false);
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f04f9);
-                    if (this.a.mIsForceUpdate) {
+                if (updateDialog.R1(true, false, z && ti5.c(updateDialog.getPageContext().getPageActivity(), this.a.h))) {
+                    this.a.j.t(false);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f04eb);
+                    if (this.a.f) {
                         return;
                     }
-                    this.a.mSupportDialog.dismiss();
+                    this.a.j.dismiss();
                     this.a.finish();
                 }
             }
         }
 
-        @Override // com.repackage.uh5.f
+        @Override // com.repackage.ri5.f
         public void b(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                if (this.a.checkMainApkExist()) {
-                    this.a.mSupportDialog.dismiss();
+                if (this.a.O1()) {
+                    this.a.j.dismiss();
                     this.a.finish();
                     return;
                 }
                 UpdateDialog updateDialog = this.a;
-                updateDialog.startUpdate(false, true, z && wh5.c(updateDialog.getPageContext().getPageActivity(), this.a.mCombineDownload));
-                if (this.a.mIsForceUpdate) {
+                updateDialog.R1(false, true, z && ti5.c(updateDialog.getPageContext().getPageActivity(), this.a.h));
+                if (this.a.f) {
                     return;
                 }
-                this.a.mSupportDialog.dismiss();
+                this.a.j.dismiss();
                 this.a.finish();
             }
         }
 
-        @Override // com.repackage.uh5.f
+        @Override // com.repackage.ri5.f
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -300,21 +301,21 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             }
         }
 
-        @Override // com.repackage.uh5.f
+        @Override // com.repackage.ri5.f
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 TiebaStatic.log(new StatisticItem("c14382").addParam("obj_locate", 2));
-                this.a.mSupportDialog.dismiss();
+                this.a.j.dismiss();
                 this.a.finish();
             }
         }
 
-        @Override // com.repackage.uh5.f
+        @Override // com.repackage.ri5.f
         public void stopService() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.a.stopUpdataService();
+                this.a.S1();
             }
         }
 
@@ -351,24 +352,24 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                this.this$0.mIsBackgroundDownloading = intent.getBooleanExtra("action_background_downloading", false);
-                if (this.this$0.mIsBackgroundDownloading) {
+                this.this$0.b = intent.getBooleanExtra("action_background_downloading", false);
+                if (this.this$0.b) {
                     this.this$0.showToast(R.string.obfuscated_res_0x7f0f02c7);
-                    this.this$0.mSupportDialog.dismiss();
+                    this.this$0.j.dismiss();
                     this.this$0.finish();
                 } else if (intent.getBooleanExtra("action_update_complete", false)) {
-                    this.this$0.mSupportDialog.dismiss();
+                    this.this$0.j.dismiss();
                     this.this$0.finish();
                 } else if (intent.getBooleanExtra("action_update_progress_interrupted", false)) {
-                    this.this$0.mSupportDialog.dismiss();
+                    this.this$0.j.dismiss();
                     UpdateDialog updateDialog = this.this$0;
-                    updateDialog.showToast(updateDialog.getPageContext().getString(R.string.obfuscated_res_0x7f0f14cb));
+                    updateDialog.showToast(updateDialog.getPageContext().getString(R.string.obfuscated_res_0x7f0f14d8));
                     this.this$0.finish();
-                    this.this$0.stopUpdataService();
+                    this.this$0.S1();
                 } else {
                     int intExtra = intent.getIntExtra("action_update_download_progress", 0);
-                    if (this.this$0.mSupportDialog != null) {
-                        this.this$0.mSupportDialog.v(intExtra);
+                    if (this.this$0.j != null) {
+                        this.this$0.j.v(intExtra);
                     }
                 }
             }
@@ -393,20 +394,19 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Removed duplicated region for block: B:29:0x0092  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean checkMainApkExist() {
+    public final boolean O1() {
         InterceptResult invokeV;
         boolean z;
         File GetFile;
         PackageInfo packageArchiveInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
-            VersionData versionData = this.mData;
-            if (versionData != null && !StringUtils.isNull(versionData.getUrl()) && URLUtil.isNetworkUrl(this.mData.getUrl())) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            VersionData versionData = this.g;
+            if (versionData != null && !StringUtils.isNull(versionData.getUrl()) && URLUtil.isNetworkUrl(this.g.getUrl())) {
                 String str = getPageContext().getString(R.string.obfuscated_res_0x7f0f029e) + TbadkCoreApplication.getInst().getVersionName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX;
                 String fileDireciory = FileHelper.getFileDireciory(str);
                 if (fileDireciory != null && (packageArchiveInfo = getPageContext().getPageActivity().getPackageManager().getPackageArchiveInfo(fileDireciory, 1)) != null) {
@@ -434,113 +434,112 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         return invokeV.booleanValue;
     }
 
-    private void initData(Bundle bundle) {
+    public final void P1(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             if (bundle != null) {
                 try {
                     try {
-                        this.mData = (VersionData) bundle.getSerializable(UpdateDialogConfig.KEY_TIEBA_APK_DATA);
-                        this.mCombineDownload = (CombineDownload) bundle.getSerializable(UpdateDialogConfig.KEY_OTHER_APK_DATA);
+                        this.g = (VersionData) bundle.getSerializable(UpdateDialogConfig.KEY_TIEBA_APK_DATA);
+                        this.h = (CombineDownload) bundle.getSerializable(UpdateDialogConfig.KEY_OTHER_APK_DATA);
                     } catch (Throwable unused) {
-                        this.mData = (VersionData) bundle.getSerializable(UpdateDialogConfig.KEY_TIEBA_APK_DATA);
-                        this.mCombineDownload = (CombineDownload) bundle.getSerializable(UpdateDialogConfig.KEY_OTHER_APK_DATA);
+                        this.g = (VersionData) bundle.getSerializable(UpdateDialogConfig.KEY_TIEBA_APK_DATA);
+                        this.h = (CombineDownload) bundle.getSerializable(UpdateDialogConfig.KEY_OTHER_APK_DATA);
                     }
                 } catch (Throwable unused2) {
-                    this.mCombineDownload = null;
+                    this.h = null;
                 }
-                VersionData versionData = this.mData;
+                VersionData versionData = this.g;
                 if (versionData != null) {
-                    this.mAsUrl = versionData.getAsDownloadUrl();
+                    this.i = versionData.getAsDownloadUrl();
                 }
             } else {
                 Intent intent = getIntent();
                 if (intent != null) {
                     try {
                         try {
-                            this.mData = (VersionData) intent.getSerializableExtra(UpdateDialogConfig.KEY_TIEBA_APK_DATA);
-                            this.mCombineDownload = (CombineDownload) intent.getSerializableExtra(UpdateDialogConfig.KEY_OTHER_APK_DATA);
+                            this.g = (VersionData) intent.getSerializableExtra(UpdateDialogConfig.KEY_TIEBA_APK_DATA);
+                            this.h = (CombineDownload) intent.getSerializableExtra(UpdateDialogConfig.KEY_OTHER_APK_DATA);
                         } catch (Throwable unused3) {
-                            this.mData = (VersionData) intent.getSerializableExtra(UpdateDialogConfig.KEY_TIEBA_APK_DATA);
-                            this.mCombineDownload = (CombineDownload) intent.getSerializableExtra(UpdateDialogConfig.KEY_OTHER_APK_DATA);
+                            this.g = (VersionData) intent.getSerializableExtra(UpdateDialogConfig.KEY_TIEBA_APK_DATA);
+                            this.h = (CombineDownload) intent.getSerializableExtra(UpdateDialogConfig.KEY_OTHER_APK_DATA);
                         }
                     } catch (Throwable unused4) {
-                        this.mCombineDownload = null;
+                        this.h = null;
                     }
-                    VersionData versionData2 = this.mData;
+                    VersionData versionData2 = this.g;
                     if (versionData2 != null) {
-                        this.mAsUrl = versionData2.getAsDownloadUrl();
+                        this.i = versionData2.getAsDownloadUrl();
                     }
                 }
             }
-            VersionData versionData3 = this.mData;
+            VersionData versionData3 = this.g;
             if (versionData3 != null) {
-                this.mIsForceUpdate = versionData3.forceUpdate();
+                this.f = versionData3.forceUpdate();
             }
-            uh5 uh5Var = new uh5(getPageContext().getPageActivity(), R.style.obfuscated_res_0x7f10039f);
-            this.mSupportDialog = uh5Var;
-            uh5Var.setCancelable(false);
-            this.mSupportDialog.q(this.mData, this.mCombineDownload, new e(this, null));
-            this.mSupportDialog.setOnCancelListener(new a(this));
-            this.mSupportDialog.setOnDismissListener(new b(this));
-            this.mSupportDialog.p(new c(this));
-            this.mSupportDialog.u(new d(this));
+            ri5 ri5Var = new ri5(getPageContext().getPageActivity(), R.style.obfuscated_res_0x7f10039f);
+            this.j = ri5Var;
+            ri5Var.setCancelable(false);
+            this.j.q(this.g, this.h, new e(this, null));
+            this.j.setOnCancelListener(new a(this));
+            this.j.setOnDismissListener(new b(this));
+            this.j.p(new c(this));
+            this.j.u(new d(this));
             if (isFinishing()) {
                 return;
             }
-            og.j(this.mSupportDialog, getPageContext());
+            sg.j(this.j, getPageContext());
         }
     }
 
-    private void regBroadcast() {
+    public final void Q1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            this.mUpadateBroadcast = new f(this, null);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.k = new f(this, null);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(TbConfig.APP_UPDATE_ACTION);
-            registerReceiver(this.mUpadateBroadcast, intentFilter);
+            registerReceiver(this.k, intentFilter);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean startUpdate(boolean z, boolean z2, boolean z3) {
+    public final boolean R1(boolean z, boolean z2, boolean z3) {
         InterceptResult invokeCommon;
         CombineDownload combineDownload;
         VersionData versionData;
         VersionData versionData2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
             if (!FileHelper.checkSD()) {
                 showToast(FileHelper.getSdErrorString());
                 return false;
             }
             Activity pageActivity = getPageContext().getPageActivity();
-            if (this.mPermissionJudgement == null) {
-                this.mPermissionJudgement = new PermissionJudgePolicy();
+            if (this.l == null) {
+                this.l = new PermissionJudgePolicy();
             }
-            this.mPermissionJudgement.clearRequestPermissionList();
-            this.mPermissionJudgement.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
-            if (this.mPermissionJudgement.startRequestPermission(pageActivity)) {
+            this.l.clearRequestPermissionList();
+            this.l.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
+            if (this.l.startRequestPermission(pageActivity)) {
                 return false;
             }
-            this.mDownloadTieba = z;
-            this.mDownloadAs = z2;
-            this.mDownloadOther = z3;
+            this.c = z;
+            this.d = z2;
+            this.e = z3;
             Intent intent = new Intent(getPageContext().getPageActivity(), TiebaUpdateService.class);
             intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-            if (z && (versionData2 = this.mData) != null && URLUtil.isNetworkUrl(versionData2.getUrl()) && !TextUtils.isEmpty(this.mData.getApkMD5RSA())) {
-                intent.putExtra(UpdateDialogConfig.KEY_TIEBA_APK_URL, this.mData.getUrl());
-                intent.putExtra(UpdateDialogConfig.KEY_TIEBA_APK_DATA, this.mData);
-                intent.putExtra("MD5_RSA_tieba_apk", this.mData.getApkMD5RSA());
+            if (z && (versionData2 = this.g) != null && URLUtil.isNetworkUrl(versionData2.getUrl()) && !TextUtils.isEmpty(this.g.getApkMD5RSA())) {
+                intent.putExtra(UpdateDialogConfig.KEY_TIEBA_APK_URL, this.g.getUrl());
+                intent.putExtra(UpdateDialogConfig.KEY_TIEBA_APK_DATA, this.g);
+                intent.putExtra("MD5_RSA_tieba_apk", this.g.getApkMD5RSA());
             }
-            if (z2 && URLUtil.isNetworkUrl(this.mAsUrl) && (versionData = this.mData) != null && !TextUtils.isEmpty(versionData.getAsApkMD5RSA())) {
-                intent.putExtra(UpdateDialogConfig.KEY_TIEBA_APK_DATA, this.mData);
-                intent.putExtra(UpdateDialogConfig.KEY_AS_APK_URL, this.mAsUrl);
-                intent.putExtra("MD5_RSA_as_apk", this.mData.getAsApkMD5RSA());
+            if (z2 && URLUtil.isNetworkUrl(this.i) && (versionData = this.g) != null && !TextUtils.isEmpty(versionData.getAsApkMD5RSA())) {
+                intent.putExtra(UpdateDialogConfig.KEY_TIEBA_APK_DATA, this.g);
+                intent.putExtra(UpdateDialogConfig.KEY_AS_APK_URL, this.i);
+                intent.putExtra("MD5_RSA_as_apk", this.g.getAsApkMD5RSA());
             }
-            if (z3 && (combineDownload = this.mCombineDownload) != null && URLUtil.isNetworkUrl(combineDownload.getAppUrl()) && !TextUtils.isEmpty(this.mCombineDownload.getApkMD5RSA())) {
-                intent.putExtra(UpdateDialogConfig.KEY_OTHER_APK_URL, this.mCombineDownload.getAppUrl());
-                intent.putExtra("MD5_RSA_other_apk", this.mCombineDownload.getApkMD5RSA());
+            if (z3 && (combineDownload = this.h) != null && URLUtil.isNetworkUrl(combineDownload.getAppUrl()) && !TextUtils.isEmpty(this.h.getApkMD5RSA())) {
+                intent.putExtra(UpdateDialogConfig.KEY_OTHER_APK_URL, this.h.getAppUrl());
+                intent.putExtra("MD5_RSA_other_apk", this.h.getApkMD5RSA());
             }
             getPageContext().getPageActivity().startService(intent);
             return true;
@@ -548,10 +547,9 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         return invokeCommon.booleanValue;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void stopUpdataService() {
+    public final void S1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65555, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             Intent intent = new Intent(getPageContext().getPageActivity(), TiebaUpdateService.class);
             intent.setAction("action_stop");
             getPageContext().getPageActivity().startService(intent);
@@ -561,7 +559,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     @Override // com.baidu.tbadk.BaseActivity
     public void closeAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 0);
         }
     }
@@ -569,7 +567,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     @Override // com.baidu.tbadk.BaseActivity
     public void enterExitAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
         }
     }
@@ -577,11 +575,11 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             super.onChangeSkinType(i);
-            uh5 uh5Var = this.mSupportDialog;
-            if (uh5Var != null) {
-                uh5Var.m(getPageContext(), i);
+            ri5 ri5Var = this.j;
+            if (ri5Var != null) {
+                ri5Var.m(getPageContext(), i);
             }
         }
     }
@@ -589,14 +587,14 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             WindowManager.LayoutParams attributes = getWindow().getAttributes();
             attributes.alpha = 0.0f;
             getWindow().setAttributes(attributes);
-            initData(bundle);
-            regBroadcast();
+            P1(bundle);
+            Q1();
             TiebaStatic.log(new StatisticItem("c14383").addParam("obj_locate", 1));
         }
     }
@@ -604,13 +602,13 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDestroy();
-            uh5 uh5Var = this.mSupportDialog;
-            if (uh5Var != null) {
-                uh5Var.dismiss();
+            ri5 ri5Var = this.j;
+            if (ri5Var != null) {
+                ri5Var.dismiss();
             }
-            f fVar = this.mUpadateBroadcast;
+            f fVar = this.k;
             if (fVar != null) {
                 unregisterReceiver(fVar);
             }
@@ -620,13 +618,13 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     @Override // android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
-            VersionData versionData = this.mData;
+            VersionData versionData = this.g;
             if (versionData != null) {
                 bundle.putSerializable(UpdateDialogConfig.KEY_TIEBA_APK_DATA, versionData);
             }
-            CombineDownload combineDownload = this.mCombineDownload;
+            CombineDownload combineDownload = this.h;
             if (combineDownload != null) {
                 bundle.putSerializable(UpdateDialogConfig.KEY_OTHER_APK_DATA, combineDownload);
             }

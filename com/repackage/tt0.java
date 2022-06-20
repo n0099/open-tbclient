@@ -1,15 +1,15 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class tt0 extends au0 {
+public class tt0 extends mt0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bq0 o;
 
     public tt0() {
         Interceptable interceptable = $ic;
@@ -25,32 +25,17 @@ public class tt0 extends au0 {
         }
     }
 
-    @Override // com.repackage.au0, com.repackage.bu0
-    public void R() {
+    @Override // com.repackage.mt0, com.repackage.pt0
+    @NonNull
+    public it0 create(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            K(new jq0());
-            K(new lq0());
-            K(new kq0());
-            K(new mq0());
-            n0();
-            m0();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (((str.hashCode() == -1843224545 && str.equals("InlineVideoKernel")) ? (char) 0 : (char) 65535) != 0) {
+                return super.create(str);
+            }
+            return new rt0();
         }
-    }
-
-    public void m0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            K(new aq0());
-        }
-    }
-
-    public void n0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            bq0 bq0Var = new bq0();
-            this.o = bq0Var;
-            K(bq0Var);
-        }
+        return (it0) invokeL.objValue;
     }
 }

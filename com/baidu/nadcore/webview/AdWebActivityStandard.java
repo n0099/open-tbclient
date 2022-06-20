@@ -2,7 +2,6 @@ package com.baidu.nadcore.webview;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
@@ -22,12 +21,5 @@ public class AdWebActivityStandard extends AdWebActivity {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.nadcore.webview.AdWebActivity
-    public String obtainHost() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "AdWebActivityStandard" : (String) invokeV.objValue;
     }
 }

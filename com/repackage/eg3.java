@@ -1,27 +1,34 @@
 package com.repackage;
 
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class eg3 {
+public class eg3 implements ej1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile dg3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized dg3 a() {
-        InterceptResult invokeV;
-        dg3 dg3Var;
+    public eg3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (eg3.class) {
-                if (a == null) {
-                    a = new dg3();
-                }
-                dg3Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return dg3Var;
         }
-        return (dg3) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ej1
+    public void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            qg3.i(context);
+        }
     }
 }

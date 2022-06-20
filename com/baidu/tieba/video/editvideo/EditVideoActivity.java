@@ -44,56 +44,53 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.auth.NTLMEngineImpl;
 import com.google.protobuf.CodedInputStream;
-import com.repackage.ap8;
-import com.repackage.at4;
+import com.repackage.aq8;
 import com.repackage.bp8;
-import com.repackage.fp8;
-import com.repackage.hj7;
-import com.repackage.hp8;
-import com.repackage.ji;
-import com.repackage.lj7;
+import com.repackage.bq8;
+import com.repackage.cp8;
+import com.repackage.ip8;
+import com.repackage.jp8;
+import com.repackage.jt4;
+import com.repackage.ni;
 import com.repackage.np8;
-import com.repackage.op8;
 import com.repackage.pp8;
-import com.repackage.sp8;
-import com.repackage.to8;
-import com.repackage.tp8;
-import com.repackage.uo8;
+import com.repackage.sk7;
+import com.repackage.vp8;
+import com.repackage.wk7;
+import com.repackage.wp8;
+import com.repackage.xp8;
 import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class EditVideoActivity extends BaseActivity implements ap8, bp8, MaskVideoView.f {
+public class EditVideoActivity extends BaseActivity implements ip8, jp8, MaskVideoView.f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean isCancel;
-    public boolean isSend;
-    public List<VideoTitleData> mAllVideoTitleDatas;
-    public String mCallFrom;
-    public SelectCoverModel mCoverModel;
-    public String mCoverPath;
-    public sp8 mEditVideoView;
-    public String mFid;
-    public fp8 mFilterEffectManager;
-    public int mForumLevel;
-    public String mForumName;
-    public String mFrom;
-    public String mFromType;
-    public FrsTabInfoData mFrsTabInfo;
-    public HttpMessageListener mGetVideoActivityListener;
-    public SelectMusicModel mMusicModel;
-    public hj7 mPostMonitorManager;
-    public CustomMessageListener mPostSuccessListener;
-    public int mProZone;
-    public at4 mProgressDialog;
-    public VideoInfo mVideoInfo;
-    public String mVideoPath;
-    public String mVideoTitle;
-    public VideoTitleData mVideoTitleData;
-    public tp8 saveEditVideoController;
-    public int statisticFrom;
-    public to8 thisPageCallback;
+    public String a;
+    public String b;
+    public FrsTabInfoData c;
+    public String d;
+    public VideoInfo e;
+    public VideoTitleData f;
+    public List<VideoTitleData> g;
+    public aq8 h;
+    public SelectCoverModel i;
+    public SelectMusicModel j;
+    public String k;
+    public boolean l;
+    public boolean m;
+    public jt4 n;
+    public np8 o;
+    public String p;
+    public int q;
+    public String r;
+    public String s;
+    public sk7 t;
+    public bq8 u;
+    public bp8 v;
+    public HttpMessageListener w;
+    public CustomMessageListener x;
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -129,15 +126,15 @@ public class EditVideoActivity extends BaseActivity implements ap8, bp8, MaskVid
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof ResponseGetVideoActivityMessage)) {
                 ResponseGetVideoActivityMessage responseGetVideoActivityMessage = (ResponseGetVideoActivityMessage) httpResponsedMessage;
                 if (httpResponsedMessage.getError() == 0) {
-                    this.a.mVideoTitleData = responseGetVideoActivityMessage.getVideoTitleData();
-                    this.a.mAllVideoTitleDatas = responseGetVideoActivityMessage.getAllVideoTitleList();
+                    this.a.f = responseGetVideoActivityMessage.getVideoTitleData();
+                    this.a.g = responseGetVideoActivityMessage.getAllVideoTitleList();
                 }
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b extends to8 {
+    public class b extends bp8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EditVideoActivity i;
@@ -164,65 +161,65 @@ public class EditVideoActivity extends BaseActivity implements ap8, bp8, MaskVid
             this.i = editVideoActivity;
         }
 
-        @Override // com.repackage.to8
+        @Override // com.repackage.bp8
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.c();
-                this.i.hideProgress();
+                this.i.K1();
             }
         }
 
-        @Override // com.repackage.to8
+        @Override // com.repackage.bp8
         public void d(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
                 super.d(i, str);
-                this.i.hideProgress();
+                this.i.K1();
             }
         }
 
-        @Override // com.repackage.to8
+        @Override // com.repackage.bp8
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             }
         }
 
-        @Override // com.repackage.to8
+        @Override // com.repackage.bp8
         public void f(VideoInfo videoInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, videoInfo) == null) {
                 super.f(videoInfo);
-                if (this.i.isSend) {
+                if (this.i.l) {
                     return;
                 }
                 File file = new File(videoInfo.getVideoPath());
-                String str = uo8.g + file.getName();
+                String str = cp8.g + file.getName();
                 if (!str.equals(file.getAbsolutePath())) {
                     FileHelper.copyFileByAbsolutelyPath(file.getAbsolutePath(), str);
                 }
-                this.i.syncMediaData(str);
-                this.i.finishPage();
+                this.i.P1(str);
+                this.i.g();
             }
         }
 
-        @Override // com.repackage.to8
+        @Override // com.repackage.bp8
         public void g(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
                 super.g(i, str);
-                this.i.hideProgress();
+                this.i.K1();
             }
         }
 
-        @Override // com.repackage.to8
+        @Override // com.repackage.bp8
         public void h() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.i.mEditVideoView.L();
-                this.i.mEditVideoView.M();
-                this.i.mEditVideoView.y().z();
+                this.i.h.N();
+                this.i.h.O();
+                this.i.h.A().z();
             }
         }
     }
@@ -259,7 +256,7 @@ public class EditVideoActivity extends BaseActivity implements ap8, bp8, MaskVid
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof PostWriteCallBackData)) {
-                this.a.finishPage();
+                this.a.g();
             }
         }
     }
@@ -277,180 +274,222 @@ public class EditVideoActivity extends BaseActivity implements ap8, bp8, MaskVid
                 return;
             }
         }
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, lj7.class);
-        lj7 lj7Var = runTask != null ? (lj7) runTask.getData() : null;
-        if (lj7Var != null) {
-            this.mPostMonitorManager = lj7Var.get();
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, wk7.class);
+        wk7 wk7Var = runTask != null ? (wk7) runTask.getData() : null;
+        if (wk7Var != null) {
+            this.t = wk7Var.get();
         }
-        this.mGetVideoActivityListener = new a(this, CmdConfigHttp.CMD_GET_VIDEO_ACTIVITY);
-        this.mPostSuccessListener = new c(this, 2001374);
+        this.w = new a(this, CmdConfigHttp.CMD_GET_VIDEO_ACTIVITY);
+        this.x = new c(this, 2001374);
     }
 
-    private void cancelProgress() {
+    public final void G1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            tp8 tp8Var = this.saveEditVideoController;
-            if (tp8Var != null) {
-                tp8Var.cancel();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            bq8 bq8Var = this.u;
+            if (bq8Var != null) {
+                bq8Var.cancel();
             }
-            this.isCancel = true;
-            this.mCoverPath = null;
-            hideProgress();
+            this.m = true;
+            this.k = null;
+            K1();
         }
     }
 
-    private void handleGenMaskCoverFinish(Bitmap bitmap) {
+    public String H1() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, this, bitmap) == null) {
-            sp8 sp8Var = this.mEditVideoView;
-            if (sp8Var != null && this.mCoverModel != null) {
-                if (this.isCancel) {
-                    this.isCancel = false;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.s : (String) invokeV.objValue;
+    }
+
+    public void I1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_VIDEO_ACTIVITY);
+            if (!StringUtils.isNull(this.a)) {
+                httpMessage.addParam("forum_id", this.a);
+            }
+            sendMessage(httpMessage);
+        }
+    }
+
+    public final void J1(Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bitmap) == null) {
+            aq8 aq8Var = this.h;
+            if (aq8Var != null && this.i != null) {
+                if (this.m) {
+                    this.m = false;
                     return;
                 }
-                if (!TextUtils.isEmpty(sp8Var.x())) {
-                    bitmap = this.mEditVideoView.r(bitmap);
+                if (!TextUtils.isEmpty(aq8Var.z())) {
+                    bitmap = this.h.t(bitmap);
                 }
                 if (bitmap != null) {
-                    this.mCoverModel.C(bitmap, uo8.b);
+                    this.i.D(bitmap, cp8.b);
                     return;
                 }
                 return;
             }
-            hideProgress();
-            this.isSend = false;
+            K1();
+            this.l = false;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void hideProgress() {
-        at4 at4Var;
+    public final void K1() {
+        jt4 jt4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || (at4Var = this.mProgressDialog) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (jt4Var = this.n) == null) {
             return;
         }
-        at4Var.h(false);
+        jt4Var.h(false);
     }
 
-    private void registerLoadVideoActivitysTask() {
+    public final void L1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_VIDEO_ACTIVITY, TbConfig.SERVER_ADDRESS + TbConfig.GET_VIDEO_ACTIVITY);
             tbHttpMessageTask.setResponsedClass(ResponseGetVideoActivityMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
     }
 
-    private void saveCover() {
+    public final void M1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            if (this.isCancel) {
-                this.isCancel = false;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (this.m) {
+                this.m = false;
                 return;
             }
-            String x = this.mEditVideoView.x();
-            if (TextUtils.isEmpty(x)) {
-                this.mCoverModel.E(this.mVideoPath, this.mEditVideoView.getCurrentPosition());
+            String z = this.h.z();
+            if (TextUtils.isEmpty(z)) {
+                this.i.F(this.d, this.h.getCurrentPosition());
             } else {
-                this.mCoverModel.A(x);
+                this.i.B(z);
             }
         }
     }
 
-    private void setSelectedMusicAndFilter() {
+    public final void N1() {
         VideoInfo videoInfo;
-        sp8 sp8Var;
+        aq8 aq8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65548, this) == null) || (videoInfo = this.mVideoInfo) == null || videoInfo.getEditVideoData() == null || (sp8Var = this.mEditVideoView) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (videoInfo = this.e) == null || videoInfo.getEditVideoData() == null || (aq8Var = this.h) == null) {
             return;
         }
-        np8 u = sp8Var.u(this.mVideoInfo.getEditVideoData().filterName);
-        if (u != null) {
-            fp8 fp8Var = this.mFilterEffectManager;
-            if (fp8Var != null) {
-                fp8Var.h(u);
+        vp8 w = aq8Var.w(this.e.getEditVideoData().filterName);
+        if (w != null) {
+            np8 np8Var = this.o;
+            if (np8Var != null) {
+                np8Var.h(w);
             }
-            this.mEditVideoView.Z(u);
+            this.h.a0(w);
         }
-        this.mEditVideoView.Y(this.mVideoInfo.getEditVideoData().musicPath, this.mVideoInfo.getEditVideoData().musicId);
-        this.mEditVideoView.a0(!this.mVideoInfo.getEditVideoData().isMute);
+        this.h.Z(this.e.getEditVideoData().musicPath, this.e.getEditVideoData().musicId);
+        this.h.b0(!this.e.getEditVideoData().isMute);
     }
 
-    private void syncCoverData(String str) {
+    public final void O1(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             try {
                 new MediaScannerClient(this).saveImage(str);
-                hp8.c(this, str);
+                pp8.c(this, str);
             } catch (Exception unused) {
-                hideProgress();
-                this.isSend = false;
+                K1();
+                this.l = false;
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void syncMediaData(String str) {
+    public final void P1(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             try {
                 new MediaScannerClient(this).saveVideo(str);
-                hp8.c(this, str);
+                pp8.c(this, str);
             } catch (Exception unused) {
-                hideProgress();
-                this.isSend = false;
+                K1();
+                this.l = false;
             }
         }
     }
 
-    @Override // com.repackage.ap8
-    public void clearFinalVideoPath() {
+    @Override // com.repackage.ip8
+    public void a0() {
+        SelectCoverModel selectCoverModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            aq8 aq8Var = this.h;
+            if (aq8Var != null && (selectCoverModel = this.i) != null) {
+                if (this.m) {
+                    this.m = false;
+                    return;
+                } else {
+                    selectCoverModel.F(this.d, aq8Var.getCurrentPosition());
+                    return;
+                }
+            }
+            K1();
+            this.l = false;
         }
     }
 
-    @Override // com.repackage.ap8
-    public void finishPage() {
+    @Override // com.repackage.ip8
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            hideProgress();
-            this.isSend = false;
-            tp8 tp8Var = this.saveEditVideoController;
-            if (tp8Var != null) {
-                tp8Var.cancel();
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            K1();
+            this.l = false;
+            bq8 bq8Var = this.u;
+            if (bq8Var != null) {
+                bq8Var.cancel();
             }
-            sp8 sp8Var = this.mEditVideoView;
-            if (sp8Var != null && sp8Var.y() != null) {
-                this.mEditVideoView.y().pause();
-                this.mEditVideoView.y().z();
+            aq8 aq8Var = this.h;
+            if (aq8Var != null && aq8Var.A() != null) {
+                this.h.A().pause();
+                this.h.A().z();
             }
             setResult(-1);
             finish();
         }
     }
 
-    public String getFromType() {
-        InterceptResult invokeV;
+    @Override // com.repackage.ip8
+    public void l0(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mFromType : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            if (this.m) {
+                this.m = false;
+            } else if (this.l) {
+                showToast(str);
+                K1();
+                this.l = false;
+            }
+        }
     }
 
-    public void getVideoTitleList() {
+    @Override // com.repackage.ip8
+    public void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_VIDEO_ACTIVITY);
-            if (!StringUtils.isNull(this.mFid)) {
-                httpMessage.addParam("forum_id", this.mFid);
-            }
-            sendMessage(httpMessage);
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.m = false;
+            this.l = false;
+            this.v.i(false);
+            bp8 bp8Var = this.v;
+            bp8Var.c = this.k;
+            bp8Var.b = this.d;
+            bp8Var.d = this.h.x();
+            this.v.e = this.h.F();
+            this.v.f = this.o.b();
+            this.u.b();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048580, this, i, i2, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048590, this, i, i2, intent) == null) {
             if (i2 != -1) {
                 if (i2 == 100) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001373));
@@ -462,141 +501,107 @@ public class EditVideoActivity extends BaseActivity implements ap8, bp8, MaskVid
                 if (TextUtils.isEmpty(stringExtra) || TextUtils.isEmpty(stringExtra2)) {
                     return;
                 }
-                String f = op8.g().f(stringExtra);
-                if (this.mEditVideoView == null || TextUtils.isEmpty(f)) {
+                String f = wp8.g().f(stringExtra);
+                if (this.h == null || TextUtils.isEmpty(f)) {
                     return;
                 }
-                this.mEditVideoView.H(f, stringExtra2);
+                this.h.J(f, stringExtra2);
             }
         }
     }
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        sp8 sp8Var;
+        aq8 aq8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (sp8Var = this.mEditVideoView) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (aq8Var = this.h) == null) {
             return;
         }
-        sp8Var.b0();
+        aq8Var.d0();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
             getLayoutMode().k(i == 1);
-            getLayoutMode().j(this.mEditVideoView.w());
-            sp8 sp8Var = this.mEditVideoView;
-            if (sp8Var != null) {
-                sp8Var.G(getPageContext(), i);
+            getLayoutMode().j(this.h.y());
+            aq8 aq8Var = this.h;
+            if (aq8Var != null) {
+                aq8Var.I(getPageContext(), i);
             }
-        }
-    }
-
-    @Override // com.repackage.ap8
-    public void onCheckUegFail(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            if (this.isCancel) {
-                this.isCancel = false;
-            } else if (this.isSend) {
-                showToast(str);
-                hideProgress();
-                this.isSend = false;
-            }
-        }
-    }
-
-    @Override // com.repackage.ap8
-    public void onCheckUegSuccess() {
-        SelectCoverModel selectCoverModel;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            sp8 sp8Var = this.mEditVideoView;
-            if (sp8Var != null && (selectCoverModel = this.mCoverModel) != null) {
-                if (this.isCancel) {
-                    this.isCancel = false;
-                    return;
-                } else {
-                    selectCoverModel.E(this.mVideoPath, sp8Var.getCurrentPosition());
-                    return;
-                }
-            }
-            hideProgress();
-            this.isSend = false;
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             setContentView(R.layout.obfuscated_res_0x7f0d0034);
-            this.mFid = getIntent().getStringExtra("forum_id");
-            this.mForumLevel = getIntent().getIntExtra("key_write_level", -1);
-            this.mProZone = getIntent().getIntExtra(EditVideoActivityConfig.KEY_PRO_ZONE, -1);
-            this.mForumName = getIntent().getStringExtra("forum_name");
-            this.mVideoTitle = getIntent().getStringExtra("video_title");
-            this.mCallFrom = getIntent().getStringExtra("KEY_CALL_FROM");
-            this.statisticFrom = getIntent().getIntExtra(WriteActivityConfig.KEY_STATISTIS_FROM, 0);
-            this.mFromType = getIntent().getStringExtra("from_type");
-            this.mFrom = getIntent().getStringExtra("from");
+            this.a = getIntent().getStringExtra("forum_id");
+            getIntent().getIntExtra("key_write_level", -1);
+            getIntent().getIntExtra(EditVideoActivityConfig.KEY_PRO_ZONE, -1);
+            this.b = getIntent().getStringExtra("forum_name");
+            getIntent().getStringExtra("video_title");
+            this.p = getIntent().getStringExtra("KEY_CALL_FROM");
+            this.q = getIntent().getIntExtra(WriteActivityConfig.KEY_STATISTIS_FROM, 0);
+            this.s = getIntent().getStringExtra("from_type");
+            this.r = getIntent().getStringExtra("from");
             Serializable serializableExtra = getIntent().getSerializableExtra(WriteActivityConfig.VIDEO_INFO);
             if (serializableExtra instanceof VideoInfo) {
                 VideoInfo videoInfo = (VideoInfo) serializableExtra;
-                this.mVideoInfo = videoInfo;
-                this.mVideoPath = videoInfo.getVideoPath();
+                this.e = videoInfo;
+                this.d = videoInfo.getVideoPath();
             }
             if (getIntent().getSerializableExtra("tab_list") instanceof FrsTabInfoData) {
-                this.mFrsTabInfo = (FrsTabInfoData) getIntent().getSerializableExtra("tab_list");
+                this.c = (FrsTabInfoData) getIntent().getSerializableExtra("tab_list");
             }
-            if (!TextUtils.isEmpty(this.mVideoPath) && !new File(this.mVideoPath).exists()) {
-                finishPage();
+            if (!TextUtils.isEmpty(this.d) && !new File(this.d).exists()) {
+                g();
             }
-            new File(uo8.g).mkdirs();
-            this.mCoverModel = new SelectCoverModel(getPageContext(), this, this.mPostMonitorManager);
-            this.mMusicModel = new SelectMusicModel(getPageContext(), this);
-            this.mFilterEffectManager = new fp8(this);
-            sp8 sp8Var = new sp8(getPageContext(), this, findViewById(R.id.obfuscated_res_0x7f091ad3), this.mPostMonitorManager);
-            this.mEditVideoView = sp8Var;
-            sp8Var.Q(this.mVideoPath);
-            this.mEditVideoView.X(getIntent());
-            this.mEditVideoView.R(this.mFilterEffectManager);
-            this.mEditVideoView.T(this);
-            this.mCoverModel.B();
-            this.mMusicModel.z();
-            at4 at4Var = new at4(getPageContext());
-            this.mProgressDialog = at4Var;
-            at4Var.i(R.string.obfuscated_res_0x7f0f0ada);
-            registerListener(this.mPostSuccessListener);
-            registerLoadVideoActivitysTask();
-            registerListener(this.mGetVideoActivityListener);
-            getVideoTitleList();
+            new File(cp8.g).mkdirs();
+            this.i = new SelectCoverModel(getPageContext(), this, this.t);
+            this.j = new SelectMusicModel(getPageContext(), this);
+            this.o = new np8(this);
+            aq8 aq8Var = new aq8(getPageContext(), this, findViewById(R.id.obfuscated_res_0x7f091acb), this.t);
+            this.h = aq8Var;
+            aq8Var.S(this.d);
+            this.h.Y(getIntent());
+            this.h.T(this.o);
+            this.h.U(this);
+            this.i.C();
+            this.j.A();
+            jt4 jt4Var = new jt4(getPageContext());
+            this.n = jt4Var;
+            jt4Var.i(R.string.obfuscated_res_0x7f0f0ade);
+            registerListener(this.x);
+            L1();
+            registerListener(this.w);
+            I1();
             TiebaStatic.log("c12303");
-            b bVar = new b(this, this, this.mVideoPath, this.mCoverPath);
-            this.thisPageCallback = bVar;
-            this.saveEditVideoController = new tp8(bVar);
-            setSelectedMusicAndFilter();
+            b bVar = new b(this, this, this.d, this.k);
+            this.v = bVar;
+            this.u = new bq8(bVar);
+            N1();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.onDestroy();
-            sp8 sp8Var = this.mEditVideoView;
-            if (sp8Var != null) {
-                sp8Var.N();
+            aq8 aq8Var = this.h;
+            if (aq8Var != null) {
+                aq8Var.P();
             }
-            SelectCoverModel selectCoverModel = this.mCoverModel;
+            SelectCoverModel selectCoverModel = this.i;
             if (selectCoverModel != null) {
                 selectCoverModel.cancelLoadData();
             }
-            SelectMusicModel selectMusicModel = this.mMusicModel;
+            SelectMusicModel selectMusicModel = this.j;
             if (selectMusicModel != null) {
                 selectMusicModel.cancelLoadData();
             }
@@ -604,150 +609,117 @@ public class EditVideoActivity extends BaseActivity implements ap8, bp8, MaskVid
         }
     }
 
-    @Override // com.baidu.tieba.video.editvideo.view.MaskVideoView.f
-    public void onGenMaskCoverFinish(Bitmap bitmap, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048587, this, bitmap, z) == null) {
-            handleGenMaskCoverFinish(bitmap);
-        }
-    }
-
-    @Override // com.repackage.ap8
-    public void onGetCoverBitmap(Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, bitmap) == null) {
-            this.mEditVideoView.y().x(bitmap);
-        }
-    }
-
     @Override // android.app.Activity
     public void onNewIntent(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048595, this, intent) == null) {
             super.onNewIntent(intent);
             Serializable serializableExtra = getIntent().getSerializableExtra(WriteActivityConfig.VIDEO_INFO);
             if (serializableExtra instanceof VideoInfo) {
                 VideoInfo videoInfo = (VideoInfo) serializableExtra;
-                this.mVideoInfo = videoInfo;
+                this.e = videoInfo;
                 String videoPath = videoInfo.getVideoPath();
-                this.mVideoPath = videoPath;
-                this.thisPageCallback.b = videoPath;
+                this.d = videoPath;
+                this.v.b = videoPath;
             }
-            this.mEditVideoView.Q(this.mVideoPath);
-            setSelectedMusicAndFilter();
-            this.mFromType = getIntent().getStringExtra("from_type");
+            this.h.S(this.d);
+            N1();
+            this.s = getIntent().getStringExtra("from_type");
         }
     }
 
-    @Override // com.repackage.ap8
+    @Override // com.repackage.ip8
     public void onNext() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            if (this.mEditVideoView != null && this.mCoverModel != null && this.mMusicModel != null) {
-                if (!ji.z()) {
-                    getPageContext().showToast(R.string.obfuscated_res_0x7f0f0c6c);
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            if (this.h != null && this.i != null && this.j != null) {
+                if (!ni.z()) {
+                    getPageContext().showToast(R.string.obfuscated_res_0x7f0f0c6f);
                     return;
-                } else if (this.isSend) {
+                } else if (this.l) {
                     return;
                 } else {
-                    this.isSend = true;
-                    this.isCancel = false;
-                    tp8 tp8Var = this.saveEditVideoController;
-                    if (tp8Var != null) {
-                        tp8Var.cancel();
+                    this.l = true;
+                    this.m = false;
+                    bq8 bq8Var = this.u;
+                    if (bq8Var != null) {
+                        bq8Var.cancel();
                     }
-                    this.mCoverPath = null;
-                    this.mEditVideoView.I();
-                    this.mProgressDialog.h(true);
-                    saveCover();
+                    this.k = null;
+                    this.h.L();
+                    this.n.h(true);
+                    M1();
                     return;
                 }
             }
-            hideProgress();
-            this.isSend = false;
+            K1();
+            this.l = false;
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             super.onPause();
-            sp8 sp8Var = this.mEditVideoView;
-            if (sp8Var != null) {
-                sp8Var.I();
-                this.mEditVideoView.L();
-                this.mEditVideoView.M();
-                this.mEditVideoView.y().z();
+            aq8 aq8Var = this.h;
+            if (aq8Var != null) {
+                aq8Var.L();
+                this.h.N();
+                this.h.O();
+                this.h.A().z();
             }
-            if (this.mFilterEffectManager.f()) {
-                this.mFilterEffectManager.e();
+            if (this.o.f()) {
+                this.o.e();
             }
-            this.isSend = false;
-            this.isCancel = true;
-            tp8 tp8Var = this.saveEditVideoController;
-            if (tp8Var != null) {
-                tp8Var.cancel();
+            this.l = false;
+            this.m = true;
+            bq8 bq8Var = this.u;
+            if (bq8Var != null) {
+                bq8Var.cancel();
             }
-            cancelProgress();
+            G1();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onRestart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             super.onRestart();
-            op8.g().d();
-            pp8.g().d();
+            wp8.g().d();
+            xp8.g().d();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             super.onResume();
-            sp8 sp8Var = this.mEditVideoView;
-            if (sp8Var != null) {
-                sp8Var.K();
+            aq8 aq8Var = this.h;
+            if (aq8Var != null) {
+                aq8Var.M();
             }
-        }
-    }
-
-    @Override // com.repackage.ap8
-    public void onSave() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.isCancel = false;
-            this.isSend = false;
-            this.thisPageCallback.i(false);
-            to8 to8Var = this.thisPageCallback;
-            to8Var.c = this.mCoverPath;
-            to8Var.b = this.mVideoPath;
-            to8Var.d = this.mEditVideoView.v();
-            this.thisPageCallback.e = this.mEditVideoView.D();
-            this.thisPageCallback.f = this.mFilterEffectManager.b();
-            this.saveEditVideoController.b();
         }
     }
 
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v15, types: [com.baidu.tbadk.core.data.PostPrefixData] */
     /* JADX WARN: Type inference failed for: r7v12 */
-    @Override // com.repackage.ap8
-    public void onSaveCover(String str) {
+    @Override // com.repackage.ip8
+    public void q0(String str) {
         String str2;
         PostPrefixData postPrefixData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            if (this.isCancel) {
-                this.isCancel = false;
+        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
+            if (this.m) {
+                this.m = false;
                 return;
             }
-            this.mCoverPath = str;
-            syncCoverData(str);
-            hideProgress();
+            this.k = str;
+            O1(str);
+            K1();
             String str3 = "";
             if (getIntent() != null) {
                 Serializable serializableExtra = getIntent().getSerializableExtra("anti_data");
@@ -767,45 +739,68 @@ public class EditVideoActivity extends BaseActivity implements ap8, bp8, MaskVid
                 return;
             }
             EditVideoData editVideoData = new EditVideoData();
-            editVideoData.coverPath = this.mCoverPath;
-            editVideoData.originPath = this.mVideoPath;
-            editVideoData.musicPath = this.mEditVideoView.v();
-            editVideoData.musicId = this.mEditVideoView.t();
-            editVideoData.isMute = this.mEditVideoView.D();
-            editVideoData.filterName = this.mFilterEffectManager.b();
-            this.mVideoInfo.setEditVideoData(editVideoData);
-            WriteActivityConfig videoInfo = WriteActivityConfig.newInstance(this).setType(9).setFrom(this.mFrom).setCallFrom(this.mCallFrom).setStatisticFrom(this.statisticFrom).setForumId(this.mFid).setForumName(this.mForumName).setAntiData(r1).setPrefixData(postPrefixData).setForumDir(str3, str2).setFrsTabInfo(this.mFrsTabInfo).setVideoInfo(this.mVideoInfo);
+            editVideoData.coverPath = this.k;
+            editVideoData.originPath = this.d;
+            editVideoData.musicPath = this.h.x();
+            editVideoData.musicId = this.h.v();
+            editVideoData.isMute = this.h.F();
+            editVideoData.filterName = this.o.b();
+            this.e.setEditVideoData(editVideoData);
+            WriteActivityConfig videoInfo = WriteActivityConfig.newInstance(this).setType(9).setFrom(this.r).setCallFrom(this.p).setStatisticFrom(this.q).setForumId(this.a).setForumName(this.b).setAntiData(r1).setPrefixData(postPrefixData).setForumDir(str3, str2).setFrsTabInfo(this.c).setVideoInfo(this.e);
             videoInfo.getIntent().setFlags(NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH);
             videoInfo.getIntent().setFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
             videoInfo.send();
         }
     }
 
-    @Override // com.repackage.bp8
-    public void onSaveMusicVideo(String str, int i, String str2) {
+    @Override // com.repackage.ip8
+    public void q1(Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048596, this, str, i, str2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048601, this, bitmap) == null) {
+            this.h.A().x(bitmap);
         }
     }
 
-    @Override // com.repackage.bp8
+    @Override // com.repackage.jp8
+    public void r1(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048602, this, str, i, str2) == null) {
+        }
+    }
+
+    @Override // com.repackage.jp8
     public void setMusicData(List<MusicData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048603, this, list) == null) {
             if (list == null) {
                 list = new ArrayList<>();
             }
-            list.add(0, new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_NORMAL_ID, 1, getPageContext().getString(R.string.obfuscated_res_0x7f0f0b26)));
-            list.add(1, new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_CLOUD_ID, 2, getPageContext().getString(R.string.obfuscated_res_0x7f0f0b24)));
-            this.mEditVideoView.U(list);
+            list.add(0, new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_NORMAL_ID, 1, getPageContext().getString(R.string.obfuscated_res_0x7f0f0b2a)));
+            list.add(1, new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_CLOUD_ID, 2, getPageContext().getString(R.string.obfuscated_res_0x7f0f0b28)));
+            this.h.V(list);
         }
     }
 
-    @Override // com.repackage.ap8
-    public void setPendantData(List<PendantData> list) {
+    @Override // com.repackage.ip8
+    public void t(List<PendantData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, list) == null) {
-            this.mEditVideoView.W(list);
+        if (interceptable == null || interceptable.invokeL(1048604, this, list) == null) {
+            this.h.X(list);
+        }
+    }
+
+    @Override // com.baidu.tieba.video.editvideo.view.MaskVideoView.f
+    public void w0(Bitmap bitmap, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048605, this, bitmap, z) == null) {
+            J1(bitmap);
+        }
+    }
+
+    @Override // com.repackage.ip8
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
         }
     }
 }

@@ -145,12 +145,12 @@ public class MainBottomLiveTabFragment extends BaseFragment {
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
-        public void d(boolean z) {
+        public void g(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z && this.a.isPrimary() && this.a.e.getCount() > 0) {
                 Fragment item = this.a.e.getItem(0);
                 if (item instanceof AlaLiveTabFragment) {
-                    ((AlaLiveTabFragment) item).P0();
+                    ((AlaLiveTabFragment) item).D1();
                 }
             }
         }
@@ -238,9 +238,57 @@ public class MainBottomLiveTabFragment extends BaseFragment {
         this.h = new b(this, 2001384);
     }
 
-    public final void F0() {
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.onChangeSkinType(i);
+            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
+            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0207);
+            TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
+            if (pageContext != null) {
+                this.c.d(pageContext, i);
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            super.onCreate(bundle);
+            registerListener(this.h);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater, viewGroup, bundle)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0514, (ViewGroup) null);
+            this.a = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091e25);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091e2f);
+            this.d = (CustomViewPager) inflate.findViewById(R.id.obfuscated_res_0x7f0923a4);
+            this.c = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f092391);
+            s1();
+            return inflate;
+        }
+        return (View) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onDestroy();
+            MessageManager.getInstance().unRegisterListener(this.h);
+        }
+    }
+
+    public final void s1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 this.a.setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
             }
@@ -257,54 +305,6 @@ public class MainBottomLiveTabFragment extends BaseFragment {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            super.onChangeSkinType(i);
-            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
-            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0207);
-            TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
-            if (pageContext != null) {
-                this.c.c(pageContext, i);
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            super.onCreate(bundle);
-            registerListener(this.h);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0518, (ViewGroup) null);
-            this.a = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091e31);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091e3b);
-            this.d = (CustomViewPager) inflate.findViewById(R.id.obfuscated_res_0x7f0923b7);
-            this.c = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f0923a4);
-            F0();
-            return inflate;
-        }
-        return (View) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onDestroy();
-            MessageManager.getInstance().unRegisterListener(this.h);
-        }
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void setUserVisibleHint(boolean z) {
         Interceptable interceptable = $ic;
@@ -316,7 +316,7 @@ public class MainBottomLiveTabFragment extends BaseFragment {
             Fragment item = this.e.getItem(0);
             if (item instanceof AlaLiveTabFragment) {
                 AlaLiveTabFragment alaLiveTabFragment = (AlaLiveTabFragment) item;
-                if (alaLiveTabFragment.O0()) {
+                if (alaLiveTabFragment.C1()) {
                     alaLiveTabFragment.setUserVisibleHint(true);
                 }
             }

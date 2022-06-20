@@ -1,13 +1,10 @@
 package com.repackage;
 
-import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.UiThread;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,347 +12,132 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes5.dex */
-public class bu2 implements du2, lk2 {
-    public static /* synthetic */ Interceptable $ic;
+public class bu2 implements le3<HybridUbcFlow> {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean b = true;
+    public static int c = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean c;
-    public CopyOnWriteArrayList<c> d;
-    public CountDownTimer e;
+    public final String a;
 
     /* loaded from: classes5.dex */
-    public class a extends CountDownTimer {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bu2 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(bu2 bu2Var, long j, long j2) {
-            super(j, j2);
+        public a(bu2 bu2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bu2Var, Long.valueOf(j), Long.valueOf(j2)};
+                Object[] objArr = {bu2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = bu2Var;
         }
 
-        @Override // android.os.CountDownTimer
-        public void onFinish() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (lk2.a) {
-                    Log.d("SwanPerformance", "count down onFinish");
-                }
-                this.a.d(true);
-            }
-        }
-
-        @Override // android.os.CountDownTimer
-        public void onTick(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                Iterator it = this.a.d.iterator();
-                while (it.hasNext()) {
-                    c cVar = (c) it.next();
-                    boolean z = ((long) (5000 - cVar.e())) >= j;
-                    if (!cVar.g() && z) {
-                        cVar.h(true);
-                        du2 f = cVar.f();
-                        if (lk2.a) {
-                            Log.e("SwanPerformance", "triggerFmp, timeout = " + cVar.e() + ", trigger = " + f.getName());
-                        }
-                        f.d(true);
-                    }
-                }
+                md3.Y();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final bu2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-488351596, "Lcom/repackage/bu2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-488351596, "Lcom/repackage/bu2$b;");
-                    return;
-                }
-            }
-            a = new bu2(null);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public du2 a;
-        public int b;
-        public boolean c;
-
-        public /* synthetic */ c(bu2 bu2Var, du2 du2Var, int i, a aVar) {
-            this(bu2Var, du2Var, i);
-        }
-
-        public final int e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
-        }
-
-        @NonNull
-        public final du2 f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (du2) invokeV.objValue;
-        }
-
-        public final boolean g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.booleanValue;
-        }
-
-        public final void h(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-                this.c = z;
-            }
-        }
-
-        public c(@NonNull bu2 bu2Var, du2 du2Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bu2Var, du2Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = false;
-            this.a = du2Var;
-            this.b = i;
-        }
-    }
-
-    public /* synthetic */ bu2(a aVar) {
-        this();
-    }
-
-    public static bu2 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (bu2) invokeV.objValue;
-    }
-
-    @Override // com.repackage.du2
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (lk2.a) {
-                Log.e("SwanPerformance", "triggerFcp, url = " + str);
-            }
-            Iterator<c> it = this.d.iterator();
-            while (it.hasNext()) {
-                it.next().f().a(str);
-            }
-        }
-    }
-
-    @Override // com.repackage.du2
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.d.isEmpty()) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755814574, "Lcom/repackage/bu2;")) == null) {
             return;
         }
-        if (lk2.a) {
-            Log.e("SwanPerformance", "triggerDestroy");
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-        k();
-        Iterator<c> it = this.d.iterator();
-        while (it.hasNext()) {
-            it.next().f().b();
-        }
-        this.c = false;
-    }
-
-    @Override // com.repackage.du2
-    public void c(@NonNull Runnable runnable, @Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, runnable, str) == null) {
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755814574, "Lcom/repackage/bu2;");
         }
     }
 
-    @Override // com.repackage.du2
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || this.c) {
-            return;
-        }
-        this.c = true;
-        k();
-        if (this.d.isEmpty()) {
-            return;
-        }
-        if (lk2.a) {
-            Log.e("SwanPerformance", "triggerFmp, timeout = " + z);
-        }
-        Iterator<c> it = this.d.iterator();
-        while (it.hasNext()) {
-            c next = it.next();
-            if (!next.g()) {
-                next.h(true);
-                next.f().d(z);
-            }
-        }
-        a63.p();
-        Bundle bundle = new Bundle();
-        bundle.putBoolean("is_timeout", z);
-        bundle.putString("app_id", gz2.J().getAppId());
-        xv2 e = xv2.e();
-        zv2 zv2Var = new zv2(23, bundle);
-        zv2Var.f(true);
-        e.h(zv2Var);
-    }
-
-    @Override // com.repackage.du2
-    @UiThread
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            if (it2.k()) {
-                a63.a0(it2.j());
-            }
-            this.c = false;
-            if (this.d.isEmpty()) {
-                return;
-            }
-            if (lk2.a) {
-                Log.e("SwanPerformance", "triggerLaunch, source = " + str);
-            }
-            Iterator<c> it = this.d.iterator();
-            while (it.hasNext()) {
-                c next = it.next();
-                next.h(false);
-                next.f().e(str);
-            }
-            k();
-            j();
-        }
-    }
-
-    @Override // com.repackage.du2
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "SwanLaunchTriggerMgr" : (String) invokeV.objValue;
-    }
-
-    public boolean h(du2 du2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, du2Var)) == null) {
-            if (du2Var == null) {
-                return false;
-            }
-            Iterator<c> it = this.d.iterator();
-            while (it.hasNext()) {
-                if (du2Var.equals(it.next().f())) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void i(du2 du2Var, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048583, this, du2Var, i) == null) || this.c || du2Var == null) {
-            return;
-        }
-        if (i > 5000) {
-            i = 5000;
-        }
-        if (h(du2Var)) {
-            return;
-        }
-        this.d.add(new c(this, du2Var, i, null));
-        if (lk2.a) {
-            Log.e("SwanPerformance", "register, task name = " + du2Var.getName() + " ; timeout = " + i);
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            try {
-                this.e.start();
-            } catch (Throwable th) {
-                if (lk2.a) {
-                    Log.d("SwanPerformance", "start timer exception = " + th.getMessage());
-                }
-            }
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            try {
-                this.e.cancel();
-            } catch (Throwable th) {
-                if (lk2.a) {
-                    Log.d("SwanPerformance", "stop timer exception = " + th.getMessage());
-                }
-            }
-        }
-    }
-
-    public bu2() {
+    public bu2(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = false;
-        this.d = new CopyOnWriteArrayList<>();
-        this.e = new a(this, 5000L, 500L);
+        this.a = str;
+    }
+
+    public final void b(@NonNull HybridUbcFlow hybridUbcFlow) {
+        UbcFlowEvent g;
+        UbcFlowEvent a2;
+        UbcFlowEvent a3;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) || (g = hybridUbcFlow.g("na_first_meaningful_paint")) == null) {
+            return;
+        }
+        f62 f62Var = (f62) hybridUbcFlow.k("fmp_data_record");
+        if ("fmp_callback".equals(this.a)) {
+            String name = bu2.class.getName();
+            Log.d(name, "Current Record FMP - " + g.a + ":" + g.g());
+            if (f62Var == null || (a3 = f62Var.a()) == null) {
+                return;
+            }
+            String name2 = bu2.class.getName();
+            Log.d(name2, "First Page Record FMP - " + a3.a + ":" + a3.g());
+        } else if ("callback_on_submit".equals(this.a)) {
+            String name3 = bu2.class.getName();
+            Log.d(name3, "Real Report FMP - " + g.a + ":" + g.g());
+            if (f62Var == null || (a2 = f62Var.a()) == null) {
+                return;
+            }
+            String name4 = bu2.class.getName();
+            Log.d(name4, "First Page Report FMP - " + a2.a + ":" + a2.g());
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.le3
+    /* renamed from: c */
+    public synchronized void a(HybridUbcFlow hybridUbcFlow) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow) == null) {
+            synchronized (this) {
+                if (b) {
+                    if (c == -1) {
+                        zi2.g0().getSwitch("swan_next_env_delay", 600);
+                        c = 600;
+                    }
+                    md3.b0(new a(this), c);
+                }
+                if (cg1.a) {
+                    String name = getClass().getName();
+                    Log.d(name, "enable=" + b + ", delay=" + c);
+                }
+                if ("fmp_callback".equals(this.a)) {
+                    b = false;
+                } else if ("callback_on_submit".equals(this.a)) {
+                    b = true;
+                }
+                if (cg1.a && hybridUbcFlow != null) {
+                    b(hybridUbcFlow);
+                }
+            }
+        }
     }
 }

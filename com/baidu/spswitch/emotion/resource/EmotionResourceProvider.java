@@ -202,12 +202,11 @@ public class EmotionResourceProvider implements IResourceProvider {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x003d */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v0 */
-    /* JADX WARN: Type inference failed for: r1v10 */
-    /* JADX WARN: Type inference failed for: r1v2 */
-    /* JADX WARN: Type inference failed for: r1v3, types: [java.io.BufferedReader] */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x0071 A[Catch: IOException -> 0x006d, TRY_LEAVE, TryCatch #5 {IOException -> 0x006d, blocks: (B:41:0x0069, B:45:0x0071), top: B:57:0x0069 }] */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x0069 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private void getEmotionConfigInfo(File file) {
         FileInputStream fileInputStream;
         IOException e;
@@ -215,34 +214,32 @@ public class EmotionResourceProvider implements IResourceProvider {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65542, this, file) == null) && file != null && file.exists()) {
             StringBuilder sb = new StringBuilder();
-            ?? r1 = 0;
-            r1 = 0;
+            BufferedReader bufferedReader2 = null;
             try {
                 try {
-                    try {
-                        fileInputStream = new FileInputStream(file);
-                    } catch (Throwable th) {
-                        th = th;
-                        r1 = file;
-                    }
+                    fileInputStream = new FileInputStream(file);
                 } catch (IOException e2) {
-                    fileInputStream = null;
-                    e = e2;
-                    bufferedReader = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileInputStream = null;
+                    e2.printStackTrace();
                 }
+            } catch (IOException e3) {
+                fileInputStream = null;
+                e = e3;
+                bufferedReader = null;
+            } catch (Throwable th) {
+                th = th;
+                fileInputStream = null;
+            }
+            try {
+                bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream, IMAudioTransRequest.CHARSET));
                 try {
-                    bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream, IMAudioTransRequest.CHARSET));
                     try {
                         for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
                             sb.append(readLine);
                         }
                         bufferedReader.close();
                         fileInputStream.close();
-                    } catch (IOException e3) {
-                        e = e3;
+                    } catch (IOException e4) {
+                        e = e4;
                         e.printStackTrace();
                         if (bufferedReader != null) {
                             bufferedReader.close();
@@ -252,14 +249,12 @@ public class EmotionResourceProvider implements IResourceProvider {
                         }
                         this.mEmotionConfigInfo = sb.toString();
                     }
-                } catch (IOException e4) {
-                    e = e4;
-                    bufferedReader = null;
-                } catch (Throwable th3) {
-                    th = th3;
-                    if (r1 != 0) {
+                } catch (Throwable th2) {
+                    th = th2;
+                    bufferedReader2 = bufferedReader;
+                    if (bufferedReader2 != null) {
                         try {
-                            r1.close();
+                            bufferedReader2.close();
                         } catch (IOException e5) {
                             e5.printStackTrace();
                             throw th;
@@ -271,7 +266,15 @@ public class EmotionResourceProvider implements IResourceProvider {
                     throw th;
                 }
             } catch (IOException e6) {
-                e6.printStackTrace();
+                e = e6;
+                bufferedReader = null;
+            } catch (Throwable th3) {
+                th = th3;
+                if (bufferedReader2 != null) {
+                }
+                if (fileInputStream != null) {
+                }
+                throw th;
             }
             this.mEmotionConfigInfo = sb.toString();
         }

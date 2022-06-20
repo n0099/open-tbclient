@@ -16,22 +16,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ph8;
+import com.repackage.hi8;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SupplementSignActivity extends TbWebViewActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String INTERFACE_NAME;
-    public final String JS_SIGN_SUCCESS;
-    public int continuousSignAllDays;
-    public int forumId;
-    public CustomMessageListener mBuyMemberListener;
-    public ph8 mSupplementSignInterface;
-    public int signBonusPoint;
-    public int supplementSignDays;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public CustomMessageListener e;
+    public hi8 f;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,13 +79,11 @@ public class SupplementSignActivity extends TbWebViewActivity {
                 return;
             }
         }
-        this.JS_SIGN_SUCCESS = "signSuccess";
-        this.INTERFACE_NAME = "SupplementSignInterface";
-        this.continuousSignAllDays = 0;
-        this.supplementSignDays = 0;
-        this.signBonusPoint = 0;
-        this.mBuyMemberListener = new a(this, 2001194);
-        this.mSupplementSignInterface = new ph8(this) { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.2
+        this.b = 0;
+        this.c = 0;
+        this.d = 0;
+        this.e = new a(this, 2001194);
+        this.f = new hi8(this) { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SupplementSignActivity this$0;
@@ -110,7 +106,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
                 this.this$0 = this;
             }
 
-            @Override // com.repackage.ph8
+            @Override // com.repackage.hi8
             public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
                 InterceptResult invokeLLLL;
                 Interceptable interceptable2 = $ic;
@@ -119,9 +115,9 @@ public class SupplementSignActivity extends TbWebViewActivity {
                         if (!StringUtils.isNull(str3)) {
                             try {
                                 JSONObject jSONObject = new JSONObject(str3);
-                                this.this$0.continuousSignAllDays = jSONObject.optInt("all");
-                                this.this$0.supplementSignDays += jSONObject.optInt("signed", 0);
-                                this.this$0.signBonusPoint += jSONObject.optInt("bonus", 0);
+                                this.this$0.b = jSONObject.optInt("all");
+                                this.this$0.c += jSONObject.optInt("signed", 0);
+                                this.this$0.d += jSONObject.optInt("bonus", 0);
                             } catch (Throwable th) {
                                 BdLog.e(th);
                             }
@@ -141,10 +137,10 @@ public class SupplementSignActivity extends TbWebViewActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Intent intent = new Intent();
-            intent.putExtra(SupplementSignActivityConfig.FORUM_ID, this.forumId);
-            intent.putExtra(SupplementSignActivityConfig.CONTINUOUS_SIGN_ALL_DAYS, this.continuousSignAllDays);
-            intent.putExtra(SupplementSignActivityConfig.SUPPLEMENT_SIGN_DAYS, this.supplementSignDays);
-            intent.putExtra(SupplementSignActivityConfig.SIGN_BONUS_POINT, this.signBonusPoint);
+            intent.putExtra(SupplementSignActivityConfig.FORUM_ID, this.a);
+            intent.putExtra(SupplementSignActivityConfig.CONTINUOUS_SIGN_ALL_DAYS, this.b);
+            intent.putExtra(SupplementSignActivityConfig.SUPPLEMENT_SIGN_DAYS, this.c);
+            intent.putExtra(SupplementSignActivityConfig.SIGN_BONUS_POINT, this.d);
             super.finish(-1, intent);
         }
     }
@@ -165,11 +161,11 @@ public class SupplementSignActivity extends TbWebViewActivity {
             super.onCreate(bundle);
             Intent intent = getIntent();
             if (intent != null) {
-                this.forumId = intent.getIntExtra(SupplementSignActivityConfig.FORUM_ID, 0);
+                this.a = intent.getIntExtra(SupplementSignActivityConfig.FORUM_ID, 0);
             }
-            addJsPromptInterface(this.mSupplementSignInterface);
+            addJsPromptInterface(this.f);
             this.mView.v(false);
-            registerListener(this.mBuyMemberListener);
+            registerListener(this.e);
         }
     }
 

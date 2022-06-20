@@ -21,16 +21,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebKitFactory;
-import com.repackage.a9;
-import com.repackage.ax4;
-import com.repackage.b9;
-import com.repackage.ex4;
-import com.repackage.kv4;
-import com.repackage.li;
-import com.repackage.mx4;
-import com.repackage.ys4;
-import com.repackage.zh;
-/* loaded from: classes3.dex */
+import com.repackage.c9;
+import com.repackage.d9;
+import com.repackage.di;
+import com.repackage.ht4;
+import com.repackage.lx4;
+import com.repackage.pi;
+import com.repackage.rx4;
+import com.repackage.uv4;
+import com.repackage.zx4;
+/* loaded from: classes4.dex */
 public class AboutModel extends BdBaseModel<AboutActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,36 +38,36 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
     public Context b;
     public final boolean c;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AboutModel(BaseActivity baseActivity, a9 a9Var) {
+    public AboutModel(BaseActivity baseActivity, c9 c9Var) {
         super(baseActivity.getPageContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity, a9Var};
+            Object[] objArr = {baseActivity, c9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((b9) newInitContext.callArgs[0]);
+                super((d9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.b = baseActivity.getPageContext().getPageActivity();
-        this.mLoadDataCallBack = a9Var;
+        this.mLoadDataCallBack = c9Var;
         this.c = false;
     }
 
-    public void C() {
+    public void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.a == null) {
@@ -103,8 +103,8 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes3.dex */
-    public class b extends BdAsyncTask<String, Integer, mx4> {
+    /* loaded from: classes4.dex */
+    public class b extends BdAsyncTask<String, Integer, zx4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -132,23 +132,23 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public mx4 doInBackground(String... strArr) {
+        public zx4 doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, strArr)) != null) {
-                return (mx4) invokeL.objValue;
+                return (zx4) invokeL.objValue;
             }
-            mx4 mx4Var = null;
+            zx4 zx4Var = null;
             try {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_SYNC_ADDRESS);
                 this.a = netWork;
                 netWork.addPostData("_os_version", Build.VERSION.RELEASE);
                 StringBuffer stringBuffer = new StringBuffer(15);
-                stringBuffer.append(String.valueOf(li.k(TbadkCoreApplication.getInst().getApp())));
+                stringBuffer.append(String.valueOf(pi.k(TbadkCoreApplication.getInst().getApp())));
                 stringBuffer.append(",");
-                stringBuffer.append(String.valueOf(li.i(TbadkCoreApplication.getInst().getApp())));
+                stringBuffer.append(String.valueOf(pi.i(TbadkCoreApplication.getInst().getApp())));
                 this.a.addPostData("_phone_screen", stringBuffer.toString());
-                if (ex4.d().f() > 0) {
+                if (rx4.d().f() > 0) {
                     this.a.addPostData("_msg_status", "0");
                 } else {
                     this.a.addPostData("_msg_status", "1");
@@ -164,37 +164,37 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
                 this.a.addPostData("signmd5", TbMd5.creatSignInt(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
                 this.a.addPostData(PackageTable.MD5, UtilHelper.getTiebaApkMd5());
                 NetWork netWork3 = this.a;
-                boolean a = zh.a();
+                boolean a = di.a();
                 String str = WebKitFactory.OS_64;
                 netWork3.addPostData("running_abi", a ? WebKitFactory.OS_64 : "32");
                 NetWork netWork4 = this.a;
-                if (!zh.b()) {
+                if (!di.b()) {
                     str = "32";
                 }
                 netWork4.addPostData("support_abi", str);
                 String postNetData = this.a.postNetData();
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    mx4 mx4Var2 = new mx4();
+                    zx4 zx4Var2 = new zx4();
                     try {
-                        mx4Var2.z(postNetData);
-                        if (TbadkCoreApplication.getClientId() == null && mx4Var2.i().a() != null && mx4Var2.i().a().length() > 0) {
-                            TbadkCoreApplication.saveClientId(this.b.b, mx4Var2.i().a());
-                            TbadkCoreApplication.setClientId(mx4Var2.i().a());
+                        zx4Var2.z(postNetData);
+                        if (TbadkCoreApplication.getClientId() == null && zx4Var2.i().a() != null && zx4Var2.i().a().length() > 0) {
+                            TbadkCoreApplication.saveClientId(this.b.b, zx4Var2.i().a());
+                            TbadkCoreApplication.setClientId(zx4Var2.i().a());
                         }
-                        ax4 t = mx4Var2.t();
+                        lx4 t = zx4Var2.t();
                         if (t != null) {
-                            ys4.k().u("localvideo_open", t.y());
+                            ht4.k().u("localvideo_open", t.y());
                         }
-                        kv4 e = mx4Var2.e();
+                        uv4 e = zx4Var2.e();
                         if (e != null && !TextUtils.isEmpty(e.c())) {
-                            ys4.k().y("sync_ad_privacy_url", e.c());
+                            ht4.k().y("sync_ad_privacy_url", e.c());
                         }
-                        return mx4Var2;
+                        return zx4Var2;
                     } catch (Exception e2) {
                         e = e2;
-                        mx4Var = mx4Var2;
+                        zx4Var = zx4Var2;
                         BdLog.e(e.getMessage());
-                        return mx4Var;
+                        return zx4Var;
                     }
                 }
                 return null;
@@ -206,15 +206,15 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(mx4 mx4Var) {
+        public void onPostExecute(zx4 zx4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mx4Var) == null) {
-                super.onPostExecute(mx4Var);
-                if (mx4Var != null && mx4Var.e() != null) {
-                    TbadkCoreApplication.getInst().setAdAdSense(mx4Var.e());
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zx4Var) == null) {
+                super.onPostExecute(zx4Var);
+                if (zx4Var != null && zx4Var.e() != null) {
+                    TbadkCoreApplication.getInst().setAdAdSense(zx4Var.e());
                 }
                 this.b.a = null;
-                this.b.mLoadDataCallBack.c(mx4Var);
+                this.b.mLoadDataCallBack.c(zx4Var);
             }
         }
 

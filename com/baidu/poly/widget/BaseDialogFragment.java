@@ -33,7 +33,7 @@ public abstract class BaseDialogFragment extends DialogFragment implements View.
         }
     }
 
-    public abstract int getLayoutResId();
+    public abstract int a();
 
     @Override // android.app.DialogFragment, android.app.Fragment
     public void onActivityCreated(Bundle bundle) {
@@ -65,7 +65,7 @@ public abstract class BaseDialogFragment extends DialogFragment implements View.
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(getLayoutResId(), viewGroup);
+            View inflate = layoutInflater.inflate(a(), viewGroup);
             getDialog().getWindow().getAttributes().windowAnimations = R.style.obfuscated_res_0x7f1003c8;
             return inflate;
         }

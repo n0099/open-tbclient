@@ -1,20 +1,20 @@
 package com.repackage;
 
-import android.os.Bundle;
-import java.util.Map;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 /* loaded from: classes6.dex */
-public interface pd2 extends ed2 {
+public interface pd2 {
 
     /* loaded from: classes6.dex */
     public interface a {
-        void a(Bundle bundle);
-
-        void onRelease();
+        void a(boolean z);
     }
 
-    void k(String str, Map<String, String> map);
+    void A(@NonNull a aVar);
 
-    void release();
+    @Nullable
+    String b();
 
-    void w(a aVar);
+    @Nullable
+    String k0();
 }

@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.b.kwai;
 
+import com.baidu.tbadk.core.atomData.CameraActivityConfig;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.response.model.AggregatePageEntranceInfo;
@@ -28,7 +29,7 @@ public class u implements com.kwad.sdk.core.d<AdTemplate> {
         }
         adTemplate.posId = jSONObject.optLong("posId");
         adTemplate.type = jSONObject.optInt("type");
-        adTemplate.contentType = jSONObject.optInt("contentType");
+        adTemplate.contentType = jSONObject.optInt(CameraActivityConfig.KEY_CONTENT_TYPE);
         adTemplate.adInfoList = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("adInfo");
         if (optJSONArray != null) {
@@ -109,7 +110,7 @@ public class u implements com.kwad.sdk.core.d<AdTemplate> {
         com.kwad.sdk.utils.t.a(jSONObject, "mOriginJString", adTemplate.mOriginJString);
         com.kwad.sdk.utils.t.a(jSONObject, "posId", adTemplate.posId);
         com.kwad.sdk.utils.t.a(jSONObject, "type", adTemplate.type);
-        com.kwad.sdk.utils.t.a(jSONObject, "contentType", adTemplate.contentType);
+        com.kwad.sdk.utils.t.a(jSONObject, CameraActivityConfig.KEY_CONTENT_TYPE, adTemplate.contentType);
         com.kwad.sdk.utils.t.a(jSONObject, "adInfo", adTemplate.adInfoList);
         com.kwad.sdk.utils.t.a(jSONObject, "photoInfo", adTemplate.photoInfo);
         com.kwad.sdk.utils.t.a(jSONObject, "photoAd", adTemplate.photoAd);

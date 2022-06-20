@@ -25,8 +25,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
-import com.repackage.zj6;
+import com.repackage.cl6;
+import com.repackage.pi;
 import java.util.List;
 import tbclient.GameCodeList;
 /* loaded from: classes3.dex */
@@ -77,7 +77,7 @@ public class GameCodeListDialog extends FrameLayout {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921640 || this.a.a == null) {
                 return;
             }
-            this.a.a.b((zj6) customResponsedMessage.getData());
+            this.a.a.b((cl6) customResponsedMessage.getData());
         }
     }
 
@@ -246,7 +246,7 @@ public class GameCodeListDialog extends FrameLayout {
                 return;
             }
         }
-        i = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds161);
+        i = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds161);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -274,14 +274,14 @@ public class GameCodeListDialog extends FrameLayout {
         frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         this.b.setOnClickListener(new c(this));
         addView(this.b);
-        GameCodeListView gameCodeListView = new GameCodeListView(context, li.i(context) - i);
+        GameCodeListView gameCodeListView = new GameCodeListView(context, pi.i(context) - i);
         this.a = gameCodeListView;
         gameCodeListView.setCancelClickListener(new d(this));
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
         layoutParams.gravity = 80;
         addView(this.a, layoutParams);
-        this.c = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100b0);
-        this.d = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100b1);
+        this.c = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100b2);
+        this.d = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100b3);
         this.c.setDuration(330L);
         this.d.setDuration(330L);
         this.e = new AlphaAnimation(0.0f, 1.0f);

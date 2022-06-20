@@ -21,10 +21,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
-import com.repackage.sk4;
+import com.repackage.cl4;
+import com.repackage.pi;
 import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CommonImageLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public static float[] h;
@@ -42,7 +42,7 @@ public class CommonImageLayout extends ViewGroup {
     public boolean f;
     public final Context g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,7 +72,7 @@ public class CommonImageLayout extends ViewGroup {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                sk4.o(this.b.g, this.a.getVideoUrl());
+                cl4.o(this.b.g, this.a.getVideoUrl());
             }
         }
     }
@@ -124,7 +124,7 @@ public class CommonImageLayout extends ViewGroup {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || m >= 0.0f) {
             return;
         }
-        m = li.k(this.g) / 320.0f;
+        m = pi.k(this.g) / 320.0f;
         int i2 = 0;
         while (true) {
             float[] fArr = h;
@@ -164,7 +164,7 @@ public class CommonImageLayout extends ViewGroup {
             tbImageView.setClickable(false);
         }
         tbImageView.setTag(picUrl);
-        tbImageView.K(picUrl, 13, false);
+        tbImageView.J(picUrl, 13, false);
     }
 
     @Override // android.view.ViewGroup, android.view.View

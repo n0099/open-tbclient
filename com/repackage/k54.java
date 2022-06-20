@@ -1,84 +1,60 @@
 package com.repackage;
 
-import android.graphics.PointF;
-import android.view.animation.Interpolator;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import androidx.annotation.NonNull;
+import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class k54 implements Interpolator {
+public class k54 extends l54 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final PointF b;
-    public final PointF c;
 
-    public k54(float f, float f2, float f3, float f4) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k54(@NonNull Context context) {
+        super("GaodeMap", context.getString(R.string.obfuscated_res_0x7f0f0cf6), "com.autonavi.minimap");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.b = new PointF();
-        PointF pointF = new PointF();
-        this.c = pointF;
-        PointF pointF2 = this.b;
-        pointF2.x = f;
-        pointF2.y = f2;
-        pointF.x = f3;
-        pointF.y = f4;
     }
 
-    public final double a(double d, double d2, double d3, double d4, double d5) {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.l54
+    public void e(Context context, LatLng latLng, LatLng latLng2, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5)})) == null) {
-            double d6 = 1.0d - d;
-            double d7 = d * d;
-            double d8 = d6 * d6;
-            return (d8 * d6 * d2) + (d8 * 3.0d * d * d3) + (d6 * 3.0d * d7 * d4) + (d7 * d * d5);
+        if (!(interceptable == null || interceptable.invokeLLLLL(1048576, this, context, latLng, latLng2, str, str2) == null) || latLng == null || latLng2 == null) {
+            return;
         }
-        return invokeCommon.doubleValue;
-    }
-
-    @Override // android.animation.TimeInterpolator
-    public float getInterpolation(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) {
-            int i = this.a;
-            float f2 = f;
-            while (true) {
-                if (i >= 4096) {
-                    break;
-                }
-                f2 = (i * 1.0f) / 4096.0f;
-                if (a(f2, 0.0d, this.b.x, this.c.x, 1.0d) >= f) {
-                    this.a = i;
-                    break;
-                }
-                i++;
-            }
-            double a = a(f2, 0.0d, this.b.y, this.c.y, 1.0d);
-            if (a > 0.999d) {
-                a = 1.0d;
-                this.a = 0;
-            }
-            return (float) a;
-        }
-        return invokeF.floatValue;
+        Uri.Builder buildUpon = Uri.parse("androidamap://route?").buildUpon();
+        buildUpon.appendQueryParameter("sourceApplication", context.getPackageName());
+        buildUpon.appendQueryParameter("slat", String.valueOf(latLng.latitude));
+        buildUpon.appendQueryParameter("slon", String.valueOf(latLng.longitude));
+        buildUpon.appendQueryParameter("sname", str);
+        buildUpon.appendQueryParameter("dlat", String.valueOf(latLng2.latitude));
+        buildUpon.appendQueryParameter("dlon", String.valueOf(latLng2.longitude));
+        buildUpon.appendQueryParameter("dname", str2);
+        buildUpon.appendQueryParameter(BdZeusUtil.URL_KEY_MACHINE, "0");
+        buildUpon.appendQueryParameter("t", "0");
+        Intent intent = new Intent("android.intent.action.VIEW", buildUpon.build());
+        intent.setPackage("com.autonavi.minimap");
+        context.startActivity(intent);
     }
 }

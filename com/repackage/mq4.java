@@ -1,27 +1,11 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.Context;
-import android.os.Bundle;
-import android.text.SpannableStringBuilder;
-import android.view.Display;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.message.WindowSwitchMessage;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
+import com.baidu.adp.lib.cache.BdCacheService;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,224 +13,42 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oq4;
 import java.util.ArrayList;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public class mq4 extends Dialog {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int j = 1000;
+public class mq4 extends CustomMessageListener {
+    public static /* synthetic */ Interceptable $ic;
+    public static mq4 a;
+    public static ConcurrentHashMap<String, Integer> b;
+    public static ArrayList<String> c;
+    public static ConcurrentHashMap<String, te<byte[]>> d;
+    public static ConcurrentHashMap<String, te<String>> e;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public b9 b;
-    public View c;
-    public LinearLayout d;
-    public float e;
-    public boolean f;
-    public oq4 g;
-    public boolean h;
-    public CustomMessageListener i;
 
     /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mq4 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(mq4 mq4Var, int i) {
-            super(i);
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mq4Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mq4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer) && this.a.g != null) {
-                this.a.g.i();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mq4 a;
-
-        public b(mq4 mq4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mq4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = mq4Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.cancel();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Animation.AnimationListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mq4 a;
-
-        public c(mq4 mq4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mq4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mq4Var;
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationEnd(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.a.setCancelable(true);
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationRepeat(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationStart(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
-                this.a.setCancelable(false);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements Animation.AnimationListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mq4 a;
-
-        /* loaded from: classes6.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d a;
-
-            public a(d dVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = dVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.a.b == null || this.a.a.b.getPageActivity() == null) {
-                    return;
-                }
-                Activity pageActivity = this.a.a.b.getPageActivity();
-                if (pageActivity.isFinishing() || pageActivity.getWindow() == null) {
-                    return;
-                }
-                mq4.super.dismiss();
-            }
-        }
-
-        public d(mq4 mq4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mq4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mq4Var;
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationEnd(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.a.f = false;
-                this.a.d.post(new a(this));
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationRepeat(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationStart(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
-                this.a.f = true;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001012));
             }
         }
     }
@@ -254,244 +56,302 @@ public class mq4 extends Dialog {
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755490655, "Lcom/repackage/mq4;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755490655, "Lcom/repackage/mq4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755490655, "Lcom/repackage/mq4;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755490655, "Lcom/repackage/mq4;");
-        }
+        ConcurrentHashMap<String, Integer> concurrentHashMap = new ConcurrentHashMap<>();
+        b = concurrentHashMap;
+        concurrentHashMap.put("tb.pb_mark", 50);
+        b.put("tb.pb_history", 300);
+        b.put("tb.pb_normal", 1);
+        b.put("tb.pb_editor", 50);
+        b.put("tb.live_hotlist", 20);
+        b.put("tb.live_hotlist", 20);
+        b.put("tb.my_pages", 5);
+        b.put("tb.my_forums", 3);
+        b.put("tb.my_bookmarks", 3);
+        b.put("tb.my_posts", 3);
+        b.put("tb.eva_posts", 50);
+        b.put("tb.im_frsgroup", 50);
+        b.put("tb.im_hotgroup", 30);
+        b.put("tb.im_groupinfo", 50);
+        b.put("tb.im_groupactivity", 50);
+        b.put("tb.im_entergroup", 10);
+        b.put("tb.im_enterforum_groupinfo", 10);
+        b.put("tb.im_group_setting", 3);
+        b.put("tb.im_personal_chat_setting", 3);
+        b.put("tb.im_official_chat_setting", 3);
+        b.put("tb.im_group_search_history", 50);
+        b.put("tb.im_official_history", 50);
+        b.put("tb.im_recommend_detail", 10);
+        b.put("tb.square", 1);
+        b.put("tb.first_dir", 1);
+        b.put("tb.forum_rank", 20);
+        b.put("tb.pic_gif", 50);
+        b.put("tb.official_bar_menu", 1000);
+        b.put("tb.friend_feed", 20);
+        b.put("net_err_record", 30);
+        b.put("tb_face_package", 30);
+        b.put("tb.recommend_friend", 10);
+        b.put("tb.searchperson_history", 5);
+        b.put("tb.game_center_home", 20);
+        b.put("tb.game_center_list", 20);
+        b.put("tb.person_wallet_new", 10);
+        b.put("tb.frs_hottopic", 100);
+        ArrayList<String> arrayList = new ArrayList<>();
+        c = arrayList;
+        arrayList.add("tb.ala.gift_list");
+        c.add("tb.square");
+        c.add("tb.first_dir");
+        c.add("tb.forum_rank");
+        c.add("tb.im_group_setting");
+        c.add("tb.im_personal_chat_setting");
+        c.add("tb.im_official_chat_setting");
+        c.add("net_err_record");
+        c.add("tb_user_profile");
+        c.add("tb_forum_recommend");
+        c.add("tb.ad_killer_tags");
+        c.add("tb.manga.settings");
+        c.add("tb.share_add_experienced");
+        c.add("tb.write_privacy_state_space");
+        c.add("tb.concern_page_all");
+        e = new ConcurrentHashMap<>();
+        d = new ConcurrentHashMap<>();
+        qb.b().a("cmd2001012", new a());
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mq4(b9 b9Var, oq4 oq4Var) {
-        super(b9Var.getPageActivity(), R.style.obfuscated_res_0x7f100104);
+    public mq4() {
+        super(2000998);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {b9Var, oq4Var};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.e = 0.33f;
-        this.f = false;
-        this.h = true;
-        this.i = new a(this, 2001304);
-        this.b = b9Var;
-        this.a = b9Var.getPageActivity();
-        this.g = oq4Var;
-        this.c = oq4Var.c();
-    }
-
-    @Override // android.app.Dialog, android.content.DialogInterface
-    public void dismiss() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.d == null || this.f || !isShowing()) {
-            return;
-        }
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f0100ec);
-        loadAnimation.setFillAfter(true);
-        loadAnimation.setAnimationListener(new d(this));
-        this.d.startAnimation(loadAnimation);
-        MessageManager.getInstance().unRegisterListener(this.i);
-        MessageManager.getInstance().dispatchResponsedMessage(new WindowSwitchMessage(Boolean.FALSE));
-    }
-
-    public View f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (View) invokeV.objValue;
-    }
-
-    public oq4 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : (oq4) invokeV.objValue;
-    }
-
-    public LinearLayout h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (LinearLayout) invokeV.objValue;
-    }
-
-    public void i(oq4 oq4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, oq4Var) == null) {
-            this.g = oq4Var;
-            this.c = oq4Var.c();
-        }
-    }
-
-    public void j(String str, String[] strArr, oq4.e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, str, strArr, eVar) == null) {
-            this.g = new oq4(this.a);
-            if (!StringUtils.isNull(str)) {
-                this.g.q(str);
-            }
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < strArr.length; i++) {
-                arrayList.add(new kq4(i, strArr[i], this.g));
-            }
-            this.g.j(arrayList);
-            this.g.n(eVar);
-            setCanceledOnTouchOutside(true);
-            this.c = this.g.c();
-        }
-    }
-
-    public void k(SpannableStringBuilder spannableStringBuilder) {
-        oq4 oq4Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, spannableStringBuilder) == null) || (oq4Var = this.g) == null) {
-            return;
-        }
-        oq4Var.o(spannableStringBuilder);
-        this.g.p();
-    }
-
-    public void l(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
-            this.e = f;
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f = false;
-            if (isShowing()) {
-                super.dismiss();
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new WindowSwitchMessage(Boolean.valueOf(og.j(this, this.b))));
-            if (this.d != null) {
-                Animation loadAnimation = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f010040);
-                loadAnimation.setFillAfter(true);
-                loadAnimation.setAnimationListener(new c(this));
-                this.d.startAnimation(loadAnimation);
-            }
-        }
-    }
-
-    @Override // android.app.Dialog
-    public void onBackPressed() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (isShowing()) {
-                cancel();
-            } else {
-                super.onBackPressed();
-            }
-        }
-    }
-
-    @Override // android.app.Dialog
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
-            super.onCreate(bundle);
-            requestWindowFeature(1);
-            setContentView(R.layout.obfuscated_res_0x7f0d06da);
-            Display defaultDisplay = ((WindowManager) this.a.getSystemService("window")).getDefaultDisplay();
-            WindowManager.LayoutParams attributes = getWindow().getAttributes();
-            attributes.width = defaultDisplay.getWidth();
-            attributes.height = defaultDisplay.getHeight();
-            if (this.h) {
-                attributes.y = li.f(TbadkCoreApplication.getInst(), R.dimen._bottom_enter_anim_place_holder_height);
-                getWindow().addFlags(512);
-            }
-            getWindow().setAttributes(attributes);
-            getWindow().setBackgroundDrawableResource(R.color.transparent);
-            getWindow().setDimAmount(this.e);
-            getWindow().setGravity(80);
-            getWindow().setWindowAnimations(0);
-            setCanceledOnTouchOutside(true);
-            setCancelable(true);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091adb);
-            this.d = linearLayout;
-            linearLayout.setOnClickListener(new b(this));
-            View view2 = this.c;
-            if (view2 == null) {
-                return;
-            }
-            this.d.removeView(view2);
-            if (this.h) {
-                View view3 = this.c;
-                if ((view3 instanceof ViewGroup) && ((ViewGroup) view3).getChildAt(((ViewGroup) view3).getChildCount() - 1).getId() != j) {
-                    View view4 = new View(getContext());
-                    view4.setId(j);
-                    view4.setLayoutParams(new ViewGroup.LayoutParams(-1, li.f(getContext(), R.dimen.bottom_enter_anim_place_holder_height)));
-                    SkinManager.setBackgroundResource(view4, R.color.CAM_X0204);
-                    ((ViewGroup) this.c).addView(view4);
-                }
-            }
-            if (this.c.getParent() != null) {
-                if (this.c.getParent() instanceof ViewGroup) {
-                    ((ViewGroup) this.c.getParent()).removeView(this.c);
-                    this.d.addView(this.c);
-                    return;
-                }
-                return;
-            }
-            this.d.addView(this.c);
-        }
-    }
-
-    @Override // android.app.Dialog
-    public void setContentView(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
-            this.c = view2;
-        }
-    }
-
-    @Override // android.app.Dialog
-    public void show() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            super.show();
-            this.b.registerListener(this.i);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mq4(b9 b9Var) {
-        super(b9Var.getPageActivity(), R.style.obfuscated_res_0x7f100104);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {b9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.e = 0.33f;
-        this.f = false;
-        this.h = true;
-        this.i = new a(this, 2001304);
-        this.a = b9Var.getPageActivity();
-        this.b = b9Var;
+        MessageManager.getInstance().registerListenerFromBackground(this);
+    }
+
+    public static synchronized void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            synchronized (mq4.class) {
+                if (str == null) {
+                    return;
+                }
+                if (str2 != null) {
+                    str = str + str2;
+                }
+                te<byte[]> teVar = d.get(str);
+                if (teVar != null) {
+                    BdCacheService.k().j(teVar);
+                    d.remove(str);
+                }
+            }
+        }
+    }
+
+    public static synchronized void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            synchronized (mq4.class) {
+                c(str, null);
+            }
+        }
+    }
+
+    public static synchronized void c(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
+            synchronized (mq4.class) {
+                if (str == null) {
+                    return;
+                }
+                if (str2 != null) {
+                    str = str + str2;
+                }
+                te<String> teVar = e.get(str);
+                if (teVar != null) {
+                    try {
+                        BdCacheService.k().j(teVar);
+                        e.remove(str);
+                    } catch (Exception e2) {
+                        BdLog.detailException(e2);
+                    }
+                }
+            }
+        }
+    }
+
+    public static synchronized te<byte[]> d(String str) {
+        InterceptResult invokeL;
+        te<byte[]> e2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            synchronized (mq4.class) {
+                e2 = e(str, null);
+            }
+            return e2;
+        }
+        return (te) invokeL.objValue;
+    }
+
+    public static synchronized te<byte[]> e(String str, String str2) {
+        InterceptResult invokeLL;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
+            synchronized (mq4.class) {
+                if (str == null) {
+                    return null;
+                }
+                if (str2 != null) {
+                    str3 = str + str2;
+                } else {
+                    str3 = str;
+                }
+                te<byte[]> teVar = d.get(str3);
+                if (teVar == null || !(teVar instanceof te)) {
+                    BdCacheService k = BdCacheService.k();
+                    Integer num = b.get(str);
+                    num = (num == null || num.intValue() == 0) ? 20 : 20;
+                    BdCacheService.CacheEvictPolicy cacheEvictPolicy = BdCacheService.CacheEvictPolicy.LRU_ON_INSERT;
+                    if (c.contains(str)) {
+                        cacheEvictPolicy = BdCacheService.CacheEvictPolicy.NO_EVICT;
+                    }
+                    try {
+                        teVar = k.a(str3, BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, cacheEvictPolicy, num.intValue());
+                    } catch (Exception e2) {
+                        BdLog.detailException(e2);
+                    }
+                    d.put(str3, teVar);
+                    return teVar;
+                }
+                return teVar;
+            }
+        }
+        return (te) invokeLL.objValue;
+    }
+
+    @Deprecated
+    public static synchronized mq4 f() {
+        InterceptResult invokeV;
+        mq4 mq4Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            synchronized (mq4.class) {
+                if (a == null) {
+                    a = new mq4();
+                }
+                mq4Var = a;
+            }
+            return mq4Var;
+        }
+        return (mq4) invokeV.objValue;
+    }
+
+    public static synchronized te<String> g(String str) {
+        InterceptResult invokeL;
+        te<String> h;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            synchronized (mq4.class) {
+                h = h(str, null);
+            }
+            return h;
+        }
+        return (te) invokeL.objValue;
+    }
+
+    public static synchronized te<String> h(String str, String str2) {
+        InterceptResult invokeLL;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, str2)) == null) {
+            synchronized (mq4.class) {
+                if (str == null) {
+                    return null;
+                }
+                if (str2 != null) {
+                    str3 = str + str2;
+                } else {
+                    str3 = str;
+                }
+                te<String> teVar = e.get(str3);
+                BdCacheService k = BdCacheService.k();
+                Integer num = b.get(str);
+                num = (num == null || num.intValue() == 0) ? 20 : 20;
+                BdCacheService.CacheEvictPolicy cacheEvictPolicy = BdCacheService.CacheEvictPolicy.LRU_ON_INSERT;
+                if (c.contains(str)) {
+                    cacheEvictPolicy = BdCacheService.CacheEvictPolicy.NO_EVICT;
+                }
+                try {
+                    teVar = k.c(str3, BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, cacheEvictPolicy, num.intValue());
+                } catch (Exception e2) {
+                    BdLog.detailException(e2);
+                }
+                return teVar;
+            }
+        }
+        return (te) invokeLL.objValue;
+    }
+
+    public static synchronized te<String> i(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        String str4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, str, str2, str3)) == null) {
+            synchronized (mq4.class) {
+                if (str == null || str3 == null) {
+                    return null;
+                }
+                if (str2 != null) {
+                    str4 = str + str2;
+                } else {
+                    str4 = str;
+                }
+                te<String> teVar = e.get(str4);
+                BdCacheService i = BdCacheService.i(str3);
+                Integer num = b.get(str);
+                num = (num == null || num.intValue() == 0) ? 20 : 20;
+                BdCacheService.CacheEvictPolicy cacheEvictPolicy = BdCacheService.CacheEvictPolicy.LRU_ON_INSERT;
+                if (c.contains(str)) {
+                    cacheEvictPolicy = BdCacheService.CacheEvictPolicy.NO_EVICT;
+                }
+                try {
+                    teVar = i.c(str4, BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, cacheEvictPolicy, num.intValue());
+                } catch (Exception e2) {
+                    BdLog.detailException(e2);
+                }
+                return teVar;
+            }
+        }
+        return (te) invokeLLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+            synchronized (mq4.class) {
+                d.clear();
+                e.clear();
+            }
+        }
     }
 }

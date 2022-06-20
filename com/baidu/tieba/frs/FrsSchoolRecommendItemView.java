@@ -22,10 +22,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ki;
-import com.repackage.qu4;
-import com.repackage.u07;
-import com.repackage.wc6;
+import com.repackage.av4;
+import com.repackage.d27;
+import com.repackage.oi;
+import com.repackage.wd6;
 /* loaded from: classes3.dex */
 public class FrsSchoolRecommendItemView extends ItemViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -34,9 +34,9 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
     public TextView c;
     public TextView d;
     public EntelechyUserLikeButton e;
-    public qu4 f;
+    public av4 f;
     public BdUniqueId g;
-    public wc6 h;
+    public wd6 h;
     public int i;
     public TbPageContext j;
     public View.OnClickListener k;
@@ -68,7 +68,7 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.h == null || ki.isEmpty(this.a.h.a.getUserName()) || ki.isEmpty(this.a.h.a.getUserId())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.h == null || oi.isEmpty(this.a.h.a.getUserName()) || oi.isEmpty(this.a.h.a.getUserId())) {
                 return;
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.b().getContext(), this.a.h.a.getUserId(), this.a.h.a.getUserName(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
@@ -97,30 +97,30 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
         this.k = new a(this);
         this.g = bdUniqueId;
         this.j = tbPageContext;
-        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0919cd);
+        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0919c4);
         this.b = headImageView;
         headImageView.setPageId(this.g);
         this.b.setIsRound(true);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919cc);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919ca);
-        EntelechyUserLikeButton entelechyUserLikeButton = (EntelechyUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f0919cb);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919c3);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919c1);
+        EntelechyUserLikeButton entelechyUserLikeButton = (EntelechyUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f0919c2);
         this.e = entelechyUserLikeButton;
-        qu4 qu4Var = new qu4(tbPageContext, entelechyUserLikeButton);
-        this.f = qu4Var;
-        qu4Var.m("1");
+        av4 av4Var = new av4(tbPageContext, entelechyUserLikeButton);
+        this.f = av4Var;
+        av4Var.m("1");
         this.f.l(bdUniqueId);
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
-    public void c(u07 u07Var) {
+    public void c(d27 d27Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, u07Var) == null) && (u07Var instanceof wc6)) {
-            wc6 wc6Var = (wc6) u07Var;
-            this.h = wc6Var;
-            if (StringUtils.isNull(wc6Var.a.getUserId())) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, d27Var) == null) && (d27Var instanceof wd6)) {
+            wd6 wd6Var = (wd6) d27Var;
+            this.h = wd6Var;
+            if (StringUtils.isNull(wd6Var.a.getUserId())) {
                 return;
             }
-            this.b.K(this.h.a.getPortrait(), 28, false);
+            this.b.J(this.h.a.getPortrait(), 28, false);
             String cutStringWithEllipsis = StringHelper.cutStringWithEllipsis(this.h.a.getUserName(), 5);
             this.d.setText(StringHelper.cutStringWithEllipsis(this.h.a.getGodUserData().getIntro(), 6));
             this.c.setText(cutStringWithEllipsis);

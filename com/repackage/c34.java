@@ -1,20 +1,25 @@
 package com.repackage;
 
-import android.graphics.drawable.Drawable;
-import android.view.View;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.http.callback.StringResponseCallback;
+import com.baidu.searchbox.http.request.PostFormRequest;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b34;
+import java.util.Map;
+import java.util.TreeMap;
 /* loaded from: classes5.dex */
 public class c34 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a implements b34.a {
+    public static class a extends StringResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,40 +37,70 @@ public class c34 {
             }
         }
 
-        @Override // com.repackage.b34.a
-        public void a(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(String str, int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || view2 == null) {
-                return;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
             }
-            view2.setAlpha(1.0f);
         }
 
-        @Override // com.repackage.b34.a
-        public void b(View view2) {
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) || view2 == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
             }
-            view2.setAlpha(0.2f);
         }
     }
 
-    public static void a(View view2) {
+    public static Map<String, String> a(@NonNull sz2 sz2Var, int i, String str) {
+        InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, view2) == null) {
-            b(view2, null);
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65536, null, sz2Var, i, str)) == null) {
+            TreeMap treeMap = new TreeMap();
+            treeMap.put(GameGuideConfigInfo.KEY_APP_KEY, sz2Var.O());
+            treeMap.put("to_app_key", str);
+            treeMap.put("source", String.valueOf(i));
+            treeMap.put("timestamp", c());
+            StringBuilder sb = new StringBuilder();
+            for (String str2 : treeMap.keySet()) {
+                sb.append(str2);
+                sb.append("=");
+                sb.append((String) treeMap.get(str2));
+                sb.append("&");
+            }
+            sb.append("dsb9Ao44");
+            treeMap.put("sign", wf4.d(sb.toString().getBytes(), false));
+            return treeMap;
+        }
+        return (Map) invokeLIL.objValue;
+    }
+
+    public static void b(int i, @NonNull ResponseCallback responseCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65537, null, i, responseCallback) == null) {
+            sz2 M = sz2.M();
+            if (M == null) {
+                responseCallback.onFail(new Exception("framework error: swan app is null."));
+                return;
+            }
+            M.i0().getRequest().cookieManager(zi2.q().a()).url(iw3.b().p()).addUrlParam(GameGuideConfigInfo.KEY_APP_KEY, M.O()).addUrlParam(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(5)).addUrlParam("source", String.valueOf(i)).requestFrom(16).requestFrom(1607).build().executeAsync(responseCallback);
         }
     }
 
-    public static void b(View view2, Drawable drawable) {
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, view2, drawable) == null) || view2 == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? String.valueOf(System.currentTimeMillis() / 1000) : (String) invokeV.objValue;
+    }
+
+    public static void d(int i, String str) {
+        sz2 M;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIL(65539, null, i, str) == null) || (M = sz2.M()) == null) {
             return;
         }
-        b34 b34Var = drawable == null ? new b34() : new b34(drawable);
-        b34Var.b(view2);
-        b34Var.a(new a());
-        view2.setBackground(b34Var);
+        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) M.i0().postFormRequest().cookieManager(zi2.q().a())).url(iw3.b().g())).addParams(a(M, i, str)).requestFrom(16)).requestFrom(1607)).build().executeAsync(new a());
     }
 }

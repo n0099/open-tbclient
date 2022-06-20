@@ -24,13 +24,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sf5;
-import com.repackage.tf5;
-import com.repackage.uf5;
-import com.repackage.vf5;
-import com.repackage.wf5;
-import com.repackage.xf5;
-import com.repackage.yf5;
+import com.repackage.pg5;
+import com.repackage.qg5;
+import com.repackage.rg5;
+import com.repackage.sg5;
+import com.repackage.tg5;
+import com.repackage.ug5;
+import com.repackage.vg5;
 import java.util.Locale;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -63,7 +63,7 @@ public class WheelView extends View {
     public Context b;
     public Handler c;
     public GestureDetector d;
-    public vf5 e;
+    public sg5 e;
     public boolean f;
     public boolean g;
     public ScheduledExecutorService h;
@@ -71,7 +71,7 @@ public class WheelView extends View {
     public Paint j;
     public Paint k;
     public Paint l;
-    public sf5 m;
+    public pg5 m;
     public String n;
     public int o;
     public int p;
@@ -279,8 +279,8 @@ public class WheelView extends View {
             if (obj == null) {
                 return "";
             }
-            if (obj instanceof tf5) {
-                return ((tf5) obj).a();
+            if (obj instanceof qg5) {
+                return ((qg5) obj).a();
             }
             return obj instanceof Integer ? String.format(Locale.getDefault(), "%02d", Integer.valueOf(((Integer) obj).intValue())) : obj.toString();
         }
@@ -322,8 +322,8 @@ public class WheelView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             this.b = context;
-            this.c = new xf5(this);
-            GestureDetector gestureDetector = new GestureDetector(context, new uf5(this));
+            this.c = new ug5(this);
+            GestureDetector gestureDetector = new GestureDetector(context, new rg5(this));
             this.d = gestureDetector;
             gestureDetector.setIsLongpressEnabled(false);
             this.y = true;
@@ -357,10 +357,10 @@ public class WheelView extends View {
         }
     }
 
-    public final sf5 getAdapter() {
+    public final pg5 getAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.m : (sf5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.m : (pg5) invokeV.objValue;
     }
 
     public final int getCurrentItem() {
@@ -368,11 +368,11 @@ public class WheelView extends View {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            sf5 sf5Var = this.m;
-            if (sf5Var == null) {
+            pg5 pg5Var = this.m;
+            if (pg5Var == null) {
                 return 0;
             }
-            if (this.y && ((i = this.E) < 0 || i >= sf5Var.a())) {
+            if (this.y && ((i = this.E) < 0 || i >= pg5Var.a())) {
                 return Math.max(0, Math.min(Math.abs(Math.abs(this.E) - this.m.a()), this.m.a() - 1));
             }
             return Math.max(0, Math.min(this.E, this.m.a() - 1));
@@ -403,9 +403,9 @@ public class WheelView extends View {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            sf5 sf5Var = this.m;
-            if (sf5Var != null) {
-                return sf5Var.a();
+            pg5 pg5Var = this.m;
+            if (pg5Var != null) {
+                return pg5Var.a();
             }
             return 0;
         }
@@ -752,7 +752,7 @@ public class WheelView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048601, this, f) == null) {
             b();
-            this.i = this.h.scheduleWithFixedDelay(new wf5(this, f), 0L, 5L, TimeUnit.MILLISECONDS);
+            this.i = this.h.scheduleWithFixedDelay(new tg5(this, f), 0L, 5L, TimeUnit.MILLISECONDS);
         }
     }
 
@@ -771,14 +771,14 @@ public class WheelView extends View {
                     this.L = -i;
                 }
             }
-            this.i = this.h.scheduleWithFixedDelay(new yf5(this, this.L), 0L, 10L, TimeUnit.MILLISECONDS);
+            this.i = this.h.scheduleWithFixedDelay(new vg5(this, this.L), 0L, 10L, TimeUnit.MILLISECONDS);
         }
     }
 
-    public final void setAdapter(sf5 sf5Var) {
+    public final void setAdapter(pg5 pg5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, sf5Var) == null) {
-            this.m = sf5Var;
+        if (interceptable == null || interceptable.invokeL(1048603, this, pg5Var) == null) {
+            this.m = pg5Var;
             p();
             invalidate();
         }
@@ -860,10 +860,10 @@ public class WheelView extends View {
         j();
     }
 
-    public final void setOnItemSelectedListener(vf5 vf5Var) {
+    public final void setOnItemSelectedListener(sg5 sg5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048614, this, vf5Var) == null) {
-            this.e = vf5Var;
+        if (interceptable == null || interceptable.invokeL(1048614, this, sg5Var) == null) {
+            this.e = sg5Var;
         }
     }
 

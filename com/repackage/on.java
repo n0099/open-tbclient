@@ -1,9 +1,9 @@
 package com.repackage;
-
-import com.baidu.adp.widget.ListView.TypeAdapter;
 /* loaded from: classes6.dex */
-public interface on<T> extends kn<T> {
-    int b(int i, int i2);
+public interface on<T> {
+    int getCount();
 
-    wm<jn, TypeAdapter.ViewHolder> c(jn jnVar);
+    T getItem(int i);
+
+    void notifyDataSetChanged();
 }

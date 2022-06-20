@@ -18,14 +18,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dm4;
-import com.repackage.fm4;
-import com.repackage.hv4;
-import com.repackage.ji;
-import com.repackage.kr4;
-import com.repackage.xf;
-import com.repackage.y45;
-import com.repackage.ys4;
+import com.repackage.bg;
+import com.repackage.ht4;
+import com.repackage.n55;
+import com.repackage.ni;
+import com.repackage.nm4;
+import com.repackage.pm4;
+import com.repackage.rv4;
+import com.repackage.tr4;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -99,6 +99,47 @@ public class HttpRequest {
         this.charSet = "UTF-8";
     }
 
+    private String getBdussData() {
+        InterceptResult invokeV;
+        String b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
+            if (currentAccountInfo != null) {
+                b = currentAccountInfo.getBDUSS();
+            } else {
+                if (TbadkCoreApplication.getInst().isRemoteProcess()) {
+                    b = n55.b();
+                }
+                return null;
+            }
+            if (TbadkCoreApplication.getInst().isRemoteProcess() && TextUtils.isEmpty(b)) {
+                currentAccountInfo = nm4.e();
+                if (currentAccountInfo == null) {
+                    return null;
+                }
+                b = currentAccountInfo.getBDUSS();
+            }
+            if (!TextUtils.isEmpty(b) && this.mIsUseCurrentBDUSS) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(BDUSS);
+                sb.append("=");
+                sb.append(b);
+                sb.append(ParamableElem.DIVIDE_PARAM);
+                String a = pm4.a(currentAccountInfo);
+                if (!StringUtils.isNull(a)) {
+                    sb.append("stoken");
+                    sb.append("=");
+                    sb.append(a);
+                    sb.append(ParamableElem.DIVIDE_PARAM);
+                }
+                return sb.toString();
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public void addBdussData(INetWorkCore iNetWorkCore) {
         String b;
         Interceptable interceptable = $ic;
@@ -109,10 +150,10 @@ public class HttpRequest {
             } else if (!TbadkCoreApplication.getInst().isRemoteProcess()) {
                 return;
             } else {
-                b = y45.b();
+                b = n55.b();
             }
             if (TbadkCoreApplication.getInst().isRemoteProcess() && TextUtils.isEmpty(b)) {
-                currentAccountInfo = dm4.e();
+                currentAccountInfo = nm4.e();
                 if (currentAccountInfo == null) {
                     return;
                 }
@@ -122,7 +163,7 @@ public class HttpRequest {
                 return;
             }
             iNetWorkCore.addPostData(BDUSS, b);
-            String a = fm4.a(currentAccountInfo);
+            String a = pm4.a(currentAccountInfo);
             if (StringUtils.isNull(a)) {
                 return;
             }
@@ -131,9 +172,38 @@ public class HttpRequest {
     }
 
     public void addCommonParam(INetWorkCore iNetWorkCore) {
-        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iNetWorkCore) == null) {
+            addCommonParam(iNetWorkCore, false);
+        }
+    }
+
+    public String getApiName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String str = this.mUrl;
+            if (str == null) {
+                return null;
+            }
+            String str2 = TbConfig.SERVER_ADDRESS;
+            if (str.startsWith(str2)) {
+                int indexOf = this.mUrl.indexOf(63);
+                if (indexOf < 0) {
+                    indexOf = this.mUrl.length();
+                }
+                return this.mUrl.substring(str2.length(), indexOf);
+            }
+            return this.mUrl;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void addCommonParam(INetWorkCore iNetWorkCore, boolean z) {
+        boolean z2;
+        String bdussData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, iNetWorkCore, z) == null) {
             iNetWorkCore.addPostData(CLIENT_TYPE, "2");
             if (!TbadkCoreApplication.getInst().isOfficial()) {
                 iNetWorkCore.addPostData("apid", TbConfig.SW_APID);
@@ -158,30 +228,33 @@ public class HttpRequest {
             if (from != null && from.length() > 0) {
                 iNetWorkCore.addPostData("from", from);
             }
-            int I = ji.I();
+            int I = ni.I();
             iNetWorkCore.addPostData("net_type", String.valueOf(I));
-            String a = hv4.b().a();
+            String a = rv4.b().a();
             if (TbSingleton.getInstance().isVisitPreviewServer()) {
                 a = a + "pub_env=" + TbSingleton.getInstance().getPubEnvValue() + ParamableElem.DIVIDE_PARAM;
             }
             if (1 == I) {
                 if (TbadkCoreApplication.getInst().getKeepaliveWifi() == 1) {
                     a = a + "ka=open;";
-                    z = true;
+                    z2 = true;
                 }
-                z = false;
+                z2 = false;
             } else {
                 if (TbadkCoreApplication.getInst().getKeepaliveNonWifi() == 1) {
                     a = a + "ka=open;";
-                    z = true;
+                    z2 = true;
                 }
-                z = false;
+                z2 = false;
             }
-            xf.s(z);
-            xf.n(a + "BAIDUID=" + TbSingleton.getInstance().getBaiduIdForAnti());
+            if (z && (bdussData = getBdussData()) != null) {
+                a = a + bdussData;
+            }
+            bg.s(z2);
+            bg.n(a + "BAIDUID=" + TbSingleton.getInstance().getBaiduIdForAnti());
             if (this.mIsNeedTbs) {
                 if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
-                    iNetWorkCore.addPostData(TBS, y45.f());
+                    iNetWorkCore.addPostData(TBS, n55.f());
                 } else {
                     iNetWorkCore.addPostData(TBS, TbadkCoreApplication.getInst().getTbs());
                 }
@@ -198,7 +271,7 @@ public class HttpRequest {
             iNetWorkCore.addPostData("model", Build.MODEL);
             iNetWorkCore.addPostData(com.xiaomi.mipush.sdk.Constants.PHONE_BRAND, Build.BRAND);
             iNetWorkCore.addPostData("baiduid", TbSingleton.getInstance().getBaiduIdForAnti());
-            if (ys4.k().l("android_safe_sdk_open", 0) == 1) {
+            if (ht4.k().l("android_safe_sdk_open", 0) == 1) {
                 iNetWorkCore.addPostData("z_id", TbadkCoreApplication.getInst().getZid());
             }
             if (ComplianceParmasHelper.isNeedChange(this.mUrl)) {
@@ -217,29 +290,8 @@ public class HttpRequest {
             iNetWorkCore.addPostData("event_day", TbSingleton.getInstance().getData());
             iNetWorkCore.addPostData(CommonUrlParamManager.PARAM_CMODE, PermissionUtil.isAgreePrivacyPolicy() ? "1" : "2");
             iNetWorkCore.addPostData("is_teenager", "0");
-            iNetWorkCore.addPostData("start_type", kr4.f + "");
-            iNetWorkCore.addPostData("start_scheme", kr4.e());
+            iNetWorkCore.addPostData("start_type", tr4.f + "");
+            iNetWorkCore.addPostData("start_scheme", tr4.e());
         }
-    }
-
-    public String getApiName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String str = this.mUrl;
-            if (str == null) {
-                return null;
-            }
-            String str2 = TbConfig.SERVER_ADDRESS;
-            if (str.startsWith(str2)) {
-                int indexOf = this.mUrl.indexOf(63);
-                if (indexOf < 0) {
-                    indexOf = this.mUrl.length();
-                }
-                return this.mUrl.substring(str2.length(), indexOf);
-            }
-            return this.mUrl;
-        }
-        return (String) invokeV.objValue;
     }
 }

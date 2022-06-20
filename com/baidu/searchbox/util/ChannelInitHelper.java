@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ys4;
+import com.repackage.ht4;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -62,7 +62,7 @@ public class ChannelInitHelper {
     public static String getFromByShare() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? ys4.k().q("from_id", null) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? ht4.k().q("from_id", null) : (String) invokeV.objValue;
     }
 
     public static boolean hasInitFinish() {
@@ -172,6 +172,6 @@ public class ChannelInitHelper {
         if (!(interceptable == null || interceptable.invokeL(65542, null, str) == null) || str == null || str.length() <= 0 || !TbadkCoreApplication.getInst().isMainProcess(true)) {
             return;
         }
-        ys4.k().y("from_id", str);
+        ht4.k().y("from_id", str);
     }
 }

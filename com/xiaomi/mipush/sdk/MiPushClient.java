@@ -6,7 +6,6 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.ServiceInfo;
-import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,27 +20,28 @@ import com.heytap.mcssdk.mode.Message;
 import com.xiaomi.clientreport.data.Config;
 import com.xiaomi.clientreport.manager.ClientReportClient;
 import com.xiaomi.mipush.sdk.MiTinyDataClient;
-import com.xiaomi.push.Cif;
-import com.xiaomi.push.ax;
-import com.xiaomi.push.bm;
-import com.xiaomi.push.dj;
-import com.xiaomi.push.dk;
-import com.xiaomi.push.ei;
-import com.xiaomi.push.ej;
-import com.xiaomi.push.ek;
-import com.xiaomi.push.ev;
-import com.xiaomi.push.hf;
+import com.xiaomi.push.Cdo;
+import com.xiaomi.push.bp;
+import com.xiaomi.push.dd;
+import com.xiaomi.push.dn;
+import com.xiaomi.push.el;
+import com.xiaomi.push.em;
+import com.xiaomi.push.en;
+import com.xiaomi.push.ey;
 import com.xiaomi.push.hj;
-import com.xiaomi.push.hk;
-import com.xiaomi.push.hp;
-import com.xiaomi.push.hs;
+import com.xiaomi.push.hn;
+import com.xiaomi.push.ho;
 import com.xiaomi.push.ht;
-import com.xiaomi.push.hz;
-import com.xiaomi.push.ie;
+import com.xiaomi.push.hw;
+import com.xiaomi.push.hx;
+import com.xiaomi.push.id;
+import com.xiaomi.push.ii;
 import com.xiaomi.push.ij;
-import com.xiaomi.push.il;
 import com.xiaomi.push.in;
-import com.xiaomi.push.service.aq;
+import com.xiaomi.push.ip;
+import com.xiaomi.push.ir;
+import com.xiaomi.push.service.ba;
+import com.xiaomi.push.service.bd;
 import com.xiaomi.push.service.receivers.NetworkStatusReceiver;
 import java.lang.Thread;
 import java.util.ArrayList;
@@ -297,7 +297,7 @@ public abstract class MiPushClient {
             synchronized (MiPushClient.class) {
                 SharedPreferences.Editor edit = context.getSharedPreferences("mipush_extra", 0).edit();
                 edit.putString(Constants.EXTRA_KEY_ACCEPT_TIME, str + "," + str2);
-                com.xiaomi.push.r.a(edit);
+                com.xiaomi.push.t.a(edit);
             }
         }
     }
@@ -327,7 +327,7 @@ public abstract class MiPushClient {
         if (interceptable == null || interceptable.invokeL(65546, null, context) == null) {
             SharedPreferences.Editor edit = context.getSharedPreferences("mipush_extra", 0).edit();
             edit.putLong("last_pull_notification", System.currentTimeMillis());
-            com.xiaomi.push.r.a(edit);
+            com.xiaomi.push.t.a(edit);
         }
     }
 
@@ -336,7 +336,7 @@ public abstract class MiPushClient {
         if (interceptable == null || interceptable.invokeL(65547, null, context) == null) {
             SharedPreferences.Editor edit = context.getSharedPreferences("mipush_extra", 0).edit();
             edit.putLong("last_reg_request", System.currentTimeMillis());
-            com.xiaomi.push.r.a(edit);
+            com.xiaomi.push.t.a(edit);
         }
     }
 
@@ -363,7 +363,7 @@ public abstract class MiPushClient {
     public static void awakeApps(Context context, String[] strArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65550, null, context, strArr) == null) {
-            com.xiaomi.push.ai.a(context).a(new Runnable(strArr, context) { // from class: com.xiaomi.mipush.sdk.MiPushClient.4
+            com.xiaomi.push.al.a(context).a(new Runnable(strArr, context) { // from class: com.xiaomi.mipush.sdk.MiPushClient.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Context val$context;
@@ -448,58 +448,79 @@ public abstract class MiPushClient {
         }
     }
 
-    public static void clearLocalNotificationType(Context context) {
+    public static void clearExtrasForInitialize(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65554, null, context) == null) {
-            an.a(context).m148e();
+            SharedPreferences.Editor edit = context.getSharedPreferences("mipush_extra", 0).edit();
+            Iterator<String> it = getAllAlias(context).iterator();
+            while (it.hasNext()) {
+                edit.remove("alias_" + it.next());
+            }
+            Iterator<String> it2 = getAllUserAccount(context).iterator();
+            while (it2.hasNext()) {
+                edit.remove("account_" + it2.next());
+            }
+            Iterator<String> it3 = getAllTopic(context).iterator();
+            while (it3.hasNext()) {
+                edit.remove("topic_" + it3.next());
+            }
+            edit.remove(Constants.EXTRA_KEY_ACCEPT_TIME);
+            edit.commit();
+        }
+    }
+
+    public static void clearLocalNotificationType(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65555, null, context) == null) {
+            ao.a(context).f();
         }
     }
 
     public static void clearNotification(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65555, null, context) == null) {
-            an.a(context).a(-1);
+        if (interceptable == null || interceptable.invokeL(65556, null, context) == null) {
+            ao.a(context).a(-1);
         }
     }
 
     public static void clearNotification(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65556, null, context, i) == null) {
-            an.a(context).a(i);
+        if (interceptable == null || interceptable.invokeLI(65557, null, context, i) == null) {
+            ao.a(context).a(i);
         }
     }
 
     public static void clearNotification(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65557, null, context, str, str2) == null) {
-            an.a(context).a(str, str2);
+        if (interceptable == null || interceptable.invokeLLL(65558, null, context, str, str2) == null) {
+            ao.a(context).a(str, str2);
         }
     }
 
     public static void disablePush(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65558, null, context) == null) {
-            an.a(context).a(true);
+        if (interceptable == null || interceptable.invokeL(65559, null, context) == null) {
+            ao.a(context).a(true);
         }
     }
 
     public static void enablePush(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65559, null, context) == null) {
-            an.a(context).a(false);
+        if (interceptable == null || interceptable.invokeL(65560, null, context) == null) {
+            ao.a(context).a(false);
         }
     }
 
     public static String getAcceptTime(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65560, null, context)) == null) ? context.getSharedPreferences("mipush_extra", 0).getString(Constants.EXTRA_KEY_ACCEPT_TIME, "00:00-23:59") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65561, null, context)) == null) ? context.getSharedPreferences("mipush_extra", 0).getString(Constants.EXTRA_KEY_ACCEPT_TIME, "00:00-23:59") : (String) invokeL.objValue;
     }
 
     public static List<String> getAllAlias(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, context)) == null) {
             ArrayList arrayList = new ArrayList();
             for (String str : context.getSharedPreferences("mipush_extra", 0).getAll().keySet()) {
                 if (str.startsWith("alias_")) {
@@ -514,7 +535,7 @@ public abstract class MiPushClient {
     public static List<String> getAllTopic(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, context)) == null) {
             ArrayList arrayList = new ArrayList();
             for (String str : context.getSharedPreferences("mipush_extra", 0).getAll().keySet()) {
                 if (str.startsWith("topic_") && !str.contains("**ALL**")) {
@@ -529,7 +550,7 @@ public abstract class MiPushClient {
     public static List<String> getAllUserAccount(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, context)) == null) {
             ArrayList arrayList = new ArrayList();
             for (String str : context.getSharedPreferences("mipush_extra", 0).getAll().keySet()) {
                 if (str.startsWith("account_")) {
@@ -544,9 +565,9 @@ public abstract class MiPushClient {
     public static String getAppRegion(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, context)) == null) {
-            if (b.m149a(context).m158c()) {
-                return b.m149a(context).f();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, context)) == null) {
+            if (b.m126a(context).m135c()) {
+                return b.m126a(context).f();
             }
             return null;
         }
@@ -556,13 +577,13 @@ public abstract class MiPushClient {
     public static boolean getDefaultSwitch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) ? com.xiaomi.push.l.m576b() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) ? com.xiaomi.push.m.m559b() : invokeV.booleanValue;
     }
 
     public static boolean getOpenFCMPush(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, context)) == null) {
             checkNotNull(context, "context");
             return f.a(context).b(e.b);
         }
@@ -572,7 +593,7 @@ public abstract class MiPushClient {
     public static boolean getOpenHmsPush(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, context)) == null) {
             checkNotNull(context, "context");
             return f.a(context).b(e.a);
         }
@@ -582,7 +603,7 @@ public abstract class MiPushClient {
     public static boolean getOpenOPPOPush(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, context)) == null) {
             checkNotNull(context, "context");
             return f.a(context).b(e.c);
         }
@@ -592,15 +613,15 @@ public abstract class MiPushClient {
     public static boolean getOpenVIVOPush(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65569, null, context)) == null) ? f.a(context).b(e.d) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65570, null, context)) == null) ? f.a(context).b(e.d) : invokeL.booleanValue;
     }
 
     public static String getRegId(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, context)) == null) {
-            if (b.m149a(context).m158c()) {
-                return b.m149a(context).m157c();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65571, null, context)) == null) {
+            if (b.m126a(context).m135c()) {
+                return b.m126a(context).m134c();
             }
             return null;
         }
@@ -609,8 +630,8 @@ public abstract class MiPushClient {
 
     public static void initEventPerfLogic(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65571, null, context) == null) {
-            ek.a(new ek.a() { // from class: com.xiaomi.mipush.sdk.MiPushClient.5
+        if (interceptable == null || interceptable.invokeL(65572, null, context) == null) {
+            en.a(new en.a() { // from class: com.xiaomi.mipush.sdk.MiPushClient.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -628,20 +649,20 @@ public abstract class MiPushClient {
                     }
                 }
 
-                @Override // com.xiaomi.push.ek.a
-                public void uploader(Context context2, hj hjVar) {
+                @Override // com.xiaomi.push.en.a
+                public void uploader(Context context2, hn hnVar) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, context2, hjVar) == null) {
-                        MiTinyDataClient.upload(context2, hjVar);
+                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, context2, hnVar) == null) {
+                        MiTinyDataClient.upload(context2, hnVar);
                     }
                 }
             });
-            Config a = ek.a(context);
-            com.xiaomi.clientreport.manager.a.a(context).a("3_8_5");
-            ClientReportClient.init(context, a, new ei(context), new ej(context));
+            Config a = en.a(context);
+            com.xiaomi.clientreport.manager.a.a(context).a("4_9_0");
+            ClientReportClient.init(context, a, new el(context), new em(context));
             a.a(context);
-            s.a(context, a);
-            com.xiaomi.push.service.aq.a(context).a(new aq.a(100, "perf event job update", context) { // from class: com.xiaomi.mipush.sdk.MiPushClient.6
+            t.a(context, a);
+            ba.a(context).a(new ba.a(100, "perf event job update", context) { // from class: com.xiaomi.mipush.sdk.MiPushClient.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Context val$context;
@@ -668,11 +689,11 @@ public abstract class MiPushClient {
                     this.val$context = context;
                 }
 
-                @Override // com.xiaomi.push.service.aq.a
+                @Override // com.xiaomi.push.service.ba.a
                 public void onCallback() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        ek.m325a(this.val$context);
+                        en.m305a(this.val$context);
                     }
                 }
             });
@@ -682,125 +703,106 @@ public abstract class MiPushClient {
     @Deprecated
     public static void initialize(Context context, String str, String str2, MiPushClientCallback miPushClientCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65572, null, context, str, str2, miPushClientCallback) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65573, null, context, str, str2, miPushClientCallback) == null) {
             initialize(context, str, str2, miPushClientCallback, null, null);
         }
     }
 
     public static void initialize(Context context, String str, String str2, MiPushClientCallback miPushClientCallback, String str3, ICallbackResult iCallbackResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65573, null, new Object[]{context, str, str2, miPushClientCallback, str3, iCallbackResult}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65574, null, new Object[]{context, str, str2, miPushClientCallback, str3, iCallbackResult}) == null) {
             try {
                 com.xiaomi.channel.commonutils.logger.b.a(context.getApplicationContext());
-                com.xiaomi.channel.commonutils.logger.b.e("sdk_version = 3_8_5");
+                com.xiaomi.channel.commonutils.logger.b.e("sdk_version = 4_9_0");
+                com.xiaomi.push.ba.a(context).a();
+                dd.a(context);
                 if (miPushClientCallback != null) {
                     PushMessageHandler.a(miPushClientCallback);
                 }
                 if (iCallbackResult != null) {
                     PushMessageHandler.a(iCallbackResult);
                 }
-                if (com.xiaomi.push.t.m678a(sContext)) {
-                    u.a(sContext);
+                if (com.xiaomi.push.v.m685a(sContext)) {
+                    v.a(sContext);
                 }
-                boolean z = b.m149a(sContext).a() != Constants.a();
+                boolean z = b.m126a(sContext).a() != Constants.a();
                 if (!z && !shouldSendRegRequest(sContext)) {
-                    an.a(sContext).m140a();
-                    com.xiaomi.channel.commonutils.logger.b.m108a("Could not send  register message within 5s repeatly .");
+                    ao.a(sContext).m117a();
+                    com.xiaomi.channel.commonutils.logger.b.m84a("Could not send  register message within 5s repeatly .");
                     return;
                 }
-                if (z || !b.m149a(sContext).a(str, str2) || b.m149a(sContext).m161f()) {
-                    String a = bm.a(6);
-                    b.m149a(sContext).m151a();
-                    b.m149a(sContext).a(Constants.a());
-                    b.m149a(sContext).a(str, str2, a);
+                if (z || !b.m126a(sContext).a(str, str2) || b.m126a(sContext).m138f()) {
+                    String a = bp.a(6);
+                    b.m126a(sContext).m128a();
+                    b.m126a(sContext).a(Constants.a());
+                    b.m126a(sContext).a(str, str2, a);
                     MiTinyDataClient.a.a().b(MiTinyDataClient.PENDING_REASON_APPID);
                     clearExtras(sContext);
                     clearNotification(context);
-                    Cif cif = new Cif();
-                    cif.a(com.xiaomi.push.service.at.a());
-                    cif.b(str);
-                    cif.e(str2);
-                    cif.d(sContext.getPackageName());
-                    cif.f(a);
-                    cif.c(com.xiaomi.push.g.m376a(sContext, sContext.getPackageName()));
-                    cif.b(com.xiaomi.push.g.a(sContext, sContext.getPackageName()));
-                    cif.h("3_8_5");
-                    cif.a(30805);
-                    cif.a(ht.c);
+                    ij ijVar = new ij();
+                    ijVar.a(bd.a());
+                    ijVar.b(str);
+                    ijVar.e(str2);
+                    ijVar.d(sContext.getPackageName());
+                    ijVar.f(a);
+                    ijVar.c(com.xiaomi.push.h.m379a(sContext, sContext.getPackageName()));
+                    ijVar.b(com.xiaomi.push.h.a(sContext, sContext.getPackageName()));
+                    ijVar.h("4_9_0");
+                    ijVar.a(40090);
+                    ijVar.a(hx.c);
                     if (!TextUtils.isEmpty(str3)) {
-                        cif.g(str3);
+                        ijVar.g(str3);
                     }
-                    if (!com.xiaomi.push.l.d()) {
-                        String g = com.xiaomi.push.i.g(sContext);
-                        if (!TextUtils.isEmpty(g)) {
-                            cif.i(bm.a(g) + "," + com.xiaomi.push.i.j(sContext));
+                    if (!com.xiaomi.push.m.m561d()) {
+                        String e = com.xiaomi.push.j.e(sContext);
+                        if (!TextUtils.isEmpty(e)) {
+                            ijVar.i(bp.a(e) + "," + com.xiaomi.push.j.h(sContext));
                         }
                     }
-                    int a2 = com.xiaomi.push.i.a();
+                    int a2 = com.xiaomi.push.j.a();
                     if (a2 >= 0) {
-                        cif.c(a2);
+                        ijVar.c(a2);
                     }
-                    an.a(sContext).a(cif, z);
+                    ao.a(sContext).a(ijVar, z);
                     sContext.getSharedPreferences("mipush_extra", 4).getBoolean("mipush_registed", true);
                 } else {
                     if (1 == PushMessageHelper.getPushMode(sContext)) {
                         checkNotNull(miPushClientCallback, WebChromeClient.KEY_ARG_CALLBACK);
-                        miPushClientCallback.onInitializeResult(0L, null, b.m149a(sContext).m157c());
+                        miPushClientCallback.onInitializeResult(0L, null, b.m126a(sContext).m134c());
                     } else {
                         ArrayList arrayList = new ArrayList();
-                        arrayList.add(b.m149a(sContext).m157c());
-                        PushMessageHelper.sendCommandMessageBroadcast(sContext, PushMessageHelper.generateCommandMessage(ev.a.f321a, arrayList, 0L, null, null));
+                        arrayList.add(b.m126a(sContext).m134c());
+                        PushMessageHelper.sendCommandMessageBroadcast(sContext, PushMessageHelper.generateCommandMessage(ey.a.f326a, arrayList, 0L, null, null, null));
                     }
-                    an.a(sContext).m140a();
-                    if (b.m149a(sContext).m153a()) {
-                        ie ieVar = new ie();
-                        ieVar.b(b.m149a(sContext).m150a());
-                        ieVar.c(hp.g.f490a);
-                        ieVar.a(com.xiaomi.push.service.at.a());
+                    ao.a(sContext).m117a();
+                    if (b.m126a(sContext).m130a()) {
+                        ii iiVar = new ii();
+                        iiVar.b(b.m126a(sContext).m127a());
+                        iiVar.c(ht.g.f498a);
+                        iiVar.a(bd.a());
                         HashMap hashMap = new HashMap();
-                        ieVar.f631a = hashMap;
-                        hashMap.put("app_version", com.xiaomi.push.g.m376a(sContext, sContext.getPackageName()));
-                        ieVar.f631a.put(Constants.EXTRA_KEY_APP_VERSION_CODE, Integer.toString(com.xiaomi.push.g.a(sContext, sContext.getPackageName())));
-                        ieVar.f631a.put("push_sdk_vn", "3_8_5");
-                        ieVar.f631a.put("push_sdk_vc", Integer.toString(30805));
-                        com.xiaomi.push.i.a(sContext, ieVar.f631a);
-                        String e = b.m149a(sContext).e();
-                        if (!TextUtils.isEmpty(e)) {
-                            ieVar.f631a.put("deviceid", e);
+                        iiVar.f637a = hashMap;
+                        hashMap.put("app_version", com.xiaomi.push.h.m379a(sContext, sContext.getPackageName()));
+                        iiVar.f637a.put(Constants.EXTRA_KEY_APP_VERSION_CODE, Integer.toString(com.xiaomi.push.h.a(sContext, sContext.getPackageName())));
+                        iiVar.f637a.put("push_sdk_vn", "4_9_0");
+                        iiVar.f637a.put("push_sdk_vc", Integer.toString(40090));
+                        String e2 = b.m126a(sContext).e();
+                        if (!TextUtils.isEmpty(e2)) {
+                            iiVar.f637a.put("deviceid", e2);
                         }
-                        an.a(sContext).a((an) ieVar, hf.i, false, (hs) null);
+                        ao.a(sContext).a((ao) iiVar, hj.i, false, (hw) null);
                     }
-                    if (!com.xiaomi.push.n.m577a(sContext, "update_devId", false)) {
+                    if (!com.xiaomi.push.n.m563a(sContext, "update_devId", false)) {
                         updateImeiOrOaid();
                         com.xiaomi.push.n.a(sContext, "update_devId", true);
                     }
-                    String c = com.xiaomi.push.i.c(sContext);
-                    if (!TextUtils.isEmpty(c)) {
-                        hz hzVar = new hz();
-                        hzVar.a(com.xiaomi.push.service.at.a());
-                        hzVar.b(str);
-                        hzVar.c(ev.j.f321a);
-                        ArrayList arrayList2 = new ArrayList();
-                        String b = com.xiaomi.push.i.b(sContext);
-                        if (!TextUtils.isEmpty(b)) {
-                            arrayList2.add(b);
-                        }
-                        if (c == null) {
-                            c = "";
-                        }
-                        arrayList2.add(c);
-                        arrayList2.add(Build.MODEL != null ? Build.MODEL : "");
-                        arrayList2.add(Build.BOARD != null ? Build.BOARD : "");
-                        hzVar.a(arrayList2);
-                        an.a(sContext).a((an) hzVar, hf.j, false, (hs) null);
-                    }
                     if (shouldUseMIUIPush(sContext) && shouldPullNotification(sContext)) {
-                        ie ieVar2 = new ie();
-                        ieVar2.b(b.m149a(sContext).m150a());
-                        ieVar2.c(hp.j.f490a);
-                        ieVar2.a(com.xiaomi.push.service.at.a());
-                        ieVar2.a(false);
-                        an.a(sContext).a((an) ieVar2, hf.i, false, (hs) null, false);
+                        ii iiVar2 = new ii();
+                        iiVar2.b(b.m126a(sContext).m127a());
+                        iiVar2.c(ht.j.f498a);
+                        iiVar2.a(bd.a());
+                        iiVar2.a(false);
+                        ao.a(sContext).a((ao) iiVar2, hj.i, false, (hw) null, false);
                         addPullNotificationTime(sContext);
                     }
                 }
@@ -808,7 +810,7 @@ public abstract class MiPushClient {
                 scheduleOcVersionCheckJob();
                 scheduleDataCollectionJobs(sContext);
                 initEventPerfLogic(sContext);
-                au.a(sContext);
+                av.a(sContext);
                 if (!sContext.getPackageName().equals("com.xiaomi.xmsf")) {
                     if (Logger.getUserLogger() != null) {
                         Logger.setLogger(sContext, Logger.getUserLogger());
@@ -824,23 +826,23 @@ public abstract class MiPushClient {
 
     public static void operateSyncAction(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65574, null, context) == null) {
-            if ("syncing".equals(ae.a(sContext).a(at.a))) {
+        if (interceptable == null || interceptable.invokeL(65575, null, context) == null) {
+            if ("syncing".equals(af.a(sContext).a(au.a))) {
                 disablePush(sContext);
             }
-            if ("syncing".equals(ae.a(sContext).a(at.b))) {
+            if ("syncing".equals(af.a(sContext).a(au.b))) {
                 enablePush(sContext);
             }
-            if ("syncing".equals(ae.a(sContext).a(at.c))) {
+            if ("syncing".equals(af.a(sContext).a(au.c))) {
                 syncAssemblePushToken(sContext);
             }
-            if ("syncing".equals(ae.a(sContext).a(at.d))) {
+            if ("syncing".equals(af.a(sContext).a(au.d))) {
                 syncAssembleFCMPushToken(sContext);
             }
-            if ("syncing".equals(ae.a(sContext).a(at.e))) {
+            if ("syncing".equals(af.a(sContext).a(au.e))) {
                 syncAssembleCOSPushToken(context);
             }
-            if ("syncing".equals(ae.a(sContext).a(at.f))) {
+            if ("syncing".equals(af.a(sContext).a(au.f))) {
                 syncAssembleFTOSPushToken(context);
             }
         }
@@ -848,80 +850,82 @@ public abstract class MiPushClient {
 
     public static void pausePush(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65575, null, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65576, null, context, str) == null) {
             setAcceptTime(context, 0, 0, 0, 0, str);
         }
     }
 
-    public static void reInitialize(Context context, ht htVar) {
+    public static void reInitialize(Context context, hx hxVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65576, null, context, htVar) == null) {
-            com.xiaomi.channel.commonutils.logger.b.e("re-register reason: " + htVar);
-            String a = bm.a(6);
-            String m150a = b.m149a(context).m150a();
-            String b = b.m149a(context).b();
-            b.m149a(context).m151a();
+        if (interceptable == null || interceptable.invokeLL(65577, null, context, hxVar) == null) {
+            com.xiaomi.channel.commonutils.logger.b.e("re-register reason: " + hxVar);
+            String a = bp.a(6);
+            String m127a = b.m126a(context).m127a();
+            String b = b.m126a(context).b();
+            b.m126a(context).m128a();
+            clearExtrasForInitialize(context);
             clearNotification(context);
-            b.m149a(context).a(Constants.a());
-            b.m149a(context).a(m150a, b, a);
-            Cif cif = new Cif();
-            cif.a(com.xiaomi.push.service.at.a());
-            cif.b(m150a);
-            cif.e(b);
-            cif.f(a);
-            cif.d(context.getPackageName());
-            cif.c(com.xiaomi.push.g.m376a(context, context.getPackageName()));
-            cif.b(com.xiaomi.push.g.a(context, context.getPackageName()));
-            cif.h("3_8_5");
-            cif.a(30805);
-            cif.a(htVar);
-            int a2 = com.xiaomi.push.i.a();
+            b.m126a(context).a(Constants.a());
+            b.m126a(context).a(m127a, b, a);
+            ij ijVar = new ij();
+            ijVar.a(bd.a());
+            ijVar.b(m127a);
+            ijVar.e(b);
+            ijVar.f(a);
+            ijVar.d(context.getPackageName());
+            ijVar.c(com.xiaomi.push.h.m379a(context, context.getPackageName()));
+            ijVar.b(com.xiaomi.push.h.a(context, context.getPackageName()));
+            ijVar.h("4_9_0");
+            ijVar.a(40090);
+            ijVar.a(hxVar);
+            int a2 = com.xiaomi.push.j.a();
             if (a2 >= 0) {
-                cif.c(a2);
+                ijVar.c(a2);
             }
-            an.a(context).a(cif, false);
+            ao.a(context).a(ijVar, false);
         }
     }
 
     @Deprecated
     public static void registerCrashHandler(Thread.UncaughtExceptionHandler uncaughtExceptionHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65577, null, uncaughtExceptionHandler) == null) {
+        if (interceptable == null || interceptable.invokeL(65578, null, uncaughtExceptionHandler) == null) {
             Thread.setDefaultUncaughtExceptionHandler(uncaughtExceptionHandler);
         }
     }
 
     public static void registerNetworkReceiver(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65578, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65579, null, context) == null) {
             try {
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
                 intentFilter.addCategory("android.intent.category.DEFAULT");
-                context.getApplicationContext().registerReceiver(new NetworkStatusReceiver(null), intentFilter);
+                com.xiaomi.push.o.a(context.getApplicationContext(), new NetworkStatusReceiver(null), intentFilter);
+                com.xiaomi.push.o.a(context, NetworkStatusReceiver.class);
             } catch (Throwable th) {
-                com.xiaomi.channel.commonutils.logger.b.a(th);
+                com.xiaomi.channel.commonutils.logger.b.m84a("dynamic register network status receiver failed:" + th);
             }
         }
     }
 
     public static void registerPush(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65579, null, context, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65580, null, context, str, str2) == null) {
             registerPush(context, str, str2, new PushConfiguration());
         }
     }
 
     public static void registerPush(Context context, String str, String str2, PushConfiguration pushConfiguration) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65580, null, context, str, str2, pushConfiguration) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65581, null, context, str, str2, pushConfiguration) == null) {
             registerPush(context, str, str2, pushConfiguration, null, null);
         }
     }
 
     public static void registerPush(Context context, String str, String str2, PushConfiguration pushConfiguration, String str3, ICallbackResult iCallbackResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65581, null, new Object[]{context, str, str2, pushConfiguration, str3, iCallbackResult}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65582, null, new Object[]{context, str, str2, pushConfiguration, str3, iCallbackResult}) == null) {
             checkNotNull(context, "context");
             checkNotNull(str, Message.APP_ID);
             checkNotNull(str2, "appToken");
@@ -931,12 +935,12 @@ public abstract class MiPushClient {
                 sContext = context;
             }
             Context context2 = sContext;
-            com.xiaomi.push.t.m676a(context2);
+            com.xiaomi.push.v.a(context2);
             if (!NetworkStatusReceiver.a()) {
                 registerNetworkReceiver(sContext);
             }
             f.a(sContext).a(pushConfiguration);
-            com.xiaomi.push.ai.a(context2).a(new Runnable(str, str2, str3, iCallbackResult) { // from class: com.xiaomi.mipush.sdk.MiPushClient.1
+            com.xiaomi.push.al.a(context2).a(new Runnable(str, str2, str3, iCallbackResult) { // from class: com.xiaomi.mipush.sdk.MiPushClient.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String val$alias;
@@ -978,32 +982,32 @@ public abstract class MiPushClient {
 
     public static void registerPush(Context context, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65582, null, context, str, str2, str3) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65583, null, context, str, str2, str3) == null) {
             registerPush(context, str, str2, new PushConfiguration(), str3, null);
         }
     }
 
     public static void registerToken(Context context, String str, String str2, String str3, UPSRegisterCallBack uPSRegisterCallBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65583, null, context, str, str2, str3, uPSRegisterCallBack) == null) {
+        if (interceptable == null || interceptable.invokeLLLLL(65584, null, context, str, str2, str3, uPSRegisterCallBack) == null) {
             registerPush(context, str, str2, new PushConfiguration(), null, uPSRegisterCallBack);
         }
     }
 
     public static synchronized void removeAcceptTime(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65584, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65585, null, context) == null) {
             synchronized (MiPushClient.class) {
                 SharedPreferences.Editor edit = context.getSharedPreferences("mipush_extra", 0).edit();
                 edit.remove(Constants.EXTRA_KEY_ACCEPT_TIME);
-                com.xiaomi.push.r.a(edit);
+                com.xiaomi.push.t.a(edit);
             }
         }
     }
 
     public static synchronized void removeAccount(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65585, null, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65586, null, context, str) == null) {
             synchronized (MiPushClient.class) {
                 SharedPreferences.Editor edit = context.getSharedPreferences("mipush_extra", 0).edit();
                 edit.remove("account_" + str).commit();
@@ -1013,7 +1017,7 @@ public abstract class MiPushClient {
 
     public static synchronized void removeAlias(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65586, null, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65587, null, context, str) == null) {
             synchronized (MiPushClient.class) {
                 SharedPreferences.Editor edit = context.getSharedPreferences("mipush_extra", 0).edit();
                 edit.remove("alias_" + str).commit();
@@ -1023,7 +1027,7 @@ public abstract class MiPushClient {
 
     public static synchronized void removeAllAccounts(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65587, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65588, null, context) == null) {
             synchronized (MiPushClient.class) {
                 for (String str : getAllUserAccount(context)) {
                     removeAccount(context, str);
@@ -1034,7 +1038,7 @@ public abstract class MiPushClient {
 
     public static synchronized void removeAllAliases(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65588, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65589, null, context) == null) {
             synchronized (MiPushClient.class) {
                 for (String str : getAllAlias(context)) {
                     removeAlias(context, str);
@@ -1045,7 +1049,7 @@ public abstract class MiPushClient {
 
     public static synchronized void removeAllTopics(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65589, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65590, null, context) == null) {
             synchronized (MiPushClient.class) {
                 for (String str : getAllTopic(context)) {
                     removeTopic(context, str);
@@ -1056,7 +1060,7 @@ public abstract class MiPushClient {
 
     public static synchronized void removeTopic(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65590, null, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65591, null, context, str) == null) {
             synchronized (MiPushClient.class) {
                 SharedPreferences.Editor edit = context.getSharedPreferences("mipush_extra", 0).edit();
                 edit.remove("topic_" + str).commit();
@@ -1064,92 +1068,99 @@ public abstract class MiPushClient {
         }
     }
 
-    public static void reportAppRunInBackground(Context context, boolean z) {
+    public static void removeWindow(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65591, null, context, z) == null) && b.m149a(context).m156b()) {
-            hp hpVar = z ? hp.R : hp.Q;
-            ie ieVar = new ie();
-            ieVar.b(b.m149a(context).m150a());
-            ieVar.c(hpVar.f490a);
-            ieVar.d(context.getPackageName());
-            ieVar.a(com.xiaomi.push.service.at.a());
-            ieVar.a(false);
-            an.a(context).a((an) ieVar, hf.i, false, (hs) null, false);
+        if (interceptable == null || interceptable.invokeL(65592, null, context) == null) {
+            ao.a(context).m125e();
         }
     }
 
-    public static void reportIgnoreRegMessageClicked(Context context, String str, hs hsVar, String str2, String str3) {
+    public static void reportAppRunInBackground(Context context, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65592, null, context, str, hsVar, str2, str3) == null) {
-            ie ieVar = new ie();
+        if ((interceptable == null || interceptable.invokeLZ(65593, null, context, z) == null) && b.m126a(context).m133b()) {
+            ht htVar = z ? ht.R : ht.Q;
+            ii iiVar = new ii();
+            iiVar.b(b.m126a(context).m127a());
+            iiVar.c(htVar.f498a);
+            iiVar.d(context.getPackageName());
+            iiVar.a(bd.a());
+            iiVar.a(false);
+            ao.a(context).a((ao) iiVar, hj.i, false, (hw) null, false);
+        }
+    }
+
+    public static void reportIgnoreRegMessageClicked(Context context, String str, hw hwVar, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65594, null, context, str, hwVar, str2, str3) == null) {
+            ii iiVar = new ii();
             if (TextUtils.isEmpty(str3)) {
                 com.xiaomi.channel.commonutils.logger.b.d("do not report clicked message");
                 return;
             }
-            ieVar.b(str3);
-            ieVar.c("bar:click");
-            ieVar.a(str);
-            ieVar.a(false);
-            an.a(context).a(ieVar, hf.i, false, true, hsVar, true, str2, str3);
+            iiVar.b(str3);
+            iiVar.c("bar:click");
+            iiVar.a(str);
+            iiVar.a(false);
+            ao.a(context).a(iiVar, hj.i, false, true, hwVar, true, str2, str3);
         }
     }
 
     public static void reportMessageClicked(Context context, MiPushMessage miPushMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65593, null, context, miPushMessage) == null) {
-            hs hsVar = new hs();
-            hsVar.a(miPushMessage.getMessageId());
-            hsVar.b(miPushMessage.getTopic());
-            hsVar.d(miPushMessage.getDescription());
-            hsVar.c(miPushMessage.getTitle());
-            hsVar.c(miPushMessage.getNotifyId());
-            hsVar.a(miPushMessage.getNotifyType());
-            hsVar.b(miPushMessage.getPassThrough());
-            hsVar.a(miPushMessage.getExtra());
-            reportMessageClicked(context, miPushMessage.getMessageId(), hsVar, null);
+        if (interceptable == null || interceptable.invokeLL(65595, null, context, miPushMessage) == null) {
+            hw hwVar = new hw();
+            hwVar.a(miPushMessage.getMessageId());
+            hwVar.b(miPushMessage.getTopic());
+            hwVar.d(miPushMessage.getDescription());
+            hwVar.c(miPushMessage.getTitle());
+            hwVar.c(miPushMessage.getNotifyId());
+            hwVar.a(miPushMessage.getNotifyType());
+            hwVar.b(miPushMessage.getPassThrough());
+            hwVar.a(miPushMessage.getExtra());
+            reportMessageClicked(context, miPushMessage.getMessageId(), hwVar, null);
         }
     }
 
     @Deprecated
     public static void reportMessageClicked(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65594, null, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65596, null, context, str) == null) {
             reportMessageClicked(context, str, null, null);
         }
     }
 
-    public static void reportMessageClicked(Context context, String str, hs hsVar, String str2) {
+    public static void reportMessageClicked(Context context, String str, hw hwVar, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65595, null, context, str, hsVar, str2) == null) {
-            ie ieVar = new ie();
+        if (interceptable == null || interceptable.invokeLLLL(65597, null, context, str, hwVar, str2) == null) {
+            ii iiVar = new ii();
             if (TextUtils.isEmpty(str2)) {
-                if (!b.m149a(context).m156b()) {
+                if (!b.m126a(context).m133b()) {
                     com.xiaomi.channel.commonutils.logger.b.d("do not report clicked message");
                     return;
                 }
-                str2 = b.m149a(context).m150a();
+                str2 = b.m126a(context).m127a();
             }
-            ieVar.b(str2);
-            ieVar.c("bar:click");
-            ieVar.a(str);
-            ieVar.a(false);
-            an.a(context).a((an) ieVar, hf.i, false, hsVar);
+            iiVar.b(str2);
+            iiVar.c("bar:click");
+            iiVar.a(str);
+            iiVar.a(false);
+            ao.a(context).a((ao) iiVar, hj.i, false, hwVar);
         }
     }
 
     public static void resumePush(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65596, null, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65598, null, context, str) == null) {
             setAcceptTime(context, 0, 0, 23, 59, str);
         }
     }
 
     public static void scheduleDataCollectionJobs(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65597, null, context) == null) {
-            if (com.xiaomi.push.service.aq.a(sContext).a(hk.z.a(), getDefaultSwitch())) {
-                dj.a().a(new r(context));
-                com.xiaomi.push.ai.a(sContext).a(new Runnable() { // from class: com.xiaomi.mipush.sdk.MiPushClient.2
+        if (interceptable == null || interceptable.invokeL(65599, null, context) == null) {
+            if (ba.a(sContext).a(ho.z.a(), getDefaultSwitch())) {
+                dn.a().a(new r(context));
+                com.xiaomi.push.al.a(sContext).a(new Runnable() { // from class: com.xiaomi.mipush.sdk.MiPushClient.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -1171,7 +1182,7 @@ public abstract class MiPushClient {
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            dk.a(MiPushClient.sContext);
+                            Cdo.a(MiPushClient.sContext);
                         }
                     }
                 }, 10);
@@ -1181,14 +1192,14 @@ public abstract class MiPushClient {
 
     public static void scheduleOcVersionCheckJob() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65598, null) == null) {
-            com.xiaomi.push.ai.a(sContext).a(new ad(sContext), com.xiaomi.push.service.aq.a(sContext).a(hk.A.a(), 86400), 5);
+        if (interceptable == null || interceptable.invokeV(65600, null) == null) {
+            com.xiaomi.push.al.a(sContext).a(new ae(sContext), ba.a(sContext).a(ho.A.a(), 86400), 5);
         }
     }
 
     public static void setAcceptTime(Context context, int i, int i2, int i3, int i4, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65599, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65601, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str}) == null) {
             if (i < 0 || i >= 24 || i3 < 0 || i3 >= 24 || i2 < 0 || i2 >= 60 || i4 < 0 || i4 >= 60) {
                 throw new IllegalArgumentException("the input parameter is not valid.");
             }
@@ -1202,54 +1213,54 @@ public abstract class MiPushClient {
             arrayList2.add(String.format("%1$02d:%2$02d", Integer.valueOf(i), Integer.valueOf(i2)));
             arrayList2.add(String.format("%1$02d:%2$02d", Integer.valueOf(i3), Integer.valueOf(i4)));
             if (!acceptTimeSet(context, (String) arrayList.get(0), (String) arrayList.get(1))) {
-                setCommand(context, ev.i.f321a, arrayList, str);
+                setCommand(context, ey.i.f326a, arrayList, str);
             } else if (1 == PushMessageHelper.getPushMode(context)) {
-                PushMessageHandler.a(context, str, ev.i.f321a, 0L, null, arrayList2);
+                PushMessageHandler.a(context, str, ey.i.f326a, 0L, null, arrayList2);
             } else {
-                PushMessageHelper.sendCommandMessageBroadcast(context, PushMessageHelper.generateCommandMessage(ev.i.f321a, arrayList2, 0L, null, null));
+                PushMessageHelper.sendCommandMessageBroadcast(context, PushMessageHelper.generateCommandMessage(ey.i.f326a, arrayList2, 0L, null, null, null));
             }
         }
     }
 
     public static void setAlias(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65600, null, context, str, str2) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLLL(65602, null, context, str, str2) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        setCommand(context, ev.c.f321a, str, str2);
+        setCommand(context, ey.c.f326a, str, str2);
     }
 
     public static void setCommand(Context context, String str, String str2, String str3) {
         StringBuilder sb;
         String str4;
-        ev evVar;
+        ey eyVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65601, null, context, str, str2, str3) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65603, null, context, str, str2, str3) == null) {
             ArrayList arrayList = new ArrayList();
             if (!TextUtils.isEmpty(str2)) {
                 arrayList.add(str2);
             }
-            if (ev.c.f321a.equalsIgnoreCase(str) && Math.abs(System.currentTimeMillis() - aliasSetTime(context, str2)) < 86400000) {
+            if (ey.c.f326a.equalsIgnoreCase(str) && Math.abs(System.currentTimeMillis() - aliasSetTime(context, str2)) < 86400000) {
                 if (1 != PushMessageHelper.getPushMode(context)) {
-                    evVar = ev.c;
-                    PushMessageHelper.sendCommandMessageBroadcast(context, PushMessageHelper.generateCommandMessage(evVar.f321a, arrayList, 0L, null, str3));
+                    eyVar = ey.c;
+                    PushMessageHelper.sendCommandMessageBroadcast(context, PushMessageHelper.generateCommandMessage(eyVar.f326a, arrayList, 0L, null, str3, null));
                     return;
                 }
                 PushMessageHandler.a(context, str3, str, 0L, null, arrayList);
                 return;
             }
-            if (ev.d.f321a.equalsIgnoreCase(str) && aliasSetTime(context, str2) < 0) {
+            if (ey.d.f326a.equalsIgnoreCase(str) && aliasSetTime(context, str2) < 0) {
                 sb = new StringBuilder();
                 str4 = "Don't cancel alias for ";
-            } else if (ev.e.f321a.equalsIgnoreCase(str) && Math.abs(System.currentTimeMillis() - accountSetTime(context, str2)) < 3600000) {
+            } else if (ey.e.f326a.equalsIgnoreCase(str) && Math.abs(System.currentTimeMillis() - accountSetTime(context, str2)) < 3600000) {
                 if (1 != PushMessageHelper.getPushMode(context)) {
-                    evVar = ev.e;
-                    PushMessageHelper.sendCommandMessageBroadcast(context, PushMessageHelper.generateCommandMessage(evVar.f321a, arrayList, 0L, null, str3));
+                    eyVar = ey.e;
+                    PushMessageHelper.sendCommandMessageBroadcast(context, PushMessageHelper.generateCommandMessage(eyVar.f326a, arrayList, 0L, null, str3, null));
                     return;
                 }
                 PushMessageHandler.a(context, str3, str, 0L, null, arrayList);
                 return;
-            } else if (!ev.f.f321a.equalsIgnoreCase(str) || accountSetTime(context, str2) >= 0) {
+            } else if (!ey.f.f326a.equalsIgnoreCase(str) || accountSetTime(context, str2) >= 0) {
                 setCommand(context, str, arrayList, str3);
                 return;
             } else {
@@ -1257,68 +1268,68 @@ public abstract class MiPushClient {
                 str4 = "Don't cancel account for ";
             }
             sb.append(str4);
-            sb.append(bm.a(arrayList.toString(), 3));
+            sb.append(bp.a(arrayList.toString(), 3));
             sb.append(" is unseted");
-            com.xiaomi.channel.commonutils.logger.b.m108a(sb.toString());
+            com.xiaomi.channel.commonutils.logger.b.m84a(sb.toString());
         }
     }
 
     public static void setCommand(Context context, String str, ArrayList<String> arrayList, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65602, null, context, str, arrayList, str2) == null) || TextUtils.isEmpty(b.m149a(context).m150a())) {
+        if (!(interceptable == null || interceptable.invokeLLLL(65604, null, context, str, arrayList, str2) == null) || TextUtils.isEmpty(b.m126a(context).m127a())) {
             return;
         }
-        hz hzVar = new hz();
-        String a = com.xiaomi.push.service.at.a();
-        hzVar.a(a);
-        hzVar.b(b.m149a(context).m150a());
-        hzVar.c(str);
+        id idVar = new id();
+        String a = bd.a();
+        idVar.a(a);
+        idVar.b(b.m126a(context).m127a());
+        idVar.c(str);
         Iterator<String> it = arrayList.iterator();
         while (it.hasNext()) {
-            hzVar.m470a(it.next());
+            idVar.m451a(it.next());
         }
-        hzVar.e(str2);
-        hzVar.d(context.getPackageName());
+        idVar.e(str2);
+        idVar.d(context.getPackageName());
         com.xiaomi.channel.commonutils.logger.b.e("cmd:" + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + a);
-        an.a(context).a((an) hzVar, hf.j, (hs) null);
+        ao.a(context).a((ao) idVar, hj.j, (hw) null);
     }
 
     public static void setLocalNotificationType(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65603, null, context, i) == null) {
-            an.a(context).b(i & (-1));
+        if (interceptable == null || interceptable.invokeLI(65605, null, context, i) == null) {
+            ao.a(context).b(i & (-1));
         }
     }
 
     public static void setUserAccount(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65604, null, context, str, str2) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLLL(65606, null, context, str, str2) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        setCommand(context, ev.e.f321a, str, str2);
+        setCommand(context, ey.e.f326a, str, str2);
     }
 
     public static boolean shouldPullNotification(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65605, null, context)) == null) ? Math.abs(System.currentTimeMillis() - context.getSharedPreferences("mipush_extra", 0).getLong("last_pull_notification", -1L)) > 300000 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65607, null, context)) == null) ? Math.abs(System.currentTimeMillis() - context.getSharedPreferences("mipush_extra", 0).getLong("last_pull_notification", -1L)) > 300000 : invokeL.booleanValue;
     }
 
     public static boolean shouldSendRegRequest(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65606, null, context)) == null) ? Math.abs(System.currentTimeMillis() - context.getSharedPreferences("mipush_extra", 0).getLong("last_reg_request", -1L)) > 5000 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65608, null, context)) == null) ? Math.abs(System.currentTimeMillis() - context.getSharedPreferences("mipush_extra", 0).getLong("last_reg_request", -1L)) > 5000 : invokeL.booleanValue;
     }
 
     public static boolean shouldUseMIUIPush(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65607, null, context)) == null) ? an.a(context).m142a() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65609, null, context)) == null) ? ao.a(context).m119a() : invokeL.booleanValue;
     }
 
     public static void subscribe(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65608, null, context, str, str2) == null) || TextUtils.isEmpty(b.m149a(context).m150a()) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLLL(65610, null, context, str, str2) == null) || TextUtils.isEmpty(b.m126a(context).m127a()) || TextUtils.isEmpty(str)) {
             return;
         }
         if (Math.abs(System.currentTimeMillis() - topicSubscribedTime(context, str)) <= 86400000) {
@@ -1328,52 +1339,52 @@ public abstract class MiPushClient {
             }
             ArrayList arrayList = new ArrayList();
             arrayList.add(str);
-            PushMessageHelper.sendCommandMessageBroadcast(context, PushMessageHelper.generateCommandMessage(ev.g.f321a, arrayList, 0L, null, null));
+            PushMessageHelper.sendCommandMessageBroadcast(context, PushMessageHelper.generateCommandMessage(ey.g.f326a, arrayList, 0L, null, null, null));
             return;
         }
-        ij ijVar = new ij();
-        String a = com.xiaomi.push.service.at.a();
-        ijVar.a(a);
-        ijVar.b(b.m149a(context).m150a());
-        ijVar.c(str);
-        ijVar.d(context.getPackageName());
-        ijVar.e(str2);
-        com.xiaomi.channel.commonutils.logger.b.e("cmd:" + ev.g + StringUtil.ARRAY_ELEMENT_SEPARATOR + a);
-        an.a(context).a((an) ijVar, hf.c, (hs) null);
+        in inVar = new in();
+        String a = bd.a();
+        inVar.a(a);
+        inVar.b(b.m126a(context).m127a());
+        inVar.c(str);
+        inVar.d(context.getPackageName());
+        inVar.e(str2);
+        com.xiaomi.channel.commonutils.logger.b.e("cmd:" + ey.g + StringUtil.ARRAY_ELEMENT_SEPARATOR + a);
+        ao.a(context).a((ao) inVar, hj.c, (hw) null);
     }
 
     public static void syncAssembleCOSPushToken(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65609, null, context) == null) {
-            an.a(context).a((String) null, at.e, e.c);
+        if (interceptable == null || interceptable.invokeL(65611, null, context) == null) {
+            ao.a(context).a((String) null, au.e, e.c);
         }
     }
 
     public static void syncAssembleFCMPushToken(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65610, null, context) == null) {
-            an.a(context).a((String) null, at.d, e.b);
+        if (interceptable == null || interceptable.invokeL(65612, null, context) == null) {
+            ao.a(context).a((String) null, au.d, e.b);
         }
     }
 
     public static void syncAssembleFTOSPushToken(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65611, null, context) == null) {
-            an.a(context).a((String) null, at.f, e.d);
+        if (interceptable == null || interceptable.invokeL(65613, null, context) == null) {
+            ao.a(context).a((String) null, au.f, e.d);
         }
     }
 
     public static void syncAssemblePushToken(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65612, null, context) == null) {
-            an.a(context).a((String) null, at.c, e.a);
+        if (interceptable == null || interceptable.invokeL(65614, null, context) == null) {
+            ao.a(context).a((String) null, au.c, e.a);
         }
     }
 
     public static long topicSubscribedTime(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65613, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65615, null, context, str)) == null) {
             SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_extra", 0);
             return sharedPreferences.getLong("topic_" + str, -1L);
         }
@@ -1382,7 +1393,7 @@ public abstract class MiPushClient {
 
     public static void turnOffPush(Context context, UPSTurnCallBack uPSTurnCallBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65614, null, context, uPSTurnCallBack) == null) {
+        if (interceptable == null || interceptable.invokeLL(65616, null, context, uPSTurnCallBack) == null) {
             disablePush(context);
             if (uPSTurnCallBack != null) {
                 CodeResult codeResult = new CodeResult();
@@ -1395,7 +1406,7 @@ public abstract class MiPushClient {
 
     public static void turnOnPush(Context context, UPSTurnCallBack uPSTurnCallBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65615, null, context, uPSTurnCallBack) == null) {
+        if (interceptable == null || interceptable.invokeLL(65617, null, context, uPSTurnCallBack) == null) {
             enablePush(context);
             if (uPSTurnCallBack != null) {
                 CodeResult codeResult = new CodeResult();
@@ -1408,7 +1419,7 @@ public abstract class MiPushClient {
 
     public static void unRegisterToken(Context context, UPSUnRegisterCallBack uPSUnRegisterCallBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65616, null, context, uPSUnRegisterCallBack) == null) {
+        if (interceptable == null || interceptable.invokeLL(65618, null, context, uPSUnRegisterCallBack) == null) {
             unregisterPush(context);
             if (uPSUnRegisterCallBack != null) {
                 TokenResult tokenResult = new TokenResult();
@@ -1423,20 +1434,20 @@ public abstract class MiPushClient {
 
     public static void unregisterPush(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65617, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65619, null, context) == null) {
             i.c(context);
-            com.xiaomi.push.service.aq.a(context).a();
-            if (b.m149a(context).m156b()) {
-                il ilVar = new il();
-                ilVar.a(com.xiaomi.push.service.at.a());
-                ilVar.b(b.m149a(context).m150a());
-                ilVar.c(b.m149a(context).m157c());
-                ilVar.e(b.m149a(context).b());
-                ilVar.d(context.getPackageName());
-                an.a(context).a(ilVar);
+            ba.a(context).a();
+            if (b.m126a(context).m133b()) {
+                ip ipVar = new ip();
+                ipVar.a(bd.a());
+                ipVar.b(b.m126a(context).m127a());
+                ipVar.c(b.m126a(context).m134c());
+                ipVar.e(b.m126a(context).b());
+                ipVar.d(context.getPackageName());
+                ao.a(context).a(ipVar);
                 PushMessageHandler.a();
                 PushMessageHandler.b();
-                b.m149a(context).m155b();
+                b.m126a(context).m132b();
                 clearLocalNotificationType(context);
                 clearNotification(context);
                 clearExtras(context);
@@ -1446,40 +1457,40 @@ public abstract class MiPushClient {
 
     public static void unsetAlias(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65618, null, context, str, str2) == null) {
-            setCommand(context, ev.d.f321a, str, str2);
+        if (interceptable == null || interceptable.invokeLLL(65620, null, context, str, str2) == null) {
+            setCommand(context, ey.d.f326a, str, str2);
         }
     }
 
     public static void unsetUserAccount(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65619, null, context, str, str2) == null) {
-            setCommand(context, ev.f.f321a, str, str2);
+        if (interceptable == null || interceptable.invokeLLL(65621, null, context, str, str2) == null) {
+            setCommand(context, ey.f.f326a, str, str2);
         }
     }
 
     public static void unsubscribe(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65620, null, context, str, str2) == null) && b.m149a(context).m156b()) {
+        if ((interceptable == null || interceptable.invokeLLL(65622, null, context, str, str2) == null) && b.m126a(context).m133b()) {
             if (topicSubscribedTime(context, str) < 0) {
-                com.xiaomi.channel.commonutils.logger.b.m108a("Don't cancel subscribe for " + str + " is unsubscribed");
+                com.xiaomi.channel.commonutils.logger.b.m84a("Don't cancel subscribe for " + str + " is unsubscribed");
                 return;
             }
-            in inVar = new in();
-            String a = com.xiaomi.push.service.at.a();
-            inVar.a(a);
-            inVar.b(b.m149a(context).m150a());
-            inVar.c(str);
-            inVar.d(context.getPackageName());
-            inVar.e(str2);
-            com.xiaomi.channel.commonutils.logger.b.e("cmd:" + ev.h + StringUtil.ARRAY_ELEMENT_SEPARATOR + a);
-            an.a(context).a((an) inVar, hf.d, (hs) null);
+            ir irVar = new ir();
+            String a = bd.a();
+            irVar.a(a);
+            irVar.b(b.m126a(context).m127a());
+            irVar.c(str);
+            irVar.d(context.getPackageName());
+            irVar.e(str2);
+            com.xiaomi.channel.commonutils.logger.b.e("cmd:" + ey.h + StringUtil.ARRAY_ELEMENT_SEPARATOR + a);
+            ao.a(context).a((ao) irVar, hj.d, (hw) null);
         }
     }
 
     public static void updateImeiOrOaid() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65621, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65623, null) == null) {
             new Thread(new Runnable() { // from class: com.xiaomi.mipush.sdk.MiPushClient.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -1500,35 +1511,34 @@ public abstract class MiPushClient {
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    String f;
+                    String d;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || com.xiaomi.push.l.d()) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || com.xiaomi.push.m.m561d()) {
                         return;
                     }
-                    if (com.xiaomi.push.i.f(MiPushClient.sContext) != null || ax.a(MiPushClient.sContext).a()) {
-                        ie ieVar = new ie();
-                        ieVar.b(b.m149a(MiPushClient.sContext).m150a());
-                        ieVar.c(hp.g.f490a);
-                        ieVar.a(com.xiaomi.push.service.at.a());
-                        ieVar.a(new HashMap());
+                    if (com.xiaomi.push.j.d(MiPushClient.sContext) != null || com.xiaomi.push.ba.a(MiPushClient.sContext).a()) {
+                        ii iiVar = new ii();
+                        iiVar.b(b.m126a(MiPushClient.sContext).m127a());
+                        iiVar.c(ht.g.f498a);
+                        iiVar.a(bd.a());
+                        iiVar.a(new HashMap());
                         String str = "";
-                        if (!TextUtils.isEmpty(com.xiaomi.push.i.f(MiPushClient.sContext))) {
-                            str = "" + bm.a(f);
+                        if (!TextUtils.isEmpty(com.xiaomi.push.j.d(MiPushClient.sContext))) {
+                            str = "" + bp.a(d);
                         }
-                        String h = com.xiaomi.push.i.h(MiPushClient.sContext);
-                        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(h)) {
-                            str = str + "," + h;
+                        String f = com.xiaomi.push.j.f(MiPushClient.sContext);
+                        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(f)) {
+                            str = str + "," + f;
                         }
                         if (!TextUtils.isEmpty(str)) {
-                            ieVar.m504a().put(Constants.EXTRA_KEY_IMEI_MD5, str);
+                            iiVar.m476a().put(Constants.EXTRA_KEY_IMEI_MD5, str);
                         }
-                        ax.a(MiPushClient.sContext).a(ieVar.m504a());
-                        com.xiaomi.push.i.a(MiPushClient.sContext, ieVar.f631a);
-                        int a = com.xiaomi.push.i.a();
+                        com.xiaomi.push.ba.a(MiPushClient.sContext).a(iiVar.m476a());
+                        int a = com.xiaomi.push.j.a();
                         if (a >= 0) {
-                            ieVar.m504a().put("space_id", Integer.toString(a));
+                            iiVar.m476a().put("space_id", Integer.toString(a));
                         }
-                        an.a(MiPushClient.sContext).a((an) ieVar, hf.i, false, (hs) null);
+                        ao.a(MiPushClient.sContext).a((ao) iiVar, hj.i, false, (hw) null);
                     }
                 }
             }).start();

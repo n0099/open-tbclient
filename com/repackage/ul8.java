@@ -1,7 +1,14 @@
 package com.repackage;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.data.UserData;
+import com.baidu.tieba.redtip.PersonRedTipManager;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,16 +19,15 @@ public class ul8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final hk8 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ul8(MainTabActivity mainTabActivity) {
-        super(2921636);
+    public ul8(MainTabActivity mainTabActivity, dk8 dk8Var) {
+        super(2001247);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
+            Object[] objArr = {mainTabActivity, dk8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,40 +39,25 @@ public class ul8 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = mainTabActivity.mLogicController;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        hk8 hk8Var;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
             return;
         }
-        if (MainTabActivity.syncHasFinish && (hk8Var = this.b) != null && hk8Var.i() != null) {
-            this.b.i().b();
+        UserData e = d35.d().e();
+        if (TbadkCoreApplication.isLogin() && e != null && e.getUserId() != null && !e.getUserId().equals(this.a.t) && e.getIsGodInvited()) {
+            this.a.t = e.getUserId();
+            this.a.sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.a.getPageContext().getPageActivity(), "", TbWebViewActivityConfig.GOD_INVITE_JUMP_URL + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE, true)));
         }
-        hk8 hk8Var2 = this.b;
-        if (hk8Var2 != null && hk8Var2.a() != null && this.b.a().f) {
-            this.b.a().g();
+        if (ht4.k().h("key_new_god_invited_my_tab_red_tip_showed", false) || !TbadkCoreApplication.isLogin() || e == null || e.getUserId() == null || e.getUserId().equals(this.a.t) || e.getNewGodData() == null || !e.getNewGodData().isNewGodInvited()) {
+            return;
         }
-        hk8 hk8Var3 = this.b;
-        if (hk8Var3 != null && hk8Var3.a() != null && this.b.a().g) {
-            this.b.a().f();
-        }
-        hk8 hk8Var4 = this.b;
-        if (hk8Var4 != null && hk8Var4.d() != null) {
-            this.b.d().b();
-        }
-        if (or4.a().f()) {
-            or4.a().g(this.a.getClass().getName());
-            or4.a().l(false);
-        }
-        if (or4.a().e()) {
-            or4.a().b();
-            or4.a().h(this.a.getClass().getName());
-            or4.a().k(false);
-        }
+        PersonRedTipManager.getInstance().updateRedTipState(11, true, true);
+        TiebaStatic.log(new StatisticItem("c13688").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_locate", 0));
+        ht4.k().u("key_new_god_invited_my_tab_red_tip_showed", true);
     }
 }

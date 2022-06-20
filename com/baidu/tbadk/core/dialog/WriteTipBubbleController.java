@@ -13,14 +13,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ki;
-import com.repackage.zx5;
+import com.repackage.oi;
+import com.repackage.zy5;
 /* loaded from: classes3.dex */
 public class WriteTipBubbleController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public zx5 b;
+    public zy5 b;
     public b c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -150,23 +150,23 @@ public class WriteTipBubbleController {
     }
 
     public void c() {
-        zx5 zx5Var;
+        zy5 zy5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (zx5Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (zy5Var = this.b) == null) {
             return;
         }
-        zx5Var.I();
+        zy5Var.I();
     }
 
     public void d(@NonNull View view2, @NonNull String str, @NonNull String str2, @NonNull ANCHOR_VIEW_FROM anchor_view_from) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, str, str2, anchor_view_from) == null) || this.a == null || view2 == null || ki.isEmpty(str) || ki.isEmpty(str2)) {
+        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, str, str2, anchor_view_from) == null) || this.a == null || view2 == null || oi.isEmpty(str) || oi.isEmpty(str2)) {
             return;
         }
         if (this.b == null) {
-            zx5 zx5Var = new zx5(this.a, view2);
-            this.b = zx5Var;
-            zx5Var.g0(R.drawable.pic_post_findlink);
+            zy5 zy5Var = new zy5(this.a, view2);
+            this.b = zy5Var;
+            zy5Var.g0(R.drawable.pic_post_findlink);
             this.b.S(2);
             this.b.Q(true);
             this.b.f0(19);

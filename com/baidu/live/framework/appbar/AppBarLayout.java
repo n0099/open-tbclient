@@ -35,8 +35,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l90;
-import com.repackage.n90;
+import com.repackage.p90;
+import com.repackage.r90;
 import java.lang.ref.WeakReference;
 import java.util.List;
 @CoordinatorLayout.c(Behavior.class)
@@ -734,7 +734,7 @@ public class AppBarLayout extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeF(1048612, this, f) == null) || Build.VERSION.SDK_INT < 21) {
             return;
         }
-        n90.b(this, f);
+        r90.b(this, f);
     }
 
     /* loaded from: classes2.dex */
@@ -872,7 +872,7 @@ public class AppBarLayout extends LinearLayout {
                 if (valueAnimator2 == null) {
                     ValueAnimator valueAnimator3 = new ValueAnimator();
                     this.m = valueAnimator3;
-                    valueAnimator3.setInterpolator(l90.a);
+                    valueAnimator3.setInterpolator(p90.a);
                     this.m.addUpdateListener(new a(this, coordinatorLayout, t));
                 } else {
                     valueAnimator2.cancel();
@@ -1506,15 +1506,15 @@ public class AppBarLayout extends LinearLayout {
         this.e = 0;
         setOrientation(1);
         if (Build.VERSION.SDK_INT >= 21) {
-            n90.a(this);
-            n90.c(this, attributeSet, 0, R.style.obfuscated_res_0x7f100323);
+            r90.a(this);
+            r90.c(this, attributeSet, 0, R.style.obfuscated_res_0x7f100323);
         }
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16842964, 16843919, 16844096, R.attr.obfuscated_res_0x7f040215, R.attr.obfuscated_res_0x7f040260, R.attr.obfuscated_res_0x7f0403e1, R.attr.obfuscated_res_0x7f0403e2, R.attr.obfuscated_res_0x7f0405d3}, 0, R.style.obfuscated_res_0x7f100323);
         if (obtainStyledAttributes.hasValue(4)) {
             l(obtainStyledAttributes.getBoolean(4, false), false, false);
         }
         if (Build.VERSION.SDK_INT >= 21 && obtainStyledAttributes.hasValue(3)) {
-            n90.b(this, obtainStyledAttributes.getDimensionPixelSize(3, 0));
+            r90.b(this, obtainStyledAttributes.getDimensionPixelSize(3, 0));
         }
         if (Build.VERSION.SDK_INT >= 26) {
             if (obtainStyledAttributes.hasValue(2)) {

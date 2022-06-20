@@ -36,12 +36,12 @@ public class a {
 
     /* renamed from: com.baidu.android.pushservice.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0018a implements Interceptor {
+    public class C0020a implements Interceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0018a(a aVar) {
+        public C0020a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,7 +59,7 @@ public class a {
             this.a = aVar;
         }
 
-        public /* synthetic */ C0018a(a aVar, AnonymousClass1 anonymousClass1) {
+        public /* synthetic */ C0020a(a aVar, AnonymousClass1 anonymousClass1) {
             this(aVar);
         }
 
@@ -95,7 +95,7 @@ public class a {
                 return;
             }
         }
-        this.b = new OkHttpClient.Builder().addInterceptor(new C0018a(this, null)).connectTimeout(15L, TimeUnit.SECONDS).readTimeout(15L, TimeUnit.SECONDS).build();
+        this.b = new OkHttpClient.Builder().addInterceptor(new C0020a(this, null)).connectTimeout(15L, TimeUnit.SECONDS).readTimeout(15L, TimeUnit.SECONDS).build();
     }
 
     public static a a() {

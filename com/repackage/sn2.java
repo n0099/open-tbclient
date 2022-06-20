@@ -1,208 +1,129 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class sn2 {
+public class sn2 implements Comparable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public String a;
     public String b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public String g;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755314854, "Lcom/repackage/sn2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755314854, "Lcom/repackage/sn2;");
-                return;
-            }
-        }
-        boolean z = rf1.a;
-    }
+    public long c;
+    public ArrayList<MediaModel> d;
 
     public sn2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = 60000;
-        this.b = "aac";
-        this.c = 1;
-        this.d = 8000;
-        this.e = 16000;
-        this.f = 1;
     }
 
-    public static sn2 a(JSONObject jSONObject, sn2 sn2Var) {
-        InterceptResult invokeLL;
+    public void a(MediaModel mediaModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, sn2Var)) == null) {
-            if (jSONObject != null && jSONObject.length() > 0) {
-                sn2Var = new sn2();
-                sn2Var.a = jSONObject.optInt("duration", 60000);
-                String optString = jSONObject.optString("format");
-                sn2Var.b = optString;
-                if (TextUtils.isEmpty(optString)) {
-                    sn2Var.b = "aac";
-                }
-                sn2Var.c = jSONObject.optInt("numberOfChannels", 1);
-                sn2Var.d = jSONObject.optInt("sampleRate", 8000);
-                int optInt = jSONObject.optInt("encodeBitRate");
-                sn2Var.e = optInt;
-                if (optInt == 0) {
-                    int i = sn2Var.d;
-                    if (i == 8000) {
-                        sn2Var.e = 16000;
-                    } else if (i == 16000) {
-                        sn2Var.e = 24000;
-                    } else if (i == 44100) {
-                        sn2Var.e = 64000;
-                    }
-                }
-                sn2Var.f = b(jSONObject.optString("audioSource", "auto"));
-                sn2Var.g = jSONObject.optString("cb");
+        if (interceptable == null || interceptable.invokeL(1048576, this, mediaModel) == null) {
+            if (this.d == null) {
+                this.d = new ArrayList<>();
             }
-            return sn2Var;
+            this.d.add(mediaModel);
         }
-        return (sn2) invokeLL.objValue;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static int b(String str) {
-        InterceptResult invokeL;
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            switch (str.hashCode()) {
-                case -401509030:
-                    if (str.equals(BdUploadHandler.MEDIA_SOURCE_VALUE_CAMCORDER)) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 108103:
-                    if (str.equals("mic")) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 3005871:
-                    if (str.equals("auto")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1059882026:
-                    if (str.equals("voice_recognition")) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1611170697:
-                    if (str.equals("voice_communication")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            if (c == 0 || c == 1) {
-                return 1;
-            }
-            if (c != 2) {
-                if (c != 3) {
-                    return c != 4 ? -1 : 6;
-                }
-                return 7;
-            }
-            return 5;
-        }
-        return invokeL.intValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:47:0x0086, code lost:
-        r2 = false;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x0089  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public JSONObject c() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = this.a;
-            if (i <= 600000 && i >= 0) {
-                int i2 = this.c;
-                boolean z = true;
-                if (i2 != 1 && i2 != 2) {
-                    return UnitedSchemeUtility.wrapCallbackParams(202, "error channels");
-                }
-                if (!TextUtils.equals(this.b, "aac") && !TextUtils.equals(this.b, "pcm")) {
-                    return UnitedSchemeUtility.wrapCallbackParams(202, "error format");
-                }
-                int i3 = this.d;
-                if (i3 != 8000 && i3 != 16000 && i3 != 44100) {
-                    return UnitedSchemeUtility.wrapCallbackParams(202, "error sampleRate");
-                }
-                if (!TextUtils.equals(this.b, "pcm")) {
-                    if ((r3 = this.d) != 8000) {
-                        if (z) {
-                            return UnitedSchemeUtility.wrapCallbackParams(202, "error bitRate");
-                        }
-                    } else if (z) {
-                    }
-                }
-                if (this.f < 0) {
-                    return UnitedSchemeUtility.wrapCallbackParams(202, "error audioSource");
-                }
-                return null;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    @Override // java.lang.Comparable
+    public int compareTo(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) ? Long.valueOf(((sn2) obj).e()).compareTo(Long.valueOf(this.c)) : invokeL.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d.size() : invokeV.intValue;
+    }
+
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : invokeV.longValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
+            if (obj instanceof sn2) {
+                return this.a.equals(((sn2) obj).a);
             }
-            return UnitedSchemeUtility.wrapCallbackParams(202, "error duration");
+            return false;
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public ArrayList<MediaModel> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : (ArrayList) invokeV.objValue;
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? super.hashCode() : invokeV.intValue;
+    }
+
+    public void i(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.c = j;
+        }
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "recordTime : " + this.a + "; channel : " + this.c + "; audioFormat : " + this.b + "; sampleRate : " + this.d + "; bitRate : " + this.e + "; callbacks : " + this.g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return "MediaDir [firstImgPath=, dirName=" + this.a + ", imageCount=" + d() + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }

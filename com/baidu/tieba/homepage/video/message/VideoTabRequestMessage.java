@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dc5;
-import com.repackage.li;
+import com.repackage.pi;
+import com.repackage.qc5;
 import tbclient.RecomVideo.DataReq;
 import tbclient.RecomVideo.RecomVideoReqIdl;
 /* loaded from: classes3.dex */
@@ -46,14 +46,14 @@ public class VideoTabRequestMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.scr_w = Integer.valueOf(li.k(TbadkCoreApplication.getInst()));
-            builder.scr_h = Integer.valueOf(li.i(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Double.valueOf(li.h(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(pi.k(TbadkCoreApplication.getInst()));
+            builder.scr_h = Integer.valueOf(pi.i(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Double.valueOf(pi.h(TbadkCoreApplication.getInst()));
             builder.new_net_type = Integer.valueOf(this.new_net_type);
             builder.load_type = Integer.valueOf(this.load_type);
             builder.page_thread_count = Integer.valueOf(this.page_thread_count);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                dc5.a(builder, true);
+                qc5.a(builder, true);
             }
             RecomVideoReqIdl.Builder builder2 = new RecomVideoReqIdl.Builder();
             builder2.data = builder.build(false);

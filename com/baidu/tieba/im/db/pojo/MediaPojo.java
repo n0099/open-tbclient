@@ -50,21 +50,9 @@ public class MediaPojo extends OrmObject {
         }
     }
 
-    public int getType() {
-        InterceptResult invokeV;
+    public void A(Media media) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.type : invokeV.intValue;
-    }
-
-    public String y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.srcPic : (String) invokeV.objValue;
-    }
-
-    public void z(Media media) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, media) == null) || media == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, media) == null) || media == null) {
             return;
         }
         this.type = media.type.intValue();
@@ -90,5 +78,17 @@ public class MediaPojo extends OrmObject {
         this.isBlockedPic = media.isBlockedPic.intValue();
         this.wthMidLoc = media.wthMidLoc.doubleValue();
         this.hthMidLoc = media.hthMidLoc.doubleValue();
+    }
+
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.type : invokeV.intValue;
+    }
+
+    public String z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.srcPic : (String) invokeV.objValue;
     }
 }

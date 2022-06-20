@@ -1,14 +1,17 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Request;
+import rx.internal.subscriptions.SequentialSubscription;
 /* loaded from: classes7.dex */
-public abstract class sz9<T> {
+public final class sz9 implements ev9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final SequentialSubscription a;
 
     public sz9() {
         Interceptable interceptable = $ic;
@@ -20,11 +23,35 @@ public abstract class sz9<T> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = new SequentialSubscription();
+    }
+
+    public void a(ev9 ev9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ev9Var) == null) {
+            if (ev9Var != null) {
+                this.a.replace(ev9Var);
+                return;
+            }
+            throw new IllegalArgumentException("Subscription can not be null");
         }
     }
 
-    public abstract void a(Request request, boolean z, Exception exc);
+    @Override // com.repackage.ev9
+    public boolean isUnsubscribed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.isUnsubscribed() : invokeV.booleanValue;
+    }
 
-    public abstract void b(T t);
+    @Override // com.repackage.ev9
+    public void unsubscribe() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.unsubscribe();
+        }
+    }
 }

@@ -1,22 +1,65 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.content.res.Resources;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.swan.apps.res.ui.FullScreenFloatView;
+import com.baidu.swan.games.inspector.SwanInspectorEndpoint;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-@Singleton
-@Service
+import com.repackage.hw3;
+import com.repackage.wy2;
 /* loaded from: classes6.dex */
-public class gw3 implements mg1 {
+public class gw3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public FullScreenFloatView a;
+
+    /* loaded from: classes6.dex */
+    public class a implements FullScreenFloatView.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ gw3 b;
+
+        public a(gw3 gw3Var, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gw3Var, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = gw3Var;
+            this.a = activity;
+        }
+
+        @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.c
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.c
+        public void onClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.b.d(this.a);
+            }
+        }
+    }
 
     public gw3() {
         Interceptable interceptable = $ic;
@@ -32,36 +75,43 @@ public class gw3 implements mg1 {
         }
     }
 
-    @Override // com.repackage.mg1
-    public List<e13> a(e03 e03Var) {
-        InterceptResult invokeL;
+    public final void b(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e03Var)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new wu3(e03Var));
-            arrayList.add(new xu3(e03Var));
-            return arrayList;
+        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+            FullScreenFloatView a2 = by2.a(activity, (ViewGroup) activity.findViewById(16908290), 2);
+            this.a = a2;
+            a2.setFloatButtonText(activity.getString(R.string.obfuscated_res_0x7f0f016e));
+            this.a.setFloatImageBackground(R.drawable.obfuscated_res_0x7f08015c);
+            this.a.setAutoAttachEnable(false);
+            this.a.setDragImageListener(new a(this, activity));
+            this.a.setVisibility(0);
         }
-        return (List) invokeL.objValue;
     }
 
-    @Override // com.repackage.mg1
-    public List<e13> b(e03 e03Var) {
-        InterceptResult invokeL;
+    public void c(hw3.c cVar, Activity activity) {
+        lz3 lz3Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e03Var)) == null) ? Arrays.asList(new jv3(e03Var), new yt3(e03Var), new hu3(e03Var), new uu3(e03Var)) : (List) invokeL.objValue;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, activity) == null) && activity != null && this.a == null) {
+            if (fw3.f((cVar == null || (lz3Var = cVar.c) == null) ? null : lz3Var.f).b()) {
+                b(activity);
+            }
+        }
     }
 
-    @Override // com.repackage.mg1
-    public List<e13> c(e03 e03Var) {
-        InterceptResult invokeL;
+    public final void d(Activity activity) {
+        sz2 M;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e03Var)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new pz3(e03Var));
-            arrayList.add(new oz3(e03Var));
-            return arrayList;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) || (M = sz2.M()) == null || M.Y() == null) {
+            return;
         }
-        return (List) invokeL.objValue;
+        Resources resources = activity.getResources();
+        String u = SwanInspectorEndpoint.v().u(resources);
+        wy2.a aVar = new wy2.a(activity);
+        aVar.V(resources.getString(R.string.obfuscated_res_0x7f0f01d4));
+        aVar.x(u);
+        aVar.n(new af3());
+        aVar.m(false);
+        aVar.O(R.string.obfuscated_res_0x7f0f019b, null);
+        aVar.X();
     }
 }

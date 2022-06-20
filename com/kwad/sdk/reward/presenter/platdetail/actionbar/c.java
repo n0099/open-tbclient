@@ -97,8 +97,8 @@ public class c extends g implements View.OnClickListener, RewardActionBarControl
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.c = (KsLogoView) a(R.id.obfuscated_res_0x7f090feb);
-        KsAuthorIconView ksAuthorIconView = (KsAuthorIconView) a(R.id.obfuscated_res_0x7f0910b6);
+        this.c = (KsLogoView) a(R.id.obfuscated_res_0x7f090fdb);
+        KsAuthorIconView ksAuthorIconView = (KsAuthorIconView) a(R.id.obfuscated_res_0x7f0910a6);
         this.b = ksAuthorIconView;
         ksAuthorIconView.setOnClickListener(this);
     }

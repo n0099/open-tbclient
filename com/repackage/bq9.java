@@ -1,23 +1,25 @@
 package com.repackage;
 
-import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.views.CloseParentView;
+import com.win.opensdk.PBError;
+import com.win.opensdk.PBNative;
+import com.win.opensdk.PBNativeListener;
 /* loaded from: classes5.dex */
-public class bq9 implements View.OnClickListener {
+public class bq9 implements PBNativeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ CloseParentView a;
+    public final /* synthetic */ PBNative a;
 
-    public bq9(CloseParentView closeParentView) {
+    public bq9(PBNative pBNative) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {closeParentView};
+            Object[] objArr = {pBNative};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,14 +29,46 @@ public class bq9 implements View.OnClickListener {
                 return;
             }
         }
-        this.a = closeParentView;
+        this.a = pBNative;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    @Override // com.win.opensdk.PBListener
+    public void onClicked() {
+        PBNativeListener pBNativeListener;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            this.a.a();
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (pBNativeListener = this.a.c) == null) {
+            return;
         }
+        pBNativeListener.onClicked();
+    }
+
+    @Override // com.win.opensdk.PBNativeListener
+    public void onDisplayed() {
+        PBNativeListener pBNativeListener;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (pBNativeListener = this.a.c) == null) {
+            return;
+        }
+        pBNativeListener.onDisplayed();
+    }
+
+    @Override // com.win.opensdk.PBListener
+    public void onFail(PBError pBError) {
+        PBNativeListener pBNativeListener;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (pBNativeListener = this.a.c) == null) {
+            return;
+        }
+        pBNativeListener.onFail(pBError);
+    }
+
+    @Override // com.win.opensdk.PBListener
+    public void onLoaded() {
+        PBNativeListener pBNativeListener;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (pBNativeListener = this.a.c) == null) {
+            return;
+        }
+        pBNativeListener.onLoaded();
     }
 }

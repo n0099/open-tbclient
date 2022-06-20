@@ -156,11 +156,11 @@ public final class DbUtil {
                         return "";
                     }
                     return externalDeviceId + "|" + stringBuffer;
-                } catch (Throwable th) {
-                    CommonMethods.handleNuLException(th);
+                } catch (Exception unused) {
                     return "";
                 }
-            } catch (Exception unused) {
+            } catch (Throwable th) {
+                CommonMethods.handleNuLException(th);
                 return "";
             }
         }
@@ -232,9 +232,9 @@ public final class DbUtil {
         return (String) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:18:0x003e A[Catch: all -> 0x0099, TryCatch #2 {all -> 0x0099, blocks: (B:5:0x0006, B:16:0x002a, B:18:0x003e, B:21:0x006a, B:24:0x0076, B:15:0x0027), top: B:35:0x0006 }] */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x003e A[Catch: all -> 0x0098, TryCatch #2 {all -> 0x0098, blocks: (B:5:0x0006, B:16:0x002a, B:18:0x003e, B:21:0x006a, B:24:0x0076, B:15:0x0027), top: B:35:0x0006 }] */
     /* JADX WARN: Removed duplicated region for block: B:20:0x0069 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:21:0x006a A[Catch: all -> 0x0099, TryCatch #2 {all -> 0x0099, blocks: (B:5:0x0006, B:16:0x002a, B:18:0x003e, B:21:0x006a, B:24:0x0076, B:15:0x0027), top: B:35:0x0006 }] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x006a A[Catch: all -> 0x0098, TryCatch #2 {all -> 0x0098, blocks: (B:5:0x0006, B:16:0x002a, B:18:0x003e, B:21:0x006a, B:24:0x0076, B:15:0x0027), top: B:35:0x0006 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
+import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.handler.a.b.d;
@@ -14,7 +15,6 @@ import com.meizu.cloud.pushsdk.platform.message.SubAliasStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubTagsStatus;
 import com.meizu.cloud.pushsdk.platform.message.UnRegisterStatus;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
-import com.repackage.ni9;
 /* loaded from: classes5.dex */
 public class PlatformMessageSender {
 
@@ -29,7 +29,7 @@ public class PlatformMessageSender {
 
     public static void a(Context context, int i, boolean z, String str) {
         String appVersionName = MzSystemUtils.getAppVersionName(context, "com.meizu.cloud");
-        ni9.d("PlatformMessageSender", context.getPackageName() + " switchPushMessageSetting cloudVersion_name " + appVersionName);
+        DebugLogger.i("PlatformMessageSender", context.getPackageName() + " switchPushMessageSetting cloudVersion_name " + appVersionName);
         if (TextUtils.isEmpty(appVersionName) || !appVersionName.startsWith("6")) {
             return;
         }
@@ -159,11 +159,11 @@ public class PlatformMessageSender {
             intent.setClassName(str, "com.meizu.cloud.pushsdk.NotificationService");
         }
         intent.putExtra("command_type", "reflect_receiver");
-        ni9.d("PlatformMessageSender", "start notification service " + parse);
+        DebugLogger.i("PlatformMessageSender", "start notification service " + parse);
         try {
             context.startService(intent);
         } catch (Exception e) {
-            ni9.b("PlatformMessageSender", "launchStartActivity error " + e.getMessage());
+            DebugLogger.e("PlatformMessageSender", "launchStartActivity error " + e.getMessage());
         }
     }
 
@@ -181,10 +181,10 @@ public class PlatformMessageSender {
         intent.setClassName(context.getPackageName(), "com.meizu.cloud.pushsdk.NotificationService");
         intent.putExtra("command_type", "reflect_receiver");
         try {
-            ni9.b("PlatformMessageSender", "start noficationservice to show notification");
+            DebugLogger.e("PlatformMessageSender", "start noficationservice to show notification");
             context.startService(intent);
         } catch (Exception e) {
-            ni9.b("PlatformMessageSender", "showNotification error " + e.getMessage());
+            DebugLogger.e("PlatformMessageSender", "showNotification error " + e.getMessage());
         }
     }
 }

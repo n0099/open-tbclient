@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ix2;
 import com.repackage.kx2;
-import com.repackage.zw2;
+import com.repackage.tx2;
+import com.repackage.vx2;
 /* loaded from: classes2.dex */
-public class SPSwitchFSPanelLinearLayout extends LinearLayout implements kx2 {
+public class SPSwitchFSPanelLinearLayout extends LinearLayout implements vx2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zw2 a;
+    public kx2 a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SPSwitchFSPanelLinearLayout(Context context) {
@@ -42,11 +42,11 @@ public class SPSwitchFSPanelLinearLayout extends LinearLayout implements kx2 {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = new zw2(this);
+            this.a = new kx2(this);
         }
     }
 
-    @Override // com.repackage.kx2
+    @Override // com.repackage.vx2
     public void onSoftInputShowing(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
@@ -54,11 +54,11 @@ public class SPSwitchFSPanelLinearLayout extends LinearLayout implements kx2 {
         }
     }
 
-    @Override // com.repackage.kx2
+    @Override // com.repackage.vx2
     public void refreshHeight(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            ix2.g(this, i);
+            tx2.g(this, i);
         }
     }
 

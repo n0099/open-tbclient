@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes2.dex */
 public final class NetWorkUtils$NetType {
@@ -35,7 +36,7 @@ public final class NetWorkUtils$NetType {
                 return;
             }
         }
-        NONE = new NetWorkUtils$NetType("NONE", 0, "no");
+        NONE = new NetWorkUtils$NetType(HlsPlaylistParser.METHOD_NONE, 0, "no");
         WIFI = new NetWorkUtils$NetType("WIFI", 1, "wifi");
         _2G = new NetWorkUtils$NetType("_2G", 2, "2g");
         _3G = new NetWorkUtils$NetType("_3G", 3, "3g");

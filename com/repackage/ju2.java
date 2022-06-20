@@ -1,147 +1,249 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.SwanAppBaseActivity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class ju2 {
+public final class ju2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static volatile ju2 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, ku2> a;
+    public HashMap<String, ku2> b;
+    public HashMap<String, ku2> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755576246, "Lcom/repackage/ju2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755576246, "Lcom/repackage/ju2;");
+    public ju2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = rf1.a;
+        c();
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public static boolean a(Context context, @NonNull ku2 ku2Var) {
-        InterceptResult invokeLL;
+    public static ju2 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, ku2Var)) == null) {
-            if (context instanceof SwanAppBaseActivity) {
-                return true;
-            }
-            ku2Var.b(2, "method should be called after setActivityRef");
-            if (a) {
-                throw new IllegalStateException("this method should be called after setActivityRef");
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean b(@NonNull Context context, @NonNull String str, @NonNull ku2 ku2Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, str, ku2Var)) == null) {
-            if (cg4.a(context, str)) {
-                ku2Var.a("permission has already granted");
-                return true;
-            }
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static boolean c(ArrayList<String> arrayList, @NonNull ku2 ku2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, arrayList, ku2Var)) == null) {
-            if (arrayList == null || arrayList.isEmpty()) {
-                ku2Var.a("permission has already granted");
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @NonNull
-    public static ArrayList<String> d(@NonNull Context context, @NonNull String[] strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, strArr)) == null) {
-            ArrayList<String> arrayList = new ArrayList<>();
-            for (String str : strArr) {
-                if (!cg4.a(context, str)) {
-                    arrayList.add(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (d == null) {
+                synchronized (ju2.class) {
+                    if (d == null) {
+                        d = new ju2();
+                    }
                 }
             }
-            return arrayList;
+            return d;
         }
-        return (ArrayList) invokeLL.objValue;
+        return (ju2) invokeV.objValue;
     }
 
-    public static void e(@NonNull String str, @NonNull String[] strArr, int i, @NonNull Context context, @NonNull ku2 ku2Var) {
+    public static synchronized void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, strArr, Integer.valueOf(i), context, ku2Var}) == null) && a(context, ku2Var) && !b(context, str, ku2Var)) {
-            g(context, strArr, i, ku2Var);
-        }
-    }
-
-    @Deprecated
-    public static void f(@NonNull Context context, @NonNull String[] strArr, int i, @NonNull ku2 ku2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLIL(65542, null, context, strArr, i, ku2Var) == null) && a(context, ku2Var)) {
-            ArrayList<String> d = d(context, strArr);
-            if (c(d, ku2Var)) {
-                return;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            synchronized (ju2.class) {
+                if (d != null) {
+                    d.e();
+                    d = null;
+                }
             }
-            ((SwanAppBaseActivity) context).requestPermissionsExt(i, (String[]) d.toArray(new String[0]), new fu2(i, ku2Var));
         }
     }
 
-    public static void g(@NonNull Context context, @NonNull String[] strArr, int i, @NonNull ku2 ku2Var) {
+    public final void a(String str, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLIL(65543, null, context, strArr, i, ku2Var) == null) && a(context, ku2Var)) {
-            ArrayList<String> d = d(context, strArr);
-            if (c(d, ku2Var)) {
-                return;
+        if (!(interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        char c = 65535;
+        int hashCode = str.hashCode();
+        if (hashCode != 767526192) {
+            if (hashCode != 1331686101) {
+                if (hashCode == 1390184462 && str.equals("PageUpdateRender")) {
+                    c = 2;
+                }
+            } else if (str.equals("PageInitRender")) {
+                c = 1;
             }
-            ((SwanAppBaseActivity) context).requestPermissionsExt(i, (String[]) d.toArray(new String[0]), new gu2(context, i, ku2Var));
+        } else if (str.equals("PageSwitchCost")) {
+            c = 0;
+        }
+        if (c == 0) {
+            ob3.d.update((nb3<Long>) Long.valueOf(j));
+        } else if (c == 1) {
+            ob3.e.update((nb3<Long>) Long.valueOf(j));
+        } else if (c != 2) {
+        } else {
+            ob3.f.update((nb3<Long>) Long.valueOf(j));
         }
     }
 
-    public static void h(@NonNull String[] strArr, int i, @NonNull Context context, @NonNull ku2 ku2Var) {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLILL(65544, null, strArr, i, context, ku2Var) == null) && a(context, ku2Var)) {
-            ArrayList<String> d = d(context, strArr);
-            if (c(d, ku2Var)) {
-                return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.a == null) {
+                this.a = new HashMap<>();
             }
-            g(context, (String[]) d.toArray(new String[0]), i, ku2Var);
+            if (this.b == null) {
+                this.b = new HashMap<>();
+            }
+            if (this.c == null) {
+                this.c = new HashMap<>();
+            }
         }
     }
 
-    @Deprecated
-    public static void requestPermissions(@NonNull String[] strArr, int i, @NonNull Context context, @NonNull ku2 ku2Var) {
+    public void d(String str, String str2, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLILL(65545, null, strArr, i, context, ku2Var) == null) && a(context, ku2Var)) {
-            ArrayList<String> d = d(context, strArr);
-            if (c(d, ku2Var)) {
-                return;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j)}) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || j < 0) {
+            return;
+        }
+        c();
+        char c = 65535;
+        switch (str2.hashCode()) {
+            case -1880922749:
+                if (str2.equals("pageUpdateEnd")) {
+                    c = 5;
+                    break;
+                }
+                break;
+            case -964566145:
+                if (str2.equals("pageSwitchStart")) {
+                    c = 0;
+                    break;
+                }
+                break;
+            case -410083667:
+                if (str2.equals("pageInitRenderStart")) {
+                    c = 1;
+                    break;
+                }
+                break;
+            case 4028902:
+                if (str2.equals("pageInitRenderEnd")) {
+                    c = 4;
+                    break;
+                }
+                break;
+            case 627578634:
+                if (str2.equals("pageUpdateStart")) {
+                    c = 2;
+                    break;
+                }
+                break;
+            case 1719651128:
+                if (str2.equals("pageSwitchEnd")) {
+                    c = 3;
+                    break;
+                }
+                break;
+        }
+        if (c == 0 || c == 1 || c == 2) {
+            h(str, str2, j);
+        } else if (c == 3 || c == 4 || c == 5) {
+            g(str, str2, j);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            HashMap<String, ku2> hashMap = this.a;
+            if (hashMap != null) {
+                hashMap.clear();
             }
-            f(context, (String[]) d.toArray(new String[0]), i, ku2Var);
+            HashMap<String, ku2> hashMap2 = this.b;
+            if (hashMap2 != null) {
+                hashMap2.clear();
+            }
+            HashMap<String, ku2> hashMap3 = this.c;
+            if (hashMap3 != null) {
+                hashMap3.clear();
+            }
+        }
+    }
+
+    public final void g(String str, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Long.valueOf(j)}) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+            return;
+        }
+        ku2 ku2Var = null;
+        char c = 65535;
+        int hashCode = str2.hashCode();
+        if (hashCode != -1880922749) {
+            if (hashCode != 4028902) {
+                if (hashCode == 1719651128 && str2.equals("pageSwitchEnd")) {
+                    c = 0;
+                }
+            } else if (str2.equals("pageInitRenderEnd")) {
+                c = 1;
+            }
+        } else if (str2.equals("pageUpdateEnd")) {
+            c = 2;
+        }
+        if (c == 0) {
+            ku2Var = this.a.remove(str);
+        } else if (c == 1) {
+            ku2Var = this.b.remove(str);
+        } else if (c == 2) {
+            ku2Var = this.c.remove(str);
+        }
+        if (ku2Var == null) {
+            return;
+        }
+        ku2Var.b(j);
+        a(ku2Var.getType(), ku2Var.a());
+    }
+
+    public final void h(String str, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Long.valueOf(j)}) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+            return;
+        }
+        ku2 ku2Var = null;
+        char c = 65535;
+        int hashCode = str2.hashCode();
+        if (hashCode != -964566145) {
+            if (hashCode != -410083667) {
+                if (hashCode == 627578634 && str2.equals("pageUpdateStart")) {
+                    c = 2;
+                }
+            } else if (str2.equals("pageInitRenderStart")) {
+                c = 1;
+            }
+        } else if (str2.equals("pageSwitchStart")) {
+            c = 0;
+        }
+        if (c == 0) {
+            ku2Var = this.a.get(str);
+            if (ku2Var == null) {
+                ku2Var = new hu2();
+                this.a.put(str, ku2Var);
+            }
+        } else if (c == 1) {
+            ku2Var = this.b.get(str);
+            if (ku2Var == null) {
+                ku2Var = new gu2();
+                this.b.put(str, ku2Var);
+            }
+        } else if (c == 2 && (ku2Var = this.c.get(str)) == null) {
+            ku2Var = new iu2();
+            this.c.put(str, ku2Var);
+        }
+        if (ku2Var != null) {
+            ku2Var.c(j);
         }
     }
 }

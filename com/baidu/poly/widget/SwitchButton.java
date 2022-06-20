@@ -35,7 +35,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.y81;
+import com.repackage.j91;
 /* loaded from: classes2.dex */
 public class SwitchButton extends CompoundButton {
     public static /* synthetic */ Interceptable $ic;
@@ -484,7 +484,7 @@ public class SwitchButton extends CompoundButton {
                 this.k = 3309506;
             }
             if (!this.C && this.d == null) {
-                ColorStateList b = y81.b(this.k);
+                ColorStateList b = j91.b(this.k);
                 this.d = b;
                 this.p = b.getDefaultColor();
             }
@@ -495,7 +495,7 @@ public class SwitchButton extends CompoundButton {
             boolean z5 = drawable2 != null;
             this.D = z5;
             if (!z5 && this.c == null) {
-                ColorStateList a2 = y81.a(this.k);
+                ColorStateList a2 = j91.a(this.k);
                 this.c = a2;
                 int defaultColor = a2.getDefaultColor();
                 this.q = defaultColor;
@@ -1362,8 +1362,8 @@ public class SwitchButton extends CompoundButton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048634, this, i) == null) {
             this.k = i;
-            this.d = y81.b(i);
-            this.c = y81.a(this.k);
+            this.d = j91.b(i);
+            this.c = j91.a(this.k);
             this.D = false;
             this.C = false;
             refreshDrawableState();

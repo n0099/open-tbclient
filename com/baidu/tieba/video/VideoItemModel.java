@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xo8;
+import com.repackage.fp8;
 import java.io.Serializable;
 import java.util.Objects;
 /* loaded from: classes4.dex */
@@ -27,7 +27,7 @@ public class VideoItemModel implements Serializable, Parcelable {
     public transient /* synthetic */ FieldHolder $fh;
     public final int dataType;
     public final int mHashCode;
-    public xo8 videoAdData;
+    public fp8 videoAdData;
     public final VideoItemData videoItemData;
 
     /* loaded from: classes4.dex */
@@ -142,10 +142,10 @@ public class VideoItemModel implements Serializable, Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mHashCode : invokeV.intValue;
     }
 
-    public xo8 getVideoAdData() {
+    public fp8 getVideoAdData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.videoAdData : (xo8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.videoAdData : (fp8) invokeV.objValue;
     }
 
     public VideoItemData getVideoItemData() {
@@ -184,10 +184,10 @@ public class VideoItemModel implements Serializable, Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.dataType == 3 : invokeV.booleanValue;
     }
 
-    public void setVideoAdData(xo8 xo8Var) {
+    public void setVideoAdData(fp8 fp8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, xo8Var) == null) {
-            this.videoAdData = xo8Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, fp8Var) == null) {
+            this.videoAdData = fp8Var;
         }
     }
 

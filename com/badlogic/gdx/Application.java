@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.y0;
+import com.repackage.b1;
 /* loaded from: classes.dex */
 public interface Application {
 
@@ -85,15 +85,13 @@ public interface Application {
 
     void error(String str, String str2, Throwable th);
 
-    y0 getApplicationListener();
+    b1 getApplicationListener();
 
     Graphics getGraphics();
 
     ApplicationType getType();
 
     void log(String str, String str2);
-
-    void log(String str, String str2, Throwable th);
 
     void postRunnable(Runnable runnable);
 }

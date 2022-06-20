@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.faceunity.gles.GeneratedTexture;
-import com.repackage.f7;
+import com.repackage.h7;
 import com.tachikoma.core.component.anim.AnimationProperty;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
-public class Gdx2DPixmap implements f7 {
+public class Gdx2DPixmap implements h7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
@@ -166,7 +166,7 @@ public class Gdx2DPixmap implements f7 {
         }
     }
 
-    @Override // com.repackage.f7
+    @Override // com.repackage.h7
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {

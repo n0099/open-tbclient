@@ -23,21 +23,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
+import com.repackage.pi;
 /* loaded from: classes4.dex */
 public class UserTropicGiftBagActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbImageView mClose;
-    public Button mKnow;
-    public TbImageView mLineTropicLeft;
-    public TbImageView mLineTropicRight;
-    public View.OnClickListener mOnClickListener;
-    public RoundRelativeLayout mRoundCornerLayout;
-    public TextView mSevenDayVip;
-    public TextView mSevenDayVipDec;
-    public TextView mTropicGreetings;
-    public TbImageView mVipPic;
+    public RoundRelativeLayout a;
+    public TextView b;
+    public TextView c;
+    public TextView d;
+    public Button e;
+    public TbImageView f;
+    public TbImageView g;
+    public TbImageView h;
+    public TbImageView i;
+    public View.OnClickListener j;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -68,12 +68,12 @@ public class UserTropicGiftBagActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 TbPageContext<?> pageContext = this.a.getPageContext();
-                if (view2.getId() == this.a.mKnow.getId()) {
+                if (view2.getId() == this.a.e.getId()) {
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
-                    this.a.sendStatisticLog(2);
+                    this.a.F1(2);
                     this.a.finish();
                 }
-                if (view2.getId() == this.a.mClose.getId()) {
+                if (view2.getId() == this.a.i.getId()) {
                     this.a.finish();
                 }
             }
@@ -93,40 +93,39 @@ public class UserTropicGiftBagActivity extends BaseActivity {
                 return;
             }
         }
-        this.mOnClickListener = new a(this);
+        this.j = new a(this);
     }
 
-    private void initView() {
+    public final void D1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f092136);
-            this.mRoundCornerLayout = roundRelativeLayout;
-            roundRelativeLayout.setAllCornerRound(li.f(this, R.dimen.tbds32));
-            this.mTropicGreetings = (TextView) findViewById(R.id.obfuscated_res_0x7f092137);
-            this.mVipPic = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0923ca);
-            this.mLineTropicLeft = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09122b);
-            this.mLineTropicRight = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09122c);
-            this.mSevenDayVip = (TextView) findViewById(R.id.obfuscated_res_0x7f091c8f);
-            this.mSevenDayVipDec = (TextView) findViewById(R.id.obfuscated_res_0x7f091c90);
-            this.mKnow = (Button) findViewById(R.id.obfuscated_res_0x7f092138);
-            this.mClose = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090645);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f092132);
+            this.a = roundRelativeLayout;
+            roundRelativeLayout.setAllCornerRound(pi.f(this, R.dimen.tbds32));
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092133);
+            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0923b7);
+            this.g = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091220);
+            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091221);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091c86);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091c87);
+            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f092134);
+            this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090625);
         }
     }
 
-    private void registeListener() {
+    public final void E1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            this.mKnow.setOnClickListener(this.mOnClickListener);
-            this.mClose.setOnClickListener(this.mOnClickListener);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.e.setOnClickListener(this.j);
+            this.i.setOnClickListener(this.j);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void sendStatisticLog(int i) {
+    public final void F1(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65542, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_BACK_USER);
-            statisticItem.param("obj_name", getResources().getString(R.string.obfuscated_res_0x7f0f11fd));
+            statisticItem.param("obj_name", getResources().getString(R.string.obfuscated_res_0x7f0f120a));
             statisticItem.param("obj_type", i);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             TiebaStatic.log(statisticItem);
@@ -136,7 +135,7 @@ public class UserTropicGiftBagActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void closeAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
         }
     }
@@ -144,7 +143,7 @@ public class UserTropicGiftBagActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void enterExitAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
         }
     }
@@ -152,43 +151,43 @@ public class UserTropicGiftBagActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            SkinManager.setImageResource(this.mVipPic, R.drawable.obfuscated_res_0x7f080abb);
-            this.mVipPic.setSkinType(i);
-            SkinManager.setImageResource(this.mLineTropicLeft, R.drawable.obfuscated_res_0x7f080abc);
-            this.mLineTropicLeft.setSkinType(i);
-            SkinManager.setImageResource(this.mLineTropicRight, R.drawable.obfuscated_res_0x7f080abd);
-            this.mLineTropicRight.setSkinType(i);
-            SkinManager.setBackgroundColor(this.mRoundCornerLayout, R.color.CAM_X0205);
-            SkinManager.setViewTextColor(this.mTropicGreetings, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.mSevenDayVip, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.mSevenDayVipDec, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColorSelector(this.mKnow, R.color.CAM_X0302, R.color.cp_link_tip_a_alpha50);
-            SkinManager.setImageResource(this.mClose, R.drawable.obfuscated_res_0x7f0808df);
-            this.mClose.setSkinType(i);
+            SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f080aa6);
+            this.f.setSkinType(i);
+            SkinManager.setImageResource(this.g, R.drawable.obfuscated_res_0x7f080aa7);
+            this.g.setSkinType(i);
+            SkinManager.setImageResource(this.h, R.drawable.obfuscated_res_0x7f080aa8);
+            this.h.setSkinType(i);
+            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0205);
+            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColorSelector(this.e, R.color.CAM_X0302, R.color.cp_link_tip_a_alpha50);
+            SkinManager.setImageResource(this.i, R.drawable.obfuscated_res_0x7f0808c7);
+            this.i.setSkinType(i);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0059);
-            initView();
-            registeListener();
+            setContentView(R.layout.obfuscated_res_0x7f0d0058);
+            D1();
+            E1();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            if (this.mOnClickListener != null) {
-                this.mOnClickListener = null;
+            if (this.j != null) {
+                this.j = null;
             }
         }
     }
@@ -196,9 +195,9 @@ public class UserTropicGiftBagActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onResume();
-            sendStatisticLog(1);
+            F1(1);
         }
     }
 }

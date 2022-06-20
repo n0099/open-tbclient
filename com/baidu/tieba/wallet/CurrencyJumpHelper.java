@@ -4,17 +4,12 @@ import android.content.Context;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.BuyTBeanActivityConfig;
-import com.baidu.tbadk.core.util.MemberPayStatistic;
-import com.baidu.tbadk.util.PageDialogHelper$PayForm;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.n75;
-import com.repackage.r75;
+import com.repackage.b85;
+import com.repackage.e85;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class CurrencyJumpHelper {
@@ -37,12 +32,8 @@ public class CurrencyJumpHelper {
 
     public static void buyGiftGotoBuyTBeanPage(Context context, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65538, null, context, f) == null) {
-            if (CurrencySwitchUtil.isYyIsConvert()) {
-                goYYPay(context);
-            } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new BuyTBeanActivityConfig(TbadkCoreApplication.getInst().getContext(), f)));
-            }
+        if ((interceptable == null || interceptable.invokeLF(65538, null, context, f) == null) && CurrencySwitchUtil.isYyIsConvert()) {
+            goYYPay(context);
         }
     }
 
@@ -55,104 +46,57 @@ public class CurrencyJumpHelper {
 
     public static void gotoBuyTBeanPage(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65545, null, context, j) == null) {
-            if (CurrencySwitchUtil.isYyIsConvert()) {
-                goYYPay(context);
-                return;
-            }
-            BuyTBeanActivityConfig buyTBeanActivityConfig = new BuyTBeanActivityConfig(TbadkCoreApplication.getInst().getContext(), 0.0f);
-            buyTBeanActivityConfig.setFromDecreaseGiftStepStrategy(2);
-            buyTBeanActivityConfig.setTBeanLeftToBuyGift(j);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, buyTBeanActivityConfig));
+        if ((interceptable == null || interceptable.invokeLJ(65545, null, context, j) == null) && CurrencySwitchUtil.isYyIsConvert()) {
+            goYYPay(context);
         }
     }
 
     public static void memberCenterBuyTBean(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, context, str) == null) {
-            if (CurrencySwitchUtil.isYyIsConvert()) {
-                goYYPay(context);
-            } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new BuyTBeanActivityConfig(TbadkCoreApplication.getInst().getContext(), 0.0f, 1, str, PageDialogHelper$PayForm.NOT_SET)));
-            }
+        if ((interceptable == null || interceptable.invokeLL(65546, null, context, str) == null) && CurrencySwitchUtil.isYyIsConvert()) {
+            goYYPay(context);
         }
     }
 
     public static void nativeGotoBuyBean(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, context) == null) {
-            if (CurrencySwitchUtil.isYyIsConvert()) {
-                goYYPay(context);
-            } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new BuyTBeanActivityConfig(context, 0.0f)));
-            }
+        if ((interceptable == null || interceptable.invokeL(65547, null, context) == null) && CurrencySwitchUtil.isYyIsConvert()) {
+            goYYPay(context);
         }
     }
 
     public static void openNativeBuyTBean(Context context, Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, null, context, map) == null) {
-            if (CurrencySwitchUtil.isYyIsConvert()) {
-                goYYPay(context);
-                return;
-            }
-            BuyTBeanActivityConfig buyTBeanActivityConfig = new BuyTBeanActivityConfig(TbadkCoreApplication.getInst().getContext(), 0.0f);
-            buyTBeanActivityConfig.setReferPageAndClickZone(MemberPayStatistic.REFER_PAGE_PERSONAL_CENTER, MemberPayStatistic.CLICK_ZONE_T_RECHARGE);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, buyTBeanActivityConfig));
+        if ((interceptable == null || interceptable.invokeLL(65548, null, context, map) == null) && CurrencySwitchUtil.isYyIsConvert()) {
+            goYYPay(context);
         }
     }
 
     public static void personGotoBuyBean(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, null, context) == null) {
-            if (CurrencySwitchUtil.isYyIsConvert()) {
-                goYYPay(context);
-                return;
-            }
-            BuyTBeanActivityConfig buyTBeanActivityConfig = new BuyTBeanActivityConfig(TbadkCoreApplication.getInst().getContext(), 0.0f);
-            buyTBeanActivityConfig.setReferPageAndClickZone(MemberPayStatistic.REFER_PAGE_PERSONAL_CENTER, MemberPayStatistic.CLICK_ZONE_T_RECHARGE);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, buyTBeanActivityConfig));
+        if ((interceptable == null || interceptable.invokeL(65549, null, context) == null) && CurrencySwitchUtil.isYyIsConvert()) {
+            goYYPay(context);
         }
     }
 
     public static void schemaGotoBuyBean(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, null, context) == null) {
-            if (CurrencySwitchUtil.isYyIsConvert()) {
-                goYYPay(context);
-            } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new BuyTBeanActivityConfig(context, 0.0f)));
-            }
+        if ((interceptable == null || interceptable.invokeL(65550, null, context) == null) && CurrencySwitchUtil.isYyIsConvert()) {
+            goYYPay(context);
         }
     }
 
-    public static void goYYPay(Context context, @Nullable n75 n75Var) {
+    public static void goYYPay(Context context, @Nullable b85 b85Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, context, n75Var) == null) {
-            MessageManager.getInstance().runTask(2921546, String.class, new r75(context, 0, null, null, n75Var));
-        }
-    }
-
-    public static void goYYPay(Context context, @Nullable n75 n75Var, String str, Long l, boolean z, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, n75Var, str, l, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            r75 r75Var = new r75(context, 0, str, l, n75Var);
-            r75Var.g = z;
-            r75Var.f = i;
-            MessageManager.getInstance().runTask(2921546, String.class, r75Var);
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, b85Var) == null) {
+            MessageManager.getInstance().runTask(2921546, String.class, new e85(context, 0, null, null, b85Var));
         }
     }
 
     public static void buyGiftGotoBuyTBeanPage(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            if (CurrencySwitchUtil.isYyIsConvert()) {
-                goYYPay(context);
-                return;
-            }
-            BuyTBeanActivityConfig buyTBeanActivityConfig = new BuyTBeanActivityConfig(TbadkCoreApplication.getInst().getContext(), 0.0f);
-            buyTBeanActivityConfig.setReferPageAndClickZone(MemberPayStatistic.REFER_PAGE_MY_GIFT, MemberPayStatistic.CLICK_ZONE_OBTAIN_T);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, buyTBeanActivityConfig));
+        if ((interceptable == null || interceptable.invokeL(65537, null, context) == null) && CurrencySwitchUtil.isYyIsConvert()) {
+            goYYPay(context);
         }
     }
 
@@ -163,29 +107,27 @@ public class CurrencyJumpHelper {
         }
     }
 
-    public static void gotoBuyTBeanPage(Context context, float f, String str, String str2, @Nullable n75 n75Var) {
+    public static void goYYPay(Context context, @Nullable b85 b85Var, String str, Long l, boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, Float.valueOf(f), str, str2, n75Var}) == null) {
-            if (CurrencySwitchUtil.isYyIsConvert()) {
-                goYYPay(context, n75Var);
-                return;
-            }
-            BuyTBeanActivityConfig buyTBeanActivityConfig = new BuyTBeanActivityConfig(TbadkCoreApplication.getInst().getContext(), f);
-            buyTBeanActivityConfig.setReferPageAndClickZone(str, str2);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, buyTBeanActivityConfig));
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, b85Var, str, l, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            e85 e85Var = new e85(context, 0, str, l, b85Var);
+            e85Var.g = z;
+            e85Var.f = i;
+            MessageManager.getInstance().runTask(2921546, String.class, e85Var);
         }
     }
 
-    public static void buyGiftGotoBuyTBeanPage(Context context, n75 n75Var, String str, Long l, boolean z, int i) {
+    public static void gotoBuyTBeanPage(Context context, float f, String str, String str2, @Nullable b85 b85Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, n75Var, str, l, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            if (CurrencySwitchUtil.isYyIsConvert()) {
-                goYYPay(context, n75Var, str, l, z, i);
-                return;
-            }
-            BuyTBeanActivityConfig buyTBeanActivityConfig = new BuyTBeanActivityConfig(TbadkCoreApplication.getInst().getContext(), 0.0f);
-            buyTBeanActivityConfig.setReferPageAndClickZone(MemberPayStatistic.REFER_PAGE_MY_GIFT, MemberPayStatistic.CLICK_ZONE_OBTAIN_T);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, buyTBeanActivityConfig));
+        if ((interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, Float.valueOf(f), str, str2, b85Var}) == null) && CurrencySwitchUtil.isYyIsConvert()) {
+            goYYPay(context, b85Var);
+        }
+    }
+
+    public static void buyGiftGotoBuyTBeanPage(Context context, b85 b85Var, String str, Long l, boolean z, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, b85Var, str, l, Boolean.valueOf(z), Integer.valueOf(i)}) == null) && CurrencySwitchUtil.isYyIsConvert()) {
+            goYYPay(context, b85Var, str, l, z, i);
         }
     }
 }

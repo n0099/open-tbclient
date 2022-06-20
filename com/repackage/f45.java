@@ -1,11 +1,56 @@
 package com.repackage;
 
-import java.util.List;
-import tbclient.VideoRedIcon.RedIcon;
-import tbclient.VideoRedIcon.VideoRedIconResIdl;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface f45 {
-    List<RedIcon> getDataList();
+public class f45 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    VideoRedIconResIdl getResData();
+    public static e45 a(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
+            if (view2 == null) {
+                return null;
+            }
+            if (view2 instanceof LinearLayout) {
+                return new g45();
+            }
+            if (view2 instanceof RelativeLayout) {
+                return new j45();
+            }
+            if (view2 instanceof FrameLayout) {
+                return new c45();
+            }
+            return null;
+        }
+        return (e45) invokeL.objValue;
+    }
+
+    public static e45 b(View view2, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, view2, z)) == null) {
+            if (view2 == null) {
+                return null;
+            }
+            if (view2 instanceof LinearLayout) {
+                return new g45();
+            }
+            if (view2 instanceof RelativeLayout) {
+                return new j45();
+            }
+            if (view2 instanceof FrameLayout) {
+                return z ? new k45() : new c45();
+            }
+            return null;
+        }
+        return (e45) invokeLZ.objValue;
+    }
 }

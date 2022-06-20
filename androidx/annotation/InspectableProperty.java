@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -63,7 +64,7 @@ public @interface InspectableProperty {
                     return;
                 }
             }
-            NONE = new ValueType("NONE", 0);
+            NONE = new ValueType(HlsPlaylistParser.METHOD_NONE, 0);
             INFERRED = new ValueType("INFERRED", 1);
             INT_ENUM = new ValueType("INT_ENUM", 2);
             INT_FLAG = new ValueType("INT_FLAG", 3);

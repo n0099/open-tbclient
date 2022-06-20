@@ -6,37 +6,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bx9;
-import com.repackage.dv9;
-import com.repackage.kz9;
-import com.repackage.xu9;
-import com.repackage.xy9;
+import com.repackage.ev9;
+import com.repackage.ez9;
+import com.repackage.ix9;
+import com.repackage.kv9;
+import com.repackage.rz9;
 import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.OnErrorNotImplementedException;
 /* loaded from: classes8.dex */
-public final class ScheduledAction extends AtomicReference<Thread> implements Runnable, xu9 {
+public final class ScheduledAction extends AtomicReference<Thread> implements Runnable, ev9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -3962399486978279857L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final dv9 action;
-    public final bx9 cancel;
+    public final kv9 action;
+    public final ix9 cancel;
 
     /* loaded from: classes8.dex */
-    public static final class Remover extends AtomicBoolean implements xu9 {
+    public static final class Remover extends AtomicBoolean implements ev9 {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 247232374289553518L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final kz9 parent;
+        public final rz9 parent;
         public final ScheduledAction s;
 
-        public Remover(ScheduledAction scheduledAction, kz9 kz9Var) {
+        public Remover(ScheduledAction scheduledAction, rz9 rz9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {scheduledAction, kz9Var};
+                Object[] objArr = {scheduledAction, rz9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,17 +47,17 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
                 }
             }
             this.s = scheduledAction;
-            this.parent = kz9Var;
+            this.parent = rz9Var;
         }
 
-        @Override // com.repackage.xu9
+        @Override // com.repackage.ev9
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.s.isUnsubscribed() : invokeV.booleanValue;
         }
 
-        @Override // com.repackage.xu9
+        @Override // com.repackage.ev9
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && compareAndSet(false, true)) {
@@ -67,19 +67,19 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
     }
 
     /* loaded from: classes8.dex */
-    public static final class Remover2 extends AtomicBoolean implements xu9 {
+    public static final class Remover2 extends AtomicBoolean implements ev9 {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 247232374289553518L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final bx9 parent;
+        public final ix9 parent;
         public final ScheduledAction s;
 
-        public Remover2(ScheduledAction scheduledAction, bx9 bx9Var) {
+        public Remover2(ScheduledAction scheduledAction, ix9 ix9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {scheduledAction, bx9Var};
+                Object[] objArr = {scheduledAction, ix9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -90,17 +90,17 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
                 }
             }
             this.s = scheduledAction;
-            this.parent = bx9Var;
+            this.parent = ix9Var;
         }
 
-        @Override // com.repackage.xu9
+        @Override // com.repackage.ev9
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.s.isUnsubscribed() : invokeV.booleanValue;
         }
 
-        @Override // com.repackage.xu9
+        @Override // com.repackage.ev9
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && compareAndSet(false, true)) {
@@ -110,7 +110,7 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
     }
 
     /* loaded from: classes8.dex */
-    public final class a implements xu9 {
+    public final class a implements ev9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Future<?> a;
@@ -135,14 +135,14 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
             this.a = future;
         }
 
-        @Override // com.repackage.xu9
+        @Override // com.repackage.ev9
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.isCancelled() : invokeV.booleanValue;
         }
 
-        @Override // com.repackage.xu9
+        @Override // com.repackage.ev9
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -155,12 +155,12 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
         }
     }
 
-    public ScheduledAction(dv9 dv9Var) {
+    public ScheduledAction(kv9 kv9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dv9Var};
+            Object[] objArr = {kv9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -170,25 +170,25 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
                 return;
             }
         }
-        this.action = dv9Var;
-        this.cancel = new bx9();
+        this.action = kv9Var;
+        this.cancel = new ix9();
     }
 
-    public void add(xu9 xu9Var) {
+    public void add(ev9 ev9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, xu9Var) == null) {
-            this.cancel.a(xu9Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, ev9Var) == null) {
+            this.cancel.a(ev9Var);
         }
     }
 
-    public void addParent(kz9 kz9Var) {
+    public void addParent(rz9 rz9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, kz9Var) == null) {
-            this.cancel.a(new Remover(this, kz9Var));
+        if (interceptable == null || interceptable.invokeL(1048579, this, rz9Var) == null) {
+            this.cancel.a(new Remover(this, rz9Var));
         }
     }
 
-    @Override // com.repackage.xu9
+    @Override // com.repackage.ev9
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -218,13 +218,13 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
     public void signalError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, th) == null) {
-            xy9.j(th);
+            ez9.j(th);
             Thread currentThread = Thread.currentThread();
             currentThread.getUncaughtExceptionHandler().uncaughtException(currentThread, th);
         }
     }
 
-    @Override // com.repackage.xu9
+    @Override // com.repackage.ev9
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.cancel.isUnsubscribed()) {
@@ -240,19 +240,19 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
         }
     }
 
-    public void addParent(bx9 bx9Var) {
+    public void addParent(ix9 ix9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bx9Var) == null) {
-            this.cancel.a(new Remover2(this, bx9Var));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ix9Var) == null) {
+            this.cancel.a(new Remover2(this, ix9Var));
         }
     }
 
-    public ScheduledAction(dv9 dv9Var, kz9 kz9Var) {
+    public ScheduledAction(kv9 kv9Var, rz9 rz9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dv9Var, kz9Var};
+            Object[] objArr = {kv9Var, rz9Var};
             interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -262,16 +262,16 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
                 return;
             }
         }
-        this.action = dv9Var;
-        this.cancel = new bx9(new Remover(this, kz9Var));
+        this.action = kv9Var;
+        this.cancel = new ix9(new Remover(this, rz9Var));
     }
 
-    public ScheduledAction(dv9 dv9Var, bx9 bx9Var) {
+    public ScheduledAction(kv9 kv9Var, ix9 ix9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dv9Var, bx9Var};
+            Object[] objArr = {kv9Var, ix9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -281,7 +281,7 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
                 return;
             }
         }
-        this.action = dv9Var;
-        this.cancel = new bx9(new Remover2(this, bx9Var));
+        this.action = kv9Var;
+        this.cancel = new ix9(new Remover2(this, ix9Var));
     }
 }

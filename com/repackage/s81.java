@@ -1,165 +1,118 @@
 package com.repackage;
 
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.BufferedReader;
+import java.io.Closeable;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 /* loaded from: classes7.dex */
-public interface s81 {
+public class s81 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public String b;
-        public long c;
-        public long d;
-        public long e;
-        public String f;
-        public int g;
-        public List<C0515a> h;
-
-        /* renamed from: com.repackage.s81$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public static class C0515a {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public String a;
-            public String b;
-
-            public C0515a() {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            public static C0515a a(JSONObject jSONObject) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                    if (jSONObject == null) {
-                        return null;
-                    }
-                    C0515a c0515a = new C0515a();
-                    c0515a.a = jSONObject.isNull("promotionInsId") ? "" : jSONObject.optString("promotionInsId");
-                    c0515a.b = jSONObject.isNull("valid") ? "" : jSONObject.optString("valid");
-                    return c0515a;
-                }
-                return (C0515a) invokeL.objValue;
-            }
-
-            public static JSONObject b(C0515a c0515a) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, c0515a)) == null) {
-                    if (c0515a == null) {
-                        return null;
-                    }
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("promotionInsId", c0515a.a);
-                        jSONObject.put("valid", c0515a.b);
-                    } catch (JSONException e) {
-                        j81.d(e.getMessage());
-                    }
-                    return jSONObject;
-                }
-                return (JSONObject) invokeL.objValue;
-            }
-
-            public static List<C0515a> c(JSONArray jSONArray) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONArray)) == null) {
-                    if (jSONArray == null) {
-                        return null;
-                    }
-                    ArrayList arrayList = new ArrayList();
-                    try {
-                        jSONArray.get(0);
-                        for (int i = 0; i < jSONArray.length(); i++) {
-                            arrayList.add(a((JSONObject) jSONArray.opt(i)));
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    return arrayList;
-                }
-                return (List) invokeL.objValue;
-            }
+    public static void a(Closeable... closeableArr) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65536, null, closeableArr) == null) || closeableArr == null) {
+            return;
         }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = 2;
-        }
-
-        public static JSONObject a(a aVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, aVar)) == null) {
-                if (aVar == null) {
-                    return null;
-                }
-                JSONObject jSONObject = new JSONObject();
+        for (Closeable closeable : closeableArr) {
+            if (closeable != null) {
                 try {
-                    jSONObject.put("statusCode", aVar.a);
-                    jSONObject.put("msg", aVar.b);
-                    jSONObject.put("totalAmount", aVar.c);
-                    jSONObject.put("userPayAmount", aVar.d);
-                    jSONObject.put("reduceAmount", aVar.e);
-                    jSONObject.put("overdueStatus", aVar.g);
-                    jSONObject.put("usedHostMarketingDetail", aVar.f);
-                    if (aVar.h != null && !aVar.h.isEmpty()) {
-                        JSONArray jSONArray = new JSONArray();
-                        for (C0515a c0515a : aVar.h) {
-                            jSONArray.put(C0515a.b(c0515a));
-                        }
-                        jSONObject.put("promotionStatus", jSONArray);
-                    }
-                } catch (JSONException e) {
-                    j81.d(e.getMessage());
+                    closeable.close();
+                } catch (IOException unused) {
                 }
-                return jSONObject;
             }
-            return (JSONObject) invokeL.objValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "Data{statusCode=" + this.a + ", message='" + this.b + "', totalAmount=" + this.c + ", userPayAmount=" + this.d + ", reduceAmount=" + this.e + ", usedHostMarketingDetail='" + this.f + "', overdueStatus='" + this.g + "'}";
-            }
-            return (String) invokeV.objValue;
         }
     }
 
-    void a(a aVar);
+    public static String b(File file) {
+        InterceptResult invokeL;
+        FileInputStream fileInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, file)) != null) {
+            return (String) invokeL.objValue;
+        }
+        FileInputStream fileInputStream2 = null;
+        if (file == null) {
+            return null;
+        }
+        try {
+            fileInputStream = new FileInputStream(file);
+            try {
+                String c = c(fileInputStream);
+                a(fileInputStream);
+                return c;
+            } catch (Exception unused) {
+                a(fileInputStream);
+                return null;
+            } catch (Throwable th) {
+                th = th;
+                fileInputStream2 = fileInputStream;
+                a(fileInputStream2);
+                throw th;
+            }
+        } catch (Exception unused2) {
+            fileInputStream = null;
+        } catch (Throwable th2) {
+            th = th2;
+        }
+    }
+
+    public static String c(InputStream inputStream) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, inputStream)) != null) {
+            return (String) invokeL.objValue;
+        }
+        if (inputStream == null) {
+            return null;
+        }
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+        StringBuilder sb = new StringBuilder();
+        while (true) {
+            String readLine = bufferedReader.readLine();
+            if (readLine != null) {
+                sb.append(readLine);
+            } else {
+                return sb.toString();
+            }
+        }
+    }
+
+    public static void d(String str, File file) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, file) == null) || TextUtils.isEmpty(str) || file == null) {
+            return;
+        }
+        FileOutputStream fileOutputStream = null;
+        try {
+            if (!file.getParentFile().exists()) {
+                file.getParentFile().mkdirs();
+            }
+            FileOutputStream fileOutputStream2 = new FileOutputStream(file);
+            try {
+                fileOutputStream2.write(str.getBytes());
+                fileOutputStream2.flush();
+                a(fileOutputStream2);
+            } catch (Exception unused) {
+                fileOutputStream = fileOutputStream2;
+                a(fileOutputStream);
+            } catch (Throwable th) {
+                th = th;
+                fileOutputStream = fileOutputStream2;
+                a(fileOutputStream);
+                throw th;
+            }
+        } catch (Exception unused2) {
+        } catch (Throwable th2) {
+            th = th2;
+        }
+    }
 }

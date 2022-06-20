@@ -1,74 +1,105 @@
 package com.repackage;
 
 import android.content.Context;
-import android.graphics.Rect;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tbadk.switchs.ThreadCardImgClickToPBSwitch;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
+import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class tc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context, String str, om4 om4Var) {
-        InterceptResult invokeLLL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, str, om4Var)) == null) {
-            if (context == null || om4Var == null) {
-                return false;
+    /* loaded from: classes7.dex */
+    public static class a extends ad5<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ long a;
+
+        public a(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ("index".equals(str)) {
-                i = 2;
-            } else if (ImageViewerConfig.FROM_CONCERN.equals(str)) {
-                i = 1;
-            } else if ("hot_topic".equals(str)) {
-                i = 0;
-            } else {
-                i = "frs".equals(str) ? 3 : -1;
-            }
-            if (i == -1) {
-                return false;
-            }
-            ThreadCardUtils.jumpToPB(om4Var.getThreadData().originalThreadData, context, i, (Rect) null, om4Var.getThreadData().getForum_name());
-            return true;
+            this.a = j;
         }
-        return invokeLLL.booleanValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // com.repackage.ad5
+        public Boolean doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                NetWork netWork = new NetWork("https://peiwan.baidu.com/peiwan/api/user/letter/ses");
+                netWork.addPostData("to_uid", String.valueOf(this.a));
+                netWork.postNetData();
+                return Boolean.valueOf(netWork.getNetContext().getResponse().isRequestSuccess());
+            }
+            return (Boolean) invokeV.objValue;
+        }
     }
 
-    public static boolean b(Context context, String str, om4 om4Var) {
-        InterceptResult invokeLLL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, str, om4Var)) == null) {
-            if (context == null || om4Var == null) {
-                return false;
+    /* loaded from: classes7.dex */
+    public static class b implements gc5<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+
+        public b(Context context, long j, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, Long.valueOf(j), str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ("index".equals(str)) {
-                i = 2;
-            } else if (ImageViewerConfig.FROM_CONCERN.equals(str)) {
-                i = 1;
-            } else if ("hot_topic".equals(str)) {
-                i = 0;
-            } else {
-                i = "frs".equals(str) ? 3 : -1;
-            }
-            if (i == -1) {
-                return false;
-            }
-            ThreadCardUtils.jumpToPB(om4Var, context, i, false);
-            return true;
+            this.a = context;
+            this.b = j;
+            this.c = str;
+            this.d = str2;
         }
-        return invokeLLL.booleanValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.gc5
+        /* renamed from: a */
+        public void onReturnDataInUI(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.a, this.b, this.c, this.d, 0)));
+            }
+        }
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
+    public static void a(Context context, long j, String str, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? ThreadCardImgClickToPBSwitch.getIsOn() && UbsABTestHelper.isImgClickToPb() : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{context, Long.valueOf(j), str, str2}) == null) {
+            ed5.b(new a(j), new b(context, j, str, str2));
+        }
     }
 }

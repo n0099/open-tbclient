@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
@@ -17,25 +16,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ee4;
-import com.repackage.fe4;
-import com.repackage.ge4;
-import com.repackage.he4;
+import com.repackage.oe4;
+import com.repackage.pe4;
+import com.repackage.qe4;
+import com.repackage.re4;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 /* loaded from: classes2.dex */
 public class TraceInfoActivity extends Activity implements View.OnClickListener {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String TIP_LOADING = "-- LOADING --";
-    public static final String TIP_NO_DATA = "NO DATA";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ee4> mBeans;
-    public int mIndex;
-    public Button mSwitchThread;
-    public Set<String> mThreads;
-    public TextView mTraceInfo;
+    public TextView a;
+    public Button b;
+    public List<oe4> c;
+    public Set<String> d;
+    public int e;
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
@@ -65,7 +62,7 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.showTextInUIThread(this.a.getContent());
+                this.a.h(this.a.f());
             }
         }
     }
@@ -99,10 +96,10 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.mTraceInfo == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.a == null) {
                 return;
             }
-            this.b.mTraceInfo.setText(this.a);
+            this.b.a.setText(this.a);
         }
     }
 
@@ -120,100 +117,98 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
         }
     }
 
-    private void doShowInfo() {
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.mTraceInfo.setText(TIP_LOADING);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.setText("-- LOADING --");
             ExecutorUtilsExt.postOnElastic(new a(this), "show-trace", 3);
         }
     }
 
-    private void fillThreads() {
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            for (ee4 ee4Var : this.mBeans) {
-                this.mThreads.add(ee4Var.f());
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            for (oe4 oe4Var : this.c) {
+                this.d.add(oe4Var.f());
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public String getContent() {
+    public final String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
-            ArrayList arrayList = new ArrayList(this.mThreads);
-            int i = this.mIndex;
-            this.mIndex = i + 1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ArrayList arrayList = new ArrayList(this.d);
+            int i = this.e;
+            this.e = i + 1;
             String str = (String) arrayList.get(i % arrayList.size());
             ArrayList arrayList2 = new ArrayList();
-            for (ee4 ee4Var : this.mBeans) {
-                if (TextUtils.equals(ee4Var.f(), str)) {
-                    arrayList2.add(ee4Var);
+            for (oe4 oe4Var : this.c) {
+                if (TextUtils.equals(oe4Var.f(), str)) {
+                    arrayList2.add(oe4Var);
                 }
             }
-            return he4.c(arrayList2, null);
+            return re4.c(arrayList2, null);
         }
         return (String) invokeV.objValue;
     }
 
-    private void initViews() {
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.mTraceInfo = (TextView) findViewById(R.id.obfuscated_res_0x7f092122);
-            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f091e19);
-            this.mSwitchThread = button;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09211d);
+            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f091e0e);
+            this.b = button;
             button.setOnClickListener(this);
-            this.mThreads = new HashSet();
+            this.d = new HashSet();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void showTextInUIThread(String str) {
+    public final void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             runOnUiThread(new b(this, str));
         }
     }
 
-    private void showTraceInfo() {
+    public final void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            ge4<List<ee4>> c = fe4.b().c();
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            qe4<List<oe4>> c = pe4.b().c();
             if (c == null) {
-                this.mTraceInfo.setText(TIP_NO_DATA);
+                this.a.setText("NO DATA");
                 return;
             }
-            List<ee4> a2 = c.a();
+            List<oe4> a2 = c.a();
             if (a2 != null && a2.size() > 0) {
-                this.mBeans = a2;
-                this.mIndex = 0;
-                fillThreads();
-                doShowInfo();
+                this.c = a2;
+                this.e = 0;
+                e();
+                d();
                 return;
             }
-            this.mTraceInfo.setText(TIP_NO_DATA);
+            this.a.setText("NO DATA");
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        List<ee4> list;
+        List<oe4> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || view2.getId() != R.id.obfuscated_res_0x7f091e19 || (list = this.mBeans) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, view2) == null) || view2.getId() != R.id.obfuscated_res_0x7f091e0e || (list = this.c) == null || list.size() <= 0) {
             return;
         }
-        doShowInfo();
+        d();
     }
 
     @Override // android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0057);
-            initViews();
-            showTraceInfo();
+            g();
+            i();
             LogUtil.logActivity(this, "onCreate");
         }
     }

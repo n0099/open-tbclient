@@ -146,26 +146,26 @@ public class TailFrameBarAppPortraitHorizontal extends LinearLayout {
     }
 
     private void a(LinearLayout linearLayout, String str) {
-        TextView textView = (TextView) LayoutInflater.from(linearLayout.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0447, (ViewGroup) linearLayout, false);
+        TextView textView = (TextView) LayoutInflater.from(linearLayout.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0441, (ViewGroup) linearLayout, false);
         textView.setText(str);
         this.h.addView(textView);
     }
 
     private void c() {
-        this.m = LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0464, this);
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091001);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091003);
-        this.c = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091004);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091000);
-        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091002);
-        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091034);
+        this.m = LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d045e, this);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ff1);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090ff3);
+        this.c = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f090ff4);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090ff0);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090ff2);
+        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091024);
         this.f = textProgressBar;
         textProgressBar.setTextDimen(com.kwad.sdk.a.kwai.a.a(getContext(), 16.0f));
         this.f.setTextColor(-1);
-        this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0910b5);
-        this.j = (Button) findViewById(R.id.obfuscated_res_0x7f0910af);
-        this.k = (Button) findViewById(R.id.obfuscated_res_0x7f0910b1);
-        this.i = findViewById(R.id.obfuscated_res_0x7f0910b0);
+        this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0910a5);
+        this.j = (Button) findViewById(R.id.obfuscated_res_0x7f09109f);
+        this.k = (Button) findViewById(R.id.obfuscated_res_0x7f0910a1);
+        this.i = findViewById(R.id.obfuscated_res_0x7f0910a0);
     }
 
     private void d() {
@@ -230,7 +230,7 @@ public class TailFrameBarAppPortraitHorizontal extends LinearLayout {
         TextView textView;
         String t;
         if (d.v(adTemplate)) {
-            this.m.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f060767));
+            this.m.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f060765));
             this.b.setTextColor(Color.parseColor("#FFFFFF"));
             this.e.setTextColor(Color.parseColor("#FFFFFF"));
         } else {

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ww6;
+import com.repackage.ey6;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
@@ -65,11 +65,11 @@ public class RecPersonalizeHttpResponse extends HttpResponsedMessage {
             }
             setErrorString(personalizedResIdl.error.usermsg);
         }
-        ww6.a = false;
-        if (ww6.c(this) && (dataRes = personalizedResIdl.data) != null && (list = dataRes.thread_list) != null && list.size() == 0) {
-            this.resultData = ww6.b();
-            ww6.a = true;
-            ww6.a();
+        ey6.a = false;
+        if (ey6.c(this) && (dataRes = personalizedResIdl.data) != null && (list = dataRes.thread_list) != null && list.size() == 0) {
+            this.resultData = ey6.b();
+            ey6.a = true;
+            ey6.a();
             return;
         }
         this.resultData = personalizedResIdl.data;

@@ -1,7 +1,9 @@
 package com.repackage;
 
-import com.repackage.wr2;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface ng1 {
-    void a(String str, wr2.k kVar);
+    void a(JSONObject jSONObject, mg1 mg1Var);
+
+    void b(JSONObject jSONObject, mg1 mg1Var, og1 og1Var);
 }

@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.uq4;
+import com.repackage.dr4;
 /* loaded from: classes4.dex */
 public class ClipCoverView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -99,7 +99,7 @@ public class ClipCoverView extends View {
                 this.c = new Path();
             }
             this.c.reset();
-            this.c.addRoundRect(clipCoverRect, uq4.y(R.string.J_X05), Path.Direction.CW);
+            this.c.addRoundRect(clipCoverRect, dr4.y(R.string.J_X05), Path.Direction.CW);
             canvas.drawPath(this.c, this.a);
             a(canvas, this.c);
             canvas.restore();

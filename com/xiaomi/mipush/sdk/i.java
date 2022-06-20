@@ -13,7 +13,12 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.xiaomi.push.bg;
+import com.xiaomi.push.Cif;
+import com.xiaomi.push.bj;
+import com.xiaomi.push.bk;
+import com.xiaomi.push.bo;
+import com.xiaomi.push.service.ba;
+import com.xiaomi.push.w;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -40,10 +45,55 @@ public class i {
         a = new HashMap<>();
     }
 
+    public static int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            Integer num = (Integer) bk.a("com.xiaomi.assemble.control.AssembleConstants", "ASSEMBLE_VERSION_CODE");
+            if (num == null) {
+                return 0;
+            }
+            return num.intValue();
+        }
+        return invokeV.intValue;
+    }
+
+    public static int a(Context context, e eVar, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, eVar, str)) == null) {
+            SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_extra", 0);
+            String a2 = a(eVar);
+            String string = sharedPreferences.getString(a2, "");
+            String m134c = b.m126a(context).m134c();
+            String string2 = sharedPreferences.getString("last_check_token", "");
+            if (TextUtils.isEmpty(a2)) {
+                com.xiaomi.channel.commonutils.logger.b.m84a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
+                return 0;
+            } else if (TextUtils.isEmpty(string)) {
+                return 1;
+            } else {
+                if (string.equals(str)) {
+                    if (TextUtils.equals(m134c, string2)) {
+                        if (m151a(eVar)) {
+                            if (a() != sharedPreferences.getInt(b(eVar), 0)) {
+                                return 4;
+                            }
+                        }
+                        return 0;
+                    }
+                    return 3;
+                }
+                return 2;
+            }
+        }
+        return invokeLLL.intValue;
+    }
+
     public static MiPushMessage a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             MiPushMessage miPushMessage = new MiPushMessage();
             if (!TextUtils.isEmpty(str)) {
                 try {
@@ -112,7 +162,7 @@ public class i {
         InterceptResult invokeL;
         ResolveInfo resolveInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             Intent intent = new Intent("com.xiaomi.mipush.RECEIVE_MESSAGE");
             intent.setPackage(context.getPackageName());
             try {
@@ -128,7 +178,7 @@ public class i {
                 }
                 resolveInfo = null;
                 if (resolveInfo != null) {
-                    return (PushMessageReceiver) com.xiaomi.push.t.a(context, resolveInfo.activityInfo.name).newInstance();
+                    return (PushMessageReceiver) com.xiaomi.push.v.a(context, resolveInfo.activityInfo.name).newInstance();
                 }
                 return null;
             } catch (Exception e) {
@@ -139,11 +189,25 @@ public class i {
         return (PushMessageReceiver) invokeL.objValue;
     }
 
+    public static String a(Context context, e eVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, eVar)) == null) {
+            SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_extra", 0);
+            String a2 = a(eVar);
+            if (TextUtils.isEmpty(a2)) {
+                return null;
+            }
+            return sharedPreferences.getString(a2, "");
+        }
+        return (String) invokeLL.objValue;
+    }
+
     public static synchronized String a(Context context, String str) {
         InterceptResult invokeLL;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
             synchronized (i.class) {
                 str2 = a.get(str);
                 if (TextUtils.isEmpty(str2)) {
@@ -158,7 +222,7 @@ public class i {
     public static String a(e eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, eVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, eVar)) == null) {
             int i = k.a[eVar.ordinal()];
             if (i != 1) {
                 if (i != 2) {
@@ -170,22 +234,29 @@ public class i {
                     }
                     return "cos_push_token";
                 }
-                return "fcm_push_token";
+                return "fcm_push_token_v2";
             }
             return "hms_push_token";
         }
         return (String) invokeL.objValue;
     }
 
-    public static HashMap<String, String> a(Context context, e eVar) {
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x005c, code lost:
+        if (r12 != 0) goto L17;
+     */
+    /* renamed from: a  reason: collision with other method in class */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static HashMap<String, String> m145a(Context context, e eVar) {
         InterceptResult invokeLL;
-        StringBuilder sb;
-        af afVar;
+        w.a a2;
+        int a3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, eVar)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, eVar)) == null) {
             HashMap<String, String> hashMap = new HashMap<>();
-            String a2 = a(eVar);
-            if (TextUtils.isEmpty(a2)) {
+            String a4 = a(eVar);
+            if (TextUtils.isEmpty(a4)) {
                 return hashMap;
             }
             int i = k.a[eVar.ordinal()];
@@ -193,35 +264,26 @@ public class i {
             ApplicationInfo applicationInfo = null;
             if (i != 1) {
                 if (i == 2) {
-                    sb = new StringBuilder();
-                    sb.append("brand:");
-                    afVar = af.c;
+                    a2 = new w.a(":", Constants.WAVE_SEPARATOR).a(Constants.PHONE_BRAND, ag.c.name()).a("token", a(context, a4)).a("package_name", context.getPackageName());
+                    a3 = a();
+                    if (a3 == 0) {
+                        a3 = 40090;
+                    }
                 } else if (i == 3) {
-                    sb = new StringBuilder();
-                    sb.append("brand:");
-                    afVar = af.d;
+                    str = "brand:" + ag.d.name() + Constants.WAVE_SEPARATOR + "token:" + a(context, a4) + Constants.WAVE_SEPARATOR + "package_name:" + context.getPackageName();
                 } else if (i == 4) {
-                    sb = new StringBuilder();
-                    sb.append("brand:");
-                    afVar = af.e;
+                    a2 = new w.a(":", Constants.WAVE_SEPARATOR).a(Constants.PHONE_BRAND, ag.e.name()).a("token", a(context, a4)).a("package_name", context.getPackageName());
+                    a3 = a();
                 }
-                sb.append(afVar.name());
-                sb.append(Constants.WAVE_SEPARATOR);
-                sb.append("token");
-                sb.append(":");
-                sb.append(a(context, a2));
-                sb.append(Constants.WAVE_SEPARATOR);
-                sb.append("package_name");
-                sb.append(":");
-                sb.append(context.getPackageName());
-                str = sb.toString();
+                a2.a("version", Integer.valueOf(a3));
+                str = a2.toString();
             } else {
                 try {
                     applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
                 } catch (Exception e) {
                     com.xiaomi.channel.commonutils.logger.b.d(e.toString());
                 }
-                str = "brand:" + n.a(context).name() + Constants.WAVE_SEPARATOR + "token:" + a(context, a2) + Constants.WAVE_SEPARATOR + "package_name:" + context.getPackageName() + Constants.WAVE_SEPARATOR + "app_id:" + (applicationInfo != null ? applicationInfo.metaData.getInt(Constants.HUAWEI_HMS_CLIENT_APPID) : -1);
+                str = "brand:" + n.a(context).name() + Constants.WAVE_SEPARATOR + "token:" + a(context, a4) + Constants.WAVE_SEPARATOR + "package_name:" + context.getPackageName() + Constants.WAVE_SEPARATOR + "app_id:" + (applicationInfo != null ? applicationInfo.metaData.getInt(Constants.HUAWEI_HMS_CLIENT_APPID) : -1);
             }
             hashMap.put(Constants.ASSEMBLE_PUSH_REG_INFO, str);
             return hashMap;
@@ -230,9 +292,9 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m168a(Context context) {
+    public static void m146a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
             boolean z = false;
             SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_extra", 0);
             String a2 = a(e.a);
@@ -241,52 +303,47 @@ public class i {
                 z = true;
             }
             if (z) {
-                an.a(context).a(2, a2);
+                ao.a(context).a(2, a2);
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m169a(Context context, e eVar) {
+    public static void m147a(Context context, e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, context, eVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(65546, null, context, eVar) == null) {
             String a2 = a(eVar);
             if (TextUtils.isEmpty(a2)) {
                 return;
             }
-            com.xiaomi.push.r.a(context.getSharedPreferences("mipush_extra", 0).edit().putString(a2, ""));
+            com.xiaomi.push.t.a(context.getSharedPreferences("mipush_extra", 0).edit().putString(a2, ""));
         }
     }
 
-    public static void a(Context context, e eVar, String str) {
+    /* renamed from: a  reason: collision with other method in class */
+    public static void m148a(Context context, e eVar, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65544, null, context, eVar, str) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLLL(65547, null, context, eVar, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_extra", 0);
-        String a2 = a(eVar);
-        if (TextUtils.isEmpty(a2)) {
-            com.xiaomi.channel.commonutils.logger.b.m108a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
+        int a2 = a(context, eVar, str);
+        if (a2 == 0) {
+            com.xiaomi.channel.commonutils.logger.b.m84a("ASSEMBLE_PUSH : do not need to send token");
             return;
         }
-        String string = sharedPreferences.getString(a2, "");
-        if (!TextUtils.isEmpty(string) && str.equals(string)) {
-            com.xiaomi.channel.commonutils.logger.b.m108a("ASSEMBLE_PUSH : do not need to send token");
-            return;
-        }
-        com.xiaomi.channel.commonutils.logger.b.m108a("ASSEMBLE_PUSH : send token upload");
+        com.xiaomi.channel.commonutils.logger.b.m84a("ASSEMBLE_PUSH : send token upload, check:" + a2);
         a(eVar, str);
-        at a3 = l.a(eVar);
+        au a3 = l.a(eVar);
         if (a3 == null) {
             return;
         }
-        an.a(context).a((String) null, a3, eVar);
+        ao.a(context).a((String) null, a3, eVar);
     }
 
     public static void a(Intent intent) {
         Bundle extras;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65545, null, intent) == null) || intent == null || (extras = intent.getExtras()) == null || !extras.containsKey("pushMsg")) {
+        if (!(interceptable == null || interceptable.invokeL(65548, null, intent) == null) || intent == null || (extras = intent.getExtras()) == null || !extras.containsKey("pushMsg")) {
             return;
         }
         intent.putExtra(PushMessageHelper.KEY_MESSAGE, a(extras.getString("pushMsg")));
@@ -294,13 +351,13 @@ public class i {
 
     public static synchronized void a(e eVar, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, eVar, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65549, null, eVar, str) == null) {
             synchronized (i.class) {
                 String a2 = a(eVar);
                 if (TextUtils.isEmpty(a2)) {
-                    com.xiaomi.channel.commonutils.logger.b.m108a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
+                    com.xiaomi.channel.commonutils.logger.b.m84a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
                 } else if (TextUtils.isEmpty(str)) {
-                    com.xiaomi.channel.commonutils.logger.b.m108a("ASSEMBLE_PUSH : token is null");
+                    com.xiaomi.channel.commonutils.logger.b.m84a("ASSEMBLE_PUSH : token is null");
                 } else {
                     a.put(a2, str);
                 }
@@ -310,41 +367,95 @@ public class i {
 
     public static void a(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65547, null, str, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(65550, null, str, i) == null) {
             MiTinyDataClient.upload("hms_push_error", str, 1L, "error code = " + i);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m170a(Context context) {
+    public static boolean m149a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
             if (context == null) {
                 return false;
             }
-            return bg.b(context);
+            return bj.b(context);
         }
         return invokeL.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m171a(Context context, e eVar) {
+    public static boolean m150a(Context context, e eVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, context, eVar)) == null) {
-            if (l.m173a(eVar) != null) {
-                return com.xiaomi.push.service.aq.a(context).a(l.m173a(eVar).a(), true);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, context, eVar)) == null) {
+            if (l.m153a(eVar) != null) {
+                return ba.a(context).a(l.m153a(eVar).a(), true);
             }
             return false;
         }
         return invokeLL.booleanValue;
     }
 
+    /* renamed from: a  reason: collision with other method in class */
+    public static boolean m151a(e eVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, eVar)) == null) ? eVar == e.d || eVar == e.b : invokeL.booleanValue;
+    }
+
+    public static boolean a(Cif cif, e eVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, cif, eVar)) == null) {
+            if (cif == null || cif.m460a() == null || cif.m460a().m427a() == null) {
+                return false;
+            }
+            return (eVar == e.b ? "FCM" : "").equalsIgnoreCase(cif.m460a().m427a().get("assemble_push_type"));
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static byte[] a(Context context, Cif cif, e eVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65555, null, context, cif, eVar)) == null) {
+            if (a(cif, eVar)) {
+                return bo.m198a(a(context, eVar));
+            }
+            return null;
+        }
+        return (byte[]) invokeLLL.objValue;
+    }
+
     public static String b(e eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, eVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, eVar)) == null) {
+            return a(eVar) + "_version";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65557, null, context) == null) {
+            f.a(context).register();
+        }
+    }
+
+    public static void b(Context context, e eVar, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65558, null, context, eVar, str) == null) {
+            com.xiaomi.push.al.a(context).a(new j(str, context, eVar));
+        }
+    }
+
+    public static String c(e eVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, eVar)) == null) {
             int i = k.a[eVar.ordinal()];
             if (i != 1) {
                 if (i != 2) {
@@ -363,38 +474,29 @@ public class i {
         return (String) invokeL.objValue;
     }
 
-    public static void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65551, null, context) == null) {
-            f.a(context).register();
-        }
-    }
-
-    public static void b(Context context, e eVar, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65552, null, context, eVar, str) == null) {
-            com.xiaomi.push.ai.a(context).a(new j(str, context, eVar));
-        }
-    }
-
     public static void c(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65553, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65560, null, context) == null) {
             f.a(context).unregister();
         }
     }
 
     public static synchronized void d(Context context, e eVar, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65555, null, context, eVar, str) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65562, null, context, eVar, str) == null) {
             synchronized (i.class) {
                 String a2 = a(eVar);
                 if (TextUtils.isEmpty(a2)) {
-                    com.xiaomi.channel.commonutils.logger.b.m108a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
+                    com.xiaomi.channel.commonutils.logger.b.m84a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
                     return;
                 }
-                com.xiaomi.push.r.a(context.getSharedPreferences("mipush_extra", 0).edit().putString(a2, str));
-                com.xiaomi.channel.commonutils.logger.b.m108a("ASSEMBLE_PUSH : update sp file success!  " + str);
+                SharedPreferences.Editor edit = context.getSharedPreferences("mipush_extra", 0).edit();
+                edit.putString(a2, str).putString("last_check_token", b.m126a(context).m134c());
+                if (m151a(eVar)) {
+                    edit.putInt(b(eVar), a());
+                }
+                com.xiaomi.push.t.a(edit);
+                com.xiaomi.channel.commonutils.logger.b.m84a("ASSEMBLE_PUSH : update sp file success!  " + str);
             }
         }
     }

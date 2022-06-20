@@ -1,340 +1,25 @@
 package com.repackage;
 
-import android.os.Build;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.aspectj.runtime.reflect.SignatureImpl;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class ak5 {
     public static /* synthetic */ Interceptable $ic;
+    public static ak5 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ak5 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-526126584, "Lcom/repackage/ak5$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-526126584, "Lcom/repackage/ak5$b;");
-                    return;
-                }
-            }
-            a = new ak5(null);
-        }
-    }
-
-    public /* synthetic */ ak5(a aVar) {
-        this();
-    }
-
-    public static ak5 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (ak5) invokeV.objValue;
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.j == null) {
-                try {
-                    this.j = TbadkCoreApplication.getInst().getAndroidId();
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return "";
-                }
-            }
-            return this.j;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String baiduIdForAnti = TbSingleton.getInstance().getBaiduIdForAnti();
-            return baiduIdForAnti == null ? "" : baiduIdForAnti;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.a == null) {
-                try {
-                    this.a = TbConfig.getVersion();
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return "";
-                }
-            }
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.c == null) {
-                try {
-                    this.c = TbadkCoreApplication.getInst().getCuidGalaxy2();
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return "";
-                }
-            }
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.k == null) {
-                this.k = "com.baidu.tieba.fileprovider";
-            }
-            return this.k;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f == null) {
-                try {
-                    this.f = TbadkCoreApplication.getInst().getImei();
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return "";
-                }
-            }
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.h == null) {
-                try {
-                    this.h = PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst());
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return "";
-                }
-            }
-            return this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.e == null) {
-                this.e = Build.MODEL;
-            }
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (StringUtils.isNull(this.g)) {
-                try {
-                    this.g = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return "";
-                }
-            }
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.b == null) {
-                this.b = Build.VERSION.RELEASE;
-            }
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.i == null) {
-                try {
-                    this.i = BdBaseApplication.getInst().getPackageName();
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return "";
-                }
-            }
-            return this.i;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (this.d == null) {
-                try {
-                    this.d = r();
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return "";
-                }
-            }
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            String sampleId = TbSingleton.getInstance().getSampleId();
-            return sampleId == null ? "" : sampleId.replace(SignatureImpl.SEP, ',');
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? TbadkCoreApplication.getCurrentAccount() : (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public final String q() {
-        InterceptResult invokeV;
-        String sb;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            String property = System.getProperty("http.agent");
-            if (TextUtils.isEmpty(property)) {
-                sb = "";
-            } else {
-                StringBuilder sb2 = new StringBuilder();
-                int length = property.length();
-                for (int i = 0; i < length; i++) {
-                    char charAt = property.charAt(i);
-                    if (charAt <= 31 || charAt >= 127) {
-                        sb2.append(String.format("\\u%04x", Integer.valueOf(charAt)));
-                    } else {
-                        sb2.append(charAt);
-                    }
-                }
-                sb = sb2.toString();
-            }
-            String str = Build.VERSION.RELEASE;
-            String replace = TextUtils.isEmpty(str) ? "0.0" : str.replace("_", "-");
-            return sb + " baiduboxapp/" + TbConfig.getVersion() + " (Baidu; P1 " + replace + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public String r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            DisplayMetrics displayMetrics = TbadkCoreApplication.getInst().getResources().getDisplayMetrics();
-            int i = 0;
-            String[] strArr = {String.valueOf(displayMetrics.widthPixels), String.valueOf(displayMetrics.heightPixels), "android", TbConfig.getVersion(), String.valueOf(displayMetrics.densityDpi)};
-            StringBuilder sb = new StringBuilder();
-            String str = "";
-            while (i < 5) {
-                String str2 = strArr[i];
-                sb.append(str);
-                sb.append(str2);
-                i++;
-                str = "_";
-            }
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
 
     public ak5() {
         Interceptable interceptable = $ic;
@@ -346,24 +31,391 @@ public class ak5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        try {
-            this.a = TbConfig.getVersion();
-            this.b = Build.VERSION.RELEASE;
-            this.c = TbadkCoreApplication.getInst().getCuidGalaxy2();
-            q();
-            this.d = r();
-            this.e = Build.MODEL;
-            this.f = TbadkCoreApplication.getInst().getImei();
-            this.g = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
-            this.h = PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst());
-            this.i = BdBaseApplication.getInst().getPackageName();
-            this.j = TbadkCoreApplication.getInst().getAndroidId();
-            this.k = "com.baidu.tieba.fileprovider";
-        } catch (Exception e) {
-            BdLog.e(e);
+    }
+
+    public static synchronized ak5 f() {
+        InterceptResult invokeV;
+        ak5 ak5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (ak5.class) {
+                if (a == null) {
+                    a = new ak5();
+                }
+                ak5Var = a;
+            }
+            return ak5Var;
         }
+        return (ak5) invokeV.objValue;
+    }
+
+    public final int a(x47 x47Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, x47Var)) != null) {
+            return invokeL.intValue;
+        }
+        SQLiteDatabase c = i57.c();
+        int i = 0;
+        if (c == null) {
+            return 0;
+        }
+        try {
+            if (o(c, x47Var.b())) {
+                ContentValues contentValues = new ContentValues();
+                long correctUserIdAfterOverflowCut = UtilHelper.getCorrectUserIdAfterOverflowCut(x47Var.b());
+                contentValues.put("uid", Long.valueOf(correctUserIdAfterOverflowCut));
+                int update = j57.d().update("tb_new_friends", contentValues, "uid=?", new String[]{String.valueOf(x47Var.b())});
+                try {
+                    x47Var.h(correctUserIdAfterOverflowCut);
+                    return update;
+                } catch (Exception e) {
+                    e = e;
+                    i = update;
+                    e.printStackTrace();
+                    return i;
+                }
+            }
+            return 0;
+        } catch (Exception e2) {
+            e = e2;
+        }
+    }
+
+    public boolean b(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? c(i57.c(), j) : invokeJ.booleanValue;
+    }
+
+    public final boolean c(SQLiteDatabase sQLiteDatabase, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, j)) == null) {
+            try {
+                return j57.d().delete("tb_new_friends", "uid = ?", new String[]{String.valueOf(j)});
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    public final long d(SQLiteDatabase sQLiteDatabase) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sQLiteDatabase)) == null) {
+            if (sQLiteDatabase == null) {
+                sQLiteDatabase = i57.c();
+            }
+            if (sQLiteDatabase != null) {
+                Cursor cursor = null;
+                try {
+                    try {
+                        try {
+                            cursor = j57.d().e("select * from tb_new_friends", new String[0]);
+                            if (cursor != null && cursor.moveToNext()) {
+                                return cursor.getLong(cursor.getColumnIndex("uid"));
+                            }
+                        } catch (SQLiteException e) {
+                            e.printStackTrace();
+                        }
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                    }
+                    return 0L;
+                } finally {
+                    qi.a(cursor);
+                }
+            }
+            return 0L;
+        }
+        return invokeL.longValue;
+    }
+
+    public synchronized x47 e(long j) {
+        InterceptResult invokeJ;
+        x47 x47Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
+            synchronized (this) {
+                x47Var = new x47();
+                Cursor cursor = null;
+                try {
+                    cursor = j57.d().e("select * from tb_new_friends where uid=?", new String[]{String.valueOf(j)});
+                    if (cursor != null && cursor.moveToNext()) {
+                        x47Var.i(cursor.getInt(cursor.getColumnIndex("isread")));
+                        x47Var.l(cursor.getInt(cursor.getColumnIndex("ustatus")));
+                        x47Var.g(cursor.getString(cursor.getColumnIndex("ucontent")));
+                        x47Var.j(cursor.getString(cursor.getColumnIndex("uname")));
+                        x47Var.k(cursor.getString(cursor.getColumnIndex("uportrait")));
+                    }
+                } catch (SQLiteException e) {
+                    e.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                qi.a(cursor);
+            }
+            return x47Var;
+        }
+        return (x47) invokeJ.objValue;
+    }
+
+    public List<x47> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            Cursor cursor = null;
+            try {
+                try {
+                    cursor = j57.d().e("select * from tb_new_friends WHERE isread=? ORDER BY _id DESC", new String[]{String.valueOf(0)});
+                    if (cursor != null) {
+                        while (cursor.moveToNext()) {
+                            x47 x47Var = new x47();
+                            x47Var.h(cursor.getLong(cursor.getColumnIndex("uid")));
+                            x47Var.g(cursor.getString(cursor.getColumnIndex("ucontent")));
+                            x47Var.i(cursor.getInt(cursor.getColumnIndex("isread")));
+                            x47Var.j(cursor.getString(cursor.getColumnIndex("uname")));
+                            x47Var.k(cursor.getString(cursor.getColumnIndex("uportrait")));
+                            x47Var.l(cursor.getInt(cursor.getColumnIndex("ustatus")));
+                            arrayList.add(x47Var);
+                        }
+                        p();
+                    }
+                } catch (SQLiteException e) {
+                    e.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                return arrayList;
+            } finally {
+                qi.a(cursor);
+            }
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            Cursor cursor = null;
+            try {
+                try {
+                    cursor = j57.d().e("select count(*) from tb_new_friends WHERE  ( isread=? and ustatus=? ) or (isread=? and ustatus=? )", new String[]{String.valueOf(0), String.valueOf(1), String.valueOf(0), String.valueOf(4)});
+                    if (cursor != null && cursor.moveToNext()) {
+                        return cursor.getInt(0);
+                    }
+                } catch (SQLiteException e) {
+                    e.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                return 0;
+            } finally {
+                qi.a(cursor);
+            }
+        }
+        return invokeV.intValue;
+    }
+
+    public final int i(SQLiteDatabase sQLiteDatabase) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, sQLiteDatabase)) == null) {
+            if (sQLiteDatabase == null) {
+                sQLiteDatabase = i57.c();
+            }
+            Cursor cursor = null;
+            try {
+                if (sQLiteDatabase == null) {
+                    return 0;
+                }
+                try {
+                    cursor = j57.d().e("select * from tb_new_friends", new String[0]);
+                    if (cursor != null && cursor.moveToFirst()) {
+                        return cursor.getCount();
+                    }
+                } catch (SQLiteException e) {
+                    e.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                return 0;
+            } finally {
+                qi.a(cursor);
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public List<x47> j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            SQLiteDatabase c = i57.c();
+            ArrayList arrayList = new ArrayList();
+            if (c != null) {
+                Cursor cursor = null;
+                try {
+                    try {
+                        try {
+                            cursor = j57.d().e("select * from tb_new_friends ORDER BY _id DESC", null);
+                            if (cursor != null) {
+                                while (cursor.moveToNext()) {
+                                    x47 x47Var = new x47();
+                                    x47Var.h(cursor.getLong(cursor.getColumnIndex("uid")));
+                                    if (x47Var.b() < 0) {
+                                        a(x47Var);
+                                    }
+                                    x47Var.g(cursor.getString(cursor.getColumnIndex("ucontent")));
+                                    x47Var.i(cursor.getInt(cursor.getColumnIndex("isread")));
+                                    x47Var.j(cursor.getString(cursor.getColumnIndex("uname")));
+                                    x47Var.k(cursor.getString(cursor.getColumnIndex("uportrait")));
+                                    x47Var.l(cursor.getInt(cursor.getColumnIndex("ustatus")));
+                                    arrayList.add(x47Var);
+                                }
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    } catch (SQLiteException e2) {
+                        e2.printStackTrace();
+                    }
+                } finally {
+                    qi.a(cursor);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final void k(SQLiteDatabase sQLiteDatabase, x47 x47Var) throws Exception {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048585, this, sQLiteDatabase, x47Var) == null) || x47Var == null || x47Var.b() == 0 || TextUtils.isEmpty(x47Var.d())) {
+            return;
+        }
+        if (sQLiteDatabase == null) {
+            sQLiteDatabase = i57.c();
+        }
+        if (sQLiteDatabase != null) {
+            c(sQLiteDatabase, x47Var.b());
+            if (i(sQLiteDatabase) >= 200) {
+                b(d(sQLiteDatabase));
+            }
+            if (sQLiteDatabase != null) {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("uid", Long.valueOf(x47Var.b()));
+                contentValues.put("uname", x47Var.d());
+                contentValues.put("uportrait", x47Var.e());
+                contentValues.put("ucontent", x47Var.a());
+                contentValues.put("ustatus", Integer.valueOf(x47Var.f()));
+                contentValues.put("isread", Integer.valueOf(x47Var.c()));
+                j57.d().insert("tb_new_friends", null, contentValues);
+            }
+        }
+    }
+
+    public void l(x47 x47Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, x47Var) == null) {
+            try {
+                k(i57.c(), x47Var);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void m(List<x47> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
+            try {
+                for (x47 x47Var : list) {
+                    k(i57.c(), x47Var);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public boolean n(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048588, this, j)) == null) ? o(i57.c(), j) : invokeJ.booleanValue;
+    }
+
+    public final boolean o(SQLiteDatabase sQLiteDatabase, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048589, this, sQLiteDatabase, j)) == null) {
+            if (sQLiteDatabase == null) {
+                sQLiteDatabase = i57.c();
+            }
+            boolean z = false;
+            if (sQLiteDatabase != null) {
+                Cursor cursor = null;
+                try {
+                    try {
+                        cursor = j57.d().e("select * from tb_new_friends WHERE uid=?", new String[]{String.valueOf(j)});
+                        if (cursor != null) {
+                            if (cursor.moveToFirst()) {
+                                z = true;
+                            }
+                        }
+                    } catch (SQLiteException e) {
+                        e.printStackTrace();
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                    }
+                } finally {
+                    qi.a(cursor);
+                }
+            }
+            return z;
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("isread", (Integer) 1);
+            j57.d().update("tb_new_friends", contentValues, null, null);
+        }
+    }
+
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:14:0x0056 -> B:22:0x005b). Please submit an issue!!! */
+    public int q(x47 x47Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, x47Var)) == null) {
+            SQLiteDatabase c = i57.c();
+            int i = 0;
+            if (c != null) {
+                try {
+                    if (o(c, x47Var.b())) {
+                        ContentValues contentValues = new ContentValues();
+                        contentValues.put("ustatus", Integer.valueOf(x47Var.f()));
+                        contentValues.put("isread", Integer.valueOf(x47Var.c()));
+                        i = j57.d().update("tb_new_friends", contentValues, "uid=?", new String[]{String.valueOf(x47Var.b())});
+                    } else {
+                        k(c, x47Var);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            return i;
+        }
+        return invokeL.intValue;
     }
 }

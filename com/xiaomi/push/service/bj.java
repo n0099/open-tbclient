@@ -1,100 +1,57 @@
 package com.xiaomi.push.service;
 
-import android.text.TextUtils;
-import android.util.Base64;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.al;
-import com.xiaomi.push.cw;
-import com.xiaomi.push.dt;
-import com.xiaomi.push.service.bi;
-import java.util.List;
+import com.xiaomi.push.service.XMPushService;
+import com.xiaomi.push.service.bg;
 /* loaded from: classes8.dex */
-public class bj extends al.b {
+public class bj extends XMPushService.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ bi a;
+    public final /* synthetic */ bg.b.c a;
 
-    /* renamed from: a  reason: collision with other field name */
-    public boolean f914a;
-
-    public bj(bi biVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bj(bg.b.c cVar, int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {biVar};
+            Object[] objArr = {cVar, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = biVar;
-        this.f914a = false;
+        this.a = cVar;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:13:0x003d A[Catch: Exception -> 0x004b, TRY_LEAVE, TryCatch #0 {Exception -> 0x004b, blocks: (B:4:0x0004, B:6:0x0016, B:11:0x0028, B:13:0x003d), top: B:21:0x0004 }] */
-    /* JADX WARN: Removed duplicated region for block: B:23:? A[RETURN, SYNTHETIC] */
-    @Override // com.xiaomi.push.al.b
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void b() {
-        String str;
-        dt.a a;
+    @Override // com.xiaomi.push.service.XMPushService.j
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-            return;
-        }
-        try {
-            String a2 = a.a(com.xiaomi.push.t.m674a()).a();
-            if (!TextUtils.isEmpty(a2) && !com.xiaomi.push.o.a.name().equals(a2)) {
-                str = "https://resolver.msg.global.xiaomi.net/psc/?t=a";
-                a = dt.a.a(Base64.decode(cw.a(com.xiaomi.push.t.m674a(), str, (List<com.xiaomi.push.bf>) null), 10));
-                if (a == null) {
-                    this.a.f912a = a;
-                    this.f914a = true;
-                    this.a.e();
-                    return;
-                }
-                return;
-            }
-            str = "https://resolver.msg.xiaomi.net/psc/?t=a";
-            a = dt.a.a(Base64.decode(cw.a(com.xiaomi.push.t.m674a(), str, (List<com.xiaomi.push.bf>) null), 10));
-            if (a == null) {
-            }
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m108a("fetch config failure: " + e.getMessage());
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "check peer job" : (String) invokeV.objValue;
     }
 
-    @Override // com.xiaomi.push.al.b
-    /* renamed from: c */
-    public void mo280c() {
-        List list;
-        List list2;
-        bi.a[] aVarArr;
-        dt.a aVar;
+    @Override // com.xiaomi.push.service.XMPushService.j
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.f911a = null;
-            if (this.f914a) {
-                synchronized (this.a) {
-                    list = this.a.f913a;
-                    list2 = this.a.f913a;
-                    aVarArr = (bi.a[]) list.toArray(new bi.a[list2.size()]);
-                }
-                for (bi.a aVar2 : aVarArr) {
-                    aVar = this.a.f912a;
-                    aVar2.a(aVar);
-                }
+            bg a = bg.a();
+            bg.b bVar = this.a.f933a;
+            if (a.a(bVar.g, bVar.f929b).f920a == null) {
+                XMPushService xMPushService = this.a.b.f922a;
+                bg.b bVar2 = this.a.f933a;
+                xMPushService.a(bVar2.g, bVar2.f929b, 2, null, null);
             }
         }
     }

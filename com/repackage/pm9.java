@@ -1,159 +1,156 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.text.TextUtils;
-import android.webkit.WebView;
-import android.widget.Toast;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.win.opensdk.activitys.H5OpenActivity;
-import com.win.opensdk.core.Info;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.io.Writer;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+import java.util.zip.GZIPInputStream;
+import javax.net.ssl.HttpsURLConnection;
 /* loaded from: classes6.dex */
 public class pm9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public URL a;
+    public byte[] b;
+    public Map c;
+    public Map d;
+    public String e;
+    public int f;
+    public boolean g;
+    public boolean h;
+    public int i;
+    public int j;
 
-    public static void a(Context context, String str, Info info, wo9 wo9Var, String str2) {
-        WebView webView;
-        so9 so9Var;
+    public pm9(String str, String str2, Map map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65536, null, context, str, info, wo9Var, str2) == null) {
-            if (info != null) {
-                try {
-                    if (info.getOpent() == 3 && TextUtils.isEmpty(str)) {
-                        str = info.getOpen();
-                    }
-                } catch (Exception unused) {
-                    return;
-                }
-            }
-            if (info != null && info.getOpent() == 0 && TextUtils.isEmpty(str)) {
-                str = info.getOpen();
-            }
-            if (TextUtils.isEmpty(str)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, map};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            try {
-                if (!TextUtils.isEmpty(str2)) {
-                    str = ll9.i(str, str2, info.isHo_c_sw(), null);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if ((info != null ? info.getPs() : 0) != 0) {
-                new do9().a(context, str, info);
-            } else if (b(context, Uri.parse(str), info)) {
+        }
+        this.e = "GET";
+        this.f = -1;
+        this.g = false;
+        this.h = true;
+        this.a = new URL(str);
+        this.e = str2;
+        this.c = map;
+        this.i = 20000;
+        this.j = 20000;
+    }
+
+    public sm9 a() {
+        InterceptResult invokeV;
+        HttpURLConnection httpURLConnection;
+        InputStream errorStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            String url = this.a.toString();
+            if (!TextUtils.isEmpty(url) ? url.startsWith("http") : false) {
+                httpURLConnection = (HttpURLConnection) this.a.openConnection();
             } else {
-                if (info.getOpent() == 1) {
-                    if (ol9.d.c) {
-                        Toast.makeText(context, context.getString(R.string.obfuscated_res_0x7f0f15ab), 1).show();
-                        nn9 a = rn9.a(context);
-                        a.q(new vn9(info), 5);
-                        a.m();
-                        return;
-                    }
-                    if (!TextUtils.isEmpty(info.getDl_name())) {
-                        Context applicationContext = context.getApplicationContext();
-                        Toast.makeText(applicationContext, context.getString(R.string.obfuscated_res_0x7f0f15af) + info.getDl_name(), 0).show();
-                    }
-                    nn9 a2 = rn9.a(context);
-                    vn9 vn9Var = new vn9(info);
-                    String open = info.getOpen();
-                    try {
-                        a2.b = rn9.d("wdtr", vn9Var);
-                        a2.l("msg", rn9.b(open));
-                    } catch (JSONException unused2) {
-                    }
-                    a2.m();
-                    if (wo9Var != null) {
-                        wo9Var.c = info;
-                        WebView webView2 = wo9Var.b;
-                        if (webView2 == null) {
-                            return;
-                        }
-                        webView2.loadUrl(info.getOpen());
-                        webView = wo9Var.b;
-                        so9Var = new so9(wo9Var);
-                    } else {
-                        wo9 wo9Var2 = new wo9(context);
-                        wo9Var2.c = info;
-                        WebView webView3 = wo9Var2.b;
-                        if (webView3 == null) {
-                            return;
-                        }
-                        webView3.loadUrl(info.getOpen());
-                        webView = wo9Var2.b;
-                        so9Var = new so9(wo9Var2);
-                    }
-                    webView.setDownloadListener(so9Var);
-                    return;
-                }
-                if (info.getOpent() == 3) {
-                    Intent intent = new Intent(context, H5OpenActivity.class);
-                    info.setOph5Url(str);
-                    intent.putExtra("Key_H5OpenActData", info);
-                    intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-                    context.startActivity(intent);
-                    return;
-                }
-                sn9.a(context, Uri.parse(str));
+                httpURLConnection = (HttpsURLConnection) this.a.openConnection();
             }
-        }
-    }
-
-    public static boolean b(Context context, Uri uri, Info info) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, uri, info)) == null) {
-            if (context != null && uri != null) {
-                String scheme = uri.getScheme();
-                if ((info != null && !TextUtils.isEmpty(info.getDpl())) || (scheme != null && !scheme.equals("http") && !scheme.equals("https"))) {
-                    if (info != null) {
+            httpURLConnection.setRequestMethod(this.e);
+            httpURLConnection.setInstanceFollowRedirects(this.h);
+            httpURLConnection.setReadTimeout(this.j);
+            httpURLConnection.setConnectTimeout(this.i);
+            httpURLConnection.setDoInput(true);
+            Map map = this.c;
+            if (map != null && map.size() > 0) {
+                for (Map.Entry entry : map.entrySet()) {
+                    String str = (String) entry.getKey();
+                    for (String str2 : (List) entry.getValue()) {
+                        String str3 = "header:" + str + "=" + str2;
+                        httpURLConnection.setRequestProperty(str, str2);
+                    }
+                }
+            }
+            if (this.e.equals("POST")) {
+                httpURLConnection.setDoInput(true);
+                httpURLConnection.setDoOutput(true);
+                PrintWriter printWriter = null;
+                PrintWriter printWriter2 = null;
+                try {
+                    OutputStream outputStream = httpURLConnection.getOutputStream();
+                    byte[] bArr = this.b;
+                    if (bArr == null) {
+                        PrintWriter printWriter3 = new PrintWriter((Writer) new OutputStreamWriter(outputStream, "UTF-8"), true);
                         try {
-                            if (!TextUtils.isEmpty(info.getDpl())) {
-                                uri = Uri.parse(info.getDpl());
+                            URL url2 = this.a;
+                            printWriter3.print(url2 != null ? url2.getQuery() : null);
+                            printWriter3.flush();
+                            printWriter2 = printWriter3;
+                        } catch (Throwable th) {
+                            th = th;
+                            printWriter = printWriter3;
+                            if (printWriter != null) {
+                                printWriter.close();
                             }
-                        } catch (Exception e) {
-                            if (info != null) {
-                                nn9 a = rn9.a(context);
-                                a.i(new vn9(info), e.getMessage(), 2);
-                                a.m();
-                                xl9.x = false;
-                            }
-                            return false;
+                            throw th;
                         }
+                    } else {
+                        outputStream.write(bArr);
+                        outputStream.flush();
                     }
-                    sn9.b(context, uri);
-                    if (info != null) {
-                        nn9 a2 = rn9.a(context);
-                        a2.i(new vn9(info), uri.toString(), 0);
-                        a2.m();
-                        xl9.x = true;
+                    if (printWriter2 != null) {
+                        printWriter2.close();
                     }
-                    return true;
-                } else if ((scheme == null || !scheme.equals("http")) && scheme.equals("https")) {
+                } catch (Throwable th2) {
+                    th = th2;
                 }
             }
-            return false;
+            this.f = httpURLConnection.getResponseCode();
+            httpURLConnection.getContentLength();
+            if (httpURLConnection.getHeaderFields() != null) {
+                this.d = httpURLConnection.getHeaderFields();
+            }
+            try {
+                String contentEncoding = httpURLConnection.getContentEncoding();
+                errorStream = (contentEncoding == null || !contentEncoding.contains("gzip")) ? httpURLConnection.getInputStream() : new GZIPInputStream(httpURLConnection.getInputStream());
+            } catch (IOException e) {
+                errorStream = httpURLConnection.getErrorStream();
+                if (errorStream == null) {
+                    throw new RuntimeException("InputStream is error: " + e.getMessage());
+                }
+            }
+            BufferedInputStream bufferedInputStream = new BufferedInputStream(errorStream);
+            byte[] bArr2 = new byte[4096];
+            int i = 0;
+            while (!this.g && i != -1) {
+                i = bufferedInputStream.read(bArr2);
+                if (i > 0) {
+                    byteArrayOutputStream.write(bArr2, 0, i);
+                }
+            }
+            httpURLConnection.disconnect();
+            byteArrayOutputStream.flush();
+            errorStream.close();
+            return new sm9(this.f, byteArrayOutputStream.toByteArray(), this.d);
         }
-        return invokeLLL.booleanValue;
-    }
-
-    public static boolean c(Info info) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, info)) == null) ? info != null && info.getOpent() == 3 : invokeL.booleanValue;
-    }
-
-    public static boolean d(Info info, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, null, info, j)) == null) ? info != null && System.currentTimeMillis() - j > 1000 : invokeLJ.booleanValue;
+        return (sm9) invokeV.objValue;
     }
 }

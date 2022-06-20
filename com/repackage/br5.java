@@ -1,73 +1,161 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.frsgamelive.view.AlaGameFrsLiveNormalCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class br5 extends wm<er5, AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder> {
+public class br5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
-    public mm5 j;
+    public TbPageContext a;
+    public xq5 b;
+    public int c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public br5(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public br5(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = tbPageContext;
+        this.c = -1;
+        this.a = tbPageContext;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.wm
-    /* renamed from: Z */
-    public AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder M(ViewGroup viewGroup) {
+    public void a(ViewGroup viewGroup) {
+        xq5 xq5Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) || (xq5Var = this.b) == null) {
+            return;
+        }
+        xq5Var.a(viewGroup);
+    }
+
+    public void b(lq5 lq5Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lq5Var, z) == null) {
+            if (lq5Var == null) {
+                this.c = -1;
+                this.b = new yq5(this.a);
+            } else if (z) {
+                int i = lq5Var.d;
+                this.c = i;
+                if (i == 1) {
+                    this.b = new ar5(this.a);
+                } else if (i == 2) {
+                    this.b = new cr5(this.a);
+                } else if (i != 3) {
+                    this.b = new yq5(this.a);
+                } else {
+                    this.b = new zq5(this.a);
+                }
+            }
+            if (this.b.f(lq5Var)) {
+                if (z) {
+                    this.b.d();
+                }
+                this.b.b(lq5Var);
+                return;
+            }
+            this.c = -1;
+            yq5 yq5Var = new yq5(this.a);
+            this.b = yq5Var;
+            if (z) {
+                yq5Var.d();
+            }
+            this.b.b(lq5Var);
+        }
+    }
+
+    public boolean c(lq5 lq5Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder(new AlaGameFrsLiveNormalCardView(this.i)) : (AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lq5Var)) == null) ? lq5Var == null || this.c != lq5Var.d : invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.wm
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, er5 er5Var, AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder alaGameFrsNormalViewHolder) {
-        InterceptResult invokeCommon;
+    public void d(boolean z) {
+        xq5 xq5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, er5Var, alaGameFrsNormalViewHolder})) == null) {
-            alaGameFrsNormalViewHolder.a.l(er5Var);
-            alaGameFrsNormalViewHolder.a.u(this.j);
-            return alaGameFrsNormalViewHolder.b();
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (xq5Var = this.b) == null) {
+            return;
         }
-        return (View) invokeCommon.objValue;
+        xq5Var.g(z);
     }
 
-    public void b0(mm5 mm5Var) {
+    public void e() {
+        xq5 xq5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, mm5Var) == null) {
-            this.j = mm5Var;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (xq5Var = this.b) == null) {
+            return;
         }
+        xq5Var.h();
+    }
+
+    public void f(int i) {
+        xq5 xq5Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || (xq5Var = this.b) == null) {
+            return;
+        }
+        xq5Var.i(i);
+    }
+
+    public void g() {
+        xq5 xq5Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (xq5Var = this.b) == null) {
+            return;
+        }
+        xq5Var.j();
+    }
+
+    public void h() {
+        xq5 xq5Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (xq5Var = this.b) == null) {
+            return;
+        }
+        xq5Var.k();
+    }
+
+    public void i() {
+        xq5 xq5Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (xq5Var = this.b) == null) {
+            return;
+        }
+        xq5Var.l();
+    }
+
+    public void j() {
+        xq5 xq5Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (xq5Var = this.b) == null) {
+            return;
+        }
+        xq5Var.m();
+    }
+
+    public void k() {
+        xq5 xq5Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (xq5Var = this.b) == null) {
+            return;
+        }
+        xq5Var.n();
     }
 }

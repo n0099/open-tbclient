@@ -1,227 +1,252 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.util.SparseIntArray;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.model.LegoPageModel;
+import com.baidu.tieba.lego.card.exception.CardParseException;
+import com.baidu.tieba.lego.card.model.BigImgCard;
+import com.baidu.tieba.lego.card.model.ButtonCard;
+import com.baidu.tieba.lego.card.model.CardGroup;
+import com.baidu.tieba.lego.card.model.FocusListCard;
+import com.baidu.tieba.lego.card.model.HorRankCard;
+import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.tieba.lego.card.model.ImmersiveVideoCardEx;
+import com.baidu.tieba.lego.card.model.ImmersiveWebViewCard;
+import com.baidu.tieba.lego.card.model.LPBigImgCard;
+import com.baidu.tieba.lego.card.model.OnePicInfoCard;
+import com.baidu.tieba.lego.card.model.PlayPicInfoCard;
+import com.baidu.tieba.lego.card.model.RankDetailTrendCard;
+import com.baidu.tieba.lego.card.model.RankScoreCard;
+import com.baidu.tieba.lego.card.model.SingleLineCard;
+import com.baidu.tieba.lego.card.model.WebViewCard;
+import com.baidu.tieba.lego.card.view.BaseCardView;
+import com.baidu.tieba.lego.card.view.BigImgView;
+import com.baidu.tieba.lego.card.view.ButtonCardView;
+import com.baidu.tieba.lego.card.view.FocusListCardView;
+import com.baidu.tieba.lego.card.view.HorRankCardView;
+import com.baidu.tieba.lego.card.view.ImmersiveVideoCardViewEx;
+import com.baidu.tieba.lego.card.view.ImmersiveWebViewCardView;
+import com.baidu.tieba.lego.card.view.LPBigImgCardView;
+import com.baidu.tieba.lego.card.view.OnePicInfoCardView;
+import com.baidu.tieba.lego.card.view.PlayPicInfoCardView;
+import com.baidu.tieba.lego.card.view.RankDetailTrendCardView;
+import com.baidu.tieba.lego.card.view.RankScoreCardView;
+import com.baidu.tieba.lego.card.view.SingleLineCardView;
+import com.baidu.tieba.lego.card.view.WebViewCardView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import java.io.IOException;
-import tbclient.Lego.DataRes;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dc7 implements bc7 {
+public class dc7 extends ec7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LegoPageModel a;
-    public cc7 b;
-    public LegoPageModel.b c;
 
     /* loaded from: classes5.dex */
-    public class a implements LegoPageModel.b {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dc7 a;
-
-        public a(dc7 dc7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dc7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dc7Var;
-        }
-
-        @Override // com.baidu.tieba.lego.model.LegoPageModel.b
-        public void a(long j, String str, DataRes dataRes, boolean z) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), str, dataRes, Boolean.valueOf(z)}) == null) || this.a.b == null) {
-                return;
-            }
-            this.a.b.c(j, str, dataRes, z);
-        }
-
-        @Override // com.baidu.tieba.lego.model.LegoPageModel.b
-        public void b(long j, String str, int i, String str2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), str, Integer.valueOf(i), str2}) == null) || this.a.b == null) {
-                return;
-            }
-            this.a.b.b(j, str, str2, i);
-        }
-
-        @Override // com.baidu.tieba.lego.model.LegoPageModel.b
-        public void c(long j, String str, DataRes dataRes, boolean z, int i) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, dataRes, Boolean.valueOf(z), Integer.valueOf(i)}) == null) || this.a.b == null) {
-                return;
-            }
-            this.a.b.a(true, dataRes, !z, j, str, i);
-        }
     }
 
     /* loaded from: classes5.dex */
-    public class b extends mc5<DataRes> {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
+        public static final dc7 a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qe a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ String c;
 
-        public b(dc7 dc7Var, qe qeVar, long j, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dc7Var, qeVar, Long.valueOf(j), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-447567717, "Lcom/repackage/dc7$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-447567717, "Lcom/repackage/dc7$b;");
                     return;
                 }
             }
-            this.a = qeVar;
-            this.b = j;
-            this.c = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.mc5
-        /* renamed from: a */
-        public DataRes doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                qe qeVar = this.a;
-                StringBuilder sb = new StringBuilder();
-                sb.append(this.b);
-                sb.append("_");
-                sb.append(TextUtils.isEmpty(this.c) ? "" : this.c);
-                byte[] bArr = (byte[]) qeVar.get(sb.toString());
-                if (bArr != null && bArr.length != 0) {
-                    try {
-                        return (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
-                    } catch (IOException unused) {
-                    }
-                }
-                return null;
-            }
-            return (DataRes) invokeV.objValue;
+            a = new dc7(null);
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements tb5<DataRes> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ dc7 c;
+    public /* synthetic */ dc7(a aVar) {
+        this();
+    }
 
-        public c(dc7 dc7Var, long j, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dc7Var, Long.valueOf(j), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static dc7 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (dc7) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ec7
+    public ICardInfo b(JSONObject jSONObject, int i) throws CardParseException {
+        InterceptResult invokeLI;
+        ICardInfo playPicInfoCard;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, i)) == null) {
+            if (i == 1) {
+                playPicInfoCard = new PlayPicInfoCard(jSONObject);
+            } else if (i == 2) {
+                playPicInfoCard = new SingleLineCard(jSONObject);
+            } else if (i == 3) {
+                playPicInfoCard = new OnePicInfoCard(jSONObject);
+            } else if (i == 5) {
+                playPicInfoCard = new FocusListCard(jSONObject);
+            } else if (i == 6) {
+                playPicInfoCard = new HorRankCard(jSONObject);
+            } else if (i == 7) {
+                playPicInfoCard = new RankDetailTrendCard(jSONObject);
+            } else if (i == 8) {
+                playPicInfoCard = new RankScoreCard(jSONObject);
+            } else if (i == 11) {
+                playPicInfoCard = new CardGroup(jSONObject);
+            } else if (i == 28) {
+                playPicInfoCard = new ButtonCard(jSONObject);
+            } else if (i == 18) {
+                playPicInfoCard = new WebViewCard(jSONObject);
+            } else if (i != 19) {
+                switch (i) {
+                    case 21:
+                        playPicInfoCard = new LPBigImgCard(jSONObject);
+                        break;
+                    case 22:
+                        playPicInfoCard = new ImmersiveVideoCardEx(jSONObject);
+                        break;
+                    case 23:
+                        playPicInfoCard = new ImmersiveWebViewCard(jSONObject);
+                        break;
+                    default:
+                        return null;
                 }
+            } else {
+                playPicInfoCard = new BigImgCard(jSONObject);
             }
-            this.c = dc7Var;
-            this.a = j;
-            this.b = str;
+            return playPicInfoCard;
         }
+        return (ICardInfo) invokeLI.objValue;
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.tb5
-        /* renamed from: a */
-        public void onReturnDataInUI(DataRes dataRes) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) {
-                this.c.f(this.a, this.b, dataRes);
-            }
+    @Override // com.repackage.ec7
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SparseIntArray sparseIntArray = ec7.a;
+            sparseIntArray.put(1, sparseIntArray.size() + 1);
+            SparseIntArray sparseIntArray2 = ec7.a;
+            sparseIntArray2.put(2, sparseIntArray2.size() + 1);
+            SparseIntArray sparseIntArray3 = ec7.a;
+            sparseIntArray3.put(3, sparseIntArray3.size() + 1);
+            SparseIntArray sparseIntArray4 = ec7.a;
+            sparseIntArray4.put(5, sparseIntArray4.size() + 1);
+            SparseIntArray sparseIntArray5 = ec7.a;
+            sparseIntArray5.put(6, sparseIntArray5.size() + 1);
+            SparseIntArray sparseIntArray6 = ec7.a;
+            sparseIntArray6.put(7, sparseIntArray6.size() + 1);
+            SparseIntArray sparseIntArray7 = ec7.a;
+            sparseIntArray7.put(8, sparseIntArray7.size() + 1);
+            SparseIntArray sparseIntArray8 = ec7.a;
+            sparseIntArray8.put(18, sparseIntArray8.size() + 1);
+            SparseIntArray sparseIntArray9 = ec7.a;
+            sparseIntArray9.put(19, sparseIntArray9.size() + 1);
+            SparseIntArray sparseIntArray10 = ec7.a;
+            sparseIntArray10.put(21, sparseIntArray10.size() + 1);
+            SparseIntArray sparseIntArray11 = ec7.a;
+            sparseIntArray11.put(22, sparseIntArray11.size() + 1);
+            SparseIntArray sparseIntArray12 = ec7.a;
+            sparseIntArray12.put(23, sparseIntArray12.size() + 1);
+            SparseIntArray sparseIntArray13 = ec7.a;
+            sparseIntArray13.put(28, sparseIntArray13.size() + 1);
+            ec7.b.put(1, BdUniqueId.gen());
+            ec7.b.put(2, BdUniqueId.gen());
+            ec7.b.put(3, BdUniqueId.gen());
+            ec7.b.put(5, BdUniqueId.gen());
+            ec7.b.put(6, BdUniqueId.gen());
+            ec7.b.put(7, BdUniqueId.gen());
+            ec7.b.put(8, BdUniqueId.gen());
+            ec7.b.put(18, BdUniqueId.gen());
+            ec7.b.put(19, BdUniqueId.gen());
+            ec7.b.put(21, BdUniqueId.gen());
+            ec7.b.put(22, BdUniqueId.gen());
+            ec7.b.put(23, BdUniqueId.gen());
+            ec7.b.put(28, BdUniqueId.gen());
         }
     }
 
-    public dc7(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+    @Override // com.repackage.ec7
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "lego_main" : (String) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.ec7
+    /* renamed from: e */
+    public <T> BaseCardView a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
+        InterceptResult invokeLLI;
+        BaseCardView playPicInfoCardView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, tbPageContext, iCardInfo, i)) == null) {
+            int cardType = iCardInfo == null ? -1 : iCardInfo.getCardType();
+            if (cardType == 1) {
+                playPicInfoCardView = new PlayPicInfoCardView(tbPageContext);
+            } else if (cardType == 2) {
+                playPicInfoCardView = new SingleLineCardView(tbPageContext);
+            } else if (cardType == 3) {
+                playPicInfoCardView = new OnePicInfoCardView(tbPageContext);
+            } else if (cardType == 5) {
+                playPicInfoCardView = new FocusListCardView(tbPageContext);
+            } else if (cardType == 6) {
+                playPicInfoCardView = new HorRankCardView(tbPageContext);
+            } else if (cardType == 7) {
+                playPicInfoCardView = new RankDetailTrendCardView(tbPageContext);
+            } else if (cardType == 8) {
+                playPicInfoCardView = new RankScoreCardView(tbPageContext);
+            } else if (cardType == 18) {
+                playPicInfoCardView = new WebViewCardView(tbPageContext);
+            } else if (cardType == 19) {
+                playPicInfoCardView = new BigImgView(tbPageContext);
+            } else if (cardType != 28) {
+                switch (cardType) {
+                    case 21:
+                        playPicInfoCardView = new LPBigImgCardView(tbPageContext);
+                        break;
+                    case 22:
+                        playPicInfoCardView = new ImmersiveVideoCardViewEx(tbPageContext);
+                        break;
+                    case 23:
+                        playPicInfoCardView = new ImmersiveWebViewCardView(tbPageContext);
+                        break;
+                    default:
+                        return null;
+                }
+            } else {
+                playPicInfoCardView = new ButtonCardView(tbPageContext);
+            }
+            return playPicInfoCardView;
+        }
+        return (BaseCardView) invokeLLI.objValue;
+    }
+
+    public dc7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = new a(this);
-        LegoPageModel legoPageModel = new LegoPageModel(tbPageContext, bdUniqueId);
-        this.a = legoPageModel;
-        legoPageModel.A(this.c);
-    }
-
-    @Override // com.repackage.bc7
-    public void a(long j, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048576, this, j, str) == null) {
-            cq4.f();
-            pc5.b(new b(this, cq4.d("tb.lego_update"), j, str), new c(this, j, str));
-        }
-    }
-
-    @Override // com.repackage.bc7
-    public void b(cc7 cc7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cc7Var) == null) {
-            this.b = cc7Var;
-        }
-    }
-
-    @Override // com.repackage.bc7
-    public void c(int i, long j, String str, int i2, String str2) {
-        LegoPageModel legoPageModel;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), str, Integer.valueOf(i2), str2}) == null) || (legoPageModel = this.a) == null) {
-            return;
-        }
-        legoPageModel.z(i, j, str, i2, str2);
-    }
-
-    public final void f(long j, String str, DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), str, dataRes}) == null) || j < 0) {
-            return;
-        }
-        cc7 cc7Var = this.b;
-        if (cc7Var != null) {
-            cc7Var.a(false, dataRes, false, j, str, 1);
-        }
-        this.a.z(2, j, str, 1, "");
     }
 }

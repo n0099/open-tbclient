@@ -1,279 +1,215 @@
 package com.repackage;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.request.db.DownloadDataConstants;
-import com.baidu.tbadk.TiebaDatabase;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
+import com.repackage.k93;
 /* loaded from: classes6.dex */
-public class jh4 {
+public class jh4 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Context a;
+    public RelativeLayout b;
+    public TextView c;
+    public ImageView d;
+    public String e;
 
     /* loaded from: classes6.dex */
-    public static class a {
+    public class a implements k93.b {
         public static /* synthetic */ Interceptable $ic;
-        public static final jh4 a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jh4 a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-271264610, "Lcom/repackage/jh4$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-271264610, "Lcom/repackage/jh4$a;");
+        public a(jh4 jh4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jh4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new jh4();
+            this.a = jh4Var;
+        }
+
+        @Override // com.repackage.k93.b
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                this.a.j();
+            }
         }
     }
 
-    public jh4() {
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jh4 a;
+
+        public b(jh4 jh4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jh4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jh4Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.b();
+                this.a.d();
+            }
+        }
+    }
+
+    public jh4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = context;
+        e();
     }
 
-    public static final jh4 g() {
+    public RelativeLayout a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (jh4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (RelativeLayout) invokeV.objValue;
     }
 
-    public synchronized long a(lh4 lh4Var) {
-        InterceptResult invokeL;
-        long h;
+    public void b() {
+        ImageView imageView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lh4Var)) == null) {
-            synchronized (this) {
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                h = h(f, lh4Var);
-                f.setTransactionSuccessful();
-                f.endTransaction();
-            }
-            return h;
-        }
-        return invokeL.longValue;
-    }
-
-    public synchronized void b(List<lh4> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            synchronized (this) {
-                if (ListUtils.isEmpty(list)) {
-                    return;
-                }
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                for (lh4 lh4Var : list) {
-                    h(f, lh4Var);
-                }
-                f.setTransactionSuccessful();
-                f.endTransaction();
-            }
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (imageView = this.d) != null && imageView.getVisibility() == 0) {
+            this.d.setVisibility(8);
         }
     }
 
-    public final ContentValues c(lh4 lh4Var) {
-        InterceptResult invokeL;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lh4Var)) == null) {
-            if (lh4Var == null) {
-                return null;
-            }
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("activityid", Integer.valueOf(lh4Var.d()));
-            contentValues.put("missionid", Integer.valueOf(lh4Var.q()));
-            contentValues.put("activitysource", lh4Var.e());
-            contentValues.put("calltype", Integer.valueOf(lh4Var.i()));
-            contentValues.put(DownloadDataConstants.Columns.COLUMN_TASK_TYPE, Integer.valueOf(lh4Var.x()));
-            contentValues.put("browsetimepage", lh4Var.g());
-            contentValues.put("browsetime", Long.valueOf(lh4Var.f()));
-            contentValues.put("threadnum", Integer.valueOf(lh4Var.A()));
-            contentValues.put("forumnum", Integer.valueOf(lh4Var.p()));
-            contentValues.put("cleartype", Integer.valueOf(lh4Var.k()));
-            contentValues.put("cleartime", Long.valueOf(lh4Var.j()));
-            contentValues.put("specificcleartime", Long.valueOf(lh4Var.t()));
-            contentValues.put("tid", Long.valueOf(lh4Var.C()));
-            contentValues.put("fid", Long.valueOf(lh4Var.o()));
-            contentValues.put("threadtext", lh4Var.B());
-            contentValues.put("threadimg", lh4Var.z());
-            contentValues.put("threadforum", Long.valueOf(lh4Var.y()));
-            contentValues.put("totalLimit", Integer.valueOf(lh4Var.F()));
-            contentValues.put("completedLimitCount", Integer.valueOf(lh4Var.w()));
-            contentValues.put("token", lh4Var.E());
-            contentValues.put("executingMissionList", lh4Var.b());
-            return contentValues;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            rz2.M().postDelayed(new b(this), 3000L);
         }
-        return (ContentValues) invokeL.objValue;
     }
 
-    public final lh4 d(Cursor cursor) {
-        InterceptResult invokeL;
+    public void d() {
+        TextView textView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cursor)) == null) {
-            if (cursor == null || cursor.isClosed()) {
-                return null;
-            }
-            lh4 lh4Var = new lh4();
-            lh4Var.S(cursor.getInt(cursor.getColumnIndex("activityid")));
-            lh4Var.b0(cursor.getInt(cursor.getColumnIndex("missionid")));
-            lh4Var.T(cursor.getString(cursor.getColumnIndex("activitysource")));
-            lh4Var.W(cursor.getInt(cursor.getColumnIndex("calltype")));
-            lh4Var.f0(cursor.getInt(cursor.getColumnIndex(DownloadDataConstants.Columns.COLUMN_TASK_TYPE)));
-            lh4Var.V(cursor.getString(cursor.getColumnIndex("browsetimepage")));
-            lh4Var.U(cursor.getLong(cursor.getColumnIndex("browsetime")));
-            lh4Var.i0(cursor.getInt(cursor.getColumnIndex("threadnum")));
-            lh4Var.a0(cursor.getInt(cursor.getColumnIndex("forumnum")));
-            lh4Var.Y(cursor.getInt(cursor.getColumnIndex("cleartype")));
-            lh4Var.X(cursor.getLong(cursor.getColumnIndex("cleartime")));
-            lh4Var.d0(cursor.getLong(cursor.getColumnIndex("specificcleartime")));
-            lh4Var.k0(cursor.getLong(cursor.getColumnIndex("tid")));
-            lh4Var.Z(cursor.getLong(cursor.getColumnIndex("fid")));
-            lh4Var.j0(cursor.getString(cursor.getColumnIndex("threadtext")));
-            lh4Var.h0(cursor.getString(cursor.getColumnIndex("threadimg")));
-            lh4Var.g0(cursor.getInt(cursor.getColumnIndex("threadforum")));
-            lh4Var.m0(cursor.getInt(cursor.getColumnIndex("totalLimit")));
-            lh4Var.e0(cursor.getInt(cursor.getColumnIndex("completedLimitCount")));
-            lh4Var.P(lh4Var.x(), cursor.getString(cursor.getColumnIndex("executingMissionList")));
-            lh4Var.l0(cursor.getString(cursor.getColumnIndex("token")));
-            return lh4Var;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (textView = this.c) != null && textView.getVisibility() == 0) {
+            this.c.setVisibility(8);
         }
-        return (lh4) invokeL.objValue;
     }
 
-    public synchronized boolean e(lh4 lh4Var) {
-        InterceptResult invokeL;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, lh4Var)) == null) {
-            synchronized (this) {
-                if (lh4Var == null) {
-                    return false;
-                }
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                int delete = f.delete("activity_mission_info", "activityid = ? and missionid = ?", new String[]{String.valueOf(lh4Var.d()), String.valueOf(lh4Var.q())});
-                f.setTransactionSuccessful();
-                f.endTransaction();
-                return delete >= 0;
-            }
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07c7, (ViewGroup) null);
+            this.b = relativeLayout;
+            relativeLayout.setVisibility(8);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091def);
+            this.c = textView;
+            textView.setVisibility(8);
+            ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091dee);
+            this.d = imageView;
+            imageView.setOnClickListener(this);
+            this.d.setVisibility(8);
+            k93.e().d("#com.baidu.swan.videoplayer&MediaMuteViewLayer", new a(this));
         }
-        return invokeL.booleanValue;
     }
 
-    public synchronized List<lh4> f() {
-        InterceptResult invokeV;
-        LinkedList linkedList;
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                linkedList = new LinkedList();
-                Cursor rawQuery = f.rawQuery("SELECT * FROM activity_mission_info", null);
-                while (rawQuery.moveToNext()) {
-                    lh4 d = d(rawQuery);
-                    if (d != null) {
-                        linkedList.add(d);
-                    }
-                }
-                f.setTransactionSuccessful();
-                mi.a(rawQuery);
-                f.endTransaction();
-            }
-            return linkedList;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            k93.e().i("#com.baidu.swan.videoplayer&MediaMuteViewLayer");
         }
-        return (List) invokeV.objValue;
     }
 
-    public final long h(SQLiteDatabase sQLiteDatabase, lh4 lh4Var) {
-        InterceptResult invokeLL;
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, sQLiteDatabase, lh4Var)) == null) {
-            try {
-                return sQLiteDatabase.insert("activity_mission_info", null, c(lh4Var));
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return -1L;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.e = str;
+            TextView textView = this.c;
+            if (textView != null) {
+                textView.setText(str);
             }
         }
-        return invokeLL.longValue;
     }
 
-    public synchronized long i(lh4 lh4Var) {
-        InterceptResult invokeL;
+    public void h() {
+        ImageView imageView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, lh4Var)) == null) {
-            synchronized (this) {
-                if (lh4Var == null) {
-                    return -1L;
-                }
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                long j = j(f, lh4Var);
-                f.setTransactionSuccessful();
-                f.endTransaction();
-                return j;
-            }
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (imageView = this.d) != null && imageView.getVisibility() == 8) {
+            this.d.setVisibility(0);
+            c();
         }
-        return invokeL.longValue;
     }
 
-    public final long j(SQLiteDatabase sQLiteDatabase, lh4 lh4Var) {
-        InterceptResult invokeLL;
+    public void i(boolean z) {
+        RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase, lh4Var)) == null) {
-            try {
-                return sQLiteDatabase.update("activity_mission_info", c(lh4Var), "activityid = ? and missionid = ?", new String[]{String.valueOf(lh4Var.d()), String.valueOf(lh4Var.q())});
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return -1L;
-            }
+        if (!(interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) || (relativeLayout = this.b) == null) {
+            return;
         }
-        return invokeLL.longValue;
+        relativeLayout.setVisibility(z ? 0 : 8);
     }
 
-    public synchronized void k(List<lh4> list) {
+    public void j() {
+        TextView textView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
-            synchronized (this) {
-                if (ListUtils.isEmpty(list)) {
-                    return;
-                }
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                for (lh4 lh4Var : list) {
-                    j(f, lh4Var);
-                }
-                f.setTransactionSuccessful();
-                f.endTransaction();
-            }
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || TextUtils.isEmpty(this.e) || (textView = this.c) == null || textView.getVisibility() != 8) {
+            return;
+        }
+        this.c.setVisibility(0);
+        c();
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091dee) {
+            j();
         }
     }
 }

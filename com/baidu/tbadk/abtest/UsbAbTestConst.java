@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class UsbAbTestConst {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String KEY_ANR_TEST = "12_25_anr_test_a";
     public static final String KEY_ENTER_FRS_ANIM_A = "12_23_homepage_enter_frs_animation_a";
     public static final String KEY_ENTER_FRS_NO_ANMI = "12.25_enter_frs_no_anim";
     public static final String KEY_FEED_VIDEO_TRANSITION = "12_19_feed_video_transition_a";
@@ -21,12 +22,10 @@ public class UsbAbTestConst {
     public static final String KEY_FUN_AD_SDK_PERSONALIZE = "12_5_personalize_bear_a";
     public static final String KEY_FUN_AD_SDK_PICPAGE_BEAR = "12_2_picpage_bear_a";
     public static final String KEY_FUN_AD_SDK_PICPAGE_INSERT_BEAR = "12_11_picpage_ahead_bear_a";
-    public static final String KEY_FUN_AD_SDK_SPLASH_CLICK_EYE = "12_8_0_splash_bear_a";
     public static final String KEY_HOT_RANK_SHOW = "12_15_live_cell_style_a";
     public static final String KEY_HOT_SPLASH_FIX = "12_25_splash_req_ad_rule";
     public static final String KEY_IMG_CLICK_TO_PB = "12_24_tupiandianji_b";
     public static final String KEY_LIKE_MODIFY_TEST_A = "12_23_5_like_modify_a";
-    public static final String KEY_LIVE_AUTO_PLAY = "12_9_live_autoplay_a";
     public static final String KEY_LIVE_CARD_GAME_SHOW = "12_18_live_gameshow_style_a";
     public static final String KEY_LOOPER_BLOCK_OPT = "12_22_looper_block_opt_a";
     public static final String KEY_MAIN_TAB_DATA_CACHE = "12_21_main_tab_data_b";
@@ -36,7 +35,6 @@ public class UsbAbTestConst {
     public static final String KEY_MINE_PAGE_FOR_VISITOR = "12_14_personal_center_login_a";
     public static final String KEY_NATIVE_AD_AUTO_PLAY = "12_14_ad_video_a";
     public static final String KEY_NATIVE_AD_NO_INTERACTION_STYLE = "12_18_personalize_frs_style_a";
-    public static final String KEY_NATIVE_AD_PERSONALIZE_FRS_STYLE = "12_22_personalize_frs_style_a";
     public static final String KEY_NEW_INTEREST_TEST_A = "12_21_interest_card_log_a";
     public static final String KEY_NEW_SPLASH_POLICY = "12_20_0_screen_fill_Ad_experiment";
     public static final String KEY_NICK_NAME = "12_11_nick_name_a";
@@ -45,7 +43,6 @@ public class UsbAbTestConst {
     public static final String KEY_PB_SHARE_PATH_TEST_A = "12_25_zhuanfalujing_a";
     public static final String KEY_PERSONAL_VIDEO_TAB_FLOW = "12_10_zhuye_feed_b";
     public static final String KEY_PUSH_JUMP_PB_DIRECT_B = "12_24_push_jump_pb_b";
-    public static final String KEY_RED_PACKAGE_SHOW_SECOND_TIME = "12_15_red_package_popup_view_a";
     public static final String KEY_REQUEST_INSERT_AD = "frontpage_popup_a";
     public static final String KEY_SCHEME_START_OPTIMIZE_TEST_B = "12_23_android_scheme_b";
     public static final String KEY_SCHEME_START_OPTIMIZE_TEST_C = "12_23_android_scheme_c";
@@ -53,7 +50,6 @@ public class UsbAbTestConst {
     public static final String KEY_SCHEME_START_OPTIMIZE_TEST_E = "12_24_android_scheme_e";
     public static final String KEY_SHARE_BTN_TOP_RIGHT = "12_25_zhuanfaweizhi_a";
     public static final String KEY_SHARE_H5_CARD_OPTIMIZE = "12_16_sharecard_a";
-    public static final String KEY_SHOW_WRITE_TITLE_TEST_A = "11_9_post_thread_title_out_a";
     public static final String KEY_SIGN_POP_STAMP_DIALOG = "12_18_medal_b";
     public static final String KEY_VIDEOTAB_AUTO_PLAY = "12_5_zp_1";
     public static final String KEY_VIDEO_AUTO_PLAY_NEXT_VIDEO = "12_15_autoplay_a";

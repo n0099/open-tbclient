@@ -1,156 +1,197 @@
 package com.repackage;
 
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import android.content.ContentValues;
+import android.database.Cursor;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.pushNotify.ChatSetting;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.im.message.chat.OfficialChatMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qe;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class n57 {
-    public static /* synthetic */ Interceptable $ic;
+public class n57 extends c57 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static c57 d = null;
+    public static String e = "tb_oficial_msg_";
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, ChatSetting> a;
 
-    /* loaded from: classes6.dex */
-    public class a extends mc5<Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ n57 c;
-
-        public a(n57 n57Var, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n57Var, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = n57Var;
-            this.a = str;
-            this.b = str2;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755518431, "Lcom/repackage/n57;")) == null) {
+            return;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.repackage.mc5
-        public Boolean doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ChatSetting a = this.c.a(this.a, this.b);
-                if (a == null) {
-                    return Boolean.FALSE;
-                }
-                return Boolean.valueOf(a.isAcceptNotify());
-            }
-            return (Boolean) invokeV.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755518431, "Lcom/repackage/n57;");
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n57() {
+        super("tb_oficial_msg_", OfficialChatMessage.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (Class) objArr[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
     }
 
-    public abstract ChatSetting a(String str, String str2);
-
-    public abstract qe<String> b();
-
-    public boolean c(String str, String str2) {
-        InterceptResult invokeLL;
+    public static synchronized n57 v() {
+        InterceptResult invokeV;
+        n57 n57Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            ChatSetting a2 = a(str, str2);
-            if (a2 == null) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (n57.class) {
+                if (d == null) {
+                    d = new n57();
+                }
+                n57Var = (n57) d;
             }
-            return a2.isAcceptNotify();
+            return n57Var;
         }
-        return invokeLL.booleanValue;
+        return (n57) invokeV.objValue;
     }
 
-    public void d(String str, String str2, tb5<Boolean> tb5Var) {
+    /* JADX WARN: Not initialized variable reg: 2, insn: 0x00b5: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:29:0x00b5 */
+    public static List<r57> w() {
+        InterceptResult invokeV;
+        ArrayList arrayList;
+        Exception e2;
+        Cursor cursor;
+        Cursor cursor2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, tb5Var) == null) {
-            pc5.c(new a(this, str, str2), tb5Var);
+        if (interceptable != null && (invokeV = interceptable.invokeV(65539, null)) != null) {
+            return (List) invokeV.objValue;
         }
-    }
-
-    public void e(Class<? extends ChatSetting> cls) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, cls) == null) {
-            synchronized (this.a) {
-                this.a.clear();
-            }
-            String id = TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "";
-            if (id == null || id.length() == 0) {
-                return;
-            }
-            String str2 = id + "@";
-            synchronized (this.a) {
-                qe<String> b = b();
-                List<qe.b<String>> b2 = qi.b(b);
-                if (b2 != null) {
-                    for (qe.b<String> bVar : b2) {
-                        String str3 = bVar.a;
-                        if (str3 != null && str3.startsWith(str2) && (str = b.get(str3)) != null) {
-                            this.a.put(str3, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
+        Cursor cursor3 = null;
+        ArrayList arrayList2 = null;
+        try {
+            try {
+                cursor = j57.d().e("SELECT * FROM tb_message_center WHERE custom_group_type = ? AND (user_type = ? OR user_type = ?) ORDER BY visit_time DESC, last_content_time DESC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
+                if (cursor != null) {
+                    try {
+                        arrayList = new ArrayList(cursor.getCount());
+                        while (cursor.moveToNext()) {
+                            try {
+                                r57 r57Var = new r57();
+                                r57Var.h(cursor.getString(cursor.getColumnIndex("gid")));
+                                r57Var.j(cursor.getInt(cursor.getColumnIndex("unread_count")));
+                                r57Var.i(cursor.getString(cursor.getColumnIndex("group_head")));
+                                r57Var.g(cursor.getString(cursor.getColumnIndex("group_name")));
+                                r57Var.k(cursor.getInt(cursor.getColumnIndex("user_type")));
+                                int columnIndex = cursor.getColumnIndex("visit_time");
+                                if (columnIndex >= 0) {
+                                    r57Var.l(cursor.getLong(columnIndex));
+                                }
+                                arrayList.add(r57Var);
+                            } catch (Exception e3) {
+                                e2 = e3;
+                                e2.printStackTrace();
+                                TiebaStatic.printDBExceptionLog(e2, "ImMessageCenterDao.getOfficalListFromDb", new Object[0]);
+                                qi.a(cursor);
+                                return arrayList;
+                            }
                         }
+                        arrayList2 = arrayList;
+                    } catch (Exception e4) {
+                        arrayList = null;
+                        e2 = e4;
                     }
                 }
+                qi.a(cursor);
+                return arrayList2;
+            } catch (Throwable th) {
+                th = th;
+                cursor3 = cursor2;
+                qi.a(cursor3);
+                throw th;
+            }
+        } catch (Exception e5) {
+            arrayList = null;
+            e2 = e5;
+            cursor = null;
+        } catch (Throwable th2) {
+            th = th2;
+            qi.a(cursor3);
+            throw th;
+        }
+    }
+
+    public static List<String> x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            ArrayList arrayList = new ArrayList();
+            Cursor cursor = null;
+            try {
+                try {
+                    j57 d2 = j57.d();
+                    cursor = d2.e("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND (user_type=? OR user_type=?) ORDER BY last_content_time ASC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
+                    if (cursor != null) {
+                        while (cursor.moveToNext()) {
+                            arrayList.add(cursor.getString(cursor.getColumnIndex("gid")));
+                        }
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                    TiebaStatic.printDBExceptionLog(e2, "ImMessageCenterDao.getOfficalListFromDb", new Object[0]);
+                }
+                return arrayList;
+            } finally {
+                qi.a(cursor);
+            }
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void y(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            try {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("visit_time", Long.valueOf(j2));
+                contentValues.put("unread_count", (Integer) 0);
+                int update = j57.d().update("tb_message_center", contentValues, "gid = ?", new String[]{String.valueOf(j)});
+                BdLog.d("updateReadCount result = " + update);
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
     }
 
-    public void f(String str, String str2, boolean z) {
-        ChatSetting a2;
+    public void z(long j, long j2, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(1048581, this, str, str2, z) == null) || (a2 = a(str, str2)) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
+            try {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("read_count", Integer.valueOf(i));
+                j57 d2 = j57.d();
+                int update = d2.update(e + j, contentValues, "mid = ?", new String[]{String.valueOf(j2)});
+                BdLog.d("updateReadCount result = " + update);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
         }
-        a2.setAcceptNotify(z);
-        h(a2);
     }
-
-    public void g(String str, String str2, boolean z, tb5<Void> tb5Var) {
-        ChatSetting a2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Boolean.valueOf(z), tb5Var}) == null) || (a2 = a(str, str2)) == null) {
-            return;
-        }
-        a2.setAcceptNotify(z);
-        i(a2, tb5Var);
-    }
-
-    public abstract void h(ChatSetting chatSetting);
-
-    public abstract void i(ChatSetting chatSetting, tb5<Void> tb5Var);
 }

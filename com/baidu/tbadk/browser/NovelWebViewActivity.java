@@ -14,7 +14,6 @@ import com.baidu.tbadk.browser.TbWebViewActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.NovelWebViewActivityConfig;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.novel.ReadRecordsData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.BdTopToast;
@@ -25,17 +24,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.v65;
-import com.repackage.zk4;
+import com.repackage.j75;
+import com.repackage.jl4;
+import com.repackage.k75;
 /* loaded from: classes2.dex */
 public class NovelWebViewActivity extends TbWebViewActivity {
     public static /* synthetic */ Interceptable $ic = null;
-    public static String isFirstRead = null;
-    public static String mNovelId = "";
+    public static String f = "";
+    public static String g;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean mIsNovelMember;
-    public boolean mIsPaySuccess;
-    public final CustomMessageListener mPaySuccessListener;
+    public boolean a;
+    public boolean b;
+    public String c;
+    public String d;
+    public final CustomMessageListener e;
 
     /* loaded from: classes2.dex */
     public class a extends CustomMessageListener {
@@ -71,11 +73,11 @@ public class NovelWebViewActivity extends TbWebViewActivity {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921697) {
                 int error = customResponsedMessage.getError();
                 if (customResponsedMessage.getData() instanceof Boolean) {
-                    this.a.mIsPaySuccess = ((Boolean) customResponsedMessage.getData()).booleanValue();
+                    this.a.a = ((Boolean) customResponsedMessage.getData()).booleanValue();
                     if (error == 0) {
                         NovelWebViewActivity novelWebViewActivity = this.a;
-                        if (novelWebViewActivity.mIsPaySuccess) {
-                            novelWebViewActivity.showTopToastTip();
+                        if (novelWebViewActivity.a) {
+                            novelWebViewActivity.F1();
                         }
                     }
                 }
@@ -115,11 +117,11 @@ public class NovelWebViewActivity extends TbWebViewActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 super.onPageFinished(webView, str);
-                String unused = NovelWebViewActivity.isFirstRead = v65.c(NovelWebViewActivity.mNovelId, TbadkCoreApplication.getCurrentAccount());
-                if (this.c.mIsNovelMember && StringUtils.isNull(NovelWebViewActivity.isFirstRead)) {
-                    this.c.showTopToastTip();
+                String unused = NovelWebViewActivity.g = j75.c(NovelWebViewActivity.f, TbadkCoreApplication.getCurrentAccount());
+                if (this.c.b && StringUtils.isNull(NovelWebViewActivity.g)) {
+                    this.c.F1();
                 }
-                StatisticItem.make(CommonStatisticKey.KEY_PB_NOVEL_INFO_JUMP_H5).eventStat();
+                k75.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_JUMP_H5, this.c.b ? 2 : 1, NovelWebViewActivity.f, this.c.c, this.c.d);
             }
         }
 
@@ -156,19 +158,18 @@ public class NovelWebViewActivity extends TbWebViewActivity {
                 return;
             }
         }
-        this.mIsPaySuccess = false;
-        this.mIsNovelMember = false;
-        this.mPaySuccessListener = new a(this, 2921697);
+        this.a = false;
+        this.b = false;
+        this.e = new a(this, 2921697);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void showTopToastTip() {
+    public final void F1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            v65.e(mNovelId, new ReadRecordsData(mNovelId));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            j75.e(f, new ReadRecordsData(f));
             BdTopToast bdTopToast = new BdTopToast(getPageContext().getPageActivity());
             bdTopToast.i(true);
-            bdTopToast.h(getPageContext().getString(R.string.obfuscated_res_0x7f0f0caf));
+            bdTopToast.h(getPageContext().getString(R.string.obfuscated_res_0x7f0f0cb4));
             bdTopToast.j((ViewGroup) getPageContext().getPageActivity().findViewById(16908290));
         }
     }
@@ -177,27 +178,29 @@ public class NovelWebViewActivity extends TbWebViewActivity {
     public void onCreate(Bundle bundle) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             if (getIntent() != null) {
-                this.mIsNovelMember = getIntent().getBooleanExtra(NovelWebViewActivityConfig.KEY_IS_SHOW_TOAST_TIP, false);
-                mNovelId = getIntent().getStringExtra(NovelWebViewActivityConfig.KEY_NOVEL_ID);
+                this.b = getIntent().getBooleanExtra(NovelWebViewActivityConfig.KEY_IS_SHOW_TOAST_TIP, false);
+                f = getIntent().getStringExtra(NovelWebViewActivityConfig.KEY_NOVEL_ID);
+                this.c = getIntent().getStringExtra(NovelWebViewActivityConfig.KEY_NOVEL_TID);
+                this.d = getIntent().getStringExtra(NovelWebViewActivityConfig.KEY_NOVEL_FID);
             }
             this.mWebView.setWebViewClient(new b(this, null));
-            zk4 zk4Var = this.mView;
-            if (zk4Var != null && (imageView = zk4Var.i) != null) {
+            jl4 jl4Var = this.mView;
+            if (jl4Var != null && (imageView = jl4Var.i) != null) {
                 imageView.setVisibility(8);
             }
-            registerListener(this.mPaySuccessListener);
+            registerListener(this.e);
         }
     }
 
     @Override // com.baidu.tbadk.browser.TbWebViewActivity, com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            MessageManager.getInstance().unRegisterListener(this.mPaySuccessListener);
+            MessageManager.getInstance().unRegisterListener(this.e);
         }
     }
 
@@ -205,7 +208,7 @@ public class NovelWebViewActivity extends TbWebViewActivity {
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, keyEvent)) == null) {
             if (i == 4 && webViewGoBack()) {
                 return true;
             }
@@ -218,9 +221,9 @@ public class NovelWebViewActivity extends TbWebViewActivity {
     public boolean webViewGoBack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.mIsPaySuccess) {
-                this.mIsPaySuccess = false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.a) {
+                this.a = false;
                 finish();
                 return true;
             }

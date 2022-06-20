@@ -1,96 +1,16 @@
 package com.repackage;
 
-import com.badlogic.gdx.utils.GdxRuntimeException;
-import com.badlogic.gdx.utils.JsonValue;
-import com.badlogic.gdx.utils.reflect.ReflectionException;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m7;
-import com.repackage.u7;
-import com.repackage.y6;
-/* loaded from: classes5.dex */
-public class f5<T> implements m7.c {
+import com.repackage.a7;
+/* loaded from: classes6.dex */
+public class f5 implements h7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public u7<String, b> a;
-    public y6<b> b;
-    public y6<a> c;
-    public T d;
-
-    /* loaded from: classes5.dex */
-    public static class a<T> implements m7.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public Class<T> b;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.m7.c
-        public void a(m7 m7Var, JsonValue jsonValue) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, m7Var, jsonValue) == null) {
-                this.a = (String) m7Var.l(BreakpointSQLiteKey.FILENAME, String.class, jsonValue);
-                String str = (String) m7Var.l("type", String.class, jsonValue);
-                try {
-                    this.b = r8.a(str);
-                } catch (ReflectionException e) {
-                    throw new GdxRuntimeException("Class not found: " + str, e);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements m7.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public j7 a;
-        public f5 b;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            new u7();
-            this.a = new j7();
-        }
-
-        @Override // com.repackage.m7.c
-        public void a(m7 m7Var, JsonValue jsonValue) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, m7Var, jsonValue) == null) {
-                u7 u7Var = (u7) m7Var.l("data", u7.class, jsonValue);
-                this.a.b((int[]) m7Var.l("indices", int[].class, jsonValue));
-            }
-        }
-    }
+    public a7<d5> a;
 
     public f5() {
         Interceptable interceptable = $ic;
@@ -105,36 +25,63 @@ public class f5<T> implements m7.c {
                 return;
             }
         }
-        this.a = new u7<>();
-        this.b = new y6<>(true, 3, b.class);
-        this.c = new y6<>();
+        this.a = new a7<>(true, 3, d5.class);
     }
 
-    @Override // com.repackage.m7.c
-    public void a(m7 m7Var, JsonValue jsonValue) {
+    public void a(m1 m1Var, h5 h5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, m7Var, jsonValue) == null) {
-            u7<String, b> u7Var = (u7) m7Var.l("unique", u7.class, jsonValue);
-            this.a = u7Var;
-            u7.a<String, b> b2 = u7Var.b();
-            b2.d();
-            while (b2.hasNext()) {
-                ((b) b2.next().b).b = this;
-            }
-            y6<b> y6Var = (y6) m7Var.m("data", y6.class, b.class, jsonValue);
-            this.b = y6Var;
-            y6.b<b> it = y6Var.iterator();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, m1Var, h5Var) == null) {
+            a7.b<d5> it = this.a.iterator();
             while (it.hasNext()) {
-                it.next().b = this;
+                it.next().c(m1Var, h5Var);
             }
-            this.c.b((y6) m7Var.m("assets", y6.class, a.class, jsonValue));
-            this.d = (T) m7Var.l("resource", null, jsonValue);
         }
     }
 
-    public y6<a> b() {
-        InterceptResult invokeV;
+    @Override // com.repackage.h7
+    public void dispose() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (y6) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            int i = this.a.b;
+            for (int i2 = 0; i2 < i; i2++) {
+                this.a.get(i2).b();
+            }
+        }
+    }
+
+    public void f(a7<i5<?>> a7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, a7Var) == null) {
+            a7.b<d5> it = this.a.iterator();
+            while (it.hasNext()) {
+                d5 next = it.next();
+                a7.b<i5<?>> it2 = a7Var.iterator();
+                while (it2.hasNext()) {
+                    if (next.c.h(it2.next())) {
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    public void update() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            int i = this.a.b;
+            for (int i2 = 0; i2 < i; i2++) {
+                this.a.get(i2).update();
+            }
+        }
+    }
+
+    public void update(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
+            int i = this.a.b;
+            for (int i2 = 0; i2 < i; i2++) {
+                this.a.get(i2).update(f);
+            }
+        }
     }
 }

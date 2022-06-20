@@ -10,8 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.push.c.r;
-import com.vivo.push.cache.ClientConfigManagerImpl;
+import com.vivo.push.d.r;
 import com.vivo.push.model.InsideNotificationItem;
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,7 +19,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class k extends AsyncTask<String, Void, List<Bitmap>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,16 +64,16 @@ public final class k extends AsyncTask<String, Void, List<Bitmap>> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x0090, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x008c, code lost:
         if (r5 == null) goto L43;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x0092, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x008e, code lost:
         r5.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x009c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x0098, code lost:
         if (r5 == null) goto L43;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x009f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x009b, code lost:
         r6 = null;
      */
     @Override // android.os.AsyncTask
@@ -88,7 +87,7 @@ public final class k extends AsyncTask<String, Void, List<Bitmap>> {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, strArr)) == null) {
-            this.e = ClientConfigManagerImpl.getInstance(this.a).getNotifyStyle();
+            this.e = this.b.getNotifyDisplayStatus();
             InputStream inputStream2 = null;
             if (!this.d) {
                 p.d("ImageDownTask", "bitmap is not display by forbid net");

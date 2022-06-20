@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lk;
+import com.repackage.pk;
 /* loaded from: classes.dex */
 public class DrawerArgs {
     public static /* synthetic */ Interceptable $ic;
@@ -108,7 +108,7 @@ public class DrawerArgs {
         this.f = SkinType.DAY;
         this.h = false;
         this.i = true;
-        this.j = lk.a;
+        this.j = pk.a;
         this.k = 1.0f;
         this.o = false;
     }

@@ -1,25 +1,52 @@
 package com.xiaomi.push;
 
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
+import android.content.Context;
+import android.content.SharedPreferences;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class s {
+public class s implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ r a;
 
-    public static String a(String str, String str2) {
-        InterceptResult invokeLL;
+    /* renamed from: a  reason: collision with other field name */
+    public final /* synthetic */ String f822a;
+    public final /* synthetic */ String b;
+    public final /* synthetic */ String c;
+
+    public s(r rVar, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            try {
-                return (String) t.a(null, "android.os.SystemProperties").getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class, String.class).invoke(null, str, str2);
-            } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m108a("SystemProperties.get: " + e);
-                return str2;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {rVar, str, str2, str3};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String) invokeLL.objValue;
+        this.a = rVar;
+        this.f822a = str;
+        this.b = str2;
+        this.c = str3;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Context context;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            context = this.a.f819a;
+            SharedPreferences.Editor edit = context.getSharedPreferences(this.f822a, 4).edit();
+            edit.putString(this.b, this.c);
+            edit.commit();
+        }
     }
 }

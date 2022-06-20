@@ -1,20 +1,18 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tbadk.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.concurrent.FutureTask;
+import tbclient.GetUserInfo.DataRes;
 /* loaded from: classes5.dex */
 public class c35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<FutureTask<Boolean>> a;
-    public List<b35> b;
-    public ErrorData c;
+    public UserData a;
 
     public c35() {
         Interceptable interceptable = $ic;
@@ -30,30 +28,19 @@ public class c35 {
         }
     }
 
-    public void a(ErrorData errorData) {
+    public UserData a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, errorData) == null) && this.c == null) {
-            this.c = errorData;
-            for (FutureTask<Boolean> futureTask : this.a) {
-                futureTask.cancel(true);
-            }
-            for (b35 b35Var : this.b) {
-                b35Var.a();
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (UserData) invokeV.objValue;
     }
 
-    public void b(List<b35> list) {
+    public void b(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.b = list;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) || dataRes == null) {
+            return;
         }
-    }
-
-    public void c(List<FutureTask<Boolean>> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.a = list;
-        }
+        UserData userData = new UserData();
+        this.a = userData;
+        userData.parserProtobuf(dataRes.user);
     }
 }

@@ -67,7 +67,7 @@ public class TbCornersImageView extends AppCompatImageView {
         }
     }
 
-    public final void m() {
+    public final void f() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a) {
             return;
@@ -119,19 +119,19 @@ public class TbCornersImageView extends AppCompatImageView {
         }
     }
 
-    public final void n(boolean z) {
+    public final void g(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             if (z) {
                 this.g = 0;
             }
-            m();
-            u();
+            f();
+            q();
             invalidate();
         }
     }
 
-    public final void o() {
+    public final void k() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a) {
             return;
@@ -139,10 +139,50 @@ public class TbCornersImageView extends AppCompatImageView {
         this.e = 0;
     }
 
+    public final void m(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
+            if (this.a) {
+                int i = this.c;
+                if (i > 0) {
+                    n(canvas, i, this.d, this.o - (i / 2.0f));
+                }
+                int i2 = this.e;
+                if (i2 > 0) {
+                    n(canvas, i2, this.f, (this.o - this.c) - (i2 / 2.0f));
+                    return;
+                }
+                return;
+            }
+            int i3 = this.c;
+            if (i3 > 0) {
+                o(canvas, i3, this.d, this.s, this.p);
+            }
+        }
+    }
+
+    public final void n(Canvas canvas, int i, int i2, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{canvas, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)}) == null) {
+            p(i, i2);
+            this.u.addCircle(this.m / 2.0f, this.n / 2.0f, f, Path.Direction.CCW);
+            canvas.drawPath(this.u, this.t);
+        }
+    }
+
+    public final void o(Canvas canvas, int i, int i2, RectF rectF, float[] fArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{canvas, Integer.valueOf(i), Integer.valueOf(i2), rectF, fArr}) == null) {
+            p(i, i2);
+            this.u.addRoundRect(rectF, fArr, Path.Direction.CCW);
+            canvas.drawPath(this.u, this.t);
+        }
+    }
+
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
             canvas.saveLayer(this.r, null, 31);
             if (!this.b) {
                 int i = this.m;
@@ -180,146 +220,25 @@ public class TbCornersImageView extends AppCompatImageView {
                 canvas.drawPath(this.u, this.t);
             }
             canvas.restore();
-            q(canvas);
+            m(canvas);
         }
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048580, this, i, i2, i3, i4) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048583, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
             this.m = i;
             this.n = i2;
-            u();
-            v();
+            q();
+            s();
         }
     }
 
-    public final void q(Canvas canvas) {
+    public final void p(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
-            if (this.a) {
-                int i = this.c;
-                if (i > 0) {
-                    r(canvas, i, this.d, this.o - (i / 2.0f));
-                }
-                int i2 = this.e;
-                if (i2 > 0) {
-                    r(canvas, i2, this.f, (this.o - this.c) - (i2 / 2.0f));
-                    return;
-                }
-                return;
-            }
-            int i3 = this.c;
-            if (i3 > 0) {
-                s(canvas, i3, this.d, this.s, this.p);
-            }
-        }
-    }
-
-    public final void r(Canvas canvas, int i, int i2, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{canvas, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)}) == null) {
-            t(i, i2);
-            this.u.addCircle(this.m / 2.0f, this.n / 2.0f, f, Path.Direction.CCW);
-            canvas.drawPath(this.u, this.t);
-        }
-    }
-
-    public final void s(Canvas canvas, int i, int i2, RectF rectF, float[] fArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{canvas, Integer.valueOf(i), Integer.valueOf(i2), rectF, fArr}) == null) {
-            t(i, i2);
-            this.u.addRoundRect(rectF, fArr, Path.Direction.CCW);
-            canvas.drawPath(this.u, this.t);
-        }
-    }
-
-    public void setBorderColor(@ColorInt int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.d = i;
-            invalidate();
-        }
-    }
-
-    public void setBorderWidth(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.c = i;
-            n(false);
-        }
-    }
-
-    public void setCornerBottomLeftRadius(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.j = i;
-            n(true);
-        }
-    }
-
-    public void setCornerBottomRightRadius(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.k = i;
-            n(true);
-        }
-    }
-
-    public void setCornerRadius(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.g = i;
-            n(false);
-        }
-    }
-
-    public void setCornerTopLeftRadius(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.h = i;
-            n(true);
-        }
-    }
-
-    public void setCornerTopRightRadius(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.i = i;
-            n(true);
-        }
-    }
-
-    public void setInnerBorderColor(@ColorInt int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.f = i;
-            invalidate();
-        }
-    }
-
-    public void setInnerBorderWidth(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.e = i;
-            o();
-            invalidate();
-        }
-    }
-
-    public void setMaskColor(@ColorInt int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            this.l = i;
-            invalidate();
-        }
-    }
-
-    public final void t(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048594, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) == null) {
             this.u.reset();
             this.t.setStrokeWidth(i);
             this.t.setColor(i2);
@@ -327,9 +246,9 @@ public class TbCornersImageView extends AppCompatImageView {
         }
     }
 
-    public final void u() {
+    public final void q() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || this.a) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.a) {
             return;
         }
         RectF rectF = this.s;
@@ -337,9 +256,9 @@ public class TbCornersImageView extends AppCompatImageView {
         rectF.set(i / 2.0f, i / 2.0f, this.m - (i / 2.0f), this.n - (i / 2.0f));
     }
 
-    public final void v() {
+    public final void s() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             if (this.a) {
                 float min = Math.min(this.m, this.n) / 2.0f;
                 this.o = min;
@@ -353,6 +272,87 @@ public class TbCornersImageView extends AppCompatImageView {
             if (this.b) {
                 this.r = this.s;
             }
+        }
+    }
+
+    public void setBorderColor(@ColorInt int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.d = i;
+            invalidate();
+        }
+    }
+
+    public void setBorderWidth(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.c = i;
+            g(false);
+        }
+    }
+
+    public void setCornerBottomLeftRadius(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.j = i;
+            g(true);
+        }
+    }
+
+    public void setCornerBottomRightRadius(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.k = i;
+            g(true);
+        }
+    }
+
+    public void setCornerRadius(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.g = i;
+            g(false);
+        }
+    }
+
+    public void setCornerTopLeftRadius(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.h = i;
+            g(true);
+        }
+    }
+
+    public void setCornerTopRightRadius(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.i = i;
+            g(true);
+        }
+    }
+
+    public void setInnerBorderColor(@ColorInt int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.f = i;
+            invalidate();
+        }
+    }
+
+    public void setInnerBorderWidth(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.e = i;
+            k();
+            invalidate();
+        }
+    }
+
+    public void setMaskColor(@ColorInt int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.l = i;
+            invalidate();
         }
     }
 
@@ -434,7 +434,7 @@ public class TbCornersImageView extends AppCompatImageView {
         this.r = new RectF();
         this.t = new Paint();
         this.u = new Path();
-        m();
-        o();
+        f();
+        k();
     }
 }

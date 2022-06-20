@@ -1,74 +1,176 @@
 package com.repackage;
 
-import androidx.annotation.Nullable;
-import com.baidu.swan.pms.node.Node;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class sa4 {
+public class sa4 extends wa4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String d;
+    public long e;
+    public String f;
+    public long g;
+    public String h;
+    public String i;
+    public long j;
+    public long k;
+    public long l;
 
-    public static JSONObject a(@Nullable pa4<JSONArray> pa4Var, @Nullable pa4<JSONObject> pa4Var2) {
-        InterceptResult invokeLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sa4(String str, int i) {
+        super(i);
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, pa4Var, pa4Var2)) == null) ? b(Node.values(), pa4Var, pa4Var2) : (JSONObject) invokeLL.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.e = -1L;
+        this.g = -1L;
+        this.j = -1L;
+        this.k = 0L;
+        this.d = str;
     }
 
-    public static JSONObject b(Node[] nodeArr, @Nullable pa4<JSONArray> pa4Var, @Nullable pa4<JSONObject> pa4Var2) {
-        InterceptResult invokeLLL;
-        ra4 provider;
+    public long f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, nodeArr, pa4Var, pa4Var2)) == null) {
-            if (nodeArr == null) {
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                for (Node node : nodeArr) {
-                    if (node != null && (provider = Node.getProvider(node)) != null) {
-                        if (node.isDataArray()) {
-                            jSONObject.put(node.getName(), provider.b(pa4Var));
-                        } else {
-                            jSONObject.put(node.getName(), provider.a(pa4Var2));
-                        }
-                    }
-                }
-                return jSONObject;
-            } catch (JSONException unused) {
-                return null;
-            }
-        }
-        return (JSONObject) invokeLLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : invokeV.longValue;
     }
 
-    public static void c(JSONObject jSONObject, a74 a74Var, @Nullable a74 a74Var2, @Nullable a74 a74Var3) {
-        o64 b;
-        qa4 a;
+    public String g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65538, null, jSONObject, a74Var, a74Var2, a74Var3) == null) || jSONObject == null) {
-            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    public long h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.l : invokeV.longValue;
+    }
+
+    public long i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.j : invokeV.longValue;
+    }
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.h : (String) invokeV.objValue;
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : (String) invokeV.objValue;
+    }
+
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.i : (String) invokeV.objValue;
+    }
+
+    public long m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.e : invokeV.longValue;
+    }
+
+    public long n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.k : invokeV.longValue;
+    }
+
+    public sa4 o(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
+            this.g = j;
+            return this;
         }
-        Iterator<String> keys = jSONObject.keys();
-        while (keys.hasNext()) {
-            String next = keys.next();
-            Node nodeByConfigName = Node.getNodeByConfigName(next);
-            if (nodeByConfigName != null && (a = ta4.a(nodeByConfigName)) != null) {
-                if (nodeByConfigName.isDataArray()) {
-                    a.a(jSONObject.optJSONArray(next), a74Var, a74Var2, a74Var3);
-                } else {
-                    a.b(jSONObject.optJSONObject(next), a74Var, a74Var2, a74Var3);
-                }
-            }
+        return (sa4) invokeJ.objValue;
+    }
+
+    public void p(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            this.l = j;
         }
-        if (!lb4.a || (b = q64.b()) == null) {
-            return;
+    }
+
+    public sa4 q(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
+            this.j = j;
+            return this;
         }
-        b.C();
+        return (sa4) invokeJ.objValue;
+    }
+
+    public sa4 r(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            this.h = str;
+            return this;
+        }
+        return (sa4) invokeL.objValue;
+    }
+
+    public sa4 s(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            this.f = str;
+            return this;
+        }
+        return (sa4) invokeL.objValue;
+    }
+
+    public sa4 t(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+            this.i = str;
+            return this;
+        }
+        return (sa4) invokeL.objValue;
+    }
+
+    public sa4 u(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048591, this, j)) == null) {
+            this.e = j;
+            return this;
+        }
+        return (sa4) invokeJ.objValue;
+    }
+
+    public void v(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
+            this.k = j;
+        }
     }
 }

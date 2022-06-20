@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dc5;
+import com.repackage.qc5;
 import tbclient.GetBawuInfo.DataReq;
 import tbclient.GetBawuInfo.GetBawuInfoReqIdl;
 /* loaded from: classes3.dex */
@@ -47,7 +47,7 @@ public class BawuTeamRequestMessage extends NetMessage {
             GetBawuInfoReqIdl.Builder builder2 = new GetBawuInfoReqIdl.Builder();
             builder2.data = builder.build(false);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                dc5.a(builder, true);
+                qc5.a(builder, true);
             }
             return builder2.build(false);
         }

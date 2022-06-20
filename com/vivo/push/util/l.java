@@ -5,10 +5,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.push.c.r;
+import com.vivo.push.d.r;
 import com.vivo.push.model.InsideNotificationItem;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class l implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public final class l implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             insideNotificationItem = this.b.b;
             if (insideNotificationItem != null) {
-                x b = x.b();
+                w b = w.b();
                 j = this.b.c;
                 b.a("com.vivo.push.notify_key", j);
                 context = this.b.a;

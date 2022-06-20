@@ -24,6 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -31,10 +32,10 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: D */
-    public static final int obfuscated = 2131304046;
+    public static final int obfuscated = 2131304035;
 
     /* renamed from: E */
-    public static final int obfuscated = 2131304047;
+    public static final int obfuscated = 2131304036;
     public transient /* synthetic */ FieldHolder $fh;
     public d A;
     public e B;
@@ -91,7 +92,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
                     return;
                 }
             }
-            NONE = new SelectType("NONE", 0, 1);
+            NONE = new SelectType(HlsPlaylistParser.METHOD_NONE, 0, 1);
             SINGLE = new SelectType("SINGLE", 1, 2);
             SINGLE_IRREVOCABLY = new SelectType("SINGLE_IRREVOCABLY", 2, 3);
             SelectType selectType = new SelectType("MULTI", 3, 4);
@@ -336,7 +337,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
                 this.d = new ColorDrawable(obtainStyledAttributes.getColor(2, 0));
             }
         } else {
-            this.d = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080269);
+            this.d = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080268);
         }
         this.s = obtainStyledAttributes.getBoolean(19, false);
         this.t = obtainStyledAttributes.getBoolean(1, false);

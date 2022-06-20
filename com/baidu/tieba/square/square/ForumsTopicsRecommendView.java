@@ -14,13 +14,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
-import com.repackage.t25;
-import com.repackage.um;
+import com.repackage.i35;
+import com.repackage.pi;
+import com.repackage.ym;
 import java.util.ArrayList;
 import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
-/* loaded from: classes3.dex */
-public class ForumsTopicsRecommendView extends ViewGroup implements t25 {
+/* loaded from: classes4.dex */
+public class ForumsTopicsRecommendView extends ViewGroup implements i35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
@@ -55,10 +55,10 @@ public class ForumsTopicsRecommendView extends ViewGroup implements t25 {
         }
     }
 
-    @Override // com.repackage.t25
-    public void a(um umVar, String str, boolean z) {
+    @Override // com.repackage.i35
+    public void a(ym ymVar, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048576, this, umVar, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(1048576, this, ymVar, str, z) == null) {
             b(str);
         }
     }
@@ -139,15 +139,15 @@ public class ForumsTopicsRecommendView extends ViewGroup implements t25 {
         this.i = 0;
         this.j = null;
         this.a = context;
-        this.d = li.k(context);
+        this.d = pi.k(context);
         this.b = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5);
         this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701b2);
         this.e = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07027c);
-        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ca, (ViewGroup) this, true);
-        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090a79));
-        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090a7a));
-        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090a7b));
-        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090a7c));
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02c8, (ViewGroup) this, true);
+        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090a68));
+        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090a69));
+        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090a6a));
+        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090a6b));
         int i3 = this.d;
         int i4 = this.b;
         this.g = ((i3 - (i4 * 2)) - this.c) / 2;

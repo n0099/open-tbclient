@@ -1,15 +1,19 @@
 package com.repackage;
 
+import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.request.HttpRequest;
+import com.baidu.searchbox.http.request.HttpRequestBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.util.Map;
+import okhttp3.HttpUrl;
 /* loaded from: classes7.dex */
-public class yh1 implements gk1 {
+public class yh1 extends oj2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,69 +31,185 @@ public class yh1 implements gk1 {
         }
     }
 
-    @Override // com.repackage.gk1
-    public File a() {
+    @Override // com.repackage.ck1
+    public String B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ow1.v(String.format("%s/api/subscribe/v1/relation/get", mw1.c())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ck1
+    public String C() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return null;
         }
-        return (File) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.ys2
-    public void b(int i) {
+    @Override // com.repackage.ck1
+    public String D() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? String.format("%s/ma/tips", Q()) : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.ys2
-    public void c() {
+    @Override // com.repackage.ck1
+    public long E() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 0L;
         }
+        return invokeV.longValue;
     }
 
-    @Override // com.repackage.gk1
-    public void e(String str, String str2) {
+    @Override // com.repackage.ck1
+    public HttpRequest F(Context context, Map<String, String> map) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-        }
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, map)) == null) ? P("ma/accredit_v1", map) : (HttpRequest) invokeLL.objValue;
     }
 
-    @Override // com.repackage.gk1
-    public void e(String str, String str2, Throwable th) {
+    @Override // com.repackage.ck1
+    public String L() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, th) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ow1.w(String.format("%s/ma/grs/brand/applist", Q()), true) : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.gk1
-    public void flush(boolean z) {
+    @Override // com.repackage.ck1
+    public HttpRequest M(Context context, Map<String, String> map) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-        }
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, context, map)) == null) ? P("ma/user/openid", map) : (HttpRequest) invokeLL.objValue;
     }
 
-    @Override // com.repackage.gk1
-    public void i(String str, String str2) {
+    @Override // com.repackage.ck1
+    public String O() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? String.format("%s/ma/ai", Q()) : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.gk1
-    public void w(String str, String str2) {
+    public final HttpRequest P(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, map)) == null) {
+            HttpUrl parse = HttpUrl.parse(Q());
+            if (parse == null) {
+                return null;
+            }
+            HttpUrl.Builder addPathSegments = parse.newBuilder().addPathSegments(str);
+            for (Map.Entry<String, String> entry : nw1.b().d.entrySet()) {
+                addPathSegments.addQueryParameter(entry.getKey(), entry.getValue());
+            }
+            HttpUrl build = addPathSegments.build();
+            t64 t64Var = new t64();
+            t64Var.b = "POST";
+            t64Var.a = ow1.w(build.toString(), true);
+            t64Var.d = q43.b(map);
+            t64Var.f = true;
+            t64Var.g = true;
+            t64Var.h = false;
+            HttpRequestBuilder a = v64.a(t64Var);
+            u64.g().u(a, t64Var);
+            return a.build();
         }
+        return (HttpRequest) invokeLL.objValue;
     }
 
-    @Override // com.repackage.gk1
-    public void w(String str, String str2, Throwable th) {
+    public final String Q() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, th) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? ow1.a : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ck1
+    public HttpRequest a(Context context, Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, context, map)) == null) ? P("ma/user/checksessionkey", map) : (HttpRequest) invokeLL.objValue;
+    }
+
+    @Override // com.repackage.ck1
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? ow1.w(String.format("%s/ma/update", Q()), true) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ck1
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? ow1.v(String.format("%s/ma/history/sync", Q())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ck1
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? String.format("%s/ma/component/comment/bos_auth", "https://ossapi.baidu.com") : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ck1
+    public HttpRequest g(Context context, Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, context, map)) == null) ? P("ma/user/swanid", map) : (HttpRequest) invokeLL.objValue;
+    }
+
+    @Override // com.repackage.ck1
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? zi2.n().a() : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ck1
+    public boolean isDebug() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return false;
         }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.ck1
+    public HttpRequest o(Context context, Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, context, map)) == null) ? P("ma/accredit_data", map) : (HttpRequest) invokeLL.objValue;
+    }
+
+    @Override // com.repackage.ck1
+    public String p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? ow1.v(String.format("%s/ma/history/list", Q())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ck1
+    public HttpRequest s(Context context, Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, context, map)) == null) ? P("ma/login", map) : (HttpRequest) invokeLL.objValue;
+    }
+
+    @Override // com.repackage.ck1
+    public HttpRequest u(Context context, Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, context, map)) == null) ? P("ma/open/data", map) : (HttpRequest) invokeLL.objValue;
+    }
+
+    @Override // com.repackage.ck1
+    public String v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? ow1.v(String.format("%s/ma/reset", Q())) : (String) invokeV.objValue;
     }
 }

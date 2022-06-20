@@ -1,95 +1,59 @@
 package com.xiaomi.push;
 
-import android.annotation.TargetApi;
-import android.app.job.JobInfo;
-import android.app.job.JobScheduler;
-import android.content.ComponentName;
-import android.content.Context;
-import android.os.SystemClock;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Pair;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.er;
-import com.xiaomi.push.service.XMJobService;
-@TargetApi(21)
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.util.Vector;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes8.dex */
-public class et implements er.a {
+public class et {
     public static /* synthetic */ Interceptable $ic;
+    public static Vector<Pair<String, Long>> a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public static ConcurrentHashMap<String, Long> f318a;
     public transient /* synthetic */ FieldHolder $fh;
-    public JobScheduler a;
 
-    /* renamed from: a  reason: collision with other field name */
-    public Context f318a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public boolean f319a;
-
-    public et(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-56375439, "Lcom/xiaomi/push/et;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-56375439, "Lcom/xiaomi/push/et;");
                 return;
             }
         }
-        this.f319a = false;
-        this.f318a = context;
-        this.a = (JobScheduler) context.getSystemService("jobscheduler");
+        a = new Vector<>();
+        f318a = new ConcurrentHashMap<>();
     }
 
-    @Override // com.xiaomi.push.er.a
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f319a = false;
-            this.a.cancel(1);
-        }
-    }
-
-    public void a(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            JobInfo.Builder builder = new JobInfo.Builder(1, new ComponentName(this.f318a.getPackageName(), XMJobService.class.getName()));
-            builder.setMinimumLatency(j);
-            builder.setOverrideDeadline(j);
-            builder.setRequiredNetworkType(1);
-            builder.setPersisted(false);
-            JobInfo build = builder.build();
-            com.xiaomi.channel.commonutils.logger.b.c("schedule Job = " + build.getId() + " in " + j);
-            this.a.schedule(builder.build());
-        }
-    }
-
-    @Override // com.xiaomi.push.er.a
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            if (z || this.f319a) {
-                long b = fr.b();
-                if (z) {
-                    a();
-                    b -= SystemClock.elapsedRealtime() % b;
-                }
-                this.f319a = true;
-                a(b);
-            }
-        }
-    }
-
-    @Override // com.xiaomi.push.er.a
-    public boolean a() {
+    public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f319a : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            synchronized (a) {
+                for (int i = 0; i < a.size(); i++) {
+                    Pair<String, Long> elementAt = a.elementAt(i);
+                    sb.append((String) elementAt.first);
+                    sb.append(":");
+                    sb.append(elementAt.second);
+                    if (i < a.size() - 1) {
+                        sb.append(ParamableElem.DIVIDE_PARAM);
+                    }
+                }
+                a.clear();
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

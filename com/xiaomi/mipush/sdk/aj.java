@@ -1,33 +1,71 @@
 package com.xiaomi.mipush.sdk;
 
-import android.content.Context;
-import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.xiaomi.mipush.sdk.l;
-import com.xiaomi.push.bh;
+import com.xiaomi.push.hj;
 /* loaded from: classes8.dex */
-public class aj {
+public /* synthetic */ class aj {
     public static /* synthetic */ Interceptable $ic;
+    public static final /* synthetic */ int[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static AbstractPushManager a(Context context, e eVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, eVar)) == null) ? b(context, eVar) : (AbstractPushManager) invokeLL.objValue;
-    }
-
-    public static AbstractPushManager b(Context context, e eVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, eVar)) == null) {
-            l.a m172a = l.m172a(eVar);
-            if (m172a == null || TextUtils.isEmpty(m172a.a) || TextUtils.isEmpty(m172a.b)) {
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1871206786, "Lcom/xiaomi/mipush/sdk/aj;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return (AbstractPushManager) bh.a(m172a.a, m172a.b, context);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1871206786, "Lcom/xiaomi/mipush/sdk/aj;");
+                return;
+            }
         }
-        return (AbstractPushManager) invokeLL.objValue;
+        int[] iArr = new int[hj.values().length];
+        a = iArr;
+        try {
+            iArr[hj.a.ordinal()] = 1;
+        } catch (NoSuchFieldError unused) {
+        }
+        try {
+            a[hj.b.ordinal()] = 2;
+        } catch (NoSuchFieldError unused2) {
+        }
+        try {
+            a[hj.c.ordinal()] = 3;
+        } catch (NoSuchFieldError unused3) {
+        }
+        try {
+            a[hj.d.ordinal()] = 4;
+        } catch (NoSuchFieldError unused4) {
+        }
+        try {
+            a[hj.e.ordinal()] = 5;
+        } catch (NoSuchFieldError unused5) {
+        }
+        try {
+            a[hj.f.ordinal()] = 6;
+        } catch (NoSuchFieldError unused6) {
+        }
+        try {
+            a[hj.g.ordinal()] = 7;
+        } catch (NoSuchFieldError unused7) {
+        }
+        try {
+            a[hj.h.ordinal()] = 8;
+        } catch (NoSuchFieldError unused8) {
+        }
+        try {
+            a[hj.i.ordinal()] = 9;
+        } catch (NoSuchFieldError unused9) {
+        }
+        try {
+            a[hj.j.ordinal()] = 10;
+        } catch (NoSuchFieldError unused10) {
+        }
     }
 }

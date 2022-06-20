@@ -16,23 +16,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eg;
-import com.repackage.fg;
-import com.repackage.um;
-/* loaded from: classes3.dex */
+import com.repackage.ig;
+import com.repackage.jg;
+import com.repackage.ym;
+/* loaded from: classes4.dex */
 public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String mAdPic;
-    public String mAdUrl;
-    public TbImageView mAdvertPic;
-    public ImageView mCloseBtn;
-    public boolean mHasPrivilege;
-    public ImageView mIcon;
-    public NavigationBar mNavigationBar;
+    public String a;
+    public String b;
+    public ImageView c;
+    public TbImageView d;
+    public ImageView e;
+    public NavigationBar f;
 
-    /* loaded from: classes3.dex */
-    public class a extends eg<um> {
+    /* loaded from: classes4.dex */
+    public class a extends ig<ym> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SignAllForumAdvertActivity a;
@@ -56,19 +55,19 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.eg
-        public void onLoaded(um umVar, String str, int i) {
+        @Override // com.repackage.ig
+        public void onLoaded(ym ymVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, umVar, str, i) == null) {
-                super.onLoaded((a) umVar, str, i);
-                if (umVar == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, ymVar, str, i) == null) {
+                super.onLoaded((a) ymVar, str, i);
+                if (ymVar == null) {
                     this.a.finish();
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -96,12 +95,12 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{this.a.mAdUrl});
+                UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{this.a.b});
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -148,35 +147,35 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         }
     }
 
-    private void addStats() {
+    public final void B1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             TiebaStatic.log("c10746");
         }
     }
 
-    private void initUI() {
+    public final void C1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d075d);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923a2);
-            this.mNavigationBar = navigationBar;
-            navigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f119c));
-            this.mIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cff);
-            this.mAdvertPic = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091cfa);
-            this.mCloseBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cf9);
-            this.mAdvertPic.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081233);
-            fg.h().m(this.mAdPic, 10, new a(this), null);
-            this.mAdvertPic.K(this.mAdPic, 10, false);
-            this.mAdvertPic.setOnClickListener(new b(this));
-            this.mCloseBtn.setOnClickListener(new c(this));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            setContentView(R.layout.obfuscated_res_0x7f0d075c);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09238f);
+            this.f = navigationBar;
+            navigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f11a7));
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cf6);
+            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091cf1);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cf0);
+            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081224);
+            jg.h().m(this.a, 10, new a(this), null);
+            this.d.J(this.a, 10, false);
+            this.d.setOnClickListener(new b(this));
+            this.e.setOnClickListener(new c(this));
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void closeAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             clearAnimatable();
             clearAnimation();
             overridePendingTransition(0, 0);
@@ -186,7 +185,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
     @Override // com.baidu.tbadk.BaseActivity
     public void enterExitAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             clearAnimatable();
             clearAnimation();
             overridePendingTransition(0, 0);
@@ -196,16 +195,16 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             super.setActivityBgTransparent();
             super.setSwipeBackEnabled(false);
             Intent intent = getIntent();
-            this.mAdPic = intent.getStringExtra("ad_pic");
-            this.mAdUrl = intent.getStringExtra(SignAllForumAdvertActivityConfig.AD_URL);
-            this.mHasPrivilege = intent.getBooleanExtra(SignAllForumAdvertActivityConfig.HAS_PRIVILEGE, false);
-            initUI();
-            addStats();
+            this.a = intent.getStringExtra("ad_pic");
+            this.b = intent.getStringExtra(SignAllForumAdvertActivityConfig.AD_URL);
+            intent.getBooleanExtra(SignAllForumAdvertActivityConfig.HAS_PRIVILEGE, false);
+            C1();
+            B1();
         }
     }
 }

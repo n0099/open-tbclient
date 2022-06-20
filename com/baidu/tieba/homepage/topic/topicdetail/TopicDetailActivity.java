@@ -26,14 +26,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dz6;
-import com.repackage.fi4;
-import com.repackage.hz6;
-import com.repackage.jg;
-import com.repackage.ji;
-import com.repackage.jn;
-import com.repackage.ki;
-import com.repackage.x8;
+import com.repackage.m07;
+import com.repackage.ng;
+import com.repackage.ni;
+import com.repackage.nn;
+import com.repackage.oi;
+import com.repackage.pi4;
+import com.repackage.q07;
+import com.repackage.z8;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -43,17 +43,15 @@ import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements dz6 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String SCHEME_TOPIC_DETAIL = "tbtopicdetail://";
-    public static final String TOPIC_ID_PREFFIX = "topic_id=";
+public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements m07 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long mCurPageNum;
-    public boolean mIsFromSchema;
-    public long mLastThreadId;
-    public TopicDetailModel mTopicDetailModel;
-    public TopicDetailView mTopicDetailView;
-    public long topicID;
+    public TopicDetailModel a;
+    public TopicDetailView b;
+    public long c;
+    public long d;
+    public long e;
+    public boolean f;
 
     /* loaded from: classes3.dex */
     public class a implements BdUniDispatchSchemeController.b {
@@ -87,7 +85,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                 if (StringUtils.isNull(str)) {
                     return;
                 }
-                this.a.topicID = jg.g(str, -1L);
+                this.a.e = ng.g(str, -1L);
             }
         }
     }
@@ -105,20 +103,20 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                 return;
             }
         }
-        this.mCurPageNum = 1L;
-        this.mIsFromSchema = false;
+        this.c = 1L;
+        this.f = false;
     }
 
-    private void logBySchemeCall(String str) {
+    public final void B1(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             if (str.startsWith("//")) {
                 str = str.substring(2);
             }
             Map<String, String> paramPair = UrlManager.getParamPair(str);
             if (paramPair != null) {
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE);
-                fi4.b(statisticItem, paramPair);
+                pi4.b(statisticItem, paramPair);
                 statisticItem.param("obj_locate", paramPair.get("obj_locate"));
                 statisticItem.param("obj_type", 1);
                 statisticItem.param("tid", paramPair.get("tid"));
@@ -128,7 +126,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                 statisticItem.param("obj_id", paramPair.get(TiebaStatic.Params.BDID));
                 statisticItem.param("obj_name", TbadkCoreApplication.getInst().getStartType());
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, 1);
-                if (!ki.isEmpty(paramPair.get("ext_log"))) {
+                if (!oi.isEmpty(paramPair.get("ext_log"))) {
                     try {
                         JSONObject jSONObject = new JSONObject(paramPair.get("ext_log"));
                         Iterator<String> keys = jSONObject.keys();
@@ -145,38 +143,26 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity
-    public void enterExitAnimation() {
+    public void C1(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.mIsFromSchema) {
-                ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
-            } else {
-                super.enterExitAnimation();
-            }
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            long j2 = this.c + 1;
+            this.c = j2;
+            this.d = j;
+            this.a.F(this.e, j2, j);
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void finish() {
+    @Override // com.repackage.m07
+    public void N0(int i, boolean z, List<nn> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.mIsFromSchema) {
-                sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(2)));
-            }
-            super.finish();
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), list}) == null) {
+            this.b.setNextData(i, z, list);
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.repackage.f75
-    public String getCurrentPageKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "a024" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.dz6
-    public void loadData() {
+    @Override // com.repackage.m07
+    public void a() {
         int i;
         String substring;
         Interceptable interceptable = $ic;
@@ -186,7 +172,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                 finish();
                 return;
             }
-            this.topicID = -1L;
+            this.e = -1L;
             if (intent.getParcelableExtra(IntentConfig.KEY_URI) != null) {
                 Uri uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI);
                 String uri2 = uri.toString();
@@ -197,7 +183,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                     if (StringUtils.isNull(decode)) {
                         return;
                     }
-                    logBySchemeCall(decode);
+                    B1(decode);
                     Matcher matcher = Pattern.compile(".*fr=(.*)&topic_id=([\\d]+).*").matcher(decode);
                     if (matcher.find()) {
                         substring = matcher.group(2);
@@ -209,125 +195,137 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                         substring = decode.substring(i);
                     }
                     if (!StringUtils.isNull(substring)) {
-                        this.topicID = jg.g(substring, -1L);
+                        this.e = ng.g(substring, -1L);
                     }
                 }
             } else {
-                this.topicID = intent.getLongExtra("topic_id", -1L);
+                this.e = intent.getLongExtra("topic_id", -1L);
             }
-            if (this.topicID < 0) {
+            if (this.e < 0) {
                 finish();
-            } else if (!ji.A()) {
-                this.mTopicDetailView.s();
-                this.mTopicDetailView.C(true);
+            } else if (!ni.A()) {
+                this.b.r();
+                this.b.B(true);
             } else {
-                this.mTopicDetailView.t();
-                this.mTopicDetailView.B(false);
-                TopicDetailView topicDetailView = this.mTopicDetailView;
+                this.b.s();
+                this.b.A(false);
+                TopicDetailView topicDetailView = this.b;
                 if (topicDetailView != null && topicDetailView.getEditor() != null) {
-                    this.mTopicDetailView.getEditor().I(this.topicID);
+                    this.b.getEditor().I(this.e);
                 }
-                this.mTopicDetailModel.D(this.topicID);
+                this.a.E(this.e);
             }
         }
     }
 
-    @Override // com.repackage.dz6
-    public void netCallback(int i, hz6 hz6Var) {
+    @Override // com.baidu.tbadk.BaseActivity
+    public void enterExitAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, hz6Var) == null) {
-            this.mTopicDetailView.s();
-            if (i == 0 && hz6Var != null && !ListUtils.isEmpty(hz6Var.f)) {
-                this.mTopicDetailView.t();
-                this.mTopicDetailView.setData(hz6Var);
-                return;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.f) {
+                ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
+            } else {
+                super.enterExitAnimation();
             }
-            this.mTopicDetailView.C(true);
         }
     }
 
-    @Override // com.repackage.dz6
-    public void netThreadCallback(int i, boolean z, List<jn> list) {
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    public void finish() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), list}) == null) {
-            this.mTopicDetailView.setNextData(i, z, list);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (this.f) {
+                sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(2)));
+            }
+            super.finish();
         }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.repackage.t75
+    public String getCurrentPageKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "a024" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048582, this, i, i2, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048583, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
-            TopicDetailView topicDetailView = this.mTopicDetailView;
+            TopicDetailView topicDetailView = this.b;
             if (topicDetailView == null || topicDetailView.getEditor() == null) {
                 return;
             }
-            this.mTopicDetailView.getEditor().v(i, i2, intent);
+            this.b.getEditor().v(i, i2, intent);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             super.onChangeSkinType(i);
-            this.mTopicDetailView.y();
+            this.b.x();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
             super.onCreate(bundle);
-            this.mTopicDetailModel = new TopicDetailModel(getPageContext());
+            this.a = new TopicDetailModel(getPageContext());
             TopicDetailView topicDetailView = new TopicDetailView(getPageContext(), this, bundle);
-            this.mTopicDetailView = topicDetailView;
+            this.b = topicDetailView;
             setContentView(topicDetailView);
             addGlobalLayoutListener();
             adjustResizeForSoftInput();
-            this.mTopicDetailModel.F(this);
-            loadData();
-            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !x8.g().i("MainTabActivity")) {
-                this.mIsFromSchema = true;
+            this.a.G(this);
+            a();
+            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !z8.g().i("MainTabActivity")) {
+                this.f = true;
             }
-            if (this.mIsFromSchema) {
+            if (this.f) {
                 setIsAddSwipeBackLayout(false);
             }
-            this.mTopicDetailView.getEditor().m();
+            this.b.getEditor().m();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onPause();
-            TopicDetailView topicDetailView = this.mTopicDetailView;
+            TopicDetailView topicDetailView = this.b;
             if (topicDetailView == null || topicDetailView.getEditor() == null) {
                 return;
             }
-            this.mTopicDetailView.getEditor().y();
+            this.b.getEditor().y();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onResume();
-            TiebaStatic.log(new StatisticItem("c13350").param("topic_id", this.topicID));
+            TiebaStatic.log(new StatisticItem("c13350").param("topic_id", this.e));
         }
     }
 
-    public void requestNextPageThreadData(long j) {
+    @Override // com.repackage.m07
+    public void u(int i, q07 q07Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            long j2 = this.mCurPageNum + 1;
-            this.mCurPageNum = j2;
-            this.mLastThreadId = j;
-            this.mTopicDetailModel.E(this.topicID, j2, j);
+        if (interceptable == null || interceptable.invokeIL(1048588, this, i, q07Var) == null) {
+            this.b.r();
+            if (i == 0 && q07Var != null && !ListUtils.isEmpty(q07Var.f)) {
+                this.b.s();
+                this.b.setData(q07Var);
+                return;
+            }
+            this.b.B(true);
         }
     }
 }

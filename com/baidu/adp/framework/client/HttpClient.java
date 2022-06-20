@@ -18,17 +18,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.db;
-import com.repackage.gh;
-import com.repackage.lf;
+import com.repackage.gb;
+import com.repackage.kh;
 import com.repackage.of;
-import com.repackage.r9;
+import com.repackage.rf;
+import com.repackage.u9;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class HttpClient extends r9<HttpMessage, HttpMessageTask> {
+public class HttpClient extends u9<HttpMessage, HttpMessageTask> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -74,8 +74,8 @@ public class HttpClient extends r9<HttpMessage, HttpMessageTask> {
         public transient /* synthetic */ FieldHolder $fh;
         public HttpMessage a;
         public HttpMessageTask b;
-        public final of c;
-        public volatile lf d;
+        public final rf c;
+        public volatile of d;
 
         public a(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
             Interceptable interceptable = $ic;
@@ -104,7 +104,7 @@ public class HttpClient extends r9<HttpMessage, HttpMessageTask> {
             setKey(String.valueOf(httpMessageTask.getCmd()));
             this.a = httpMessage;
             this.b = httpMessageTask;
-            this.c = new of();
+            this.c = new rf();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -145,7 +145,7 @@ public class HttpClient extends r9<HttpMessage, HttpMessageTask> {
                 int a2 = this.b.getConnectTimeOut().a();
                 int retry = this.b.getRetry();
                 try {
-                    this.d = new lf(this.c);
+                    this.d = new of(this.c);
                     if (this.b.getMethod() == HttpMessageTask.HTTP_METHOD.GET) {
                         this.d.d(retry, a, a2);
                     } else if (this.b.getMethod() == HttpMessageTask.HTTP_METHOD.POST) {
@@ -191,8 +191,8 @@ public class HttpClient extends r9<HttpMessage, HttpMessageTask> {
                             }
                             String url = this.b.getUrl();
                             boolean isSuccess = newInstance.isSuccess();
-                            db dbVar = newInstance.performanceData;
-                            gh.a(str, cmd, url, isSuccess, true, j2, j11, dbVar.g, j3, j4, dbVar.i);
+                            gb gbVar = newInstance.performanceData;
+                            kh.a(str, cmd, url, isSuccess, true, j2, j11, gbVar.g, j3, j4, gbVar.i);
                             newInstance.logStatInBackground(this.a.getCmd(), this.c);
                             newInstance.setStartTime(System.currentTimeMillis());
                             publishProgress(newInstance);
@@ -203,7 +203,7 @@ public class HttpClient extends r9<HttpMessage, HttpMessageTask> {
                                 BdLog.detailException("responsedMessage create error reason = " + e3.toString(), e3);
                             }
                             ErrorHttpResponsedMessage errorHttpResponsedMessage = new ErrorHttpResponsedMessage(this.a.getCmd(), this.a);
-                            gh.a(str, cmd, this.b.getUrl(), false, true, j8, 0L, 0L, 0L, 0L, 0);
+                            kh.a(str, cmd, this.b.getUrl(), false, true, j8, 0L, 0L, 0L, 0L, 0);
                             return errorHttpResponsedMessage;
                         }
                     }
@@ -257,14 +257,14 @@ public class HttpClient extends r9<HttpMessage, HttpMessageTask> {
                             j2 = j8;
                             j4 = j;
                             newInstance.setError(-1003);
-                            newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f05ac));
+                            newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f05a0));
                             BdLog.detailException(e);
                             if (this.a.getExtra() instanceof NetMessage) {
                             }
                             String url2 = this.b.getUrl();
                             boolean isSuccess2 = newInstance.isSuccess();
-                            db dbVar2 = newInstance.performanceData;
-                            gh.a(str, cmd, url2, isSuccess2, true, j2, j11, dbVar2.g, j3, j4, dbVar2.i);
+                            gb gbVar2 = newInstance.performanceData;
+                            kh.a(str, cmd, url2, isSuccess2, true, j2, j11, gbVar2.g, j3, j4, gbVar2.i);
                             newInstance.logStatInBackground(this.a.getCmd(), this.c);
                             newInstance.setStartTime(System.currentTimeMillis());
                             publishProgress(newInstance);
@@ -284,14 +284,14 @@ public class HttpClient extends r9<HttpMessage, HttpMessageTask> {
                     } catch (Exception e8) {
                         e = e8;
                         newInstance.setError(-1003);
-                        newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f05ac));
+                        newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f05a0));
                         BdLog.detailException(e);
                         if (this.a.getExtra() instanceof NetMessage) {
                         }
                         String url22 = this.b.getUrl();
                         boolean isSuccess22 = newInstance.isSuccess();
-                        db dbVar22 = newInstance.performanceData;
-                        gh.a(str, cmd, url22, isSuccess22, true, j2, j11, dbVar22.g, j3, j4, dbVar22.i);
+                        gb gbVar22 = newInstance.performanceData;
+                        kh.a(str, cmd, url22, isSuccess22, true, j2, j11, gbVar22.g, j3, j4, gbVar22.i);
                         newInstance.logStatInBackground(this.a.getCmd(), this.c);
                         newInstance.setStartTime(System.currentTimeMillis());
                         publishProgress(newInstance);
@@ -306,8 +306,8 @@ public class HttpClient extends r9<HttpMessage, HttpMessageTask> {
                 }
                 String url222 = this.b.getUrl();
                 boolean isSuccess222 = newInstance.isSuccess();
-                db dbVar222 = newInstance.performanceData;
-                gh.a(str, cmd, url222, isSuccess222, true, j2, j11, dbVar222.g, j3, j4, dbVar222.i);
+                gb gbVar222 = newInstance.performanceData;
+                kh.a(str, cmd, url222, isSuccess222, true, j2, j11, gbVar222.g, j3, j4, gbVar222.i);
                 newInstance.logStatInBackground(this.a.getCmd(), this.c);
                 newInstance.setStartTime(System.currentTimeMillis());
                 publishProgress(newInstance);
@@ -374,14 +374,14 @@ public class HttpClient extends r9<HttpMessage, HttpMessageTask> {
         }
     }
 
-    @Override // com.repackage.o9
+    @Override // com.repackage.r9
     public LinkedList<HttpMessage> e(int i, BdUniqueId bdUniqueId) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bdUniqueId)) == null) ? i(String.valueOf(i), bdUniqueId) : (LinkedList) invokeIL.objValue;
     }
 
-    @Override // com.repackage.o9
+    @Override // com.repackage.r9
     public void h(int i, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bdUniqueId) == null) {
@@ -415,7 +415,7 @@ public class HttpClient extends r9<HttpMessage, HttpMessageTask> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.o9
+    @Override // com.repackage.r9
     /* renamed from: k */
     public void f(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         Interceptable interceptable = $ic;

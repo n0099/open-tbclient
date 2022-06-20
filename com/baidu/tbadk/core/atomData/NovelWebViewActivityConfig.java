@@ -7,11 +7,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NovelWebViewActivityConfig extends TbWebViewActivityConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_IS_SHOW_TOAST_TIP = "key_is_show_toast_tip";
+    public static final String KEY_NOVEL_FID = "key_novel_fid";
     public static final String KEY_NOVEL_ID = "key_novel_id";
+    public static final String KEY_NOVEL_TID = "key_novel_tid";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -47,10 +49,20 @@ public class NovelWebViewActivityConfig extends TbWebViewActivityConfig {
         intent.putExtra(KEY_NOVEL_ID, str);
     }
 
+    public void setExtraData(String str, String str2) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || (intent = getIntent()) == null) {
+            return;
+        }
+        intent.putExtra(KEY_NOVEL_TID, str);
+        intent.putExtra(KEY_NOVEL_FID, str2);
+    }
+
     public void setIsShowTopToast(boolean z) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (intent = getIntent()) == null) {
             return;
         }
         intent.putExtra(KEY_IS_SHOW_TOAST_TIP, z);

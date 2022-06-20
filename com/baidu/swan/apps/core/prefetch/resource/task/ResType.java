@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
-import com.repackage.rf1;
+import com.repackage.cg1;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes2.dex */
 public final class ResType {
@@ -37,7 +37,7 @@ public final class ResType {
                 return;
             }
         }
-        NONE = new ResType("NONE", 0);
+        NONE = new ResType(HlsPlaylistParser.METHOD_NONE, 0);
         TEST = new ResType("TEST", 1);
         VIDEO = new ResType(HlsPlaylistParser.TYPE_VIDEO, 2);
         ResType resType = new ResType("IMAGE", 3);
@@ -86,7 +86,7 @@ public final class ResType {
                 }
                 i++;
             }
-            if (rf1.a) {
+            if (cg1.a) {
                 Log.d("ResType", "res type - " + resType.name());
             }
             return resType;

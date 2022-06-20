@@ -1,9 +1,10 @@
 package com.baidu.tieba.memberCenter.index;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
@@ -48,35 +49,39 @@ public class DoDailyTaskSocketResponseMessage extends SocketResponsedMessage {
         this.content = "";
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        DoDailyTaskResIdl doDailyTaskResIdl;
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (doDailyTaskResIdl = (DoDailyTaskResIdl) new Wire(new Class[0]).parseFrom(bArr, DoDailyTaskResIdl.class)) == null) {
-            return;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            DoDailyTaskResIdl doDailyTaskResIdl = (DoDailyTaskResIdl) new Wire(new Class[0]).parseFrom(bArr, DoDailyTaskResIdl.class);
+            if (doDailyTaskResIdl == null) {
+                return null;
+            }
+            Error error = doDailyTaskResIdl.error;
+            if (error != null) {
+                setError(error.errorno.intValue());
+                setErrorString(doDailyTaskResIdl.error.errmsg);
+            }
+            DataRes dataRes = doDailyTaskResIdl.data;
+            if (dataRes == null) {
+                return doDailyTaskResIdl;
+            }
+            RetDataList retDataList = dataRes.ret_data;
+            DialogItem dialogItem = retDataList.dialog;
+            this.title = dialogItem.title;
+            this.content = dialogItem.content;
+            this.buttonItems = dialogItem.button;
+            this.needDialog = retDataList.need_dialog.intValue();
+            this.isFinished = doDailyTaskResIdl.data.ret_data.task_info.is_finish.intValue();
+            if (getOrginalMessage() != null && getOrginalMessage().getExtra() != null) {
+                DoDailyTaskRequestMessage doDailyTaskRequestMessage = (DoDailyTaskRequestMessage) getOrginalMessage().getExtra();
+                this.userId = doDailyTaskRequestMessage.getUserId();
+                this.taskId = doDailyTaskRequestMessage.getTaskId();
+            }
+            return doDailyTaskResIdl;
         }
-        Error error = doDailyTaskResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(doDailyTaskResIdl.error.errmsg);
-        }
-        DataRes dataRes = doDailyTaskResIdl.data;
-        if (dataRes == null) {
-            return;
-        }
-        RetDataList retDataList = dataRes.ret_data;
-        DialogItem dialogItem = retDataList.dialog;
-        this.title = dialogItem.title;
-        this.content = dialogItem.content;
-        this.buttonItems = dialogItem.button;
-        this.needDialog = retDataList.need_dialog.intValue();
-        this.isFinished = doDailyTaskResIdl.data.ret_data.task_info.is_finish.intValue();
-        if (getOrginalMessage() == null || getOrginalMessage().getExtra() == null) {
-            return;
-        }
-        DoDailyTaskRequestMessage doDailyTaskRequestMessage = (DoDailyTaskRequestMessage) getOrginalMessage().getExtra();
-        this.userId = doDailyTaskRequestMessage.getUserId();
-        this.taskId = doDailyTaskRequestMessage.getTaskId();
+        return invokeIL.objValue;
     }
 }

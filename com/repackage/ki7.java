@@ -1,46 +1,77 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
-import com.baidu.tieba.memberCenter.tail.tool.TailToolController;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import tbclient.GetVipInfo.DataRes;
+import tbclient.GetVipInfo.VipBasicList;
+import tbclient.GetVipInfo.VipSpecialItem;
 /* loaded from: classes6.dex */
-public class ki7 extends e05 {
+public class ki7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<String> a;
+    public xh7 b;
+    public LinkedHashMap<String, ai7> c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ki7(Context context, int i) {
-        super(context, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1375), 16, i);
+    public ki7(DataRes dataRes) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
+            Object[] objArr = {dataRes};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f080803;
-        this.e = R.drawable.obfuscated_res_0x7f080803;
-        this.h = R.drawable.icon_pure_post_more_tail64;
-        this.r = R.drawable.obfuscated_res_0x7f08097d;
-        this.i = false;
-        this.j = true;
-        this.m = new TailToolController(context);
-        this.o = true;
-        this.n = 6;
-        this.p = new int[]{1};
+        if (dataRes == null) {
+            return;
+        }
+        String str = dataRes.grade_intro_title;
+        String str2 = dataRes.grade_intro_link;
+        new ji7(dataRes);
+        new li7(dataRes.special_list);
+        new ci7(dataRes.cooperate_list);
+        new gi7(dataRes.theme_list);
+        new yh7(dataRes.banner_list);
+        new oi7(dataRes.task_list);
+        new ni7(dataRes.rank, dataRes.user);
+        new ei7(dataRes.daily_list);
+        xh7 xh7Var = new xh7();
+        this.b = xh7Var;
+        xh7Var.a(dataRes);
+        List<VipBasicList> list = dataRes.basic_list;
+        if (list != null && list.size() > 0) {
+            this.c = new LinkedHashMap<>();
+            for (VipBasicList vipBasicList : dataRes.basic_list) {
+                List<VipSpecialItem> list2 = vipBasicList.item;
+                if (list2 != null && list2.size() > 0) {
+                    ai7 ai7Var = new ai7(vipBasicList);
+                    if (ai7Var.c != 3 || ai7Var.a().size() >= 2) {
+                        this.c.put(ai7Var.d, ai7Var);
+                    }
+                }
+            }
+        }
+        List<String> list3 = dataRes.card_order;
+        if (list3 == null || list3.size() <= 0) {
+            return;
+        }
+        this.a = new ArrayList<>();
+        for (String str3 : dataRes.card_order) {
+            if (!StringUtils.isNull(str3)) {
+                this.a.add(str3);
+            }
+        }
     }
 }

@@ -7,65 +7,102 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.fw;
-import com.xiaomi.push.ib;
+import com.xiaomi.mipush.sdk.ErrorCode;
+import com.xiaomi.push.gh;
 import com.xiaomi.push.service.XMPushService;
+import com.xiaomi.push.service.bg;
+import java.util.Collection;
 /* loaded from: classes8.dex */
-public final class w extends XMPushService.i {
+public class w extends XMPushService.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ ib a;
+    public XMPushService a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ XMPushService f961a;
+    public String f1001a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f962a;
-    public final /* synthetic */ String b;
+    public byte[] f1002a;
+    public String b;
+    public String c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w(int i, XMPushService xMPushService, ib ibVar, String str, String str2) {
-        super(i);
+    public w(XMPushService xMPushService, String str, String str2, String str3, byte[] bArr) {
+        super(9);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), xMPushService, ibVar, str, str2};
+            Object[] objArr = {xMPushService, str, str2, str3, bArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f961a = xMPushService;
-        this.a = ibVar;
-        this.f962a = str;
+        this.a = xMPushService;
+        this.f1001a = str;
+        this.f1002a = bArr;
         this.b = str2;
+        this.c = str3;
     }
 
-    @Override // com.xiaomi.push.service.XMPushService.i
+    @Override // com.xiaomi.push.service.XMPushService.j
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "send wrong message ack for message." : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "register app" : (String) invokeV.objValue;
     }
 
-    @Override // com.xiaomi.push.service.XMPushService.i
+    @Override // com.xiaomi.push.service.XMPushService.j
     public void a() {
+        bg.b next;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            t m675a = u.m675a((Context) this.a);
+            if (m675a == null) {
+                try {
+                    m675a = u.a(this.a, this.f1001a, this.b, this.c);
+                } catch (Exception e) {
+                    com.xiaomi.channel.commonutils.logger.b.d("fail to register push account. " + e);
+                }
+            }
+            if (m675a == null) {
+                com.xiaomi.channel.commonutils.logger.b.d("no account for registration.");
+                x.a(this.a, ErrorCode.ERROR_AUTHERICATION_ERROR, "no account.");
+                return;
+            }
+            com.xiaomi.channel.commonutils.logger.b.m84a("do registration now.");
+            Collection<bg.b> m632a = bg.a().m632a("5");
+            if (m632a.isEmpty()) {
+                next = m675a.a(this.a);
+                ah.a(this.a, next);
+                bg.a().a(next);
+            } else {
+                next = m632a.iterator().next();
+            }
+            if (!this.a.m592c()) {
+                x.a(this.f1001a, this.f1002a);
+                this.a.a(true);
+                return;
+            }
             try {
-                ib a = q.a((Context) this.f961a, this.a);
-                a.f613a.a("error", this.f962a);
-                a.f613a.a("reason", this.b);
-                y.a(this.f961a, a);
-            } catch (fw e) {
-                com.xiaomi.channel.commonutils.logger.b.a(e);
-                this.f961a.a(10, e);
+                if (next.f924a == bg.c.c) {
+                    ah.a(this.a, this.f1001a, this.f1002a);
+                } else if (next.f924a == bg.c.a) {
+                    x.a(this.f1001a, this.f1002a);
+                    XMPushService xMPushService = this.a;
+                    XMPushService xMPushService2 = this.a;
+                    xMPushService2.getClass();
+                    xMPushService.a(new XMPushService.b(xMPushService2, next));
+                }
+            } catch (gh e2) {
+                com.xiaomi.channel.commonutils.logger.b.d("meet error, disconnect connection. " + e2);
+                this.a.a(10, e2);
             }
         }
     }

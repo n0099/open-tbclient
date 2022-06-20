@@ -1,16 +1,20 @@
 package com.repackage;
 
 import android.content.Context;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
 public interface y11 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "webViewInit");
-    public static final y11 b = new a();
+    public static final y11 a = new a();
 
     /* loaded from: classes7.dex */
     public static class a implements y11 {
@@ -32,20 +36,40 @@ public interface y11 {
         }
 
         @Override // com.repackage.y11
-        public int a(Context context, b bVar) {
-            InterceptResult invokeLL;
+        public boolean a(Context context, String str, String str2, @Nullable tg0 tg0Var) {
+            InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, bVar)) == null) {
-                return 0;
+            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, str, str2, tg0Var)) == null) {
+                if (str != null) {
+                    if (str.startsWith(pg0.f) || str.startsWith("nadcorevendor://")) {
+                        HashMap hashMap = new HashMap();
+                        hashMap.put(TiebaStatic.Params.REFER, str2);
+                        hashMap.put("from_web_view", Boolean.TRUE);
+                        kg0.e(str, context, hashMap, tg0Var);
+                        return true;
+                    }
+                    return false;
+                }
+                return false;
             }
-            return invokeLL.intValue;
+            return invokeLLLL.booleanValue;
         }
     }
 
+    @Autowired
     /* loaded from: classes7.dex */
-    public interface b {
-        void a();
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @NonNull
+        @Inject(force = false)
+        public static y11 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? y11.a : (y11) invokeV.objValue;
+        }
     }
 
-    int a(Context context, b bVar);
+    boolean a(Context context, String str, String str2, @Nullable tg0 tg0Var);
 }

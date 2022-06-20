@@ -1,70 +1,173 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.mvc.message.ReadCacheMessage;
+import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.n65;
+import com.repackage.te;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class a75 {
+public class a75<T extends n65> extends y65<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(ArrayList<String> arrayList, String str, int i) {
-        InterceptResult invokeLLI;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a75(int i, String str, Class<T> cls) {
+        super(i, str, cls);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, arrayList, str, i)) == null) {
-            ArrayList arrayList2 = new ArrayList();
-            if (!ListUtils.isEmpty(arrayList)) {
-                arrayList2.addAll(arrayList);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, cls};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (Class) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (!TextUtils.isEmpty(str)) {
-                arrayList2.add(str);
-            }
-            List<String> c = c(arrayList2, i);
-            if (ListUtils.isEmpty(c)) {
-                return null;
-            }
-            return b(c);
         }
-        return (String) invokeLLI.objValue;
     }
 
-    public static String b(List<String> list) {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:102:0x0073 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:90:0x00d6 */
+    /* JADX DEBUG: Type inference failed for r1v3. Raw type applied. Possible types: T */
+    /* JADX DEBUG: Type inference failed for r2v12. Raw type applied. Possible types: T */
+    /* JADX DEBUG: Type inference failed for r2v9. Raw type applied. Possible types: T */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v10, types: [java.util.List, java.util.ArrayList] */
+    /* JADX WARN: Type inference failed for: r1v8, types: [java.util.List, java.util.ArrayList] */
+    /* JADX WARN: Type inference failed for: r1v9 */
+    /* JADX WARN: Type inference failed for: r7v10 */
+    /* JADX WARN: Type inference failed for: r7v12 */
+    /* JADX WARN: Type inference failed for: r7v17, types: [java.util.List, java.util.ArrayList] */
+    /* JADX WARN: Type inference failed for: r7v18 */
+    /* JADX WARN: Type inference failed for: r7v36 */
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<T> customMessage) {
         InterceptResult invokeL;
+        String str;
+        ?? arrayList;
+        String str2;
+        n65 n65Var;
+        byte[] bArr;
+        n65 n65Var2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            if (ListUtils.getCount(list) <= 0) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder();
-            boolean z = false;
-            for (String str : list) {
-                if (!StringUtils.isNull(str)) {
-                    if (!z && !StringUtils.isNull(sb.toString())) {
-                        z = true;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, customMessage)) != null) {
+            return (CustomResponsedMessage) invokeL.objValue;
+        }
+        n65 n65Var3 = null;
+        if (customMessage == null || !(customMessage instanceof ReadCacheMessage)) {
+            return null;
+        }
+        ReadCacheMessage readCacheMessage = (ReadCacheMessage) customMessage;
+        n65 n65Var4 = (n65) a();
+        try {
+            try {
+                if (readCacheMessage.isNeedUid()) {
+                    str = TbadkCoreApplication.getCurrentAccount();
+                    if (str == null) {
+                        str = "";
                     }
-                    if (z) {
-                        sb.append("_");
-                    }
-                    sb.append(str);
+                } else {
+                    str = null;
                 }
+                if (n65Var4 != null) {
+                    if (readCacheMessage.getRequestData() == null) {
+                        try {
+                            if (n65Var4 instanceof m65) {
+                                mq4.f();
+                                List<te.b<byte[]>> a = ui.a(mq4.e(this.b, str));
+                                if (a != null) {
+                                    arrayList = new ArrayList(a.size());
+                                    for (te.b<byte[]> bVar : a) {
+                                        if (bVar != null && (bArr = bVar.b) != null && (n65Var2 = (n65) a()) != null) {
+                                            ((m65) n65Var2).initByByteArray(bArr);
+                                            arrayList.add(n65Var2);
+                                        }
+                                    }
+                                    n65Var3 = arrayList;
+                                }
+                            } else if (n65Var4 instanceof p65) {
+                                mq4.f();
+                                List<te.b<String>> b = ui.b(mq4.h(this.b, str));
+                                if (b != null) {
+                                    arrayList = new ArrayList(b.size());
+                                    for (te.b<String> bVar2 : b) {
+                                        if (bVar2 != null && (str2 = bVar2.b) != null && (n65Var = (n65) a()) != null) {
+                                            ((p65) n65Var).q(str2);
+                                            arrayList.add(n65Var);
+                                        }
+                                    }
+                                    n65Var3 = arrayList;
+                                }
+                            }
+                        } catch (Exception e) {
+                            e = e;
+                            n65Var3 = n65Var4;
+                            e.printStackTrace();
+                            return new ReadCacheRespMsg(this.a, n65Var3);
+                        } catch (Throwable th) {
+                            th = th;
+                            n65Var3 = n65Var4;
+                            new ReadCacheRespMsg(this.a, n65Var3);
+                            throw th;
+                        }
+                    } else {
+                        String cacheKey = readCacheMessage.getRequestData().getCacheKey();
+                        String y = readCacheMessage.getRequestData().y();
+                        try {
+                            if (n65Var4 instanceof m65) {
+                                mq4.f();
+                                byte[] bArr2 = mq4.e(y, str).get(cacheKey);
+                                if (bArr2 != null) {
+                                    ((m65) n65Var4).initByByteArray(bArr2);
+                                    ArrayList arrayList2 = new ArrayList();
+                                    arrayList2.add(n65Var4);
+                                    y = arrayList2;
+                                    n65Var3 = y;
+                                }
+                            } else if (n65Var4 instanceof p65) {
+                                mq4.f();
+                                String str3 = mq4.h(y, str).get(cacheKey);
+                                if (str3 != null) {
+                                    ((p65) n65Var4).q(str3);
+                                    ?? arrayList3 = new ArrayList();
+                                    arrayList3.add(n65Var4);
+                                    y = arrayList3;
+                                    n65Var3 = y;
+                                }
+                            }
+                        } catch (Exception e2) {
+                            n65Var3 = y;
+                            e = e2;
+                            e.printStackTrace();
+                            return new ReadCacheRespMsg(this.a, n65Var3);
+                        } catch (Throwable th2) {
+                            n65Var3 = y;
+                            th = th2;
+                            new ReadCacheRespMsg(this.a, n65Var3);
+                            throw th;
+                        }
+                    }
+                }
+                return new ReadCacheRespMsg(this.a, n65Var3);
+            } catch (Exception e3) {
+                e = e3;
             }
-            return sb.toString();
+        } catch (Throwable th3) {
+            th = th3;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static List<String> c(List<String> list, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, list, i)) == null) {
-            int count = ListUtils.getCount(list);
-            return (count <= 0 || i < 0 || count <= i) ? list : ListUtils.subList(list, count - i, count);
-        }
-        return (List) invokeLI.objValue;
     }
 }

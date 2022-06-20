@@ -1,61 +1,31 @@
 package com.xiaomi.mipush.sdk;
 
-import android.content.Context;
-import android.database.ContentObserver;
-import android.os.Handler;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.bg;
-import com.xiaomi.push.service.bc;
+import com.xiaomi.push.service.i;
 /* loaded from: classes8.dex */
-public class aq extends ContentObserver {
+public class aq implements i.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ an a;
+    public final /* synthetic */ ao a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public aq(an anVar, Handler handler) {
-        super(handler);
+    public aq(ao aoVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {anVar, handler};
+            Object[] objArr = {aoVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Handler) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = anVar;
-    }
-
-    @Override // android.database.ContentObserver
-    public void onChange(boolean z) {
-        Context context;
-        Integer num;
-        Context context2;
-        Context context3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            an anVar = this.a;
-            context = anVar.f48a;
-            anVar.f52a = Integer.valueOf(bc.a(context).a());
-            num = this.a.f52a;
-            if (num.intValue() != 0) {
-                context2 = this.a.f48a;
-                context2.getContentResolver().unregisterContentObserver(this);
-                context3 = this.a.f48a;
-                if (bg.b(context3)) {
-                    this.a.m146c();
-                }
-            }
-        }
+        this.a = aoVar;
     }
 }

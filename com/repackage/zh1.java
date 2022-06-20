@@ -2,23 +2,22 @@ package com.repackage;
 
 import android.app.Activity;
 import android.content.Context;
-import android.util.SparseArray;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONObject;
+import com.repackage.e13;
+import java.io.File;
 /* loaded from: classes7.dex */
-public class zh1 implements i54 {
+public class zh1 implements ek1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<String> a;
 
     public zh1() {
         Interceptable interceptable = $ic;
@@ -30,96 +29,56 @@ public class zh1 implements i54 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        SparseArray<String> sparseArray = new SparseArray<>();
-        this.a = sparseArray;
-        sparseArray.put(38, DI.BD.FAVOR);
-        if (!oi2.c0().a()) {
-            this.a.put(35, "add to launch");
-        }
-        if (oi2.n().a().equals("vivobrowser")) {
-            this.a.put(4, "share");
-        }
     }
 
-    @Override // com.repackage.i54
-    public boolean a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.ek1
+    public boolean a(Activity activity, String str, e13.b bVar) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, activity, str, bVar)) == null) {
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeLLL.booleanValue;
     }
 
-    @Override // com.repackage.i54
-    public void b(Activity activity, n54 n54Var) {
+    @Override // com.repackage.ek1
+    public boolean b(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, n54Var) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            return true;
         }
+        return invokeLL.booleanValue;
     }
 
-    @Override // com.repackage.i54
-    public void c(int i, List<n54> list) {
+    @Override // com.repackage.ek1
+    public boolean c(Activity activity, Uri uri, String str) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, list) == null) {
-        }
-    }
-
-    @Override // com.repackage.i54
-    public void d(int i, List<n54> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, list) == null) {
-        }
-    }
-
-    @Override // com.repackage.i54
-    public void e(int i, List<n54> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, list) == null) {
-            l(i, list);
-        }
-    }
-
-    @Override // com.repackage.i54
-    public void g(Activity activity, n54 n54Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, activity, n54Var) == null) {
-        }
-    }
-
-    @Override // com.repackage.i54
-    public void h(Context context, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, context, jSONObject) == null) {
-        }
-    }
-
-    @Override // com.repackage.i54
-    public boolean j(n54 n54Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, n54Var)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void l(int i, List<n54> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, list) == null) || bd3.G() || list == null || list.size() <= 0) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList();
-        for (n54 n54Var : list) {
-            if (this.a.get(n54Var.c()) != null) {
-                arrayList.add(n54Var);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, uri, str)) == null) {
+            if (activity == null || uri == null || uri.getPath() == null || TextUtils.isEmpty(str)) {
+                return false;
             }
+            if (zb3.i()) {
+                uri = pd3.a(activity, new File(uri.getPath()));
+            }
+            d(activity, uri, str);
+            return true;
         }
-        if (arrayList.size() > 0) {
-            list.removeAll(arrayList);
+        return invokeLLL.booleanValue;
+    }
+
+    public final void d(Activity activity, Uri uri, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, activity, uri, str) == null) {
+            Intent intent = new Intent("android.intent.action.VIEW");
+            intent.addCategory("android.intent.category.DEFAULT");
+            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+            intent.addFlags(1);
+            intent.setDataAndType(uri, str);
+            bc3.f(activity, intent);
         }
     }
 }

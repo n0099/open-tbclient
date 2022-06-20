@@ -1,69 +1,69 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.content.Context;
+import android.view.View;
+import android.widget.PopupWindow;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.swan.bdprivate.api.SwanApi$$ModulesProvider;
+import com.baidu.swan.apps.view.menu.SwanImageMenuView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-@Service
-/* loaded from: classes5.dex */
-public class ff3 implements xk3 {
+import java.util.List;
+/* loaded from: classes6.dex */
+public class ff3 extends cz2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ff3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ff3(View view2) {
+        super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        s(-1);
+        p(true);
+        q(true);
     }
 
-    @Override // com.repackage.yk3
-    public void a(e03 e03Var) {
+    @Override // com.repackage.cz2
+    public void l(View view2, List<dz2> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, e03Var) == null) {
-            e03Var.b(new wg3(e03Var));
-            e03Var.b(new ah3(e03Var));
-            e03Var.b(new uh3(e03Var));
-            e03Var.b(new th3(e03Var));
-            e03Var.b(new jh3(e03Var));
-            e03Var.b(new bh3(e03Var));
-            e03Var.b(new yg3(e03Var));
-            e03Var.b(new hh3(e03Var));
-            e03Var.b(new xg3(e03Var));
-            e03Var.b(new vg3(e03Var));
-            e03Var.b(new ug3(e03Var));
-            e03Var.b(new zg3(e03Var));
-            e03Var.b(new yh3(e03Var));
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, list) == null) {
+            ((SwanImageMenuView) view2).d(list);
         }
     }
 
-    @Override // com.repackage.yk3
-    @Nullable
-    public Map<String, Object> b(@NonNull in1 in1Var) {
+    @Override // com.repackage.cz2
+    public View m(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, in1Var)) == null) ? SwanApi$$ModulesProvider.getV8ApiModules(in1Var) : (Map) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            SwanImageMenuView swanImageMenuView = new SwanImageMenuView(context);
+            swanImageMenuView.setMenu(this);
+            return swanImageMenuView;
+        }
+        return (View) invokeL.objValue;
     }
 
-    @Override // com.repackage.yk3
-    @Nullable
-    public Map<String, Object> c(@NonNull in1 in1Var) {
-        InterceptResult invokeL;
+    @Override // com.repackage.cz2
+    public void u(PopupWindow popupWindow) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, in1Var)) == null) ? SwanApi$$ModulesProvider.getWebviewApiModules(in1Var) : (Map) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, popupWindow) == null) {
+            popupWindow.showAtLocation(this.a, 80, 0, 0);
+        }
     }
 }

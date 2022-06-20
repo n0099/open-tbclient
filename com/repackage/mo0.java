@@ -1,81 +1,189 @@
 package com.repackage;
 
+import android.app.Activity;
 import android.content.Context;
-import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.event.InteractiveEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class mo0 extends lo0 {
+public class mo0 extends qo0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public eu0 O;
+    public int P;
+    @Nullable
+    public ut0 Q;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755492701, "Lcom/repackage/mo0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755492701, "Lcom/repackage/mo0;");
+                return;
+            }
+        }
+        no0.f();
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mo0(@NonNull ds0 ds0Var, @Nullable Context context) {
-        super(ds0Var, context);
+    public mo0(@NonNull hs0 hs0Var, @Nullable Context context) {
+        super(hs0Var, context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ds0Var, context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {hs0Var, context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((ds0) objArr2[0], (Context) objArr2[1]);
+                super((hs0) objArr2[0], (Context) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.P = 0;
     }
 
-    @Override // com.repackage.ko0
-    @NonNull
-    public es0 E() {
+    @Override // com.repackage.po0, com.repackage.oo0
+    public int B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.v == null) {
-                this.v = this.y.a();
+            return 23;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.repackage.po0
+    public void D1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.bp0, com.repackage.oo0
+    public void G0(@Nullable Context context) {
+        yt0 yt0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            b(new mu0());
+            if (context instanceof Activity) {
+                yt0Var = new yt0((Activity) context);
+            } else {
+                yt0Var = new yt0();
             }
-            return this.v;
-        }
-        return (es0) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ko0
-    public void F0(@Nullable yt0 yt0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yt0Var) == null) {
-            super.F0(E().b(this, yt0Var));
+            b(yt0Var);
+            b(new lu0());
+            J1();
+            b(new gu0());
+            I1("ad_video_tail_frame_layer");
         }
     }
 
-    @Override // com.repackage.lo0
-    @CallSuper
-    public void F1(boolean z) {
+    @Override // com.repackage.po0, com.repackage.oo0
+    public void I0(@NonNull Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            E().c(this, z);
-            er0 w = sq0.w(InteractiveEvent.ACTION_SWITCH_INTERACTIVE_KERNEL);
-            w.n(9, Boolean.valueOf(z));
-            q0(w);
+        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
+            super.I0(context);
         }
     }
 
-    @Override // com.repackage.ko0
-    public void h0() {
+    public void I1(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            E().a(this);
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            zt0 zt0Var = new zt0(str);
+            this.Q = zt0Var;
+            b(zt0Var);
         }
+    }
+
+    public void J1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            xt0 xt0Var = new xt0();
+            this.O = xt0Var;
+            b(xt0Var);
+        }
+    }
+
+    @Override // com.repackage.po0, com.repackage.bp0, com.repackage.oo0
+    public void P() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.P();
+        }
+    }
+
+    @Override // com.repackage.oo0
+    public boolean X() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? V() : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.po0, com.repackage.oo0
+    public void f0(int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || W() || a0()) {
+            return;
+        }
+        super.f0(i);
+    }
+
+    @Override // com.repackage.po0, com.repackage.oo0
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            super.l();
+        }
+    }
+
+    @Override // com.repackage.po0, com.repackage.oo0
+    public void l0() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && W()) {
+            super.l0();
+        }
+    }
+
+    @Override // com.repackage.po0
+    public int l1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.P : invokeV.intValue;
+    }
+
+    @Override // com.repackage.oo0
+    @NonNull
+    public String o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? "CyberSysPlayer" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.po0
+    public boolean s1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -1,9 +1,10 @@
 package com.baidu.tieba.mainentrance.searchsuggestlist;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
@@ -41,24 +42,29 @@ public class SearchListSocketResMessage extends SocketResponsedMessage {
         this.suggestData = null;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        SearchSugResIdl searchSugResIdl;
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (searchSugResIdl = (SearchSugResIdl) new Wire(new Class[0]).parseFrom(bArr, SearchSugResIdl.class)) == null) {
-            return;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            SearchSugResIdl searchSugResIdl = (SearchSugResIdl) new Wire(new Class[0]).parseFrom(bArr, SearchSugResIdl.class);
+            if (searchSugResIdl == null) {
+                return null;
+            }
+            Error error = searchSugResIdl.error;
+            if (error != null) {
+                setError(error.errorno.intValue());
+                setErrorString(searchSugResIdl.error.usermsg);
+            }
+            DataRes dataRes = searchSugResIdl.data;
+            if (dataRes != null) {
+                this.suggests = dataRes.list;
+                this.forums = dataRes.forum_list;
+                this.suggestData = dataRes;
+            }
+            return searchSugResIdl;
         }
-        Error error = searchSugResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(searchSugResIdl.error.usermsg);
-        }
-        DataRes dataRes = searchSugResIdl.data;
-        if (dataRes != null) {
-            this.suggests = dataRes.list;
-            this.forums = dataRes.forum_list;
-            this.suggestData = dataRes;
-        }
+        return invokeIL.objValue;
     }
 }

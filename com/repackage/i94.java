@@ -1,90 +1,66 @@
 package com.repackage;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
 /* loaded from: classes6.dex */
-public class i94 implements Runnable {
+public class i94 implements m94 {
     public static /* synthetic */ Interceptable $ic;
-    public static final hc4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public d94 a;
-    public AtomicBoolean b;
-    public c94 c;
+    public final Response a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755663635, "Lcom/repackage/i94;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755663635, "Lcom/repackage/i94;");
-                return;
-            }
-        }
-        d = hc4.e();
-    }
-
-    public i94(AtomicBoolean atomicBoolean, d94 d94Var, c94 c94Var) {
+    public i94(@NonNull Response response) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {atomicBoolean, d94Var, c94Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {response};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = atomicBoolean;
-        this.a = d94Var;
-        this.c = c94Var;
+        this.a = response;
     }
 
-    public final <T> void a(h94<T> h94Var) {
+    @Override // com.repackage.m94
+    @Nullable
+    public l94 body() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, h94Var) == null) {
-            this.a.a(h94Var);
-            try {
-                try {
-                    h94Var.run();
-                } catch (Exception e) {
-                    d.g("PMSTaskExecutor", "#runTask 包下载任务出错", e);
-                }
-            } finally {
-                this.a.b(h94Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ResponseBody body = this.a.body();
+            if (body == null) {
+                return null;
             }
+            return new j94(body);
         }
+        return (l94) invokeV.objValue;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    @Override // java.io.Closeable, java.lang.AutoCloseable
+    public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            while (!this.b.get()) {
-                Runnable a = this.c.a(true);
-                if (!(a instanceof h94)) {
-                    return;
-                }
-                try {
-                    a((h94) a);
-                } catch (Throwable th) {
-                    d.g("PMSTaskExecutor", "#run 包下载任务出错", th);
-                }
-            }
+            this.a.close();
         }
+    }
+
+    @Override // com.repackage.m94
+    public int code() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.code() : invokeV.intValue;
     }
 }

@@ -1,8 +1,9 @@
 package com.repackage;
 
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IThreadManager;
-import com.baidu.nps.interfa.IThreadManager_ThreadManager_Provider;
+import com.baidu.nps.interfa.IAlertManager;
+import com.baidu.nps.interfa.IAlertManager_AlertManager_Provider;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,7 +18,7 @@ public class b51 {
     public static b51 b;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public qa1<IThreadManager> a;
+    public bb1<IAlertManager> a;
 
     static {
         InterceptResult invokeClinit;
@@ -48,7 +49,7 @@ public class b51 {
                 return;
             }
         }
-        c();
+        b();
     }
 
     public static b51 a() {
@@ -57,18 +58,19 @@ public class b51 {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (b51) invokeV.objValue;
     }
 
-    public IThreadManager b() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.get() : (IThreadManager) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            za1 b2 = za1.b();
+            this.a = b2;
+            b2.a(new IAlertManager_AlertManager_Provider());
+        }
     }
 
-    public void c() {
+    public void c(String str, String str2, View.OnClickListener onClickListener, String str3, View.OnClickListener onClickListener2, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            oa1 b2 = oa1.b();
-            this.a = b2;
-            b2.a(new IThreadManager_ThreadManager_Provider());
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, onClickListener, str3, onClickListener2, str4}) == null) {
+            this.a.get().onAlert(str, str2, onClickListener, str3, onClickListener2, str4);
         }
     }
 }

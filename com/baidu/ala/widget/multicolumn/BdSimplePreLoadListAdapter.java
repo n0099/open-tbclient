@@ -16,10 +16,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.an;
-import com.repackage.kn;
+import com.repackage.en;
+import com.repackage.on;
 /* loaded from: classes.dex */
-public class BdSimplePreLoadListAdapter extends BaseAdapter implements kn {
+public class BdSimplePreLoadListAdapter extends BaseAdapter implements on {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ListAdapter mAdapter;
@@ -27,7 +27,7 @@ public class BdSimplePreLoadListAdapter extends BaseAdapter implements kn {
     public Context mContext;
     public DataSetObserver mDataSetObserver;
     public boolean mIsFilterable;
-    public an.b mListPreLoad;
+    public en.b mListPreLoad;
 
     public BdSimplePreLoadListAdapter(Context context) {
         Interceptable interceptable = $ic;
@@ -101,7 +101,7 @@ public class BdSimplePreLoadListAdapter extends BaseAdapter implements kn {
         };
     }
 
-    @Override // android.widget.Adapter, com.repackage.kn
+    @Override // android.widget.Adapter, com.repackage.on
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -128,7 +128,7 @@ public class BdSimplePreLoadListAdapter extends BaseAdapter implements kn {
         return (Filter) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter, com.repackage.kn
+    @Override // android.widget.Adapter, com.repackage.on
     public Object getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -203,7 +203,7 @@ public class BdSimplePreLoadListAdapter extends BaseAdapter implements kn {
         return invokeV.booleanValue;
     }
 
-    @Override // android.widget.BaseAdapter, com.repackage.kn
+    @Override // android.widget.BaseAdapter, com.repackage.on
     public void notifyDataSetChanged() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -264,7 +264,7 @@ public class BdSimplePreLoadListAdapter extends BaseAdapter implements kn {
         }
     }
 
-    public void setListPreLoad(an.b bVar) {
+    public void setListPreLoad(en.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) {
             this.mListPreLoad = bVar;

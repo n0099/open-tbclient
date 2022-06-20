@@ -17,18 +17,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ji;
-import com.repackage.oc7;
+import com.repackage.ni;
+import com.repackage.zd7;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String mLiveId;
-    public final AlaShareInBarModel.b mOnPostDataCallBack;
-    public AlaShareInBarModel mPostModel;
-    public ArrayList<TransmitForumData> mTransmitForumDataList;
-    public String mYyAnchorBdUid;
+    public String a;
+    public String b;
+    public ArrayList<TransmitForumData> c;
+    public AlaShareInBarModel d;
+    public final AlaShareInBarModel.b e;
 
     /* loaded from: classes3.dex */
     public class a implements DialogInterface.OnCancelListener {
@@ -58,7 +58,7 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.a.mPostModel.cancelLoadData();
+                this.a.d.cancelLoadData();
             }
         }
     }
@@ -88,13 +88,13 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         }
 
         @Override // com.baidu.tieba.livesdk.share.model.AlaShareInBarModel.b
-        public void a(int i, String str, oc7 oc7Var) {
+        public void a(int i, String str, zd7 zd7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, oc7Var) == null) {
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, zd7Var) == null) {
                 this.a.closeLoadingDialog();
                 int i2 = 1;
-                if (i == 0 && oc7Var != null) {
-                    BdToast.h(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f113c), R.drawable.obfuscated_res_0x7f0809cc, 3000, true).n();
+                if (i == 0 && zd7Var != null) {
+                    BdToast.h(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f1147), R.drawable.obfuscated_res_0x7f0809b7, 3000, true).n();
                 } else {
                     this.a.showToast(str);
                     i2 = 2;
@@ -120,42 +120,42 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
                 return;
             }
         }
-        this.mLiveId = "";
-        this.mOnPostDataCallBack = new b(this);
+        this.a = "";
+        this.e = new b(this);
     }
 
-    private void initData(Bundle bundle) {
+    public final void B1(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             AlaShareInBarModel alaShareInBarModel = new AlaShareInBarModel();
-            this.mPostModel = alaShareInBarModel;
-            alaShareInBarModel.B(this.mOnPostDataCallBack);
+            this.d = alaShareInBarModel;
+            alaShareInBarModel.C(this.e);
             Intent intent = getIntent();
             if (intent != null) {
-                this.mLiveId = intent.getStringExtra("extra_key_live_id");
-                this.mYyAnchorBdUid = intent.getStringExtra("extra_key_yy_anchor_bduid");
-                this.mTransmitForumDataList = intent.getParcelableArrayListExtra(AlaWriteShareInBarActivityConfig.EXTRA_KEY_FORUM_LIST);
+                this.a = intent.getStringExtra("extra_key_live_id");
+                this.b = intent.getStringExtra("extra_key_yy_anchor_bduid");
+                this.c = intent.getParcelableArrayListExtra(AlaWriteShareInBarActivityConfig.EXTRA_KEY_FORUM_LIST);
             } else if (bundle != null) {
-                this.mLiveId = bundle.getString("extra_key_live_id");
-                this.mYyAnchorBdUid = bundle.getString("extra_key_yy_anchor_bduid");
-                this.mTransmitForumDataList = bundle.getParcelableArrayList(AlaWriteShareInBarActivityConfig.EXTRA_KEY_FORUM_LIST);
+                this.a = bundle.getString("extra_key_live_id");
+                this.b = bundle.getString("extra_key_yy_anchor_bduid");
+                this.c = bundle.getParcelableArrayList(AlaWriteShareInBarActivityConfig.EXTRA_KEY_FORUM_LIST);
             }
         }
     }
 
-    private void sendRequest() {
+    public final void C1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            if (!ji.z()) {
-                showToast(R.string.obfuscated_res_0x7f0f0c33);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (!ni.z()) {
+                showToast(R.string.obfuscated_res_0x7f0f0c37);
                 finish();
-            } else if ((StringUtils.isNull(this.mLiveId) && TextUtils.isEmpty(this.mYyAnchorBdUid)) || ListUtils.isEmpty(this.mTransmitForumDataList)) {
+            } else if ((StringUtils.isNull(this.a) && TextUtils.isEmpty(this.b)) || ListUtils.isEmpty(this.c)) {
                 finish();
             } else {
                 showLoadingDialog((String) null, new a(this));
-                TransmitForumData transmitForumData = this.mTransmitForumDataList.get(0);
+                TransmitForumData transmitForumData = this.c.get(0);
                 if (transmitForumData != null) {
-                    this.mPostModel.A(this.mLiveId, this.mYyAnchorBdUid, String.valueOf(transmitForumData.forumId), "");
+                    this.d.B(this.a, this.b, String.valueOf(transmitForumData.forumId), "");
                 }
             }
         }
@@ -164,20 +164,20 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            initData(bundle);
-            sendRequest();
+            B1(bundle);
+            C1();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            AlaShareInBarModel alaShareInBarModel = this.mPostModel;
+            AlaShareInBarModel alaShareInBarModel = this.d;
             if (alaShareInBarModel != null) {
                 alaShareInBarModel.onDestroy();
             }
@@ -187,7 +187,7 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
     @Override // android.app.Activity
     public void overridePendingTransition(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
             super.overridePendingTransition(0, 0);
         }
     }

@@ -1,0 +1,81 @@
+package com.vivo.push.d;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes8.dex */
+public final class h extends z {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h(com.vivo.push.o oVar) {
+        super(oVar);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {oVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((com.vivo.push.o) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.vivo.push.l
+    public final void a(com.vivo.push.o oVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, oVar) == null) {
+            com.vivo.push.b.t tVar = (com.vivo.push.b.t) oVar;
+            ArrayList<String> d = tVar.d();
+            List<String> e = tVar.e();
+            ArrayList arrayList = new ArrayList();
+            ArrayList arrayList2 = new ArrayList();
+            ArrayList arrayList3 = new ArrayList();
+            ArrayList arrayList4 = new ArrayList();
+            int h = tVar.h();
+            String g = tVar.g();
+            if (d != null) {
+                for (String str : d) {
+                    if (str.startsWith("ali/")) {
+                        arrayList2.add(str.replace("ali/", ""));
+                    } else if (str.startsWith("tag/")) {
+                        arrayList.add(str.replace("tag/", ""));
+                    }
+                }
+            }
+            if (e != null) {
+                for (String str2 : e) {
+                    if (str2.startsWith("ali/")) {
+                        arrayList4.add(str2.replace("ali/", ""));
+                    } else if (str2.startsWith("tag/")) {
+                        arrayList3.add(str2.replace("tag/", ""));
+                    }
+                }
+            }
+            if (arrayList.size() > 0 || arrayList3.size() > 0) {
+                if (arrayList.size() > 0) {
+                    com.vivo.push.e.a().b(arrayList);
+                }
+                com.vivo.push.e.a().a(tVar.g(), arrayList3.size() > 0 ? 10000 : h);
+                com.vivo.push.m.b(new i(this, h, arrayList, arrayList3, g));
+            }
+            if (arrayList2.size() > 0 || arrayList4.size() > 0) {
+                if (arrayList2.size() > 0) {
+                    com.vivo.push.e.a().c(arrayList2);
+                }
+                com.vivo.push.e.a().a(tVar.g(), h);
+                com.vivo.push.m.b(new j(this, h, arrayList2, arrayList4, g));
+            }
+        }
+    }
+}

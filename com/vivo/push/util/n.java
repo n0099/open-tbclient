@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class n implements o {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
@@ -185,7 +185,7 @@ public final class n implements o {
             }
             if (context.getPackageName().equals("com.vivo.pushservice")) {
                 nVar.a(true);
-                Iterator<String> it = com.vivo.push.d.a.a().b().iterator();
+                Iterator<String> it = com.vivo.push.e.a.a().b().iterator();
                 while (it.hasNext()) {
                     com.vivo.push.a.a.a(context, nVar, it.next());
                 }
@@ -201,7 +201,7 @@ public final class n implements o {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             p.a();
-            return com.vivo.push.d.a.a().c();
+            return com.vivo.push.e.a.a().c();
         }
         return invokeV.booleanValue;
     }

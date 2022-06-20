@@ -1,32 +1,29 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
+import com.baidu.tieba.im.message.MemoryModifyLastMsgMessage;
+import com.baidu.tieba.im.model.IMUserListModel;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import protobuf.ConfigVersion;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class ll8 extends ya {
+public class ll8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
+    public IMUserListModel a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ll8(MainTabActivity mainTabActivity, uj8 uj8Var) {
-        super(1001);
+    public ll8(MainTabActivity mainTabActivity) {
+        super(2016003);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, uj8Var};
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,42 +34,18 @@ public class ll8 extends ya {
                 return;
             }
         }
-        this.a = mainTabActivity;
-    }
-
-    public final boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (-1 == this.a.mLastSyncTime) {
-                return true;
-            }
-            long currentTimeMillis = System.currentTimeMillis() - this.a.mLastSyncTime;
-            return currentTimeMillis <= 0 || currentTimeMillis >= 300000;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void b(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || str == null || TbadkCoreApplication.getInst().getConfigVersion() == null || !a()) {
-            return;
-        }
-        this.a.mLastSyncTime = System.currentTimeMillis();
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
+        this.a = new IMUserListModel(mainTabActivity.getPageContext(), mainTabActivity.getUniqueId());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        ConfigVersion configVersion;
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        MemoryModifyLastMsgMessage.a data;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, socketResponsedMessage) == null) && socketResponsedMessage != null && socketResponsedMessage.getCmd() == 1001 && (socketResponsedMessage instanceof ResponseOnlineMessage)) {
-            ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage;
-            if (socketResponsedMessage.getError() != 0 || (configVersion = responseOnlineMessage.getConfigVersion()) == null) {
-                return;
-            }
-            b(configVersion.sync);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016003 && (data = ((MemoryModifyLastMsgMessage) customResponsedMessage).getData()) != null && l57.f().g(data.a, 2) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(data.a);
+            this.a.request(false, arrayList);
         }
     }
 }

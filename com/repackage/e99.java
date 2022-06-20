@@ -1,17 +1,29 @@
 package com.repackage;
-
-import android.os.Build;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public class e99 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface e99 {
+    void a(int i);
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? Build.MANUFACTURER : (String) invokeV.objValue;
-    }
+    void b(String str);
+
+    boolean c();
+
+    e99 d();
+
+    void e(boolean z);
+
+    void f(String str);
+
+    void g(String str);
+
+    String getAAID();
+
+    String getOAID();
+
+    int getStatusCode();
+
+    String getVAID();
+
+    void h(boolean z);
+
+    boolean isSupport();
 }

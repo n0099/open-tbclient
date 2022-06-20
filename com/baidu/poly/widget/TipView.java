@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e71;
+import com.repackage.p71;
 /* loaded from: classes2.dex */
 public class TipView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -58,7 +58,7 @@ public class TipView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             setOrientation(1);
             setGravity(17);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0884, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0883, (ViewGroup) this, true);
             this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09200b);
             this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09200f);
         }
@@ -69,7 +69,7 @@ public class TipView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             setVisibility(0);
             if (this.c == null) {
-                this.c = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010090);
+                this.c = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010092);
             }
             this.b.setText(str);
             ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
@@ -93,7 +93,7 @@ public class TipView extends LinearLayout {
                 layoutParams.width = dimensionPixelOffset;
                 layoutParams.height = dimensionPixelOffset;
             }
-            e71.b().a(this.a, str);
+            p71.b().a(this.a, str);
             this.b.setText(str2);
         }
     }

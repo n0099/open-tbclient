@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sa1;
+import com.repackage.db1;
 import java.io.File;
 import java.util.LinkedList;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -135,7 +135,7 @@ public class LokiTrackUISaver {
                 file.mkdirs();
             }
             if (mTempTraceFile == null) {
-                mTempTraceFile = new File(file, sa1.b() + ".tmp");
+                mTempTraceFile = new File(file, db1.b() + ".tmp");
             }
             return mTempTraceFile;
         }

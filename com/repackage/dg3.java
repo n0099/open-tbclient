@@ -1,25 +1,27 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ej1;
-@Singleton
-@Service
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class dg3 implements ej1 {
+public class dg3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public Map<String, String> b;
+
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(dg3 dg3Var);
+
+        void b(dg3 dg3Var);
+
+        void onFinish();
+
+        void onStart();
+    }
 
     public dg3() {
         Interceptable interceptable = $ic;
@@ -32,81 +34,6 @@ public class dg3 implements ej1 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    @Override // com.repackage.ej1
-    public void a(ej1.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            aVar.onFinish();
-        }
-    }
-
-    @Override // com.repackage.ej1
-    public void b(Activity activity, Bundle bundle, tf1 tf1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bundle, tf1Var) == null) {
-            hf3.M(activity, false, bundle, tf1Var);
-        }
-    }
-
-    @Override // com.repackage.ej1
-    public void c(vf1 vf1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vf1Var) == null) {
-            hf3.c(vf1Var);
-        }
-    }
-
-    @Override // com.repackage.ej1
-    public String d(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) ? hf3.i(context) : (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.ej1
-    public boolean e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) ? hf3.F(context) : invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.ej1
-    public String f(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? hf3.l(context) : (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.ej1
-    public void g(ej1.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
-            cVar.a(true);
-        }
-    }
-
-    @Override // com.repackage.ej1
-    public String h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) ? hf3.y(context) : (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.ej1
-    public String i(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) ? hf3.l(context) : (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.ej1
-    public void j(tf1 tf1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, tf1Var) == null) {
-            new ch3().h(tf1Var);
         }
     }
 }

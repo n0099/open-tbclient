@@ -1,69 +1,284 @@
 package com.repackage;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import com.baidu.adp.base.BdDatabaseNewCreatedMessage;
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.me;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class ne extends i9 {
+public class ne {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ne(Context context, String str) {
-        super(context, str, 1);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes6.dex */
+    public static class a implements me.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final int a;
+        public LinkedList<oe<?>> b;
+
+        public a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+        }
+
+        @Override // com.repackage.me
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.repackage.me.a
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.b.clear();
+                this.b = null;
+            }
+        }
+
+        @Override // com.repackage.me.a
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.b = new LinkedList<>();
+            }
+        }
+
+        @Override // com.repackage.me
+        public int getMaxSize() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.intValue;
+        }
+
+        @Override // com.repackage.me.a
+        public String h(oe<?> oeVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, oeVar)) == null) {
+                if (oeVar.f < System.currentTimeMillis()) {
+                    return oeVar.a;
+                }
+                this.b.add(oeVar);
+                String str = null;
+                if (this.b.size() > getMaxSize()) {
+                    long j = 0;
+                    int i = -1;
+                    for (int i2 = 0; i2 < this.b.size(); i2++) {
+                        oe<?> oeVar2 = this.b.get(i2);
+                        if (i == -1 || oeVar2.e < j) {
+                            str = oeVar2.a;
+                            j = oeVar2.e;
+                            i = i2;
+                        }
+                    }
+                    this.b.remove(i);
+                }
+                return str;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements me.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final int a;
+        public HashMap<String, Long> b;
+
+        public b(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = new HashMap<>();
+            this.a = i;
+        }
+
+        @Override // com.repackage.me
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.repackage.me.b
+        public String d(oe<?> oeVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oeVar)) == null) {
+                String i = i(oeVar.a);
+                synchronized (this) {
+                    this.b.put(oeVar.a, Long.valueOf(oeVar.e));
+                }
+                return i;
+            }
+            return (String) invokeL.objValue;
+        }
+
+        @Override // com.repackage.me.b
+        public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            }
+        }
+
+        @Override // com.repackage.me.b
+        public void f() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            }
+        }
+
+        @Override // com.repackage.me.b
+        public String g(oe<?> oeVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, oeVar)) == null) {
+                if (oeVar.f < System.currentTimeMillis()) {
+                    return oeVar.a;
+                }
+                return d(oeVar);
+            }
+            return (String) invokeL.objValue;
+        }
+
+        @Override // com.repackage.me
+        public int getMaxSize() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : invokeV.intValue;
+        }
+
+        public String i(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+                String str2 = null;
+                if (!this.b.containsKey(str) && this.b.size() >= this.a) {
+                    synchronized (this) {
+                        long j = -1;
+                        for (Map.Entry<String, Long> entry : this.b.entrySet()) {
+                            long longValue = entry.getValue().longValue();
+                            if (j == -1 || j > longValue) {
+                                str2 = entry.getKey();
+                                j = longValue;
+                            }
+                        }
+                        if (str2 != null) {
+                            this.b.remove(str2);
+                        }
+                    }
+                    return str2;
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+
+        @Override // com.repackage.me.b
+        public void release() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                synchronized (this) {
+                    this.b.clear();
+                }
             }
         }
     }
 
-    public void a(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "CREATE TABLE IF NOT EXISTS cache_meta_info(nameSpace VARCHAR(128) PRIMARY KEY, tableName varchar(64), maxSize int(11) default 0, cacheType varchar(32) not null, cacheVersion int(11) default 0, lastActiveTime bigint(21) default 0)");
+    /* loaded from: classes6.dex */
+    public static class c implements me {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.me
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.repackage.me
+        public int getMaxSize() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return 1;
+            }
+            return invokeV.intValue;
         }
     }
 
-    @Override // com.repackage.i9
-    public void clearAllTables(SQLiteDatabase sQLiteDatabase) {
+    public static me a(int i, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (z) {
+                return new b(i);
+            }
+            return new a(i);
         }
+        return (me) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.i9
-    public void createAllTables(SQLiteDatabase sQLiteDatabase) {
+    public static me b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
-            a(sQLiteDatabase);
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new BdDatabaseNewCreatedMessage(sQLiteDatabase));
-        }
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper, com.repackage.g9
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) || i >= 1) {
-            return;
-        }
-        a(sQLiteDatabase);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new c() : (me) invokeV.objValue;
     }
 }

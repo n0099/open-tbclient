@@ -15,9 +15,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
-import com.repackage.fq;
-import com.repackage.sp;
-import com.repackage.zo;
+import com.repackage.dp;
+import com.repackage.jq;
+import com.repackage.wp;
 import java.lang.ref.WeakReference;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -33,20 +33,20 @@ import org.json.JSONObject;
 public final class SubTaskState implements ITaskModelData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile zo callback;
-    public Set<zo> callbacks;
+    public volatile dp callback;
+    public Set<dp> callbacks;
     public final ReentrantLock fairLock;
-    public fq interceptor;
+    public jq interceptor;
     public TaskInfo taskInfo;
     public final TaskStatus taskStatus;
-    public Set<WeakReference<sp>> weakCallbacks;
+    public Set<WeakReference<wp>> weakCallbacks;
 
-    public SubTaskState(TaskInfo taskInfo, TaskStatus taskStatus, zo zoVar) {
+    public SubTaskState(TaskInfo taskInfo, TaskStatus taskStatus, dp dpVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {taskInfo, taskStatus, zoVar};
+            Object[] objArr = {taskInfo, taskStatus, dpVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -58,31 +58,31 @@ public final class SubTaskState implements ITaskModelData {
         }
         this.taskInfo = taskInfo;
         this.taskStatus = taskStatus;
-        this.callback = zoVar;
+        this.callback = dpVar;
         this.callbacks = new HashSet();
         this.weakCallbacks = new HashSet();
         this.fairLock = new ReentrantLock(true);
         if (this.callback != null) {
-            if (this.callback instanceof sp) {
-                zo zoVar2 = this.callback;
-                if (zoVar2 == null || isInWeakCallbacks(zoVar2)) {
+            if (this.callback instanceof wp) {
+                dp dpVar2 = this.callback;
+                if (dpVar2 == null || isInWeakCallbacks(dpVar2)) {
                     return;
                 }
-                Set<WeakReference<sp>> set = this.weakCallbacks;
-                zo zoVar3 = this.callback;
-                set.add(new WeakReference<>((sp) (zoVar3 instanceof sp ? zoVar3 : null)));
+                Set<WeakReference<wp>> set = this.weakCallbacks;
+                dp dpVar3 = this.callback;
+                set.add(new WeakReference<>((wp) (dpVar3 instanceof wp ? dpVar3 : null)));
                 return;
             }
             this.callbacks.add(this.callback);
         }
     }
 
-    private final boolean isInWeakCallbacks(zo zoVar) {
+    private final boolean isInWeakCallbacks(dp dpVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, zoVar)) == null) {
-            for (WeakReference<sp> weakReference : this.weakCallbacks) {
-                if (Intrinsics.areEqual(weakReference.get(), zoVar)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, dpVar)) == null) {
+            for (WeakReference<wp> weakReference : this.weakCallbacks) {
+                if (Intrinsics.areEqual(weakReference.get(), dpVar)) {
                     return true;
                 }
             }
@@ -98,23 +98,23 @@ public final class SubTaskState implements ITaskModelData {
         subTaskState.reset2Running(z);
     }
 
-    public final void addCallback(zo zoVar) {
+    public final void addCallback(dp dpVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, zoVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, dpVar) == null) {
             ReentrantLock reentrantLock = this.fairLock;
             reentrantLock.lock();
-            if (zoVar != null) {
+            if (dpVar != null) {
                 try {
-                    if (zoVar instanceof sp) {
-                        if (!isInWeakCallbacks(zoVar)) {
-                            Set<WeakReference<sp>> set = this.weakCallbacks;
-                            if (!(zoVar instanceof sp)) {
-                                zoVar = null;
+                    if (dpVar instanceof wp) {
+                        if (!isInWeakCallbacks(dpVar)) {
+                            Set<WeakReference<wp>> set = this.weakCallbacks;
+                            if (!(dpVar instanceof wp)) {
+                                dpVar = null;
                             }
-                            set.add(new WeakReference<>((sp) zoVar));
+                            set.add(new WeakReference<>((wp) dpVar));
                         }
                     } else {
-                        this.callbacks.add(zoVar);
+                        this.callbacks.add(dpVar);
                     }
                 } finally {
                     reentrantLock.unlock();
@@ -186,7 +186,7 @@ public final class SubTaskState implements ITaskModelData {
         }
     }
 
-    public final Set<zo> getCallbacks() {
+    public final Set<dp> getCallbacks() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -195,9 +195,9 @@ public final class SubTaskState implements ITaskModelData {
             try {
                 HashSet hashSet = new HashSet();
                 hashSet.addAll(this.callbacks);
-                Iterator<WeakReference<sp>> it = this.weakCallbacks.iterator();
+                Iterator<WeakReference<wp>> it = this.weakCallbacks.iterator();
                 while (it.hasNext()) {
-                    WeakReference<sp> next = it.next();
+                    WeakReference<wp> next = it.next();
                     if (next.get() != null) {
                         hashSet.add(next.get());
                     } else {
@@ -218,10 +218,10 @@ public final class SubTaskState implements ITaskModelData {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.taskStatus.getTaskStatusRuntime() : (TaskStatusRuntime) invokeV.objValue;
     }
 
-    public final fq getInterceptor() {
+    public final jq getInterceptor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.interceptor : (fq) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.interceptor : (jq) invokeV.objValue;
     }
 
     public final TaskInfo getTaskInfo() {
@@ -275,19 +275,19 @@ public final class SubTaskState implements ITaskModelData {
         }
     }
 
-    public final void removeCallback(zo zoVar) {
+    public final void removeCallback(dp dpVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, zoVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, dpVar) == null) {
             ReentrantLock reentrantLock = this.fairLock;
             reentrantLock.lock();
-            if (zoVar == null) {
+            if (dpVar == null) {
                 return;
             }
             try {
-                this.callbacks.remove(zoVar);
-                Iterator<WeakReference<sp>> it = this.weakCallbacks.iterator();
+                this.callbacks.remove(dpVar);
+                Iterator<WeakReference<wp>> it = this.weakCallbacks.iterator();
                 while (it.hasNext()) {
-                    if (Intrinsics.areEqual(it.next().get(), zoVar)) {
+                    if (Intrinsics.areEqual(it.next().get(), dpVar)) {
                         it.remove();
                     }
                 }
@@ -312,10 +312,10 @@ public final class SubTaskState implements ITaskModelData {
         }
     }
 
-    public final void setInterceptor(fq fqVar) {
+    public final void setInterceptor(jq jqVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, fqVar) == null) {
-            this.interceptor = fqVar;
+        if (interceptable == null || interceptable.invokeL(1048597, this, jqVar) == null) {
+            this.interceptor = jqVar;
         }
     }
 
@@ -403,7 +403,7 @@ public final class SubTaskState implements ITaskModelData {
         return (SubTaskState) invokeV.objValue;
     }
 
-    public /* synthetic */ SubTaskState(TaskInfo taskInfo, TaskStatus taskStatus, zo zoVar, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(taskInfo, taskStatus, (i & 4) != 0 ? null : zoVar);
+    public /* synthetic */ SubTaskState(TaskInfo taskInfo, TaskStatus taskStatus, dp dpVar, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(taskInfo, taskStatus, (i & 4) != 0 ? null : dpVar);
     }
 }

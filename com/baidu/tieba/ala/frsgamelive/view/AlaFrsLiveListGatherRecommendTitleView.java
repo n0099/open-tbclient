@@ -13,10 +13,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dr5;
-import com.repackage.nv5;
+import com.repackage.cs5;
+import com.repackage.mw5;
 /* loaded from: classes3.dex */
-public class AlaFrsLiveListGatherRecommendTitleView extends nv5<dr5> {
+public class AlaFrsLiveListGatherRecommendTitleView extends mw5<cs5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View i;
@@ -32,7 +32,7 @@ public class AlaFrsLiveListGatherRecommendTitleView extends nv5<dr5> {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public AlaFrsLiveListGatherRecommendTitleViewHolder(AlaFrsLiveListGatherRecommendTitleView alaFrsLiveListGatherRecommendTitleView) {
-            super(alaFrsLiveListGatherRecommendTitleView.k());
+            super(alaFrsLiveListGatherRecommendTitleView.h());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -70,22 +70,22 @@ public class AlaFrsLiveListGatherRecommendTitleView extends nv5<dr5> {
             }
         }
         this.m = 3;
-        View k = k();
-        this.i = k.findViewById(R.id.obfuscated_res_0x7f090ae5);
-        this.j = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090ae4);
-        this.k = k.findViewById(R.id.obfuscated_res_0x7f090ae6);
-        m(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+        View h = h();
+        this.i = h.findViewById(R.id.obfuscated_res_0x7f090ad4);
+        this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090ad3);
+        this.k = h.findViewById(R.id.obfuscated_res_0x7f090ad5);
+        j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.repackage.nv5
+    @Override // com.repackage.mw5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d00f1 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d00f0 : invokeV.intValue;
     }
 
-    @Override // com.repackage.nv5
-    public void m(TbPageContext<?> tbPageContext, int i) {
+    @Override // com.repackage.mw5
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || this.m == i) {
             return;
@@ -104,12 +104,12 @@ public class AlaFrsLiveListGatherRecommendTitleView extends nv5<dr5> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.nv5
-    /* renamed from: s */
-    public void l(dr5 dr5Var) {
+    @Override // com.repackage.mw5
+    /* renamed from: r */
+    public void i(cs5 cs5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, dr5Var) == null) {
-            m(this.l, TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || interceptable.invokeL(1048580, this, cs5Var) == null) {
+            j(this.l, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 }

@@ -20,10 +20,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fe5;
-import com.repackage.fi;
-import com.repackage.ge5;
-import com.repackage.ki;
+import com.repackage.cf5;
+import com.repackage.df5;
+import com.repackage.ji;
+import com.repackage.oi;
 import java.io.File;
 import java.io.InputStream;
 /* loaded from: classes3.dex */
@@ -31,15 +31,15 @@ public class TBLottieAnimationView extends LottieAnimationView {
     public static /* synthetic */ Interceptable $ic;
     public static final String g;
     public transient /* synthetic */ FieldHolder $fh;
-    public ge5 a;
+    public df5 a;
     public String b;
     public boolean c;
     public boolean d;
     public boolean e;
-    public ge5.a f;
+    public df5.a f;
 
     /* loaded from: classes3.dex */
-    public class a implements ge5.a {
+    public class a implements df5.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TBLottieAnimationView a;
@@ -62,10 +62,10 @@ public class TBLottieAnimationView extends LottieAnimationView {
             this.a = tBLottieAnimationView;
         }
 
-        @Override // com.repackage.ge5.a
+        @Override // com.repackage.df5.a
         public void a(boolean z, String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) && z && !ki.isEmpty(str)) {
+            if ((interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) && z && !oi.isEmpty(str)) {
                 this.a.setAnimationDir(str);
             }
         }
@@ -152,19 +152,10 @@ public class TBLottieAnimationView extends LottieAnimationView {
         this.f = new a(this);
     }
 
-    public static String getAnimationPath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return g + "/" + TbConfig.getTempDirName() + "/animation/";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean m(String str) {
+    public static boolean f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             File file = new File(str);
             if (file.exists()) {
                 return true;
@@ -172,24 +163,33 @@ public class TBLottieAnimationView extends LottieAnimationView {
             try {
                 return file.mkdirs();
             } catch (Exception e) {
-                TiebaStatic.file(e, ki.join("FileHelper", ".", "CheckTempDir", " ", str));
+                TiebaStatic.file(e, oi.join("FileHelper", ".", "CheckTempDir", " ", str));
                 return false;
             }
         }
         return invokeL.booleanValue;
     }
 
-    public static InputStream r(String str, String str2) {
+    public static String getAnimationPath() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return g + "/" + TbConfig.getTempDirName() + "/animation/";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static InputStream n(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
             String animationPath = getAnimationPath();
-            if (m(animationPath)) {
+            if (f(animationPath)) {
                 String str3 = animationPath + str + "/";
                 if (new File(str3).exists()) {
                     File file = new File(str3 + str2);
                     if (file.exists()) {
-                        return fi.v(file);
+                        return ji.v(file);
                     }
                     return null;
                 }
@@ -209,41 +209,48 @@ public class TBLottieAnimationView extends LottieAnimationView {
         }
     }
 
+    public final void g(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || oi.isEmpty(str)) {
+            return;
+        }
+        cf5 cf5Var = new cf5();
+        cf5Var.d(str);
+        cf5Var.c(getFristLoadInternal());
+        setImageAssetDelegate(cf5Var);
+    }
+
     public boolean getFristLoadInternal() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : invokeV.booleanValue;
     }
 
-    public final void n(String str) {
+    public final void k(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || ki.isEmpty(str)) {
-            return;
-        }
-        fe5 fe5Var = new fe5();
-        fe5Var.d(str);
-        fe5Var.c(getFristLoadInternal());
-        setImageAssetDelegate(fe5Var);
-    }
-
-    public final void o(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || ki.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || oi.isEmpty(str)) {
             return;
         }
         boolean z = this.c;
         cancelAnimation();
-        InputStream r = r(str, "data.json");
-        if (r == null) {
+        InputStream n = n(str, "data.json");
+        if (n == null) {
             return;
         }
-        LottieCompositionFactory.fromJsonInputStream(r, str).addListener(new b(this, z));
+        LottieCompositionFactory.fromJsonInputStream(n, str).addListener(new b(this, z));
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.e = true;
+        }
     }
 
     @Override // com.airbnb.lottie.LottieAnimationView, android.view.View
     public void onRestoreInstanceState(Parcelable parcelable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, parcelable) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, parcelable) == null) {
             if (!this.e) {
                 super.onRestoreInstanceState(parcelable);
             }
@@ -254,7 +261,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
     @Override // com.airbnb.lottie.LottieAnimationView
     public void pauseAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.pauseAnimation();
             this.c = false;
         }
@@ -263,16 +270,9 @@ public class TBLottieAnimationView extends LottieAnimationView {
     @Override // com.airbnb.lottie.LottieAnimationView
     public void playAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.playAnimation();
             this.c = true;
-        }
-    }
-
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.e = true;
         }
     }
 
@@ -287,22 +287,22 @@ public class TBLottieAnimationView extends LottieAnimationView {
 
     public void setAnimationDir(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || ki.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || oi.isEmpty(str)) {
             return;
         }
-        n(str);
-        o(str);
+        g(str);
+        k(str);
     }
 
     public void setAnimationUrl(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || ki.isEmpty(str) || str.equals(this.b)) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || oi.isEmpty(str) || str.equals(this.b)) {
             return;
         }
         this.b = str;
-        ge5 ge5Var = new ge5(getAnimationPath(), str, this.f);
-        this.a = ge5Var;
-        ge5Var.execute(new Void[0]);
+        df5 df5Var = new df5(getAnimationPath(), str, this.f);
+        this.a = df5Var;
+        df5Var.execute(new Void[0]);
     }
 
     @Override // com.airbnb.lottie.LottieAnimationView

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Looper;
 import android.text.TextUtils;
+import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,9 +12,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,6 +47,40 @@ public class b {
         this.g = new HashMap<>();
     }
 
+    private List<String> c(String str) {
+        InterceptResult invokeL;
+        Object a;
+        String[] split;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
+            if (this.a == null) {
+                p.c("BaseSharePreference", " parsLocalIv error mContext is null ");
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            try {
+                a = z.a(this.a, this.a.getPackageName(), str);
+            } catch (Exception e) {
+                p.c("BaseSharePreference", " parsLocalIv error e =" + e.getMessage());
+                e.printStackTrace();
+            }
+            if (a == null) {
+                return null;
+            }
+            String str2 = new String(Base64.decode(a.toString(), 2));
+            if (!TextUtils.isEmpty(str2) && (split = str2.split(",#@")) != null && split.length >= 4) {
+                for (String str3 : split) {
+                    arrayList.add(str3.replace(",#@", ""));
+                }
+                if (arrayList.size() >= 4) {
+                    return arrayList;
+                }
+            }
+            return null;
+        }
+        return (List) invokeL.objValue;
+    }
+
     public final void a(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) == null) {
@@ -51,12 +88,17 @@ public class b {
                 this.b = str;
                 this.c = context.getSharedPreferences(str, 0);
                 this.a = context;
-                HashMap hashMap = new HashMap();
-                hashMap.put("com.vivo.push.secure_sub_iv", "34,32,33,37,33,34,32,33,33,33,34,41,35,35,32,32");
-                hashMap.put("com.vivo.push.secure_sub_key", "33,34,35,36,37,38,39,40,41,32,38,37,33,35,34,33");
-                hashMap.put("com.vivo.push.secure_cache_iv", "34,32,33,37,33,34,32,33,33,33,34,41,35,32,32,32");
-                hashMap.put("com.vivo.push.secure_cache_key", "33,34,35,36,37,38,39,40,41,32,38,37,36,35,34,33");
-                a(hashMap);
+                List<String> c = c("local_iv");
+                if (c != null && c.size() >= 4) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put("com.vivo.push.secure_sub_iv", c.get(1));
+                    hashMap.put("com.vivo.push.secure_sub_key", c.get(2));
+                    hashMap.put("com.vivo.push.secure_cache_iv", c.get(3));
+                    hashMap.put("com.vivo.push.secure_cache_key", c.get(0));
+                    a(hashMap);
+                    return;
+                }
+                p.a("BaseSharePreference", " initSecureCode error list is null ");
                 return;
             }
             throw new RuntimeException("sharedFileName can't be null");

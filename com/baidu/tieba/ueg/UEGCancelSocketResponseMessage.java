@@ -1,5 +1,6 @@
 package com.baidu.tieba.ueg;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
@@ -36,45 +37,50 @@ public class UEGCancelSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
-    public BlockPopInfoData getData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.info : (BlockPopInfoData) invokeV.objValue;
-    }
-
-    public void setData(BlockPopInfoData blockPopInfoData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, blockPopInfoData) == null) {
-            this.info = blockPopInfoData;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         QueryBlockAndAppealInfoResIdl queryBlockAndAppealInfoResIdl;
         String str;
         Integer num;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || bArr == null || (queryBlockAndAppealInfoResIdl = (QueryBlockAndAppealInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryBlockAndAppealInfoResIdl.class)) == null) {
-            return;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            if (bArr == null || (queryBlockAndAppealInfoResIdl = (QueryBlockAndAppealInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryBlockAndAppealInfoResIdl.class)) == null) {
+                return null;
+            }
+            Error error = queryBlockAndAppealInfoResIdl.error;
+            if (error != null && (num = error.errorno) != null) {
+                setError(num.intValue());
+            }
+            Error error2 = queryBlockAndAppealInfoResIdl.error;
+            if (error2 != null && (str = error2.usermsg) != null && str.length() > 0) {
+                setErrorString(queryBlockAndAppealInfoResIdl.error.usermsg);
+            }
+            BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
+            DataRes dataRes = queryBlockAndAppealInfoResIdl.data;
+            blockPopInfoData.block_info = dataRes.block_info;
+            blockPopInfoData.ahead_info = dataRes.ahead_info;
+            blockPopInfoData.ahead_url = dataRes.ahead_url;
+            blockPopInfoData.ok_info = dataRes.ok_info;
+            blockPopInfoData.win_type = dataRes.win_type.intValue();
+            blockPopInfoData.block_id_code = queryBlockAndAppealInfoResIdl.data.block_id_code;
+            setData(blockPopInfoData);
+            return queryBlockAndAppealInfoResIdl;
         }
-        Error error = queryBlockAndAppealInfoResIdl.error;
-        if (error != null && (num = error.errorno) != null) {
-            setError(num.intValue());
+        return invokeIL.objValue;
+    }
+
+    public BlockPopInfoData getData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.info : (BlockPopInfoData) invokeV.objValue;
+    }
+
+    public void setData(BlockPopInfoData blockPopInfoData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, blockPopInfoData) == null) {
+            this.info = blockPopInfoData;
         }
-        Error error2 = queryBlockAndAppealInfoResIdl.error;
-        if (error2 != null && (str = error2.usermsg) != null && str.length() > 0) {
-            setErrorString(queryBlockAndAppealInfoResIdl.error.usermsg);
-        }
-        BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
-        DataRes dataRes = queryBlockAndAppealInfoResIdl.data;
-        blockPopInfoData.block_info = dataRes.block_info;
-        blockPopInfoData.ahead_info = dataRes.ahead_info;
-        blockPopInfoData.ahead_url = dataRes.ahead_url;
-        blockPopInfoData.ok_info = dataRes.ok_info;
-        blockPopInfoData.win_type = dataRes.win_type.intValue();
-        blockPopInfoData.block_id_code = queryBlockAndAppealInfoResIdl.data.block_id_code;
-        setData(blockPopInfoData);
     }
 }

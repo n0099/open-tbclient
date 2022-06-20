@@ -89,19 +89,19 @@ public final class MediaSessionManager {
     @NonNull
     public static MediaSessionManager getSessionManager(@NonNull Context context) {
         InterceptResult invokeL;
+        MediaSessionManager mediaSessionManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            MediaSessionManager mediaSessionManager = sSessionManager;
-            if (mediaSessionManager == null) {
+            if (context != null) {
                 synchronized (sLock) {
-                    mediaSessionManager = sSessionManager;
-                    if (mediaSessionManager == null) {
+                    if (sSessionManager == null) {
                         sSessionManager = new MediaSessionManager(context.getApplicationContext());
-                        mediaSessionManager = sSessionManager;
                     }
+                    mediaSessionManager = sSessionManager;
                 }
+                return mediaSessionManager;
             }
-            return mediaSessionManager;
+            throw new IllegalArgumentException("context cannot be null");
         }
         return (MediaSessionManager) invokeL.objValue;
     }
@@ -128,6 +128,10 @@ public final class MediaSessionManager {
     public static final class RemoteUserInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String LEGACY_CONTROLLER = "android.media.session.MediaController";
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+        public static final int UNKNOWN_PID = -1;
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+        public static final int UNKNOWN_UID = -1;
         public transient /* synthetic */ FieldHolder $fh;
         public RemoteUserInfoImpl mImpl;
 
@@ -194,7 +198,7 @@ public final class MediaSessionManager {
         }
 
         @RequiresApi(28)
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+        @RestrictTo({RestrictTo.Scope.LIBRARY})
         public RemoteUserInfo(MediaSessionManager.RemoteUserInfo remoteUserInfo) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {

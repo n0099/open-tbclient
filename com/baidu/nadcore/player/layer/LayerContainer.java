@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ko0;
-import com.repackage.rt0;
+import com.repackage.oo0;
+import com.repackage.vt0;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
@@ -22,8 +22,8 @@ public class LayerContainer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FrameLayout.LayoutParams a;
-    public ko0 b;
-    public ArrayList<rt0> c;
+    public oo0 b;
+    public ArrayList<vt0> c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LayerContainer(@NonNull Context context) {
@@ -46,66 +46,66 @@ public class LayerContainer extends FrameLayout {
         g();
     }
 
-    public void a(@NonNull rt0 rt0Var) {
+    public void a(@NonNull vt0 vt0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, rt0Var) == null) {
-            b(rt0Var, getContainerParams());
+        if (interceptable == null || interceptable.invokeL(1048576, this, vt0Var) == null) {
+            b(vt0Var, getContainerParams());
         }
     }
 
-    public void b(@NonNull rt0 rt0Var, FrameLayout.LayoutParams layoutParams) {
+    public void b(@NonNull vt0 vt0Var, FrameLayout.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rt0Var, layoutParams) == null) || this.c.contains(rt0Var)) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vt0Var, layoutParams) == null) || this.c.contains(vt0Var)) {
             return;
         }
-        rt0Var.J(this);
-        rt0Var.C();
-        rt0Var.s(getBindPlayer().x());
-        this.c.add(rt0Var);
-        if (rt0Var.getContentView() == null || rt0Var.getContentView() == this) {
+        vt0Var.I(this);
+        vt0Var.B();
+        vt0Var.r(getBindPlayer().x());
+        this.c.add(vt0Var);
+        if (vt0Var.getContentView() == null || vt0Var.getContentView() == this) {
             return;
         }
-        addView(rt0Var.getContentView(), layoutParams);
+        addView(vt0Var.getContentView(), layoutParams);
     }
 
-    public void c(@NonNull rt0 rt0Var) {
+    public void c(@NonNull vt0 vt0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rt0Var) == null) {
-            e(rt0Var);
-            rt0Var.J(this);
-            rt0Var.s(getBindPlayer().x());
-            this.c.add(0, rt0Var);
-            if (rt0Var.getContentView() != null) {
-                addView(rt0Var.getContentView(), 0, this.a);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vt0Var) == null) {
+            e(vt0Var);
+            vt0Var.I(this);
+            vt0Var.r(getBindPlayer().x());
+            this.c.add(0, vt0Var);
+            if (vt0Var.getContentView() != null) {
+                addView(vt0Var.getContentView(), 0, this.a);
             }
         }
     }
 
-    public void d(@NonNull ko0 ko0Var) {
+    public void d(@NonNull oo0 oo0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ko0Var) == null) {
-            this.b = ko0Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, oo0Var) == null) {
+            this.b = oo0Var;
         }
     }
 
-    public void e(@NonNull rt0 rt0Var) {
+    public void e(@NonNull vt0 vt0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, rt0Var) == null) {
-            f(rt0Var, false);
+        if (interceptable == null || interceptable.invokeL(1048580, this, vt0Var) == null) {
+            f(vt0Var, false);
         }
     }
 
-    public void f(@NonNull rt0 rt0Var, boolean z) {
+    public void f(@NonNull vt0 vt0Var, boolean z) {
         ViewGroup viewGroup;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048581, this, rt0Var, z) == null) {
-            this.c.remove(rt0Var);
-            rt0Var.E();
-            if (rt0Var.getContentView() != null && (viewGroup = (ViewGroup) rt0Var.getContentView().getParent()) != null) {
-                viewGroup.removeView(rt0Var.getContentView());
+        if (interceptable == null || interceptable.invokeLZ(1048581, this, vt0Var, z) == null) {
+            this.c.remove(vt0Var);
+            vt0Var.D();
+            if (vt0Var.getContentView() != null && (viewGroup = (ViewGroup) vt0Var.getContentView().getParent()) != null) {
+                viewGroup.removeView(vt0Var.getContentView());
             }
             if (z) {
-                rt0Var.t();
+                vt0Var.s();
             }
         }
     }
@@ -119,10 +119,10 @@ public class LayerContainer extends FrameLayout {
     }
 
     @NonNull
-    public ko0 getBindPlayer() {
+    public oo0 getBindPlayer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : (ko0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : (oo0) invokeV.objValue;
     }
 
     public FrameLayout.LayoutParams getContainerParams() {
@@ -131,19 +131,19 @@ public class LayerContainer extends FrameLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? new FrameLayout.LayoutParams(-1, -1) : (FrameLayout.LayoutParams) invokeV.objValue;
     }
 
-    public ArrayList<rt0> getLayerList() {
+    public ArrayList<vt0> getLayerList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.c : (ArrayList) invokeV.objValue;
     }
 
     public void h() {
-        ArrayList<rt0> arrayList;
+        ArrayList<vt0> arrayList;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (arrayList = this.c) == null) {
             return;
         }
-        Iterator<rt0> it = arrayList.iterator();
+        Iterator<vt0> it = arrayList.iterator();
         while (it.hasNext()) {
             it.next().onContainerDetach();
         }

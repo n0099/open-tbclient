@@ -1,5 +1,6 @@
 package com.baidu.tbadk.clientConfig;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,29 +36,34 @@ public class ClientConfigSocketResponse extends SocketResponsedMessage {
         }
     }
 
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            GetClientConfigResIdl getClientConfigResIdl = (GetClientConfigResIdl) new Wire(new Class[0]).parseFrom(bArr, GetClientConfigResIdl.class);
+            if (getClientConfigResIdl == null) {
+                return null;
+            }
+            Error error = getClientConfigResIdl.error;
+            if (error != null) {
+                setError(error.errorno.intValue());
+                setErrorString(getClientConfigResIdl.error.errmsg);
+            }
+            DataRes dataRes = getClientConfigResIdl.data;
+            if (dataRes == null) {
+                return getClientConfigResIdl;
+            }
+            this.mData = dataRes;
+            return getClientConfigResIdl;
+        }
+        return invokeIL.objValue;
+    }
+
     public DataRes getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (DataRes) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        GetClientConfigResIdl getClientConfigResIdl;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getClientConfigResIdl = (GetClientConfigResIdl) new Wire(new Class[0]).parseFrom(bArr, GetClientConfigResIdl.class)) == null) {
-            return;
-        }
-        Error error = getClientConfigResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(getClientConfigResIdl.error.errmsg);
-        }
-        DataRes dataRes = getClientConfigResIdl.data;
-        if (dataRes == null) {
-            return;
-        }
-        this.mData = dataRes;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (DataRes) invokeV.objValue;
     }
 }

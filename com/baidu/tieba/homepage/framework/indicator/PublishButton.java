@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
@@ -12,8 +13,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
-import com.repackage.ot4;
+import com.repackage.pi;
+import com.repackage.xt4;
+import com.repackage.yt4;
 /* loaded from: classes3.dex */
 public class PublishButton extends TBSpecificationBtn {
     public static /* synthetic */ Interceptable $ic;
@@ -45,13 +47,8 @@ public class PublishButton extends TBSpecificationBtn {
     private void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            ot4 ot4Var = new ot4();
-            ot4Var.i(R.drawable.obfuscated_res_0x7f08093c, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            ot4Var.g(li.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
-            ot4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
-            setConfig(ot4Var);
             setTextSize(R.dimen.T_X08);
-            setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f085d));
+            setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f085a));
         }
     }
 
@@ -64,9 +61,31 @@ public class PublishButton extends TBSpecificationBtn {
         }
     }
 
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (TbadkApplication.getInst().isUseLuckyHeader()) {
+                yt4 yt4Var = new yt4();
+                yt4Var.p(R.color.CAM_X0101);
+                yt4Var.v(R.dimen.tbds6);
+                yt4Var.u(R.string.A_X01);
+                yt4Var.i(R.drawable.obfuscated_res_0x7f080924, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                yt4Var.g(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
+                setConfig(yt4Var);
+            } else {
+                xt4 xt4Var = new xt4();
+                xt4Var.i(R.drawable.obfuscated_res_0x7f080924, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                xt4Var.g(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
+                xt4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
+                setConfig(xt4Var);
+            }
+            k();
+        }
+    }
+
     public void setScrollAlpha(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
             this.o = f;
         }
     }

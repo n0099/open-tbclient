@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.message;
 
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cq4;
+import com.repackage.mq4;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,81 +47,17 @@ public class ResponseGroupsByUidMessage extends TbSocketReponsedMessage {
         }
     }
 
-    public int getCommonGroupNum() {
-        InterceptResult invokeV;
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.commonGroupNum : invokeV.intValue;
-    }
-
-    public List<GroupInfoData> getCommonGroups() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.commonGroups : (List) invokeV.objValue;
-    }
-
-    public int getGroupNum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.groupNum : invokeV.intValue;
-    }
-
-    public GroupPermData getGroupPerm() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.groupPerm : (GroupPermData) invokeV.objValue;
-    }
-
-    public List<GroupInfoData> getGroups() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.groups : (List) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ResponseGroupsByUidMessage(int i) {
-        super(i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && getError() == 0) {
-            GroupsByUidMessage groupsByUidMessage = (GroupsByUidMessage) getOrginalMessage();
-            String id = TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "";
-            if (groupsByUidMessage == null || groupsByUidMessage.getFriendUid() != 0) {
-                return;
-            }
-            cq4.f();
-            TbSocketReponsedMessage.saveProtocolBufferDataToCache(cq4.d("tb.im_entergroup"), CACHE_KEY_PREFIX + id, bArr);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.message.websockt.TbSocketReponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bArr)) == null) {
             QueryGroupsByUidResIdl queryGroupsByUidResIdl = (QueryGroupsByUidResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryGroupsByUidResIdl.class);
             setError(queryGroupsByUidResIdl.error.errorno.intValue());
             setErrorString(queryGroupsByUidResIdl.error.usermsg);
             if (getError() != 0) {
-                return;
+                return queryGroupsByUidResIdl;
             }
             this.groups = new ArrayList();
             List<GroupInfo> list = queryGroupsByUidResIdl.data.groups;
@@ -175,6 +111,73 @@ public class ResponseGroupsByUidMessage extends TbSocketReponsedMessage {
             this.groupPerm = groupPermData;
             this.groupNum = queryGroupsByUidResIdl.data.groupnum.intValue();
             this.commonGroupNum = queryGroupsByUidResIdl.data.commongroupnum.intValue();
+            return queryGroupsByUidResIdl;
+        }
+        return invokeIL.objValue;
+    }
+
+    public int getCommonGroupNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.commonGroupNum : invokeV.intValue;
+    }
+
+    public List<GroupInfoData> getCommonGroups() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.commonGroups : (List) invokeV.objValue;
+    }
+
+    public int getGroupNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.groupNum : invokeV.intValue;
+    }
+
+    public GroupPermData getGroupPerm() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.groupPerm : (GroupPermData) invokeV.objValue;
+    }
+
+    public List<GroupInfoData> getGroups() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.groups : (List) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ResponseGroupsByUidMessage(int i) {
+        super(i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public void beforeDispatchInBackGround(int i, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && getError() == 0) {
+            GroupsByUidMessage groupsByUidMessage = (GroupsByUidMessage) getOrginalMessage();
+            String id = TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "";
+            if (groupsByUidMessage == null || groupsByUidMessage.getFriendUid() != 0) {
+                return;
+            }
+            mq4.f();
+            TbSocketReponsedMessage.saveProtocolBufferDataToCache(mq4.d("tb.im_entergroup"), CACHE_KEY_PREFIX + id, bArr);
         }
     }
 }

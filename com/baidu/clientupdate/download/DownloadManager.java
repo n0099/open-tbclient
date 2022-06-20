@@ -33,7 +33,6 @@ import com.baidu.down.utils.Utils;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.searchbox.unitedscheme.SchemeDescPatchListener;
-import com.baidu.tieba.lc.LcUpdateDialogActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -705,7 +704,7 @@ public final class DownloadManager {
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (download = (Download) this.this$0.mDownloadMap.get(Long.valueOf(this.val$downloadId))) == null) {
                         return;
                     }
-                    Intent intent = new Intent("com.baidu.clientupdate.download.PROGRESS_CHANGE");
+                    Intent intent = new Intent(DownloadManager.ACTION_DOWNLOAD_PROGRESS_CHANGE);
                     intent.putExtra("downloadid", this.val$downloadId);
                     intent.putExtra("download", download);
                     intent.putExtra("progress", this.val$progress);
@@ -753,7 +752,7 @@ public final class DownloadManager {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         GDiffPatcher gDiffPatcher = new GDiffPatcher();
-                        Intent intent = new Intent("com.baidu.clientupdate.download.STATUS_CHANGE");
+                        Intent intent = new Intent(DownloadManager.ACTION_DOWNLOAD_STATUS_CHANGE);
                         intent.putExtra("downloadid", this.val$downloadId);
                         intent.putExtra("state", this.val$download.getState());
                         intent.putExtra("download", this.val$download);
@@ -780,7 +779,7 @@ public final class DownloadManager {
                             } else {
                                 file = new File(strArr[2]);
                             }
-                            Intent intent2 = new Intent("com.baidu.clientupdate.download.STATUS_MERGE");
+                            Intent intent2 = new Intent(DownloadManager.ACTION_DOWNLOAD_MERGE_STATUS);
                             intent2.putExtra("downloadid", this.val$downloadId);
                             intent2.putExtra("state", DownloadState.MEAGESTART);
                             Download download2 = this.val$download;
@@ -802,7 +801,7 @@ public final class DownloadManager {
                                 ClientUpdater.getInstance(this.this$0.mContext).throwError(jSONObject);
                             }
                             LogUtil.logD("DownloadManager", "time is >>>  " + (System.currentTimeMillis() - currentTimeMillis) + "");
-                            Intent intent3 = new Intent("com.baidu.clientupdate.download.STATUS_MERGE");
+                            Intent intent3 = new Intent(DownloadManager.ACTION_DOWNLOAD_MERGE_STATUS);
                             intent3.putExtra("downloadid", this.val$downloadId);
                             intent3.putExtra("state", DownloadState.MEAGEEND);
                             Download download3 = this.val$download;
@@ -922,7 +921,7 @@ public final class DownloadManager {
             if (file2 != null) {
                 file2.delete();
             }
-            Intent intent = new Intent(LcUpdateDialogActivity.LC_UPDATE_FAIL);
+            Intent intent = new Intent("com.baidu.clientupdate.RSA.STATUS_FAIL");
             intent.putExtra("download", this.download);
             this.mContext.sendBroadcast(intent);
             d dVar = this.mLogUtils;

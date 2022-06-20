@@ -1,12 +1,13 @@
 package com.baidu.tieba.homepage.personalize.data;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sw6;
+import com.repackage.ay6;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.UnreadTip.UnreadTipResIdl;
@@ -14,7 +15,7 @@ import tbclient.UnreadTip.UnreadTipResIdl;
 public class ConcernUnreadTipSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sw6 mData;
+    public ay6 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConcernUnreadTipSocketResMsg() {
@@ -34,23 +35,27 @@ public class ConcernUnreadTipSocketResMsg extends SocketResponsedMessage {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        UnreadTipResIdl unreadTipResIdl;
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (unreadTipResIdl = (UnreadTipResIdl) new Wire(new Class[0]).parseFrom(bArr, UnreadTipResIdl.class)) == null) {
-            return;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            UnreadTipResIdl unreadTipResIdl = (UnreadTipResIdl) new Wire(new Class[0]).parseFrom(bArr, UnreadTipResIdl.class);
+            if (unreadTipResIdl != null) {
+                Error error = unreadTipResIdl.error;
+                if (error != null) {
+                    setError(error.errorno.intValue());
+                    setErrorString(unreadTipResIdl.error.errmsg);
+                }
+                if (unreadTipResIdl.data != null) {
+                    ay6 ay6Var = new ay6();
+                    this.mData = ay6Var;
+                    ay6Var.b(unreadTipResIdl.data);
+                }
+            }
+            return unreadTipResIdl;
         }
-        Error error = unreadTipResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(unreadTipResIdl.error.errmsg);
-        }
-        if (unreadTipResIdl.data != null) {
-            sw6 sw6Var = new sw6();
-            this.mData = sw6Var;
-            sw6Var.b(unreadTipResIdl.data);
-        }
+        return invokeIL.objValue;
     }
 }

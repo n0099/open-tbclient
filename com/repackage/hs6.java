@@ -1,127 +1,117 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.MetaData;
+import android.view.View;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.TiebaStaticHelper;
+import com.baidu.tbadk.core.util.YYLiveUtil;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-import tbclient.User;
-import tbclient.Userlike.ConcernData;
+import tbclient.DiscoverHotForum;
+import tbclient.DiscoverTabCard;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes6.dex */
-public class hs6 extends ip4 {
+public class hs6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Integer h;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean f;
-    public List<MetaData> g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755637626, "Lcom/repackage/hs6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755637626, "Lcom/repackage/hs6;");
-                return;
-            }
+    public static void a(ThreadData threadData, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65536, null, threadData, i) == null) {
+            TiebaStatic.log(i != 1 ? null : sf8.k("c13692", threadData, 3));
         }
-        h = 6;
     }
 
-    public hs6() {
+    public static void b(View view2, ym4 ym4Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.g = new ArrayList();
-    }
-
-    public static boolean k(ConcernData concernData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, concernData)) == null) {
-            if (concernData == null) {
-                return false;
-            }
-            return concernData.recom_type.equals(h);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.ip4
-    public List<MetaData> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : (List) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ip4
-    public void g(List<User> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || list == null) {
+        if (!(interceptable == null || interceptable.invokeLLI(65537, null, view2, ym4Var, i) == null) || view2 == null || ym4Var == null || ym4Var.getThreadData() == null || StringUtils.isNull(ym4Var.getThreadData().getTid())) {
             return;
         }
-        int min = Math.min(list.size(), 10);
-        for (int i = 0; i < min; i++) {
-            MetaData metaData = new MetaData();
-            metaData.parserProtobuf(list.get(i));
-            this.g.add(metaData);
+        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.CONCERN_TAB_THREAD_CLICK);
+        ThreadData threadData = ym4Var.getThreadData();
+        if (threadData.isLinkThread()) {
+            statisticItem.param("obj_type", 4);
+        } else if (threadData.isShareThread) {
+            statisticItem.param("obj_type", 5);
+        } else if (threadData.isBJHArticleThreadType()) {
+            statisticItem.param("obj_type", 6);
+        } else if (threadData.isBJHNormalThreadType()) {
+            statisticItem.param("obj_type", 7);
+        } else if (threadData.isBJHVideoThreadType()) {
+            statisticItem.param("obj_type", 8);
+        } else if (threadData.isBJHVideoDynamicThreadType()) {
+            statisticItem.param("obj_type", 9);
+        } else if (threadData.getType() == ThreadData.TYPE_NORMAL) {
+            statisticItem.param("obj_type", 1);
+        } else if (threadData.isVideoThreadType()) {
+            statisticItem.param("obj_type", 2);
         }
-    }
-
-    @Override // com.repackage.ip4, com.repackage.om4
-    public lo4 getNegFeedBackData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new lo4() : (lo4) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ip4, com.repackage.om4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
+        statisticItem.param("obj_locate", i);
+        if (i == 3 || (i == 6 && (view2 instanceof TbImageView))) {
+            statisticItem.param(TiebaStatic.Params.OBJ_TO, UbsABTestHelper.isImgClickToPb() ? 1 : 2);
         }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ip4, com.baidu.tieba.card.data.BaseCardInfo, com.repackage.jn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ip4.e : (BdUniqueId) invokeV.objValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : invokeV.booleanValue;
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f = z;
+        statisticItem.param("tid", ym4Var.getThreadData().getTid());
+        statisticItem.param("fid", ym4Var.getThreadData().getFid());
+        statisticItem.param("fname", ym4Var.getThreadData().getForum_name());
+        statisticItem.param("obj_source", 1);
+        if (ym4Var instanceof qx5) {
+            statisticItem.param("obj_param1", ((qx5) ym4Var).E() ? 2 : 1);
         }
+        if (ym4Var.getThreadData().getAuthor() != null) {
+            statisticItem.param("uid", ym4Var.getThreadData().getAuthor().getUserId());
+        }
+        if (threadData.getBaijiahaoData() != null) {
+            statisticItem.param("obj_id", threadData.getBaijiahaoData().oriUgcNid);
+        } else {
+            statisticItem.param("obj_id", threadData.getTid());
+        }
+        if (ym4Var.getThreadData().getThreadAlaInfo() != null) {
+            int calculateLiveType = YYLiveUtil.calculateLiveType(ym4Var.getThreadData().getThreadAlaInfo());
+            if (ym4Var.getThreadData().getThreadAlaInfo().mYyExtData != null) {
+                TiebaStaticHelper.addYYParam(statisticItem, ym4Var.getThreadData().getThreadAlaInfo().mYyExtData);
+            }
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, calculateLiveType);
+        }
+        TiebaStatic.log(statisticItem);
+        a(threadData, i);
+    }
+
+    public static boolean c(DiscoverHotForum.Builder builder, long j, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{builder, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+            if (j != 0 && builder != null) {
+                List<DiscoverTabCard> list = builder.tab_list;
+                if (ListUtils.isEmpty(list)) {
+                    return false;
+                }
+                for (int i = 0; i < list.size(); i++) {
+                    DiscoverTabCard.Builder builder2 = new DiscoverTabCard.Builder(list.get(i));
+                    List<RecommendForumInfo> list2 = builder2.forum_list;
+                    if (!ListUtils.isEmpty(list2)) {
+                        for (int i2 = 0; i2 < list2.size(); i2++) {
+                            RecommendForumInfo.Builder builder3 = new RecommendForumInfo.Builder(list2.get(i2));
+                            if (builder3.forum_id.longValue() == j && builder3.is_like.intValue() != z) {
+                                builder3.is_like = Integer.valueOf(z ? 1 : 0);
+                                list2.set(i2, builder3.build(true));
+                                list.set(i, builder2.build(true));
+                                return true;
+                            }
+                        }
+                        continue;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
     }
 }

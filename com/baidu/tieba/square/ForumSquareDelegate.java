@@ -20,26 +20,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ad8;
-import com.repackage.b45;
-import com.repackage.bd8;
-import com.repackage.gd8;
-import com.repackage.jn;
-import com.repackage.zc8;
+import com.repackage.ge8;
+import com.repackage.he8;
+import com.repackage.ie8;
+import com.repackage.ne8;
+import com.repackage.nn;
 import java.util.List;
-/* loaded from: classes3.dex */
-public class ForumSquareDelegate implements bd8 {
+/* loaded from: classes4.dex */
+public class ForumSquareDelegate implements ie8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context mContext;
     public String mCurrentClassName;
     public ForumSquareModel mForumSquareModel;
-    public zc8 mForumSquareView;
-    public ad8 mSquareViewController;
+    public ge8 mForumSquareView;
+    public he8 mSquareViewController;
     public final TbPageContext mTbPageContext;
     public CustomMessageListener refreshForumSquareListener;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,40 +81,6 @@ public class ForumSquareDelegate implements bd8 {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class b implements b45.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ ForumSquareDelegate b;
-
-        public b(ForumSquareDelegate forumSquareDelegate, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {forumSquareDelegate, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = forumSquareDelegate;
-            this.a = context;
-        }
-
-        @Override // com.repackage.b45.a
-        public Object build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new zc8(this.a, this.b.mTbPageContext) : invokeV.objValue;
-        }
-    }
-
     public ForumSquareDelegate(Context context, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -136,13 +101,13 @@ public class ForumSquareDelegate implements bd8 {
         this.mTbPageContext = tbPageContext;
         this.mContext = context;
         this.mForumSquareModel = new ForumSquareModel(context, this);
-        this.mForumSquareView = (zc8) b45.e().d(1025, new b(this, context));
+        this.mForumSquareView = new ge8(context, this.mTbPageContext);
         this.mTbPageContext.registerListener(this.refreshForumSquareListener);
     }
 
-    private void checkLoadMoreStateUI(String str, List<jn> list) {
+    private void checkLoadMoreStateUI(String str, List<nn> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, list) == null) || this.mForumSquareView == null || this.mForumSquareModel == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65539, this, str, list) == null) || this.mForumSquareView == null || this.mForumSquareModel == null) {
             return;
         }
         if (ListUtils.isEmpty(list)) {
@@ -150,15 +115,15 @@ public class ForumSquareDelegate implements bd8 {
         } else if (ListUtils.getCount(list) < 10) {
             this.mForumSquareView.n();
         } else {
-            this.mForumSquareView.E(this.mForumSquareModel.L(str));
+            this.mForumSquareView.E(this.mForumSquareModel.M(str));
         }
     }
 
     private void startLoadNetData() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             this.mForumSquareView.F();
-            this.mForumSquareModel.N(this.mCurrentClassName);
+            this.mForumSquareModel.O(this.mCurrentClassName);
         }
     }
 
@@ -175,18 +140,18 @@ public class ForumSquareDelegate implements bd8 {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCurrentClassName : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.bd8
+    @Override // com.repackage.ie8
     public void onError(String str, ErrorData errorData) {
-        zc8 zc8Var;
+        ge8 ge8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, errorData) == null) || (zc8Var = this.mForumSquareView) == null || this.mForumSquareModel == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, errorData) == null) || (ge8Var = this.mForumSquareView) == null || this.mForumSquareModel == null) {
             return;
         }
-        zc8Var.J();
-        gd8 K = this.mForumSquareModel.K(str);
-        if (K != null && (!K.d || !ListUtils.isEmpty(K.a()))) {
-            this.mForumSquareView.s(K.a());
-            checkLoadMoreStateUI(str, K.a());
+        ge8Var.J();
+        ne8 L = this.mForumSquareModel.L(str);
+        if (L != null && (!L.d || !ListUtils.isEmpty(L.a()))) {
+            this.mForumSquareView.s(L.a());
+            checkLoadMoreStateUI(str, L.a());
             return;
         }
         this.mForumSquareView.f();
@@ -201,37 +166,37 @@ public class ForumSquareDelegate implements bd8 {
             if (forumSquareModel == null || this.mForumSquareView == null) {
                 return;
             }
-            boolean M = forumSquareModel.M();
-            boolean E = this.mForumSquareView.E(this.mForumSquareModel.L(className));
-            if (M || !E) {
+            boolean N = forumSquareModel.N();
+            boolean E = this.mForumSquareView.E(this.mForumSquareModel.M(className));
+            if (N || !E) {
                 return;
             }
-            this.mForumSquareModel.N(className);
+            this.mForumSquareModel.O(className);
         }
     }
 
     public void onLoadRefresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            zc8 zc8Var = this.mForumSquareView;
-            if (zc8Var != null) {
-                zc8Var.F();
+            ge8 ge8Var = this.mForumSquareView;
+            if (ge8Var != null) {
+                ge8Var.F();
             }
             ForumSquareModel forumSquareModel = this.mForumSquareModel;
             if (forumSquareModel != null) {
-                forumSquareModel.N(getClassName());
+                forumSquareModel.O(getClassName());
             }
         }
     }
 
-    @Override // com.repackage.bd8
+    @Override // com.repackage.ie8
     public void onNoData(ErrorData errorData) {
-        zc8 zc8Var;
+        ge8 ge8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, errorData) == null) || (zc8Var = this.mForumSquareView) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, errorData) == null) || (ge8Var = this.mForumSquareView) == null) {
             return;
         }
-        zc8Var.I();
+        ge8Var.I();
     }
 
     public void onSelected(String str) {
@@ -243,17 +208,17 @@ public class ForumSquareDelegate implements bd8 {
             if (forumSquareModel == null || this.mForumSquareView == null) {
                 return;
             }
-            gd8 K = forumSquareModel.K(str);
-            if (K != null && (!K.d || !ListUtils.isEmpty(K.a()))) {
+            ne8 L = forumSquareModel.L(str);
+            if (L != null && (!L.d || !ListUtils.isEmpty(L.a()))) {
                 this.mForumSquareView.J();
-                checkLoadMoreStateUI(str, K.a());
-                this.mForumSquareView.s(K.a());
-                this.mForumSquareView.q(K.f, K.g);
+                checkLoadMoreStateUI(str, L.a());
+                this.mForumSquareView.s(L.a());
+                this.mForumSquareView.q(L.f, L.g);
                 return;
             }
             this.mForumSquareView.D();
             checkLoadMoreStateUI(str, null);
-            this.mForumSquareModel.N(str);
+            this.mForumSquareModel.O(str);
             this.mForumSquareView.q(0, 0);
         }
     }
@@ -261,11 +226,11 @@ public class ForumSquareDelegate implements bd8 {
     /* JADX WARN: Code restructure failed: missing block: B:17:0x002f, code lost:
         if (r5.equals(r1) == false) goto L11;
      */
-    @Override // com.repackage.bd8
+    @Override // com.repackage.ie8
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onSucc(String str, List<String> list, List<jn> list2) {
+    public void onSucc(String str, List<String> list, List<nn> list2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLL(1048583, this, str, list, list2) == null) || this.mForumSquareModel == null || this.mForumSquareView == null) {
             return;
@@ -278,14 +243,14 @@ public class ForumSquareDelegate implements bd8 {
             this.mCurrentClassName = str;
             this.mForumSquareView.J();
             this.mForumSquareView.r(str, list, z);
-            this.mForumSquareView.t(list2, this.mForumSquareModel.Q(list2, 300));
+            this.mForumSquareView.t(list2, this.mForumSquareModel.R(list2, 300));
             checkLoadMoreStateUI(str, list2);
         }
         z = true;
         this.mCurrentClassName = str;
         this.mForumSquareView.J();
         this.mForumSquareView.r(str, list, z);
-        this.mForumSquareView.t(list2, this.mForumSquareModel.Q(list2, 300));
+        this.mForumSquareView.t(list2, this.mForumSquareModel.R(list2, 300));
         checkLoadMoreStateUI(str, list2);
     }
 
@@ -304,14 +269,14 @@ public class ForumSquareDelegate implements bd8 {
     }
 
     public void saveScrollPosition(String str) {
-        gd8 K;
+        ne8 L;
         Pair<Integer, Integer> c;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || this.mForumSquareView == null || this.mForumSquareModel == null || TextUtils.isEmpty(str) || (K = this.mForumSquareModel.K(str)) == null || (c = this.mForumSquareView.c()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || this.mForumSquareView == null || this.mForumSquareModel == null || TextUtils.isEmpty(str) || (L = this.mForumSquareModel.L(str)) == null || (c = this.mForumSquareView.c()) == null) {
             return;
         }
-        K.f = ((Integer) c.first).intValue();
-        K.g = ((Integer) c.second).intValue();
+        L.f = ((Integer) c.first).intValue();
+        L.g = ((Integer) c.second).intValue();
     }
 
     public void selectForumCategory(String str) {
@@ -326,9 +291,9 @@ public class ForumSquareDelegate implements bd8 {
     public void startLoadData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            ad8 ad8Var = new ad8(this.mContext, this, this.mForumSquareView);
-            this.mSquareViewController = ad8Var;
-            ad8Var.e();
+            he8 he8Var = new he8(this.mContext, this, this.mForumSquareView);
+            this.mSquareViewController = he8Var;
+            he8Var.e();
             startLoadNetData();
         }
     }

@@ -1,94 +1,107 @@
 package com.xiaomi.push.service;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.hf;
-import com.xiaomi.push.hs;
-import com.xiaomi.push.ib;
-import com.xiaomi.push.ie;
-import com.xiaomi.push.ip;
-import com.xiaomi.push.service.XMPushService;
+import com.xiaomi.push.gk;
+import com.xiaomi.push.gt;
+import com.xiaomi.push.gu;
+import com.xiaomi.push.gy;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import org.xmlpull.v1.XmlPullParser;
 /* loaded from: classes8.dex */
-public class k extends XMPushService.i {
+public class k implements gt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ j a;
 
-    /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f941a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ List f942a;
-    public final /* synthetic */ String b;
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k(j jVar, int i, String str, List list, String str2) {
-        super(i);
+    public k() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jVar, Integer.valueOf(i), str, list, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = jVar;
-        this.f941a = str;
-        this.f942a = list;
-        this.b = str2;
     }
 
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public String a() {
-        InterceptResult invokeV;
+    public static gk a(XmlPullParser xmlPullParser) {
+        InterceptResult invokeL;
+        String[] strArr;
+        String[] strArr2;
+        String str;
+        ArrayList arrayList;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Send tiny data." : (String) invokeV.objValue;
-    }
-
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public void a() {
-        String a;
-        XMPushService xMPushService;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a = this.a.a(this.f941a);
-            ArrayList<ie> a2 = bm.a(this.f942a, this.f941a, a, 32768);
-            if (a2 == null) {
-                com.xiaomi.channel.commonutils.logger.b.d("TinyData LongConnUploader.upload Get a null XmPushActionNotification list when TinyDataHelper.pack() in XMPushService.");
-                return;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, xmlPullParser)) != null) {
+            return (gk) invokeL.objValue;
+        }
+        if (xmlPullParser.getEventType() != 2) {
+            return null;
+        }
+        String name = xmlPullParser.getName();
+        String namespace = xmlPullParser.getNamespace();
+        if (xmlPullParser.getAttributeCount() > 0) {
+            String[] strArr3 = new String[xmlPullParser.getAttributeCount()];
+            String[] strArr4 = new String[xmlPullParser.getAttributeCount()];
+            for (int i = 0; i < xmlPullParser.getAttributeCount(); i++) {
+                strArr3[i] = xmlPullParser.getAttributeName(i);
+                strArr4[i] = gy.b(xmlPullParser.getAttributeValue(i));
             }
-            Iterator<ie> it = a2.iterator();
-            while (it.hasNext()) {
-                ie next = it.next();
-                next.a("uploadWay", "longXMPushService");
-                ib a3 = y.a(this.f941a, a, next, hf.i);
-                if (!TextUtils.isEmpty(this.b) && !TextUtils.equals(this.f941a, this.b)) {
-                    if (a3.m488a() == null) {
-                        hs hsVar = new hs();
-                        hsVar.a("-1");
-                        a3.a(hsVar);
-                    }
-                    a3.m488a().b("ext_traffic_source_pkg", this.b);
+            strArr = strArr3;
+            str = null;
+            arrayList = null;
+            strArr2 = strArr4;
+        } else {
+            strArr = null;
+            strArr2 = null;
+            str = null;
+            arrayList = null;
+        }
+        while (true) {
+            int next = xmlPullParser.next();
+            if (next == 3) {
+                return new gk(name, namespace, strArr, strArr2, str, arrayList);
+            }
+            if (next == 4) {
+                str = xmlPullParser.getText().trim();
+            } else if (next == 2) {
+                if (arrayList == null) {
+                    arrayList = new ArrayList();
                 }
-                byte[] a4 = ip.a(a3);
-                xMPushService = this.a.a;
-                xMPushService.a(this.f941a, a4, true);
+                gk a = a(xmlPullParser);
+                if (a != null) {
+                    arrayList.add(a);
+                }
             }
         }
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            gu.a().a("all", "xm:chat", this);
+        }
+    }
+
+    public gk b(XmlPullParser xmlPullParser) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xmlPullParser)) == null) {
+            int eventType = xmlPullParser.getEventType();
+            while (eventType != 1 && eventType != 2) {
+                eventType = xmlPullParser.next();
+            }
+            if (eventType == 2) {
+                return a(xmlPullParser);
+            }
+            return null;
+        }
+        return (gk) invokeL.objValue;
     }
 }

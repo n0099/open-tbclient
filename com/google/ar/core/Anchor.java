@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import com.google.ar.core.exceptions.FatalException;
 /* loaded from: classes4.dex */
 public class Anchor {
@@ -49,7 +50,7 @@ public class Anchor {
                     return;
                 }
             }
-            NONE = new CloudAnchorState("NONE", 0, 0);
+            NONE = new CloudAnchorState(HlsPlaylistParser.METHOD_NONE, 0, 0);
             TASK_IN_PROGRESS = new CloudAnchorState("TASK_IN_PROGRESS", 1, 1);
             SUCCESS = new CloudAnchorState("SUCCESS", 2, 2);
             ERROR_INTERNAL = new CloudAnchorState("ERROR_INTERNAL", 3, -1);

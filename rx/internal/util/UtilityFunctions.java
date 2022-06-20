@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.iv9;
+import com.repackage.pv9;
 /* loaded from: classes8.dex */
 public final class UtilityFunctions {
     public static /* synthetic */ Interceptable $ic;
@@ -15,7 +15,7 @@ public final class UtilityFunctions {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class AlwaysFalse implements iv9<Object, Boolean> {
+    public static final class AlwaysFalse implements pv9<Object, Boolean> {
         public static final /* synthetic */ AlwaysFalse[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final AlwaysFalse INSTANCE;
@@ -72,7 +72,7 @@ public final class UtilityFunctions {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.repackage.iv9
+        @Override // com.repackage.pv9
         public Boolean call(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -82,7 +82,7 @@ public final class UtilityFunctions {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class AlwaysTrue implements iv9<Object, Boolean> {
+    public static final class AlwaysTrue implements pv9<Object, Boolean> {
         public static final /* synthetic */ AlwaysTrue[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final AlwaysTrue INSTANCE;
@@ -139,7 +139,7 @@ public final class UtilityFunctions {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.repackage.iv9
+        @Override // com.repackage.pv9
         public Boolean call(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -149,7 +149,7 @@ public final class UtilityFunctions {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class Identity implements iv9<Object, Object> {
+    public static final class Identity implements pv9<Object, Object> {
         public static final /* synthetic */ Identity[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Identity INSTANCE;
@@ -204,7 +204,7 @@ public final class UtilityFunctions {
             return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Identity[]) $VALUES.clone() : (Identity[]) invokeV.objValue;
         }
 
-        @Override // com.repackage.iv9
+        @Override // com.repackage.pv9
         public Object call(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -212,15 +212,15 @@ public final class UtilityFunctions {
         }
     }
 
-    public static <T> iv9<? super T, Boolean> a() {
+    public static <T> pv9<? super T, Boolean> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? AlwaysTrue.INSTANCE : (iv9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? AlwaysTrue.INSTANCE : (pv9) invokeV.objValue;
     }
 
-    public static <T> iv9<T, T> b() {
+    public static <T> pv9<T, T> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Identity.INSTANCE : (iv9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Identity.INSTANCE : (pv9) invokeV.objValue;
     }
 }

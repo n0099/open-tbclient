@@ -30,10 +30,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cx;
-import com.repackage.li;
-import com.repackage.wq4;
-import com.repackage.wt4;
+import com.repackage.fr4;
+import com.repackage.gu4;
+import com.repackage.gx;
+import com.repackage.pi;
 import java.util.HashMap;
 import java.util.List;
 import tbclient.ItemInfo;
@@ -42,7 +42,7 @@ import tbclient.ItemTable;
 import tbclient.Ranking;
 import tbclient.RankingParam;
 /* loaded from: classes3.dex */
-public class CardItemInfoDownloadLayout extends FrameLayout implements cx {
+public class CardItemInfoDownloadLayout extends FrameLayout implements gx {
     public static /* synthetic */ Interceptable $ic;
     public static final String q;
     public static final int r;
@@ -158,8 +158,8 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements cx {
                 return;
             }
         }
-        q = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f06cc);
-        r = li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005);
+        q = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f06c1);
+        r = pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -236,23 +236,23 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements cx {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0322, (ViewGroup) null);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0320, (ViewGroup) null);
             this.a = viewGroup;
             viewGroup.setPadding(r, 0, 0, 0);
             this.b = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092020);
-            this.g = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090f53);
+            this.g = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090f42);
             this.c = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090026);
-            this.h = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090f6a);
-            RankStarView rankStarView = (RankStarView) this.a.findViewById(R.id.obfuscated_res_0x7f090f58);
+            this.h = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090f59);
+            RankStarView rankStarView = (RankStarView) this.a.findViewById(R.id.obfuscated_res_0x7f090f47);
             this.i = rankStarView;
-            rankStarView.setStarSpacing(li.f(getContext(), R.dimen.M_W_X001));
-            this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090d7f);
-            this.e = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090f45);
-            this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090f5a);
+            rankStarView.setStarSpacing(pi.f(getContext(), R.dimen.M_W_X001));
+            this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090d70);
+            this.e = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090f34);
+            this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090f49);
             this.d.setOnClickListener(this.p);
             addView(this.a, new FrameLayout.LayoutParams(-1, -2));
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
-            marginLayoutParams.topMargin = li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003);
+            marginLayoutParams.topMargin = pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003);
             setLayoutParams(marginLayoutParams);
         }
     }
@@ -260,26 +260,26 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements cx {
     public final void o(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            wt4 wt4Var = new wt4(6);
-            wt4Var.o(i);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, wt4Var));
+            gu4 gu4Var = new gu4(6);
+            gu4Var.o(i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, gu4Var));
         }
     }
 
-    @Override // com.repackage.cx
+    @Override // com.repackage.gx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i) == null) {
-            wq4 d = wq4.d(this.a);
+            fr4 d = fr4.d(this.a);
             d.m(1);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0201);
-            wq4 d2 = wq4.d(this.g);
+            fr4 d2 = fr4.d(this.g);
             d2.A(R.string.F_X02);
             d2.v(R.color.CAM_X0105);
-            wq4.d(this.h).v(R.color.CAM_X0305);
-            wq4.d(this.e).v(R.color.CAM_X0311);
-            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f08092c, R.color.CAM_X0311, WebPManager.ResourceStateType.NORMAL);
+            fr4.d(this.h).v(R.color.CAM_X0305);
+            fr4.d(this.e).v(R.color.CAM_X0311);
+            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080914, R.color.CAM_X0311, WebPManager.ResourceStateType.NORMAL);
             SkinManager.setBackgroundResource(this.d, R.drawable.pic_bg_gamelistl);
             this.i.e(i);
         }
@@ -289,12 +289,12 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements cx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             if (z) {
-                wq4 d = wq4.d(this.h);
+                fr4 d = fr4.d(this.h);
                 d.z(R.dimen.T_X06);
                 d.v(R.color.CAM_X0305);
                 return;
             }
-            wq4 d2 = wq4.d(this.h);
+            fr4 d2 = fr4.d(this.h);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0109);
         }

@@ -4,17 +4,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-import tbclient.ClassForumInfo;
-import tbclient.GetVerticalForumList.DataRes;
-import tbclient.Page;
-import tbclient.RecommendForumInfo;
 /* loaded from: classes7.dex */
 public class ym7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<wm7> a;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public List<zm7> e;
 
     public ym7() {
         Interceptable interceptable = $ic;
@@ -28,28 +27,5 @@ public class ym7 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public void a(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) || dataRes == null) {
-            return;
-        }
-        if (dataRes.class_foruminfo != null) {
-            this.a = new ArrayList();
-            for (ClassForumInfo classForumInfo : dataRes.class_foruminfo) {
-                wm7 wm7Var = new wm7();
-                wm7Var.b = classForumInfo.class_id;
-                wm7Var.c = classForumInfo.class_name;
-                wm7Var.d = classForumInfo.class_icon;
-                ArrayList arrayList = new ArrayList();
-                for (RecommendForumInfo recommendForumInfo : classForumInfo.forum_info) {
-                    arrayList.add(new cn7(recommendForumInfo, false));
-                }
-                wm7Var.a = arrayList;
-                this.a.add(wm7Var);
-            }
-        }
-        Page page = dataRes.page;
     }
 }

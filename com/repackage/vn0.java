@@ -1,9 +1,9 @@
 package com.repackage;
 
-import com.baidu.nadcore.net.request.Headers;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes7.dex */
-public interface vn0<T> extends un0 {
-    void b(Headers headers, T t, int i);
+public interface vn0 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "net");
 
-    T d(Headers headers, String str, int i) throws Exception;
+    tn0 a();
 }

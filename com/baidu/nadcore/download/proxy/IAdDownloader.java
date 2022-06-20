@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yi0;
+import com.repackage.cj0;
 /* loaded from: classes2.dex */
 public interface IAdDownloader {
 
@@ -77,11 +77,11 @@ public interface IAdDownloader {
         }
     }
 
-    int a(String str, yi0 yi0Var);
+    int a(String str, cj0 cj0Var);
 
     void b(int i);
 
-    void c(int i, String str, yi0 yi0Var);
+    void c(int i, String str, cj0 cj0Var);
 
     void d(int i);
 }

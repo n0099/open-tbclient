@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.base.annotations.AccessedByNative;
-import com.repackage.gz8;
+import com.repackage.oz8;
 import java.io.IOException;
 import java.util.Locale;
 /* loaded from: classes4.dex */
@@ -185,7 +185,7 @@ public abstract class Linker {
                 fromFd.writeToParcel(parcel, 0);
                 fromFd.close();
             } catch (IOException e) {
-                gz8.c("LibraryLoader", "Can't write LibInfo file descriptor to parcel", e);
+                oz8.c("LibraryLoader", "Can't write LibInfo file descriptor to parcel", e);
             }
         }
 

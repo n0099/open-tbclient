@@ -16,17 +16,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ji;
-import com.repackage.ra8;
-import com.repackage.ys4;
-/* loaded from: classes3.dex */
+import com.repackage.ht4;
+import com.repackage.ni;
+import com.repackage.yb8;
+/* loaded from: classes4.dex */
 public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ra8 privacyMarkView;
-    public HttpMessageListener setPrivateHttpListener;
+    public yb8 a;
+    public HttpMessageListener b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,20 +64,20 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
                 int type = privacySettingMessage.getType();
                 if (httpResponsedMessage.getError() == 0 && !httpResponsedMessage.hasError()) {
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                    ys4 k = ys4.k();
+                    ht4 k = ht4.k();
                     k.w(operation + currentAccount, type);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921499, null));
                     return;
                 }
                 if (PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE.equals(operation)) {
-                    this.a.privacyMarkView.m();
+                    this.a.a.p();
                 } else if (PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE.equals(operation)) {
-                    this.a.privacyMarkView.n();
+                    this.a.a.q();
                 }
-                if (httpResponsedMessage.getError() != -1 && ji.z()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0ee8);
+                if (httpResponsedMessage.getError() != -1 && ni.z()) {
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0ef3);
                 } else {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c33);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c37);
                 }
             }
         }
@@ -96,7 +96,7 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
                 return;
             }
         }
-        this.setPrivateHttpListener = new a(this, CmdConfigHttp.SET_PRIVATE_CMD, true);
+        this.b = new a(this, CmdConfigHttp.SET_PRIVATE_CMD, true);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -104,7 +104,7 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
-            this.privacyMarkView.l();
+            this.a.o();
         }
     }
 
@@ -121,10 +121,10 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
             if (intExtra2 != 1 && intExtra2 != 3) {
                 intExtra2 = 1;
             }
-            ra8 ra8Var = new ra8(getPageContext(), (intExtra << 2) | intExtra2);
-            this.privacyMarkView = ra8Var;
-            setContentView(ra8Var.j());
-            registerListener(this.setPrivateHttpListener);
+            yb8 yb8Var = new yb8(getPageContext(), (intExtra << 2) | intExtra2);
+            this.a = yb8Var;
+            setContentView(yb8Var.m());
+            registerListener(this.b);
         }
     }
 }

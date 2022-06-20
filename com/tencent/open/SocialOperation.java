@@ -23,7 +23,7 @@ import com.tencent.tauth.DefaultUiListener;
 import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.UiError;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SocialOperation extends BaseApi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GAME_FRIEND_ADD_MESSAGE = "add_msg";

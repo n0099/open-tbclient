@@ -1,129 +1,57 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicReference;
+import com.repackage.bv9;
+import com.repackage.xu9;
 /* loaded from: classes6.dex */
-public final class jz9 implements xu9 {
+public abstract class jz9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final dv9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference<dv9> a;
-
-    /* loaded from: classes6.dex */
-    public static class a implements dv9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.dv9
-        public void call() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755571224, "Lcom/repackage/jz9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755571224, "Lcom/repackage/jz9;");
-                return;
-            }
-        }
-        b = new a();
-    }
 
     public jz9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new AtomicReference<>();
     }
 
-    public static jz9 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new jz9() : (jz9) invokeV.objValue;
-    }
-
-    public static jz9 b(dv9 dv9Var) {
+    @Deprecated
+    public <T> bv9.c<T> a(bv9.c<T> cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, dv9Var)) == null) ? new jz9(dv9Var) : (jz9) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? cVar : (bv9.c) invokeL.objValue;
     }
 
-    @Override // com.repackage.xu9
-    public boolean isUnsubscribed() {
-        InterceptResult invokeV;
+    @Deprecated
+    public <T> Throwable b(Throwable th) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.get() == b : invokeV.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th)) == null) ? th : (Throwable) invokeL.objValue;
     }
 
-    @Override // com.repackage.xu9
-    public void unsubscribe() {
-        dv9 andSet;
+    @Deprecated
+    public <T> ev9 c(ev9 ev9Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            dv9 dv9Var = this.a.get();
-            dv9 dv9Var2 = b;
-            if (dv9Var == dv9Var2 || (andSet = this.a.getAndSet(dv9Var2)) == null || andSet == b) {
-                return;
-            }
-            andSet.call();
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ev9Var)) == null) ? ev9Var : (ev9) invokeL.objValue;
     }
 
-    public jz9(dv9 dv9Var) {
+    @Deprecated
+    public <T> xu9.a<T> d(bv9<? extends T> bv9Var, xu9.a<T> aVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dv9Var};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = new AtomicReference<>(dv9Var);
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, bv9Var, aVar)) == null) ? aVar : (xu9.a) invokeLL.objValue;
     }
 }

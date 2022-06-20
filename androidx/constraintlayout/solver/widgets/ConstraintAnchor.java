@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import java.util.ArrayList;
 import java.util.HashSet;
 /* loaded from: classes.dex */
@@ -177,7 +178,7 @@ public class ConstraintAnchor {
                     return;
                 }
             }
-            NONE = new Strength("NONE", 0);
+            NONE = new Strength(HlsPlaylistParser.METHOD_NONE, 0);
             STRONG = new Strength("STRONG", 1);
             Strength strength = new Strength("WEAK", 2);
             WEAK = strength;
@@ -245,7 +246,7 @@ public class ConstraintAnchor {
                     return;
                 }
             }
-            NONE = new Type("NONE", 0);
+            NONE = new Type(HlsPlaylistParser.METHOD_NONE, 0);
             LEFT = new Type("LEFT", 1);
             TOP = new Type("TOP", 2);
             RIGHT = new Type("RIGHT", 3);

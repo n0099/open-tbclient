@@ -18,22 +18,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.auth.NTLMEngineImpl;
 import com.google.protobuf.CodedInputStream;
-import com.repackage.ex8;
-import com.repackage.fx8;
-import com.repackage.lx8;
+import com.repackage.mx8;
+import com.repackage.nx8;
+import com.repackage.tx8;
 /* loaded from: classes4.dex */
 public class WriteMultiImgsActivity extends BaseActivity {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String OUTSTATE_KEY_CURRENT_INDEX = "OutState_Current_Index";
-    public static final String OUTSTATE_KEY_WRITE_ENTRANCE = "OutState_Write_Entrance";
-    public static final String OUTSTATE_KEY_WRITE_IMG_INFO = "OutState_Write_Img_Info";
-    public static final String OUTSTATE_KEY_WRITE_INFO_DATA = "OutState_Write_Info_Data";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fx8 mControler;
-    public ex8 mMainView;
+    public mx8 a;
+    public nx8 b;
 
     /* loaded from: classes4.dex */
-    public class a implements lx8 {
+    public class a implements tx8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WriteMultiImgsActivity a;
@@ -56,36 +52,36 @@ public class WriteMultiImgsActivity extends BaseActivity {
             this.a = writeMultiImgsActivity;
         }
 
-        @Override // com.repackage.lx8
+        @Override // com.repackage.tx8
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.mControler.s();
-                this.a.mControler.r(false);
+                this.a.b.s();
+                this.a.b.r(false);
             }
         }
 
-        @Override // com.repackage.lx8
+        @Override // com.repackage.tx8
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.mControler.A();
+                this.a.b.A();
             }
         }
 
-        @Override // com.repackage.lx8
+        @Override // com.repackage.tx8
         public boolean c(Bitmap bitmap) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap)) == null) ? this.a.mControler.q(bitmap) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap)) == null) ? this.a.b.q(bitmap) : invokeL.booleanValue;
         }
 
-        @Override // com.repackage.lx8
+        @Override // com.repackage.tx8
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.a.mControler.n();
-                this.a.mControler.r(true);
+                this.a.b.n();
+                this.a.b.r(true);
             }
         }
     }
@@ -104,38 +100,29 @@ public class WriteMultiImgsActivity extends BaseActivity {
         }
     }
 
-    public void addAction() {
-        fx8 fx8Var;
+    public void B1() {
+        nx8 nx8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (fx8Var = this.mControler) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (nx8Var = this.b) == null) {
             return;
         }
-        fx8Var.n();
+        nx8Var.n();
     }
 
-    public void delAction() {
-        fx8 fx8Var;
+    public void C1(boolean z, WriteImagesInfo writeImagesInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (fx8Var = this.mControler) == null) {
-            return;
-        }
-        fx8Var.s();
-    }
-
-    public void finishActivity(boolean z, WriteImagesInfo writeImagesInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, writeImagesInfo) == null) {
-            fx8 fx8Var = this.mControler;
-            if (fx8Var != null) {
-                if (1 == fx8Var.u()) {
-                    ForumWriteData v = this.mControler.v();
+        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, writeImagesInfo) == null) {
+            nx8 nx8Var = this.b;
+            if (nx8Var != null) {
+                if (1 == nx8Var.u()) {
+                    ForumWriteData v = this.b.v();
                     if (v != null) {
                         if (WriteActivityConfig.isAsyncWriting()) {
                             return;
                         }
                         WriteActivityConfig.newInstance(this).setType(10).setForumWriteData(v).setWriteImagesInfo(writeImagesInfo).send();
                     }
-                } else if (2 == this.mControler.u()) {
+                } else if (2 == this.b.u()) {
                     WriteActivityConfig newInstance = WriteActivityConfig.newInstance(this);
                     newInstance.getIntent().setFlags(NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH);
                     newInstance.getIntent().setFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
@@ -166,7 +153,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
     @Override // android.app.Activity
     public void onBackPressed() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onBackPressed();
             setResult(0);
             finish();
@@ -176,29 +163,29 @@ public class WriteMultiImgsActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            ex8 ex8Var = this.mMainView;
-            if (ex8Var != null) {
-                ex8Var.h(i);
+            mx8 mx8Var = this.a;
+            if (mx8Var != null) {
+                mx8Var.h(i);
             }
-            this.mControler.c.notifyDataSetChanged();
+            this.b.c.notifyDataSetChanged();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
-            ex8 ex8Var = new ex8(getPageContext(), new a(this));
-            this.mMainView = ex8Var;
-            setContentView(ex8Var.k);
-            fx8 fx8Var = new fx8(getPageContext(), this.mMainView, bundle);
-            this.mControler = fx8Var;
-            if (fx8Var.j != TbadkCoreApplication.getInst().getSkinType()) {
-                TbadkCoreApplication.getInst().setSkinType(this.mControler.j);
+            mx8 mx8Var = new mx8(getPageContext(), new a(this));
+            this.a = mx8Var;
+            setContentView(mx8Var.k);
+            nx8 nx8Var = new nx8(getPageContext(), this.a, bundle);
+            this.b = nx8Var;
+            if (nx8Var.j != TbadkCoreApplication.getInst().getSkinType()) {
+                TbadkCoreApplication.getInst().setSkinType(this.b.j);
             }
         }
     }
@@ -206,15 +193,15 @@ public class WriteMultiImgsActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            fx8 fx8Var = this.mControler;
-            if (fx8Var != null) {
-                fx8Var.t();
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            nx8 nx8Var = this.b;
+            if (nx8Var != null) {
+                nx8Var.t();
             }
             TbadkCoreApplication.getInst().delRemoteActivity(this);
-            ex8 ex8Var = this.mMainView;
-            if (ex8Var != null) {
-                ex8Var.o();
+            mx8 mx8Var = this.a;
+            if (mx8Var != null) {
+                mx8Var.o();
             }
             super.onDestroy();
         }
@@ -224,15 +211,15 @@ public class WriteMultiImgsActivity extends BaseActivity {
     public void onSaveInstanceState(Bundle bundle) {
         MultiImagePagerAdapter multiImagePagerAdapter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
-            fx8 fx8Var = this.mControler;
-            if (fx8Var != null && (multiImagePagerAdapter = fx8Var.c) != null) {
-                bundle.putInt(OUTSTATE_KEY_CURRENT_INDEX, multiImagePagerAdapter.k());
-                bundle.putInt(OUTSTATE_KEY_WRITE_ENTRANCE, this.mControler.u());
-                bundle.putSerializable(OUTSTATE_KEY_WRITE_INFO_DATA, this.mControler.v());
-                this.mControler.c.h(true);
-                if (this.mControler.w() != null) {
-                    bundle.putString(OUTSTATE_KEY_WRITE_IMG_INFO, this.mControler.w().toJsonString());
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+            nx8 nx8Var = this.b;
+            if (nx8Var != null && (multiImagePagerAdapter = nx8Var.c) != null) {
+                bundle.putInt("OutState_Current_Index", multiImagePagerAdapter.k());
+                bundle.putInt("OutState_Write_Entrance", this.b.u());
+                bundle.putSerializable("OutState_Write_Info_Data", this.b.v());
+                this.b.c.h(true);
+                if (this.b.w() != null) {
+                    bundle.putString("OutState_Write_Img_Info", this.b.w().toJsonString());
                 }
             }
             super.onSaveInstanceState(bundle);

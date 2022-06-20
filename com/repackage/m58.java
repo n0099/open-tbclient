@@ -1,369 +1,118 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
-import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.R;
-import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
-import com.baidu.tieba.post.ReplyLinearLayout;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.play.PlayStatisticsResponseMessage;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g58;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.regex.Pattern;
-@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes6.dex */
-public class m58 extends BaseAdapter {
+public class m58 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PersonPostModel.c a;
-    public PersonPostModel b;
-    public final String c;
-    public BdUniqueId d;
-    public String e;
-    public TbPageContext<BaseFragmentActivity> f;
-    public final PersonPostModel.c g;
-    public final g58.a h;
 
-    /* loaded from: classes6.dex */
-    public class a implements PersonPostModel.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m58 a;
-
-        public a(m58 m58Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755548191, "Lcom/repackage/m58;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m58Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = m58Var;
-        }
-
-        @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.c
-        public void I(PersonPostModel personPostModel, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(1048576, this, personPostModel, z) == null) {
-                if (z) {
-                    this.a.b = personPostModel;
-                    Iterator<jn> it = this.a.b.postList.iterator();
-                    while (it.hasNext()) {
-                        jn next = it.next();
-                        if (next != null && !(next instanceof PersonPostModel.PostInfoList)) {
-                            it.remove();
-                        }
-                    }
-                } else if (this.a.b != null) {
-                    for (int i = 0; i < personPostModel.postList.size(); i++) {
-                        if (personPostModel.postList.get(i) instanceof PersonPostModel.PostInfoList) {
-                            this.a.b.postList.add(personPostModel.postList.get(i));
-                        }
-                    }
-                }
-                if (this.a.a != null) {
-                    this.a.a.I(personPostModel, z);
-                }
-                this.a.notifyDataSetChanged();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements g58.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m58 a;
-
-        public b(m58 m58Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m58Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = m58Var;
-        }
-
-        @Override // com.repackage.g58.a
-        public void a(View view2) {
-            String[] strArr;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                int id = view2.getId();
-                if (id == R.id.obfuscated_res_0x7f0918a5) {
-                    ((BaseFragmentActivity) this.a.f.getOrignalPage()).finish();
-                } else if (id == R.id.obfuscated_res_0x7f0922c2) {
-                    ((BaseFragmentActivity) this.a.f.getOrignalPage()).finish();
-                } else if ((id == R.id.obfuscated_res_0x7f090f43 || id == R.id.obfuscated_res_0x7f0915eb || id == R.id.obfuscated_res_0x7f090f39 || id == R.id.obfuscated_res_0x7f091a4b) && (strArr = (String[]) view2.getTag()) != null) {
-                    if (!"0".equals(strArr[2]) && strArr[1] != null) {
-                        SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(this.a.f.getPageActivity()).createSubPbActivityConfig(strArr[0], strArr[1], "person_post_reply", false);
-                        createSubPbActivityConfig.setKeyPageStartFrom(4);
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
-                        return;
-                    }
-                    PbActivityConfig createNormalCfg = new PbActivityConfig(this.a.f.getPageActivity()).createNormalCfg(strArr[0], strArr[1], "person_page");
-                    createNormalCfg.setStartFrom(4);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
-                }
-            }
-        }
-    }
-
-    @SuppressLint({"ResourceAsColor"})
-    /* loaded from: classes6.dex */
-    public static class c extends g58 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public ReplyLinearLayout r;
-        public TextView s;
-        public View t;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(View view2, TbPageContext<BaseFragmentActivity> tbPageContext) {
-            super(view2, tbPageContext);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2, tbPageContext};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((View) objArr2[0], (TbPageContext) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.t = view2.findViewById(R.id.obfuscated_res_0x7f091794);
-            this.i.setIsRound(true);
-            ReplyLinearLayout replyLinearLayout = (ReplyLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906c5);
-            this.r = replyLinearLayout;
-            replyLinearLayout.setPageContext(tbPageContext);
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915eb);
-            this.s = textView;
-            textView.setOnClickListener(this);
-            this.e.setVisibility(8);
-        }
-
-        @Override // com.repackage.g58
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                super.a(i);
-                wq4 d = wq4.d(this.s);
-                d.v(R.color.CAM_X0107);
-                d.n(R.string.J_X05);
-                d.f(R.color.CAM_X0206);
-                wq4 d2 = wq4.d(this.t);
-                d2.n(R.string.J_X05);
-                d2.f(R.color.CAM_X0201);
-            }
-        }
-    }
-
-    public m58(TbPageContext<BaseFragmentActivity> tbPageContext, String str, String str2, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, str, str2, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755548191, "Lcom/repackage/m58;");
                 return;
             }
         }
-        this.g = new a(this);
-        this.h = new b(this);
-        this.f = tbPageContext;
-        this.c = str;
-        this.d = bdUniqueId;
+        c();
+        b();
     }
 
-    public void e() {
-        PersonPostModel personPostModel;
+    public static void a(HttpMessage httpMessage, x58 x58Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (personPostModel = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, httpMessage, x58Var) == null) || httpMessage == null || x58Var == null) {
             return;
         }
-        personPostModel.cancelLoadData();
+        httpMessage.addParam("tid", x58Var.c);
+        httpMessage.addParam("fid", x58Var.d);
+        httpMessage.addParam(TiebaStatic.Params.OBJ_TO, x58Var.g);
+        httpMessage.addParam("obj_id", x58Var.k);
+        httpMessage.addParam(TiebaStatic.Params.OBJ_PARAM3, x58Var.h);
+        httpMessage.addParam("obj_source", x58Var.f);
+        httpMessage.addParam("obj_locate", x58Var.a);
+        httpMessage.addParam("obj_param1", x58Var.i);
+        if (!StringUtils.isNull(x58Var.n)) {
+            httpMessage.addParam(TiebaStatic.Params.TOPIC_TYPE, x58Var.n);
+        }
+        if (StringUtils.isNull(x58Var.p)) {
+            return;
+        }
+        httpMessage.addParam(TiebaStatic.Params.IS_VERTICAL, x58Var.p);
     }
 
-    public void f(boolean z) {
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (this.b == null) {
-                PersonPostModel personPostModel = new PersonPostModel(this.f, this.d, null, true, PersonPostModel.FROM_PERSON_POST);
-                this.b = personPostModel;
-                personPostModel.setUniqueId(this.d);
-            }
-            this.b.fetchPost(this.f, this.g, z, this.c, false, true, false, null);
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            MessageManager messageManager = MessageManager.getInstance();
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PLAY_DURATION_STATISTICS, TbConfig.SERVER_ADDRESS + TbConfig.URL_PLAY_DURATION_STATISTICS);
+            tbHttpMessageTask.setResponsedClass(PlayStatisticsResponseMessage.class);
+            tbHttpMessageTask.setIsNeedTbs(true);
+            messageManager.registerTask(tbHttpMessageTask);
         }
     }
 
-    public final void g(int i, c cVar, ViewGroup viewGroup) {
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, cVar, viewGroup) == null) {
-            PersonPostModel.PostInfoList h = h(i);
-            if (this.e == null) {
-                this.e = h.user_portrait;
-            }
-            cVar.d(h, false, this.e);
-            ArrayList<String[]> arrayList = new ArrayList<>();
-            int length = h.content.length;
-            for (int i2 = 0; i2 < length; i2++) {
-                if (h.content[i2].post_content.length != 0) {
-                    StringBuffer stringBuffer = new StringBuffer();
-                    if (!h.content[i2].post_content[0].text.startsWith("回复 ")) {
-                        stringBuffer.append("回复：");
-                    }
-                    int length2 = h.content[i2].post_content.length;
-                    for (int i3 = 0; i3 < length2; i3++) {
-                        stringBuffer.append(h.content[i2].post_content[i3].text);
-                    }
-                    arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(h.thread_id), String.valueOf(h.content[i2].post_id), String.valueOf(h.content[i2].post_type), StringHelper.getFormatTime(h.content[i2].create_time * 1000) + (h.content[i2].is_author_view == 1 ? " " + viewGroup.getContext().getString(R.string.obfuscated_res_0x7f0f0c9c) : ""), String.valueOf(h.thread_type)});
-                }
-            }
-            cVar.r.setPost(h);
-            cVar.r.setContent(arrayList);
-            if (Pattern.compile("^回复：").matcher(h.title).find()) {
-                cVar.s.setText(h.title.replaceFirst("回复：", "原贴："));
-            } else {
-                cVar.s.setText(h.title);
-            }
-            OriginalThreadInfo originalThreadInfo = h.originalThreadInfo;
-            if (originalThreadInfo != null && !StringUtils.isNull(originalThreadInfo.b)) {
-                cVar.s.setText("分享：" + h.originalThreadInfo.b);
-            }
-            cVar.s.setTag(new String[]{String.valueOf(h.thread_id), null, null, String.valueOf(h.thread_type)});
-            if (h.thread_type == 33) {
-                cVar.s.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(R.drawable.icon_zhibo), (Drawable) null, (Drawable) null, (Drawable) null);
-            } else {
-                cVar.s.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-            }
-            SkinManager.setBackgroundResource(cVar.s, R.drawable.person_post_line);
-            SkinManager.setViewTextColor(cVar.s, R.color.common_color_10039, 1);
-            int dimensionPixelSize = viewGroup.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5);
-            cVar.s.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
-            cVar.c(this.h);
-            cVar.a(TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            MessageManager messageManager = MessageManager.getInstance();
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PLAY_STATISTICS_CMD, TbConfig.SERVER_ADDRESS + TbConfig.URL_PLAY_STATISTICS);
+            tbHttpMessageTask.setResponsedClass(PlayStatisticsResponseMessage.class);
+            tbHttpMessageTask.setIsNeedTbs(true);
+            messageManager.registerTask(tbHttpMessageTask);
         }
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        ArrayList<jn> arrayList;
+    public static void d(long j, String str, x58 x58Var, String str2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            PersonPostModel personPostModel = this.b;
-            if (personPostModel == null || (arrayList = personPostModel.postList) == null) {
-                return 0;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), str, x58Var, str2, Long.valueOf(j2)}) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PLAY_DURATION_STATISTICS);
+            httpMessage.addParam(TiebaStatic.Params.OBJ_DURATION, j);
+            httpMessage.addParam("obj_type", str);
+            httpMessage.addParam("playduration", j2);
+            if (x58Var != null) {
+                httpMessage.addParam(VideoFinishResult.KEY_VIDEO_MD5, x58Var.m);
             }
-            return arrayList.size();
+            httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            httpMessage.addParam(TiebaStatic.Params.OBJ_PARAM2, str2);
+            a(httpMessage, x58Var);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
-        return invokeV.intValue;
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
+    public static void e(String str, String str2, String str3, x58 x58Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return null;
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        c cVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d06c3, viewGroup, false);
-                cVar = new c(view2, this.f);
-                view2.setTag(cVar);
-            } else {
-                cVar = (c) view2.getTag();
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, str2, str3, x58Var, Integer.valueOf(i)}) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PB_PLAY_STATISTICS_CMD);
+            httpMessage.addParam(VideoFinishResult.KEY_VIDEO_MD5, str);
+            httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            httpMessage.addParam(TiebaStatic.Params.OBJ_PARAM2, str2);
+            httpMessage.addParam("obj_type", str3);
+            if (TbSingleton.getInstance().getPcdnConfigData() != null && TbSingleton.getInstance().getPcdnConfigData().c()) {
+                httpMessage.addParam("pcdn_state", i);
             }
-            if (i == 0) {
-                cVar.h.setVisibility(0);
-            } else {
-                cVar.h.setVisibility(8);
-            }
-            g(i, cVar, viewGroup);
-            return view2;
-        }
-        return (View) invokeILL.objValue;
-    }
-
-    public PersonPostModel.PostInfoList h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? (PersonPostModel.PostInfoList) this.b.postList.get(i) : (PersonPostModel.PostInfoList) invokeI.objValue;
-    }
-
-    public void i(PersonPostModel.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) {
-            this.a = cVar;
+            a(httpMessage, x58Var);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 }

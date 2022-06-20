@@ -88,15 +88,15 @@ public class l {
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
             int a2 = a.a.a();
             int b = com.baidu.android.pushservice.b.d.a(context).b();
-            if (com.baidu.android.pushservice.b.d.l(context)) {
+            if (com.baidu.android.pushservice.b.d.m(context)) {
                 aVar = a.c;
-            } else if (com.baidu.android.pushservice.b.d.k(context)) {
+            } else if (com.baidu.android.pushservice.b.d.l(context)) {
                 aVar = a.d;
-            } else if (com.baidu.android.pushservice.b.d.m(context)) {
-                aVar = a.f;
             } else if (com.baidu.android.pushservice.b.d.n(context)) {
+                aVar = a.f;
+            } else if (com.baidu.android.pushservice.b.d.o(context)) {
                 aVar = a.g;
-            } else if (com.baidu.android.pushservice.b.d.j(context)) {
+            } else if (com.baidu.android.pushservice.b.d.k(context)) {
                 aVar = a.e;
             } else if (b != 2 && b != 4 && b != 3) {
                 return a2;

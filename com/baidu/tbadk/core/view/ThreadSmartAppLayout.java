@@ -19,13 +19,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bx;
-import com.repackage.ki;
-import com.repackage.om4;
-import com.repackage.pk5;
+import com.repackage.fx;
+import com.repackage.ml5;
+import com.repackage.oi;
+import com.repackage.ym4;
 import tbclient.SmartApp;
 /* loaded from: classes3.dex */
-public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClickListener, bx<om4> {
+public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClickListener, fx<ym4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView a;
@@ -71,26 +71,26 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.bx
+    @Override // com.repackage.fx
     /* renamed from: c */
-    public void a(om4 om4Var) {
+    public void a(ym4 ym4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, om4Var) == null) {
-            if (om4Var != null && om4Var.getThreadData() != null && om4Var.getThreadData().getSmartApp() != null) {
-                SmartApp smartApp = om4Var.getThreadData().getSmartApp();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ym4Var) == null) {
+            if (ym4Var != null && ym4Var.getThreadData() != null && ym4Var.getThreadData().getSmartApp() != null) {
+                SmartApp smartApp = ym4Var.getThreadData().getSmartApp();
                 this.d = smartApp;
-                if (!ki.isEmpty(smartApp.avatar)) {
+                if (!oi.isEmpty(smartApp.avatar)) {
                     this.a.L(this.d.avatar, 10, false, false);
                 }
-                if (!ki.isEmpty(this.d.name)) {
-                    this.b.setText(this.d.name + " " + getContext().getResources().getString(R.string.obfuscated_res_0x7f0f11b8));
+                if (!oi.isEmpty(this.d.name)) {
+                    this.b.setText(this.d.name + " " + getContext().getResources().getString(R.string.obfuscated_res_0x7f0f11c5));
                 } else {
-                    this.b.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f08f6));
+                    this.b.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f08fb));
                 }
-                if (!ki.isEmpty(this.d._abstract)) {
+                if (!oi.isEmpty(this.d._abstract)) {
                     this.c.setText(this.d._abstract);
                 } else {
-                    this.c.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f11b7));
+                    this.c.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f11c4));
                 }
                 setVisibility(0);
                 return;
@@ -115,8 +115,8 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
         if (!(interceptable == null || interceptable.invokeL(1048580, this, view2) == null) || (smartApp = this.d) == null) {
             return;
         }
-        if (!pk5.b(smartApp.id, smartApp.link, "1191003900000000", smartApp.is_game)) {
-            if (ki.isEmpty(this.d.h5_url)) {
+        if (!ml5.b(smartApp.id, smartApp.link, "1191003900000000", smartApp.is_game)) {
+            if (oi.isEmpty(this.d.h5_url)) {
                 return;
             }
             UrlManager.getInstance().dealOneLink(b(getContext()), new String[]{this.d.h5_url});
@@ -175,12 +175,12 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
             }
         }
         LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d081a, (ViewGroup) this, true);
-        HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090fc4);
+        HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090fb3);
         this.a = headImageView;
         headImageView.setIsRound(true);
         this.a.setPlaceHolder(1);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0921fb);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0921fa);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0921f7);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0921f6);
         setOnClickListener(this);
         d();
     }

@@ -1,23 +1,18 @@
 package com.repackage;
 
-import android.content.Context;
-import android.os.Message;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.view.MotionEvent;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.constants.PlayerStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class zp0 implements gq0 {
+public class zp0 extends aq0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bu0 a;
+    public tp0 c;
 
     public zp0() {
         Interceptable interceptable = $ic;
@@ -33,93 +28,88 @@ public abstract class zp0 implements gq0 {
         }
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    public void A() {
+        tp0 tp0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return true;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (tp0Var = this.c) == null) {
+            return;
         }
-        return invokeV.booleanValue;
+        tp0Var.onVideoSwitchToHalf();
     }
 
-    public void e(er0 er0Var) {
+    @Override // com.repackage.aq0
+    public void r() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, er0Var) == null) {
-            this.a.N(er0Var);
-        }
-    }
-
-    @Nullable
-    public ViewGroup.LayoutParams f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (ViewGroup.LayoutParams) invokeV.objValue;
-    }
-
-    public ko0 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.v() : (ko0) invokeV.objValue;
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.getContentView().getContext() : (Context) invokeV.objValue;
-    }
-
-    public void h(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, message) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.r();
+            this.c = null;
         }
     }
 
-    public abstract void i();
-
-    public void j() {
+    public void t() {
+        tp0 tp0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (tp0Var = this.c) == null) {
+            return;
         }
+        tp0Var.onBeforeSwitchToFull();
     }
 
-    public void k(@NonNull er0 er0Var) {
+    public void u() {
+        tp0 tp0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, er0Var) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (tp0Var = this.c) == null) {
+            return;
         }
+        tp0Var.onBeforeSwitchToHalf();
     }
 
-    public void l() {
+    public void v() {
+        tp0 tp0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (tp0Var = this.c) == null) {
+            return;
         }
+        tp0Var.onGestureActionEnd();
     }
 
-    public void m() {
+    public void w() {
+        tp0 tp0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (tp0Var = this.c) == null) {
+            return;
         }
+        tp0Var.onGestureActionStart();
     }
 
-    public void n(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
+    public boolean x(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, playerStatus, playerStatus2) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
+            tp0 tp0Var = this.c;
+            if (tp0Var != null) {
+                return tp0Var.onGestureDoubleClick(motionEvent);
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public void o(er0 er0Var) {
+    public void y(boolean z) {
+        tp0 tp0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, er0Var) == null) {
-            this.a.G(er0Var);
+        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || (tp0Var = this.c) == null) {
+            return;
         }
+        tp0Var.onPanelVisibilityChanged(z);
     }
 
-    public void q(@NonNull bu0 bu0Var) {
+    public void z() {
+        tp0 tp0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, bu0Var) == null) {
-            this.a = bu0Var;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (tp0Var = this.c) == null) {
+            return;
         }
+        tp0Var.onVideoSwitchToFull();
     }
 }

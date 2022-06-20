@@ -1,7 +1,6 @@
 package com.baidu.android.pushservice.message;
 
 import android.content.Context;
-import android.os.Build;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
@@ -16,33 +15,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class f extends d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public com.baidu.android.pushservice.i.d d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f(Context context) {
-        super(context);
+    public f(Context context, InputStream inputStream, OutputStream outputStream) {
+        super(context, inputStream, outputStream);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {context, inputStream, outputStream};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (InputStream) objArr2[1], (OutputStream) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.d = new com.baidu.android.pushservice.i.d(inputStream);
     }
 
     private byte[] a(long j, g gVar) {
@@ -170,41 +173,8 @@ public class f extends d {
         return (byte[]) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.android.pushservice.message.d
-    public e a(byte[] bArr) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-            com.baidu.android.pushservice.i.d dVar = new com.baidu.android.pushservice.i.d(byteArrayInputStream);
-            short c = dVar.c();
-            e eVar = new e(c);
-            if (c != h.g.b() && c != h.f.b()) {
-                dVar.c();
-                dVar.b();
-                dVar.a(new byte[16]);
-                dVar.b();
-                dVar.b();
-                int b = dVar.b();
-                byte[] bArr2 = null;
-                if (b > 0) {
-                    if (b > 20480) {
-                        b = 20480;
-                    }
-                    bArr2 = new byte[b];
-                    dVar.a(bArr2);
-                }
-                eVar.b = bArr2;
-            }
-            byteArrayInputStream.close();
-            dVar.a();
-            return eVar;
-        }
-        return (e) invokeL.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:46:0x01b5 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x01b6  */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x01ba A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x01bb  */
     @Override // com.baidu.android.pushservice.message.d
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -213,7 +183,7 @@ public class f extends d {
         b.c cVar;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("channel_token", com.baidu.android.pushservice.j.a(this.a).b());
@@ -232,20 +202,21 @@ public class f extends d {
                 }
                 jSONObject.put("push_launch_level", com.baidu.android.pushservice.i.i.b(this.a.getApplicationContext(), "key_push_launch_task_level", 0));
                 jSONObject.put("tinyheart", 1);
-                if (m.o(this.a)) {
+                if (m.A(this.a)) {
                     jSONObject.put("connect_version", 3);
-                    String a = m.a(false);
-                    if (!TextUtils.isEmpty(a) && a.length() <= 128) {
-                        jSONObject.put("manufacture", a);
+                    String c = m.c(this.a, false);
+                    if (!TextUtils.isEmpty(c) && c.length() <= 128) {
+                        jSONObject.put("manufacture", c);
                     }
                 } else {
                     jSONObject.put("connect_version", 2);
                 }
-                jSONObject.put("app_alone_conn", com.baidu.android.pushservice.b.d.e(this.a) ? 1 : 0);
+                jSONObject.put("app_alone_conn", com.baidu.android.pushservice.b.d.f(this.a) ? 1 : 0);
                 jSONObject.put(EmotionResourceInfo.JSON_KEY_PKG_NAME, this.a.getPackageName());
                 jSONObject.put("source", i);
-                long a2 = com.baidu.android.pushservice.i.i.a(this.a, "last_time", System.currentTimeMillis());
-                jSONObject.put("last_time", a2 + "");
+                long a = com.baidu.android.pushservice.i.i.a(this.a, "last_time", System.currentTimeMillis());
+                jSONObject.put("last_time", a + "");
+                jSONObject.put("widget_number", com.baidu.android.pushservice.e.i(this.a) ? 1 : 0);
                 jSONObject.put("proxy_conn", com.baidu.android.pushservice.b.d.c(this.a) ? 1 : 0);
                 jSONObject.put("noti_enable", com.baidu.android.pushservice.i.h.b(this.a));
                 if (this.a.getPackageName().equals("com.baidu.searchbox")) {
@@ -254,10 +225,6 @@ public class f extends d {
                 jSONObject.put("tiny_msghead", 1);
                 jSONObject.put("alarm_function", 1);
                 JSONObject jSONObject2 = new JSONObject();
-                String str2 = Build.MODEL;
-                if (!TextUtils.isEmpty(str2)) {
-                    jSONObject2.put("model", str2);
-                }
                 String cuid = DeviceId.getCUID(this.a);
                 if (!TextUtils.isEmpty(cuid)) {
                     jSONObject2.put("cuid", cuid);
@@ -284,9 +251,9 @@ public class f extends d {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            byte[] a3 = a(h.b.b(), str.getBytes());
+            byte[] a2 = a(h.b.b(), str.getBytes());
             e eVar = new e(h.b.b());
-            eVar.b = a3;
+            eVar.b = a2;
             eVar.c = true;
             eVar.a(false);
             a(eVar);
@@ -296,7 +263,7 @@ public class f extends d {
     @Override // com.baidu.android.pushservice.message.d
     public void a(int i, String str, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, bArr) == null) {
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, bArr) == null) {
             g gVar = new g();
             gVar.a(i);
             if (bArr != null) {
@@ -313,17 +280,39 @@ public class f extends d {
     }
 
     @Override // com.baidu.android.pushservice.message.d
-    public void b() {
+    public e b() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            short c = this.d.c();
+            e eVar = new e(c);
+            if (c != h.g.b() && c != h.f.b()) {
+                this.d.c();
+                this.d.b();
+                this.d.a(new byte[16]);
+                this.d.b();
+                this.d.b();
+                int b = this.d.b();
+                byte[] bArr = null;
+                if (b > 0) {
+                    if (b > 20480) {
+                        b = 20480;
+                    }
+                    bArr = new byte[b];
+                    this.d.a(bArr);
+                }
+                eVar.b = bArr;
+            }
+            return eVar;
         }
+        return (e) invokeV.objValue;
     }
 
     @Override // com.baidu.android.pushservice.message.d
     public void b(e eVar) {
         g a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) || eVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) || eVar == null) {
             return;
         }
         a aVar = new a(this.a);
@@ -343,6 +332,13 @@ public class f extends d {
 
     @Override // com.baidu.android.pushservice.message.d
     public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.android.pushservice.message.d
+    public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             byte[] a = a(h.f.b(), (byte[]) null);

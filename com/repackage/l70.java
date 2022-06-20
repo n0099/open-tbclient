@@ -1,223 +1,279 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.os.SystemProperties;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.upload.utils.RequsetNetworkUtils;
-import com.baidu.android.util.devices.RomUtils;
-import com.baidu.ar.arplay.core.message.ARPMessageType;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
-import com.baidu.down.utils.Constants;
-import com.baidu.lcp.sdk.pb.LcmPb$Common;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.internal.IMHttpDnsUrlRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
-import com.repackage.k60;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.net.SocketException;
+import java.security.SecureRandom;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.SSLSocketFactory;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Headers;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 /* loaded from: classes6.dex */
 public class l70 {
     public static /* synthetic */ Interceptable $ic;
+    public static c a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, long j, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{context, Long.valueOf(j), str, str2}) == null) {
-            try {
-                k60.c cVar = new k60.c(context);
-                cVar.e(str);
-                cVar.f("1");
-                cVar.c(j);
-                cVar.d(str2);
-                cVar.a(501112L);
-                cVar.b();
-            } catch (Exception e) {
-                o70.c("LCPCommon", "businessEvent exception ", e);
+    /* loaded from: classes6.dex */
+    public static class a implements Callback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d a;
+
+        public a(d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dVar;
+        }
+
+        @Override // okhttp3.Callback
+        public void onFailure(@NonNull Call call, @NonNull IOException iOException) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
+                String str = "HttpRequest error :" + iOException.toString();
+                if (iOException instanceof SocketException) {
+                    str = "HttpRequest SocketException :" + iOException.toString();
+                }
+                l70.c(this.a, 10003, str);
             }
         }
-    }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (PackageManager.NameNotFoundException e) {
-                o70.c("LCPCommon", "getAppVersionName NameNotFoundException", e);
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static Object c(Context context, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, context, z)) == null) {
-            String valueOf = String.valueOf(System.currentTimeMillis());
-            String str = Build.VERSION.RELEASE;
-            String str2 = Build.MANUFACTURER;
-            String str3 = Build.MODEL;
-            String b = TextUtils.isEmpty(b(context)) ? "" : b(context);
-            long currentTimeMillis = System.currentTimeMillis();
-            String b2 = p70.b(context);
-            String e = p70.e(context);
-            try {
-                if (z) {
-                    if (!TextUtils.isEmpty(b2) && !TextUtils.isEmpty(e)) {
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.put(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, valueOf);
-                        jSONObject.put("cuid", e);
-                        jSONObject.put(HttpConstants.DEVICE_TYPE, "android");
-                        jSONObject.put(HttpConstants.OS_VERSION, str);
-                        jSONObject.put("manufacture", str2);
-                        jSONObject.put(ARPMessageType.ARPMessageParamKeys.MODEL_TYPE_KEY, str3);
-                        jSONObject.put("app_id", p70.b(context));
-                        jSONObject.put("app_version", b);
-                        jSONObject.put("sdk_version", "2280016");
-                        jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, currentTimeMillis);
-                        jSONObject.put("sign", f(b2, e, "android", currentTimeMillis));
-                        return jSONObject;
+        @Override // okhttp3.Callback
+        public void onResponse(@NonNull Call call, @NonNull Response response) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
+                try {
+                    if (response.code() != 200) {
+                        l70.c(this.a, response.code(), response.message());
+                    } else if (response.body() == null) {
+                        l70.c(this.a, 10004, "response body empty");
+                    } else {
+                        byte[] bytes = response.body().bytes();
+                        s70.b("HttpExecutor", "onSuccess errorCode ：" + response.code() + ", errorMsg :" + new String(bytes));
+                        this.a.onSuccess(bytes);
                     }
-                    o70.b("LCPCommon", "getData appId : " + b2 + ", cuid :" + e);
-                    return null;
+                } catch (IOException e) {
+                    d dVar = this.a;
+                    l70.c(dVar, 10001, "parse response exception ：" + e);
                 }
-                String str4 = "nonNet";
-                if (RequsetNetworkUtils.isNetworkAvailable(context)) {
-                    str4 = RequsetNetworkUtils.isWifiConnected(context) ? "wifi" : RequsetNetworkUtils.getMobileType(context);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        Map<String, String> getHeaders();
+
+        String getHost();
+
+        String getMediaType();
+
+        String getMethod();
+
+        byte[] getRequestParameter();
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c implements X509TrustManager {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                LcmPb$Common.b newBuilder = LcmPb$Common.newBuilder();
-                newBuilder.w(e);
-                newBuilder.x("android");
-                newBuilder.B(str);
-                newBuilder.y(str2);
-                newBuilder.z(str3);
-                newBuilder.u(b2);
-                newBuilder.v(b);
-                newBuilder.D("2280016");
-                newBuilder.A(str4);
-                newBuilder.C(d(context));
-                return newBuilder.build();
+            }
+        }
+
+        @Override // javax.net.ssl.X509TrustManager
+        public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, x509CertificateArr, str) == null) {
+            }
+        }
+
+        @Override // javax.net.ssl.X509TrustManager
+        public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509CertificateArr, str) == null) {
+            }
+        }
+
+        @Override // javax.net.ssl.X509TrustManager
+        public X509Certificate[] getAcceptedIssuers() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new X509Certificate[0] : (X509Certificate[]) invokeV.objValue;
+        }
+
+        public /* synthetic */ c(a aVar) {
+            this();
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface d {
+        void onFailure(int i, String str);
+
+        void onSuccess(byte[] bArr);
+    }
+
+    /* loaded from: classes6.dex */
+    public static class e implements HostnameVerifier {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // javax.net.ssl.HostnameVerifier
+        public boolean verify(String str, SSLSession sSLSession) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, sSLSession)) == null) {
+                return true;
+            }
+            return invokeLL.booleanValue;
+        }
+
+        public /* synthetic */ e(a aVar) {
+            this();
+        }
+    }
+
+    public static SSLSocketFactory b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            try {
+                a = new c(null);
+                SSLContext sSLContext = SSLContext.getInstance("TLS");
+                sSLContext.init(null, new TrustManager[]{a}, new SecureRandom());
+                return sSLContext.getSocketFactory();
             } catch (Exception e2) {
-                o70.c("LCPCommon", "getData :", e2);
+                e2.printStackTrace();
                 return null;
             }
         }
-        return invokeLZ.objValue;
+        return (SSLSocketFactory) invokeV.objValue;
     }
 
-    public static String d(Context context) {
-        InterceptResult invokeL;
-        String str;
-        String str2;
+    public static void c(@NonNull d dVar, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            String upperCase = Build.MANUFACTURER.toUpperCase();
-            String str3 = "";
-            if (upperCase.contains("XIAOMI")) {
-                str = "ro.miui.ui.version.code";
-            } else if (upperCase.contains("HUAWEI")) {
-                str = "ro.build.version.emui";
-            } else if (upperCase.contains("MEIZU")) {
-                str = RomUtils.PROP_RO_BUILD_DISPLAY_ID;
-            } else if (upperCase.contains("OPPO")) {
-                str = "ro.build.version.opporom";
-            } else {
-                str = upperCase.contains("VIVO") ? "ro.vivo.os.version" : "";
-            }
-            try {
-                if (Build.VERSION.SDK_INT >= 28) {
-                    str2 = SystemProperties.get(str);
-                } else {
-                    Class<?> cls = Class.forName("android.os.SystemProperties");
-                    str2 = (String) cls.getDeclaredMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(cls, str);
-                }
-                str3 = str2;
-            } catch (Throwable unused) {
-                if (Build.VERSION.SDK_INT >= 21 && upperCase.contains("HUAWEI")) {
-                    return Constants.SDK_VER;
-                }
-                if (upperCase.contains("HUAWEI")) {
-                    return "1.0";
-                }
-                if (upperCase.contains("XIAOMI")) {
-                    return "4.0";
-                }
-                if (upperCase.contains("MEIZU")) {
-                    return "6.0";
-                }
-                if (upperCase.contains("OPPO")) {
-                    return "3.0";
-                }
-                if (upperCase.contains("VIVO")) {
-                    return "3.2";
-                }
-            }
-            if (upperCase.contains("HUAWEI") && !TextUtils.isEmpty(str3)) {
-                String substring = str3.substring(str3.indexOf("_") + 1, str3.length());
-                return (substring.matches("\\d+\\.\\d+$") || Build.VERSION.SDK_INT < 21) ? substring : Constants.SDK_VER;
-            }
-            if (upperCase.contains("MEIZU")) {
-                if (TextUtils.isEmpty(str3)) {
-                    str3 = Build.DISPLAY;
-                }
-                Matcher matcher = Pattern.compile("\\d+(\\.\\d+)?").matcher(str3);
-                if (matcher.find()) {
-                    str3 = matcher.group();
-                }
-            } else if (upperCase.contains("OPPO") && !TextUtils.isEmpty(str3)) {
-                Matcher matcher2 = Pattern.compile("^V(\\d+\\.\\d+)").matcher(str3);
-                if (matcher2.find()) {
-                    str3 = matcher2.group(1);
-                }
-            } else if (upperCase.contains("VIVO") && !TextUtils.isEmpty(str3)) {
-                Matcher matcher3 = Pattern.compile("^\\d+(\\.\\d+)?").matcher(str3);
-                if (matcher3.find()) {
-                    return matcher3.group();
-                }
-            }
-            return str3;
+        if (interceptable == null || interceptable.invokeLIL(65538, null, dVar, i, str) == null) {
+            dVar.onFailure(i, str);
+            s70.b("HttpExecutor", "failedResponse errorCode ：" + i + ", errorMsg :" + str);
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String e(String str) {
+    public static Headers d(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
             try {
-                byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes());
-                StringBuilder sb = new StringBuilder();
-                for (byte b : digest) {
-                    int i = b & 255;
-                    if (i < 16) {
-                        sb.append(0);
+                Headers.Builder builder = new Headers.Builder();
+                if (map != null && map.size() > 0) {
+                    for (String str : map.keySet()) {
+                        String str2 = str.toString();
+                        builder.add(str2, map.get(str2));
                     }
-                    sb.append(Integer.toHexString(i));
                 }
-                return sb.toString();
-            } catch (NoSuchAlgorithmException unused) {
-                return "";
+                return builder.build();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return null;
             }
         }
-        return (String) invokeL.objValue;
+        return (Headers) invokeL.objValue;
     }
 
-    @SuppressLint({"DefaultLocale"})
-    public static String f(String str, String str2, String str3, long j) {
-        InterceptResult invokeCommon;
+    public static void e(@NonNull b bVar, @NonNull d dVar) {
+        Request build;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{str, str2, str3, Long.valueOf(j)})) == null) ? e(String.format("%s%s%s%d", str, str2, str3, Long.valueOf(j))) : (String) invokeCommon.objValue;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bVar, dVar) == null) {
+            try {
+                String host = bVar.getHost();
+                byte[] requestParameter = bVar.getRequestParameter();
+                if (requestParameter != null && requestParameter.length > 0) {
+                    OkHttpClient build2 = new OkHttpClient.Builder().connectTimeout(30L, TimeUnit.SECONDS).readTimeout(30L, TimeUnit.SECONDS).writeTimeout(30L, TimeUnit.SECONDS).build();
+                    if (bVar.getMethod().equals("POST")) {
+                        build = new Request.Builder().url(host).post(RequestBody.create(MediaType.parse(bVar.getMediaType()), requestParameter)).build();
+                    } else {
+                        if (requestParameter != null && requestParameter.length > 0) {
+                            host = host + "?" + new String(requestParameter);
+                        }
+                        build = new Request.Builder().url(host).build();
+                    }
+                    Map<String, String> headers = bVar.getHeaders();
+                    Headers d2 = d(headers);
+                    if (headers != null && d2 != null) {
+                        build = build.newBuilder().headers(d2).build();
+                        String str = headers.get("Host");
+                        if (!TextUtils.isEmpty(str) && str.contains(IMHttpDnsUrlRequest.HTTP_DNS_HOST)) {
+                            build2 = build2.newBuilder().sslSocketFactory(b(), a).hostnameVerifier(new e(null)).build();
+                        }
+                    }
+                    s70.a("HttpExecutor", "request url :" + host + " , method :" + bVar.getMethod() + " , body :" + new String(bVar.getRequestParameter()));
+                    build2.newCall(build).enqueue(new a(dVar));
+                    return;
+                }
+                c(dVar, 10000, "request args exception");
+            } catch (Exception e2) {
+                c(dVar, 10004, "request exception :" + e2);
+            }
+        }
     }
 }

@@ -1,90 +1,37 @@
 package com.repackage;
 
-import android.content.BroadcastReceiver;
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.content.SharedPreferences;
+import android.os.Looper;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.upload.utils.RequsetNetworkUtils;
-import com.baidu.lcp.sdk.client.bean.BLCPRequest;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g70;
-import java.util.LinkedHashMap;
-import java.util.Observable;
-import java.util.Observer;
-import java.util.concurrent.LinkedBlockingQueue;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class q60 implements g70.a, Observer {
+public class q60 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile p60 d;
-    public static volatile q60 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public int b;
-    public b c;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ SharedPreferences a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ Object c;
 
-    /* loaded from: classes6.dex */
-    public class b extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q60 this$0;
-
-        /* loaded from: classes6.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.this$0.d("netchange");
-                }
-            }
-        }
-
-        public b(q60 q60Var) {
+        public a(SharedPreferences sharedPreferences, String str, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {q60Var};
+                Object[] objArr = {sharedPreferences, str, obj};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -94,299 +41,193 @@ public class q60 implements g70.a, Observer {
                     return;
                 }
             }
-            this.this$0 = q60Var;
+            this.a = sharedPreferences;
+            this.b = str;
+            this.c = obj;
         }
 
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                o70.a("LCPClientManager", "NetStatusReceiver changed");
-                if (RequsetNetworkUtils.isNetworkAvailable(context) && p70.m(context)) {
-                    o70.b("LCPClientManager", "NetStatusReceiver reconnect");
-                    j70.a(context).b(new a(this));
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                q60.n(this.a, this.b, this.c);
             }
-        }
-
-        public /* synthetic */ b(q60 q60Var, a aVar) {
-            this(q60Var);
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755428314, "Lcom/repackage/q60;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ Set c;
+
+        public b(Context context, String str, Set set) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755428314, "Lcom/repackage/q60;");
-                return;
-            }
-        }
-        d = new p60();
-        new LinkedHashMap();
-    }
-
-    public q60() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = -1;
-        new LinkedBlockingQueue();
-    }
-
-    public static synchronized q60 e() {
-        InterceptResult invokeV;
-        q60 q60Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (q60.class) {
-                if (e == null) {
-                    synchronized (q60.class) {
-                        if (e == null) {
-                            e = new q60();
-                        }
-                    }
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, str, set};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                q60Var = e;
             }
-            return q60Var;
+            this.a = context;
+            this.b = str;
+            this.c = set;
         }
-        return (q60) invokeV.objValue;
-    }
 
-    public static int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? d.a : invokeV.intValue;
-    }
-
-    public void b(Context context, String str, String str2, int i, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, Integer.valueOf(i), str3}) == null) {
-            if (d.a != -2 && d.a != 0) {
-                if (!TextUtils.isEmpty(str3) && UnitedSchemeConstants.SCHEME_INVOKE_TYPE_OUTSIDE.equals(str3)) {
-                    j60.h(context).f();
-                }
-                c(context, str, str2, i, str3);
-                return;
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.getSharedPreferences("track_sp", 0).edit().putStringSet(this.b, this.c).apply();
             }
+        }
+    }
+
+    public static Set<String> b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? h(context, "track_connection", new HashSet()) : (Set) invokeL.objValue;
+    }
+
+    public static int c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? g(context, Constants.KEY_LOGIN_OPEN_TYPE, -1) : invokeL.intValue;
+    }
+
+    public static Set<String> d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? h(context, "track_request", new HashSet()) : (Set) invokeL.objValue;
+    }
+
+    public static boolean e(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append("SocketConnect state is ");
-            sb.append(d.a == 0 ? "connected" : "connecting");
-            o70.a("LCPClientManager", sb.toString());
+            sb.append(i);
+            sb.append("real_time_track");
+            return g(context, sb.toString(), 0) == 1;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static boolean f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? g(context, "track_upload_state", 1) == 1 : invokeL.booleanValue;
+    }
+
+    public static int g(Context context, String str, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, context, str, i)) == null) ? context.getSharedPreferences("track_sp", 0).getInt(str, i) : invokeLLI.intValue;
+    }
+
+    public static Set<String> h(Context context, String str, Set<String> set) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, context, str, set)) == null) ? context.getSharedPreferences("track_sp", 0).getStringSet(str, set) : (Set) invokeLLL.objValue;
+    }
+
+    public static void i(Context context, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(65544, null, context, i, i2) == null) {
+            l(context, i + "real_time_track", i2);
         }
     }
 
-    public synchronized void c(Context context, String str, String str2, int i, String str3) {
+    public static void j(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, str, str2, Integer.valueOf(i), str3}) == null) {
-            synchronized (this) {
-                if (context == null) {
-                    return;
-                }
-                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && RequsetNetworkUtils.isConnected(context)) {
-                    this.a = context;
-                    if (TextUtils.isEmpty(p70.b(context))) {
-                        p70.q(context, str);
-                    }
-                    if (TextUtils.isEmpty(p70.e(context))) {
-                        p70.s(context, str2);
-                    }
-                    x60.S(context).addObserver(e);
-                    if (d.a != -2 && d.a != 0) {
-                        if (this.c == null) {
-                            IntentFilter intentFilter = new IntentFilter();
-                            intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-                            b bVar = new b(this, null);
-                            this.c = bVar;
-                            context.registerReceiver(bVar, intentFilter);
-                        }
-                        if (m60.f(context) && !j60.i().booleanValue()) {
-                            j60.h(context).e(context, String.valueOf(601110), 10);
-                            m60.m(context, i);
-                        }
-                        if (!p70.k(context)) {
-                            if (this.b < 0) {
-                                g60.h(context).b(601110).c("flow_start_time", System.currentTimeMillis()).d("source", str3).c("token_begin", System.currentTimeMillis());
-                                l();
-                            }
-                            return;
-                        }
-                        o70.b("LCPClientManager", "token is not null ");
-                        g60.h(context).b(601110).c("flow_start_time", System.currentTimeMillis()).d("source", str3);
-                        k(0);
-                        return;
-                    }
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("SocketConnect state is ");
-                    sb.append(d.a == 0 ? "connected" : "connecting");
-                    o70.a("LCPClientManager", sb.toString());
-                    return;
-                }
-                o70.a("LCPClientManager", "flow 参数错误、网络错误无法连接 增加打点");
-                g60.h(context).b(601110).c("flow_start_time", System.currentTimeMillis()).d("P0", "connect param not correct or net unconnected").d("con_err_code", "P0").c("flow_end_time", System.currentTimeMillis()).d("source", str3).e();
+        if (interceptable == null || interceptable.invokeLI(65545, null, context, i) == null) {
+            l(context, "track_upload_state", i);
+        }
+    }
+
+    public static void k(Context context, Set<String> set) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, context, set) == null) {
+            q(context, "track_connection", set);
+        }
+    }
+
+    public static void l(Context context, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65547, null, context, str, i) == null) {
+            p(context, str, Integer.valueOf(i));
+        }
+    }
+
+    public static void m(Context context, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65548, null, context, i) == null) {
+            l(context, Constants.KEY_LOGIN_OPEN_TYPE, i);
+        }
+    }
+
+    public static void n(SharedPreferences sharedPreferences, String str, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65549, null, sharedPreferences, str, obj) == null) {
+            if (obj instanceof Boolean) {
+                sharedPreferences.edit().putBoolean(str, ((Boolean) obj).booleanValue()).apply();
+            } else if (obj instanceof Integer) {
+                sharedPreferences.edit().putInt(str, ((Integer) obj).intValue()).apply();
+            } else if (obj instanceof Long) {
+                sharedPreferences.edit().putLong(str, ((Long) obj).longValue()).apply();
+            } else if (obj instanceof Float) {
+                sharedPreferences.edit().putFloat(str, ((Float) obj).floatValue()).apply();
+            } else if (obj instanceof String) {
+                sharedPreferences.edit().putString(str, (String) obj).apply();
             }
         }
     }
 
-    public final void d(String str) {
+    public static void o(Context context, Set<String> set) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            Context context = this.a;
-            b(context, p70.b(context), p70.e(this.a), m60.c(this.a), str);
+        if (interceptable == null || interceptable.invokeLL(65550, null, context, set) == null) {
+            q(context, "track_request", set);
         }
     }
 
-    public void g(@NonNull BLCPRequest bLCPRequest, @Nullable s60 s60Var) {
+    public static void p(Context context, String str, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, bLCPRequest, s60Var) == null) {
-            Context context = this.a;
-            if (context == null || !p70.m(context)) {
-                if (s60Var != null) {
-                    s60Var.onResponse(8010, "unconnected", bLCPRequest.a, bLCPRequest.b, bLCPRequest.d, new byte[0]);
+        if (interceptable == null || interceptable.invokeLLL(65551, null, context, str, obj) == null) {
+            try {
+                SharedPreferences sharedPreferences = context.getSharedPreferences("track_sp", 0);
+                if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
+                    n70.a(context).b(new a(sharedPreferences, str, obj));
+                } else {
+                    n(sharedPreferences, str, obj);
                 }
-            } else if (d.a != 0) {
-                if (!(bLCPRequest instanceof r60) && s60Var != null) {
-                    s60Var.onResponse(8010, "unconnected", bLCPRequest.a, bLCPRequest.b, bLCPRequest.d, new byte[0]);
-                }
-                if (d.a == -1 || !j()) {
-                    d("invoke");
-                }
-            } else {
-                x60.S(this.a).H(bLCPRequest, s60Var);
-                if (bLCPRequest.b == 1 && bLCPRequest.a == 4) {
-                    o70.a("LCPClientManager", "云控登录打点");
-                    Context context2 = this.a;
-                    l70.a(context2, 1L, "invoke", bLCPRequest.d + "");
-                }
-                if (bLCPRequest.b == 50 && bLCPRequest.a == 2) {
-                    Context context3 = this.a;
-                    l70.a(context3, 50L, "invoke", bLCPRequest.d + "");
-                }
+            } catch (Throwable th) {
+                s70.b("TrackUtils", th.getMessage());
             }
         }
     }
 
-    public void h() {
-        Context context;
+    @SuppressLint({"CommitPrefEdits"})
+    public static void q(Context context, String str, Set<String> set) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (context = this.a) == null) {
-            return;
-        }
-        x60.S(context).b0();
-    }
-
-    public void i(Context context) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, context) == null) || context == null) {
-            return;
-        }
-        this.a = context;
-    }
-
-    public final boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            Context context = this.a;
-            return context == null || x60.S(context).R().a != -1;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void k(int i) {
-        Context context;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && (context = this.a) != null && p70.m(context)) {
-            if (i != 0) {
-                if (i != 1) {
-                    return;
+        if (interceptable == null || interceptable.invokeLLL(65552, null, context, str, set) == null) {
+            try {
+                if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
+                    n70.a(context).b(new b(context, str, set));
+                } else {
+                    context.getSharedPreferences("track_sp", 0).edit().putStringSet(str, set).apply();
                 }
-                o70.a("LCPClientManager", "socketAction closeSocket");
-                x60.S(this.a).i0("socketAction closeSocket:", x60.S(this.a).x);
-                return;
+            } catch (Throwable th) {
+                s70.b("TrackUtils", th.getMessage());
             }
-            o70.a("LCPClientManager", "socketAction createSocket");
-            d.a = -2;
-            g60.h(this.a).g(601110).d("P8", "socketAction createSocket").d("con_err_code", "P8");
-            x60.S(this.a).h0();
-        }
-    }
-
-    public void l() {
-        Context context;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            Context context2 = this.a;
-            if (context2 != null && RequsetNetworkUtils.isConnected(context2)) {
-                this.b++;
-                g60.h(this.a).g(601110).b("token_count", this.b);
-                o70.a("LCPClientManager", "no token, so request token, and tryCount = " + this.b);
-                if (this.b < 3) {
-                    g70 g70Var = new g70(this.a, this);
-                    h70.e(g70Var, g70Var);
-                    return;
-                }
-                this.b = -1;
-                return;
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append("context = ");
-            sb.append(this.a);
-            sb.append(", net :");
-            sb.append(this.a == null ? "" : Boolean.valueOf(!RequsetNetworkUtils.isConnected(context)));
-            o70.a("LCPClientManager", sb.toString());
-            g60.h(this.a).g(601110).d("P1", "token request net unconnected").d("con_err_code", "P1").c("flow_end_time", System.currentTimeMillis()).e();
-        }
-    }
-
-    @Override // com.repackage.g70.a
-    public void onFailure(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048585, this, i, str) == null) {
-            o70.b("LCPClientManager", "getToken :" + str);
-            i60 g = g60.h(this.a).g(601110);
-            g.d("P4", "getToken errCode:" + i + ",errMsg:" + str).d("con_err_code", "P4");
-            l();
-            if (this.b == 2) {
-                i60 c = g60.h(this.a).g(601110).c("flow_end_time", System.currentTimeMillis());
-                c.d("P5", "token request count is max:" + this.b).d("con_err_code", "P5").e();
-                d.a = -1;
-                x60.S(this.a).Z();
-            }
-        }
-    }
-
-    @Override // com.repackage.g70.a
-    public void onResponse(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            g60.h(this.a).g(601110).d("P3", "accessToken success").d("con_err_code", "P3");
-            this.b = -1;
-            k(0);
-        }
-    }
-
-    @Override // java.util.Observer
-    public void update(Observable observable, Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048587, this, observable, obj) == null) && (obj instanceof p60)) {
-            d.a = ((p60) obj).a;
-            o70.a("LCPClientManager", "Manager update connectState :" + d.a);
         }
     }
 }

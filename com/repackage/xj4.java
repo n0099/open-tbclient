@@ -1,8 +1,9 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
 public interface xj4 {
-    View a(Context context);
+    void a(Object obj, HashMap<String, String> hashMap, String str, c9 c9Var);
+
+    zj4 b(Object obj, HashMap<String, String> hashMap, String str);
 }

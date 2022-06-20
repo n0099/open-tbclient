@@ -125,7 +125,7 @@ public class b {
                 str4 = DeviceId.getCUID(context);
             }
             long currentTimeMillis = System.currentTimeMillis();
-            String a3 = m.a(true);
+            String c = m.c(context, true);
             JSONObject jSONObject = new JSONObject();
             JSONObject jSONObject2 = new JSONObject();
             JSONArray f = c.f(context);
@@ -138,7 +138,7 @@ public class b {
                     jSONObject.put("cuid", str4);
                 }
                 jSONObject.put("upload_time", currentTimeMillis);
-                jSONObject.put("manufacture", a3);
+                jSONObject.put("manufacture", c);
                 jSONObject2.put("event_time", currentTimeMillis);
                 jSONObject2.put("vendor_notice", i);
                 jSONObject2.put("payload", str2);

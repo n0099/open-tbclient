@@ -57,8 +57,8 @@ public final class SelectPosView extends SelectBarView {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            getMLeftTitle().setText(getContext().getString(R.string.obfuscated_res_0x7f0f15b7));
-            getMCenterContentTips().setText(getContext().getString(R.string.obfuscated_res_0x7f0f15b8));
+            getMLeftTitle().setText(getContext().getString(R.string.obfuscated_res_0x7f0f15c0));
+            getMCenterContentTips().setText(getContext().getString(R.string.obfuscated_res_0x7f0f15c1));
             getMCenterContent().setVisibility(8);
         }
     }

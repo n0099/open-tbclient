@@ -1,28 +1,23 @@
 package com.repackage;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.os.RemoteException;
-import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.ArCoreApk;
+import com.google.ar.core.AugmentedFace;
+import com.google.ar.core.Session;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public final class gi9 implements Runnable {
+public final class gi9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ Context a;
-    public final /* synthetic */ ArCoreApk.a b;
-    public final /* synthetic */ di9 c;
+    public final Map<Long, AugmentedFace> a;
 
-    public gi9(di9 di9Var, Context context, ArCoreApk.a aVar) {
+    public gi9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {di9Var, context, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,27 +27,23 @@ public final class gi9 implements Runnable {
                 return;
             }
         }
-        this.c = di9Var;
-        this.a = context;
-        this.b = aVar;
+        this.a = new com.google.ar.core.j(1, 0.75f, true);
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        com.google.a.b.a.a.a.a aVar;
-        Bundle l;
+    public final synchronized AugmentedFace a(long j, Session session) {
+        InterceptResult invokeJL;
+        AugmentedFace augmentedFace;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                aVar = this.c.d;
-                String str = this.a.getApplicationInfo().packageName;
-                di9 di9Var = this.c;
-                l = di9.l();
-                aVar.a(str, l, new com.google.ar.core.u(this));
-            } catch (RemoteException e) {
-                Log.e("ARCore-InstallService", "requestInfo threw", e);
-                this.b.a(ArCoreApk.Availability.UNKNOWN_ERROR);
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, session)) == null) {
+            synchronized (this) {
+                augmentedFace = this.a.get(Long.valueOf(j));
+                if (augmentedFace == null) {
+                    augmentedFace = new AugmentedFace(j, session);
+                    this.a.put(Long.valueOf(j), augmentedFace);
+                }
             }
+            return augmentedFace;
         }
+        return (AugmentedFace) invokeJL.objValue;
     }
 }

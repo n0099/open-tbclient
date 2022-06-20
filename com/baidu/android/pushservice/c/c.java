@@ -23,6 +23,7 @@ import com.baidu.android.pushservice.message.a.k;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.diskCache.ImagesInvalidService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -160,11 +161,11 @@ public class c {
 
     /* renamed from: com.baidu.android.pushservice.c.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0016c implements DatabaseErrorHandler {
+    public static class C0018c implements DatabaseErrorHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0016c() {
+        public C0018c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -178,7 +179,7 @@ public class c {
             }
         }
 
-        public /* synthetic */ C0016c(AnonymousClass1 anonymousClass1) {
+        public /* synthetic */ C0018c(AnonymousClass1 anonymousClass1) {
             this();
         }
 
@@ -2158,14 +2159,14 @@ public class c {
                         String str = file.getAbsolutePath() + File.separator + "pushinfo.db";
                         SQLiteDatabase sQLiteDatabase = null;
                         if (Build.VERSION.SDK_INT >= 11) {
-                            a = new d(context, str, 8, new C0016c(null));
+                            a = new d(context, str, 8, new C0018c(null));
                         } else {
                             a = new d(context, str, (SQLiteDatabase.CursorFactory) null, 8);
                         }
                         try {
                             SQLiteDatabase writableDatabase = a.getWritableDatabase();
                             try {
-                                writableDatabase.delete("PushMsgInfos", e.e.name() + " < " + (System.currentTimeMillis() - 259200000), null);
+                                writableDatabase.delete("PushMsgInfos", e.e.name() + " < " + (System.currentTimeMillis() - ImagesInvalidService.FILE_VALID_TIME), null);
                                 if (writableDatabase != null) {
                                     writableDatabase.close();
                                 }

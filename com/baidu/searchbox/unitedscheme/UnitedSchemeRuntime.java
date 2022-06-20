@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pa1;
-import com.repackage.ra1;
+import com.repackage.ab1;
+import com.repackage.cb1;
 /* loaded from: classes2.dex */
 public class UnitedSchemeRuntime {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject(force = false)
-    public ra1<UnitedSchemeBaseInterceptor> sInterceptChainList;
+    public cb1<UnitedSchemeBaseInterceptor> sInterceptChainList;
     @Inject(force = false)
-    public ra1<UnitedSchemeBaseDispatcher> sSubDispatchersList;
+    public cb1<UnitedSchemeBaseDispatcher> sSubDispatchersList;
 
     public UnitedSchemeRuntime() {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class UnitedSchemeRuntime {
     public void initsInterceptChainList() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            pa1 b = pa1.b();
+            ab1 b = ab1.b();
             this.sInterceptChainList = b;
             b.a(new UnitedSchemeBaseInterceptor_UnitedSchemeRuntime_ListProvider());
         }
@@ -48,7 +48,7 @@ public class UnitedSchemeRuntime {
     public void initsSubDispatchersList() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            pa1 b = pa1.b();
+            ab1 b = ab1.b();
             this.sSubDispatchersList = b;
             b.a(new UnitedSchemeBaseDispatcher_UnitedSchemeRuntime_ListProvider());
         }

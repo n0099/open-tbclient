@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.co5;
-import com.repackage.jn;
+import com.repackage.ap5;
+import com.repackage.nn;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class MyConcernTabModel extends BdBaseModel {
@@ -31,7 +31,7 @@ public class MyConcernTabModel extends BdBaseModel {
     public int a;
     public TbPageContext b;
     public b c;
-    public co5 d;
+    public ap5 d;
     public HttpMessageListener e;
 
     /* loaded from: classes3.dex */
@@ -86,7 +86,7 @@ public class MyConcernTabModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(List<jn> list, boolean z, boolean z2);
+        void a(List<nn> list, boolean z, boolean z2);
 
         void b(boolean z);
     }
@@ -109,12 +109,12 @@ public class MyConcernTabModel extends BdBaseModel {
         this.a = 1;
         this.e = new a(this, AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST);
         this.b = tbPageContext;
-        this.d = new co5(this.b);
-        F();
+        this.d = new ap5(this.b);
+        G();
         MessageManager.getInstance().registerListener(this.e);
     }
 
-    public final void C(int i) {
+    public final void D(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST);
@@ -123,23 +123,23 @@ public class MyConcernTabModel extends BdBaseModel {
         }
     }
 
-    public void D() {
+    public void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            C(this.a);
+            D(this.a);
         }
     }
 
-    public void E() {
+    public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a = 1;
             this.d.a();
-            C(1);
+            D(1);
         }
     }
 
-    public final void F() {
+    public final void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_TAB_SUB_MY_CONCERN_LIST);
@@ -151,14 +151,14 @@ public class MyConcernTabModel extends BdBaseModel {
         }
     }
 
-    public void G(Class<? extends BaseCardInfo> cls) {
+    public void H(Class<? extends BaseCardInfo> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cls) == null) {
             this.d.j(cls);
         }
     }
 
-    public void H(b bVar) {
+    public void I(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
             this.c = bVar;

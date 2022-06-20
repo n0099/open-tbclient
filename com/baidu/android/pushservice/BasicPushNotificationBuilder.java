@@ -139,7 +139,7 @@ public class BasicPushNotificationBuilder extends PushNotificationBuilder {
             if (Build.VERSION.SDK_INT >= 21 && (i = this.mColor) != 0) {
                 builder.setColor(i);
             }
-            if (m.p(context)) {
+            if (m.B(context)) {
                 if (TextUtils.isEmpty(this.mChannelId)) {
                     this.mChannelId = "com.baidu.android.pushservice.push";
                 }

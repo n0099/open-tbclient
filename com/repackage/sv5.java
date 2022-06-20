@@ -1,145 +1,143 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import android.view.View;
-import android.widget.TextView;
+import android.util.Base64;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes7.dex */
-public class sv5 extends nv5<e16> {
+public class sv5 extends BdAsyncTask<Void, String, String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView i;
-    public TextView j;
-    public TextView k;
-    public TextView l;
-    public TextView m;
-    public View n;
-    public View o;
-    public String p;
+    public int a;
+    public ov5 b;
+    public String c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sv5(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public sv5(String str, int i, ov5 ov5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {str, Integer.valueOf(i), ov5Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        s(k());
+        this.a = i;
+        this.b = ov5Var;
+        this.c = str;
     }
 
-    @Override // com.repackage.nv5
-    public int d() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: b */
+    public String doInBackground(Void... voidArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0189 : invokeV.intValue;
-    }
-
-    @Override // com.repackage.nv5
-    public void m(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setBackgroundResource(k(), R.color.CAM_X0201);
-            SkinManager.setBackgroundResource(this.n, R.color.CAM_X0205);
-            SkinManager.setBackgroundResource(this.o, R.color.CAM_X0205);
-            SkinManager.setViewTextColor(this.i, R.color.CAM_X0106, 1);
-            SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1);
-            SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
-            SkinManager.setViewTextColor(this.l, R.color.CAM_X0105, 1);
-            SkinManager.setViewTextColor(this.m, R.color.CAM_X0105, 1);
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            if (view2 == this.j || view2 == this.k || view2 == this.l || view2 == this.m) {
-                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 8).param("fid", this.p));
-                UrlManager.getInstance().dealOneLink((TbPageContext) f9.a(this.b.getPageActivity()), new String[]{(String) view2.getTag()}, true);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+            String str = this.c;
+            if (str == null) {
+                return null;
             }
+            return c(str);
         }
+        return (String) invokeL.objValue;
     }
 
-    public final void s(View view2) {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:13:0x0028 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x0036 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x0009 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v10, types: [java.io.FileInputStream, java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r0v11 */
+    /* JADX WARN: Type inference failed for: r0v12 */
+    /* JADX WARN: Type inference failed for: r0v2, types: [boolean] */
+    /* JADX WARN: Type inference failed for: r0v3 */
+    /* JADX WARN: Type inference failed for: r0v4 */
+    /* JADX WARN: Type inference failed for: r0v6 */
+    /* JADX WARN: Type inference failed for: r0v7 */
+    /* JADX WARN: Type inference failed for: r0v8, types: [java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r0v9 */
+    public String c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904fe);
-            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904ff);
-            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090500);
-            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090501);
-            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090502);
-            this.j.setOnClickListener(this);
-            this.k.setOnClickListener(this);
-            this.l.setOnClickListener(this);
-            this.m.setOnClickListener(this);
-            this.n = view2.findViewById(R.id.obfuscated_res_0x7f0907d9);
-            this.o = view2.findViewById(R.id.obfuscated_res_0x7f0907da);
+        if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) != null) {
+            return (String) invokeL.objValue;
+        }
+        ?? isEmpty = TextUtils.isEmpty(str);
+        String str2 = null;
+        str2 = null;
+        str2 = null;
+        InputStream inputStream = null;
+        try {
+            try {
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            if (isEmpty != 0) {
+                return null;
+            }
+            try {
+                isEmpty = new FileInputStream(str);
+                try {
+                    byte[] bArr = new byte[isEmpty.available()];
+                    isEmpty.read(bArr);
+                    str2 = Base64.encodeToString(bArr, 0);
+                    isEmpty.close();
+                    isEmpty = isEmpty;
+                } catch (Exception e2) {
+                    e = e2;
+                    e.printStackTrace();
+                    if (isEmpty != 0) {
+                        isEmpty.close();
+                        isEmpty = isEmpty;
+                    }
+                    return str2;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                isEmpty = 0;
+            } catch (Throwable th) {
+                th = th;
+                if (inputStream != null) {
+                    try {
+                        inputStream.close();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
+                    }
+                }
+                throw th;
+            }
+            return str2;
+        } catch (Throwable th2) {
+            th = th2;
+            inputStream = isEmpty;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.nv5
-    /* renamed from: t */
-    public void l(e16 e16Var) {
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPostExecute(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, e16Var) == null) || e16Var == null || e16Var.e() == null) {
-            return;
-        }
-        if (!TextUtils.isEmpty(e16Var.e().title)) {
-            this.i.setText(e16Var.e().title);
-        }
-        this.j.setVisibility(8);
-        this.k.setVisibility(8);
-        this.l.setVisibility(8);
-        this.m.setVisibility(8);
-        if (e16Var.e().sub_nodes.size() >= 1) {
-            this.j.setVisibility(0);
-            this.j.setTag(e16Var.e().sub_nodes.get(0).url);
-            this.j.setText(e16Var.e().sub_nodes.get(0).title);
-        }
-        if (e16Var.e().sub_nodes.size() >= 2) {
-            this.k.setVisibility(0);
-            this.k.setTag(e16Var.e().sub_nodes.get(1).url);
-            this.k.setText(e16Var.e().sub_nodes.get(1).title);
-        }
-        if (e16Var.e().sub_nodes.size() >= 3) {
-            this.l.setVisibility(0);
-            this.l.setTag(e16Var.e().sub_nodes.get(2).url);
-            this.l.setText(e16Var.e().sub_nodes.get(2).title);
-        }
-        if (e16Var.e().sub_nodes.size() >= 4) {
-            this.m.setVisibility(0);
-            this.m.setTag(e16Var.e().sub_nodes.get(3).url);
-            this.m.setText(e16Var.e().sub_nodes.get(3).title);
-        }
-    }
-
-    public void u(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.p = str;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            super.onPostExecute((sv5) str);
+            ov5 ov5Var = this.b;
+            if (ov5Var == null || str == null) {
+                return;
+            }
+            ov5Var.a("", this.a, str);
         }
     }
 }

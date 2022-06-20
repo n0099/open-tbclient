@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rt2;
+import com.repackage.cu2;
 /* loaded from: classes2.dex */
 public class FooterLoadingLayout extends LoadingLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -47,7 +47,7 @@ public class FooterLoadingLayout extends LoadingLayout {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, viewGroup, attributeSet)) == null) {
-            View b = rt2.a().b(R.layout.obfuscated_res_0x7f0d00c2, viewGroup, false);
+            View b = cu2.a().b(R.layout.obfuscated_res_0x7f0d00c1, viewGroup, false);
             b.setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0603d2));
             return b;
         }
@@ -77,7 +77,7 @@ public class FooterLoadingLayout extends LoadingLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091966);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f09195d);
             if (findViewById != null) {
                 return findViewById.getHeight();
             }
@@ -128,8 +128,8 @@ public class FooterLoadingLayout extends LoadingLayout {
     public final void n(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
-            this.e = (LoadingAnimView) findViewById(R.id.obfuscated_res_0x7f091968);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091967);
+            this.e = (LoadingAnimView) findViewById(R.id.obfuscated_res_0x7f09195f);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09195e);
             this.f = textView;
             textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0603ca));
             setState(ILoadingLayout$State.RESET);

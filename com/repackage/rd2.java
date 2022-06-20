@@ -1,5 +1,6 @@
 package com.repackage;
 
+import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,13 +38,20 @@ public class rd2 implements ZeusPluginFactory {
     public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, invoker)) == null) ? new qd2(oi2.D().e(invoker, this.a)) : (ZeusPlugin) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, invoker)) == null) {
+            sd2 sd2Var = new sd2(invoker, this.a);
+            if (cg1.a) {
+                Log.i("【InlineInputFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline input「Hash:" + sd2Var.hashCode() + "」");
+            }
+            return new qd2(sd2Var);
+        }
+        return (ZeusPlugin) invokeL.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
     public String name() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "media_extractor" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "swan_input" : (String) invokeV.objValue;
     }
 }

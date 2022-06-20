@@ -1,21 +1,27 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class b66 extends z56 {
+public class b66 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public op4 a;
+    public ArrayList<nn> b;
+    public boolean c;
+    public boolean d;
+    public int e;
+    public int f;
+    public c66 g;
+    public boolean h;
 
-    public b66(boolean z) {
+    public b66() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -25,21 +31,12 @@ public class b66 extends z56 {
                 return;
             }
         }
-        this.d = z;
-    }
-
-    @Override // com.repackage.z56
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            f66 f66Var = this.a;
-            if (f66Var.h == null) {
-                this.b.onError(f66Var.f, "cover config is null !!");
-                return;
-            }
-            Bitmap createBitmap = Bitmap.createBitmap(f66Var.a, f66Var.b, Bitmap.Config.ARGB_8888);
-            createBitmap.copyPixelsFromBuffer(this.a.h);
-            g(new e66(), createBitmap);
-        }
+        this.c = true;
+        this.d = true;
+        this.e = 0;
+        this.f = 0;
+        this.h = true;
+        this.b = new ArrayList<>();
+        this.a = new op4();
     }
 }

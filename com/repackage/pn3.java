@@ -1,35 +1,47 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.os.Process;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.stat.ShareLoginStat;
+import com.baidu.swan.game.ad.downloader.exception.DownloadException;
+import com.baidu.swan.game.ad.downloader.exception.DownloadPauseException;
+import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.RandomAccessFile;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 /* loaded from: classes6.dex */
-public class pn3 {
+public class pn3 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
+    public final wn3 a;
+    public final DownloadInfo b;
+    public final a c;
+    public long d;
 
-    public pn3(String str) {
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a();
+
+        void b();
+    }
+
+    public pn3(wn3 wn3Var, DownloadInfo downloadInfo, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {wn3Var, downloadInfo, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,92 +51,186 @@ public class pn3 {
                 return;
             }
         }
-        if (str == null) {
+        this.a = wn3Var;
+        this.b = downloadInfo;
+        this.d = downloadInfo.getProgress();
+        this.c = aVar;
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.isPause()) {
+            throw new DownloadPauseException(7);
+        }
+    }
+
+    public final void b() {
+        InputStream inputStream;
+        RandomAccessFile randomAccessFile;
+        Exception e;
+        IOException e2;
+        ProtocolException e3;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
             return;
         }
+        RandomAccessFile randomAccessFile2 = null;
         try {
-            JSONObject jSONObject = new JSONObject(str).getJSONObject("data");
-            this.a = jSONObject.optString("download_state", "");
-            this.j = jSONObject.optString("download_hint", "");
-            JSONObject optJSONObject = jSONObject.optJSONObject("app_info");
-            if (optJSONObject != null) {
-                this.b = optJSONObject.optString("app_name", "");
-                this.c = optJSONObject.optString("developer_name", "");
-                this.d = optJSONObject.optString("app_icon", "");
-                JSONObject optJSONObject2 = optJSONObject.optJSONObject("privacy");
-                if (optJSONObject2 != null) {
-                    this.f = optJSONObject2.optString("cmd", "");
+            try {
+                try {
+                    URL url = new URL(this.b.getUri());
+                    long j = this.d;
+                    Response execute = new OkHttpClient().newCall(new Request.Builder().addHeader("RANGE", "bytes=" + j + "-").url(url).build()).execute();
+                    if (execute == null || execute.body() == null) {
+                        inputStream = null;
+                    } else {
+                        inputStream = execute.body().byteStream();
+                        try {
+                            RandomAccessFile randomAccessFile3 = new RandomAccessFile(this.b.getPath(), "rw");
+                            try {
+                                randomAccessFile3.seek(j);
+                                byte[] bArr = new byte[1024];
+                                int i = 0;
+                                while (true) {
+                                    int read = inputStream.read(bArr);
+                                    if (read == -1) {
+                                        break;
+                                    }
+                                    a();
+                                    i += read;
+                                    randomAccessFile3.write(bArr, 0, read);
+                                    this.b.setProgress(this.d + i);
+                                    this.c.b();
+                                }
+                                execute.body().close();
+                                this.c.a();
+                                randomAccessFile2 = randomAccessFile3;
+                            } catch (DownloadPauseException unused) {
+                                randomAccessFile2 = randomAccessFile3;
+                                if (randomAccessFile2 != null) {
+                                    randomAccessFile2.close();
+                                }
+                                if (inputStream != null) {
+                                    inputStream.close();
+                                    return;
+                                }
+                                return;
+                            } catch (ProtocolException e4) {
+                                e3 = e4;
+                                throw new DownloadException(4, "Protocol error", e3);
+                            } catch (IOException e5) {
+                                e2 = e5;
+                                throw new DownloadException(5, "IO error", e2);
+                            } catch (Exception e6) {
+                                e = e6;
+                                throw new DownloadException(9, "other error", e);
+                            }
+                        } catch (DownloadPauseException unused2) {
+                        } catch (ProtocolException e7) {
+                            e = e7;
+                            e3 = e;
+                            throw new DownloadException(4, "Protocol error", e3);
+                        } catch (IOException e8) {
+                            e = e8;
+                            e2 = e;
+                            throw new DownloadException(5, "IO error", e2);
+                        } catch (Exception e9) {
+                            e = e9;
+                            e = e;
+                            throw new DownloadException(9, "other error", e);
+                        } catch (Throwable th) {
+                            th = th;
+                            randomAccessFile = null;
+                            th = th;
+                            if (randomAccessFile != null) {
+                                try {
+                                    randomAccessFile.close();
+                                } catch (Exception e10) {
+                                    e10.printStackTrace();
+                                    throw th;
+                                }
+                            }
+                            if (inputStream != null) {
+                                inputStream.close();
+                            }
+                            throw th;
+                        }
+                    }
+                    if (randomAccessFile2 != null) {
+                        randomAccessFile2.close();
+                    }
+                    if (inputStream != null) {
+                        inputStream.close();
+                    }
+                } catch (Exception e11) {
+                    e11.printStackTrace();
                 }
-                JSONObject optJSONObject3 = optJSONObject.optJSONObject(ShareLoginStat.GetShareListStat.KEY_PERMISSION);
-                if (optJSONObject3 != null) {
-                    this.g = optJSONObject3.optString("cmd", "");
-                }
-                this.h = optJSONObject.optString("apk_url", "");
-                this.e = optJSONObject.optString("version", "");
-                this.i = optJSONObject.optString("apk_size", "");
+            } catch (DownloadPauseException unused3) {
+                inputStream = null;
+            } catch (ProtocolException e12) {
+                e = e12;
+            } catch (IOException e13) {
+                e = e13;
+            } catch (Exception e14) {
+                e = e14;
+            } catch (Throwable th2) {
+                th = th2;
+                inputStream = null;
+                randomAccessFile = null;
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Throwable th3) {
+            th = th3;
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public final long c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.i : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            try {
+                Response execute = new OkHttpClient().newCall(new Request.Builder().url(str).build()).execute();
+                if (execute == null || !execute.isSuccessful() || execute.body() == null) {
+                    return 0L;
+                }
+                long contentLength = execute.body().contentLength();
+                execute.body().close();
+                return contentLength;
+            } catch (MalformedURLException e) {
+                throw new DownloadException(2, "Bad url.", e);
+            } catch (ProtocolException e2) {
+                throw new DownloadException(4, "Protocol error", e2);
+            } catch (IOException e3) {
+                throw new DownloadException(5, "IO error", e3);
+            } catch (Exception e4) {
+                throw new DownloadException(9, "Unknown error", e4);
+            }
+        }
+        return invokeL.longValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h : (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.j : (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.g : (String) invokeV.objValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f : (String) invokeV.objValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.e : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Process.setThreadPriority(10);
+            try {
+                if (this.b.getSize() <= 0) {
+                    long c = c(this.b.getUri());
+                    if (c > 0) {
+                        this.b.setSize(c);
+                    } else {
+                        throw new DownloadException(6, "length <= 0");
+                    }
+                }
+                this.b.setStatus(DownloadState.DOWNLOADING.value());
+                this.a.b(this.b);
+                b();
+            } catch (DownloadException e) {
+                this.b.setStatus(DownloadState.DOWNLOAD_FAILED.value());
+                this.b.setException(e);
+                this.a.b(this.b);
+                this.a.a(e);
+            }
+        }
     }
 }

@@ -1,7 +1,11 @@
 package com.repackage;
 
-import com.repackage.t45;
+import java.util.List;
+import tbclient.VideoRedIcon.RedIcon;
+import tbclient.VideoRedIcon.VideoRedIconResIdl;
 /* loaded from: classes7.dex */
-public interface u45<T extends t45> {
-    boolean onEvent(T t);
+public interface u45 {
+    List<RedIcon> getDataList();
+
+    VideoRedIconResIdl getResData();
 }

@@ -45,62 +45,56 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.aw8;
+import com.repackage.c87;
+import com.repackage.fr4;
+import com.repackage.fw8;
+import com.repackage.i77;
 import com.repackage.iw8;
-import com.repackage.ki;
-import com.repackage.li;
-import com.repackage.s67;
-import com.repackage.wq4;
-import com.repackage.xv8;
-import com.repackage.y57;
-import com.repackage.z57;
+import com.repackage.j77;
+import com.repackage.oi;
+import com.repackage.pi;
+import com.repackage.qw8;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class ShareFriendActivity extends BaseActivity implements AdapterView.OnItemClickListener {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String FROM_CHAT_LIST = "1";
-    public static final String FROM_SHARE_FRIEND = "0";
-    public static final String FROM_SHARE_LIST = "4";
-    public static final int NOFRIEND_MODE_CHAT = 2;
-    public static final int NOFRIEND_MODE_NO = 0;
-    public static final int NOFRIEND_MODE_SHARE = 1;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<String> filterUid;
-    public ForumData forumData;
-    public boolean isForChat;
-    public boolean isForShareFriend;
-    public int listDivider;
-    public int listFocus;
-    public int listNearly;
-    public int listTitle;
-    public iw8 mAdapter;
-    public ImageView mButtonDel;
-    public View mCancel;
-    public ArrayList<MetaData> mDataList;
-    public TextView mDelete;
-    public EditText mEditText;
-    public ArrayList<MetaData> mFilterList;
-    public k mFriendListTask;
-    public ArrayList<MetaData> mJointList;
-    public FrameLayout mListContainer;
-    public BdListView mListView;
-    public aw8 mModel;
-    public View mNaviSearchEditView;
-    public View mNaviSearchFindView;
-    public TextView mNaviTitleTV;
-    public NavigationBar mNavigationBar;
-    public ArrayList<MetaData> mNearlyPersonList;
-    public NoDataView mNoDataView;
-    public String mPreEditString;
-    public View mRootView;
-    public LinearLayout mSearchBox;
-    public ImageView mSearchIcon;
-    public ImageView mSearchImageView;
-    public CustomMessageListener mShareDataListener;
-    public final Runnable mSuggestRunnable;
-    public int maxNearlyPerson;
-    public ThreadData threadData;
+    public int A;
+    public int B;
+    public int C;
+    public int D;
+    public int E;
+    public CustomMessageListener F;
+    public ThreadData G;
+    public ForumData H;
+    public final Runnable I;
+    public NavigationBar a;
+    public ArrayList<MetaData> b;
+    public ArrayList<MetaData> c;
+    public ArrayList<MetaData> d;
+    public ArrayList<MetaData> e;
+    public ArrayList<String> f;
+    public iw8 g;
+    public qw8 h;
+    public View i;
+    public FrameLayout j;
+    public BdListView k;
+    public k l;
+    public TextView m;
+    public LinearLayout n;
+    public View o;
+    public NoDataView p;
+    public ImageView q;
+    public TextView r;
+    public View s;
+    public View t;
+    public EditText u;
+    public String v;
+    public ImageView w;
+    public ImageView x;
+    public boolean y;
+    public boolean z;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -130,7 +124,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.mEditText.setText("");
+                this.a.u.setText("");
             }
         }
     }
@@ -164,7 +158,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 ShareFriendActivity shareFriendActivity = this.a;
-                shareFriendActivity.requestSuggestData(ki.charSequence2String(shareFriendActivity.mEditText.getText(), ""));
+                shareFriendActivity.i2(oi.charSequence2String(shareFriendActivity.u.getText(), ""));
             }
         }
     }
@@ -205,9 +199,9 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
             }
             if ((customResponsedMessage.getData() instanceof ThreadData) || (customResponsedMessage.getData() instanceof ForumData)) {
                 if (customResponsedMessage.getData() instanceof ThreadData) {
-                    this.a.threadData = (ThreadData) customResponsedMessage.getData();
+                    this.a.G = (ThreadData) customResponsedMessage.getData();
                 } else if (customResponsedMessage.getData() instanceof ForumData) {
-                    this.a.forumData = (ForumData) customResponsedMessage.getData();
+                    this.a.H = (ForumData) customResponsedMessage.getData();
                 }
             }
         }
@@ -241,18 +235,18 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
         public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
             MetaData item;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || (item = this.a.mAdapter.getItem(i)) == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || (item = this.a.h.getItem(i)) == null) {
                 return;
             }
-            li.x(this.a.getPageContext().getPageActivity(), this.a.mEditText);
-            if (!this.a.isForChat) {
-                if (this.a.isForShareFriend) {
-                    this.a.jumpToShareDialog(item);
+            pi.x(this.a.getPageContext().getPageActivity(), this.a.u);
+            if (!this.a.z) {
+                if (this.a.y) {
+                    this.a.g2(item);
                     return;
                 }
                 return;
             }
-            this.a.jumpToPersonalChat(item);
+            this.a.f2(item);
         }
     }
 
@@ -292,13 +286,13 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i) == null) && i == 1) {
                 ShareFriendActivity shareFriendActivity = this.a;
-                li.x(shareFriendActivity, shareFriendActivity.mEditText);
+                pi.x(shareFriendActivity, shareFriendActivity.u);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class f implements y57.b {
+    public class f implements i77.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ShareFriendActivity a;
@@ -321,17 +315,17 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
             this.a = shareFriendActivity;
         }
 
-        @Override // com.repackage.y57.b
-        public void b() {
+        @Override // com.repackage.i77.b
+        public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.finish();
             }
         }
 
-        @Override // com.repackage.y57.b
+        @Override // com.repackage.i77.b
         public /* synthetic */ void onCancel() {
-            z57.a(this);
+            j77.a(this);
         }
     }
 
@@ -363,12 +357,12 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.mNaviTitleTV.setVisibility(8);
-                this.a.mNaviSearchFindView.setVisibility(8);
-                this.a.mNaviSearchEditView.setVisibility(0);
-                this.a.mEditText.requestFocus();
-                this.a.mNavigationBar.getViewGroup(NavigationBar.ControlAlign.HORIZONTAL_LEFT).removeAllViews();
-                this.a.mCancel = null;
+                this.a.r.setVisibility(8);
+                this.a.t.setVisibility(8);
+                this.a.s.setVisibility(0);
+                this.a.u.requestFocus();
+                this.a.a.getViewGroup(NavigationBar.ControlAlign.HORIZONTAL_LEFT).removeAllViews();
+                this.a.o = null;
             }
         }
     }
@@ -401,28 +395,28 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
         public void afterTextChanged(Editable editable) {
             String charSequence2String;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, editable) == null) || (charSequence2String = ki.charSequence2String(editable, null)) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, editable) == null) || (charSequence2String = oi.charSequence2String(editable, null)) == null) {
                 return;
             }
             if (charSequence2String.length() == 0) {
-                this.a.mButtonDel.setVisibility(8);
+                this.a.q.setVisibility(8);
             } else {
-                this.a.mButtonDel.setVisibility(0);
+                this.a.q.setVisibility(0);
             }
-            if (!charSequence2String.equals(this.a.mPreEditString)) {
+            if (!charSequence2String.equals(this.a.v)) {
                 ShareFriendActivity shareFriendActivity = this.a;
-                shareFriendActivity.mHandler.removeCallbacks(shareFriendActivity.mSuggestRunnable);
+                shareFriendActivity.mHandler.removeCallbacks(shareFriendActivity.I);
                 ShareFriendActivity shareFriendActivity2 = this.a;
-                shareFriendActivity2.mHandler.postDelayed(shareFriendActivity2.mSuggestRunnable, 300L);
+                shareFriendActivity2.mHandler.postDelayed(shareFriendActivity2.I, 300L);
             }
-            this.a.mDelete.setVisibility(0);
+            this.a.m.setVisibility(0);
         }
 
         @Override // android.text.TextWatcher
         public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
-                this.a.mPreEditString = ki.charSequence2String(charSequence, null);
+                this.a.v = oi.charSequence2String(charSequence, null);
             }
         }
 
@@ -463,9 +457,9 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view2, z) == null) {
                 if (!z) {
-                    li.x(this.a.getPageContext().getPageActivity(), view2);
+                    pi.x(this.a.getPageContext().getPageActivity(), view2);
                 } else {
-                    li.M(this.a.getPageContext().getPageActivity(), view2);
+                    pi.M(this.a.getPageContext().getPageActivity(), view2);
                 }
             }
         }
@@ -499,13 +493,13 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.mEditText.getText().clear();
-                this.a.mNaviTitleTV.setVisibility(0);
-                this.a.mNaviSearchFindView.setVisibility(0);
-                this.a.mNaviSearchEditView.setVisibility(8);
-                if (this.a.mCancel == null) {
+                this.a.u.getText().clear();
+                this.a.r.setVisibility(0);
+                this.a.t.setVisibility(0);
+                this.a.s.setVisibility(8);
+                if (this.a.o == null) {
                     ShareFriendActivity shareFriendActivity = this.a;
-                    shareFriendActivity.mCancel = shareFriendActivity.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+                    shareFriendActivity.o = shareFriendActivity.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
                 }
             }
         }
@@ -524,109 +518,223 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
                 return;
             }
         }
-        this.mNavigationBar = null;
-        this.mJointList = new ArrayList<>();
-        this.mFilterList = new ArrayList<>();
-        this.mNearlyPersonList = new ArrayList<>();
-        this.mDataList = new ArrayList<>();
-        this.filterUid = new ArrayList<>();
-        this.mModel = null;
-        this.mAdapter = null;
-        this.mListView = null;
-        this.mFriendListTask = null;
-        this.isForShareFriend = false;
-        this.isForChat = false;
-        this.listTitle = 0;
-        this.listDivider = 2;
-        this.listNearly = 1;
-        this.listFocus = 3;
-        this.maxNearlyPerson = 10;
-        this.mSuggestRunnable = new b(this);
+        this.a = null;
+        this.b = new ArrayList<>();
+        this.c = new ArrayList<>();
+        this.d = new ArrayList<>();
+        this.e = new ArrayList<>();
+        this.f = new ArrayList<>();
+        this.g = null;
+        this.h = null;
+        this.k = null;
+        this.l = null;
+        this.y = false;
+        this.z = false;
+        this.A = 0;
+        this.B = 2;
+        this.C = 1;
+        this.D = 3;
+        this.E = 10;
+        this.I = new b(this);
     }
 
-    private void initData(Bundle bundle) {
+    public void Z1(ArrayList arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65562, this, bundle) == null) {
-            this.mModel = new aw8();
+        if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
+            ShareFriendTitleData shareFriendTitleData = new ShareFriendTitleData();
+            shareFriendTitleData.setItemType(this.B);
+            arrayList.add(shareFriendTitleData);
+        }
+    }
+
+    public void a2(String str, ArrayList arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, arrayList) == null) {
+            ShareFriendTitleData shareFriendTitleData = new ShareFriendTitleData();
+            shareFriendTitleData.setItemType(this.A);
+            shareFriendTitleData.setTitle(str);
+            arrayList.add(shareFriendTitleData);
+        }
+    }
+
+    public final void b2(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+            this.g = new iw8();
             if (bundle != null) {
-                this.isForChat = bundle.getBoolean(ShareFriendActivityConfig.FROM_MESSAGE_TAB, false);
-                this.isForShareFriend = bundle.getBoolean(ShareFriendActivityConfig.FROM_SHARE_FRIEND, false);
+                this.z = bundle.getBoolean(ShareFriendActivityConfig.FROM_MESSAGE_TAB, false);
+                this.y = bundle.getBoolean(ShareFriendActivityConfig.FROM_SHARE_FRIEND, false);
                 return;
             }
-            this.isForChat = getIntent().getBooleanExtra(ShareFriendActivityConfig.FROM_MESSAGE_TAB, false);
-            this.isForShareFriend = getIntent().getBooleanExtra(ShareFriendActivityConfig.FROM_SHARE_FRIEND, false);
+            this.z = getIntent().getBooleanExtra(ShareFriendActivityConfig.FROM_MESSAGE_TAB, false);
+            this.y = getIntent().getBooleanExtra(ShareFriendActivityConfig.FROM_SHARE_FRIEND, false);
         }
     }
 
-    private void initNavigationBar() {
+    public final void c2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65563, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923a2);
-            this.mNavigationBar = navigationBar;
-            if (this.isForChat) {
-                this.mNaviTitleTV = navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f03ab));
-            } else if (this.isForShareFriend) {
-                this.mNaviTitleTV = navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f10fd));
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09238f);
+            this.a = navigationBar;
+            if (this.z) {
+                this.r = navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f039c));
+            } else if (this.y) {
+                this.r = navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f1108));
             }
-            this.mNaviSearchFindView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0077, new g(this));
-            this.mNavigationBar.getViewGroup(NavigationBar.ControlAlign.HORIZONTAL_LEFT).removeAllViews();
-            this.mCancel = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.mSearchImageView = (ImageView) this.mNaviSearchFindView.findViewById(R.id.obfuscated_res_0x7f091520);
-            View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d05d1, (View.OnClickListener) null);
-            this.mNaviSearchEditView = addCustomView;
+            this.t = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0076, new g(this));
+            this.a.getViewGroup(NavigationBar.ControlAlign.HORIZONTAL_LEFT).removeAllViews();
+            this.o = this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.w = (ImageView) this.t.findViewById(R.id.obfuscated_res_0x7f091512);
+            View addCustomView = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d05ce, (View.OnClickListener) null);
+            this.s = addCustomView;
             addCustomView.setVisibility(8);
-            ImageView imageView = (ImageView) this.mNaviSearchEditView.findViewById(R.id.obfuscated_res_0x7f0903f7);
-            this.mButtonDel = imageView;
+            ImageView imageView = (ImageView) this.s.findViewById(R.id.obfuscated_res_0x7f0903f1);
+            this.q = imageView;
             imageView.setVisibility(8);
-            this.mEditText = (EditText) this.mNaviSearchEditView.findViewById(R.id.obfuscated_res_0x7f0908f8);
-            this.mSearchIcon = (ImageView) this.mNaviSearchEditView.findViewById(R.id.obfuscated_res_0x7f0908f4);
-            this.mEditText.addTextChangedListener(new h(this));
-            this.mEditText.setOnFocusChangeListener(new i(this));
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0908f9);
-            this.mDelete = textView;
+            this.u = (EditText) this.s.findViewById(R.id.obfuscated_res_0x7f0908e6);
+            this.x = (ImageView) this.s.findViewById(R.id.obfuscated_res_0x7f0908e2);
+            this.u.addTextChangedListener(new h(this));
+            this.u.setOnFocusChangeListener(new i(this));
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0908e7);
+            this.m = textView;
             textView.setOnClickListener(new j(this));
-            this.mButtonDel.setOnClickListener(new a(this));
+            this.q.setOnClickListener(new a(this));
         }
     }
 
-    private void initView() {
+    public final void d2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65564, this) == null) {
-            this.mRootView = findViewById(R.id.obfuscated_res_0x7f091cbd);
-            this.mNoDataView = NoDataViewFactory.b(getPageContext().getContext(), this.mRootView, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.GIFT, li.f(getActivity(), R.dimen.obfuscated_res_0x7f0702a1)), NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0c75)), null, true);
-            initNavigationBar();
-            this.mSearchBox = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ccb);
-            this.mListContainer = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091caa);
-            this.mListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f09123c);
-            iw8 iw8Var = new iw8(this);
-            this.mAdapter = iw8Var;
-            this.mListView.setAdapter((ListAdapter) iw8Var);
-            this.mAdapter.b(this.mDataList);
-            this.mListView.setOnItemClickListener(new d(this));
-            this.mListView.setOnScrollListener(new e(this));
-            if (getIntent().getBooleanExtra(IntentConfig.SHOW_KEYBOARD, false) || this.mEditText.getParent() == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.i = findViewById(R.id.obfuscated_res_0x7f091cb4);
+            this.p = NoDataViewFactory.b(getPageContext().getContext(), this.i, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.GIFT, pi.f(getActivity(), R.dimen.obfuscated_res_0x7f0702a1)), NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0c78)), null, true);
+            c2();
+            this.n = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091cc2);
+            this.j = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091ca1);
+            this.k = (BdListView) findViewById(R.id.obfuscated_res_0x7f091231);
+            qw8 qw8Var = new qw8(this);
+            this.h = qw8Var;
+            this.k.setAdapter((ListAdapter) qw8Var);
+            this.h.b(this.e);
+            this.k.setOnItemClickListener(new d(this));
+            this.k.setOnScrollListener(new e(this));
+            if (getIntent().getBooleanExtra(IntentConfig.SHOW_KEYBOARD, false) || this.u.getParent() == null) {
                 return;
             }
-            ((View) this.mEditText.getParent()).setFocusable(true);
-            ((View) this.mEditText.getParent()).setFocusableInTouchMode(true);
+            ((View) this.u.getParent()).setFocusable(true);
+            ((View) this.u.getParent()).setFocusableInTouchMode(true);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void requestSuggestData(String str) {
+    public void e2() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65565, this, str) == null) || isFinishing()) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (this.z) {
+                a2(getString(R.string.obfuscated_res_0x7f0f0b42), this.b);
+                this.b.addAll(this.e);
+            } else if (this.y) {
+                ArrayList<MetaData> a2 = c87.a();
+                this.d = a2;
+                int size = a2.size();
+                if (size == 0) {
+                    a2(getString(R.string.obfuscated_res_0x7f0f0b42), this.b);
+                    this.b.addAll(this.e);
+                } else {
+                    a2(getString(R.string.obfuscated_res_0x7f0f0c30), this.b);
+                    if (size <= this.E) {
+                        for (int i2 = 0; i2 < size; i2++) {
+                            this.d.get(i2).setItemType(this.C);
+                            this.b.add(this.d.get(i2));
+                        }
+                    } else {
+                        for (int i3 = 0; i3 < this.E; i3++) {
+                            this.d.get(i3).setItemType(this.C);
+                            this.b.add(this.d.get(i3));
+                        }
+                    }
+                    ArrayList<MetaData> arrayList = this.e;
+                    if (arrayList != null && arrayList.size() != 0) {
+                        Z1(this.b);
+                        a2(getString(R.string.obfuscated_res_0x7f0f0b42), this.b);
+                        for (int i4 = 0; i4 < this.e.size(); i4++) {
+                            this.b.add(this.e.get(i4));
+                        }
+                    }
+                }
+            }
+            j2();
+            this.h.d(this.b);
+        }
+    }
+
+    public void f2(MetaData metaData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, metaData) == null) {
+            PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(this, metaData.getUserIdLong(), metaData.getUserName(), metaData.getName_show(), metaData.getPortrait(), metaData.getGender(), metaData.getIsMyFriend());
+            personalChatActivityConfig.setFrom(3);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002005, personalChatActivityConfig));
+            TiebaStatic.log(new StatisticItem("c12930").param("obj_id", metaData.getUserIdLong()));
+        }
+    }
+
+    public void g2(MetaData metaData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, metaData) == null) {
+            i77 i77Var = new i77(getActivity());
+            ThreadData threadData = this.G;
+            if (threadData != null) {
+                i77Var.o(threadData, metaData);
+            } else {
+                ForumData forumData = this.H;
+                if (forumData != null) {
+                    i77Var.n(forumData, metaData);
+                }
+            }
+            i77Var.m(new f(this));
+            i77Var.p();
+        }
+    }
+
+    public void h2() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || isFinishing()) {
             return;
         }
-        if (this.isForChat || this.isForShareFriend) {
+        this.h.d(null);
+        if (this.g.a() != null) {
+            ArrayList<MetaData> a2 = this.g.a().a();
+            if (!ListUtils.isEmpty(a2)) {
+                k2(0);
+            } else if (ListUtils.isEmpty(a2) && ListUtils.isEmpty(c87.a())) {
+                k2(1);
+            }
+            this.h.d(a2);
+        } else {
+            this.h.d(null);
+            if (this.l == null) {
+                k kVar = new k(this, null);
+                this.l = kVar;
+                kVar.setPriority(3);
+                this.l.execute("");
+            }
+        }
+        this.h.notifyDataSetInvalidated();
+        this.k.setSelection(0);
+    }
+
+    public final void i2(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || isFinishing()) {
+            return;
+        }
+        if (this.z || this.y) {
             ArrayList<MetaData> arrayList = null;
-            this.mAdapter.d(null);
-            if (!ListUtils.isEmpty(this.mJointList)) {
+            this.h.d(null);
+            if (!ListUtils.isEmpty(this.b)) {
                 if (TextUtils.isEmpty(str)) {
-                    arrayList = this.mJointList;
+                    arrayList = this.b;
                 } else {
                     arrayList = new ArrayList<>();
-                    Iterator<MetaData> it = this.mFilterList.iterator();
+                    Iterator<MetaData> it = this.c.iterator();
                     while (it.hasNext()) {
                         MetaData next = it.next();
                         if (next.getName_show() != null && next.getName_show().contains(str)) {
@@ -636,203 +744,114 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
                 }
             }
             if (!ListUtils.isEmpty(arrayList)) {
-                setNoFriends(0);
+                k2(0);
             } else {
-                setNoFriends(1);
+                k2(1);
             }
-            this.mAdapter.d(arrayList);
-            this.mAdapter.notifyDataSetInvalidated();
-            this.mListView.setSelection(0);
+            this.h.d(arrayList);
+            this.h.notifyDataSetInvalidated();
+            this.k.setSelection(0);
         }
     }
 
-    private void setFilterList() {
+    public final void j2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65566, this) == null) {
-            for (int i2 = 0; i2 < this.mJointList.size(); i2++) {
-                if (this.mJointList.get(i2).getUserId() == null) {
-                    this.mFilterList.add(this.mJointList.get(i2));
-                } else if (!this.filterUid.contains(this.mJointList.get(i2).getUserId())) {
-                    this.filterUid.add(this.mJointList.get(i2).getUserId());
-                    this.mFilterList.add(this.mJointList.get(i2));
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            for (int i2 = 0; i2 < this.b.size(); i2++) {
+                if (this.b.get(i2).getUserId() == null) {
+                    this.c.add(this.b.get(i2));
+                } else if (!this.f.contains(this.b.get(i2).getUserId())) {
+                    this.f.add(this.b.get(i2).getUserId());
+                    this.c.add(this.b.get(i2));
                 }
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void setNoFriends(int i2) {
+    public final void k2(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65567, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
             if (i2 == 2) {
-                this.mListView.setVisibility(8);
-                hideNetRefreshView(this.mListContainer);
-                this.mNoDataView.setVisibility(0);
-                this.mNoDataView.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0c75)));
-                this.mNaviSearchFindView.setVisibility(8);
+                this.k.setVisibility(8);
+                hideNetRefreshView(this.j);
+                this.p.setVisibility(0);
+                this.p.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0c78)));
+                this.t.setVisibility(8);
             } else if (i2 != 1) {
                 if (i2 == 0) {
-                    this.mListView.setVisibility(0);
-                    this.mNoDataView.setVisibility(8);
+                    this.k.setVisibility(0);
+                    this.p.setVisibility(8);
                 }
             } else {
-                this.mListView.setVisibility(8);
-                hideNetRefreshView(this.mListContainer);
-                this.mNoDataView.setVisibility(0);
-                this.mNoDataView.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0c74)));
-                this.mNoDataView.setImgOption(NoDataViewFactory.d.a(NoDataViewFactory.ImgType.FINDBAR));
-                this.mNaviSearchFindView.setVisibility(8);
+                this.k.setVisibility(8);
+                hideNetRefreshView(this.j);
+                this.p.setVisibility(0);
+                this.p.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0c77)));
+                this.p.setImgOption(NoDataViewFactory.d.a(NoDataViewFactory.ImgType.FINDBAR));
+                this.t.setVisibility(8);
             }
-        }
-    }
-
-    public void addListDivider(ArrayList arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
-            ShareFriendTitleData shareFriendTitleData = new ShareFriendTitleData();
-            shareFriendTitleData.setItemType(this.listDivider);
-            arrayList.add(shareFriendTitleData);
-        }
-    }
-
-    public void addListTitle(String str, ArrayList arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, arrayList) == null) {
-            ShareFriendTitleData shareFriendTitleData = new ShareFriendTitleData();
-            shareFriendTitleData.setItemType(this.listTitle);
-            shareFriendTitleData.setTitle(str);
-            arrayList.add(shareFriendTitleData);
-        }
-    }
-
-    public void jointList() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.isForChat) {
-                addListTitle(getString(R.string.obfuscated_res_0x7f0f0b3e), this.mJointList);
-                this.mJointList.addAll(this.mDataList);
-            } else if (this.isForShareFriend) {
-                ArrayList<MetaData> a2 = s67.a();
-                this.mNearlyPersonList = a2;
-                int size = a2.size();
-                if (size == 0) {
-                    addListTitle(getString(R.string.obfuscated_res_0x7f0f0b3e), this.mJointList);
-                    this.mJointList.addAll(this.mDataList);
-                } else {
-                    addListTitle(getString(R.string.obfuscated_res_0x7f0f0c2c), this.mJointList);
-                    if (size <= this.maxNearlyPerson) {
-                        for (int i2 = 0; i2 < size; i2++) {
-                            this.mNearlyPersonList.get(i2).setItemType(this.listNearly);
-                            this.mJointList.add(this.mNearlyPersonList.get(i2));
-                        }
-                    } else {
-                        for (int i3 = 0; i3 < this.maxNearlyPerson; i3++) {
-                            this.mNearlyPersonList.get(i3).setItemType(this.listNearly);
-                            this.mJointList.add(this.mNearlyPersonList.get(i3));
-                        }
-                    }
-                    ArrayList<MetaData> arrayList = this.mDataList;
-                    if (arrayList != null && arrayList.size() != 0) {
-                        addListDivider(this.mJointList);
-                        addListTitle(getString(R.string.obfuscated_res_0x7f0f0b3e), this.mJointList);
-                        for (int i4 = 0; i4 < this.mDataList.size(); i4++) {
-                            this.mJointList.add(this.mDataList.get(i4));
-                        }
-                    }
-                }
-            }
-            setFilterList();
-            this.mAdapter.d(this.mJointList);
-        }
-    }
-
-    public void jumpToPersonalChat(MetaData metaData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, metaData) == null) {
-            PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(this, metaData.getUserIdLong(), metaData.getUserName(), metaData.getName_show(), metaData.getPortrait(), metaData.getGender(), metaData.getIsMyFriend());
-            personalChatActivityConfig.setFrom(3);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002005, personalChatActivityConfig));
-            TiebaStatic.log(new StatisticItem("c12930").param("obj_id", metaData.getUserIdLong()));
-        }
-    }
-
-    public void jumpToShareDialog(MetaData metaData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, metaData) == null) {
-            y57 y57Var = new y57(getActivity());
-            ThreadData threadData = this.threadData;
-            if (threadData != null) {
-                y57Var.o(threadData, metaData);
-            } else {
-                ForumData forumData = this.forumData;
-                if (forumData != null) {
-                    y57Var.n(forumData, metaData);
-                }
-            }
-            y57Var.m(new f(this));
-            y57Var.p();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
             super.onChangeSkinType(i2);
-            NoDataView noDataView = this.mNoDataView;
+            NoDataView noDataView = this.p;
             if (noDataView != null) {
                 noDataView.f(getPageContext(), i2);
             }
-            this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
-            this.mSearchImageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809ef, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
-            WebPManager.setPureDrawable(this.mSearchIcon, R.drawable.obfuscated_res_0x7f080a35, R.color.CAM_X0109, null);
-            SkinManager.setImageResource(this.mButtonDel, R.drawable.icon_input_close_s);
-            this.mAdapter.c(i2);
-            wq4 d2 = wq4.d(this.mSearchBox);
+            this.a.onChangeSkinType(getPageContext(), i2);
+            this.w.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809da, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+            WebPManager.setPureDrawable(this.x, R.drawable.obfuscated_res_0x7f080a20, R.color.CAM_X0109, null);
+            SkinManager.setImageResource(this.q, R.drawable.icon_input_close_s);
+            this.h.c(i2);
+            fr4 d2 = fr4.d(this.n);
             d2.n(R.string.J_X07);
             d2.k(R.color.CAM_X0615);
             d2.f(R.color.CAM_X0209);
-            wq4.d(this.mEditText).v(R.color.CAM_X0109);
-            wq4 d3 = wq4.d(this.mDelete);
+            fr4.d(this.u).v(R.color.CAM_X0109);
+            fr4 d3 = fr4.d(this.m);
             d3.A(R.string.F_X01);
             d3.v(R.color.CAM_X0107);
-            wq4.d(this.mCancel).v(R.color.CAM_X0109);
+            fr4.d(this.o).v(R.color.CAM_X0109);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0752);
-            initData(bundle);
-            initView();
-            requestData();
+            setContentView(R.layout.obfuscated_res_0x7f0d0751);
+            b2(bundle);
+            d2();
+            h2();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            k kVar = this.mFriendListTask;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            k kVar = this.l;
             if (kVar != null) {
                 kVar.cancel();
             }
-            this.mHandler.removeCallbacks(this.mSuggestRunnable);
+            this.mHandler.removeCallbacks(this.I);
             super.onDestroy();
-            MessageManager.getInstance().unRegisterListener(this.mShareDataListener);
+            MessageManager.getInstance().unRegisterListener(this.F);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.onNetRefreshButtonClicked();
-            if (li.D()) {
-                requestData();
+            if (pi.D()) {
+                h2();
             }
         }
     }
@@ -840,62 +859,35 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             super.onResume();
-            if (this.mShareDataListener == null) {
-                this.mShareDataListener = new c(this, 2921694);
+            if (this.F == null) {
+                this.F = new c(this, 2921694);
             }
-            MessageManager.getInstance().registerListener(this.mShareDataListener);
+            MessageManager.getInstance().registerListener(this.F);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onStart();
-            this.mNoDataView.d(getPageContext());
+            this.p.d(getPageContext());
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.onStop();
-            this.mNoDataView.e();
+            this.p.e();
         }
-    }
-
-    public void requestData() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || isFinishing()) {
-            return;
-        }
-        this.mAdapter.d(null);
-        if (this.mModel.a() != null) {
-            ArrayList<MetaData> a2 = this.mModel.a().a();
-            if (!ListUtils.isEmpty(a2)) {
-                setNoFriends(0);
-            } else if (ListUtils.isEmpty(a2) && ListUtils.isEmpty(s67.a())) {
-                setNoFriends(1);
-            }
-            this.mAdapter.d(a2);
-        } else {
-            this.mAdapter.d(null);
-            if (this.mFriendListTask == null) {
-                k kVar = new k(this, null);
-                this.mFriendListTask = kVar;
-                kVar.setPriority(3);
-                this.mFriendListTask.execute("");
-            }
-        }
-        this.mAdapter.notifyDataSetInvalidated();
-        this.mListView.setSelection(0);
     }
 
     /* loaded from: classes4.dex */
-    public class k extends BdAsyncTask<String, Integer, xv8> {
+    public class k extends BdAsyncTask<String, Integer, fw8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -923,12 +915,12 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public xv8 doInBackground(String... strArr) {
+        public fw8 doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
                 this.a = new NetWork();
-                if (this.b.isForChat) {
+                if (this.b.z) {
                     NetWork netWork = this.a;
                     netWork.setUrl(TbConfig.SERVER_ADDRESS + "c/u/follow/list");
                     this.a.addPostData("from", "1");
@@ -939,56 +931,56 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
                 }
                 String postNetData = this.a.postNetData();
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    xv8 xv8Var = new xv8();
-                    xv8Var.b(postNetData);
-                    return xv8Var;
+                    fw8 fw8Var = new fw8();
+                    fw8Var.b(postNetData);
+                    return fw8Var;
                 }
                 return null;
             }
-            return (xv8) invokeL.objValue;
+            return (fw8) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(xv8 xv8Var) {
+        public void onPostExecute(fw8 fw8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xv8Var) == null) {
-                this.b.mFriendListTask = null;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fw8Var) == null) {
+                this.b.l = null;
                 ShareFriendActivity shareFriendActivity = this.b;
-                shareFriendActivity.hideNetRefreshView(shareFriendActivity.mListContainer);
+                shareFriendActivity.hideNetRefreshView(shareFriendActivity.j);
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    this.b.mListView.setVisibility(0);
-                    this.b.mModel.b(xv8Var);
-                    if (this.b.mAdapter == null) {
+                    this.b.k.setVisibility(0);
+                    this.b.g.b(fw8Var);
+                    if (this.b.h == null) {
                         return;
                     }
-                    if (!this.b.isForChat || xv8Var == null || xv8Var.a() == null || !xv8Var.a().isEmpty()) {
-                        if (!this.b.isForShareFriend || xv8Var == null || xv8Var.a() == null || !xv8Var.a().isEmpty() || s67.a() == null || !s67.a().isEmpty()) {
-                            this.b.setNoFriends(0);
+                    if (!this.b.z || fw8Var == null || fw8Var.a() == null || !fw8Var.a().isEmpty()) {
+                        if (!this.b.y || fw8Var == null || fw8Var.a() == null || !fw8Var.a().isEmpty() || c87.a() == null || !c87.a().isEmpty()) {
+                            this.b.k2(0);
                         } else {
-                            this.b.setNoFriends(2);
+                            this.b.k2(2);
                         }
                     } else {
-                        this.b.setNoFriends(2);
+                        this.b.k2(2);
                     }
-                    if (xv8Var != null) {
-                        ArrayList<MetaData> a = xv8Var.a();
+                    if (fw8Var != null) {
+                        ArrayList<MetaData> a = fw8Var.a();
                         int size = a.size();
                         for (int i = 0; i < size; i++) {
-                            a.get(i).setItemType(this.b.listFocus);
-                            this.b.mDataList.add(a.get(i));
+                            a.get(i).setItemType(this.b.D);
+                            this.b.e.add(a.get(i));
                         }
                     }
-                    this.b.jointList();
-                    this.b.mAdapter.notifyDataSetInvalidated();
-                    this.b.mListView.setSelection(0);
+                    this.b.e2();
+                    this.b.h.notifyDataSetInvalidated();
+                    this.b.k.setSelection(0);
                 } else {
-                    this.b.mListView.setVisibility(8);
+                    this.b.k.setVisibility(8);
                     ShareFriendActivity shareFriendActivity2 = this.b;
-                    shareFriendActivity2.showNetRefreshView(shareFriendActivity2.mListContainer, this.b.getString(R.string.obfuscated_res_0x7f0f0f95), null, this.b.getString(R.string.obfuscated_res_0x7f0f0f94), true, this.b.getNetRefreshListener());
+                    shareFriendActivity2.showNetRefreshView(shareFriendActivity2.j, this.b.getString(R.string.obfuscated_res_0x7f0f0fa0), null, this.b.getString(R.string.obfuscated_res_0x7f0f0f9f), true, this.b.getNetRefreshListener());
                 }
-                super.onPostExecute(xv8Var);
+                super.onPostExecute(fw8Var);
             }
         }
 
@@ -1000,7 +992,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }
-                this.b.mFriendListTask = null;
+                this.b.l = null;
                 super.cancel(true);
             }
         }

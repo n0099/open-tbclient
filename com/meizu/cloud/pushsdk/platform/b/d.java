@@ -4,10 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.platform.PlatformMessageSender;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubAliasStatus;
-import com.repackage.ni9;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ScheduledExecutorService;
@@ -157,18 +157,18 @@ public class d extends c<SubAliasStatus> {
                 if (c != null) {
                     if (c.b()) {
                         subAliasStatus = new SubAliasStatus((String) c.a());
-                        ni9.b("Strategy", "network subAliasStatus " + subAliasStatus);
+                        DebugLogger.e("Strategy", "network subAliasStatus " + subAliasStatus);
                         if (BasicPushStatus.SUCCESS_CODE.equals(subAliasStatus.getCode())) {
                             b(false);
                         }
                     } else {
                         com.meizu.cloud.pushsdk.b.b.a c2 = c.c();
                         if (c2.a() != null) {
-                            ni9.b("Strategy", "status code=" + c2.b() + " data=" + c2.a());
+                            DebugLogger.e("Strategy", "status code=" + c2.b() + " data=" + c2.a());
                         }
                         subAliasStatus.setCode(String.valueOf(c2.b()));
                         subAliasStatus.setMessage(c2.c());
-                        ni9.b("Strategy", "subAliasStatus " + subAliasStatus);
+                        DebugLogger.e("Strategy", "subAliasStatus " + subAliasStatus);
                     }
                 }
                 return subAliasStatus;

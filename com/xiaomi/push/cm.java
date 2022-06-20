@@ -1,33 +1,9 @@
 package com.xiaomi.push;
 
-import android.os.Build;
-import android.system.Os;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import android.content.Context;
 /* loaded from: classes8.dex */
-public class cm {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface cm {
+    void a(Context context, String str, String str2);
 
-    public static long a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                try {
-                    if (new File(str).exists()) {
-                        return Os.stat(str).st_size;
-                    }
-                    return 0L;
-                } catch (Exception e) {
-                    com.xiaomi.channel.commonutils.logger.b.a(e);
-                    return 0L;
-                }
-            }
-            return 0L;
-        }
-        return invokeL.longValue;
-    }
+    void b(Context context, String str, String str2);
 }

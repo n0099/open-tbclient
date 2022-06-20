@@ -25,8 +25,8 @@ public final class c implements Closeable {
     public final FileInputStream a;
     public a b;
     public b[] c;
-    public C0257c[] d;
-    public final Map<String, C0257c> e;
+    public C0265c[] d;
+    public final Map<String, C0265c> e;
 
     /* loaded from: classes4.dex */
     public static class a {
@@ -166,7 +166,7 @@ public final class c implements Closeable {
 
     /* renamed from: com.bytedance.pangle.d.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0257c {
+    public static class C0265c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;
@@ -181,11 +181,11 @@ public final class c implements Closeable {
         public final long j;
         public String k;
 
-        public /* synthetic */ C0257c(ByteBuffer byteBuffer, int i, byte b) {
+        public /* synthetic */ C0265c(ByteBuffer byteBuffer, int i, byte b) {
             this(byteBuffer, i);
         }
 
-        public C0257c(ByteBuffer byteBuffer, int i) {
+        public C0265c(ByteBuffer byteBuffer, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -230,8 +230,8 @@ public final class c implements Closeable {
     }
 
     public c(File file) {
-        C0257c[] c0257cArr;
-        C0257c[] c0257cArr2;
+        C0265c[] c0265cArr;
+        C0265c[] c0265cArr2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -265,28 +265,28 @@ public final class c implements Closeable {
         }
         channel.position(this.b.g);
         allocate.limit(this.b.l);
-        this.d = new C0257c[this.b.m];
+        this.d = new C0265c[this.b.m];
         int i4 = 0;
         while (true) {
-            c0257cArr = this.d;
-            if (i4 >= c0257cArr.length) {
+            c0265cArr = this.d;
+            if (i4 >= c0265cArr.length) {
                 break;
             }
             b(channel, allocate, "failed to read shdr.");
-            this.d[i4] = new C0257c(allocate, this.b.a[4], (byte) 0);
+            this.d[i4] = new C0265c(allocate, this.b.a[4], (byte) 0);
             i4++;
         }
         short s = this.b.n;
         if (s > 0) {
-            C0257c c0257c = c0257cArr[s];
-            ByteBuffer allocate2 = ByteBuffer.allocate((int) c0257c.f);
-            this.a.getChannel().position(c0257c.e);
-            b(this.a.getChannel(), allocate2, "failed to read section: " + c0257c.k);
-            for (C0257c c0257c2 : this.d) {
-                allocate2.position(c0257c2.a);
+            C0265c c0265c = c0265cArr[s];
+            ByteBuffer allocate2 = ByteBuffer.allocate((int) c0265c.f);
+            this.a.getChannel().position(c0265c.e);
+            b(this.a.getChannel(), allocate2, "failed to read section: " + c0265c.k);
+            for (C0265c c0265c2 : this.d) {
+                allocate2.position(c0265c2.a);
                 String a2 = a(allocate2);
-                c0257c2.k = a2;
-                this.e.put(a2, c0257c2);
+                c0265c2.k = a2;
+                this.e.put(a2, c0265c2);
             }
         }
     }

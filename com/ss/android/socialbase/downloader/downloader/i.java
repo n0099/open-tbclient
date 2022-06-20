@@ -142,11 +142,11 @@ public interface i extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof i)) {
                 return (i) queryLocalInterface;
             }
-            return new C0619a(iBinder);
+            return new C0625a(iBinder);
         }
 
         public static i g() {
-            return C0619a.a;
+            return C0625a.a;
         }
 
         @Override // android.os.IInterface
@@ -160,7 +160,7 @@ public interface i extends IInterface {
                 switch (i) {
                     case 1:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
-                        a(a.AbstractBinderC0623a.a(parcel.readStrongBinder()));
+                        a(a.AbstractBinderC0629a.a(parcel.readStrongBinder()));
                         parcel2.writeNoException();
                         return true;
                     case 2:
@@ -482,11 +482,11 @@ public interface i extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.downloader.i$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C0619a implements i {
+        public static class C0625a implements i {
             public static i a;
             public IBinder b;
 
-            public C0619a(IBinder iBinder) {
+            public C0625a(IBinder iBinder) {
                 this.b = iBinder;
             }
 

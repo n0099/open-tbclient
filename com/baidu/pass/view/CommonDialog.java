@@ -62,14 +62,14 @@ public class CommonDialog extends Dialog implements com.baidu.pass.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d063d, (ViewGroup) null);
+                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d063a, (ViewGroup) null);
                 CommonDialog commonDialog = new CommonDialog(this.a, R.style.obfuscated_res_0x7f1003c4);
-                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091625);
-                TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091622);
-                View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091623);
-                TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09150c);
-                TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0918a9);
-                View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f091626);
+                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091618);
+                TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091615);
+                View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091616);
+                TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914fe);
+                TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0918a0);
+                View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f091619);
                 textView.setText(this.c);
                 textView2.setText(TextUtils.isEmpty(this.b) ? "" : this.b);
                 textView2.setMovementMethod(LinkMovementMethod.getInstance());
@@ -94,13 +94,13 @@ public class CommonDialog extends Dialog implements com.baidu.pass.a {
                 attributes.height = -2;
                 window.setAttributes(attributes);
                 if (this.d) {
-                    inflate.findViewById(R.id.obfuscated_res_0x7f091624).setBackgroundResource(R.drawable.obfuscated_res_0x7f080e8e);
-                    textView.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060896));
-                    textView2.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f06088f));
-                    findViewById.setBackgroundColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060895));
-                    textView3.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060891));
-                    textView4.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060893));
-                    findViewById2.setBackgroundColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060895));
+                    inflate.findViewById(R.id.obfuscated_res_0x7f091617).setBackgroundResource(R.drawable.obfuscated_res_0x7f080e7e);
+                    textView.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060894));
+                    textView2.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f06088d));
+                    findViewById.setBackgroundColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060893));
+                    textView3.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f06088f));
+                    textView4.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060891));
+                    findViewById2.setBackgroundColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060893));
                 }
                 Context context = this.a;
                 if (context instanceof Activity) {

@@ -1,9 +1,8 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,88 +10,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import tbclient.ApkDetail;
+import tbclient.ManageInfo;
 /* loaded from: classes6.dex */
-public class l26 extends db1<i45> {
+public class l26 implements nn {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
-    public static final String c;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public class a implements i45 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(l26 l26Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l26Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.i45
-        public boolean a(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? s26.k().m(str) : invokeL.booleanValue;
-        }
-
-        @Override // com.repackage.i45
-        @NonNull
-        public String b(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? s26.k().j(str) : (String) invokeL.objValue;
-        }
-
-        @Override // com.repackage.i45
-        @NonNull
-        public String c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? l26.c : (String) invokeV.objValue;
-        }
-
-        @Override // com.repackage.i45
-        @NonNull
-        public String d(@NonNull String str, boolean z) {
-            InterceptResult invokeLZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) {
-                s26 k = s26.k();
-                boolean q = k.q(str);
-                boolean r = k.r(str);
-                String g = k.g(str, z);
-                if (g == null) {
-                    g = "";
-                }
-                return (q || r) ? g : e(k.h(str), g);
-            }
-            return (String) invokeLZ.objValue;
-        }
-
-        @Override // com.repackage.i45
-        @NonNull
-        public String e(@NonNull String str, @NonNull String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-                return l26.b + File.separator + str + File.separator + str2;
-            }
-            return (String) invokeLL.objValue;
-        }
-    }
+    public ItemData a;
+    public int b;
+    public int c;
+    public boolean d;
 
     static {
         InterceptResult invokeClinit;
@@ -107,9 +35,7 @@ public class l26 extends db1<i45> {
                 return;
             }
         }
-        a = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
-        b = a + File.separator + ".emotions";
-        c = a + File.separator + ".collect";
+        e = BdUniqueId.gen();
     }
 
     public l26() {
@@ -122,16 +48,79 @@ public class l26 extends db1<i45> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.b = 0;
+        this.c = 0;
+        this.d = true;
+    }
+
+    public static l26 b(iz4 iz4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, iz4Var)) == null) {
+            l26 l26Var = new l26();
+            l26Var.a = iz4Var.b;
+            l26Var.b = iz4Var.d;
+            l26Var.c = iz4Var.e;
+            return l26Var;
+        }
+        return (l26) invokeL.objValue;
+    }
+
+    public static l26 c(ManageInfo manageInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, manageInfo)) == null) {
+            l26 l26Var = new l26();
+            ItemData itemData = new ItemData();
+            l26Var.a = itemData;
+            itemData.parseProto(manageInfo.item);
+            l26Var.b = manageInfo.item_source.intValue();
+            return l26Var;
+        }
+        return (l26) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.db1
-    /* renamed from: c */
-    public i45 createService() throws ServiceNotFoundException {
+    /* renamed from: a */
+    public l26 clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (i45) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            l26 l26Var = new l26();
+            l26Var.a = this.a;
+            l26Var.b = this.b;
+            l26Var.c = this.c;
+            l26Var.d = this.d;
+            return l26Var;
+        }
+        return (l26) invokeV.objValue;
+    }
+
+    public boolean f(l26 l26Var) {
+        InterceptResult invokeL;
+        ItemData itemData;
+        ApkDetail apkDetail;
+        ApkDetail apkDetail2;
+        ItemData itemData2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l26Var)) == null) {
+            boolean z = this.b == l26Var.b && this.c == l26Var.c;
+            ItemData itemData3 = this.a;
+            boolean equals = (itemData3 == null || (itemData2 = l26Var.a) == null) ? false : itemData3.pkgName.equals(itemData2.pkgName);
+            ItemData itemData4 = this.a;
+            return z && equals && ((itemData4 == null || (itemData = l26Var.a) == null || (apkDetail = itemData4.apkDetail) == null || (apkDetail2 = itemData.apkDetail) == null) ? false : apkDetail.version_code.equals(apkDetail2.version_code));
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.nn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? e : (BdUniqueId) invokeV.objValue;
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.tbadk.coreExtra.message;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l35;
+import com.repackage.a45;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,50 +45,20 @@ public class ResponseOnlineMessage extends SocketResponsedMessage {
         }
     }
 
-    public ConfigVersion getConfigVersion() {
-        InterceptResult invokeV;
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.configVersion : (ConfigVersion) invokeV.objValue;
-    }
-
-    public List<GroupUpdateMessage> getGroupInfos() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.groupInfos : (List) invokeV.objValue;
-    }
-
-    public MaskInfo getMaskInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.maskInfo : (MaskInfo) invokeV.objValue;
-    }
-
-    public boolean isUserAvailable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.isUserAvailable : invokeV.booleanValue;
-    }
-
-    public void setUserAvailable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.isUserAvailable = z;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
             UpdateClientInfoResIdl updateClientInfoResIdl = (UpdateClientInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, UpdateClientInfoResIdl.class);
             setError(updateClientInfoResIdl.error.errorno.intValue());
             setErrorString(updateClientInfoResIdl.error.usermsg);
             if (getError() != 0) {
-                l35.b(1001, 0, 2, 0, 0);
-                return;
+                a45.b(1001, 0, 2, 0, 0);
+                return updateClientInfoResIdl;
             }
-            l35.b(1001, 0, 1, 0, 0);
+            a45.b(1001, 0, 1, 0, 0);
             this.groupInfos = new ArrayList();
             DataRes dataRes = updateClientInfoResIdl.data;
             if (dataRes != null) {
@@ -120,6 +91,39 @@ public class ResponseOnlineMessage extends SocketResponsedMessage {
                 this.configVersion = dataRes2.configVersion;
                 this.isUserAvailable = dataRes2.isUserAvailable.longValue() != 0;
             }
+            return updateClientInfoResIdl;
+        }
+        return invokeIL.objValue;
+    }
+
+    public ConfigVersion getConfigVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.configVersion : (ConfigVersion) invokeV.objValue;
+    }
+
+    public List<GroupUpdateMessage> getGroupInfos() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.groupInfos : (List) invokeV.objValue;
+    }
+
+    public MaskInfo getMaskInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.maskInfo : (MaskInfo) invokeV.objValue;
+    }
+
+    public boolean isUserAvailable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.isUserAvailable : invokeV.booleanValue;
+    }
+
+    public void setUserAvailable(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.isUserAvailable = z;
         }
     }
 }

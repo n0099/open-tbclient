@@ -1,5 +1,6 @@
 package com.baidu.tieba.enterForum.home;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -40,51 +41,55 @@ public class RecentlyVisitedForumSocketResponseMessage extends SocketResponsedMe
         }
     }
 
-    public LinkedList<VisitedForumData> getForumData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mForumData : (LinkedList) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        GetHistoryForumResIdl getHistoryForumResIdl;
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         DataRes dataRes;
         Long l;
         String str;
         Integer num;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getHistoryForumResIdl = (GetHistoryForumResIdl) new Wire(new Class[0]).parseFrom(bArr, GetHistoryForumResIdl.class)) == null) {
-            return;
-        }
-        Error error = getHistoryForumResIdl.error;
-        if (error != null && (num = error.errorno) != null) {
-            setError(num.intValue());
-        }
-        Error error2 = getHistoryForumResIdl.error;
-        if (error2 != null && (str = error2.usermsg) != null && str.length() > 0) {
-            setErrorString(getHistoryForumResIdl.error.usermsg);
-        }
-        if (getError() != 0 || (dataRes = getHistoryForumResIdl.data) == null || dataRes.history_forum == null) {
-            return;
-        }
-        this.mForumData = new LinkedList<>();
-        HashMap hashMap = new HashMap();
-        if (!ListUtils.isEmpty(getHistoryForumResIdl.data.this_week_forums)) {
-            for (HistoryForumInfo historyForumInfo : getHistoryForumResIdl.data.this_week_forums) {
-                if (historyForumInfo != null && (l = historyForumInfo.forum_id) != null) {
-                    hashMap.put(l, historyForumInfo);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            GetHistoryForumResIdl getHistoryForumResIdl = (GetHistoryForumResIdl) new Wire(new Class[0]).parseFrom(bArr, GetHistoryForumResIdl.class);
+            if (getHistoryForumResIdl == null) {
+                return null;
+            }
+            Error error = getHistoryForumResIdl.error;
+            if (error != null && (num = error.errorno) != null) {
+                setError(num.intValue());
+            }
+            Error error2 = getHistoryForumResIdl.error;
+            if (error2 != null && (str = error2.usermsg) != null && str.length() > 0) {
+                setErrorString(getHistoryForumResIdl.error.usermsg);
+            }
+            if (getError() == 0 && (dataRes = getHistoryForumResIdl.data) != null && dataRes.history_forum != null) {
+                this.mForumData = new LinkedList<>();
+                HashMap hashMap = new HashMap();
+                if (!ListUtils.isEmpty(getHistoryForumResIdl.data.this_week_forums)) {
+                    for (HistoryForumInfo historyForumInfo : getHistoryForumResIdl.data.this_week_forums) {
+                        if (historyForumInfo != null && (l = historyForumInfo.forum_id) != null) {
+                            hashMap.put(l, historyForumInfo);
+                        }
+                    }
+                }
+                for (HistoryForumInfo historyForumInfo2 : getHistoryForumResIdl.data.history_forum) {
+                    if (historyForumInfo2 != null && historyForumInfo2.forum_id != null) {
+                        VisitedForumData visitedForumData = new VisitedForumData();
+                        visitedForumData.parseHistoryForum(historyForumInfo2);
+                        visitedForumData.setIsPost(hashMap.containsKey(historyForumInfo2.forum_id));
+                        this.mForumData.add(visitedForumData);
+                    }
                 }
             }
+            return getHistoryForumResIdl;
         }
-        for (HistoryForumInfo historyForumInfo2 : getHistoryForumResIdl.data.history_forum) {
-            if (historyForumInfo2 != null && historyForumInfo2.forum_id != null) {
-                VisitedForumData visitedForumData = new VisitedForumData();
-                visitedForumData.parseHistoryForum(historyForumInfo2);
-                visitedForumData.setIsPost(hashMap.containsKey(historyForumInfo2.forum_id));
-                this.mForumData.add(visitedForumData);
-            }
-        }
+        return invokeIL.objValue;
+    }
+
+    public LinkedList<VisitedForumData> getForumData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mForumData : (LinkedList) invokeV.objValue;
     }
 }

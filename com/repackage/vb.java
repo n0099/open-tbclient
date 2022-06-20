@@ -1,7 +1,5 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.util.BdLog;
@@ -13,122 +11,100 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.ByteBuffer;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.security.InvalidParameterException;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
-public class vb extends DiskFileOperate {
+public class vb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bitmap a;
-    public BitmapFactory.Options b;
-    public a c;
-    public boolean d;
-    public long e;
+    public sb a;
+    public AtomicBoolean b;
+    public DiskFileOperate c;
 
     /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static byte d = Byte.MIN_VALUE;
-        public static byte e = Byte.MIN_VALUE;
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public long b;
-        public boolean c;
 
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1937523140, "Lcom/repackage/vb$a;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1937523140, "Lcom/repackage/vb$a;");
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1937523140, "Lcom/repackage/vb$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1937523140, "Lcom/repackage/vb$a;");
                     return;
                 }
             }
-            this.a = false;
-            this.b = 0L;
-            this.c = true;
-        }
-
-        public static int a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                return 14;
+            int[] iArr = new int[DiskFileOperate.Action.values().length];
+            a = iArr;
+            try {
+                iArr[DiskFileOperate.Action.WRITE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
             }
-            return invokeV.intValue;
-        }
-
-        public boolean b(byte[] bArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
-                if (bArr == null || bArr.length < a()) {
-                    return false;
-                }
-                ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, a());
-                if (wrap.getInt() != 1786600511) {
-                    return false;
-                }
-                if ((wrap.get() & d) != 0) {
-                    this.a = true;
-                }
-                this.b = wrap.getLong();
-                if ((wrap.get() & e) != 0) {
-                    this.c = false;
-                }
-                return true;
+            try {
+                a[DiskFileOperate.Action.WRITE_FORCE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
             }
-            return invokeL.booleanValue;
-        }
-
-        public byte[] c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                ByteBuffer allocate = ByteBuffer.allocate(a());
-                allocate.putInt(1786600511);
-                allocate.put(this.a ? (byte) (d | 0) : (byte) 0);
-                allocate.putLong(this.b);
-                allocate.put(this.c ? (byte) 0 : (byte) (e | 0));
-                allocate.flip();
-                return allocate.array();
+            try {
+                a[DiskFileOperate.Action.DELETE.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
             }
-            return (byte[]) invokeV.objValue;
+            try {
+                a[DiskFileOperate.Action.DELETE_FILES.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                a[DiskFileOperate.Action.APPEND.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                a[DiskFileOperate.Action.APPEND_MORE.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+            try {
+                a[DiskFileOperate.Action.INFO.ordinal()] = 7;
+            } catch (NoSuchFieldError unused7) {
+            }
+            try {
+                a[DiskFileOperate.Action.RENAME.ordinal()] = 8;
+            } catch (NoSuchFieldError unused8) {
+            }
+            try {
+                a[DiskFileOperate.Action.READ.ordinal()] = 9;
+            } catch (NoSuchFieldError unused9) {
+            }
+            try {
+                a[DiskFileOperate.Action.CUSTOM.ordinal()] = 10;
+            } catch (NoSuchFieldError unused10) {
+            }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vb(String str, String str2, DiskFileOperate.Action action) {
-        super(str, str2, action);
+    /* loaded from: classes7.dex */
+    public interface b {
+        boolean a(vb vbVar, DiskFileOperate diskFileOperate, sb sbVar);
+    }
+
+    public vb(sb sbVar, DiskFileOperate diskFileOperate) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, action};
+            Object[] objArr = {sbVar, diskFileOperate};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -137,137 +113,186 @@ public class vb extends DiskFileOperate {
         this.a = null;
         this.b = null;
         this.c = null;
-        this.d = true;
-        this.c = new a();
-    }
-
-    public static int a(BitmapFactory.Options options, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, options, i, i2)) == null) {
-            int i3 = options.outHeight;
-            int i4 = options.outWidth;
-            int i5 = 1;
-            if (i3 > i2 || i4 > i) {
-                int i6 = i3 / 2;
-                int i7 = i4 / 2;
-                while (i6 / i5 >= i2 && i7 / i5 >= i) {
-                    i5 *= 2;
-                }
-            }
-            return i5;
+        if (sbVar != null && diskFileOperate != null && diskFileOperate.getAction() != null) {
+            this.b = new AtomicBoolean(false);
+            this.a = sbVar;
+            this.c = diskFileOperate;
+            return;
         }
-        return invokeLII.intValue;
+        throw new InvalidParameterException("DiskWorker Parameter is null");
     }
 
-    public boolean b(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
+    private boolean delete() {
+        InterceptResult invokeV;
+        File c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
-            if (bArr != null && this.c.b(bArr)) {
-                long j = this.c.b;
-                if (j == 0 || j >= System.currentTimeMillis()) {
-                    int a2 = a.a();
-                    try {
-                        if (this.b == null) {
-                            BitmapFactory.Options options = new BitmapFactory.Options();
-                            this.b = options;
-                            options.inPreferredConfig = Bitmap.Config.RGB_565;
-                        }
-                        this.b.inJustDecodeBounds = true;
-                        BitmapFactory.decodeByteArray(bArr, a2, bArr.length - a2, this.b);
-                    } catch (Error e) {
-                        BdLog.e(e.getMessage());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            try {
+                try {
+                    c = this.a.c(this.c.buildPath(), this.c.getName(), false, this.c.isSdCard(), this.c.isSavedCache());
+                } catch (Exception e) {
+                    e.getMessage();
+                }
+                if (c != null && !this.b.get()) {
+                    r0 = c.exists() ? c.delete() : false;
+                    if (r0) {
+                        this.c.setFileInfo(c);
+                        this.c.setSuccess(true);
                     }
-                    if (!this.b.mCancel && this.b.outWidth != -1 && this.b.outHeight != -1) {
-                        this.b.inSampleSize = a(this.b, i, i2);
-                        this.b.inJustDecodeBounds = false;
-                        this.a = BitmapFactory.decodeByteArray(bArr, a2, bArr.length - a2, this.b);
-                        return this.a != null;
-                    }
-                    return false;
+                    return r0;
                 }
                 return false;
+            } finally {
+                this.c.unLock();
             }
-            return false;
         }
-        return invokeLII.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public byte[] buildFormatData() {
-        InterceptResult invokeV;
+    public boolean a(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.mData == null || !this.d) {
-                return null;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            OutputStream outputStream = this.c.getOutputStream();
+            File fileInfo = this.c.getFileInfo();
+            try {
+                if (outputStream == null) {
+                    try {
+                        fileInfo = this.a.c(this.c.buildPath(), this.c.getName(), true, this.c.isSdCard(), this.c.isSavedCache());
+                        if (fileInfo != null && !this.b.get()) {
+                            outputStream = new FileOutputStream(fileInfo, true);
+                        }
+                        this.c.unLock();
+                        return false;
+                    } catch (Exception e) {
+                        BdLog.e(e.getMessage());
+                        if (!z) {
+                            mg.d(outputStream);
+                        }
+                        this.c.unLock();
+                        return false;
+                    }
+                }
+                byte[] buildFormatData = this.c.buildFormatData();
+                byte[] data = this.c.getData();
+                if ((buildFormatData == null && data == null) || this.b.get()) {
+                    if (!z) {
+                        mg.d(outputStream);
+                    }
+                    this.c.unLock();
+                    return false;
+                }
+                if (buildFormatData != null) {
+                    outputStream.write(buildFormatData);
+                }
+                if (data != null) {
+                    outputStream.write(data);
+                }
+                outputStream.flush();
+                this.c.setFileInfo(fileInfo);
+                this.c.setSuccess(true);
+                if (!z) {
+                    mg.d(outputStream);
+                } else {
+                    this.c.setOutputStream(outputStream);
+                }
+                this.c.unLock();
+                return true;
+            } catch (Throwable th) {
+                if (!z) {
+                    mg.d(outputStream);
+                }
+                this.c.unLock();
+                throw th;
             }
-            return this.c.c();
         }
-        return (byte[]) invokeV.objValue;
+        return invokeZ.booleanValue;
     }
 
-    public byte[] c() {
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.set(true);
+        }
+    }
+
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int a2 = a.a();
-            int length = this.mData.length - a2;
-            byte[] bArr = new byte[length];
-            System.arraycopy(this.mData, a2, bArr, 0, length);
-            return bArr;
+            try {
+                try {
+                    r0 = this.c.getCustomOperate() != null ? this.c.getCustomOperate().a(this, this.c, this.a) : false;
+                    if (r0) {
+                        this.c.setSuccess(true);
+                    }
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
+                return r0;
+            } finally {
+                this.c.unLock();
+            }
         }
-        return (byte[]) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public boolean d() {
+    public boolean call() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c.c : invokeV.booleanValue;
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.c.c = z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            switch (a.a[this.c.getAction().ordinal()]) {
+                case 1:
+                    return i(false);
+                case 2:
+                    return i(true);
+                case 3:
+                    return delete();
+                case 4:
+                    return e();
+                case 5:
+                    return a(false);
+                case 6:
+                    return a(true);
+                case 7:
+                    return f();
+                case 8:
+                    return h();
+                case 9:
+                    return g();
+                case 10:
+                    return c();
+                default:
+                    return false;
+            }
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public void endLog() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            cg.k(isSuccess(), System.currentTimeMillis() - this.e);
-        }
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public boolean formatData(byte[] bArr) {
+    public final boolean d(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bArr)) == null) {
-            if (bArr != null && this.c.b(bArr)) {
-                long j = this.c.b;
-                if (j == 0 || j >= System.currentTimeMillis()) {
-                    if (this.b == null) {
-                        BitmapFactory.Options options = new BitmapFactory.Options();
-                        this.b = options;
-                        options.inPreferredConfig = Bitmap.Config.RGB_565;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, file)) == null) {
+            if (file != null) {
+                DiskFileOperate diskFileOperate = this.c;
+                if (diskFileOperate instanceof rb) {
+                    rb rbVar = (rb) diskFileOperate;
+                    if (file.isDirectory()) {
+                        File[] listFiles = file.listFiles();
+                        if (listFiles != null) {
+                            for (int i = 0; i < listFiles.length && !this.b.get(); i++) {
+                                if (listFiles[i].isDirectory()) {
+                                    d(listFiles[i]);
+                                } else if (rbVar.compare(listFiles[i])) {
+                                    listFiles[i].delete();
+                                }
+                            }
+                        }
+                        file.delete();
+                    } else if (rbVar.compare(file)) {
+                        file.delete();
                     }
-                    int a2 = a.a();
-                    try {
-                        this.a = BitmapFactory.decodeByteArray(bArr, a2, bArr.length - a2, this.b);
-                    } catch (Error e) {
-                        BdLog.e(e.getMessage());
-                    }
-                    return this.a != null;
+                    return true;
                 }
             }
             return false;
@@ -275,42 +300,230 @@ public class vb extends DiskFileOperate {
         return invokeL.booleanValue;
     }
 
-    public Bitmap getBitmap() {
+    public final boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a : (Bitmap) invokeV.objValue;
-    }
-
-    public boolean isGif() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.c.a : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public void setData(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bArr) == null) {
-            super.setData(bArr);
-            if (isGif() || !li.B(bArr)) {
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            boolean z = false;
+            try {
+                try {
+                    File d = this.a.d(this.c.getPath(), false, this.c.isSdCard(), this.c.isSavedCache());
+                    z = d(d);
+                    if (z) {
+                        this.c.setFileInfo(d);
+                        this.c.setSuccess(true);
+                    }
+                } catch (Exception e) {
+                    e.getMessage();
+                }
+                return z;
+            } finally {
+                this.c.unLock();
             }
-            setGif(true);
         }
+        return invokeV.booleanValue;
     }
 
-    public void setGif(boolean z) {
+    public boolean f() {
+        InterceptResult invokeV;
+        File d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.c.a = z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.c.getName() != null) {
+                d = this.a.c(this.c.buildPath(), this.c.getName(), false, this.c.isSdCard(), this.c.isSavedCache());
+            } else {
+                d = this.a.d(this.c.buildPath(), false, this.c.isSdCard(), this.c.isSavedCache());
+            }
+            if (d != null && d.exists()) {
+                this.c.setFileInfo(d);
+                this.c.setSuccess(true);
+                this.c.unLock();
+                return true;
+            }
+            this.c.unLock();
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public void startLog() {
+    public final boolean g() {
+        InterceptResult invokeV;
+        ByteArrayOutputStream byteArrayOutputStream;
+        FileInputStream fileInputStream;
+        Exception e;
+        Throwable th;
+        File c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.e = System.currentTimeMillis();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            this.c.startLog();
+            boolean z = false;
+            try {
+                c = this.a.c(this.c.buildPath(), this.c.getName(), false, this.c.isSdCard(), this.c.isSavedCache());
+            } catch (Exception e2) {
+                fileInputStream = null;
+                e = e2;
+                byteArrayOutputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                byteArrayOutputStream = null;
+                fileInputStream = null;
+            }
+            if (c != null && c.exists() && !this.b.get()) {
+                fileInputStream = new FileInputStream(c);
+                try {
+                    byteArrayOutputStream = new ByteArrayOutputStream(1024);
+                    try {
+                        try {
+                            byte[] bArr = new byte[1024];
+                            while (true) {
+                                int read = fileInputStream.read(bArr, 0, 1024);
+                                if (read == -1 || this.b.get()) {
+                                    break;
+                                }
+                                byteArrayOutputStream.write(bArr, 0, read);
+                            }
+                            if (!this.b.get()) {
+                                byte[] byteArray = byteArrayOutputStream.toByteArray();
+                                if (!this.c.isFormatData() || this.c.formatData(byteArray)) {
+                                    this.c.setData(byteArray);
+                                    z = true;
+                                }
+                            }
+                            mg.c(fileInputStream);
+                            mg.d(byteArrayOutputStream);
+                            if (z) {
+                                this.c.setSuccess(true);
+                            }
+                        } catch (Exception e3) {
+                            e = e3;
+                            BdLog.e(e.getMessage());
+                            mg.c(fileInputStream);
+                            mg.d(byteArrayOutputStream);
+                            this.c.unLock();
+                            this.c.endLog();
+                            return z;
+                        }
+                    } catch (Throwable th3) {
+                        th = th3;
+                        mg.c(fileInputStream);
+                        mg.d(byteArrayOutputStream);
+                        this.c.unLock();
+                        throw th;
+                    }
+                } catch (Exception e4) {
+                    byteArrayOutputStream = null;
+                    e = e4;
+                } catch (Throwable th4) {
+                    th = th4;
+                    byteArrayOutputStream = null;
+                    th = th;
+                    mg.c(fileInputStream);
+                    mg.d(byteArrayOutputStream);
+                    this.c.unLock();
+                    throw th;
+                }
+                this.c.unLock();
+                this.c.endLog();
+                return z;
+            }
+            mg.c(null);
+            mg.d(null);
+            this.c.unLock();
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            boolean z = false;
+            try {
+                try {
+                    File c = this.a.c(this.c.buildPath(), this.c.getName(), false, this.c.isSdCard(), this.c.isSavedCache());
+                    File c2 = this.a.c(this.c.buildDesPath(), this.c.getDesName(), true, this.c.isSdCard(), this.c.isSavedCache());
+                    if (c != null) {
+                        if (c2 != null) {
+                            c2.delete();
+                        }
+                        z = c.renameTo(c2);
+                    }
+                    if (z) {
+                        this.c.setSuccess(true);
+                    }
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
+                return z;
+            } finally {
+                this.c.unLock();
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean i(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeZ = interceptable.invokeZ(1048585, this, z)) != null) {
+            return invokeZ.booleanValue;
+        }
+        FileOutputStream fileOutputStream = null;
+        try {
+            try {
+                File c = this.a.c(this.c.buildPath(), this.c.getName(), true, this.c.isSdCard(), this.c.isSavedCache());
+                if (c != null && !this.b.get()) {
+                    if (c.exists()) {
+                        if (z) {
+                            c.delete();
+                        } else {
+                            mg.d(null);
+                            this.c.unLock();
+                            return true;
+                        }
+                    }
+                    byte[] buildFormatData = this.c.buildFormatData();
+                    byte[] data = this.c.getData();
+                    if ((buildFormatData != null || data != null) && !this.b.get()) {
+                        FileOutputStream fileOutputStream2 = new FileOutputStream(c);
+                        if (buildFormatData != null) {
+                            try {
+                                fileOutputStream2.write(buildFormatData);
+                            } catch (Exception e) {
+                                e = e;
+                                fileOutputStream = fileOutputStream2;
+                                BdLog.e(e.getMessage());
+                                mg.d(fileOutputStream);
+                                this.c.unLock();
+                                return false;
+                            } catch (Throwable th) {
+                                th = th;
+                                fileOutputStream = fileOutputStream2;
+                                mg.d(fileOutputStream);
+                                this.c.unLock();
+                                throw th;
+                            }
+                        }
+                        if (data != null) {
+                            fileOutputStream2.write(data);
+                        }
+                        fileOutputStream2.flush();
+                        mg.d(fileOutputStream2);
+                        this.c.setFileInfo(c);
+                        this.c.setSuccess(true);
+                        this.c.unLock();
+                        return true;
+                    }
+                }
+                mg.d(null);
+                this.c.unLock();
+                return false;
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } catch (Exception e2) {
+            e = e2;
         }
     }
 }

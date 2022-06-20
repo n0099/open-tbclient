@@ -1,5 +1,6 @@
 package com.baidu.tbadk.mainTab.videoRedIcon;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f45;
+import com.repackage.u45;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.VideoRedIcon.DataRes;
 import tbclient.VideoRedIcon.RedIcon;
 import tbclient.VideoRedIcon.VideoRedIconResIdl;
 /* loaded from: classes3.dex */
-public class VideoRedIconSocketResponse extends SocketResponsedMessage implements f45 {
+public class VideoRedIconSocketResponse extends SocketResponsedMessage implements u45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public VideoRedIconResIdl mData;
@@ -38,36 +39,40 @@ public class VideoRedIconSocketResponse extends SocketResponsedMessage implement
         }
     }
 
-    @Override // com.repackage.f45
-    public List<RedIcon> getDataList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.redIcons : (List) invokeV.objValue;
-    }
-
-    @Override // com.repackage.f45
-    public VideoRedIconResIdl getResData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mData : (VideoRedIconResIdl) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         DataRes dataRes;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
             VideoRedIconResIdl videoRedIconResIdl = (VideoRedIconResIdl) new Wire(new Class[0]).parseFrom(bArr, VideoRedIconResIdl.class);
             this.mData = videoRedIconResIdl;
             if (videoRedIconResIdl == null) {
-                return;
+                return null;
             }
             setError(videoRedIconResIdl.error.errorno.intValue());
             setErrorString(videoRedIconResIdl.error.usermsg);
             if (getError() == 0 && (dataRes = videoRedIconResIdl.data) != null) {
                 this.redIcons = dataRes.red_icon_list;
+                return videoRedIconResIdl;
             }
+            return videoRedIconResIdl;
         }
+        return invokeIL.objValue;
+    }
+
+    @Override // com.repackage.u45
+    public List<RedIcon> getDataList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.redIcons : (List) invokeV.objValue;
+    }
+
+    @Override // com.repackage.u45
+    public VideoRedIconResIdl getResData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (VideoRedIconResIdl) invokeV.objValue;
     }
 }

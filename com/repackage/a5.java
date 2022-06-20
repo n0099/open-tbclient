@@ -1,18 +1,15 @@
 package com.repackage;
 
-import com.badlogic.gdx.math.Vector2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class a5 {
+public class a5<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public Vector2 b;
-    public Vector2 c;
-    public int d;
+    public float a;
+    public T b;
 
     public a5() {
         Interceptable interceptable = $ic;
@@ -24,7 +21,9 @@ public class a5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = null;
     }
 }

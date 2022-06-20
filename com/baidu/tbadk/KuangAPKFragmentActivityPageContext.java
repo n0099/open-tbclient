@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sl4;
-import com.repackage.wa;
+import com.repackage.cm4;
+import com.repackage.za;
 /* loaded from: classes2.dex */
 public class KuangAPKFragmentActivityPageContext implements TbPageContext<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic;
@@ -45,7 +45,7 @@ public class KuangAPKFragmentActivityPageContext implements TbPageContext<BaseFr
         this.orginal = baseFragmentActivity;
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, com.repackage.b9
+    @Override // com.baidu.tbadk.TbPageContext, com.repackage.d9
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -53,34 +53,34 @@ public class KuangAPKFragmentActivityPageContext implements TbPageContext<BaseFr
     }
 
     @Override // com.baidu.tbadk.TbPageContext
-    public sl4 getLayoutMode() {
+    public cm4 getLayoutMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.orginal.getLayoutMode() : (sl4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.orginal.getLayoutMode() : (cm4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, com.repackage.b9
+    @Override // com.baidu.tbadk.TbPageContext, com.repackage.d9
     public Activity getPageActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.orginal.getActivity() : (Activity) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, com.repackage.b9
+    @Override // com.baidu.tbadk.TbPageContext, com.repackage.d9
     public Resources getResources() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? TbadkCoreApplication.getInst().getResources() : (Resources) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, com.repackage.b9
+    @Override // com.baidu.tbadk.TbPageContext, com.repackage.d9
     public String getString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? getResources().getString(i) : (String) invokeI.objValue;
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, com.repackage.b9
+    @Override // com.baidu.tbadk.TbPageContext, com.repackage.d9
     public BdUniqueId getUniqueId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -88,14 +88,14 @@ public class KuangAPKFragmentActivityPageContext implements TbPageContext<BaseFr
     }
 
     @Override // com.baidu.tbadk.TbPageContext
-    public void registerListener(wa waVar) {
+    public void registerListener(za zaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, waVar) == null) {
-            this.orginal.registerListener(waVar);
+        if (interceptable == null || interceptable.invokeL(1048587, this, zaVar) == null) {
+            this.orginal.registerListener(zaVar);
         }
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, com.repackage.b9
+    @Override // com.baidu.tbadk.TbPageContext, com.repackage.d9
     public void sendMessage(Message<?> message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, message) == null) {
@@ -128,7 +128,7 @@ public class KuangAPKFragmentActivityPageContext implements TbPageContext<BaseFr
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.TbPageContext, com.repackage.b9
+    @Override // com.baidu.tbadk.TbPageContext, com.repackage.d9
     public BaseFragmentActivity getOrignalPage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -136,10 +136,10 @@ public class KuangAPKFragmentActivityPageContext implements TbPageContext<BaseFr
     }
 
     @Override // com.baidu.tbadk.TbPageContext
-    public void registerListener(int i, wa waVar) {
+    public void registerListener(int i, za zaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048585, this, i, waVar) == null) {
-            this.orginal.registerListener(i, waVar);
+        if (interceptable == null || interceptable.invokeIL(1048585, this, i, zaVar) == null) {
+            this.orginal.registerListener(i, zaVar);
         }
     }
 
@@ -159,7 +159,7 @@ public class KuangAPKFragmentActivityPageContext implements TbPageContext<BaseFr
         }
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, com.repackage.b9
+    @Override // com.baidu.tbadk.TbPageContext, com.repackage.d9
     public void registerListener(MessageListener<?> messageListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, messageListener) == null) {

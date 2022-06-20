@@ -1,19 +1,15 @@
 package com.repackage;
 
-import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.thread.task.ElasticTask;
-import com.baidu.searchbox.elasticthread.queue.QueueManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class az0 {
+public class az0 implements cz0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final zy0[] a;
 
     public az0() {
         Interceptable interceptable = $ic;
@@ -25,80 +21,23 @@ public class az0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new zy0[4];
-        if (oy0.s.length != 4) {
-            Log.e(QueueManager.TAG, "Elastic Queue size incompatible!");
-        }
-        for (int i3 = 0; i3 < 4; i3++) {
-            this.a[i3] = new zy0();
-        }
-    }
-
-    public double a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (c(0).d()) {
-                double d = 0.0d;
-                for (int i = 0; i < 4; i++) {
-                    d += this.a[i].a() * oy0.s[i];
-                }
-                return d / 1000.0d;
-            }
-            return 9999999.0d;
-        }
-        return invokeV.doubleValue;
-    }
-
-    public ElasticTask b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            for (int i = 0; i < 4; i++) {
-                if (!this.a[i].d()) {
-                    return this.a[i].b();
-                }
-            }
-            return null;
-        }
-        return (ElasticTask) invokeV.objValue;
-    }
-
-    public zy0 c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) != null) {
-            return (zy0) invokeI.objValue;
-        }
-        int i2 = 0;
-        while (true) {
-            int[] iArr = oy0.a;
-            if (i2 < iArr.length) {
-                if (iArr[i2] == i) {
-                    return this.a[i2];
-                }
-                i2++;
-            } else {
-                zy0[] zy0VarArr = this.a;
-                return zy0VarArr[zy0VarArr.length - 1];
             }
         }
     }
 
-    public void d(Runnable runnable, String str, int i) {
+    @Override // com.repackage.cz0
+    public void a(@NonNull Runnable runnable, @NonNull String str, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048579, this, runnable, str, i) == null) {
-            c(i).c(runnable, str, i);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{runnable, str, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            hz0.f().m(runnable, str, i, j);
         }
     }
 
-    public void e(ElasticTask elasticTask) {
+    @Override // com.repackage.cz0
+    public void b(@NonNull Runnable runnable, @NonNull String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, elasticTask) == null) {
-            c(elasticTask.b()).e(elasticTask);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{runnable, str, Long.valueOf(j)}) == null) {
+            hz0.f().q(runnable, str, j);
         }
     }
 }

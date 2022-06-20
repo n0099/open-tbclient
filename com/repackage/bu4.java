@@ -1,11 +1,11 @@
 package com.repackage;
+
+import android.view.View;
 /* loaded from: classes5.dex */
 public interface bu4 {
-    void a(int i, float f);
+    void a(View view2);
 
-    void b(int i, float f);
+    void b(View.OnClickListener onClickListener);
 
-    void c(int i, float f);
-
-    void d(int i, float f);
+    void c(boolean z);
 }

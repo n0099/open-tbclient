@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h47;
+import com.repackage.r57;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class OfficialFeedHeadResponsedMessage extends CustomResponsedMessage<a> {
@@ -17,7 +17,7 @@ public class OfficialFeedHeadResponsedMessage extends CustomResponsedMessage<a> 
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<h47> a;
+        public List<r57> a;
         public List<ChatMessage> b;
 
         public a() {

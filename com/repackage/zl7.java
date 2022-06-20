@@ -1,160 +1,182 @@
 package com.repackage;
 
-import android.graphics.Point;
-import android.view.MotionEvent;
+import android.content.Context;
 import android.view.View;
-import android.widget.ListView;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.dragsort.SimpleDragSortListView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.newdetail.HotTopicDetailActivity;
+import com.baidu.tieba.newdetail.view.HotTopicDetailSpecialItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.id5;
 /* loaded from: classes7.dex */
-public class zl7 {
+public class zl7 extends an<pm7, b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SimpleDragSortListView a;
-    public final a b;
-    public final id5 c;
+    public TbPageContext<HotTopicDetailActivity> i;
+    public ul4<pm7> j;
 
     /* loaded from: classes7.dex */
-    public static class a extends jd5 {
+    public class a implements ul4<pm7> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int F;
-        public int G;
-        public ListView H;
+        public final /* synthetic */ zl7 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(id5 id5Var, ListView listView) {
-            super(id5Var, listView, 0, 2, 0);
+        public a(zl7 zl7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {id5Var, listView};
+                Object[] objArr = {zl7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((id5) objArr2[0], (ListView) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.F = 0;
-            this.G = Integer.MAX_VALUE;
-            s(false);
-            this.H = listView;
+            this.a = zl7Var;
         }
 
-        public void A(int i, int i2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ul4
+        /* renamed from: a */
+        public void d(View view2, pm7 pm7Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-                this.F = i;
-                this.G = i2;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, pm7Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             }
         }
 
-        @Override // com.repackage.md5, com.repackage.id5.j
-        public void a(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ul4
+        /* renamed from: b */
+        public void c(View view2, pm7 pm7Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, pm7Var, Integer.valueOf(i), Long.valueOf(j)}) == null) || pm7Var == null || this.a.i == null) {
+                return;
             }
-        }
-
-        @Override // com.repackage.jd5, com.repackage.id5.j
-        public void c(View view2, Point point, Point point2) {
-            int top;
-            int top2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, view2, point, point2) == null) {
-                int firstVisiblePosition = this.H.getFirstVisiblePosition();
-                int dividerHeight = this.H.getDividerHeight();
-                int headerViewsCount = (this.F - firstVisiblePosition) + this.H.getHeaderViewsCount();
-                int headerViewsCount2 = (this.G - firstVisiblePosition) + this.H.getHeaderViewsCount();
-                int childCount = this.H.getChildCount();
-                View view3 = null;
-                View childAt = (headerViewsCount < 0 || headerViewsCount >= childCount) ? null : this.H.getChildAt(headerViewsCount);
-                if (headerViewsCount2 >= 0 && headerViewsCount2 < childCount) {
-                    view3 = this.H.getChildAt(headerViewsCount2);
-                }
-                if (childAt != null && point.y < (top2 = childAt.getTop())) {
-                    point.y = top2;
-                }
-                if (view3 == null || point.y <= (top = (view3.getTop() - dividerHeight) - view2.getHeight())) {
-                    return;
-                }
-                point.y = top;
-            }
-        }
-
-        @Override // com.repackage.jd5
-        public int w(MotionEvent motionEvent) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
-                int o = super.o(motionEvent);
-                int headerViewsCount = o - this.H.getHeaderViewsCount();
-                if (headerViewsCount < this.F || headerViewsCount >= this.G) {
-                    return -1;
-                }
-                return o;
-            }
-            return invokeL.intValue;
+            yl7.a("c13820", pm7Var, i, ((HotTopicDetailActivity) this.a.i.getOrignalPage()).C1());
         }
     }
 
-    public zl7(SimpleDragSortListView simpleDragSortListView) {
+    /* loaded from: classes7.dex */
+    public static class b extends TypeAdapter.ViewHolder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public HotTopicDetailSpecialItem a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(HotTopicDetailSpecialItem hotTopicDetailSpecialItem) {
+            super(hotTopicDetailSpecialItem);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hotTopicDetailSpecialItem};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hotTopicDetailSpecialItem;
+        }
+
+        public void c(pm7 pm7Var) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, pm7Var) == null) || pm7Var == null) {
+                return;
+            }
+            this.a.a(pm7Var);
+        }
+
+        public void d(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                this.a.c(i);
+            }
+        }
+
+        public void e(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                this.a.setCurrentTopicId(str);
+            }
+        }
+
+        public void f(ul4<pm7> ul4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, ul4Var) == null) {
+                this.a.setOnItemCoverListener(ul4Var);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zl7(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), om7.a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {simpleDragSortListView};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = simpleDragSortListView;
-        id5 id5Var = new id5(simpleDragSortListView, simpleDragSortListView.getViewSuperMethods());
-        this.c = id5Var;
-        simpleDragSortListView.setDragSortViewEventDelegate(id5Var);
-        a aVar = new a(this.c, simpleDragSortListView);
-        this.b = aVar;
-        aVar.d(-1);
-        this.c.s0(this.b);
-        this.c.u0(this.b);
-        simpleDragSortListView.setOnTouchListener(this.b);
+        this.j = new a(this);
+        this.i = tbPageContext;
     }
 
-    public void a(boolean z) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.an
+    /* renamed from: a0 */
+    public b M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.c.o0(z);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            b bVar = new b(new HotTopicDetailSpecialItem(viewGroup.getContext()));
+            bVar.e(this.i.getOrignalPage().C1());
+            bVar.f(this.j);
+            bVar.d(TbadkCoreApplication.getInst().getSkinType());
+            return bVar;
         }
+        return (b) invokeL.objValue;
     }
 
-    public void b(int i, int i2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.an
+    /* renamed from: b0 */
+    public View S(int i, View view2, ViewGroup viewGroup, pm7 pm7Var, b bVar) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            this.b.A(i, i2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, pm7Var, bVar})) == null) {
+            if (pm7Var == null || bVar == null) {
+                return null;
+            }
+            bVar.c(pm7Var);
+            bVar.d(TbadkCoreApplication.getInst().getSkinType());
+            return bVar.b();
         }
-    }
-
-    public void c(id5.i iVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iVar) == null) {
-            this.c.t0(iVar);
-        }
+        return (View) invokeCommon.objValue;
     }
 }

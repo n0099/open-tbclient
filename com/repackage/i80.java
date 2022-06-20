@@ -1,16 +1,16 @@
 package com.repackage;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.business.model.data.LiveTabEntity;
+import com.baidu.live.business.model.data.LiveFeedWrapData;
+import com.baidu.searchbox.launch.ExternalTransferSpeedStats;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
+import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class i80 {
@@ -18,10 +18,13 @@ public class i80 {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public String b;
-    public List<LiveTabEntity> c;
-    public boolean d;
-    public long e;
-    public int f;
+    public String c;
+    public String d;
+    public g80 e;
+    public k80 f;
+    public m80 g;
+    public LiveFeedWrapData h;
+    public h80 i;
 
     public i80() {
         Interceptable interceptable = $ic;
@@ -37,59 +40,68 @@ public class i80 {
         }
     }
 
-    public final void a(JSONArray jSONArray) {
+    public void a(String str, int i, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) || jSONArray == null || jSONArray.length() <= 0) {
-            return;
-        }
-        this.c = new ArrayList();
-        for (int i = 0; i < jSONArray.length(); i++) {
-            JSONObject optJSONObject = jSONArray.optJSONObject(i);
-            if (optJSONObject != null) {
-                LiveTabEntity liveTabEntity = new LiveTabEntity();
-                liveTabEntity.parserJson(optJSONObject);
-                this.c.add(liveTabEntity);
-            }
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
+            this.a = i;
+            this.b = str2;
+            m80 m80Var = new m80();
+            this.g = m80Var;
+            m80Var.b(null, b(str), this.a);
+            h80 h80Var = new h80();
+            this.i = h80Var;
+            h80Var.a(null, b(str));
         }
     }
 
-    public void b(JSONObject jSONObject, boolean z, int i) {
-        List<LiveTabEntity> list;
+    public final boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{jSONObject, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            if (jSONObject != null) {
-                this.a = jSONObject.optInt("inner_errno");
-                this.b = jSONObject.optString("inner_msg");
-                JSONArray optJSONArray = jSONObject.optJSONArray("items");
-                a(optJSONArray);
-                if (z && optJSONArray != null && (list = this.c) != null && !list.isEmpty()) {
-                    q80.e("live_feed_page_tab_cache_time", System.currentTimeMillis());
-                    q80.f("live_feed_page_tab_cache_key", optJSONArray.toString());
-                }
-            }
-            if (z) {
-                List<LiveTabEntity> list2 = this.c;
-                if (list2 == null || list2.isEmpty()) {
-                    this.f = 2;
-                    String b = q80.b("live_feed_page_tab_cache_key", "");
-                    if (TextUtils.isEmpty(b)) {
-                        return;
-                    }
-                    try {
-                        a(new JSONArray(b));
-                        this.d = true;
-                        if (i == -101) {
-                            this.f = 1;
-                        } else if (this.a != 0) {
-                            this.f = 3;
-                        }
-                        this.e = q80.c("live_feed_page_tab_cache_time", 0L);
-                    } catch (JSONException unused) {
-                        q80.g("live_feed_page_tab_cache_key");
-                        q80.g("live_feed_page_tab_cache_time");
-                    }
-                }
-            }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? "banner,tab,feed,follow,config".equals(str) : invokeL.booleanValue;
+    }
+
+    public void c(JSONObject jSONObject, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str, i) == null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optInt("errno");
+        this.b = jSONObject.optString("msg");
+        this.c = jSONObject.optString("logid");
+        JSONObject optJSONObject = jSONObject.optJSONObject("data");
+        if (optJSONObject == null) {
+            return;
+        }
+        this.d = optJSONObject.optString("resource");
+        JSONObject optJSONObject2 = optJSONObject.optJSONObject(SpeedStatsUtils.UBC_VALUE_BANNER);
+        if (optJSONObject2 != null) {
+            g80 g80Var = new g80();
+            this.e = g80Var;
+            g80Var.a(optJSONObject2);
+        }
+        JSONObject optJSONObject3 = optJSONObject.optJSONObject(PersonListActivityConfig.FOLLOW);
+        if (optJSONObject3 != null) {
+            k80 k80Var = new k80();
+            this.f = k80Var;
+            k80Var.a(optJSONObject3);
+        }
+        JSONObject optJSONObject4 = optJSONObject.optJSONObject("tab");
+        if (optJSONObject4 != null) {
+            m80 m80Var = new m80();
+            this.g = m80Var;
+            m80Var.b(optJSONObject4, b(str), this.a);
+        }
+        JSONObject optJSONObject5 = optJSONObject.optJSONObject(ExternalTransferSpeedStats.FEED_PAGE);
+        if (optJSONObject5 != null) {
+            LiveFeedWrapData liveFeedWrapData = new LiveFeedWrapData();
+            this.h = liveFeedWrapData;
+            liveFeedWrapData.parserJson(optJSONObject5, i);
+        }
+        JSONObject optJSONObject6 = optJSONObject.optJSONObject(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME);
+        if (optJSONObject6 != null) {
+            h80 h80Var = new h80();
+            this.i = h80Var;
+            h80Var.a(optJSONObject6, b(str));
         }
     }
 }

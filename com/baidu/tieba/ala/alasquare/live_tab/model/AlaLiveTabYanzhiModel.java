@@ -17,11 +17,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ji;
-import com.repackage.jn;
-import com.repackage.li;
-import com.repackage.oo5;
-import com.repackage.pn5;
+import com.repackage.mp5;
+import com.repackage.ni;
+import com.repackage.nn;
+import com.repackage.no5;
+import com.repackage.pi;
 import com.yy.hiidostatis.inner.FlushManager;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -33,7 +33,7 @@ public class AlaLiveTabYanzhiModel extends BdBaseModel {
     public boolean c;
     public boolean d;
     public BdUniqueId e;
-    public oo5 f;
+    public mp5 f;
     public long g;
     public String h;
     public String i;
@@ -78,17 +78,17 @@ public class AlaLiveTabYanzhiModel extends BdBaseModel {
                         this.a.j.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.d);
                     }
                 } else {
-                    pn5 pn5Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
+                    no5 no5Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
                     if (this.a.d) {
-                        this.a.f.a(pn5Var);
-                        AlaLiveTabYanzhiModel.E(this.a);
+                        this.a.f.a(no5Var);
+                        AlaLiveTabYanzhiModel.F(this.a);
                     } else {
                         AlaLiveTabFragment.j++;
                         if (this.a.f != null) {
                             this.a.f.b();
                         }
                         AlaLiveTabYanzhiModel alaLiveTabYanzhiModel = this.a;
-                        alaLiveTabYanzhiModel.f = new oo5(pn5Var, alaLiveTabYanzhiModel.h, this.a.i);
+                        alaLiveTabYanzhiModel.f = new mp5(no5Var, alaLiveTabYanzhiModel.h, this.a.i);
                     }
                     AlaLiveTabYanzhiModel alaLiveTabYanzhiModel2 = this.a;
                     alaLiveTabYanzhiModel2.c = alaLiveTabYanzhiModel2.f.f();
@@ -103,7 +103,7 @@ public class AlaLiveTabYanzhiModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(boolean z, List<jn> list);
+        void a(boolean z, List<nn> list);
 
         void b(int i, String str, boolean z);
     }
@@ -129,31 +129,31 @@ public class AlaLiveTabYanzhiModel extends BdBaseModel {
         this.e = BdUniqueId.gen();
     }
 
-    public static /* synthetic */ int E(AlaLiveTabYanzhiModel alaLiveTabYanzhiModel) {
+    public static /* synthetic */ int F(AlaLiveTabYanzhiModel alaLiveTabYanzhiModel) {
         int i = alaLiveTabYanzhiModel.b;
         alaLiveTabYanzhiModel.b = i + 1;
         return i;
     }
 
-    public final void J(int i, int i2, int i3) {
+    public final void K(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO);
             httpMessage.addParam("tab_id", 2);
             String str = "N";
-            if (ji.z()) {
-                if (ji.H()) {
+            if (ni.z()) {
+                if (ni.H()) {
                     str = "1_0";
-                } else if (ji.v()) {
+                } else if (ni.v()) {
                     str = "0_13";
-                } else if (ji.u()) {
+                } else if (ni.u()) {
                     str = "0_3";
-                } else if (ji.t()) {
+                } else if (ni.t()) {
                     str = "0_2";
                 }
             }
             httpMessage.addParam("network", str);
-            httpMessage.addParam("ua_str", li.k(this.a.getPageActivity()) + "_" + li.i(this.a.getPageActivity()) + "_android_" + TbConfig.getVersion());
+            httpMessage.addParam("ua_str", pi.k(this.a.getPageActivity()) + "_" + pi.i(this.a.getPageActivity()) + "_android_" + TbConfig.getVersion());
             httpMessage.addParam("session_id", this.g);
             httpMessage.addParam("refresh_type", i2);
             httpMessage.addParam("big_refresh_count", i3);
@@ -164,11 +164,15 @@ public class AlaLiveTabYanzhiModel extends BdBaseModel {
         }
     }
 
-    public void K(String str, String str2) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            this.h = str;
-            this.i = str2;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.c && !this.d) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (currentTimeMillis - this.g >= FlushManager.ReportTimer.DEFAULT_INTERVAL) {
+                this.g = currentTimeMillis;
+            }
+            this.d = true;
+            K(this.b + 1, 1, AlaLiveTabFragment.j - 1);
         }
     }
 
@@ -199,32 +203,28 @@ public class AlaLiveTabYanzhiModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void loadMore() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.c && !this.d) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.g >= FlushManager.ReportTimer.DEFAULT_INTERVAL) {
-                this.g = currentTimeMillis;
-            }
-            this.d = true;
-            J(this.b + 1, 1, AlaLiveTabFragment.j - 1);
-        }
-    }
-
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.k);
         }
     }
 
     public void refresh() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.g = System.currentTimeMillis();
             this.d = false;
             this.b = 1;
-            J(1, 0, AlaLiveTabFragment.j);
+            K(1, 0, AlaLiveTabFragment.j);
+        }
+    }
+
+    public void setForumInfo(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
+            this.h = str;
+            this.i = str2;
         }
     }
 }

@@ -1,7 +1,5 @@
 package com.xiaomi.push.service;
 
-import android.annotation.TargetApi;
-import android.app.Notification;
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,64 +7,66 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.ai;
+import com.xiaomi.push.Cif;
+import com.xiaomi.push.gh;
+import com.xiaomi.push.service.XMPushService;
 /* loaded from: classes8.dex */
-public final class ae extends ai.a {
+public final class ae extends XMPushService.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ int a;
+    public final /* synthetic */ Cif a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ Notification f862a;
+    public final /* synthetic */ XMPushService f875a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ Context f863a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f864a;
+    public final /* synthetic */ String f876a;
     public final /* synthetic */ String b;
 
-    public ae(int i, String str, Context context, String str2, Notification notification) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ae(int i, XMPushService xMPushService, Cif cif, String str, String str2) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, context, str2, notification};
+            Object[] objArr = {Integer.valueOf(i), xMPushService, cif, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.f864a = str;
-        this.f863a = context;
+        this.f875a = xMPushService;
+        this.a = cif;
+        this.f876a = str;
         this.b = str2;
-        this.f862a = notification;
     }
 
-    @Override // com.xiaomi.push.ai.a
-    /* renamed from: a */
-    public String mo222a() {
+    @Override // com.xiaomi.push.service.XMPushService.j
+    public String a() {
         InterceptResult invokeV;
-        String b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            b = ac.b(this.a, this.f864a);
-            return b;
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "send wrong message ack for message." : (String) invokeV.objValue;
     }
 
-    @Override // java.lang.Runnable
-    @TargetApi(19)
-    public void run() {
+    @Override // com.xiaomi.push.service.XMPushService.j
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ac.b(this.f863a, this.b, this.a, this.f864a, this.f862a);
+            try {
+                Cif a = y.a((Context) this.f875a, this.a);
+                a.f619a.a("error", this.f876a);
+                a.f619a.a("reason", this.b);
+                ah.a(this.f875a, a);
+            } catch (gh e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
+                this.f875a.a(10, e);
+            }
         }
     }
 }

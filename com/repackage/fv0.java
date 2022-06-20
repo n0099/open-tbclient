@@ -1,27 +1,86 @@
 package com.repackage;
 
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class fv0 {
+public final class fv0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public fv0(Boolean bool, String str, String str2, String str3) {
+    public static final void a(mv0 mpdModel, JSONArray clarityUrlList) {
+        ArrayList<iv0> a;
+        iv0 iv0Var;
+        ArrayList<Object> d;
+        ArrayList<iv0> a2;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bool, str, str2, str3};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, mpdModel, clarityUrlList) == null) {
+            Intrinsics.checkNotNullParameter(mpdModel, "mpdModel");
+            Intrinsics.checkNotNullParameter(clarityUrlList, "clarityUrlList");
+            kv0 a3 = mpdModel.a();
+            if (a3 == null || (a = a3.a()) == null) {
+                return;
             }
+            kv0 a4 = mpdModel.a();
+            if (!(((a4 == null || (a2 = a4.a()) == null) ? 0 : a2.size()) > 0)) {
+                a = null;
+            }
+            if (a == null || (iv0Var = a.get(0)) == null || (d = iv0Var.d()) == null) {
+                return;
+            }
+            int length = clarityUrlList.length();
+            for (int i = 0; i < length; i++) {
+                Object obj = clarityUrlList.get(i);
+                if (!(obj instanceof JSONObject)) {
+                    obj = null;
+                }
+                JSONObject jSONObject = (JSONObject) obj;
+                if (jSONObject != null) {
+                    Object obj2 = d.get(0);
+                    if (!(obj2 instanceof lv0)) {
+                        obj2 = null;
+                    }
+                    lv0 lv0Var = (lv0) obj2;
+                    if (lv0Var != null) {
+                        jSONObject.put("interact_url", lv0Var.a());
+                    }
+                }
+            }
+        }
+    }
+
+    public static final void b(mv0 mpdModel, JSONObject mpdJson) {
+        JSONArray optJSONArray;
+        JSONArray optJSONArray2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, mpdModel, mpdJson) == null) {
+            Intrinsics.checkNotNullParameter(mpdModel, "mpdModel");
+            Intrinsics.checkNotNullParameter(mpdJson, "mpdJson");
+            JSONObject optJSONObject = mpdJson.optJSONObject(BdVideoSeries.RESOURCE_TYPE_INTERACT);
+            if (optJSONObject == null || (optJSONArray = optJSONObject.optJSONArray("adaptation_set")) == null) {
+                return;
+            }
+            ArrayList arrayList = new ArrayList();
+            int length = optJSONArray.length();
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
+                if (optJSONObject2 != null && (optJSONArray2 = optJSONObject2.optJSONArray("representation_list")) != null) {
+                    ArrayList arrayList2 = new ArrayList();
+                    int length2 = optJSONArray2.length();
+                    for (int i2 = 0; i2 < length2; i2++) {
+                        JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i2);
+                        if (optJSONObject3 != null) {
+                            arrayList2.add(new lv0(optJSONObject3.optString("url")));
+                        }
+                    }
+                    arrayList.add(new iv0(arrayList2, optJSONObject2.optString("type"), null, null, null, null, 60, null));
+                }
+            }
+            mpdModel.c(new kv0(arrayList));
         }
     }
 }

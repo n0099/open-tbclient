@@ -1,159 +1,88 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.AdapterViewHolder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnListData;
+import com.baidu.tieba.homepage.tabfeed.view.SpecialTopicLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.NewHottopic.PkItem;
-import tbclient.NewHottopic.PkModule;
 /* loaded from: classes7.dex */
-public class xz6 {
+public class xz6 extends an<SpecialColumnListData, AdapterViewHolder<SpecialTopicLayout>> implements fz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public a d;
-    public a e;
-    public int f;
+    public TbPageContext i;
+    public String j;
 
-    /* loaded from: classes7.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public String b;
-        public String c;
-        public String d;
-        public boolean e;
-        public long f;
-        public String g;
-
-        public a(xz6 xz6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xz6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public xz6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xz6(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), SpecialColumnListData.TYPE);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.i = tbPageContext;
     }
 
-    public void a(PkModule pkModule) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.an
+    /* renamed from: Z */
+    public AdapterViewHolder<SpecialTopicLayout> M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, pkModule) == null) || pkModule == null || pkModule.agree == null || pkModule.disagree == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            SpecialTopicLayout specialTopicLayout = new SpecialTopicLayout(this.i);
+            specialTopicLayout.setShowMore(true);
+            return new AdapterViewHolder<>(specialTopicLayout);
         }
-        this.b = pkModule.pk_id.longValue();
-        this.c = pkModule.user_pk_id.longValue();
-        a aVar = new a(this);
-        this.d = aVar;
-        aVar.a = pkModule.agree.pk_num.longValue();
-        this.d.b = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1444) : pkModule.agree.pk_desc;
-        a aVar2 = this.d;
-        PkItem pkItem = pkModule.agree;
-        aVar2.c = pkItem.last_username;
-        aVar2.d = pkItem.pk_icon;
-        aVar2.e = pkItem.has_clicked.longValue() == 1;
-        this.d.f = pkModule.agree.pk_index.longValue();
-        this.d.g = pkModule.agree.pk_icon_after;
-        a aVar3 = new a(this);
-        this.e = aVar3;
-        aVar3.a = pkModule.disagree.pk_num.longValue();
-        this.e.b = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1443) : pkModule.disagree.pk_desc;
-        a aVar4 = this.e;
-        PkItem pkItem2 = pkModule.disagree;
-        aVar4.c = pkItem2.last_username;
-        aVar4.d = pkItem2.pk_icon;
-        aVar4.e = pkItem2.has_clicked.longValue() == 1;
-        this.e.f = pkModule.disagree.pk_index.longValue();
-        this.e.g = pkModule.disagree.pk_icon_after;
+        return (AdapterViewHolder) invokeL.objValue;
     }
 
-    public void b(tbclient.NewTopicList.PkModule pkModule) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.an
+    /* renamed from: a0 */
+    public View S(int i, View view2, ViewGroup viewGroup, SpecialColumnListData specialColumnListData, AdapterViewHolder<SpecialTopicLayout> adapterViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pkModule) == null) || pkModule == null || pkModule.agree == null || pkModule.disagree == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, specialColumnListData, adapterViewHolder})) == null) {
+            SpecialTopicLayout c = adapterViewHolder.c();
+            c.setTabCode(this.j);
+            c.a(specialColumnListData);
+            return adapterViewHolder.b();
         }
-        this.b = pkModule.pk_id.longValue();
-        this.c = pkModule.user_pk_id.longValue();
-        a aVar = new a(this);
-        this.d = aVar;
-        aVar.a = pkModule.agree.pk_num.longValue();
-        this.d.b = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1444) : pkModule.agree.pk_desc;
-        a aVar2 = this.d;
-        tbclient.NewTopicList.PkItem pkItem = pkModule.agree;
-        aVar2.c = pkItem.last_username;
-        aVar2.d = pkItem.pk_icon;
-        aVar2.e = pkItem.has_clicked.longValue() == 1;
-        this.d.f = pkModule.agree.pk_index.longValue();
-        this.d.g = pkModule.agree.pk_icon_after;
-        a aVar3 = new a(this);
-        this.e = aVar3;
-        aVar3.a = pkModule.disagree.pk_num.longValue();
-        this.e.b = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1443) : pkModule.disagree.pk_desc;
-        a aVar4 = this.e;
-        tbclient.NewTopicList.PkItem pkItem2 = pkModule.disagree;
-        aVar4.c = pkItem2.last_username;
-        aVar4.d = pkItem2.pk_icon;
-        aVar4.e = pkItem2.has_clicked.longValue() == 1;
-        this.e.f = pkModule.disagree.pk_index.longValue();
-        this.e.g = pkModule.disagree.pk_icon_after;
+        return (View) invokeCommon.objValue;
     }
 
-    public void c(tbclient.PkModule pkModule) {
+    public void b0(tn tnVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pkModule) == null) || pkModule == null || pkModule.agree == null || pkModule.disagree == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048580, this, tnVar) == null) {
         }
-        this.b = pkModule.pk_id.longValue();
-        this.c = pkModule.user_pk_id.longValue();
-        a aVar = new a(this);
-        this.d = aVar;
-        aVar.a = pkModule.agree.pk_num.longValue();
-        this.d.b = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1444) : pkModule.agree.pk_desc;
-        a aVar2 = this.d;
-        tbclient.PkItem pkItem = pkModule.agree;
-        aVar2.c = pkItem.last_username;
-        aVar2.d = pkItem.pk_icon;
-        aVar2.e = pkItem.has_clicked.longValue() == 1;
-        this.d.f = pkModule.agree.pk_index.longValue();
-        this.d.g = pkModule.agree.pk_icon_after;
-        a aVar3 = new a(this);
-        this.e = aVar3;
-        aVar3.a = pkModule.disagree.pk_num.longValue();
-        this.e.b = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1443) : pkModule.disagree.pk_desc;
-        a aVar4 = this.e;
-        tbclient.PkItem pkItem2 = pkModule.disagree;
-        aVar4.c = pkItem2.last_username;
-        aVar4.d = pkItem2.pk_icon;
-        aVar4.e = pkItem2.has_clicked.longValue() == 1;
-        this.e.f = pkModule.disagree.pk_index.longValue();
-        this.e.g = pkModule.disagree.pk_icon_after;
+    }
+
+    @Override // com.repackage.fz6
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.j = str;
+        }
     }
 }

@@ -1,10 +1,10 @@
 package com.repackage;
 
-import com.baidu.nadcore.download.proxy.IAdDownloader;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import androidx.annotation.NonNull;
+import com.baidu.nadcore.download.consts.AdDownloadAction;
 /* loaded from: classes7.dex */
 public interface xi0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "downloadCreator");
+    void a(@NonNull AdDownloadAction adDownloadAction, @NonNull ii0 ii0Var);
 
-    IAdDownloader a();
+    ii0 getData();
 }

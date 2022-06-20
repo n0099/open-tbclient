@@ -1,46 +1,41 @@
 package com.repackage;
 
-import android.content.Context;
-import android.util.DisplayMetrics;
-import androidx.annotation.Nullable;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class ia0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static float a(@Nullable Context context) {
+    public static <T> int a(List<T> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-            if (displayMetrics != null) {
-                return displayMetrics.density;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            if (list == null || list.isEmpty()) {
+                return 0;
             }
-            return 0.0f;
-        }
-        return invokeL.floatValue;
-    }
-
-    public static int b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            int identifier = context.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
-            int i = 0;
-            if (identifier > 0) {
-                try {
-                    i = context.getResources().getDimensionPixelSize(identifier);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            return i == 0 ? (int) (a(context) * 25.0f) : i;
+            return list.size();
         }
         return invokeL.intValue;
+    }
+
+    public static <T> T b(List<T> list, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
+            if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
+                return null;
+            }
+            return list.get(i);
+        }
+        return (T) invokeLI.objValue;
+    }
+
+    public static <T> boolean c(List<T> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) ? a(list) <= 0 : invokeL.booleanValue;
     }
 }

@@ -20,19 +20,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f9;
-import com.repackage.np5;
-import com.repackage.nv5;
-import com.repackage.op5;
-import com.repackage.qq5;
-import com.repackage.rq5;
+import com.repackage.h9;
+import com.repackage.mq5;
+import com.repackage.mw5;
+import com.repackage.nq5;
+import com.repackage.pr5;
+import com.repackage.qr5;
 /* loaded from: classes3.dex */
-public class RecommendActivityView extends nv5<op5> {
+public class RecommendActivityView extends mw5<nq5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext i;
-    public AlaBannerAutoScrollView<np5> j;
-    public qq5 k;
+    public AlaBannerAutoScrollView<mq5> j;
+    public pr5 k;
 
     /* loaded from: classes3.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
@@ -43,7 +43,7 @@ public class RecommendActivityView extends nv5<op5> {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ViewHolder(RecommendActivityView recommendActivityView) {
-            super(recommendActivityView.k());
+            super(recommendActivityView.h());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,12 +60,12 @@ public class RecommendActivityView extends nv5<op5> {
                 }
             }
             this.a = recommendActivityView;
-            this.b = recommendActivityView.k();
+            this.b = recommendActivityView.h();
         }
     }
 
     /* loaded from: classes3.dex */
-    public class a implements rq5 {
+    public class a implements qr5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RecommendActivityView a;
@@ -88,13 +88,13 @@ public class RecommendActivityView extends nv5<op5> {
             this.a = recommendActivityView;
         }
 
-        @Override // com.repackage.rq5
+        @Override // com.repackage.qr5
         public void a(Object obj) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && obj != null && (obj instanceof np5)) {
-                np5 np5Var = (np5) obj;
-                if (!StringUtils.isNull(np5Var.a)) {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) f9.a(this.a.i.getPageActivity()), new String[]{np5Var.a}, true);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && obj != null && (obj instanceof mq5)) {
+                mq5 mq5Var = (mq5) obj;
+                if (!StringUtils.isNull(mq5Var.a)) {
+                    UrlManager.getInstance().dealOneLink((TbPageContext) h9.a(this.a.i.getPageActivity()), new String[]{mq5Var.a}, true);
                 }
                 TiebaStatic.log("c12902");
             }
@@ -102,13 +102,13 @@ public class RecommendActivityView extends nv5<op5> {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements qq5 {
+    public class b implements pr5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RecommendActivityView a;
 
         /* loaded from: classes3.dex */
-        public class a extends AlaBannerViewHolder<np5> {
+        public class a extends AlaBannerViewHolder<mq5> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public TbImageView a;
@@ -137,7 +137,7 @@ public class RecommendActivityView extends nv5<op5> {
             public void b(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-                    TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0906ee);
+                    TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0906d9);
                     this.a = tbImageView;
                     tbImageView.setDefaultBgResource(R.drawable.pic_bg_video_frs);
                 }
@@ -153,12 +153,12 @@ public class RecommendActivityView extends nv5<op5> {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
             /* renamed from: d */
-            public void a(int i, np5 np5Var) {
+            public void a(int i, mq5 mq5Var) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, np5Var) == null) || np5Var == null || this.a == null || StringUtils.isNull(np5Var.b)) {
+                if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, mq5Var) == null) || mq5Var == null || this.a == null || StringUtils.isNull(mq5Var.b)) {
                     return;
                 }
-                this.a.K(np5Var.b, 10, false);
+                this.a.J(mq5Var.b, 10, false);
             }
         }
 
@@ -180,11 +180,11 @@ public class RecommendActivityView extends nv5<op5> {
             this.a = recommendActivityView;
         }
 
-        @Override // com.repackage.qq5
+        @Override // com.repackage.pr5
         public AlaBannerViewHolder a(ViewGroup viewGroup, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) ? new a(this, LayoutInflater.from(this.a.i.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d076e, viewGroup, false)) : (AlaBannerViewHolder) invokeLI.objValue;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) ? new a(this, LayoutInflater.from(this.a.i.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d076d, viewGroup, false)) : (AlaBannerViewHolder) invokeLI.objValue;
         }
     }
 
@@ -209,29 +209,29 @@ public class RecommendActivityView extends nv5<op5> {
         }
         this.k = new b(this);
         this.i = tbPageContext;
-        AlaBannerAutoScrollView<np5> alaBannerAutoScrollView = (AlaBannerAutoScrollView) k().findViewById(R.id.obfuscated_res_0x7f0902fc);
+        AlaBannerAutoScrollView<mq5> alaBannerAutoScrollView = (AlaBannerAutoScrollView) h().findViewById(R.id.obfuscated_res_0x7f0902ff);
         this.j = alaBannerAutoScrollView;
         alaBannerAutoScrollView.setViewHolderAdapter(this.k);
         this.j.setOnBannerClickListener(new a(this));
-        m(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+        j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.repackage.nv5
+    @Override // com.repackage.mw5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d076f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d076e : invokeV.intValue;
     }
 
-    @Override // com.repackage.nv5
-    public View k() {
+    @Override // com.repackage.mw5
+    public View h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? super.k() : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? super.h() : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.nv5
-    public void m(TbPageContext<?> tbPageContext, int i) {
+    @Override // com.repackage.mw5
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
             this.j.q(TbadkCoreApplication.getInst().getSkinType());
@@ -246,14 +246,14 @@ public class RecommendActivityView extends nv5<op5> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.nv5
-    /* renamed from: t */
-    public void l(op5 op5Var) {
+    @Override // com.repackage.mw5
+    /* renamed from: s */
+    public void i(nq5 nq5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, op5Var) == null) || op5Var == null || ListUtils.isEmpty(op5Var.a)) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, nq5Var) == null) || nq5Var == null || ListUtils.isEmpty(nq5Var.a)) {
             return;
         }
-        this.j.n(op5Var.a, this.k);
+        this.j.n(nq5Var.a, this.k);
         TiebaStatic.log("c12901");
     }
 }

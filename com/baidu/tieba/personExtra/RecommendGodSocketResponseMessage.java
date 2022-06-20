@@ -1,12 +1,13 @@
 package com.baidu.tieba.personExtra;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.v28;
+import com.repackage.z38;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetRecommendGodList.GetRecommendGodListResIdl;
@@ -14,7 +15,7 @@ import tbclient.GetRecommendGodList.GetRecommendGodListResIdl;
 public class RecommendGodSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public v28 recommendGodData;
+    public z38 recommendGodData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RecommendGodSocketResponseMessage() {
@@ -34,24 +35,29 @@ public class RecommendGodSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        GetRecommendGodListResIdl getRecommendGodListResIdl;
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getRecommendGodListResIdl = (GetRecommendGodListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetRecommendGodListResIdl.class)) == null) {
-            return;
-        }
-        Error error = getRecommendGodListResIdl.error;
-        if (error != null) {
-            Integer num = error.errorno;
-            if (num != null) {
-                setError(num.intValue());
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            GetRecommendGodListResIdl getRecommendGodListResIdl = (GetRecommendGodListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetRecommendGodListResIdl.class);
+            if (getRecommendGodListResIdl == null) {
+                return null;
             }
-            setErrorString(getRecommendGodListResIdl.error.usermsg);
+            Error error = getRecommendGodListResIdl.error;
+            if (error != null) {
+                Integer num = error.errorno;
+                if (num != null) {
+                    setError(num.intValue());
+                }
+                setErrorString(getRecommendGodListResIdl.error.usermsg);
+            }
+            z38 z38Var = new z38();
+            this.recommendGodData = z38Var;
+            z38Var.b(getRecommendGodListResIdl.data);
+            return getRecommendGodListResIdl;
         }
-        v28 v28Var = new v28();
-        this.recommendGodData = v28Var;
-        v28Var.b(getRecommendGodListResIdl.data);
+        return invokeIL.objValue;
     }
 }

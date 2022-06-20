@@ -1,184 +1,177 @@
 package com.repackage;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.strategy.IVideoUpdateStrategy;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.player.constants.PlayerStatus;
+import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cw0 implements IVideoUpdateStrategy {
+public final class cw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public boolean c;
-    public boolean d;
-    public int e;
-    public boolean f;
-    public boolean g;
-    public boolean h;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755782923, "Lcom/repackage/cw0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755782923, "Lcom/repackage/cw0;");
-        }
-    }
+    @Nullable
+    public pu0 a;
+    public PlayerStatus b;
+    public StringBuilder c;
 
     public cw0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = true;
-        this.b = true;
-        this.c = true;
-        this.d = true;
-        this.e = 1;
-        this.f = false;
-        this.g = false;
-        this.h = true;
+        this.b = PlayerStatus.IDLE;
+        d();
     }
 
-    @Override // com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
-    public boolean a() {
-        InterceptResult invokeV;
+    public void a(ir0 ir0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.h : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.e : invokeV.intValue;
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.e = i;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ir0Var) == null) {
+            if (ir0Var.getType() == 4 || ir0Var.getType() == 2) {
+                String c = ir0Var.c();
+                char c2 = 65535;
+                switch (c.hashCode()) {
+                    case -525235558:
+                        if (c.equals(PlayerEvent.ACTION_ON_PREPARED)) {
+                            c2 = 2;
+                            break;
+                        }
+                        break;
+                    case -461848373:
+                        if (c.equals(PlayerEvent.ACTION_ON_ERROR)) {
+                            c2 = 3;
+                            break;
+                        }
+                        break;
+                    case 154871702:
+                        if (c.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
+                            c2 = 1;
+                            break;
+                        }
+                        break;
+                    case 1370689931:
+                        if (c.equals(PlayerEvent.ACTION_ON_INFO)) {
+                            c2 = 0;
+                            break;
+                        }
+                        break;
+                }
+                if (c2 == 0) {
+                    int g = ir0Var.g(1);
+                    if (904 == g || 956 == g) {
+                        g(PlayerStatus.PLAYING);
+                    }
+                } else if (c2 == 1) {
+                    g(PlayerStatus.COMPLETE);
+                } else if (c2 == 2) {
+                    g(PlayerStatus.PREPARED);
+                } else if (c2 != 3) {
+                } else {
+                    g(PlayerStatus.ERROR);
+                }
+            }
         }
     }
 
-    public void k(boolean z) {
+    public void b(@NonNull pu0 pu0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.d = z;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pu0Var) == null) {
+            this.a = pu0Var;
         }
     }
 
-    public void l(boolean z) {
+    @NonNull
+    public PlayerStatus c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.a = z;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (PlayerStatus) invokeV.objValue;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
 
-    public void m(boolean z) {
+    public boolean e(@NonNull PlayerStatus... playerStatusArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.g = z;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, playerStatusArr)) == null) {
+            for (PlayerStatus playerStatus : playerStatusArr) {
+                if (playerStatus == c()) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            h();
+            this.b = PlayerStatus.IDLE;
         }
     }
 
-    public void n(boolean z) {
+    public void g(PlayerStatus playerStatus) {
+        PlayerStatus playerStatus2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.f = z;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, playerStatus) == null) || playerStatus == (playerStatus2 = this.b)) {
+            return;
+        }
+        this.b = playerStatus;
+        pu0 pu0Var = this.a;
+        if (pu0Var != null) {
+            pu0Var.d(dr0.w(playerStatus2, playerStatus));
         }
     }
 
-    public void o(boolean z) {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.h = z;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.a = null;
         }
     }
 
-    public void p(boolean z) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (no0.f()) {
+                StringBuilder sb = this.c;
+                if (sb == null) {
+                    this.c = new StringBuilder();
+                } else if (sb.length() > 0) {
+                    StringBuilder sb2 = this.c;
+                    sb2.delete(0, sb2.length());
+                }
+                StringBuilder sb3 = this.c;
+                sb3.append("，Courier :");
+                sb3.append(this.a);
+                sb3.append("，status :");
+                sb3.append(this.b);
+                sb3.append("，hash :");
+                sb3.append(hashCode());
+                sb3.append("】");
+                return this.c.toString();
+            }
+            return super.toString();
         }
-    }
-
-    public void q(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            this.c = z;
-        }
+        return (String) invokeV.objValue;
     }
 }

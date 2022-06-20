@@ -21,11 +21,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ei0;
-import com.repackage.li;
-import com.repackage.si5;
+import com.repackage.ii0;
+import com.repackage.pi;
+import com.repackage.pj5;
 /* loaded from: classes3.dex */
-public class ApkDownloadBannerView extends LinearLayout implements si5 {
+public class ApkDownloadBannerView extends LinearLayout implements pj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -101,7 +101,7 @@ public class ApkDownloadBannerView extends LinearLayout implements si5 {
         }
     }
 
-    @Override // com.repackage.si5
+    @Override // com.repackage.pj5
     public boolean a(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -111,7 +111,7 @@ public class ApkDownloadBannerView extends LinearLayout implements si5 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.ui0
+    @Override // com.repackage.yi0
     public void b(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) {
@@ -121,16 +121,16 @@ public class ApkDownloadBannerView extends LinearLayout implements si5 {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.a = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0062, (ViewGroup) this, true);
+            this.a = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0061, (ViewGroup) this, true);
             setOrientation(1);
-            int d = li.d(getContext(), 22.0f);
-            int d2 = li.d(getContext(), 11.0f);
+            int d = pi.d(getContext(), 22.0f);
+            int d2 = pi.d(getContext(), 11.0f);
             setPadding(d, d2, d, d2);
             this.b = (BannerDownloadProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f090271);
             this.c = (BannerDownloadStateBar) this.a.findViewById(R.id.obfuscated_res_0x7f090273);
             this.d = (BannerDownloadStateBar) this.a.findViewById(R.id.obfuscated_res_0x7f090274);
             this.b.setTextColor(Color.parseColor("#999999"));
-            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090810);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0907fb);
             this.e = textView;
             textView.setVisibility(this.g ? 0 : 8);
         }
@@ -155,7 +155,7 @@ public class ApkDownloadBannerView extends LinearLayout implements si5 {
         return invokeL.intValue;
     }
 
-    @Override // com.repackage.ui0
+    @Override // com.repackage.yi0
     @NonNull
     public View getRealView() {
         InterceptResult invokeV;
@@ -188,11 +188,11 @@ public class ApkDownloadBannerView extends LinearLayout implements si5 {
         }
     }
 
-    @Override // com.repackage.ui0
-    public void update(String str, @NonNull ei0 ei0Var) {
+    @Override // com.repackage.yi0
+    public void update(String str, @NonNull ii0 ii0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, str, ei0Var) == null) {
-            getActionBar().setState(d(ei0Var.c));
+        if (interceptable == null || interceptable.invokeLL(1048585, this, str, ii0Var) == null) {
+            getActionBar().setState(d(ii0Var.c));
         }
     }
 

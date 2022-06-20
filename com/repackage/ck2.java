@@ -1,44 +1,29 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.searchbox.unitedscheme.SchemeConfig;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
+import com.baidu.swan.apps.core.container.NgWebView;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import com.tencent.connect.common.Constants;
+import java.util.Collection;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class ck2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int b;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, Integer> a;
-
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ck2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-468957686, "Lcom/repackage/ck2$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-468957686, "Lcom/repackage/ck2$a;");
-                    return;
-                }
-            }
-            a = new ck2();
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -53,83 +38,68 @@ public class ck2 {
                 return;
             }
         }
-        boolean z = rf1.a;
-        oi2.g0().getSwitch("swan_pms_request_retry_count", 1);
-        b = 1;
+        a = cg1.a;
     }
 
-    public ck2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new ConcurrentHashMap();
-    }
-
-    public static ck2 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (ck2) invokeV.objValue;
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.a.put(str, Integer.valueOf(c(str) + 1));
-        }
-    }
-
-    public final int c(String str) {
+    @NonNull
+    @SuppressLint({"BDThrowableCheck"})
+    public static String a(qy1 qy1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Integer num = this.a.get(str);
-            if (num == null) {
-                return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, qy1Var)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (qy1Var != null) {
+                try {
+                    jSONObject.put("containerId", qy1Var.getContainerId());
+                    jSONObject.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, BdZeusUtil.isWebkitLoaded());
+                } catch (JSONException e) {
+                    if (!a) {
+                        e.printStackTrace();
+                    } else {
+                        throw new RuntimeException(e);
+                    }
+                }
             }
-            return num.intValue();
+            jSONObject.put("scheme", SchemeConfig.getSchemeHead());
+            String b = b(m62.U().T());
+            sw1.k("SwanAppNativeSwanUtils", "getEnvVariables extensionAvailable:" + fb2.r(b));
+            jSONObject.put("sdkExtension", b);
+            jSONObject.put("gameSdkExtension", b(aj2.i().t()));
+            jSONObject.put("isDebugSdk", a);
+            if ((qy1Var instanceof NgWebView) && ((NgWebView) qy1Var).isSwanWebMode()) {
+                jSONObject.put("ctsEnabled", g83.a().getInt("aiapps_web_mode_cts_use_key", 0));
+            }
+            String string = g83.a().getString("ctsUrl", "");
+            if (!TextUtils.isEmpty(string) && rv2.s()) {
+                jSONObject.put("ctsJsAddress", new JSONObject(string));
+            }
+            String i = zi2.o().i();
+            if (!TextUtils.isEmpty(i)) {
+                jSONObject.put("hostName", i);
+            }
+            jSONObject.put(Constants.PARAM_PLATFORM, "android");
+            JSONObject a2 = y83.a();
+            a2.put("swanswitch_common_sys_info_binding", true);
+            a2.put("swanswitch_ab_sync_auth", true);
+            jSONObject.put("abTestSwitch", a2);
+            jSONObject.put("userDataPath", pb2.USER_DATA_PATH);
+            jSONObject.put("preloadId", m62.U().a0());
+            jSONObject.put("isBaiduSeries", SwanAppAllianceLoginHelper.d.h());
+            jSONObject.put("ttsExtractJSUrl", zb4.b().a());
+            jSONObject.put("coreJSPath", m62.U().c0());
+            if (cp1.d()) {
+                jSONObject.put("pendingList", new JSONArray((Collection) nr1.d()));
+            }
+            jSONObject.put("swanNativeVersion", dg1.a());
+            String jSONObject2 = jSONObject.toString();
+            return TextUtils.isEmpty(jSONObject2) ? "" : jSONObject2;
         }
-        return invokeL.intValue;
+        return (String) invokeL.objValue;
     }
 
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i = q64.b().i().getInt("get_pkg_retry_switch", 0);
-            hw1.i("GetPkgRetryController", "getServerRetrySwitch:" + i);
-            return i == 1;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            return str + "_" + str2;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public boolean f(String str) {
+    public static String b(ExtensionCore extensionCore) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? d() && c(str) < b : invokeL.booleanValue;
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.a.remove(str);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, extensionCore)) == null) ? (extensionCore == null || TextUtils.isEmpty(extensionCore.extensionCorePath)) ? "" : extensionCore.extensionCorePath : (String) invokeL.objValue;
     }
 }

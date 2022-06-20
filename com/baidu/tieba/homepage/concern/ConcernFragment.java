@@ -41,24 +41,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b45;
-import com.repackage.dq4;
-import com.repackage.jc6;
-import com.repackage.jg;
-import com.repackage.li;
-import com.repackage.mg;
-import com.repackage.mo4;
-import com.repackage.wa;
-import com.repackage.wi8;
+import com.repackage.jd6;
+import com.repackage.ng;
+import com.repackage.nq4;
+import com.repackage.oj8;
+import com.repackage.pi;
+import com.repackage.q45;
+import com.repackage.qg;
+import com.repackage.wo4;
+import com.repackage.za;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.GetMyPost.DataRes;
 import tbclient.GetMyPost.GetMyPostResIdl;
 import tbclient.GetMyPost.User_Info;
 import tbclient.ThreadInfo;
 import tbclient.User;
+import tbclient.Userlike.DataRes;
 /* loaded from: classes3.dex */
-public class ConcernFragment extends BaseFragment implements jc6 {
+public class ConcernFragment extends BaseFragment implements jd6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ConcernPageView a;
@@ -71,7 +71,7 @@ public class ConcernFragment extends BaseFragment implements jc6 {
     public CustomMessageListener h;
     public final CustomMessageListener i;
     public final CustomMessageListener j;
-    public final wa k;
+    public final za k;
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -115,7 +115,7 @@ public class ConcernFragment extends BaseFragment implements jc6 {
                         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
                     }
                 } else if (updateAttentionMessage.getData().a && updateAttentionMessage.getData().d) {
-                    li.N(this.a.getActivity(), R.string.obfuscated_res_0x7f0f02b3);
+                    pi.N(this.a.getActivity(), R.string.obfuscated_res_0x7f0f02b3);
                 }
             }
         }
@@ -146,17 +146,17 @@ public class ConcernFragment extends BaseFragment implements jc6 {
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onNavigationButtonClick(dq4 dq4Var) {
+        public void onNavigationButtonClick(nq4 nq4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dq4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, nq4Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
             }
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onPositiveButtonClick(dq4 dq4Var) {
+        public void onPositiveButtonClick(nq4 nq4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dq4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nq4Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
             }
         }
@@ -193,8 +193,8 @@ public class ConcernFragment extends BaseFragment implements jc6 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.a != null && this.a.a.z()) {
-                this.a.a.H();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.a != null && this.a.a.A()) {
+                this.a.a.I();
             }
         }
     }
@@ -241,8 +241,8 @@ public class ConcernFragment extends BaseFragment implements jc6 {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    int k = li.k(TbadkCoreApplication.getInst());
-                    int i = li.i(TbadkCoreApplication.getInst());
+                    int k = pi.k(TbadkCoreApplication.getInst());
+                    int i = pi.i(TbadkCoreApplication.getInst());
                     float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
                     int i2 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
                     RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
@@ -283,20 +283,20 @@ public class ConcernFragment extends BaseFragment implements jc6 {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof PostWriteCallBackData) || (postWriteCallBackData = (PostWriteCallBackData) customResponsedMessage.getData()) == null) {
                 return;
             }
-            long g = jg.g(postWriteCallBackData.getPostId(), 0L);
-            long g2 = jg.g(postWriteCallBackData.getThreadId(), 0L);
-            long g3 = jg.g(wi8.k().l(), 0L);
+            long g = ng.g(postWriteCallBackData.getPostId(), 0L);
+            long g2 = ng.g(postWriteCallBackData.getThreadId(), 0L);
+            long g3 = ng.g(oj8.k().l(), 0L);
             if (g != 0 && g2 != 0 && g3 != 0) {
-                mg.a().postDelayed(new a(this, postWriteCallBackData, g2, g, g3), 1000L);
+                qg.a().postDelayed(new a(this, postWriteCallBackData, g2, g, g3), 1000L);
             } else if (StringUtils.isNull(postWriteCallBackData.getVideoid())) {
             } else {
                 WriteData writeData = postWriteCallBackData.writeDataForVideo;
-                mo4 mo4Var = new mo4();
-                mo4Var.parseFromWriteData(writeData);
-                if (this.a.a == null || !this.a.a.z()) {
+                wo4 wo4Var = new wo4();
+                wo4Var.parseFromWriteData(writeData);
+                if (this.a.a == null || !this.a.a.A()) {
                     return;
                 }
-                this.a.a.y(mo4Var);
+                this.a.a.y(wo4Var);
             }
         }
     }
@@ -343,8 +343,8 @@ public class ConcernFragment extends BaseFragment implements jc6 {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    int k = li.k(TbadkCoreApplication.getInst());
-                    int i = li.i(TbadkCoreApplication.getInst());
+                    int k = pi.k(TbadkCoreApplication.getInst());
+                    int i = pi.i(TbadkCoreApplication.getInst());
                     float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
                     int i2 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
                     RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
@@ -385,26 +385,26 @@ public class ConcernFragment extends BaseFragment implements jc6 {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof PostWriteCallBackData) || (postWriteCallBackData = (PostWriteCallBackData) customResponsedMessage.getData()) == null) {
                 return;
             }
-            long g = jg.g(postWriteCallBackData.getPostId(), 0L);
-            long g2 = jg.g(postWriteCallBackData.getThreadId(), 0L);
-            long g3 = jg.g(wi8.k().l(), 0L);
+            long g = ng.g(postWriteCallBackData.getPostId(), 0L);
+            long g2 = ng.g(postWriteCallBackData.getThreadId(), 0L);
+            long g3 = ng.g(oj8.k().l(), 0L);
             if (g != 0 && g2 != 0 && g3 != 0) {
-                mg.a().postDelayed(new a(this, postWriteCallBackData, g2, g, g3), 1000L);
+                qg.a().postDelayed(new a(this, postWriteCallBackData, g2, g, g3), 1000L);
             } else if (StringUtils.isNull(postWriteCallBackData.getVideoid())) {
             } else {
                 WriteData writeData = postWriteCallBackData.writeDataForVideo;
-                mo4 mo4Var = new mo4();
-                mo4Var.parseFromWriteData(writeData);
-                if (this.a.a == null || !this.a.a.z()) {
+                wo4 wo4Var = new wo4();
+                wo4Var.parseFromWriteData(writeData);
+                if (this.a.a == null || !this.a.a.A()) {
                     return;
                 }
-                this.a.a.y(mo4Var);
+                this.a.a.y(wo4Var);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class f extends wa {
+    public class f extends za {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ConcernFragment a;
@@ -433,7 +433,7 @@ public class ConcernFragment extends BaseFragment implements jc6 {
 
         /* JADX WARN: Removed duplicated region for block: B:13:0x0027  */
         /* JADX WARN: Removed duplicated region for block: B:22:0x0059  */
-        @Override // com.repackage.wa
+        @Override // com.repackage.za
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -452,24 +452,24 @@ public class ConcernFragment extends BaseFragment implements jc6 {
                     if (!(responsedMessage instanceof GetMyPostHttpResponseMessage)) {
                         GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
                         if (StringUtils.isNull(getMyPostHttpResponseMessage.getErrorString())) {
-                            errorString2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c33);
+                            errorString2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c37);
                         } else {
                             errorString2 = getMyPostHttpResponseMessage.getErrorString();
                         }
                         if (z || getMyPostHttpResponseMessage.getError() == 0) {
-                            this.a.I0(getMyPostHttpResponseMessage.getError(), errorString2, getMyPostHttpResponseMessage.getResponseData());
+                            this.a.v1(getMyPostHttpResponseMessage.getError(), errorString2, getMyPostHttpResponseMessage.getResponseData());
                             return;
                         }
                         return;
                     } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
                         GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
                         if (StringUtils.isNull(getMyPostSocketResponseMessage.getErrorString())) {
-                            errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c33);
+                            errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c37);
                         } else {
                             errorString = getMyPostSocketResponseMessage.getErrorString();
                         }
                         if (z || getMyPostSocketResponseMessage.getError() == 0) {
-                            this.a.I0(getMyPostSocketResponseMessage.getError(), errorString, getMyPostSocketResponseMessage.getResponseData());
+                            this.a.v1(getMyPostSocketResponseMessage.getError(), errorString, getMyPostSocketResponseMessage.getResponseData());
                             return;
                         }
                         return;
@@ -506,139 +506,63 @@ public class ConcernFragment extends BaseFragment implements jc6 {
         this.k = new f(this, CmdConfigHttp.CMD_GET_MY_POST, 303111);
     }
 
-    @Override // com.repackage.jc6
-    public void C() {
+    public void A1() {
+        ConcernPageView concernPageView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (concernPageView = this.a) != null && concernPageView.A()) {
+            this.a.L();
+        }
+    }
+
+    public void B1(DataRes dataRes, boolean z) {
+        ConcernPageView concernPageView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes, z) == null) || (concernPageView = this.a) == null) {
+            return;
+        }
+        concernPageView.U(dataRes, z);
+    }
+
+    public void C1(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
+            this.a.V(str, i);
+        }
+    }
+
+    @Override // com.repackage.jd6
+    public void W() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.jd6
+    public void b0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             changeSkinType(TbadkCoreApplication.getInst().getSkinType());
             ConcernPageView concernPageView = this.a;
-            if (concernPageView == null || !concernPageView.z()) {
+            if (concernPageView == null || !concernPageView.A()) {
                 return;
             }
-            this.a.E(TbadkCoreApplication.getInst().getSkinType());
+            this.a.F(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void H0() {
-        ConcernPageView concernPageView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (concernPageView = this.a) != null && concernPageView.z()) {
-            this.a.r();
-        }
-    }
-
-    public final void I0(int i, String str, GetMyPostResIdl getMyPostResIdl) {
-        User_Info user_Info;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, getMyPostResIdl) == null) {
-            if (i != 0) {
-                showToast(str);
-                return;
-            }
-            DataRes dataRes = getMyPostResIdl.data;
-            if (dataRes == null || dataRes.thread_info == null) {
-                return;
-            }
-            mo4 mo4Var = new mo4();
-            ThreadInfo.Builder builder = new ThreadInfo.Builder(getMyPostResIdl.data.thread_info);
-            User.Builder builder2 = new User.Builder(builder.author);
-            J0(builder2, getMyPostResIdl.data.user_info);
-            User user = builder.author;
-            if (user == null || TextUtils.isEmpty(user.name)) {
-                builder.author = builder2.build(true);
-            }
-            User user2 = builder.author;
-            if (user2 != null && (user_Info = getMyPostResIdl.data.user_info) != null && user2.name.equals(user_Info.name)) {
-                builder.author = builder2.build(true);
-            }
-            builder.fname = wi8.k().m();
-            builder.fid = Long.valueOf(jg.g(wi8.k().m(), 0L));
-            mo4Var.parserProtobuf(builder.build(true));
-            this.a.y(mo4Var);
-        }
-    }
-
-    public final void J0(User.Builder builder, User_Info user_Info) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, builder, user_Info) == null) || user_Info == null) {
-            return;
-        }
-        Long l = user_Info.id;
-        builder.id = l;
-        builder.gender = user_Info.gender;
-        builder.type = user_Info.type;
-        builder.name = user_Info.name;
-        builder.name_show = user_Info.name_show;
-        if (l.longValue() == TbadkCoreApplication.getCurrentAccountId()) {
-            builder.portrait = TbadkCoreApplication.getCurrentPortrait();
-        } else {
-            builder.portrait = user_Info.portrait;
-        }
-        builder.god_data = user_Info.god_data;
-        builder.fans_num = user_Info.fans_num;
-        builder.fans_nickname = user_Info.fans_nickname;
-        builder.is_bawu = user_Info.is_bawu;
-        builder.bawu_type = user_Info.bawu_type;
-        builder.new_god_data = user_Info.new_god_data;
-    }
-
-    public void K0(ConcernPageView.l lVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, lVar) == null) {
-            this.b = lVar;
-            this.a.setCallback(lVar);
-        }
-    }
-
-    public void L0(ScrollFragmentTabHost scrollFragmentTabHost) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, scrollFragmentTabHost) == null) {
-            this.c = scrollFragmentTabHost;
-            ConcernPageView concernPageView = this.a;
-            if (concernPageView == null || !concernPageView.z()) {
-                return;
-            }
-            this.a.setScrollFragmentTabHost(scrollFragmentTabHost);
-        }
-    }
-
-    public void M0() {
-        ConcernPageView concernPageView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (concernPageView = this.a) != null && concernPageView.z()) {
-            this.a.K();
-        }
-    }
-
-    public void N0(tbclient.Userlike.DataRes dataRes, boolean z) {
-        ConcernPageView concernPageView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048583, this, dataRes, z) == null) || (concernPageView = this.a) == null) {
-            return;
-        }
-        concernPageView.T(dataRes, z);
-    }
-
-    public void O0(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i) == null) {
-            this.a.U(str, i);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.f75
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.t75
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? "a038" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "a038" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.f75
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.t75
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             if (super.getCurrentPageSourceKeyList() != null) {
                 arrayList = new ArrayList(super.getCurrentPageSourceKeyList());
             } else {
@@ -652,26 +576,17 @@ public class ConcernFragment extends BaseFragment implements jc6 {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.jc6
-    public void l() {
-        ConcernPageView concernPageView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.e && (concernPageView = this.a) != null && concernPageView.z()) {
-            this.a.L();
-        }
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onActivityCreated(bundle);
             this.i.setTag(getBaseFragmentActivity().getUniqueId());
             this.i.setSelfListener(true);
             this.k.getHttpMessageListener().setSelfListener(true);
             this.k.getSocketMessageListener().setSelfListener(true);
             ConcernPageView concernPageView = this.a;
-            if (concernPageView == null || !concernPageView.z()) {
+            if (concernPageView == null || !concernPageView.A()) {
                 return;
             }
             registerListener(this.i);
@@ -683,13 +598,13 @@ public class ConcernFragment extends BaseFragment implements jc6 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             super.onChangeSkinType(i);
             ConcernPageView concernPageView = this.a;
-            if (concernPageView == null || !concernPageView.z()) {
+            if (concernPageView == null || !concernPageView.A()) {
                 return;
             }
-            this.a.E(i);
+            this.a.F(i);
         }
     }
 
@@ -697,7 +612,7 @@ public class ConcernFragment extends BaseFragment implements jc6 {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048590, this, layoutInflater, viewGroup, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(5022);
             if (this.a.getParent() instanceof ViewGroup) {
                 ((ViewGroup) this.a.getParent()).removeView(this.a);
@@ -706,7 +621,7 @@ public class ConcernFragment extends BaseFragment implements jc6 {
                     this.a.setCallback(lVar);
                 }
             }
-            if (this.a.z()) {
+            if (this.a.A()) {
                 this.a.setPageUniqueId(getUniqueId());
                 if (this.d) {
                     this.a.x();
@@ -722,23 +637,23 @@ public class ConcernFragment extends BaseFragment implements jc6 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onDestroy();
             MessageManager.getInstance().unRegisterListener(this.i);
             MessageManager.getInstance().unRegisterListener(this.j);
             ConcernPageView concernPageView = this.a;
-            if (concernPageView != null && concernPageView.z()) {
-                this.a.F();
+            if (concernPageView != null && concernPageView.A()) {
+                this.a.G();
             }
             this.d = true;
-            b45.e().b();
+            q45.e().b();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDetach() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.f);
             MessageManager.getInstance().unRegisterListener(this.h);
             super.onDetach();
@@ -748,7 +663,7 @@ public class ConcernFragment extends BaseFragment implements jc6 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onPause();
             this.a.setTabInForeBackgroundState(true);
         }
@@ -757,17 +672,17 @@ public class ConcernFragment extends BaseFragment implements jc6 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onPrimary();
             if (isPrimary()) {
                 if (!this.e) {
                     ConcernPageView concernPageView = this.a;
                     if (concernPageView != null) {
-                        if (!concernPageView.z()) {
+                        if (!concernPageView.A()) {
                             this.a.w(getContext());
                             if (!UbsABTestHelper.isLaunchUpA()) {
                                 this.a.removeAllViews();
-                                this.a.S();
+                                this.a.T();
                             }
                             this.a.x();
                             registerListener(this.f);
@@ -792,37 +707,122 @@ public class ConcernFragment extends BaseFragment implements jc6 {
             }
             ConcernPageView concernPageView3 = this.a;
             if (concernPageView3 != null) {
-                concernPageView3.I();
+                concernPageView3.J();
             }
-            H0();
+            u1();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(5024);
             super.onResume();
             ConcernPageView concernPageView = this.a;
             if (concernPageView != null) {
-                concernPageView.G();
+                concernPageView.H();
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(5025);
         }
     }
 
-    @Override // com.repackage.jc6
-    public void q() {
+    @Override // com.repackage.jd6
+    public void t() {
+        ConcernPageView concernPageView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && this.e && (concernPageView = this.a) != null && concernPageView.A()) {
+            this.a.M();
+        }
+    }
+
+    public void u1() {
+        ConcernPageView concernPageView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (concernPageView = this.a) != null && concernPageView.A()) {
+            this.a.r();
+        }
+    }
+
+    public final void v1(int i, String str, GetMyPostResIdl getMyPostResIdl) {
+        User_Info user_Info;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048593, this, i, str, getMyPostResIdl) == null) {
+            if (i != 0) {
+                showToast(str);
+                return;
+            }
+            tbclient.GetMyPost.DataRes dataRes = getMyPostResIdl.data;
+            if (dataRes == null || dataRes.thread_info == null) {
+                return;
+            }
+            wo4 wo4Var = new wo4();
+            ThreadInfo.Builder builder = new ThreadInfo.Builder(getMyPostResIdl.data.thread_info);
+            User.Builder builder2 = new User.Builder(builder.author);
+            w1(builder2, getMyPostResIdl.data.user_info);
+            User user = builder.author;
+            if (user == null || TextUtils.isEmpty(user.name)) {
+                builder.author = builder2.build(true);
+            }
+            User user2 = builder.author;
+            if (user2 != null && (user_Info = getMyPostResIdl.data.user_info) != null && user2.name.equals(user_Info.name)) {
+                builder.author = builder2.build(true);
+            }
+            builder.fname = oj8.k().m();
+            builder.fid = Long.valueOf(ng.g(oj8.k().m(), 0L));
+            wo4Var.parserProtobuf(builder.build(true));
+            this.a.z(wo4Var, true);
+        }
+    }
+
+    public final void w1(User.Builder builder, User_Info user_Info) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048594, this, builder, user_Info) == null) || user_Info == null) {
+            return;
+        }
+        Long l = user_Info.id;
+        builder.id = l;
+        builder.gender = user_Info.gender;
+        builder.type = user_Info.type;
+        builder.name = user_Info.name;
+        builder.name_show = user_Info.name_show;
+        if (l.longValue() == TbadkCoreApplication.getCurrentAccountId()) {
+            builder.portrait = TbadkCoreApplication.getCurrentPortrait();
+        } else {
+            builder.portrait = user_Info.portrait;
+        }
+        builder.god_data = user_Info.god_data;
+        builder.fans_num = user_Info.fans_num;
+        builder.fans_nickname = user_Info.fans_nickname;
+        builder.is_bawu = user_Info.is_bawu;
+        builder.bawu_type = user_Info.bawu_type;
+        builder.new_god_data = user_Info.new_god_data;
+    }
+
+    public void x1(ConcernPageView.l lVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, lVar) == null) {
+            this.b = lVar;
+            this.a.setCallback(lVar);
+        }
+    }
+
+    @Override // com.repackage.jd6
+    public void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
         }
     }
 
-    @Override // com.repackage.jc6
-    public void z() {
+    public void y1(ScrollFragmentTabHost scrollFragmentTabHost) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+        if (interceptable == null || interceptable.invokeL(1048597, this, scrollFragmentTabHost) == null) {
+            this.c = scrollFragmentTabHost;
+            ConcernPageView concernPageView = this.a;
+            if (concernPageView == null || !concernPageView.A()) {
+                return;
+            }
+            this.a.setScrollFragmentTabHost(scrollFragmentTabHost);
         }
     }
 

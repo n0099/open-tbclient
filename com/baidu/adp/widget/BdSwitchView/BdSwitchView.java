@@ -145,7 +145,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
 
     /* loaded from: classes.dex */
     public interface b {
-        void OnSwitchStateChange(View view2, SwitchState switchState);
+        void j0(View view2, SwitchState switchState);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -254,29 +254,29 @@ public class BdSwitchView extends View implements View.OnTouchListener {
             this.c = 0.0f;
         }
         if (z && switchState != this.a && (bVar = this.n) != null) {
-            bVar.OnSwitchStateChange(this, switchState);
+            bVar.j0(this, switchState);
         }
         this.a = switchState;
         this.i = false;
         invalidate();
     }
 
-    public void i() {
+    public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             g(SwitchState.OFF, true);
         }
     }
 
-    public void j(boolean z) {
+    public void i(boolean z) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || this.a == SwitchState.OFF) {
             return;
         }
-        i();
+        h();
     }
 
-    public void k() {
+    public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             SwitchState switchState = this.a;
@@ -288,22 +288,22 @@ public class BdSwitchView extends View implements View.OnTouchListener {
         }
     }
 
-    public void l() {
+    public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             g(SwitchState.ON, true);
         }
     }
 
-    public void m(boolean z) {
+    public void l(boolean z) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || this.a == SwitchState.ON) {
             return;
         }
-        l();
+        k();
     }
 
-    public void n() {
+    public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             SwitchState switchState = this.a;
@@ -315,7 +315,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
         }
     }
 
-    public final void o() {
+    public final void n() {
         Vibrator vibrator;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (vibrator = this.o) == null) {
@@ -420,7 +420,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
                 float x = motionEvent.getX();
                 this.b = x;
                 this.c = x;
-                o();
+                n();
                 return true;
             } else if (action == 1) {
                 this.g = false;
@@ -437,7 +437,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
                     this.a = SwitchState.OFF;
                 }
                 if (this.h && switchState3 != (switchState = this.a) && (bVar = this.n) != null) {
-                    bVar.OnSwitchStateChange(this, switchState);
+                    bVar.j0(this, switchState);
                 }
                 this.i = false;
                 invalidate();
@@ -465,7 +465,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
                     this.a = SwitchState.OFF;
                 }
                 if (this.h && switchState4 != (switchState2 = this.a) && (bVar2 = this.n) != null) {
-                    bVar2.OnSwitchStateChange(this, switchState2);
+                    bVar2.j0(this, switchState2);
                 }
                 this.i = false;
                 invalidate();

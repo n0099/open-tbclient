@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dc5;
+import com.repackage.qc5;
 import tbclient.BackUser.BackUserReqIdl;
 import tbclient.BackUser.DataReq;
 /* loaded from: classes2.dex */
@@ -41,7 +41,7 @@ public class BackUserReqMsg extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                dc5.c(builder, true, true, false);
+                qc5.c(builder, true, true, false);
                 BackUserReqIdl.Builder builder2 = new BackUserReqIdl.Builder();
                 builder2.data = builder.build(false);
                 return builder2.build(false);

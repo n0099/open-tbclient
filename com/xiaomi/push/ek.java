@@ -1,252 +1,103 @@
 package com.xiaomi.push;
 
+import android.app.Service;
 import android.content.Context;
+import android.content.Intent;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.xiaomi.clientreport.data.Config;
-import com.xiaomi.clientreport.data.EventClientReport;
-import com.xiaomi.clientreport.data.PerfClientReport;
-import com.xiaomi.clientreport.manager.ClientReportClient;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class ek {
+public class ek implements eg {
     public static /* synthetic */ Interceptable $ic;
-    public static a a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public static Map<String, hp> f301a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void uploader(Context context, hj hjVar);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-56375718, "Lcom/xiaomi/push/ek;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public ek() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-56375718, "Lcom/xiaomi/push/ek;");
-        }
-    }
-
-    public static int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            if (i > 0) {
-                return i + 1000;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return -1;
         }
-        return invokeI.intValue;
     }
 
-    public static int a(Enum r4) {
-        InterceptResult invokeL;
+    private void a(Service service, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, r4)) == null) {
-            if (r4 != null) {
-                if (r4 instanceof hf) {
-                    return r4.ordinal() + 1001;
-                }
-                if (r4 instanceof hp) {
-                    return r4.ordinal() + 2001;
-                }
-                if (r4 instanceof ev) {
-                    return r4.ordinal() + 3001;
+        if ((interceptable == null || interceptable.invokeLL(65537, this, service, intent) == null) && "com.xiaomi.mipush.sdk.WAKEUP".equals(intent.getAction())) {
+            String stringExtra = intent.getStringExtra("waker_pkgname");
+            String stringExtra2 = intent.getStringExtra("awake_info");
+            if (TextUtils.isEmpty(stringExtra)) {
+                dz.a(service.getApplicationContext(), "service", 1007, "old version message");
+            } else if (TextUtils.isEmpty(stringExtra2)) {
+                dz.a(service.getApplicationContext(), stringExtra, 1007, "play with service ");
+            } else {
+                String b = dy.b(stringExtra2);
+                boolean isEmpty = TextUtils.isEmpty(b);
+                Context applicationContext = service.getApplicationContext();
+                if (isEmpty) {
+                    dz.a(applicationContext, "service", 1008, "B get a incorrect message");
+                } else {
+                    dz.a(applicationContext, b, 1007, "old version message ");
                 }
             }
-            return -1;
         }
-        return invokeL.intValue;
     }
 
-    public static Config a(Context context) {
-        InterceptResult invokeL;
+    private void a(Context context, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            return Config.getBuilder().setEventUploadSwitchOpen(com.xiaomi.push.service.aq.a(context).a(hk.aU.a(), false)).setEventUploadFrequency(com.xiaomi.push.service.aq.a(context).a(hk.aB.a(), 86400)).setPerfUploadSwitchOpen(com.xiaomi.push.service.aq.a(context).a(hk.aA.a(), false)).setPerfUploadFrequency(com.xiaomi.push.service.aq.a(context).a(hk.aC.a(), 86400)).build(context);
-        }
-        return (Config) invokeL.objValue;
-    }
-
-    public static EventClientReport a(Context context, String str, String str2, int i, long j, String str3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, str2, Integer.valueOf(i), Long.valueOf(j), str3})) == null) {
-            EventClientReport a2 = a(str);
-            a2.eventId = str2;
-            a2.eventType = i;
-            a2.eventTime = j;
-            a2.eventContent = str3;
-            return a2;
-        }
-        return (EventClientReport) invokeCommon.objValue;
-    }
-
-    public static EventClientReport a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            EventClientReport eventClientReport = new EventClientReport();
-            eventClientReport.production = 1000;
-            eventClientReport.reportType = 1001;
-            eventClientReport.clientInterfaceId = str;
-            return eventClientReport;
-        }
-        return (EventClientReport) invokeL.objValue;
-    }
-
-    public static PerfClientReport a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            PerfClientReport perfClientReport = new PerfClientReport();
-            perfClientReport.production = 1000;
-            perfClientReport.reportType = 1000;
-            perfClientReport.clientInterfaceId = "P100000";
-            return perfClientReport;
-        }
-        return (PerfClientReport) invokeV.objValue;
-    }
-
-    public static PerfClientReport a(Context context, int i, long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{context, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            PerfClientReport a2 = a();
-            a2.code = i;
-            a2.perfCounts = j;
-            a2.perfLatencies = j2;
-            return a2;
-        }
-        return (PerfClientReport) invokeCommon.objValue;
-    }
-
-    public static hj a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            hj hjVar = new hj();
-            hjVar.d("category_client_report_data");
-            hjVar.a("push_sdk_channel");
-            hjVar.a(1L);
-            hjVar.b(str);
-            hjVar.a(true);
-            hjVar.b(System.currentTimeMillis());
-            hjVar.g(context.getPackageName());
-            hjVar.e("com.xiaomi.xmsf");
-            hjVar.f(com.xiaomi.push.service.bm.a());
-            hjVar.c("quality_support");
-            return hjVar;
-        }
-        return (hj) invokeLL.objValue;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public static hp m323a(String str) {
-        InterceptResult invokeL;
-        hp[] values;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            if (f301a == null) {
-                synchronized (hp.class) {
-                    if (f301a == null) {
-                        f301a = new HashMap();
-                        for (hp hpVar : hp.values()) {
-                            f301a.put(hpVar.f490a.toLowerCase(), hpVar);
-                        }
+        if (interceptable == null || interceptable.invokeLLLL(65538, this, context, str, str2, str3) == null) {
+            if (context == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                if (TextUtils.isEmpty(str3)) {
+                    dz.a(context, "service", 1008, "argument error");
+                } else {
+                    dz.a(context, str3, 1008, "argument error");
+                }
+            } else if (!com.xiaomi.push.service.l.a(context, str)) {
+                dz.a(context, str3, 1003, "B is not ready");
+            } else {
+                dz.a(context, str3, 1002, "B is ready");
+                dz.a(context, str3, 1004, "A is ready");
+                try {
+                    Intent intent = new Intent();
+                    intent.setClassName(str, str2);
+                    intent.setAction("com.xiaomi.mipush.sdk.WAKEUP");
+                    intent.putExtra("waker_pkgname", context.getPackageName());
+                    intent.putExtra("awake_info", dy.a(str3));
+                    if (context.startService(intent) == null) {
+                        dz.a(context, str3, 1008, "A is fail to help B's service");
+                        return;
                     }
+                    dz.a(context, str3, 1005, "A is successful");
+                    dz.a(context, str3, 1006, "The job is finished");
+                } catch (Exception e) {
+                    com.xiaomi.channel.commonutils.logger.b.a(e);
+                    dz.a(context, str3, 1008, "A meet a exception when help B's service");
                 }
             }
-            hp hpVar2 = f301a.get(str.toLowerCase());
-            return hpVar2 != null ? hpVar2 : hp.a;
-        }
-        return (hp) invokeL.objValue;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public static String m324a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) ? i == 1000 ? "E100000" : i == 3000 ? "E100002" : i == 2000 ? "E100001" : i == 6000 ? "E100003" : "" : (String) invokeI.objValue;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public static void m325a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, context) == null) {
-            ClientReportClient.updateConfig(context, a(context));
         }
     }
 
-    public static void a(Context context, Config config) {
+    @Override // com.xiaomi.push.eg
+    public void a(Context context, Intent intent, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, null, context, config) == null) {
-            ClientReportClient.init(context, config, new ei(context), new ej(context));
+        if ((interceptable == null || interceptable.invokeLLL(1048576, this, context, intent, str) == null) && context != null && (context instanceof Service)) {
+            a((Service) context, intent);
         }
     }
 
-    public static void a(Context context, hj hjVar) {
+    @Override // com.xiaomi.push.eg
+    public void a(Context context, ec ecVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65549, null, context, hjVar) == null) {
-            if (m326a(context.getApplicationContext())) {
-                com.xiaomi.push.service.bn.a(context.getApplicationContext(), hjVar);
-                return;
-            }
-            a aVar = a;
-            if (aVar != null) {
-                aVar.uploader(context, hjVar);
-            }
-        }
-    }
-
-    public static void a(Context context, List<String> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65550, null, context, list) == null) || list == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ecVar) == null) || ecVar == null) {
             return;
         }
-        try {
-            for (String str : list) {
-                hj a2 = a(context, str);
-                if (!com.xiaomi.push.service.bm.a(a2, false)) {
-                    a(context, a2);
-                }
-            }
-        } catch (Throwable th) {
-            com.xiaomi.channel.commonutils.logger.b.d(th.getMessage());
-        }
-    }
-
-    public static void a(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65551, null, aVar) == null) {
-            a = aVar;
-        }
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public static boolean m326a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) ? (context == null || TextUtils.isEmpty(context.getPackageName()) || !"com.xiaomi.xmsf".equals(context.getPackageName())) ? false : true : invokeL.booleanValue;
+        a(context, ecVar.m299a(), ecVar.c(), ecVar.d());
     }
 }

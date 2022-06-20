@@ -1,41 +1,27 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class uc8 implements qc8 {
+public class uc8 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile tc8 a;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final pc8 a;
 
-    public uc8(@NonNull pc8 pc8Var) {
+    public static synchronized tc8 a() {
+        InterceptResult invokeV;
+        tc8 tc8Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pc8Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (uc8.class) {
+                if (a == null) {
+                    a = new tc8();
+                }
+                tc8Var = a;
             }
+            return tc8Var;
         }
-        this.a = pc8Var;
-    }
-
-    @Override // com.repackage.qc8
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            d85.b().l(System.currentTimeMillis());
-            vc8.g(this.a).b();
-        }
+        return (tc8) invokeV.objValue;
     }
 }

@@ -1,9 +1,9 @@
 package com.repackage;
 
-import android.util.Log;
+import android.app.Application;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IWebViewDataDirectoryManager;
-import com.baidu.nps.interfa.IWebViewDataDirectoryManager_WebViewDataDirectoryManager_Provider;
+import com.baidu.nps.interfa.IHostAppRuntime;
+import com.baidu.nps.interfa.IHostAppRuntime_HostAppRuntimeManager_Provider;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,7 +18,7 @@ public class c51 {
     public static c51 b;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public qa1<IWebViewDataDirectoryManager> a;
+    public bb1<IHostAppRuntime> a;
 
     static {
         InterceptResult invokeClinit;
@@ -49,31 +49,27 @@ public class c51 {
                 return;
             }
         }
-        b();
+        c();
     }
 
-    public static c51 a() {
+    public static c51 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (c51) invokeV.objValue;
     }
 
-    public void b() {
+    public Application a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            oa1 b2 = oa1.b();
-            this.a = b2;
-            b2.a(new IWebViewDataDirectoryManager_WebViewDataDirectoryManager_Provider());
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.get().getApplication() : (Application) invokeV.objValue;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (r51.a()) {
-                Log.i("NPS-WebViewDataDirec", "webViewDataDirectoryManagerHolder class=" + this.a.getClass());
-            }
-            this.a.get().setDataDirectorySuffix();
+            za1 b2 = za1.b();
+            this.a = b2;
+            b2.a(new IHostAppRuntime_HostAppRuntimeManager_Provider());
         }
     }
 }

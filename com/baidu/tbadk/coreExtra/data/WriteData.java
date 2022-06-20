@@ -6,6 +6,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.EditVideoActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.tbadk.core.data.VoiceData;
@@ -27,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.Gson;
-import com.repackage.ki;
+import com.repackage.oi;
 import java.io.File;
 import java.io.Serializable;
 import java.net.URLEncoder;
@@ -282,7 +283,7 @@ public class WriteData extends OrmObject implements Serializable {
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (ki.isEmpty(str)) {
+            if (oi.isEmpty(str)) {
                 return null;
             }
             try {
@@ -330,7 +331,7 @@ public class WriteData extends OrmObject implements Serializable {
                 writeData.mUniversitySubjectComment = jSONObject.optString("mUniversitySubjectComment", "");
                 writeData.mOtherGrade = jSONObject.optInt("other_grade", 0);
                 writeData.mOtherComment = jSONObject.optString("other_comment", "");
-                String optString2 = jSONObject.optString("item_info", "");
+                String optString2 = jSONObject.optString(WriteActivityConfig.ITEM_INFO, "");
                 if (!TextUtils.isEmpty(optString2)) {
                     writeData.mEvaluateItemInfo = (TbRichTextEvaluateItemInfo) new Gson().fromJson(optString2, (Class<Object>) TbRichTextEvaluateItemInfo.class);
                 }
@@ -389,7 +390,7 @@ public class WriteData extends OrmObject implements Serializable {
                     int i = 0;
                     while (i < chosedFiles.size()) {
                         ImageFileInfo imageFileInfo = chosedFiles.get(i);
-                        if (imageFileInfo.isTempFile() && imageFileInfo.isAlreadyUploadedToServer() && !ki.isEmpty(imageFileInfo.getFilePath())) {
+                        if (imageFileInfo.isTempFile() && imageFileInfo.isAlreadyUploadedToServer() && !oi.isEmpty(imageFileInfo.getFilePath())) {
                             File file = new File(imageFileInfo.getFilePath());
                             if (file.exists()) {
                                 file.delete();
@@ -1091,7 +1092,7 @@ public class WriteData extends OrmObject implements Serializable {
         List<Object> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048682, this)) == null) {
-            if ((this.isRichTextEditorMode || ki.isEmpty(this.mContent)) && ki.isEmpty(this.mTitle)) {
+            if ((this.isRichTextEditorMode || oi.isEmpty(this.mContent)) && oi.isEmpty(this.mTitle)) {
                 WriteImagesInfo writeImagesInfo = this.writeImagesInfo;
                 if (writeImagesInfo == null || writeImagesInfo.size() <= 0) {
                     if (this.isRichTextEditorMode && (list = this.richContentData) != null) {
@@ -2151,7 +2152,7 @@ public class WriteData extends OrmObject implements Serializable {
                 jSONObject.put("other_grade", this.mOtherGrade);
                 jSONObject.put("other_comment", this.mOtherComment);
                 if (this.mEvaluateItemInfo != null) {
-                    jSONObject.put("item_info", new Gson().toJson(this.mEvaluateItemInfo));
+                    jSONObject.put(WriteActivityConfig.ITEM_INFO, new Gson().toJson(this.mEvaluateItemInfo));
                     jSONObject.put("evaluation_star", this.mEvaluationStar);
                 }
                 jSONObject.put(IntentConfig.IS_EVALUATE, this.isEvaluate);

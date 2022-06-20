@@ -1,225 +1,183 @@
 package com.repackage;
 
-import android.os.Build;
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.core.async.BdRunnable;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.AbstractBceClient;
-import java.io.IOException;
-import java.util.Map;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.ubs.analytics.SampleResult;
+import com.repackage.n29;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes7.dex */
 public class wi5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String b;
-    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
+    public int a;
+    public boolean b;
 
-    /* loaded from: classes7.dex */
-    public class a extends BdRunnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Map c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ wi5 e;
-
-        /* renamed from: com.repackage.wi5$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C0548a extends BdRunnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ JSONObject c;
-            public final /* synthetic */ a d;
-
-            public C0548a(a aVar, JSONObject jSONObject) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, jSONObject};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.d = aVar;
-                this.c = jSONObject;
-            }
-
-            @Override // com.baidu.browser.core.async.BdRunnable
-            public void b() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.d.e.a.a(this.c);
-                }
-            }
-        }
-
-        public a(wi5 wi5Var, Map map, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wi5Var, map, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = wi5Var;
-            this.c = map;
-            this.d = str;
-        }
-
-        @Override // com.baidu.browser.core.async.BdRunnable
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MediaType parse = MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE);
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    this.e.d(this.c);
-                    this.e.f(this.c, jSONObject);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                OkHttpClient okHttpClient = new OkHttpClient();
-                RequestBody create = RequestBody.create(parse, String.valueOf(jSONObject));
-                Response response = null;
-                try {
-                    response = okHttpClient.newCall(new Request.Builder().url(this.d).post(create).build()).execute();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
-                }
-                try {
-                    vv.f().h(new C0548a(this, new JSONObject(response.body().string())));
-                } catch (IOException e3) {
-                    e3.printStackTrace();
-                } catch (JSONException e4) {
-                    e4.printStackTrace();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(JSONObject jSONObject);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755200402, "Lcom/repackage/wi5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755200402, "Lcom/repackage/wi5;");
-                return;
-            }
-        }
-        b = ul4.e() ? "http://" : "https://";
-        c = b + "afdconf.baidu.com/afd/download";
-    }
-
-    public wi5(@NonNull b bVar) {
+    public wi5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = bVar;
+        this.b = false;
+        i();
     }
 
-    public static String e() {
+    public final int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i == 1) {
+                return d(i);
+            }
+            int i2 = this.a;
+            if (i2 == 1) {
+                return c(i);
+            }
+            if (i2 == 0) {
+                return d(i);
+            }
+            return 0;
+        }
+        return invokeI.intValue;
+    }
+
+    public void b(ArrayList<Integer> arrayList, vi5 vi5Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList, vi5Var) == null) || arrayList == null || vi5Var == null) {
+            return;
+        }
+        Iterator<Integer> it = arrayList.iterator();
+        while (it.hasNext()) {
+            int intValue = it.next().intValue();
+            vi5Var.b(intValue, a(intValue));
+        }
+    }
+
+    public final int c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            String e = e(i);
+            if (oi.isEmpty(e)) {
+                return 0;
+            }
+            SampleResult a = m29.a(e);
+            return (a == SampleResult.T1 || a == SampleResult.T2 || a == SampleResult.T3 || a == SampleResult.T4 || a == SampleResult.T5) ? 1 : 0;
+        }
+        return invokeI.intValue;
+    }
+
+    public final int d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            String f = f(i);
+            return (!oi.isEmpty(f) && ht4.k().l(f, 0) == 1) ? 1 : 0;
+        }
+        return invokeI.intValue;
+    }
+
+    public final String e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            if (i == 2) {
+                return "46";
+            }
+            return null;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public final String f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            if (i == 1) {
+                return "key_card_show_type";
+            }
+            if (i == 2) {
+                return "key_card_abstract_switch";
+            }
+            return null;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (ji.H()) {
-                return UtilHelper.getWifiMac(TbadkCoreApplication.getInst().getApp());
-            }
-            return UtilHelper.getGprsIpAddress();
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : invokeV.booleanValue;
     }
 
-    public final Map<String, String> d(Map<String, String> map) {
-        InterceptResult invokeL;
+    public boolean h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
-            map.put("_client_version", TbConfig.getVersion());
-            map.put("uid", TbadkCoreApplication.getCurrentAccount());
-            map.put("cuid", TbadkCoreApplication.getInst().getCuidGalaxy2());
-            map.put("ua", ad5.b());
-            map.put("model", Build.MODEL);
-            map.put(HttpRequest.CLIENT_TYPE, "2");
-            map.put("_os_version", Build.VERSION.RELEASE);
-            map.put("nt", String.valueOf(ji.I()));
-            map.put("imei", TbadkCoreApplication.getInst().getImei());
-            map.put(HttpRequest.ANDROID_ID, TbadkCoreApplication.getInst().getAndroidId());
-            map.put("ip", e());
-            map.put("ssl", "1");
-            return map;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (TbadkCoreApplication.getInst().isMainProcess(true)) {
+                try {
+                    n29.a aVar = new n29.a();
+                    aVar.e(TbadkCoreApplication.getInst());
+                    aVar.j(false);
+                    aVar.n(30L);
+                    aVar.m(1);
+                    aVar.l(false);
+                    aVar.o(15L);
+                    aVar.k(1000);
+                    m29.b(aVar.c());
+                    return true;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return false;
+                }
+            }
+            return false;
         }
-        return (Map) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final JSONObject f(Map<String, String> map, JSONObject jSONObject) throws JSONException {
-        InterceptResult invokeLL;
+    public final void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, jSONObject)) == null) {
-            if (db7.f(map)) {
-                return jSONObject;
-            }
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                jSONObject.putOpt(entry.getKey(), entry.getValue());
-            }
-            return jSONObject;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.a = ht4.k().l("key_abtest_channel", 0);
+            j();
         }
-        return (JSONObject) invokeLL.objValue;
     }
 
-    public void g(Map<String, String> map, String str) {
+    public final void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, map, str) == null) {
-            vv.f().g(new a(this, map, str));
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !this.b && this.a == 1) {
+            boolean h = h();
+            this.b = h;
+            if (h) {
+                return;
+            }
+            this.a = 0;
+        }
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            if (i == 1 || i == 0) {
+                this.a = i;
+                ht4.k().w("key_abtest_channel", this.a);
+                j();
+            }
         }
     }
 }

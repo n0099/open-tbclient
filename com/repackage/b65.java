@@ -1,9 +1,57 @@
 package com.repackage;
 
-import java.util.HashMap;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface b65 extends w55 {
-    HashMap<String, Object> u();
+public class b65 implements j55<MissionEvent> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    HashMap<String, String> w();
+    public b65() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.j55
+    /* renamed from: a */
+    public boolean onEvent(MissionEvent missionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, missionEvent)) == null) {
+            if (TbadkCoreApplication.getInst().isMainProcess(true)) {
+                int i = missionEvent.pageId;
+                int i2 = missionEvent.pageType;
+                long j = missionEvent.tid;
+                String str = missionEvent.actionType;
+                if ("onResume".equals(str)) {
+                    wh4.w().K(i, j);
+                    wh4.w().P(i2, j);
+                } else if (MissionEvent.MESSAGE_PAUSE.equals(str)) {
+                    wh4.w().E();
+                } else if (MissionEvent.MESSAGE_TOUCH.equals(str)) {
+                    wh4.w().F();
+                } else if (MissionEvent.MESSAGE_ACTIVITY.equals(str)) {
+                    wh4.w().K(i, j);
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
 }

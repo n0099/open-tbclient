@@ -1,9 +1,7 @@
 package com.repackage;
-
-import com.baidu.nadcore.webview.container.base.AbsContainer;
 /* loaded from: classes7.dex */
-public interface vl0 extends wg0 {
-    AbsContainer b();
+public interface vl0 extends ah0 {
+    void a(String str, String str2);
 
-    void e(int i);
+    void c(String str, String str2, String str3);
 }

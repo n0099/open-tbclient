@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ad4;
-import com.repackage.cd4;
+import com.repackage.ld4;
+import com.repackage.nd4;
 /* loaded from: classes2.dex */
 public final class FragmentState implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
@@ -122,15 +122,15 @@ public final class FragmentState implements Parcelable {
         return invokeV.intValue;
     }
 
-    public Fragment instantiate(ad4 ad4Var, Fragment fragment) {
+    public Fragment instantiate(ld4 ld4Var, Fragment fragment) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ad4Var, fragment)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ld4Var, fragment)) == null) {
             Fragment fragment2 = this.mInstance;
             if (fragment2 != null) {
                 return fragment2;
             }
-            Context context = ad4Var.getContext();
+            Context context = ld4Var.getContext();
             Bundle bundle = this.mArguments;
             if (bundle != null) {
                 bundle.setClassLoader(context.getClassLoader());
@@ -141,7 +141,7 @@ public final class FragmentState implements Parcelable {
                 bundle2.setClassLoader(context.getClassLoader());
                 this.mInstance.d = this.mSavedFragmentState;
             }
-            this.mInstance.j1(this.mIndex, fragment);
+            this.mInstance.k1(this.mIndex, fragment);
             Fragment fragment3 = this.mInstance;
             fragment3.o = this.mFromLayout;
             fragment3.q = true;
@@ -150,8 +150,8 @@ public final class FragmentState implements Parcelable {
             fragment3.y = this.mTag;
             fragment3.B = this.mRetainInstance;
             fragment3.A = this.mDetached;
-            fragment3.s = ad4Var.e;
-            if (cd4.x) {
+            fragment3.s = ld4Var.e;
+            if (nd4.x) {
                 Log.v("FragmentManager", "Instantiated fragment " + this.mInstance);
             }
             return this.mInstance;

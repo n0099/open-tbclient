@@ -1,112 +1,126 @@
 package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.text.TextUtils;
+import com.baidu.searchbox.player.widget.BdPlayerProgressView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.ax;
-import com.xiaomi.push.bm;
-import com.xiaomi.push.hf;
-import com.xiaomi.push.hp;
-import com.xiaomi.push.hs;
-import com.xiaomi.push.ie;
-import java.util.HashMap;
-import java.util.Map;
+import com.xiaomi.push.bp;
+import com.xiaomi.push.ho;
+import com.xiaomi.push.ii;
+import com.xiaomi.push.service.ba;
+import java.text.Collator;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Locale;
 /* loaded from: classes8.dex */
-public final class av implements Runnable {
+public class av {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ Context a;
 
-    /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ boolean f59a;
-
-    public av(Context context, boolean z) {
+    public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
+            SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_extra", 0);
+            long j = sharedPreferences.getLong("last_sync_info", -1L);
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            long a = ba.a(context).a(ho.B.a(), 1209600);
+            if (j != -1) {
+                if (Math.abs(currentTimeMillis - j) <= a) {
+                    return;
+                }
+                a(context, true);
             }
+            sharedPreferences.edit().putLong("last_sync_info", currentTimeMillis).commit();
         }
-        this.a = context;
-        this.f59a = z;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        String d;
-        String d2;
-        Map<String, String> map;
-        String d3;
-        String str;
-        String c;
-        String c2;
+    public static void a(Context context, ii iiVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.xiaomi.channel.commonutils.logger.b.m108a("do sync info");
-            ie ieVar = new ie(com.xiaomi.push.service.at.a(), false);
-            b m149a = b.m149a(this.a);
-            ieVar.c(hp.v.f490a);
-            ieVar.b(m149a.m150a());
-            ieVar.d(this.a.getPackageName());
-            HashMap hashMap = new HashMap();
-            ieVar.f631a = hashMap;
-            Context context = this.a;
-            com.xiaomi.push.n.a(hashMap, "app_version", com.xiaomi.push.g.m376a(context, context.getPackageName()));
-            Map<String, String> map2 = ieVar.f631a;
-            Context context2 = this.a;
-            com.xiaomi.push.n.a(map2, Constants.EXTRA_KEY_APP_VERSION_CODE, Integer.toString(com.xiaomi.push.g.a(context2, context2.getPackageName())));
-            com.xiaomi.push.n.a(ieVar.f631a, "push_sdk_vn", "3_8_5");
-            com.xiaomi.push.n.a(ieVar.f631a, "push_sdk_vc", Integer.toString(30805));
-            com.xiaomi.push.n.a(ieVar.f631a, "token", m149a.b());
-            com.xiaomi.push.i.a(this.a, ieVar.f631a);
-            if (!com.xiaomi.push.l.d()) {
-                String a = bm.a(com.xiaomi.push.i.f(this.a));
-                String h = com.xiaomi.push.i.h(this.a);
-                if (!TextUtils.isEmpty(h)) {
-                    a = a + "," + h;
-                }
-                if (!TextUtils.isEmpty(a)) {
-                    com.xiaomi.push.n.a(ieVar.f631a, Constants.EXTRA_KEY_IMEI_MD5, a);
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, iiVar) == null) {
+            com.xiaomi.channel.commonutils.logger.b.m84a("need to update local info with: " + iiVar.m476a());
+            String str = iiVar.m476a().get(Constants.EXTRA_KEY_ACCEPT_TIME);
+            if (str != null) {
+                MiPushClient.removeAcceptTime(context);
+                String[] split = str.split("-");
+                if (split.length == 2) {
+                    MiPushClient.addAcceptTime(context, split[0], split[1]);
+                    if (BdPlayerProgressView.DEFAULT_TIME_TEXT.equals(split[0]) && BdPlayerProgressView.DEFAULT_TIME_TEXT.equals(split[1])) {
+                        b.m126a(context).a(true);
+                    } else {
+                        b.m126a(context).a(false);
+                    }
                 }
             }
-            ax.a(this.a).a(ieVar.f631a);
-            com.xiaomi.push.n.a(ieVar.f631a, Constants.EXTRA_KEY_REG_ID, m149a.m157c());
-            com.xiaomi.push.n.a(ieVar.f631a, Constants.EXTRA_KEY_REG_SECRET, m149a.d());
-            com.xiaomi.push.n.a(ieVar.f631a, Constants.EXTRA_KEY_ACCEPT_TIME, MiPushClient.getAcceptTime(this.a).replace(",", "-"));
-            if (this.f59a) {
-                Map<String, String> map3 = ieVar.f631a;
-                c = au.c(MiPushClient.getAllAlias(this.a));
-                com.xiaomi.push.n.a(map3, Constants.EXTRA_KEY_ALIASES_MD5, c);
-                Map<String, String> map4 = ieVar.f631a;
-                c2 = au.c(MiPushClient.getAllTopic(this.a));
-                com.xiaomi.push.n.a(map4, Constants.EXTRA_KEY_TOPICS_MD5, c2);
-                map = ieVar.f631a;
-                d3 = au.c(MiPushClient.getAllUserAccount(this.a));
-                str = Constants.EXTRA_KEY_ACCOUNTS_MD5;
-            } else {
-                Map<String, String> map5 = ieVar.f631a;
-                d = au.d(MiPushClient.getAllAlias(this.a));
-                com.xiaomi.push.n.a(map5, Constants.EXTRA_KEY_ALIASES, d);
-                Map<String, String> map6 = ieVar.f631a;
-                d2 = au.d(MiPushClient.getAllTopic(this.a));
-                com.xiaomi.push.n.a(map6, Constants.EXTRA_KEY_TOPICS, d2);
-                map = ieVar.f631a;
-                d3 = au.d(MiPushClient.getAllUserAccount(this.a));
-                str = Constants.EXTRA_KEY_ACCOUNTS;
+            String str2 = iiVar.m476a().get(Constants.EXTRA_KEY_ALIASES);
+            if (str2 != null) {
+                MiPushClient.removeAllAliases(context);
+                if (!"".equals(str2)) {
+                    for (String str3 : str2.split(",")) {
+                        MiPushClient.addAlias(context, str3);
+                    }
+                }
             }
-            com.xiaomi.push.n.a(map, str, d3);
-            an.a(this.a).a((an) ieVar, hf.i, false, (hs) null);
+            String str4 = iiVar.m476a().get(Constants.EXTRA_KEY_TOPICS);
+            if (str4 != null) {
+                MiPushClient.removeAllTopics(context);
+                if (!"".equals(str4)) {
+                    for (String str5 : str4.split(",")) {
+                        MiPushClient.addTopic(context, str5);
+                    }
+                }
+            }
+            String str6 = iiVar.m476a().get(Constants.EXTRA_KEY_ACCOUNTS);
+            if (str6 != null) {
+                MiPushClient.removeAllAccounts(context);
+                if ("".equals(str6)) {
+                    return;
+                }
+                for (String str7 : str6.split(",")) {
+                    MiPushClient.addAccount(context, str7);
+                }
+            }
         }
+    }
+
+    public static void a(Context context, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65539, null, context, z) == null) {
+            com.xiaomi.push.al.a(context).a(new aw(context, z));
+        }
+    }
+
+    public static String c(List<String> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
+            String a = bp.a(d(list));
+            return (TextUtils.isEmpty(a) || a.length() <= 4) ? "" : a.substring(0, 4).toLowerCase();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(List<String> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, list)) == null) {
+            String str = "";
+            if (com.xiaomi.push.ag.a(list)) {
+                return "";
+            }
+            ArrayList<String> arrayList = new ArrayList(list);
+            Collections.sort(arrayList, Collator.getInstance(Locale.CHINA));
+            for (String str2 : arrayList) {
+                if (!TextUtils.isEmpty(str)) {
+                    str = str + ",";
+                }
+                str = str + str2;
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
     }
 }

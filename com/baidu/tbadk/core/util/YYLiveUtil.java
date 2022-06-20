@@ -24,6 +24,7 @@ public class YYLiveUtil {
     public static final String SOURCE_BAIDU_LIVE_RECOMMEND_BANNER = "baidu_live_recommend_banner";
     public static final String SOURCE_BAIDU_LIVE_TOP_PLAY = "baidu_live_top_play";
     public static final String SOURCE_CHANNEL_BANNER = "home_page_channel_banner";
+    public static final String SOURCE_FORUM_USER_LIVE_PAGE = "frs_service_area_list";
     public static final String SOURCE_FRS_LIVE_CARD_ = "frs_live_";
     public static final String SOURCE_FRS_LIVE_CARD_TAB = "frs_tab_live_card";
     public static final String SOURCE_FRS_LIVE_HEAD_ = "frs_feed_head_";
@@ -31,6 +32,7 @@ public class YYLiveUtil {
     public static final String SOURCE_HOMEPAGE_VIDEO_CHANNEL = "video_bar_icon";
     public static final String SOURCE_HOMEPAGE_VIDEO_MIDDLE = "video_immer_icon";
     public static final String SOURCE_HOME_CONCERN_LIVE_HEAD = "home_guanzhu_live_head";
+    public static final String SOURCE_HOME_CONCERN_SECOND_FLOOR = "home_follow_twofloor";
     public static final String SOURCE_HOME_CONCERN_TUWEN_HEAD = "home_guanzhu_tuwen_head";
     public static final String SOURCE_HOME_CONCERN_VIDEO_HEAD = "home_guanzhu_video_head";
     public static final String SOURCE_HOME_FOLLOW_TAB_CARD = "home_guanzhu_tab";

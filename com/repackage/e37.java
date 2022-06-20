@@ -1,305 +1,352 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseExpandableListAdapter;
+import android.widget.ExpandableListView;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.launch.ExternalTransferSpeedStats;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.data.MsgLocalData;
-import com.baidu.tieba.im.data.SystemMsgData;
-import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.FilterUEGPersonMessage;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.im.util.MessageUtils;
-import com.baidu.tieba.imMessageCenter.mention.FeedData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tieba.R;
+import com.baidu.tieba.hottopicselect.HotTopicSelectActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
-import java.util.LinkedList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class e37 {
+public class e37 extends BaseExpandableListAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<HotTopicSelectActivity> a;
+    public LayoutInflater b;
+    public ExpandableListView c;
+    public final List<c37> d;
 
     /* loaded from: classes5.dex */
-    public interface a {
-        boolean a(ChatMessage chatMessage, ImMessageCenterPojo imMessageCenterPojo);
-    }
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public TextView b;
+        public TextView c;
+        public View d;
+        public View e;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(String str, List<CommonMsgPojo> list);
-
-        void b(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z);
-    }
-
-    /* loaded from: classes5.dex */
-    public interface c {
-        boolean a(String str);
-    }
-
-    public static boolean a(ChatMessage chatMessage, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, chatMessage, i)) == null) {
-            if (chatMessage.getMsgType() == 11) {
-                SystemMsgData n = y67.n(chatMessage);
-                return (n == null || n.getIsSelf()) ? false : true;
-            } else if (i == 4) {
-                return y67.s(chatMessage);
-            } else {
-                return (chatMessage.getUserInfo() == null || chatMessage.getUserInfo().getUserId() == null || !chatMessage.getUserInfo().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
-            }
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public static CommonMsgPojo b(List<CommonMsgPojo> list, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, list, j)) == null) {
-            for (CommonMsgPojo commonMsgPojo : list) {
-                if (commonMsgPojo.getMid() == j) {
-                    return commonMsgPojo;
-                }
-            }
-            return null;
-        }
-        return (CommonMsgPojo) invokeLJ.objValue;
-    }
-
-    public static void c(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            int optInt = jSONObject.optInt("agree");
-            int optInt2 = jSONObject.optInt("replyme");
-            jSONObject.optInt(FeedData.TYPE_ZAN);
-            int optInt3 = jSONObject.optInt("fans");
-            int optInt4 = jSONObject.optInt("gift");
-            int optInt5 = jSONObject.optInt("godfeed");
-            int optInt6 = jSONObject.optInt("atme");
-            if (jSONObject.optInt(ExternalTransferSpeedStats.FEED_PAGE) > 0) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2012118));
-            }
-            if (optInt5 > 0) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016324, Integer.valueOf(optInt5)));
-            }
-            if (optInt >= 0 && optInt2 >= 0 && optInt3 >= 0 && optInt6 >= 0 && optInt4 >= 0) {
-                int i = ex4.d().f() > 0 ? optInt4 : 0;
-                if (currentAccount == null || currentAccount.length() <= 0) {
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                int w = cx4.f0().w();
-                int v = cx4.f0().v();
-                cx4.f0().i0(jSONObject);
-                cx4.f0().T(optInt, optInt2, optInt6, w, optInt3, v, i);
             }
-        } catch (Exception unused) {
+            this.a = 3;
+            this.b = null;
+            this.c = null;
+            this.d = null;
+            this.e = null;
         }
     }
 
-    public static void d(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, b bVar, c cVar, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{groupMsgData, imMessageCenterPojo, bVar, cVar, Boolean.valueOf(z)}) == null) {
-            e(groupMsgData, imMessageCenterPojo, bVar, cVar, z, null);
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public TextView b;
+        public View c;
+        public View d;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = 3;
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:100:0x021b  */
-    /* JADX WARN: Removed duplicated region for block: B:99:0x0216  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void e(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, b bVar, c cVar, boolean z, a aVar) {
-        ImMessageCenterPojo imMessageCenterPojo2;
-        boolean z2;
-        String str;
-        boolean z3;
-        Iterator<ChatMessage> it;
-        long j;
+    public e37(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{groupMsgData, imMessageCenterPojo, bVar, cVar, Boolean.valueOf(z), aVar}) == null) {
-            a aVar2 = aVar;
-            String valueOf = String.valueOf(groupMsgData.getGroupInfo().getGroupId());
-            int customType = groupMsgData.getGroupInfo().getCustomType();
-            int userType = groupMsgData.getGroupInfo().getUserType();
-            LinkedList<ChatMessage> listMessage = groupMsgData.getListMessage();
-            if (listMessage == null || listMessage.size() <= 0) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            LinkedList linkedList = new LinkedList();
-            LinkedList linkedList2 = new LinkedList();
-            if (imMessageCenterPojo == null) {
-                imMessageCenterPojo2 = new ImMessageCenterPojo();
-                imMessageCenterPojo2.setCustomGroupType(customType);
-                imMessageCenterPojo2.setGid(valueOf);
+        }
+        this.d = new ArrayList();
+        this.a = tbPageContext;
+        this.b = LayoutInflater.from(tbPageContext.getPageActivity());
+    }
+
+    public final void a(a aVar, View view2, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLI(1048576, this, aVar, view2, i) == null) || aVar == null || aVar.a == i) {
+            return;
+        }
+        SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
+        SkinManager.setBackgroundResource(aVar.c, R.drawable.hot_select_tag_bg);
+        SkinManager.setBackgroundColor(aVar.d, R.color.CAM_X0204);
+        SkinManager.setBackgroundColor(aVar.e, R.color.CAM_X0204);
+        SkinManager.setViewTextColor(aVar.c, R.color.CAM_X0302, 1);
+        SkinManager.setViewTextColor(aVar.b, R.color.CAM_X0105, 1);
+        aVar.a = i;
+    }
+
+    public final void b(b bVar, View view2, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, view2, i) == null) || bVar == null || bVar.a == i) {
+            return;
+        }
+        SkinManager.setBackgroundColor(view2, R.color.CAM_X0201);
+        SkinManager.setBackgroundColor(bVar.c, R.color.CAM_X0204);
+        SkinManager.setBackgroundColor(bVar.d, R.color.CAM_X0205);
+        SkinManager.setViewTextColor(bVar.b, R.color.CAM_X0109, 1);
+        bVar.a = i;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.d.clear();
+            notifyDataSetChanged();
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.ExpandableListAdapter
+    /* renamed from: d */
+    public d37 getChild(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {
+            if (getGroup(i) == null || getGroup(i).b() == null) {
+                return null;
+            }
+            return getGroup(i).b().get(i2);
+        }
+        return (d37) invokeII.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.ExpandableListAdapter
+    /* renamed from: e */
+    public c37 getGroup(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? this.d.get(i) : (c37) invokeI.objValue;
+    }
+
+    public List<c37> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : (List) invokeV.objValue;
+    }
+
+    public void g(c37 c37Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, c37Var) == null) {
+            this.d.add(c37Var);
+        }
+    }
+
+    @Override // android.widget.ExpandableListAdapter
+    public long getChildId(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2)) == null) ? i2 : invokeII.longValue;
+    }
+
+    @Override // android.widget.BaseExpandableListAdapter, android.widget.HeterogeneousExpandableList
+    public int getChildType(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048585, this, i, i2)) == null) {
+            if (getChildTypeCount() == 2) {
+                if (i != 0 && i == 1) {
+                    return 2;
+                }
+            } else if (getChildTypeCount() == 1 && getGroup(i).getType() != 0 && getGroup(i).getType() == 1) {
+                return 2;
+            }
+            return 1;
+        }
+        return invokeII.intValue;
+    }
+
+    @Override // android.widget.BaseExpandableListAdapter, android.widget.HeterogeneousExpandableList
+    public int getChildTypeCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.d.size() : invokeV.intValue;
+    }
+
+    @Override // android.widget.ExpandableListAdapter
+    public View getChildView(int i, int i2, boolean z, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeCommon;
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), view2, viewGroup})) == null) {
+            d37 child = getChild(i, i2);
+            if (view2 != null && (view2.getTag() instanceof a)) {
+                aVar = (a) view2.getTag();
             } else {
-                imMessageCenterPojo2 = imMessageCenterPojo;
+                view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d0391, (ViewGroup) null);
+                aVar = new a();
+                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d9b);
+                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d9a);
+                aVar.d = view2.findViewById(R.id.obfuscated_res_0x7f0907ce);
+                aVar.e = view2.findViewById(R.id.obfuscated_res_0x7f0907c8);
+                view2.setTag(aVar);
             }
-            imMessageCenterPojo2.setUserType(userType);
-            int unread_count = imMessageCenterPojo2.getUnread_count();
-            long pulled_msgId = imMessageCenterPojo2.getPulled_msgId();
-            long last_rid = imMessageCenterPojo2.getLast_rid();
-            Iterator<ChatMessage> it2 = listMessage.iterator();
-            CommonMsgPojo commonMsgPojo = null;
-            while (it2.hasNext()) {
-                ChatMessage next = it2.next();
-                if (pulled_msgId < next.getMsgId()) {
-                    pulled_msgId = next.getMsgId();
-                }
-                if (aVar2 == null || !aVar2.a(next, imMessageCenterPojo2)) {
-                    next.setLocalData(new MsgLocalData());
-                    it = it2;
-                    next.getLocalData().setStatus((short) 3);
-                    CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo(next);
-                    commonMsgPojo2.setCustomGroupType(customType);
-                    j = pulled_msgId;
-                    if (next.getMsgType() == 31) {
-                        CommonMsgPojo b2 = b(linkedList, commonMsgPojo2.getIllegalMsgId());
-                        if (b2 != null) {
-                            linkedList.remove(b2);
-                            if (b2.getRid() > last_rid) {
-                                unread_count--;
-                            }
-                            if (commonMsgPojo != null && commonMsgPojo.getMid() == b2.getMid()) {
-                                if (linkedList.isEmpty()) {
-                                    commonMsgPojo = null;
-                                } else {
-                                    commonMsgPojo2 = (CommonMsgPojo) linkedList.getLast();
-                                    commonMsgPojo = commonMsgPojo2;
-                                }
-                            }
-                        } else {
-                            linkedList2.add(commonMsgPojo2);
-                        }
-                    } else {
-                        if (a(next, customType)) {
-                            commonMsgPojo2.setRead_flag(0);
-                        } else {
-                            if (commonMsgPojo2.getRid() > last_rid) {
-                                unread_count++;
-                            }
-                            commonMsgPojo2.setRead_flag(1);
-                        }
-                        linkedList.add(commonMsgPojo2);
-                        if (commonMsgPojo != null && commonMsgPojo.getRid() >= commonMsgPojo2.getRid()) {
-                        }
-                        commonMsgPojo = commonMsgPojo2;
-                    }
-                } else {
-                    it = it2;
-                    j = pulled_msgId;
-                }
-                aVar2 = aVar;
-                it2 = it;
-                pulled_msgId = j;
+            if (child == null) {
+                return view2;
             }
-            if (commonMsgPojo != null) {
-                commonMsgPojo.checkRidAndSelf();
+            aVar.b.setText(fc5.a(StringHelper.cutStringWithEllipsisNew(child.b(), 15)));
+            h(aVar.c, child.a().intValue());
+            a(aVar, view2, TbadkCoreApplication.getInst().getSkinType());
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    @Override // android.widget.ExpandableListAdapter
+    public int getChildrenCount(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+            if (getGroup(i) == null || getGroup(i).b() == null) {
+                return 0;
             }
-            if (cVar != null && cVar.a(valueOf)) {
-                unread_count = 0;
-            }
-            imMessageCenterPojo2.setUnread_count(unread_count);
-            imMessageCenterPojo2.setPulled_msgId(pulled_msgId);
-            if ((customType == 2 || customType == 4) && commonMsgPojo != null && commonMsgPojo.getPrivateOtherUser_infoObj() != null) {
-                String portrait = commonMsgPojo.getPrivateOtherUser_infoObj().getPortrait();
-                String userName = commonMsgPojo.getPrivateOtherUser_infoObj().getUserName();
-                if (!TextUtils.isEmpty(portrait)) {
-                    imMessageCenterPojo2.setGroup_head(portrait);
-                }
-                if (!TextUtils.isEmpty(userName)) {
-                    imMessageCenterPojo2.setGroup_name(userName);
-                }
-                imMessageCenterPojo2.setNameShow(commonMsgPojo.getPrivateOtherUser_infoObj().getName_show());
-                imMessageCenterPojo2.setBjhAvatar(commonMsgPojo.getPrivateOtherUser_infoObj().getImBjhAvatar());
-            }
-            if (commonMsgPojo == null || commonMsgPojo.getRid() < last_rid) {
-                z2 = false;
+            return getGroup(i).b().size();
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // android.widget.ExpandableListAdapter
+    public int getGroupCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.d.size() : invokeV.intValue;
+    }
+
+    @Override // android.widget.ExpandableListAdapter
+    public long getGroupId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    @Override // android.widget.ExpandableListAdapter
+    public View getGroupView(int i, boolean z, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeCommon;
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), view2, viewGroup})) == null) {
+            if (view2 != null && (view2.getTag() instanceof b)) {
+                bVar = (b) view2.getTag();
             } else {
-                z2 = commonMsgPojo.getRid() > last_rid;
-                UserData user_infoObj = commonMsgPojo.getUser_infoObj();
-                if (user_infoObj != null) {
-                    str = user_infoObj.getName_show();
-                    if (TbadkCoreApplication.isLogin()) {
-                        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                        if (!TextUtils.isEmpty(currentAccount) && currentAccount.equals(String.valueOf(user_infoObj.getUserId()))) {
-                            z3 = true;
-                            String y = y67.y(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent());
-                            imMessageCenterPojo2.setLastContentRawData(commonMsgPojo.getContent());
-                            imMessageCenterPojo2.setLast_rid(commonMsgPojo.getRid());
-                            imMessageCenterPojo2.setSid(commonMsgPojo.getSid());
-                            imMessageCenterPojo2.setLastTaskId(commonMsgPojo.getTaskId());
-                            MessageUtils.makeNewTaskId(imMessageCenterPojo2, linkedList);
-                            imMessageCenterPojo2.setLastServiceId(commonMsgPojo.getServiceId());
-                            MessageUtils.makeNewServiceId(imMessageCenterPojo2, linkedList);
-                            imMessageCenterPojo2.setLast_content(y);
-                            imMessageCenterPojo2.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
-                            imMessageCenterPojo2.setLast_user_name(str);
-                            imMessageCenterPojo2.setPushIds(commonMsgPojo.getPushIds());
-                            if (imMessageCenterPojo2.getUnread_count() > 0 || z3 || z2) {
-                                imMessageCenterPojo2.setIs_hidden(0);
-                            }
-                            imMessageCenterPojo2.setIsFriend(commonMsgPojo.getIsFriend());
-                            imMessageCenterPojo2.setFollowStatus(commonMsgPojo.getFollowStatus());
-                            imMessageCenterPojo2.setSend_status(3);
-                            BdLog.i("send message status 3");
-                        }
-                    }
-                } else {
-                    str = "";
-                }
-                z3 = false;
-                String y2 = y67.y(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent());
-                imMessageCenterPojo2.setLastContentRawData(commonMsgPojo.getContent());
-                imMessageCenterPojo2.setLast_rid(commonMsgPojo.getRid());
-                imMessageCenterPojo2.setSid(commonMsgPojo.getSid());
-                imMessageCenterPojo2.setLastTaskId(commonMsgPojo.getTaskId());
-                MessageUtils.makeNewTaskId(imMessageCenterPojo2, linkedList);
-                imMessageCenterPojo2.setLastServiceId(commonMsgPojo.getServiceId());
-                MessageUtils.makeNewServiceId(imMessageCenterPojo2, linkedList);
-                imMessageCenterPojo2.setLast_content(y2);
-                imMessageCenterPojo2.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
-                imMessageCenterPojo2.setLast_user_name(str);
-                imMessageCenterPojo2.setPushIds(commonMsgPojo.getPushIds());
-                if (imMessageCenterPojo2.getUnread_count() > 0) {
-                    if (imMessageCenterPojo2.getUnread_count() > 0 || z3 || z2) {
-                    }
-                    imMessageCenterPojo2.setIsFriend(commonMsgPojo.getIsFriend());
-                    imMessageCenterPojo2.setFollowStatus(commonMsgPojo.getFollowStatus());
-                    imMessageCenterPojo2.setSend_status(3);
-                    BdLog.i("send message status 3");
-                }
-                if (imMessageCenterPojo2.getUnread_count() > 0 || z3 || z2) {
-                }
-                imMessageCenterPojo2.setIsFriend(commonMsgPojo.getIsFriend());
-                imMessageCenterPojo2.setFollowStatus(commonMsgPojo.getFollowStatus());
-                imMessageCenterPojo2.setSend_status(3);
-                BdLog.i("send message status 3");
+                view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d0392, (ViewGroup) null);
+                bVar = new b();
+                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ced);
+                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f0907c3);
+                bVar.d = view2.findViewById(R.id.group_divider);
+                view2.setTag(bVar);
+                view2.setClickable(false);
             }
-            int i = z ? 0 : unread_count > 0 ? 1 : 2;
-            if (bVar != null) {
-                bVar.a(valueOf, linkedList);
-                bVar.b(imMessageCenterPojo2, i, z2);
+            c37 group = getGroup(i);
+            if (group == null) {
+                return view2;
             }
-            if (linkedList2.isEmpty()) {
-                return;
+            bVar.b.setText(StringHelper.cutStringWithSuffix(group.a(), 15, null));
+            if (i == 0) {
+                bVar.c.setVisibility(0);
+                bVar.d.setVisibility(8);
+            } else {
+                bVar.c.setVisibility(8);
+                bVar.d.setVisibility(0);
             }
-            MessageManager.getInstance().sendMessageFromBackground(new FilterUEGPersonMessage(linkedList2));
+            b(bVar, view2, TbadkCoreApplication.getInst().getSkinType());
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public final void h(TextView textView, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048593, this, textView, i) == null) || textView == null) {
+            return;
+        }
+        if (i == 10) {
+            textView.setVisibility(0);
+            textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f145c));
+        } else if (i == 11) {
+            textView.setVisibility(0);
+            textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f145b));
+        } else {
+            textView.setVisibility(8);
+        }
+    }
+
+    @Override // android.widget.ExpandableListAdapter
+    public boolean hasStableIds() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.widget.ExpandableListAdapter
+    public boolean isChildSelectable(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048595, this, i, i2)) == null) {
+            return true;
+        }
+        return invokeII.booleanValue;
+    }
+
+    @Override // android.widget.BaseExpandableListAdapter, android.widget.ExpandableListAdapter
+    public void onGroupCollapsed(int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048596, this, i) == null) || this.c == null) {
+            return;
+        }
+        int groupCount = getGroupCount();
+        for (int i2 = 0; i2 < groupCount; i2++) {
+            if (i2 != i) {
+                this.c.collapseGroup(i);
+            }
         }
     }
 }

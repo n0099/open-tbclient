@@ -17,24 +17,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gc3;
-import com.repackage.oi2;
-import com.repackage.ol1;
-import com.repackage.ql1;
-import com.repackage.rf1;
-import com.repackage.s02;
-import com.repackage.yc3;
+import com.repackage.bm1;
+import com.repackage.cg1;
+import com.repackage.d12;
+import com.repackage.jd3;
+import com.repackage.rc3;
+import com.repackage.zi2;
+import com.repackage.zl1;
 /* loaded from: classes2.dex */
 public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final boolean DEBUG;
-    public static final int INVALID_ANIM = 0;
-    public static final String TAG = "ScopeDetailActivity";
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean q;
     public transient /* synthetic */ FieldHolder $fh;
-    public int mEnterAnimWhenFinishing;
-    public int mExitAnimWhenFinishing;
-    public ol1 mNgWebView;
-    public String mUrl;
+    public zl1 m;
+    public String n;
+    public int o;
+    public int p;
 
     /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
@@ -70,7 +68,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     }
 
     /* loaded from: classes2.dex */
-    public class b extends s02 {
+    public class b extends d12 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SwanAppScopeDetailActivity c;
@@ -93,7 +91,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
             this.c = swanAppScopeDetailActivity;
         }
 
-        @Override // com.repackage.s02, com.repackage.v02
+        @Override // com.repackage.d12, com.repackage.g12
         public void d(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -119,7 +117,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
                 return;
             }
         }
-        DEBUG = rf1.a;
+        q = cg1.a;
     }
 
     public SwanAppScopeDetailActivity() {
@@ -135,104 +133,104 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
                 return;
             }
         }
-        this.mEnterAnimWhenFinishing = 0;
-        this.mExitAnimWhenFinishing = 0;
+        this.o = 0;
+        this.p = 0;
     }
 
-    private void initView() {
+    public final void A() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            findViewById(R.id.obfuscated_res_0x7f0902f0).setOnClickListener(new a(this));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            findViewById(R.id.obfuscated_res_0x7f0902f2).setOnClickListener(new a(this));
         }
     }
 
-    /* JADX WARN: Type inference failed for: r1v1, types: [com.repackage.ol1] */
-    private void initWebView() {
+    /* JADX WARN: Type inference failed for: r1v1, types: [com.repackage.zl1] */
+    public final void B() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || TextUtils.isEmpty(this.mUrl)) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || TextUtils.isEmpty(this.n)) {
             return;
         }
-        ql1 c = oi2.F0().c(this);
+        bm1 c = zi2.F0().c(this);
         c.c0(new b(this));
-        this.mNgWebView = c.u();
-        c.loadUrl(this.mUrl);
-        c.l((FrameLayout) findViewById(R.id.obfuscated_res_0x7f09241f), this.mNgWebView.covertToView());
+        this.m = c.u();
+        c.loadUrl(this.n);
+        c.l((FrameLayout) findViewById(R.id.obfuscated_res_0x7f09240c), this.m.covertToView());
     }
 
-    private void startExitActivityAnim() {
+    public void C(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            if (this.mEnterAnimWhenFinishing == 0 && this.mExitAnimWhenFinishing == 0) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) || intent == null) {
+            return;
+        }
+        this.n = rc3.h(intent, "url");
+        if (q) {
+            Log.d("ScopeDetailActivity", "mUrl=" + this.n);
+        }
+    }
+
+    public void D(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            this.o = i;
+            this.p = i2;
+        }
+    }
+
+    public final void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.o == 0 && this.p == 0) {
                 return;
             }
-            overridePendingTransition(this.mEnterAnimWhenFinishing, this.mExitAnimWhenFinishing);
-            this.mEnterAnimWhenFinishing = 0;
-            this.mExitAnimWhenFinishing = 0;
+            overridePendingTransition(this.o, this.p);
+            this.o = 0;
+            this.p = 0;
         }
     }
 
     @Override // android.app.Activity
     public void finish() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.finish();
-            startExitActivityAnim();
+            E();
         }
     }
 
-    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.repackage.vc4, android.app.Activity
+    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.repackage.gd4, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            setPendingTransition(R.anim.obfuscated_res_0x7f01001c, R.anim.obfuscated_res_0x7f010025);
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+            D(R.anim.obfuscated_res_0x7f01001c, R.anim.obfuscated_res_0x7f010025);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d07c5);
-            yc3.a(this);
-            parseIntent(getIntent());
-            initView();
-            initWebView();
+            setContentView(R.layout.obfuscated_res_0x7f0d07c4);
+            jd3.a(this);
+            C(getIntent());
+            A();
+            B();
         }
     }
 
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            ol1 ol1Var = this.mNgWebView;
-            if (ol1Var != null) {
-                ol1Var.destroy();
-                this.mNgWebView = null;
+            zl1 zl1Var = this.m;
+            if (zl1Var != null) {
+                zl1Var.destroy();
+                this.m = null;
             }
-            this.mUrl = null;
+            this.n = null;
         }
     }
 
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent) == null) {
             super.onNewIntent(intent);
-            parseIntent(intent);
-        }
-    }
-
-    public void parseIntent(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, intent) == null) || intent == null) {
-            return;
-        }
-        this.mUrl = gc3.h(intent, "url");
-        if (DEBUG) {
-            Log.d(TAG, "mUrl=" + this.mUrl);
-        }
-    }
-
-    public void setPendingTransition(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
-            this.mEnterAnimWhenFinishing = i;
-            this.mExitAnimWhenFinishing = i2;
+            C(intent);
         }
     }
 }

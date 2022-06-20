@@ -1,7 +1,7 @@
 package com.meizu.cloud.pushsdk.notification.c;
 
 import com.baidu.searchbox.aperf.bosuploader.FileUtil;
-import com.repackage.ni9;
+import com.meizu.cloud.pushinternal.DebugLogger;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileInputStream;
@@ -82,7 +82,7 @@ public class a {
                 try {
                     return Long.valueOf(str2).longValue() > Long.valueOf(file2.getName().split("-")[1]).longValue();
                 } catch (Exception e) {
-                    ni9.b(FileUtil.TAG, "filters file error " + e.getMessage());
+                    DebugLogger.e(FileUtil.TAG, "filters file error " + e.getMessage());
                     return true;
                 }
             }

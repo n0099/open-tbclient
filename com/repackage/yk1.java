@@ -1,18 +1,14 @@
 package com.repackage;
 
-import java.util.concurrent.ExecutorService;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import java.io.File;
 import org.json.JSONArray;
 /* loaded from: classes7.dex */
 public interface yk1 {
-    ExecutorService d();
+    void a(@NonNull JSONArray jSONArray);
 
-    void e(String str, int i, JSONArray jSONArray);
+    v32 b(Context context, File file, long j);
 
-    void f(String str, int i);
-
-    void g(String str, String str2, int i, String str3, int i2);
-
-    void i(String str, int i, String str2);
-
-    void o(String str, String str2, int i, String str3, long j, int i2);
+    void c(@NonNull JSONArray jSONArray);
 }

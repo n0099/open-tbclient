@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PersonListActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FOLLOW = "follow";
@@ -33,9 +33,9 @@ public class PersonListActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra("follow", z);
+        getIntent().putExtra(FOLLOW, z);
         getIntent().putExtra("user_id", str);
-        getIntent().putExtra("user_sex", i);
+        getIntent().putExtra(IntentConfig.USER_SEX, i);
     }
 
     public PersonListActivityConfig updateBjhUser(boolean z) {
@@ -55,7 +55,7 @@ public class PersonListActivityConfig extends IntentConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
             if (getIntent() != null) {
-                getIntent().putExtra("total_follow_num", i);
+                getIntent().putExtra(TOTLEFOLLOWNUM, i);
                 getIntent().putExtra("portrait", str);
             }
             return this;

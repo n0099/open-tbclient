@@ -1,111 +1,88 @@
 package com.xiaomi.push;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
+import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.ar.pose.PoseAR;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class dy implements ed {
+public class dy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public dy() {
+    public static Uri a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            return Uri.parse("content://" + str).buildUpon().appendPath(str2).build();
         }
+        return (Uri) invokeLL.objValue;
     }
 
-    private void a(Activity activity, Intent intent) {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, this, activity, intent) == null) {
-            String stringExtra = intent.getStringExtra("awake_info");
-            if (!TextUtils.isEmpty(stringExtra)) {
-                String b = dv.b(stringExtra);
-                if (!TextUtils.isEmpty(b)) {
-                    dw.a(activity.getApplicationContext(), b, 1007, "play with activity successfully");
-                    return;
-                }
-            }
-            dw.a(activity.getApplicationContext(), "activity", 1008, "B get incorrect message");
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? Base64.encodeToString(bp.m200a(str), 2) : (String) invokeL.objValue;
     }
 
-    private void b(Context context, dz dzVar) {
+    public static String a(HashMap<String, String> hashMap) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, this, context, dzVar) == null) {
-            String m317a = dzVar.m317a();
-            String b = dzVar.b();
-            String d = dzVar.d();
-            int a = dzVar.a();
-            if (context == null || TextUtils.isEmpty(m317a) || TextUtils.isEmpty(b) || TextUtils.isEmpty(d)) {
-                if (TextUtils.isEmpty(d)) {
-                    dw.a(context, "activity", 1008, "argument error");
-                } else {
-                    dw.a(context, d, 1008, "argument error");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hashMap)) == null) {
+            if (hashMap == null) {
+                return "";
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                for (String str : hashMap.keySet()) {
+                    jSONObject.put(str, hashMap.get(str));
                 }
-            } else if (!com.xiaomi.push.service.g.b(context, m317a, b)) {
-                dw.a(context, d, 1003, "B is not ready");
-            } else {
-                dw.a(context, d, 1002, "B is ready");
-                dw.a(context, d, 1004, "A is ready");
-                Intent intent = new Intent(b);
-                intent.setPackage(m317a);
-                intent.putExtra("awake_info", dv.a(d));
-                intent.addFlags(276824064);
-                intent.setAction(b);
-                if (a == 1) {
+            } catch (JSONException e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? bp.b(Base64.decode(str, 2)) : (String) invokeL.objValue;
+    }
+
+    public static String b(HashMap<String, String> hashMap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, hashMap)) == null) {
+            HashMap hashMap2 = new HashMap();
+            if (hashMap != null) {
+                hashMap2.put(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY, hashMap.get(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY) + "");
+                hashMap2.put("description", hashMap.get("description") + "");
+                String str = hashMap.get("awake_info");
+                if (!TextUtils.isEmpty(str)) {
                     try {
-                        if (!ea.m320a(context)) {
-                            dw.a(context, d, 1008, "A not in foreground");
-                            return;
-                        }
-                    } catch (Exception e) {
+                        JSONObject jSONObject = new JSONObject(str);
+                        hashMap2.put("__planId__", String.valueOf(jSONObject.opt("__planId__")));
+                        hashMap2.put("flow_id", String.valueOf(jSONObject.opt("flow_id")));
+                        hashMap2.put("jobkey", String.valueOf(jSONObject.opt("jobkey")));
+                        hashMap2.put("msg_id", String.valueOf(jSONObject.opt("msg_id")));
+                        hashMap2.put("A", String.valueOf(jSONObject.opt("awake_app")));
+                        hashMap2.put("B", String.valueOf(jSONObject.opt("awakened_app")));
+                        hashMap2.put("module", String.valueOf(jSONObject.opt("awake_type")));
+                    } catch (JSONException e) {
                         com.xiaomi.channel.commonutils.logger.b.a(e);
-                        dw.a(context, d, 1008, "A meet a exception when help B's activity");
-                        return;
                     }
                 }
-                context.startActivity(intent);
-                dw.a(context, d, 1005, "A is successful");
-                dw.a(context, d, 1006, "The job is finished");
             }
+            return a(hashMap2);
         }
-    }
-
-    @Override // com.xiaomi.push.ed
-    public void a(Context context, Intent intent, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, context, intent, str) == null) {
-            if (context == null || !(context instanceof Activity) || intent == null) {
-                dw.a(context, "activity", 1008, "B receive incorrect message");
-            } else {
-                a((Activity) context, intent);
-            }
-        }
-    }
-
-    @Override // com.xiaomi.push.ed
-    public void a(Context context, dz dzVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, dzVar) == null) {
-            if (dzVar != null) {
-                b(context, dzVar);
-            } else {
-                dw.a(context, "activity", 1008, "A receive incorrect message");
-            }
-        }
+        return (String) invokeL.objValue;
     }
 }

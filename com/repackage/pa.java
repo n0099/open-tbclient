@@ -1,12 +1,15 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.FrameHelper;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.InvalidParameterException;
 /* loaded from: classes6.dex */
-public abstract class pa extends sa<byte[]> {
+public abstract class pa extends ta<CustomMessage<?>, CustomMessageTask> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,9 +31,8 @@ public abstract class pa extends sa<byte[]> {
                 return;
             }
         }
+        if (i != 0 && FrameHelper.e(i) != FrameHelper.TYPE.CUSTOM) {
+            throw new InvalidParameterException("cmd invalid");
+        }
     }
-
-    public abstract void a(int i, BdUniqueId bdUniqueId);
-
-    public abstract void b(BdUniqueId bdUniqueId);
 }

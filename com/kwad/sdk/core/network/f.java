@@ -1,11 +1,13 @@
 package com.kwad.sdk.core.network;
+
+import androidx.media2.session.SessionCommand;
 /* loaded from: classes5.dex */
 public class f {
     public static f a = new f(-1, "请求超事件");
     public static f b = new f(-2, "请求异常");
-    public static f c = new f(40001, "网络错误");
-    public static f d = new f(40002, "数据解析错误");
-    public static f e = new f(40003, "广告数据为空");
+    public static f c = new f(SessionCommand.COMMAND_CODE_SESSION_REWIND, "网络错误");
+    public static f d = new f(SessionCommand.COMMAND_CODE_SESSION_SKIP_FORWARD, "数据解析错误");
+    public static f e = new f(SessionCommand.COMMAND_CODE_SESSION_SKIP_BACKWARD, "广告数据为空");
     public static f f = new f(40004, "视频资源缓存失败");
     public static f g = new f(40005, "网络超时");
     public static f h = new f(40007, "图片下载失败");

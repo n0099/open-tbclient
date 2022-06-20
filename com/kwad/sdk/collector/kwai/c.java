@@ -80,7 +80,7 @@ public class c {
 
     /* renamed from: com.kwad.sdk.collector.kwai.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0290c extends com.kwad.sdk.collector.kwai.a {
+    public static class C0298c extends com.kwad.sdk.collector.kwai.a {
     }
 
     /* loaded from: classes5.dex */
@@ -223,7 +223,7 @@ public class c {
                 boolean a3 = new e().a(b);
                 boolean a4 = new b().a(b);
                 boolean a5 = new a().a(b);
-                boolean a6 = new C0290c().a(b);
+                boolean a6 = new C0298c().a(b);
                 dVar.a(a2);
                 dVar.b(a3);
                 dVar.c(a4);

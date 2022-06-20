@@ -1,9 +1,8 @@
 package com.repackage;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,15 +10,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.FrsPage.TopNews;
+import tbclient.GeneralResource;
 /* loaded from: classes7.dex */
-public class up4 extends PostData {
+public class up4 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId H0;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String F0;
-    public String G0;
+    public String a;
+    public String b;
+    public int c;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +33,7 @@ public class up4 extends PostData {
                 return;
             }
         }
-        H0 = BdUniqueId.gen();
+        d = BdUniqueId.gen();
     }
 
     public up4() {
@@ -51,45 +50,20 @@ public class up4 extends PostData {
         }
     }
 
-    public String M0() {
-        InterceptResult invokeV;
+    public void c(GeneralResource generalResource) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.F0 : (String) invokeV.objValue;
-    }
-
-    public String N0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.G0 : (String) invokeV.objValue;
-    }
-
-    public void O0(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, generalResource) == null) || generalResource == null) {
             return;
         }
-        try {
-            this.F0 = jSONObject.optString("news_link");
-            this.G0 = jSONObject.optString("summary");
-            jSONObject.optInt("position", 0);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+        this.a = generalResource.res_image;
+        this.b = generalResource.res_link;
+        this.c = generalResource.res_floor.intValue();
     }
 
-    public void P0(TopNews topNews) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, topNews) == null) || topNews == null) {
-            return;
-        }
-        this.F0 = topNews.news_link;
-        this.G0 = topNews.summary;
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.repackage.jn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.nn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? H0 : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? d : (BdUniqueId) invokeV.objValue;
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.tieba.frs.itemtab;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,12 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cj6;
+import com.repackage.fk6;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.ItemPage.ItemPageResIdl;
 /* loaded from: classes3.dex */
-public class FrsItemTabSocketResponseMessage extends MvcSocketResponsedMessage<cj6, ItemPageResIdl> {
+public class FrsItemTabSocketResponseMessage extends MvcSocketResponsedMessage<fk6, ItemPageResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,23 +35,16 @@ public class FrsItemTabSocketResponseMessage extends MvcSocketResponsedMessage<c
         }
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Class' to match base method */
-    @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage
-    public Class<ItemPageResIdl> getProtobufResponseIdlClass() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ItemPageResIdl.class : (Class) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage, com.baidu.tbadk.message.websockt.TbSocketReponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         Error error;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
-            cj6 cj6Var = new cj6();
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            fk6 fk6Var = new fk6();
             ItemPageResIdl itemPageResIdl = (ItemPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ItemPageResIdl.class);
-            cj6Var.a(itemPageResIdl.data);
+            fk6Var.a(itemPageResIdl.data);
             if (itemPageResIdl != null && (error = itemPageResIdl.error) != null) {
                 Integer num = error.errorno;
                 if (num != null) {
@@ -58,7 +52,17 @@ public class FrsItemTabSocketResponseMessage extends MvcSocketResponsedMessage<c
                 }
                 setErrorString(itemPageResIdl.error.usermsg);
             }
-            setData(cj6Var);
+            setData(fk6Var);
+            return itemPageResIdl;
         }
+        return invokeIL.objValue;
+    }
+
+    /* JADX DEBUG: Return type fixed from 'java.lang.Class' to match base method */
+    @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage
+    public Class<ItemPageResIdl> getProtobufResponseIdlClass() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ItemPageResIdl.class : (Class) invokeV.objValue;
     }
 }

@@ -6,10 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.ai;
+import com.xiaomi.push.al;
 import java.util.concurrent.ExecutorService;
 /* loaded from: classes8.dex */
-public class f extends ai.a {
+public class f extends al.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ a a;
@@ -32,9 +32,9 @@ public class f extends ai.a {
         this.a = aVar;
     }
 
-    @Override // com.xiaomi.push.ai.a
+    @Override // com.xiaomi.push.al.a
     /* renamed from: a */
-    public String mo222a() {
+    public String mo202a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "100889" : (String) invokeV.objValue;

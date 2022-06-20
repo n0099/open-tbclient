@@ -3,7 +3,7 @@ package com.vivo.push.util;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class s {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -12,7 +12,7 @@ public final class s {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cVar)) == null) {
-            x b = x.b();
+            w b = w.b();
             int b2 = cVar.b();
             long currentTimeMillis = System.currentTimeMillis();
             int a = b.a("com.vivo.push_preferences.operate." + b2 + "OPERATE_COUNT");

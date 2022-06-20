@@ -45,7 +45,7 @@ public class b {
             }
         }
         this.d = false;
-        com.cmic.sso.sdk.a.a a2 = new a.C0266a().a();
+        com.cmic.sso.sdk.a.a a2 = new a.C0274a().a();
         this.b = a2;
         if (!z) {
             this.a = d();
@@ -58,7 +58,7 @@ public class b {
     public com.cmic.sso.sdk.a.a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) ? new a.C0266a().a(d.b(this.b.a())).c(d.a(this.b.c())).b(d.b(this.b.b())).d(d.c(this.b.d())).d(d.a(this.b.h())).e(d.b(this.b.i())).a(d.e(this.b.e())).b(d.d(this.b.f())).c(d.c(this.b.g())).f(d.f(this.b.j())).a(d.a(this.b.k())).b(d.b(this.b.l())).a() : (com.cmic.sso.sdk.a.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) ? new a.C0274a().a(d.b(this.b.a())).c(d.a(this.b.c())).b(d.b(this.b.b())).d(d.c(this.b.d())).d(d.a(this.b.h())).e(d.b(this.b.i())).a(d.e(this.b.e())).b(d.d(this.b.f())).c(d.c(this.b.g())).f(d.f(this.b.j())).a(d.a(this.b.k())).b(d.b(this.b.l())).a() : (com.cmic.sso.sdk.a.a) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

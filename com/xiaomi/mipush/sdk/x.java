@@ -1,26 +1,24 @@
 package com.xiaomi.mipush.sdk;
 
-import android.content.Context;
-import android.content.Intent;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class x implements Runnable {
+public class x {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ Context a;
+    public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ Intent f80a;
+    public String f81a;
 
-    public x(Context context, Intent intent) {
+    public x() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, intent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,19 +28,20 @@ public final class x implements Runnable {
                 return;
             }
         }
-        this.a = context;
-        this.f80a = intent;
+        this.a = 0;
+        this.f81a = "";
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                this.a.startService(this.f80a);
-            } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m108a(e.getMessage());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj == null || !(obj instanceof x)) {
+                return false;
             }
+            x xVar = (x) obj;
+            return !TextUtils.isEmpty(xVar.f81a) && xVar.f81a.equals(this.f81a);
         }
+        return invokeL.booleanValue;
     }
 }

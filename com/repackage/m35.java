@@ -1,27 +1,203 @@
 package com.repackage;
 
-import android.view.View;
-import android.view.ViewGroup;
+import android.graphics.Bitmap;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
 /* loaded from: classes6.dex */
 public class m35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View attachedView;
-    public boolean isAttached;
-    public boolean isWrapStyle;
+    public Queue<b> a;
+    public volatile c b;
 
-    public m35(View view2) {
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ImageFileInfo a;
+        public i35 b;
+        public boolean c;
+        public ym d;
+        public boolean e;
+
+        public b(m35 m35Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m35Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(m35 m35Var, a aVar) {
+            this(m35Var);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c extends BdAsyncTask<Void, b, b> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Queue<b> a;
+        public final /* synthetic */ m35 b;
+
+        public c(m35 m35Var, Queue<b> queue) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m35Var, queue};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = m35Var;
+            this.a = queue;
+            super.setPriority(2);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public b doInBackground(Void... voidArr) {
+            int i;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, voidArr)) != null) {
+                return (b) invokeL.objValue;
+            }
+            while (true) {
+                b poll = this.a.poll();
+                Bitmap bitmap = null;
+                if (poll == null) {
+                    return null;
+                }
+                if (isCancelled()) {
+                    this.a.add(poll);
+                    return null;
+                }
+                ym m = j35.k().m(poll.a.toCachedKey(poll.c));
+                if (m != null) {
+                    poll.d = m;
+                    poll.e = true;
+                } else {
+                    Bitmap f = this.b.f(poll.a, poll.c);
+                    if (f != null) {
+                        try {
+                            i = BitmapHelper.readPictureDegree(poll.a.getFilePath());
+                            if (i != 0) {
+                                try {
+                                    Bitmap rotateBitmapBydegree = BitmapHelper.rotateBitmapBydegree(f, i);
+                                    if (f != rotateBitmapBydegree) {
+                                        try {
+                                            f.recycle();
+                                            f = null;
+                                        } catch (Exception unused) {
+                                        }
+                                    }
+                                    bitmap = rotateBitmapBydegree;
+                                } catch (Exception unused2) {
+                                }
+                            }
+                        } catch (Exception unused3) {
+                            i = 0;
+                        }
+                        if (i != 0 && bitmap != null) {
+                            poll.d = new ym(bitmap, poll.a.isGif(), poll.a.getFilePath());
+                        } else {
+                            poll.d = new ym(f, poll.a.isGif(), poll.a.getFilePath());
+                        }
+                    }
+                }
+                publishProgress(poll);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+                super.onPostExecute(bVar);
+                this.b.b = null;
+                this.b.g();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: d */
+        public void onProgressUpdate(b... bVarArr) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVarArr) == null) || bVarArr == null) {
+                return;
+            }
+            for (b bVar : bVarArr) {
+                ym ymVar = bVar.d;
+                if (ymVar != null && !bVar.e) {
+                    j35.k().d(bVar.a.toCachedKey(bVar.c), ymVar);
+                }
+                i35 i35Var = bVar.b;
+                if (i35Var != null) {
+                    i35Var.a(ymVar, bVar.a.toCachedKey(bVar.c), bVar.e);
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onCancelled() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048580, this) != null) {
+                return;
+            }
+            super.onCancelled();
+            this.b.b = null;
+            while (true) {
+                b poll = this.a.poll();
+                if (poll == null) {
+                    return;
+                }
+                i35 i35Var = poll.b;
+                if (i35Var != null) {
+                    i35Var.a(null, poll.a.toCachedKey(poll.c), false);
+                }
+            }
+        }
+    }
+
+    public m35() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,70 +207,100 @@ public class m35 {
                 return;
             }
         }
-        this.isWrapStyle = false;
-        this.attachedView = view2;
+        this.a = new ConcurrentLinkedQueue();
     }
 
-    public void attachView(View view2, boolean z) {
-        View view3;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, z) == null) || view2 == null || (view3 = this.attachedView) == null || view3.getParent() != null) {
-            return;
-        }
-        this.isAttached = true;
-        q35.b(view2, this.isWrapStyle).a(view2, this.attachedView, z);
-        onViewAttached();
-    }
-
-    public void dettachView(View view2) {
-        View view3;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) || view2 == null || (view3 = this.attachedView) == null || view3.getParent() == null || !(view2 instanceof ViewGroup)) {
-            return;
-        }
-        try {
-            onViewDettached();
-            ((ViewGroup) view2).removeView(this.attachedView);
-            this.isAttached = false;
-        } catch (Exception unused) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = new ConcurrentLinkedQueue();
+            if (this.b != null) {
+                this.b.cancel(true);
+                this.b = null;
+            }
         }
     }
 
-    public View getView() {
-        InterceptResult invokeV;
+    public ym c(ImageFileInfo imageFileInfo, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.attachedView : (View) invokeV.objValue;
-    }
-
-    public boolean isViewAttached() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.isAttached : invokeV.booleanValue;
-    }
-
-    public void onViewAttached() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFileInfo, z)) == null) {
+            if (imageFileInfo == null) {
+                return null;
+            }
+            return j35.k().m(imageFileInfo.toCachedKey(z));
         }
+        return (ym) invokeLZ.objValue;
     }
 
-    public void onViewDettached() {
+    public ym d(ImageFileInfo imageFileInfo, i35 i35Var, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, imageFileInfo, i35Var, z)) == null) ? e(imageFileInfo, i35Var, z, false) : (ym) invokeLLZ.objValue;
+    }
+
+    public ym e(ImageFileInfo imageFileInfo, i35 i35Var, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{imageFileInfo, i35Var, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            ym c2 = c(imageFileInfo, z);
+            if (c2 != null) {
+                return c2;
+            }
+            if (z2) {
+                return null;
+            }
+            b bVar = new b(this, null);
+            bVar.b = i35Var;
+            bVar.a = imageFileInfo;
+            bVar.c = z;
+            this.a.add(bVar);
+            g();
+            return null;
         }
+        return (ym) invokeCommon.objValue;
     }
 
-    public void setWrapStyle(boolean z) {
+    public Bitmap f(ImageFileInfo imageFileInfo, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.isWrapStyle = z;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, imageFileInfo, z)) == null) {
+            if (imageFileInfo == null) {
+                return null;
+            }
+            LinkedList linkedList = new LinkedList();
+            if (z && imageFileInfo.getPersistActionsList() != null) {
+                linkedList.addAll(imageFileInfo.getPersistActionsList());
+            }
+            if (imageFileInfo.getPageActionsList() != null) {
+                linkedList.addAll(imageFileInfo.getPageActionsList());
+            }
+            if (imageFileInfo.getOrginalBitmap() != null) {
+                try {
+                    return u35.d().b(imageFileInfo.getOrginalBitmap(), !imageFileInfo.isOrginalBitmapShared(), linkedList, imageFileInfo);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return null;
+                }
+            } else if (imageFileInfo.hasActions(z)) {
+                try {
+                    return u35.d().c(imageFileInfo.getFilePath(), linkedList, imageFileInfo);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                    return null;
+                }
+            } else {
+                return BitmapHelper.loadBitmap(imageFileInfo.getFilePath());
+            }
         }
+        return (Bitmap) invokeLZ.objValue;
     }
 
-    public void attachView(View view2) {
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            attachView(view2, false);
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b == null && !this.a.isEmpty()) {
+            this.b = new c(this, this.a);
+            this.b.execute(new Void[0]);
         }
     }
 }

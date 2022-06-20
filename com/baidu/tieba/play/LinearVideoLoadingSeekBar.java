@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ef8;
+import com.repackage.xf8;
 @SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes3.dex */
 public class LinearVideoLoadingSeekBar extends SeekBar {
@@ -102,7 +102,7 @@ public class LinearVideoLoadingSeekBar extends SeekBar {
             if (i >= width) {
                 this.a = 0;
             }
-            paint.setColor(ef8.a(this.d, width == 0 ? 1.0f : Math.max(255 - ((this.a * 255) / width), 30) / 255.0f));
+            paint.setColor(xf8.a(this.d, width == 0 ? 1.0f : Math.max(255 - ((this.a * 255) / width), 30) / 255.0f));
             paint.setStrokeWidth(this.b);
             float f = width / 2.0f;
             int i2 = this.a;

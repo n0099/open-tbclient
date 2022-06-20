@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -397,7 +398,7 @@ public class LinearSystem {
     private String getDisplayStrength(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65553, this, i)) == null) ? i == 1 ? "LOW" : i == 2 ? "MEDIUM" : i == 3 ? "HIGH" : i == 4 ? "HIGHEST" : i == 5 ? "EQUALITY" : i == 6 ? "FIXED" : "NONE" : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65553, this, i)) == null) ? i == 1 ? "LOW" : i == 2 ? "MEDIUM" : i == 3 ? "HIGH" : i == 4 ? "HIGHEST" : i == 5 ? "EQUALITY" : i == 6 ? "FIXED" : HlsPlaylistParser.METHOD_NONE : (String) invokeI.objValue;
     }
 
     public static Metrics getMetrics() {

@@ -16,16 +16,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gc3;
-import com.repackage.ly2;
-import com.repackage.pe3;
-import com.repackage.rf1;
-import com.repackage.zy2;
+import com.repackage.af3;
+import com.repackage.cg1;
+import com.repackage.kz2;
+import com.repackage.rc3;
+import com.repackage.wy2;
 /* loaded from: classes2.dex */
 public class SwanAppAdbDebugActivity extends Activity {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final boolean DEBUG;
-    public static final String TAG = "SwanAppAdbDebugActivity";
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -111,7 +110,7 @@ public class SwanAppAdbDebugActivity extends Activity {
                 return;
             }
         }
-        DEBUG = rf1.a;
+        a = cg1.a;
     }
 
     public SwanAppAdbDebugActivity() {
@@ -133,28 +132,28 @@ public class SwanAppAdbDebugActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
-            if (DEBUG) {
-                Log.d(TAG, "ADB Debug onCreate");
+            if (a) {
+                Log.d("SwanAppAdbDebugActivity", "ADB Debug onCreate");
             }
-            if (gc3.a(this)) {
+            if (rc3.a(this)) {
                 LogUtil.logActivity(this, "onCreate");
                 return;
             }
             Intent intent = getIntent();
             if (TextUtils.isEmpty(intent.getStringExtra("adb_debug_path"))) {
-                zy2.f(this, R.string.obfuscated_res_0x7f0f00fb).G();
-                if (DEBUG) {
-                    Log.d(TAG, "ADB Debug lack of app path");
+                kz2.f(this, R.string.obfuscated_res_0x7f0f00fb).G();
+                if (a) {
+                    Log.d("SwanAppAdbDebugActivity", "ADB Debug lack of app path");
                 }
                 finish();
             }
-            ly2.a aVar = new ly2.a(this);
+            wy2.a aVar = new wy2.a(this);
             aVar.V(getString(R.string.obfuscated_res_0x7f0f00f9));
             aVar.x(getString(R.string.obfuscated_res_0x7f0f00fa));
-            aVar.n(new pe3());
+            aVar.n(new af3());
             aVar.m(false);
             aVar.O(R.string.obfuscated_res_0x7f0f0113, new b(this, intent));
-            aVar.B(R.string.obfuscated_res_0x7f0f12ac, new a(this));
+            aVar.B(R.string.obfuscated_res_0x7f0f12b9, new a(this));
             aVar.X();
             LogUtil.logActivity(this, "onCreate");
         }

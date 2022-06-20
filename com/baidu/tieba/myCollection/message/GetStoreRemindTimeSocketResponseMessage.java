@@ -1,5 +1,6 @@
 package com.baidu.tieba.myCollection.message;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,18 +39,13 @@ public class GetStoreRemindTimeSocketResponseMessage extends SocketResponsedMess
         this.timeList = Collections.EMPTY_LIST;
     }
 
-    public List<String> getTimeList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.timeList : (List) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         DataRes dataRes;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
             GetStoreRemindTimeResIdl getStoreRemindTimeResIdl = (GetStoreRemindTimeResIdl) new Wire(new Class[0]).parseFrom(bArr, GetStoreRemindTimeResIdl.class);
             Error error = getStoreRemindTimeResIdl.error;
             if (error != null) {
@@ -59,6 +55,14 @@ public class GetStoreRemindTimeSocketResponseMessage extends SocketResponsedMess
             if (getError() == 0 && (dataRes = getStoreRemindTimeResIdl.data) != null) {
                 this.timeList = dataRes.remind_time;
             }
+            return getStoreRemindTimeResIdl;
         }
+        return invokeIL.objValue;
+    }
+
+    public List<String> getTimeList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.timeList : (List) invokeV.objValue;
     }
 }

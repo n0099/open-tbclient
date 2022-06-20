@@ -1,71 +1,78 @@
 package com.xiaomi.push.service;
 
-import android.content.SharedPreferences;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Queue;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.xiaomi.push.Cif;
+import com.xiaomi.push.gh;
+import com.xiaomi.push.hj;
+import com.xiaomi.push.ht;
+import com.xiaomi.push.ia;
+import com.xiaomi.push.ii;
+import com.xiaomi.push.service.XMPushService;
 /* loaded from: classes8.dex */
-public class af {
+public final class af extends XMPushService.j {
     public static /* synthetic */ Interceptable $ic;
-    public static Object a;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ Cif a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static Map<String, Queue<String>> f865a;
-    public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ ii f877a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1071162209, "Lcom/xiaomi/push/service/af;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1071162209, "Lcom/xiaomi/push/service/af;");
+    /* renamed from: a  reason: collision with other field name */
+    public final /* synthetic */ XMPushService f878a;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public af(int i, ii iiVar, Cif cif, XMPushService xMPushService) {
+        super(i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), iiVar, cif, xMPushService};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new Object();
-        f865a = new HashMap();
+        this.f877a = iiVar;
+        this.a = cif;
+        this.f878a = xMPushService;
     }
 
-    public static boolean a(XMPushService xMPushService, String str, String str2) {
-        InterceptResult invokeLLL;
+    @Override // com.xiaomi.push.service.XMPushService.j
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, xMPushService, str, str2)) == null) {
-            synchronized (a) {
-                SharedPreferences sharedPreferences = xMPushService.getSharedPreferences("push_message_ids", 0);
-                Queue<String> queue = f865a.get(str);
-                if (queue == null) {
-                    String[] split = sharedPreferences.getString(str, "").split(",");
-                    LinkedList linkedList = new LinkedList();
-                    for (String str3 : split) {
-                        linkedList.add(str3);
-                    }
-                    f865a.put(str, linkedList);
-                    queue = linkedList;
-                }
-                if (queue.contains(str2)) {
-                    return true;
-                }
-                queue.add(str2);
-                if (queue.size() > 25) {
-                    queue.poll();
-                }
-                String a2 = com.xiaomi.push.bm.a(queue, ",");
-                SharedPreferences.Editor edit = sharedPreferences.edit();
-                edit.putString(str, a2);
-                edit.commit();
-                return false;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "send ack message for clear push message." : (String) invokeV.objValue;
+    }
+
+    @Override // com.xiaomi.push.service.XMPushService.j
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            try {
+                ia iaVar = new ia();
+                iaVar.c(ht.D.f498a);
+                iaVar.a(this.f877a.m475a());
+                iaVar.a(this.f877a.a());
+                iaVar.b(this.f877a.b());
+                iaVar.e(this.f877a.c());
+                iaVar.a(0L);
+                iaVar.d("success clear push message.");
+                ah.a(this.f878a, ah.b(this.a.b(), this.a.m461a(), iaVar, hj.i));
+            } catch (gh e) {
+                com.xiaomi.channel.commonutils.logger.b.d("clear push message. " + e);
+                this.f878a.a(10, e);
             }
         }
-        return invokeLLL.booleanValue;
     }
 }

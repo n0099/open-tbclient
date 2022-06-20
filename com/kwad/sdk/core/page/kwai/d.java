@@ -115,7 +115,7 @@ public class d extends g {
         return new o.a() { // from class: com.kwad.sdk.core.page.kwai.d.2
             @Override // com.kwad.sdk.core.webview.jshandler.o.a
             public void a(i iVar) {
-                AdWebViewActivityProxy.launch(d.this.c.getContext(), new AdWebViewActivityProxy.a.C0303a().a(iVar.b).b(iVar.a).a(((g) d.this).a.g).a());
+                AdWebViewActivityProxy.launch(d.this.c.getContext(), new AdWebViewActivityProxy.a.C0311a().a(iVar.b).b(iVar.a).a(((g) d.this).a.g).a());
             }
         };
     }
@@ -144,8 +144,8 @@ public class d extends g {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.c = (WebView) a(R.id.obfuscated_res_0x7f09107f);
-        this.f = (ViewGroup) a(R.id.obfuscated_res_0x7f091154);
+        this.c = (WebView) a(R.id.obfuscated_res_0x7f09106f);
+        this.f = (ViewGroup) a(R.id.obfuscated_res_0x7f091144);
         this.c.setBackgroundColor(0);
     }
 

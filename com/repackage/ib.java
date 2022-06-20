@@ -1,70 +1,73 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ib {
+public class ib extends kb {
     public static /* synthetic */ Interceptable $ic;
+    public static ib d;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] a;
+    public lb c;
 
-    public ib(int i, int i2, int i3) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1964037620, "Lcom/repackage/ib;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1964037620, "Lcom/repackage/ib;");
+        }
+    }
+
+    public ib() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.a = r0;
-        int[] iArr = {i, i2, i3};
+        this.c = null;
+        this.a = new lb(28000, TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000);
+        this.c = new lb(TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000, 5000);
+        this.b = 3;
     }
 
-    public int a() {
+    public static ib d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int[] iArr = this.a;
-            if (iArr == null || iArr.length != 1) {
-                return 0;
-            }
-            return iArr[0];
-        }
-        return invokeV.intValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int[] iArr = this.a;
-            if (iArr == null || iArr.length != 3) {
-                return 0;
-            }
-            int I = ji.I();
-            if (I != 1) {
-                if (I != 2) {
-                    if (I != 3) {
-                        return this.a[2];
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (ib.class) {
+                    if (d == null) {
+                        d = new ib();
                     }
-                    return this.a[1];
                 }
-                return this.a[0];
             }
-            return this.a[2];
+            return d;
         }
-        return invokeV.intValue;
+        return (ib) invokeV.objValue;
+    }
+
+    public lb c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (lb) invokeV.objValue;
     }
 }

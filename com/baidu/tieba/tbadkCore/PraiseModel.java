@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b9;
+import com.repackage.d9;
 /* loaded from: classes4.dex */
 public class PraiseModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
@@ -63,16 +63,16 @@ public class PraiseModel extends BdBaseModel {
                 int statusCode = httpResponsedMessage.getStatusCode();
                 if (statusCode != 200 || !(httpResponsedMessage instanceof PraiseResponseMessage)) {
                     if (this.a.a != null) {
-                        this.a.a.b(statusCode, null);
+                        this.a.a.a(statusCode, null);
                         return;
                     }
                     return;
                 }
                 PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
                 if (praiseResponseMessage.getError() == 0) {
-                    this.a.a.a(praiseResponseMessage.getErrMsg());
+                    this.a.a.i(praiseResponseMessage.getErrMsg());
                 } else if (this.a.a != null) {
-                    this.a.a.b(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
+                    this.a.a.a(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
                 }
             }
         }
@@ -80,9 +80,9 @@ public class PraiseModel extends BdBaseModel {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(String str);
+        void a(int i, String str);
 
-        void b(int i, String str);
+        void i(String str);
     }
 
     static {
@@ -118,7 +118,7 @@ public class PraiseModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((b9) newInitContext.callArgs[0]);
+                super((d9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

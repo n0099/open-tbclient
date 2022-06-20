@@ -1,185 +1,48 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.widget.ImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.URLDecoder;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class s71 {
+public class s71 extends Handler {
     public static /* synthetic */ Interceptable $ic;
-    public static long c;
-    public static s71 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
 
-    /* loaded from: classes7.dex */
-    public class a extends r61<JSONObject> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v81 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ s71 c;
-
-        public a(s71 s71Var, v81 v81Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {s71Var, v81Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = s71Var;
-            this.a = v81Var;
-            this.b = str;
-        }
-
-        @Override // com.repackage.r61
-        public void b(Throwable th, String str) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, th, str) == null) || this.c.b) {
-                return;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            if (v61.b(n81.a()) && currentTimeMillis - s71.c <= 3000) {
-                if (this.c.a) {
-                    this.a.onResult(1, "");
-                }
-                this.c.i(this.b, this.a);
-            } else {
-                this.a.onResult(3, "支付失败，请重试");
-            }
-            this.c.a = false;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.r61
-        /* renamed from: d */
-        public void c(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || this.c.b) {
-                return;
-            }
-            int optInt = jSONObject.optInt("status", -1);
-            int optInt2 = jSONObject.optInt("payStatus", -1);
-            if (optInt != 1 || optInt2 != 0) {
-                if (optInt == 2 || (optInt == 1 && optInt2 == 2)) {
-                    this.a.onResult(0, "小额免密支付成功");
-                } else if (optInt != 1 || optInt2 != 3) {
-                    if (System.currentTimeMillis() - s71.c <= 3000) {
-                        if (this.c.a) {
-                            this.a.onResult(1, "");
-                        }
-                        this.c.i(this.b, this.a);
-                    } else {
-                        this.a.onResult(6, "支付结果查询失败，请重试");
-                    }
-                } else {
-                    this.a.onResult(3, "支付失败，请重试");
-                }
-                this.c.a = false;
-                return;
-            }
-            this.a.onResult(3, "支付失败，请重试");
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755367740, "Lcom/repackage/s71;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755367740, "Lcom/repackage/s71;");
-        }
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public s71() {
+        super(Looper.getMainLooper());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = true;
-        this.b = false;
     }
 
-    public static s71 h() {
-        InterceptResult invokeV;
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (d == null) {
-                synchronized (s71.class) {
-                    if (d == null) {
-                        d = new s71();
-                    }
-                }
+        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+            super.handleMessage(message);
+            t71 t71Var = (t71) message.obj;
+            ImageView imageView = t71Var.a;
+            if (((String) imageView.getTag()).equals(t71Var.b)) {
+                imageView.setImageBitmap(t71Var.c);
+            } else {
+                u81.g("不是最新数据");
             }
-            return d;
-        }
-        return (s71) invokeV.objValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = true;
-        }
-    }
-
-    public void g(String str, v81 v81Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, v81Var) == null) {
-            this.b = false;
-            this.a = true;
-            c = System.currentTimeMillis();
-            i(str, v81Var);
-        }
-    }
-
-    public final void i(String str, v81 v81Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, v81Var) == null) {
-            String[] split = str.split("&");
-            s61 s61Var = new s61();
-            for (String str2 : split) {
-                String[] split2 = str2.split("=");
-                if (split2.length == 2) {
-                    if (TextUtils.equals(split2[0], "timestamp")) {
-                        s61Var.d(split2[0], URLDecoder.decode(split2[1]));
-                    } else {
-                        s61Var.d(split2[0], split2[1]);
-                    }
-                }
-            }
-            s61Var.d("terminalData", "{\"queryOrderType\":\"AGREEMENT\",\"payChannel\":\"BAIDU-ALIPAY-WISE\"}");
-            z61.j().g(b71.e(), s61Var, new a(this, v81Var, str));
         }
     }
 }

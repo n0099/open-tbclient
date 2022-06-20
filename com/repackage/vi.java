@@ -1,75 +1,19 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.tieba.R;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.InputStream;
+import java.security.MessageDigest;
 /* loaded from: classes7.dex */
 public class vi {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
-    public static wi b;
-    public static String c;
-    public static xi d;
-    public static Handler e;
+    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public static class a implements Handler.Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.os.Handler.Callback
-        public boolean handleMessage(Message message) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-                int i = message.what;
-                if (i != 0) {
-                    if (i != 1) {
-                        if (i != 6) {
-                            if (vi.d != null) {
-                                vi.d.error(message.what, cj.a(R.string.obfuscated_res_0x7f0f1564));
-                            }
-                        } else {
-                            if (vi.d != null) {
-                                vi.d.d(message.arg1);
-                            }
-                            return true;
-                        }
-                    } else if (vi.d != null) {
-                        vi.d.error(message.what, cj.a(R.string.obfuscated_res_0x7f0f1562));
-                    }
-                } else if (vi.d != null) {
-                    vi.d.c(vi.c, message.arg1);
-                }
-                int unused = vi.a = 0;
-                xi unused2 = vi.d = null;
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -84,41 +28,86 @@ public class vi {
                 return;
             }
         }
-        e = new Handler(new a());
+        a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
-    public static boolean e(String str, xi xiVar, int i) {
-        InterceptResult invokeLLI;
+    public static String a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65541, null, str, xiVar, i)) == null) {
-            if (a == 0) {
-                wi wiVar = b;
-                if (wiVar == null) {
-                    b = new wi(e, i);
-                } else {
-                    wiVar.k(i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            if (bArr == null) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder(bArr.length * 2);
+            for (int i = 0; i < bArr.length; i++) {
+                sb.append(a[(bArr[i] & 240) >>> 4]);
+                sb.append(a[bArr[i] & 15]);
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String b(InputStream inputStream) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
+            String str = null;
+            if (inputStream == null) {
+                return null;
+            }
+            try {
+                try {
+                    byte[] bArr = new byte[1024];
+                    MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read <= 0) {
+                            break;
+                        }
+                        messageDigest.update(bArr, 0, read);
+                    }
+                    str = a(messageDigest.digest());
+                } catch (Exception e) {
+                    BdLog.e(e.toString());
                 }
-                c = str;
-                d = xiVar;
-                b.j(str);
-                a = 2;
-                new Thread(b).start();
-                return true;
+                return str;
+            } finally {
+                qi.e(inputStream);
             }
-            return false;
         }
-        return invokeLLI.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public static void f() {
+    public static String c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            wi wiVar = b;
-            if (wiVar != null) {
-                wiVar.l();
-            } else {
-                a = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            try {
+                return d(str.getBytes("UTF-8"));
+            } catch (Exception unused) {
+                return null;
             }
         }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.update(bArr);
+                return a(messageDigest.digest());
+            } catch (Exception e) {
+                BdLog.e(e);
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

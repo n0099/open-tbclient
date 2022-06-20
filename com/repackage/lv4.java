@@ -1,203 +1,311 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.ChunkUploadDatabaseService;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.coreExtra.data.AudioInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class lv4 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 2;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public NetWork a;
+    public a b;
+    public jw4 c;
+    public String d;
+    public String e;
+    public List<b> f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755515641, "Lcom/repackage/lv4;")) == null) {
-            return;
+    /* loaded from: classes6.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public iw4 c;
+        public NetWork d;
+        public boolean e;
+        public String f;
+
+        public a(lv4 lv4Var, String str, iw4 iw4Var, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lv4Var, str, iw4Var, str2, str3};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = null;
+            this.b = null;
+            this.c = null;
+            this.e = false;
+            this.f = null;
+            this.a = str;
+            this.c = iw4Var;
+            this.b = str2;
+            this.f = str3;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755515641, "Lcom/repackage/lv4;");
+
+        /* JADX WARN: Removed duplicated region for block: B:44:0x00f6 A[SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:46:0x0111 A[SYNTHETIC] */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public jw4 a() throws IOException {
+            InterceptResult invokeV;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                jw4 jw4Var = new jw4();
+                long c = this.c.c();
+                long j = 30720;
+                long j2 = c / 30720;
+                if (c % 30720 != 0) {
+                    j2++;
+                }
+                int a = this.c.a();
+                if (a < j2) {
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.a), "r");
+                    int i = a * TbConfig.VOICE_CHUNK_UPLOAD_SIZE;
+                    if (randomAccessFile.skipBytes(i) >= i) {
+                        while (true) {
+                            long j3 = a;
+                            if (j3 < j2) {
+                                long j4 = j2 - 1;
+                                int i2 = j3 == j4 ? (int) (c - (j4 * j)) : TbConfig.VOICE_CHUNK_UPLOAD_SIZE;
+                                byte[] bArr = new byte[i2];
+                                int read = randomAccessFile.read(bArr, 0, i2);
+                                if (read != -1) {
+                                    NetWork netWork = new NetWork(this.b);
+                                    this.d = netWork;
+                                    netWork.addPostData("voice_chunk", bArr);
+                                    this.d.addPostData("chunk_md5", this.c.b());
+                                    this.d.addPostData("length", String.valueOf(read));
+                                    this.d.addPostData("offset", String.valueOf(a * TbConfig.VOICE_CHUNK_UPLOAD_SIZE));
+                                    this.d.addPostData("total_length", String.valueOf(c));
+                                    this.d.addPostData("chunk_no", String.valueOf(a + 1));
+                                    this.d.addPostData("total_num", String.valueOf(j2));
+                                    this.d.addPostData("voice_md5", this.f);
+                                    if (!this.e) {
+                                        if (this.d.postMultiNetData() == null || !this.d.getNetContext().getResponse().isRequestSuccess()) {
+                                            this.c.d(a);
+                                            ChunkUploadDatabaseService.saveChunkUploadData(this.c);
+                                            randomAccessFile.close();
+                                        } else {
+                                            z = false;
+                                            if (!z) {
+                                                jw4Var.f(this.d.getServerErrorCode());
+                                                jw4Var.g(this.d.getErrorString());
+                                                jw4Var.e(this.c);
+                                                jw4Var.h(false);
+                                                return jw4Var;
+                                            }
+                                        }
+                                    }
+                                    z = true;
+                                    if (!z) {
+                                    }
+                                }
+                                a++;
+                                j = 30720;
+                            } else {
+                                randomAccessFile.close();
+                                break;
+                            }
+                        }
+                    } else {
+                        jw4Var.h(false);
+                        randomAccessFile.close();
+                        return jw4Var;
+                    }
+                }
+                jw4Var.h(true);
+                return jw4Var;
+            }
+            return (jw4) invokeV.objValue;
         }
     }
 
-    public lv4() {
+    /* loaded from: classes6.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+
+        public b(lv4 lv4Var, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lv4Var, str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = str2;
+        }
+
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+        }
+
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
+        }
+    }
+
+    public lv4(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.f = new ArrayList();
+        this.d = str;
+        this.e = str2;
     }
 
-    public static int a() {
-        InterceptResult invokeV;
+    public void a(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            int l = ys4.k().l("pref_key_fun_ad_first_floor_min", 2);
-            int l2 = ys4.k().l("pref_key_fun_ad_first_floor_max", 3);
-            if (l < l2) {
-                a = n07.a(l, l2);
-            } else {
-                a = n07.a(l2, l);
+        if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+            this.f.add(new b(this, str, String.valueOf(i)));
+        }
+    }
+
+    public final long b(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            int i = ((j % 30720) > 0L ? 1 : ((j % 30720) == 0L ? 0 : -1));
+            long j2 = j / 30720;
+            return i == 0 ? j2 : j2 + 1;
+        }
+        return invokeJ.longValue;
+    }
+
+    public final String c(String str, iw4 iw4Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, iw4Var)) == null) {
+            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + this.e);
+            this.a = netWork;
+            netWork.addPostData("voice_md5", iw4Var.b());
+            if (ListUtils.getCount(this.f) != 0) {
+                for (b bVar : this.f) {
+                    if (bVar != null) {
+                        this.a.addPostData(bVar.a(), bVar.b());
+                    }
+                }
             }
-            if (a < 0) {
-                a = 2;
+            String postNetData = this.a.postNetData();
+            if (postNetData != null && this.a.getNetContext().getResponse().isRequestSuccess()) {
+                ChunkUploadDatabaseService.delChunkUploadData(str);
+                return postNetData;
             }
-            return a;
+            iw4Var.d((int) b(iw4Var.c()));
+            ChunkUploadDatabaseService.saveChunkUploadData(iw4Var);
+            this.c.f(this.a.getServerErrorCode());
+            this.c.g(this.a.getErrorString());
+            this.c.h(false);
+            return null;
         }
-        return invokeV.intValue;
+        return (String) invokeLL.objValue;
     }
 
-    public static int b() {
-        InterceptResult invokeV;
+    public jw4 d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? ys4.k().l("fun_ad_big_image_density", 6) : invokeV.intValue;
-    }
-
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? ys4.k().l("fun_ad_big_image_floor", 5) : invokeV.intValue;
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? ys4.k().l("fun_ad_big_image_size", 1) : invokeV.intValue;
-    }
-
-    public static int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (a < 0) {
-                a = 2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            try {
+                File file = new File(str);
+                if (file.exists()) {
+                    this.a = new NetWork(TbConfig.SERVER_ADDRESS + this.d);
+                    return e(str, file);
+                }
+                return null;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return null;
             }
-            return a;
         }
-        return invokeV.intValue;
+        return (jw4) invokeL.objValue;
     }
 
-    public static int f() {
-        InterceptResult invokeV;
+    public final jw4 e(String str, File file) throws IOException {
+        InterceptResult invokeLL;
+        String c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            int l = ys4.k().l("pref_key_fun_ad_density", 6);
-            if (l > 0) {
-                return l;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, file)) == null) {
+            String b2 = vi.b(FileHelper.GetStreamFromFile(file));
+            if (b2 != null && b2.length() > 0) {
+                b2 = b2.toLowerCase();
             }
-            return 6;
-        }
-        return invokeV.intValue;
-    }
-
-    public static int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? ys4.k().l("pref_key_fun_ad_frs_density", 5) : invokeV.intValue;
-    }
-
-    public static int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? ys4.k().l("pref_key_fun_ad_frs_first_floor", 2) : invokeV.intValue;
-    }
-
-    public static int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? ys4.k().l("key_pb_comment_bear_density", 6) : invokeV.intValue;
-    }
-
-    public static int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            int l = ys4.k().l("key_pb_comment_bear_first", 4);
-            if (l <= 0) {
-                return 4;
+            iw4 chunkUploadDataByMd5 = ChunkUploadDatabaseService.getChunkUploadDataByMd5(b2);
+            if (chunkUploadDataByMd5 == null) {
+                chunkUploadDataByMd5 = new iw4();
+                chunkUploadDataByMd5.e(b2);
+                chunkUploadDataByMd5.d(0);
+                chunkUploadDataByMd5.f(file.length());
             }
-            return l;
-        }
-        return invokeV.intValue;
-    }
-
-    public static int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? ys4.k().l("key_pb_comment_bear_maxsize", 1) : invokeV.intValue;
-    }
-
-    public static int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? ys4.k().l("key_video_middle_density", 4) : invokeV.intValue;
-    }
-
-    public static int m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            int l = ys4.k().l("key_video_middle_first", 2);
-            if (l <= 0) {
-                return 2;
+            iw4 iw4Var = chunkUploadDataByMd5;
+            a aVar = new a(this, str, iw4Var, TbConfig.SERVER_ADDRESS + this.d, b2);
+            this.b = aVar;
+            jw4 a2 = aVar.a();
+            this.c = a2;
+            if (a2.d() && (c = c(b2, iw4Var)) != null && !c.equals("")) {
+                AudioInfoData audioInfoData = new AudioInfoData();
+                audioInfoData.parserJson(c);
+                if (audioInfoData.getErrorCode() <= 0 && audioInfoData.getVoiceId() != null) {
+                    iw4Var.e(audioInfoData.getVoiceId());
+                    this.c.e(iw4Var);
+                } else {
+                    this.c.f(audioInfoData.getErrorCode());
+                    this.c.g(audioInfoData.getErrorUserMsg());
+                    this.c.h(false);
+                }
             }
-            return l;
+            return this.c;
         }
-        return invokeV.intValue;
-    }
-
-    public void n(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        try {
-            int optInt = jSONObject.optInt("frs_bear_first_floor", 2);
-            int optInt2 = jSONObject.optInt("frs_bear_density", 5);
-            ys4.k().w("pref_key_fun_ad_frs_first_floor", optInt);
-            ys4.k().w("pref_key_fun_ad_frs_density", optInt2);
-            int optInt3 = jSONObject.optInt("index_bear_density", 6);
-            int optInt4 = jSONObject.optInt("index_bear_first_floor_max", 3);
-            int optInt5 = jSONObject.optInt("index_bear_first_floor_min", 2);
-            ys4.k().w("pref_key_fun_ad_density", optInt3);
-            ys4.k().w("pref_key_fun_ad_first_floor_max", optInt4);
-            ys4.k().w("pref_key_fun_ad_first_floor_min", optInt5);
-            int optInt6 = jSONObject.optInt("video_bear_density", 4);
-            int optInt7 = jSONObject.optInt("video_bear_first_floor", 2);
-            ys4.k().w("key_video_middle_density", optInt6);
-            ys4.k().w("key_video_middle_first", optInt7);
-            int optInt8 = jSONObject.optInt("pb_comment_bear_density", 6);
-            int optInt9 = jSONObject.optInt("pb_comment_bear_first_floor", 4);
-            int optInt10 = jSONObject.optInt("pb_comment_bear_max_size", 1);
-            ys4.k().w("key_pb_comment_bear_density", optInt8);
-            ys4.k().w("key_pb_comment_bear_first", optInt9);
-            ys4.k().w("key_pb_comment_bear_maxsize", optInt10);
-            int optInt11 = jSONObject.optInt("picpage_bear_first_floor", 5);
-            int optInt12 = jSONObject.optInt("picpage_bear_density", 6);
-            int optInt13 = jSONObject.optInt("picpage_bear_max_size", 1);
-            int optInt14 = jSONObject.optInt("picpage_bear_last_frame_switch", 0);
-            ys4.k().w("fun_ad_big_image_floor", optInt11);
-            ys4.k().w("fun_ad_big_image_density", optInt12);
-            ys4.k().w("fun_ad_big_image_size", optInt13);
-            ys4.k().w("fun_ad_big_image_switch", optInt14);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        return (jw4) invokeLL.objValue;
     }
 }

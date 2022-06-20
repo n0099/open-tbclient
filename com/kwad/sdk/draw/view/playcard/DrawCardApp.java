@@ -76,16 +76,16 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
     }
 
     private void a(Context context) {
-        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0413, this);
-        this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f091014);
-        this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f091019);
-        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09101a);
-        this.j = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09101c);
-        this.k = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f09101b);
-        this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f091018);
-        this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091016);
-        this.n = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091020);
-        DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f091017);
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d040d, this);
+        this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f091004);
+        this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f091009);
+        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09100a);
+        this.j = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09100c);
+        this.k = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f09100b);
+        this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f091008);
+        this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091006);
+        this.n = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091010);
+        DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f091007);
         this.o = drawDownloadProgressBar;
         drawDownloadProgressBar.setTextSize(16);
         this.f = com.kwad.sdk.a.kwai.a.a(context, 156.0f);
@@ -185,7 +185,7 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         if (view2 != this.g) {
-            com.kwad.sdk.core.download.a.a.a(new a.C0296a(getContext()).a(this.a).a(this.c).a(view2 == this.o).a(view2 == this.o ? 1 : 2).a(new a.b() { // from class: com.kwad.sdk.draw.view.playcard.DrawCardApp.2
+            com.kwad.sdk.core.download.a.a.a(new a.C0304a(getContext()).a(this.a).a(this.c).a(view2 == this.o).a(view2 == this.o ? 1 : 2).a(new a.b() { // from class: com.kwad.sdk.draw.view.playcard.DrawCardApp.2
                 @Override // com.kwad.sdk.core.download.a.a.b
                 public void a() {
                     if (DrawCardApp.this.e != null) {

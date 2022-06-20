@@ -1,291 +1,214 @@
 package com.xiaomi.push.service;
 
-import android.annotation.SuppressLint;
+import android.app.NotificationChannel;
 import android.content.Context;
-import android.content.Intent;
-import android.os.Message;
-import android.os.RemoteException;
+import android.content.SharedPreferences;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.fa;
-import com.xiaomi.push.ga;
-import com.xiaomi.push.gb;
-import com.xiaomi.push.gc;
-import com.xiaomi.push.ge;
-import com.xiaomi.push.service.av;
-import java.util.Collection;
-import java.util.Iterator;
+import com.xiaomi.push.service.ay;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
+    public static final SparseArray<ay.a<String, String, String>> a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public static final int[] f972a;
+    public static final SparseArray<Integer> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public q a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(311648363, "Lcom/xiaomi/push/service/e;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(311648363, "Lcom/xiaomi/push/service/e;");
+                return;
+            }
+        }
+        f972a = new int[]{1, 2, 4, 8, 16};
+        a = new f(5);
+        b = new g(5);
+    }
 
     public e() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = new q();
     }
 
-    public static String a(av.b bVar) {
-        InterceptResult invokeL;
-        StringBuilder sb;
-        String str;
+    public static int a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bVar)) == null) {
-            if ("9".equals(bVar.g)) {
-                sb = new StringBuilder();
-                sb.append(bVar.f892a);
-                str = ".permission.MIMC_RECEIVE";
-            } else {
-                sb = new StringBuilder();
-                sb.append(bVar.f892a);
-                str = ".permission.MIPUSH_RECEIVE";
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            int i = a(str, str2, 8) ? 8 : 0;
+            if (a(str, str2, 16)) {
+                i |= 16;
             }
-            sb.append(str);
-            return sb.toString();
+            if (a(str, str2, 1)) {
+                i |= 1;
+            }
+            if (a(str, str2, 2)) {
+                i |= 2;
+            }
+            return a(str, str2, 4) ? i | 4 : i;
         }
-        return (String) invokeL.objValue;
+        return invokeLL.intValue;
     }
 
-    public static void a(Context context, Intent intent, av.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, context, intent, bVar) == null) {
-            if ("com.xiaomi.xmsf".equals(context.getPackageName())) {
-                context.sendBroadcast(intent);
-            } else {
-                context.sendBroadcast(intent, a(bVar));
-            }
-        }
-    }
-
-    public av.b a(fa faVar) {
+    public static SharedPreferences a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, faVar)) == null) {
-            Collection<av.b> m639a = av.a().m639a(Integer.toString(faVar.a()));
-            if (m639a.isEmpty()) {
-                return null;
-            }
-            Iterator<av.b> it = m639a.iterator();
-            if (m639a.size() == 1) {
-                return it.next();
-            }
-            String g = faVar.g();
-            while (it.hasNext()) {
-                av.b next = it.next();
-                if (TextUtils.equals(g, next.f895b)) {
-                    return next;
-                }
-            }
-            return null;
-        }
-        return (av.b) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? context.getSharedPreferences("ch_permission_cache_file", 0) : (SharedPreferences) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:14:0x0038  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public av.b a(gc gcVar) {
-        InterceptResult invokeL;
+    public static void a(Context context, String str) {
+        List<NotificationChannel> m624a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gcVar)) == null) {
-            Collection<av.b> m639a = av.a().m639a(gcVar.k());
-            if (m639a.isEmpty()) {
-                return null;
-            }
-            Iterator<av.b> it = m639a.iterator();
-            if (m639a.size() == 1) {
-                return it.next();
-            }
-            String m = gcVar.m();
-            String l = gcVar.l();
-            while (it.hasNext()) {
-                av.b next = it.next();
-                if (TextUtils.equals(m, next.f895b) || TextUtils.equals(l, next.f895b)) {
-                    return next;
-                }
-                while (it.hasNext()) {
-                }
-            }
-            return null;
-        }
-        return (av.b) invokeL.objValue;
-    }
-
-    @SuppressLint({"WrongConstant"})
-    public void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            Intent intent = new Intent();
-            intent.setAction("com.xiaomi.push.service_started");
-            if (com.xiaomi.push.l.c()) {
-                intent.addFlags(16777216);
-            }
-            context.sendBroadcast(intent);
-        }
-    }
-
-    public void a(Context context, av.b bVar, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048579, this, context, bVar, i) == null) || "5".equalsIgnoreCase(bVar.g)) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) || !com.xiaomi.push.m.m556a(context) || TextUtils.isEmpty(str) || (m624a = ax.a(context, str).m624a()) == null) {
             return;
         }
-        Intent intent = new Intent();
-        intent.setAction("com.xiaomi.push.channel_closed");
-        intent.setPackage(bVar.f892a);
-        intent.putExtra(az.s, bVar.g);
-        intent.putExtra("ext_reason", i);
-        intent.putExtra(az.p, bVar.f895b);
-        intent.putExtra(az.D, bVar.i);
-        if (bVar.f886a == null || !"9".equals(bVar.g)) {
-            a(context, intent, bVar);
-            return;
-        }
-        try {
-            bVar.f886a.send(Message.obtain(null, 17, intent));
-        } catch (RemoteException unused) {
-            bVar.f886a = null;
-            StringBuilder sb = new StringBuilder();
-            sb.append("peer may died: ");
-            String str = bVar.f895b;
-            sb.append(str.substring(str.lastIndexOf(64)));
-            com.xiaomi.channel.commonutils.logger.b.m108a(sb.toString());
+        synchronized (e.class) {
+            SharedPreferences a2 = a(context);
+            ArrayList arrayList = new ArrayList();
+            for (NotificationChannel notificationChannel : m624a) {
+                String str2 = (String) com.xiaomi.push.bk.a(notificationChannel, "mId");
+                if (!TextUtils.isEmpty(str2) && a2.contains(str2)) {
+                    arrayList.add(str2);
+                }
+            }
+            if (arrayList.size() > 0) {
+                a(a2, arrayList);
+            }
         }
     }
 
-    public void a(Context context, av.b bVar, String str, String str2) {
+    public static void a(Context context, String str, String str2, int i, String str3, boolean z, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, context, bVar, str, str2) == null) {
-            if ("5".equalsIgnoreCase(bVar.g)) {
-                com.xiaomi.channel.commonutils.logger.b.d("mipush kicked by server");
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, str, str2, Integer.valueOf(i), str3, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+            if (!com.xiaomi.push.m.m556a(context) || TextUtils.isEmpty(str3) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str)) {
+                if (com.xiaomi.push.m.m556a(context)) {
+                    com.xiaomi.channel.commonutils.logger.b.m84a("ChannelPC: can`t setup permission with permissionCode:" + String.valueOf(str3) + " channelId:" + String.valueOf(str2) + " targetPkg:" + str);
+                    return;
+                }
                 return;
             }
-            Intent intent = new Intent();
-            intent.setAction("com.xiaomi.push.kicked");
-            intent.setPackage(bVar.f892a);
-            intent.putExtra("ext_kick_type", str);
-            intent.putExtra("ext_kick_reason", str2);
-            intent.putExtra("ext_chid", bVar.g);
-            intent.putExtra(az.p, bVar.f895b);
-            intent.putExtra(az.D, bVar.i);
-            a(context, intent, bVar);
-        }
-    }
-
-    public void a(Context context, av.b bVar, boolean z, int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, bVar, Boolean.valueOf(z), Integer.valueOf(i), str}) == null) {
-            if ("5".equalsIgnoreCase(bVar.g)) {
-                this.a.a(context, bVar, z, i, str);
+            int a2 = com.xiaomi.push.w.a(str3, 0);
+            boolean a3 = a(i, a2);
+            if (z) {
+                a(str, str2, a2, i2);
+                if (a3) {
+                    synchronized (e.class) {
+                        a(a(context), a2, str2);
+                    }
+                    return;
+                }
                 return;
             }
-            Intent intent = new Intent();
-            intent.setAction("com.xiaomi.push.channel_opened");
-            intent.setPackage(bVar.f892a);
-            intent.putExtra("ext_succeeded", z);
-            if (!z) {
-                intent.putExtra("ext_reason", i);
-            }
-            if (!TextUtils.isEmpty(str)) {
-                intent.putExtra("ext_reason_msg", str);
-            }
-            intent.putExtra("ext_chid", bVar.g);
-            intent.putExtra(az.p, bVar.f895b);
-            intent.putExtra(az.D, bVar.i);
-            a(context, intent, bVar);
-        }
-    }
-
-    public void a(XMPushService xMPushService, String str, fa faVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048582, this, xMPushService, str, faVar) == null) {
-            av.b a = a(faVar);
-            if (a == null) {
-                com.xiaomi.channel.commonutils.logger.b.d("error while notify channel closed! channel " + str + " not registered");
-            } else if ("5".equalsIgnoreCase(str)) {
-                this.a.a(xMPushService, faVar, a);
-            } else {
-                String str2 = a.f892a;
-                Intent intent = new Intent();
-                intent.setAction("com.xiaomi.push.new_msg");
-                intent.setPackage(str2);
-                intent.putExtra("ext_chid", str);
-                intent.putExtra("ext_raw_packet", faVar.m345a(a.h));
-                intent.putExtra(az.D, a.i);
-                intent.putExtra(az.w, a.h);
-                if (a.f886a != null) {
-                    try {
-                        a.f886a.send(Message.obtain(null, 17, intent));
-                        com.xiaomi.channel.commonutils.logger.b.m108a("message was sent by messenger for chid=" + str);
-                        return;
-                    } catch (RemoteException unused) {
-                        a.f886a = null;
-                        StringBuilder sb = new StringBuilder();
-                        sb.append("peer may died: ");
-                        String str3 = a.f895b;
-                        sb.append(str3.substring(str3.lastIndexOf(64)));
-                        com.xiaomi.channel.commonutils.logger.b.m108a(sb.toString());
+            synchronized (e.class) {
+                SharedPreferences a4 = a(context);
+                if (a3 || a4.contains(str2)) {
+                    a(a4, a2, str, str2, i2);
+                    if (a3) {
+                        a(a4, a2, str2);
+                    } else {
+                        a(a4, str2);
                     }
                 }
-                if ("com.xiaomi.xmsf".equals(str2)) {
-                    return;
-                }
-                com.xiaomi.channel.commonutils.logger.b.m108a("broadcast message to " + str2 + ", chid=" + str);
-                a(xMPushService, intent, a);
             }
         }
     }
 
-    public void a(XMPushService xMPushService, String str, gc gcVar) {
-        String str2;
-        String str3;
+    public static void a(SharedPreferences sharedPreferences, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048583, this, xMPushService, str, gcVar) == null) {
-            av.b a = a(gcVar);
-            if (a != null) {
-                if ("5".equalsIgnoreCase(str)) {
-                    this.a.a(xMPushService, gcVar, a);
-                    return;
-                }
-                String str4 = a.f892a;
-                if (gcVar instanceof gb) {
-                    str3 = "com.xiaomi.push.new_msg";
-                } else if (gcVar instanceof ga) {
-                    str3 = "com.xiaomi.push.new_iq";
-                } else if (gcVar instanceof ge) {
-                    str3 = "com.xiaomi.push.new_pres";
-                } else {
-                    str2 = "unknown packet type, drop it";
-                }
-                Intent intent = new Intent();
-                intent.setAction(str3);
-                intent.setPackage(str4);
-                intent.putExtra("ext_chid", str);
-                intent.putExtra("ext_packet", gcVar.a());
-                intent.putExtra(az.D, a.i);
-                intent.putExtra(az.w, a.h);
-                a(xMPushService, intent, a);
-                return;
-            }
-            str2 = "error while notify channel closed! channel " + str + " not registered";
-            com.xiaomi.channel.commonutils.logger.b.d(str2);
+        if (interceptable == null || interceptable.invokeLIL(65542, null, sharedPreferences, i, str) == null) {
+            sharedPreferences.edit().putInt(str, i).commit();
         }
+    }
+
+    public static void a(SharedPreferences sharedPreferences, int i, String str, String str2, int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{sharedPreferences, Integer.valueOf(i), str, str2, Integer.valueOf(i2)}) == null) || sharedPreferences.getInt(str2, 0) == i) {
+            return;
+        }
+        a(str, str2, i, i2);
+    }
+
+    public static void a(SharedPreferences sharedPreferences, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, sharedPreferences, str) == null) {
+            a(sharedPreferences, new h(str));
+        }
+    }
+
+    public static void a(SharedPreferences sharedPreferences, List<String> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, null, sharedPreferences, list) == null) {
+            SharedPreferences.Editor edit = sharedPreferences.edit();
+            for (String str : list) {
+                edit.remove(str);
+            }
+            edit.commit();
+        }
+    }
+
+    public static void a(String str, String str2, int i, int i2) {
+        int[] iArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(65546, null, str, str2, i, i2) == null) {
+            for (int i3 : f972a) {
+                if ((b.get(i3).intValue() & i2) == 0) {
+                    a(str, str2, i3, (i & i3) > 0);
+                } else {
+                    com.xiaomi.channel.commonutils.logger.b.m84a("ChannelPermissions.grantPermission:" + str + ":" + str2 + ": <" + i3 + "> :stoped by userLock");
+                }
+            }
+        }
+    }
+
+    public static void a(String str, String str2, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{str, str2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            boolean a2 = ay.a(com.xiaomi.push.v.m682a(), str, str2, a.get(i), z);
+            com.xiaomi.channel.commonutils.logger.b.m84a("ChannelPermissions.grantPermission:" + str + ":" + str2 + ": <" + i + "=" + z + "> :" + a2);
+        }
+    }
+
+    public static boolean a(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65548, null, i, i2)) == null) ? i >= 4 || (i2 & 2) > 0 || (i2 & 1) > 0 || (i2 & 8) > 0 || (i2 & 16) > 0 : invokeII.booleanValue;
+    }
+
+    public static boolean a(String str, String str2, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65549, null, str, str2, i)) == null) {
+            boolean z = ay.a(com.xiaomi.push.v.m682a(), str, str2, a.get(i)) == 1;
+            com.xiaomi.channel.commonutils.logger.b.m84a("ChannelPermissions.checkPermission:" + str + ":" + str2 + ": <" + i + "=" + z + ">");
+            return z;
+        }
+        return invokeLLI.booleanValue;
     }
 }

@@ -1,80 +1,149 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ubs.analytics.SampleResult;
-import com.repackage.g29;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.zip.GZIPOutputStream;
 /* loaded from: classes5.dex */
-public class e29 {
+public class e29 extends GZIPOutputStream {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public MessageDigest a;
+    public int b;
+    public int c;
+    public StringBuilder d;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755789371, "Lcom/repackage/e29;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755789371, "Lcom/repackage/e29;");
-        }
-    }
-
-    public static SampleResult a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (a) {
-                return g29.a.a.f(str);
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755789371, "Lcom/repackage/e29;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return SampleResult.OTHERE;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755789371, "Lcom/repackage/e29;");
+                return;
+            }
         }
-        return (SampleResult) invokeL.objValue;
+        e = e19.m();
     }
 
-    public static void b(f29 f29Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e29(OutputStream outputStream) throws IOException {
+        super(outputStream);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, f29Var) == null) || f29Var == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {outputStream};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((OutputStream) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        a39.b(f29Var);
+        this.a = null;
+        this.b = 0;
+        this.c = 0;
     }
 
-    public static void c(String str, String str2, String str3, Map<String, String> map) {
+    public byte[] a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65539, null, str, str2, str3, map) == null) && a && str != null) {
-            d39.a(str, str2, str3, map);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            MessageDigest messageDigest = this.a;
+            if (messageDigest == null || this.b != 2) {
+                return null;
+            }
+            return messageDigest.digest();
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            StringBuilder sb = this.d;
+            return sb != null ? sb.toString() : "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (this.a == null) {
+                try {
+                    this.a = MessageDigest.getInstance("MD5");
+                } catch (NoSuchAlgorithmException e2) {
+                    e2.printStackTrace();
+                }
+            }
+            MessageDigest messageDigest = this.a;
+            if (messageDigest != null) {
+                messageDigest.reset();
+            }
         }
     }
 
-    public static void d(String str) {
+    public void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && a) {
-            y29.a().b(str);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b = 1;
+            this.c = 0;
+            if (e) {
+                this.d = new StringBuilder();
+            }
         }
     }
 
-    public static void e(String str) {
+    public void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, str) == null) && a) {
-            y29.a().c(str);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b = 2;
         }
     }
 
-    public static void f(boolean z) {
+    @Override // java.util.zip.GZIPOutputStream, java.util.zip.DeflaterOutputStream, java.io.FilterOutputStream, java.io.OutputStream
+    public synchronized void write(byte[] bArr, int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
-            a = z;
+        if (interceptable == null || interceptable.invokeLII(1048581, this, bArr, i, i2) == null) {
+            synchronized (this) {
+                super.write(bArr, i, i2);
+                this.c += i2;
+                if (this.b == 1) {
+                    if (bArr[i] == 58 && this.a == null) {
+                        i++;
+                        i2--;
+                    }
+                    if (this.a == null) {
+                        e();
+                    }
+                    if (this.a == null) {
+                        return;
+                    }
+                    this.a.update(bArr, i, i2);
+                    if (e) {
+                        this.d.append(new String(bArr, i, i2));
+                    }
+                }
+            }
         }
     }
 }

@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kh7;
-import com.repackage.oh7;
+import com.repackage.vi7;
+import com.repackage.zi7;
 /* loaded from: classes3.dex */
 public class MemberPayFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
@@ -23,8 +23,8 @@ public class MemberPayFragment extends BaseFragment {
     public String c;
     public boolean d;
     public int e;
-    public kh7 f;
-    public oh7 g;
+    public vi7 f;
+    public zi7 g;
     public View h;
 
     public MemberPayFragment() {
@@ -43,36 +43,16 @@ public class MemberPayFragment extends BaseFragment {
         this.g = null;
     }
 
-    public void E0(Boolean bool) {
-        kh7 kh7Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, bool) == null) || (kh7Var = this.f) == null) {
-            return;
-        }
-        kh7Var.q(bool.booleanValue());
-    }
-
-    public void F0(oh7 oh7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oh7Var) == null) {
-            this.g = oh7Var;
-            kh7 kh7Var = this.f;
-            if (kh7Var != null) {
-                kh7Var.s(oh7Var);
-            }
-        }
-    }
-
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onActivityCreated(bundle);
         }
     }
@@ -80,11 +60,11 @@ public class MemberPayFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            kh7 kh7Var = this.f;
-            if (kh7Var != null) {
-                kh7Var.p(i);
+            vi7 vi7Var = this.f;
+            if (vi7Var != null) {
+                vi7Var.p(i);
             }
         }
     }
@@ -92,7 +72,7 @@ public class MemberPayFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             Bundle arguments = getArguments();
             this.a = arguments.getInt("member_type");
@@ -107,13 +87,33 @@ public class MemberPayFragment extends BaseFragment {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.h = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0529, viewGroup, false);
-            kh7 kh7Var = new kh7(getPageContext(), this.h, this.a, this.b, this.c, this.d, this.e);
-            this.f = kh7Var;
-            kh7Var.s(this.g);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
+            this.h = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0526, viewGroup, false);
+            vi7 vi7Var = new vi7(getPageContext(), this.h, this.a, this.b, this.c, this.d, this.e);
+            this.f = vi7Var;
+            vi7Var.s(this.g);
             return this.h;
         }
         return (View) invokeLLL.objValue;
+    }
+
+    public void r1(Boolean bool) {
+        vi7 vi7Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, bool) == null) || (vi7Var = this.f) == null) {
+            return;
+        }
+        vi7Var.q(bool.booleanValue());
+    }
+
+    public void s1(zi7 zi7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, zi7Var) == null) {
+            this.g = zi7Var;
+            vi7 vi7Var = this.f;
+            if (vi7Var != null) {
+                vi7Var.s(zi7Var);
+            }
+        }
     }
 }

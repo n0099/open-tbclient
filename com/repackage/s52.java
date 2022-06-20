@@ -1,66 +1,33 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.preference.PreferenceManager;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.storage.swankv.SwanKV;
+import com.baidu.swan.apps.so.SoLoader;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.di2;
-import com.repackage.t52;
+import com.baidu.webkit.internal.GlobalConstants;
+import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
 import java.io.File;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.Set;
-import org.json.JSONObject;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.channels.FileChannel;
+import java.nio.channels.FileLock;
 /* loaded from: classes7.dex */
 public class s52 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static final boolean b;
+    public static final String b;
+    public static final String c;
+    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nl1 a;
-
-        public a(nl1 nl1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nl1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nl1Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                s52.i(this.a);
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -75,184 +42,226 @@ public class s52 {
                 return;
             }
         }
-        a = rf1.a;
-        oi2.g0().getSwitch("swan_next_page_res_load", 0);
-        b = false;
-        hw1.k("SwanAppSlaveTopPages", "swan_top_page_res_load - " + b);
-        l();
+        a = cg1.a;
+        b = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + ZeusWebViewPreloadClass.ZEUS_FILE_DIR + File.separator + "libs";
+        StringBuilder sb = new StringBuilder();
+        sb.append(AppRuntime.getAppContext().getFilesDir().getAbsolutePath());
+        sb.append(File.separator);
+        sb.append("libs");
+        c = sb.toString();
+        d = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
     }
 
-    public static boolean a(@NonNull nl1<?> nl1Var, @NonNull hp2 hp2Var) {
-        InterceptResult invokeLL;
+    /* JADX WARN: Removed duplicated region for block: B:100:0x0173 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:102:0x0132 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void a() {
+        FileLock fileLock;
+        FileOutputStream fileOutputStream;
+        FileChannel fileChannel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, nl1Var, hp2Var)) == null) {
-            wz2 f = uk2.U().f(hp2Var.d);
-            if (a) {
-                Log.d("SwanAppSlaveTopPages", "page path - " + hp2Var.a);
-                Log.d("SwanAppSlaveTopPages", "page route path - " + hp2Var.d);
-            }
-            return bd3.S(nl1Var, f.r);
+        if (interceptable != null && interceptable.invokeV(65537, null) != null) {
+            return;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static t52.a b(@NonNull hz2 hz2Var, @NonNull nl1<?> nl1Var, @NonNull PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, hz2Var, nl1Var, pMSAppInfo)) == null) {
-            Set<String> m = m(pMSAppInfo);
-            if (m != null && m.size() > 0) {
-                String str = pMSAppInfo.appId;
-                String valueOf = String.valueOf(pMSAppInfo.versionCode);
-                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(valueOf)) {
-                    String str2 = di2.e.i(str, valueOf).getPath() + File.separator;
-                    t52 t52Var = new t52();
-                    for (String str3 : m) {
-                        if (h(str2, str3)) {
-                            hp2 d = hp2.d(zc3.g(str3), str2);
-                            if (bd3.b(hz2Var.P(), d, true) && a(nl1Var, d)) {
-                                t52Var.a(f(nl1Var, d));
-                            }
-                        }
-                    }
-                    return t52Var.b();
+        if (a) {
+            Log.d("SwanSailorHelper", "fixSoLoadCrash: start");
+        }
+        File file = new File(b + File.separator + GlobalConstants.LIB_ZEUS_V8);
+        if (file.exists() && file.length() > 0) {
+            File file2 = new File(c);
+            if (!file2.exists()) {
+                file2.mkdirs();
+            }
+            File file3 = new File(file2, GlobalConstants.LIB_ZEUS_V8);
+            long j = g83.a().getLong("zeus_v8_modified_time", -1L);
+            if (file.lastModified() == j && file.length() == file3.length()) {
+                if (a) {
+                    Log.d("SwanSailorHelper", "fixSoLoadCrash: srcModifiedTime=" + file.lastModified() + ";savedModifiedTime=" + j + ";srcFileLength=" + file.length() + ";destFileLength=" + file3.length());
+                    return;
                 }
-            }
-            return null;
-        }
-        return (t52.a) invokeLLL.objValue;
-    }
-
-    public static hp2 c() {
-        InterceptResult invokeV;
-        SwanAppActivity x;
-        py1 H;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            hz2 a0 = hz2.a0();
-            if (a0 == null || (x = a0.x()) == null || x.isFinishing() || x.isDestroyed() || (H = uk2.U().H()) == null) {
-                return null;
-            }
-            return H.l3();
-        }
-        return (hp2) invokeV.objValue;
-    }
-
-    public static void d(@NonNull PMSAppInfo pMSAppInfo, @Nullable t52.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, pMSAppInfo, aVar) == null) {
-        }
-    }
-
-    public static t52.a e(@NonNull PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, pMSAppInfo)) == null) {
-            return null;
-        }
-        return (t52.a) invokeL.objValue;
-    }
-
-    public static i92 f(nl1<?> nl1Var, hp2 hp2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, nl1Var, hp2Var)) == null) ? y52.a(q23.a(nl1Var, hp2Var, "")) : (i92) invokeLL.objValue;
-    }
-
-    public static JSONObject g(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, pMSAppInfo)) == null) ? mp2.g().k(pMSAppInfo) : (JSONObject) invokeL.objValue;
-    }
-
-    public static boolean h(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) ? di2.C(str, str2) : invokeLL.booleanValue;
-    }
-
-    public static void i(nl1<?> nl1Var) {
-        PMSAppInfo f0;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, null, nl1Var) == null) && b && nl1Var != null) {
-            long currentTimeMillis = a ? System.currentTimeMillis() : 0L;
-            hz2 a0 = hz2.a0();
-            if (a0 == null || (f0 = a0.V().f0()) == null) {
                 return;
             }
-            t52.a e = e(f0);
-            if (e == null) {
-                e = b(a0, nl1Var, f0);
-                d(f0, e);
-            }
-            if (e != null) {
-                b62.U().V0(nl1Var.c(), e);
-            }
             if (a) {
-                long currentTimeMillis2 = System.currentTimeMillis();
-                Log.d("SwanAppSlaveTopPages", "sendTopPageMsg cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms");
+                Log.d("SwanSailorHelper", "fixSoLoadCrash: start copy");
             }
-        }
-    }
-
-    public static void j(nl1<?> nl1Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65546, null, nl1Var) == null) && b && nl1Var != null) {
-            long currentTimeMillis = a ? System.currentTimeMillis() : 0L;
-            ExecutorUtilsExt.postOnElastic(new a(nl1Var), "SwanAppSlaveTopPages", 2);
-            if (a) {
-                long currentTimeMillis2 = System.currentTimeMillis();
-                Log.d("SwanAppSlaveTopPages", "sendTopPageMsg async cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms");
-            }
-        }
-    }
-
-    public static Set<String> k(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, jSONObject)) == null) {
-            if (jSONObject.length() <= 0) {
-                return null;
-            }
-            LinkedHashSet linkedHashSet = new LinkedHashSet();
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                if (!TextUtils.isEmpty(next)) {
-                    linkedHashSet.add(next);
+            FileInputStream fileInputStream = null;
+            try {
+                File file4 = new File(file2, "libzeusv8.so.lock");
+                if (!file4.exists()) {
+                    try {
+                        file4.createNewFile();
+                    } catch (IOException unused) {
+                    }
                 }
+                FileChannel channel = new RandomAccessFile(file4, "rw").getChannel();
+                try {
+                    fileLock = channel.lock();
+                    if (fileLock != null) {
+                        try {
+                            if (fileLock.isValid()) {
+                                long lastModified = file.lastModified();
+                                FileInputStream fileInputStream2 = new FileInputStream(file);
+                                try {
+                                    fileOutputStream = new FileOutputStream(file3);
+                                    try {
+                                        byte[] bArr = new byte[8192];
+                                        while (true) {
+                                            int read = fileInputStream2.read(bArr);
+                                            if (read <= 0) {
+                                                break;
+                                            }
+                                            fileOutputStream.write(bArr, 0, read);
+                                        }
+                                        fileOutputStream.flush();
+                                        g83.a().putLong("zeus_v8_modified_time", lastModified);
+                                        fileInputStream = fileInputStream2;
+                                        uf4.d(fileInputStream);
+                                        uf4.d(fileOutputStream);
+                                        if (fileLock != null) {
+                                            try {
+                                                fileLock.release();
+                                            } catch (IOException e) {
+                                                e.printStackTrace();
+                                            }
+                                        }
+                                        uf4.d(channel);
+                                    } catch (Exception e2) {
+                                        fileChannel = channel;
+                                        e = e2;
+                                        fileInputStream = fileInputStream2;
+                                        try {
+                                            e.printStackTrace();
+                                            uf4.d(fileInputStream);
+                                            uf4.d(fileOutputStream);
+                                            if (fileLock != null) {
+                                                try {
+                                                    fileLock.release();
+                                                } catch (IOException e3) {
+                                                    e3.printStackTrace();
+                                                }
+                                            }
+                                            uf4.d(fileChannel);
+                                            return;
+                                        } catch (Throwable th) {
+                                            th = th;
+                                            uf4.d(fileInputStream);
+                                            uf4.d(fileOutputStream);
+                                            if (fileLock != null) {
+                                                try {
+                                                    fileLock.release();
+                                                } catch (IOException e4) {
+                                                    e4.printStackTrace();
+                                                }
+                                            }
+                                            uf4.d(fileChannel);
+                                            throw th;
+                                        }
+                                    } catch (Throwable th2) {
+                                        fileChannel = channel;
+                                        th = th2;
+                                        fileInputStream = fileInputStream2;
+                                        uf4.d(fileInputStream);
+                                        uf4.d(fileOutputStream);
+                                        if (fileLock != null) {
+                                        }
+                                        uf4.d(fileChannel);
+                                        throw th;
+                                    }
+                                } catch (Exception e5) {
+                                    fileChannel = channel;
+                                    e = e5;
+                                    fileOutputStream = null;
+                                } catch (Throwable th3) {
+                                    fileChannel = channel;
+                                    th = th3;
+                                    fileOutputStream = null;
+                                }
+                            }
+                        } catch (Exception e6) {
+                            fileChannel = channel;
+                            e = e6;
+                            fileOutputStream = null;
+                        } catch (Throwable th4) {
+                            fileChannel = channel;
+                            th = th4;
+                            fileOutputStream = null;
+                        }
+                    }
+                    fileOutputStream = null;
+                    uf4.d(fileInputStream);
+                    uf4.d(fileOutputStream);
+                    if (fileLock != null) {
+                    }
+                    uf4.d(channel);
+                } catch (Exception e7) {
+                    fileChannel = channel;
+                    fileOutputStream = null;
+                    e = e7;
+                    fileLock = null;
+                } catch (Throwable th5) {
+                    fileChannel = channel;
+                    fileOutputStream = null;
+                    th = th5;
+                    fileLock = null;
+                }
+            } catch (Exception e8) {
+                e = e8;
+                fileLock = null;
+                fileOutputStream = null;
+                fileChannel = null;
+            } catch (Throwable th6) {
+                th = th6;
+                fileLock = null;
+                fileOutputStream = null;
+                fileChannel = null;
             }
-            if (a) {
-                Log.d("SwanAppSlaveTopPages", "get top pages - " + linkedHashSet);
-            }
-            return linkedHashSet;
+        } else if (a) {
+            Log.d("SwanSailorHelper", "fixSoLoadCrash: srcFile is not exist");
         }
-        return (Set) invokeL.objValue;
     }
 
-    public static void l() {
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("swan_full_install", true) : invokeV.booleanValue;
     }
 
-    public static Set<String> m(@NonNull PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
+    public static n53 c(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, pMSAppInfo)) == null) {
-            if (a) {
-                hp2 c = c();
-                Log.d("SwanAppSlaveTopPages", "current page - " + c);
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65539, null, z)) == null) {
+            if (z) {
+                return n53.c(SoLoader.load(AppRuntime.getAppContext(), "v8.engine"));
             }
-            JSONObject g = g(pMSAppInfo);
-            if (g == null || g.length() <= 0) {
-                return null;
+            boolean z2 = true;
+            if (b()) {
+                a();
+                v52.g(AppRuntime.getAppContext(), b);
+                boolean h = v52.h("zeusv8", c, true);
+                if (new File(b + File.separator + "libv8.engine.so").exists()) {
+                    if (!v52.h("arcore_sdk_c", b, false) || !v52.h("arcore_sdk_jni", b, false) || !v52.h(SwanKV.LIB_CPP_SHARED, b, false) || !v52.h("v8.engine", b, false)) {
+                        z2 = false;
+                    }
+                } else {
+                    z2 = SoLoader.load(AppRuntime.getAppContext(), "v8.engine");
+                }
+                return n53.d(h, z2);
             }
-            if (a) {
-                Log.d("SwanAppSlaveTopPages", "pages info - " + g);
-            }
-            return k(g);
+            v52.h("zeusv8", d, true);
+            return n53.c(v52.h("v8.engine", d, true));
         }
-        return (Set) invokeL.objValue;
+        return (n53) invokeZ.objValue;
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            g83.a().putLong("zeus_v8_modified_time", -1L);
+            if (a) {
+                Log.d("SwanSailorHelper", "fixSoLoadCrash: resetZeusV8ModifiedTime");
+            }
+        }
     }
 }

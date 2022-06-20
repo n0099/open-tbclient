@@ -1,25 +1,22 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cu6 implements jn {
+public class cu6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsTabInfoData a;
+    public int a;
+    public boolean b;
+    public boolean c;
 
-    public cu6(FrsTabInfoData frsTabInfoData) {
+    public cu6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsTabInfoData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,19 +26,30 @@ public class cu6 implements jn {
                 return;
             }
         }
-        this.a = frsTabInfoData;
+        this.a = -1;
+        this.b = false;
+        this.c = false;
     }
 
-    public FrsTabInfoData a() {
-        InterceptResult invokeV;
+    public void a(zt6 zt6Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (FrsTabInfoData) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, zt6Var) == null) {
+            this.b = true;
+            int i = this.a;
+            if (i == -1 || !this.c) {
+                return;
+            }
+            zt6Var.a(i);
+        }
     }
 
-    @Override // com.repackage.jn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public void b(int i, zt6 zt6Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? bu6.c : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, zt6Var) == null) {
+            this.a = i;
+            if (this.b && this.c) {
+                zt6Var.a(i);
+            }
+        }
     }
 }

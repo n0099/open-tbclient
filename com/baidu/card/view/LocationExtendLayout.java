@@ -19,9 +19,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cx;
+import com.repackage.gx;
 /* loaded from: classes.dex */
-public class LocationExtendLayout extends LinearLayout implements cx {
+public class LocationExtendLayout extends LinearLayout implements gx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
@@ -54,7 +54,7 @@ public class LocationExtendLayout extends LinearLayout implements cx {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080944, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f08092c, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0109);
             SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0109);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
@@ -66,12 +66,12 @@ public class LocationExtendLayout extends LinearLayout implements cx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             setOrientation(0);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0487, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905e8);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0905e5);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0905e6);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905e9);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905ea);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0484, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905c8);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0905c5);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0905c6);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905c9);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905ca);
         }
     }
 
@@ -98,7 +98,7 @@ public class LocationExtendLayout extends LinearLayout implements cx {
         }
     }
 
-    @Override // com.repackage.cx
+    @Override // com.repackage.gx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {

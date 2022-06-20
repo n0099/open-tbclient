@@ -28,7 +28,7 @@ public class h extends com.kwad.sdk.f.kwai.a implements View.OnClickListener {
     }
 
     private void f() {
-        com.kwad.sdk.core.download.a.a.a(new a.C0296a(this.b.getContext()).a(this.d).a(2).a(new a.b() { // from class: com.kwad.sdk.f.a.h.2
+        com.kwad.sdk.core.download.a.a.a(new a.C0304a(this.b.getContext()).a(this.d).a(2).a(new a.b() { // from class: com.kwad.sdk.f.a.h.2
             @Override // com.kwad.sdk.core.download.a.a.b
             public void a() {
                 com.kwad.sdk.core.report.a.a(h.this.d, 2, ((com.kwad.sdk.f.kwai.a) h.this).a.c.getTouchCoords());
@@ -59,8 +59,8 @@ public class h extends com.kwad.sdk.f.kwai.a implements View.OnClickListener {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.b = (ViewGroup) a(R.id.obfuscated_res_0x7f091128);
-        this.c = (TextView) a(R.id.obfuscated_res_0x7f091057);
+        this.b = (ViewGroup) a(R.id.obfuscated_res_0x7f091118);
+        this.c = (TextView) a(R.id.obfuscated_res_0x7f091047);
     }
 
     @Override // android.view.View.OnClickListener

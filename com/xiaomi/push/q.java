@@ -1,52 +1,76 @@
 package com.xiaomi.push;
 
-import android.content.Context;
-import android.content.SharedPreferences;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes8.dex */
-public class q implements Runnable {
+public final class q {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ p a;
+    public static final q a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f809a;
-    public final /* synthetic */ String b;
-    public final /* synthetic */ String c;
+    public static final /* synthetic */ q[] f818a;
+    public static final q b;
+    public static final q c;
+    public static final q d;
+    public static final q e;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    public q(p pVar, String str, String str2, String str3) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1664386235, "Lcom/xiaomi/push/q;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1664386235, "Lcom/xiaomi/push/q;");
+                return;
+            }
+        }
+        a = new q("China", 0);
+        b = new q("Global", 1);
+        c = new q("Europe", 2);
+        d = new q("Russia", 3);
+        q qVar = new q("India", 4);
+        e = qVar;
+        f818a = new q[]{a, b, c, d, qVar};
+    }
+
+    public q(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pVar, str, str2, str3};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {str, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                String str2 = (String) objArr2[0];
+                ((Integer) objArr2[1]).intValue();
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = pVar;
-        this.f809a = str;
-        this.b = str2;
-        this.c = str3;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        Context context;
+    public static q valueOf(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            context = this.a.f802a;
-            SharedPreferences.Editor edit = context.getSharedPreferences(this.f809a, 4).edit();
-            edit.putString(this.b, this.c);
-            edit.commit();
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (q) Enum.valueOf(q.class, str) : (q) invokeL.objValue;
+    }
+
+    public static q[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (q[]) f818a.clone() : (q[]) invokeV.objValue;
     }
 }

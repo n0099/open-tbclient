@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b9;
-import com.repackage.ig8;
-import com.repackage.jg;
+import com.repackage.bh8;
+import com.repackage.d9;
+import com.repackage.ng;
 /* loaded from: classes3.dex */
 public class ShareReportModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
@@ -33,20 +33,31 @@ public class ShareReportModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((b9) newInitContext.callArgs[0]);
+                super((d9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        y();
+        z();
+    }
+
+    public void A(String str, String str2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, str, str2, i) == null) {
+            ShareReportNetMessage shareReportNetMessage = new ShareReportNetMessage();
+            shareReportNetMessage.setFid(ng.g(str, 0L));
+            shareReportNetMessage.setTid(ng.g(str2, 0L));
+            shareReportNetMessage.setFrom(i);
+            sendMessage(shareReportNetMessage);
+        }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -56,28 +67,17 @@ public class ShareReportModel extends BdBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    public final void y() {
+    public final void z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ig8.h(309480, ShareReportSocketResponseMessage.class, false, false);
-            ig8.c(309480, CmdConfigHttp.CMD_SHARE_REPORT, TbConfig.URL_SHARE_REPORT, ShareReportHttpResponseMessage.class, false, false, false, false);
-        }
-    }
-
-    public void z(String str, String str2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048579, this, str, str2, i) == null) {
-            ShareReportNetMessage shareReportNetMessage = new ShareReportNetMessage();
-            shareReportNetMessage.setFid(jg.g(str, 0L));
-            shareReportNetMessage.setTid(jg.g(str2, 0L));
-            shareReportNetMessage.setFrom(i);
-            sendMessage(shareReportNetMessage);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            bh8.h(309480, ShareReportSocketResponseMessage.class, false, false);
+            bh8.c(309480, CmdConfigHttp.CMD_SHARE_REPORT, TbConfig.URL_SHARE_REPORT, ShareReportHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

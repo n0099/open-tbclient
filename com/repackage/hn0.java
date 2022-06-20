@@ -1,29 +1,40 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public final class hn0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final gn0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755642617, "Lcom/repackage/hn0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755642617, "Lcom/repackage/hn0;");
-                return;
-            }
+    public static final String a(JSONObject optStringCheckNonNull, String key) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, optStringCheckNonNull, key)) == null) {
+            Intrinsics.checkNotNullParameter(optStringCheckNonNull, "$this$optStringCheckNonNull");
+            Intrinsics.checkNotNullParameter(key, "key");
+            return b(optStringCheckNonNull, key, "");
         }
-        a = new kn0();
+        return (String) invokeLL.objValue;
+    }
+
+    public static final String b(JSONObject optStringCheckNonNull, String key, String fallback) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, optStringCheckNonNull, key, fallback)) == null) {
+            Intrinsics.checkNotNullParameter(optStringCheckNonNull, "$this$optStringCheckNonNull");
+            Intrinsics.checkNotNullParameter(key, "key");
+            Intrinsics.checkNotNullParameter(fallback, "fallback");
+            if (optStringCheckNonNull.isNull(key)) {
+                return fallback;
+            }
+            String optString = optStringCheckNonNull.optString(key, fallback);
+            Intrinsics.checkNotNullExpressionValue(optString, "optString(key, fallback)");
+            return optString;
+        }
+        return (String) invokeLLL.objValue;
     }
 }

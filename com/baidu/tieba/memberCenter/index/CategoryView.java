@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f9;
-import com.repackage.qg7;
+import com.repackage.bi7;
+import com.repackage.h9;
 /* loaded from: classes3.dex */
 public class CategoryView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -27,7 +27,7 @@ public class CategoryView extends LinearLayout {
     public TextView c;
     public TextView d;
     public ImageView e;
-    public qg7 f;
+    public bi7 f;
     public View.OnClickListener g;
 
     /* loaded from: classes3.dex */
@@ -68,7 +68,7 @@ public class CategoryView extends LinearLayout {
             } else if (a == 3) {
                 TiebaStatic.log("c10449");
             }
-            MemberCenterStatic.a((TbPageContext) f9.a(this.a.a), new String[]{this.a.f.c()});
+            MemberCenterStatic.a((TbPageContext) h9.a(this.a.a), new String[]{this.a.f.c()});
         }
     }
 
@@ -98,11 +98,11 @@ public class CategoryView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03cb, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03c8, this);
             this.b = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090632);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091d57);
-            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091d55);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090612);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091d4e);
+            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091d4c);
             this.b.setOnClickListener(this.g);
             this.e.setOnClickListener(this.g);
         }

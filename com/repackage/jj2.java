@@ -1,19 +1,27 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface jj2 {
-    void a(Activity activity, String str, String str2);
+public class jj2 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile ij2 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b(Context context);
-
-    void c(Activity activity, String str, g61 g61Var);
-
-    void d(Context context, JSONObject jSONObject, g61 g61Var);
-
-    void e(Activity activity, String str, g61 g61Var);
-
-    void f(Activity activity, String str, r61<JSONObject> r61Var);
+    public static synchronized ij2 a() {
+        InterceptResult invokeV;
+        ij2 ij2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (jj2.class) {
+                if (a == null) {
+                    a = new ij2();
+                }
+                ij2Var = a;
+            }
+            return ij2Var;
+        }
+        return (ij2) invokeV.objValue;
+    }
 }

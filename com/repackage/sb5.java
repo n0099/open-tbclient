@@ -1,226 +1,402 @@
 package com.repackage;
 
-import android.text.Editable;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.ImageSpan;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.io.Closeables;
+import com.baidu.android.util.io.FileUtils;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.HttpManager;
+import com.baidu.tbadk.TbadkSettings;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.SignAllForumAdvertActivityConfig;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
-import com.baidu.tieba.R;
+import com.baidu.tieba.debugtool.annotation.Modify;
+import com.baidu.tieba.debugtool.annotation.ModifyClass;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.List;
+import okhttp3.Response;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+@ModifyClass
 /* loaded from: classes7.dex */
 public class sb5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pattern a;
+    public static sb5 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755326293, "Lcom/repackage/sb5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755326293, "Lcom/repackage/sb5;");
-                return;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755326293, "Lcom/repackage/sb5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755326293, "Lcom/repackage/sb5;");
+        }
+    }
+
+    public sb5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        a = Pattern.compile("#([^#(]+)#", 2);
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    @Modify(description = "广告-热启动是否开启debug模式", type = 100)
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return "";
-            }
-            if (str.charAt(0) == '#' && str.charAt(str.length() - 1) == '#') {
-                return str;
-            }
-            StringBuilder sb = new StringBuilder(str.length() + 2);
-            sb.append("#");
-            sb.append(str);
-            sb.append("#");
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean b(TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, tbPageContext)) == null) ? c(tbPageContext, true, true) : invokeL.booleanValue;
-    }
-
-    public static boolean c(TbPageContext<?> tbPageContext, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{tbPageContext, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             return false;
         }
-        return invokeCommon.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static String d(String str) {
-        InterceptResult invokeL;
-        String str2;
+    @Modify(description = "广告-禁止初始化穿山甲", type = 100)
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            StringBuffer stringBuffer = new StringBuffer("http://tieba.baidu.com/n/video/opersquare?tab=hot&topic_name=");
-            int length = str.length();
-            if (length > 2 && str.charAt(0) == '#') {
-                int i = length - 1;
-                if (str.charAt(i) == '#') {
-                    str2 = str.substring(1, i);
-                    stringBuffer.append(str2);
-                    return stringBuffer.toString();
-                }
-            }
-            str2 = null;
-            stringBuffer.append(str2);
-            return stringBuffer.toString();
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? ht4.k().l("key_fun_cjs_init", 1) == 0 : invokeV.booleanValue;
     }
 
-    public static boolean e(String str) {
-        InterceptResult invokeL;
+    @Modify(description = "广告-禁止初始化广点通", type = 100)
+    public static boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? str != null && str.startsWith("#") && str.endsWith("#") && "".equals(str.substring(1, str.length() - 1).trim()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? ht4.k().l("key_fun_gdt_init", 1) == 0 : invokeV.booleanValue;
     }
 
-    public static boolean f(String str) {
-        InterceptResult invokeL;
+    @Modify(description = "广告-禁止初始化快手", type = 100)
+    public static boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? "#".equals(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? ht4.k().l("key_fun_ks_init", 1) == 0 : invokeV.booleanValue;
     }
 
-    public static boolean g(Spannable spannable, int i) {
+    @Modify(description = "广告-FRS页面混排广告条数", type = 100)
+    public static int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? ht4.k().l("key_mix_frs_ad_count", 5) : invokeV.intValue;
+    }
+
+    public static String g(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, spannable, i)) == null) {
-            if (spannable != null && !StringUtils.isNull(spannable.toString())) {
-                Matcher matcher = a.matcher(spannable.toString());
-                while (matcher.find()) {
-                    int start = matcher.start();
-                    int end = matcher.end();
-                    if (i > start && end > i) {
-                        return true;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, str, i)) == null) {
+            List<mq6> j = nq6.m().j(str);
+            JSONArray jSONArray = new JSONArray();
+            for (mq6 mq6Var : j) {
+                for (int i2 = 0; i2 < mq6Var.e && jSONArray.length() < i; i2++) {
+                    try {
+                        JSONObject jSONObject = new JSONObject();
+                        jSONObject.put("id", mq6Var.d + i2);
+                        jSONObject.put("ecpm", String.valueOf(mq6Var.f));
+                        jSONArray.put(jSONObject);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                 }
+            }
+            return gi.j(jSONArray.toString().getBytes(StandardCharsets.UTF_8));
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    public static double i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return 0.0d;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public static synchronized sb5 j() {
+        InterceptResult invokeV;
+        sb5 sb5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            synchronized (sb5.class) {
+                if (a == null) {
+                    a = new sb5();
+                }
+                sb5Var = a;
+            }
+            return sb5Var;
+        }
+        return (sb5) invokeV.objValue;
+    }
+
+    public static int k() {
+        InterceptResult invokeV;
+        int min;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            int s = s();
+            int t = t();
+            if (s != t && (min = Math.min(s, t)) > 0 && min < 10000) {
+                return min;
+            }
+            return 1000;
+        }
+        return invokeV.intValue;
+    }
+
+    public static int l() {
+        InterceptResult invokeV;
+        int max;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            int s = s();
+            int t = t();
+            if (s != t && (max = Math.max(s, t)) > 0 && max < 10000) {
+                return max;
+            }
+            return 1400;
+        }
+        return invokeV.intValue;
+    }
+
+    public static String m(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i)) == null) {
+            if (i != -1) {
+                return i != 0 ? i != 1 ? i != 2 ? i != 3 ? "PLG_Other" : "PLG_CPC" : "PLG_OperateHighly" : "PLG_OperateNormal" : "PLG_GD";
+            }
+            return null;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public static boolean n(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+            if (UbsABTestHelper.isFrsFunAdSdkTest()) {
+                return !(TbadkCoreApplication.getCurrentAccountInfo() != null && TbadkCoreApplication.getCurrentAccountInfo().getMemberCloseAdVipClose() == 1) && o(str) > 0;
             }
             return false;
         }
-        return invokeLI.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public static void h(gz4 gz4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, gz4Var) == null) {
-            int i = gz4Var.b;
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).param("obj_locate", i != 1 ? i != 2 ? i != 3 ? i != 4 ? i != 5 ? "" : "1" : TbadkCoreStatisticKey.HOT_TOPIC_CLICK_PB_BOTTOM : "pb" : "frs" : "index"));
-        }
-    }
-
-    public static SpannableString i(String str) {
+    public static int o(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return new SpannableString("");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
+            int i = 0;
+            for (mq6 mq6Var : nq6.m().j(str)) {
+                i += mq6Var.e;
             }
-            Matcher matcher = a.matcher(str);
-            SpannableString spannableString = new SpannableString(str);
-            while (matcher.find()) {
-                int start = matcher.start();
-                int end = matcher.end();
-                if (!e(str.substring(start, end))) {
-                    spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), start, end, 18);
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean p(Object obj) {
+        InterceptResult invokeL;
+        rh8 rh8Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, obj)) == null) {
+            if (obj instanceof mo4) {
+                return true;
+            }
+            if (obj instanceof bq4) {
+                rh8Var = ((bq4) obj).s.funAdData;
+            } else if (obj instanceof ThreadData) {
+                rh8Var = ((ThreadData) obj).funAdData;
+            } else {
+                rh8Var = obj instanceof PostData ? ((PostData) obj).t0 : null;
+            }
+            return rh8Var != null;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Modify(description = "小熊广告-开屏是否提前初始化", type = 33)
+    public static boolean q(int i) {
+        InterceptResult invokeI;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65552, null, i)) == null) {
+            if (UbsABTestHelper.newSplashStrategy()) {
+                if (w()) {
+                    return ja1.b() && u();
                 }
+                return u();
             }
-            return spannableString;
+            switch (i) {
+                case 101:
+                case 102:
+                case 103:
+                case 104:
+                case 105:
+                    z = true;
+                    break;
+                default:
+                    z = false;
+                    break;
+            }
+            return ht4.k().l("splash_origin_ad_strategy_key", 1) != 0 ? ja1.b() && z : z;
         }
-        return (SpannableString) invokeL.objValue;
+        return invokeI.booleanValue;
     }
 
-    public static void j(Spannable spannable) {
-        ImageSpan[] imageSpanArr;
+    @Modify(description = "广告-是否需要请求frs页面的小熊广告", type = 100)
+    public static boolean r() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65546, null, spannable) == null) || spannable == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
+            return ((ht4.k().l("splash_origin_ad_strategy_key", 1) == 1) || (TbadkCoreApplication.getCurrentAccountInfo() != null && TbadkCoreApplication.getCurrentAccountInfo().getMemberCloseAdVipClose() == 1)) ? false : true;
         }
-        String obj = spannable.toString();
-        if (StringUtils.isNull(obj)) {
-            return;
-        }
-        Matcher matcher = a.matcher(obj);
-        while (matcher.find()) {
-            int start = matcher.start();
-            int end = matcher.end();
-            if (!e(obj.substring(start, end)) && ((imageSpanArr = (ImageSpan[]) spannable.getSpans(start, end, ImageSpan.class)) == null || imageSpanArr.length <= 0)) {
-                spannable.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), start, end, 18);
-            }
-        }
+        return invokeV.booleanValue;
     }
 
-    public static void k(SpanGroupEditText spanGroupEditText) {
-        int i;
-        int i2;
-        ImageSpan[] imageSpanArr;
-        Object[] spans;
+    @Modify(description = "广告-开屏广告第一次超时时间(新)", type = 100)
+    public static int s() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65547, null, spanGroupEditText) == null) || spanGroupEditText == null || spanGroupEditText.getText() == null || spanGroupEditText.getSpanGroupManager() == null) {
-            return;
-        }
-        SpanGroupManager spanGroupManager = spanGroupEditText.getSpanGroupManager();
-        if (spanGroupManager.G().size() > 0) {
-            mu4 mu4Var = spanGroupManager.G().get(0);
-            i2 = mu4Var.f();
-            i = mu4Var.c();
-        } else {
-            i = 0;
-            i2 = 0;
-        }
-        Editable text = spanGroupEditText.getText();
-        String obj = text.toString();
-        if (StringUtils.isNull(obj)) {
-            return;
-        }
-        Matcher matcher = a.matcher(obj);
-        while (matcher.find()) {
-            int start = matcher.start();
-            int end = matcher.end();
-            if (end > i2 && i > end) {
-                for (Object obj2 : text.getSpans(i2, text.length(), Object.class)) {
-                    if ((obj2 instanceof EMRichTextAnyIconSpan) || (obj2 instanceof ForegroundColorSpan)) {
-                        text.removeSpan(obj2);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? ht4.k().l("key_splash_new_policy_first_timeout", 1000) : invokeV.intValue;
+    }
+
+    @Modify(description = "广告-开屏广告第二次超时时间(新)", type = 100)
+    public static int t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? ht4.k().l("key_splash_new_policy_second_timeout", 1400) : invokeV.intValue;
+    }
+
+    @Modify(description = "小熊广告-开屏是否展示小熊开关(新)", type = 100)
+    public static boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? ht4.k().l("key_splash_new_policy_bear_enable", 0) == 1 : invokeV.booleanValue;
+    }
+
+    @Modify(description = "广告-开屏是否展示序章CPC开关(新)", type = 100)
+    public static boolean v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? ht4.k().l("key_splash_new_policy_plg_cpc_enable", 0) == 1 : invokeV.booleanValue;
+    }
+
+    @Modify(description = "广告-开屏是否展示序章开关(新)", type = 100)
+    public static boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? ht4.k().l("key_splash_new_policy_plg_enable", 0) == 1 : invokeV.booleanValue;
+    }
+
+    public long b(File file, String str) {
+        InterceptResult invokeLL;
+        FileOutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, str)) == null) {
+            long j = 0;
+            if (TextUtils.isEmpty(str) || file == null) {
+                return 0L;
+            }
+            InputStream inputStream = null;
+            try {
+                Response executeSync = HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().url(str).build().executeSync();
+                if (executeSync == null || executeSync.code() != 200) {
+                    fileOutputStream = null;
+                } else {
+                    InputStream byteStream = executeSync.body().byteStream();
+                    if (byteStream != null) {
+                        try {
+                            fileOutputStream = new FileOutputStream(file);
+                            try {
+                                j = FileUtils.copyStream(byteStream, fileOutputStream);
+                            } catch (Exception e) {
+                                e = e;
+                                inputStream = byteStream;
+                                try {
+                                    TiebaStatic.log(e.toString());
+                                    Closeables.closeSafely(inputStream);
+                                    Closeables.closeSafely(fileOutputStream);
+                                    return j;
+                                } catch (Throwable th) {
+                                    th = th;
+                                    Closeables.closeSafely(inputStream);
+                                    Closeables.closeSafely(fileOutputStream);
+                                    throw th;
+                                }
+                            } catch (Throwable th2) {
+                                th = th2;
+                                inputStream = byteStream;
+                                Closeables.closeSafely(inputStream);
+                                Closeables.closeSafely(fileOutputStream);
+                                throw th;
+                            }
+                        } catch (Exception e2) {
+                            e = e2;
+                            fileOutputStream = null;
+                        } catch (Throwable th3) {
+                            th = th3;
+                            fileOutputStream = null;
+                        }
+                    } else {
+                        fileOutputStream = null;
                     }
+                    inputStream = byteStream;
                 }
-                spanGroupManager.delete(i2, i, true);
-                i = -1;
-                i2 = 0;
+            } catch (Exception e3) {
+                e = e3;
+                fileOutputStream = null;
+            } catch (Throwable th4) {
+                th = th4;
+                fileOutputStream = null;
             }
-            if (!e(obj.substring(start, end)) && ((imageSpanArr = (ImageSpan[]) text.getSpans(start, end, ImageSpan.class)) == null || imageSpanArr.length <= 0)) {
-                text.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), start, end, 18);
+            Closeables.closeSafely(inputStream);
+            Closeables.closeSafely(fileOutputStream);
+            return j;
+        }
+        return invokeLL.longValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TbadkSettings.getInst().loadString(SignAllForumAdvertActivityConfig.AD_URL, null) : (String) invokeV.objValue;
+    }
+
+    public void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            String h = h();
+            if (TextUtils.isEmpty(h)) {
+                return;
             }
+            jg.h().k(h, 10, null, 0, 0, null, new Object[0]);
         }
     }
 }

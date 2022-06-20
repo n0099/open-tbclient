@@ -43,16 +43,34 @@ public class UserPostPageSocketResponsedMessage extends SocketResponsedMessage {
         }
     }
 
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            PersonPostModel personPostModel = new PersonPostModel(null, null, this.isHost, this.from);
+            this.personPostModel = personPostModel;
+            UserPostResIdl parseProtobuf = personPostModel.parseProtobuf(bArr, this.page, this.threadUser, this.threadAuthor);
+            setError(parseProtobuf.error.errorno.intValue());
+            setErrorString(parseProtobuf.error.usermsg);
+            this.personPostModel.setErrorCode(parseProtobuf.error.errorno.intValue());
+            this.personPostModel.setErrorString(parseProtobuf.error.usermsg);
+            return parseProtobuf;
+        }
+        return invokeIL.objValue;
+    }
+
     public PersonPostModel getPersonPostModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.personPostModel : (PersonPostModel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.personPostModel : (PersonPostModel) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void setOrginalMessage(Message<?> message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, message) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
             super.setOrginalMessage(message);
             if (message.getExtra() instanceof UserPostPageRequestMessage) {
                 UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) message.getExtra();
@@ -62,21 +80,6 @@ public class UserPostPageSocketResponsedMessage extends SocketResponsedMessage {
                 this.threadUser = userPostPageRequestMessage.getThreadUser();
                 this.threadAuthor = userPostPageRequestMessage.getThreadAuthor();
             }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
-            PersonPostModel personPostModel = new PersonPostModel(null, null, this.isHost, this.from);
-            this.personPostModel = personPostModel;
-            UserPostResIdl parseProtobuf = personPostModel.parseProtobuf(bArr, this.page, this.threadUser, this.threadAuthor);
-            setError(parseProtobuf.error.errorno.intValue());
-            setErrorString(parseProtobuf.error.usermsg);
-            this.personPostModel.setErrorCode(parseProtobuf.error.errorno.intValue());
-            this.personPostModel.setErrorString(parseProtobuf.error.usermsg);
         }
     }
 }

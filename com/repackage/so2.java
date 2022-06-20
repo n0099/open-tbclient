@@ -1,9 +1,7 @@
 package com.repackage;
 
 import android.content.Context;
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -15,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class so2 extends uo2 {
     public static /* synthetic */ Interceptable $ic;
@@ -34,11 +31,11 @@ public class so2 extends uo2 {
                 return;
             }
         }
-        boolean z = rf1.a;
+        boolean z = cg1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public so2(String str) {
+    public so2(@NonNull String str) {
         super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -58,42 +55,26 @@ public class so2 extends uo2 {
     }
 
     @Override // com.repackage.uo2
-    public boolean a(po2 po2Var, ro2 ro2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hz2 hz2Var) {
+    public boolean a(ko2 ko2Var, mo2 mo2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, sz2 sz2Var) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{po2Var, ro2Var, context, unitedSchemeEntity, callbackHandler, hz2Var})) == null) {
-            hw1.i("vrvideo", "open, video id:" + ro2Var.j + " slave id: " + ro2Var.c);
-            d(po2Var, ro2Var, unitedSchemeEntity, callbackHandler);
-            return true;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{ko2Var, mo2Var, context, unitedSchemeEntity, callbackHandler, sz2Var})) == null) {
+            sw1.i("video", "playBackRate, video id:" + mo2Var.j + " slave id: " + mo2Var.c);
+            d(ko2Var, mo2Var.W, unitedSchemeEntity, callbackHandler);
+            return false;
         }
         return invokeCommon.booleanValue;
     }
 
-    @Override // com.repackage.uo2
-    public po2 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
+    public final void d(ko2 ko2Var, String str, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3, jSONObject)) == null) {
-            if (TextUtils.isEmpty(str3)) {
-                return null;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ko2Var, str, unitedSchemeEntity, callbackHandler) == null) {
+            int q = ko2Var.q(str);
+            if (q != 0 && q != 202) {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
+            } else {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(q));
             }
-            fm2 f = gm2.f(str, str2, str3);
-            if (f == null) {
-                return new po2(context, ro2.h(jSONObject, new ro2()));
-            }
-            if (f.i() instanceof po2) {
-                return (po2) f.i();
-            }
-            return null;
-        }
-        return (po2) invokeLLLLL.objValue;
-    }
-
-    public final void d(po2 po2Var, ro2 ro2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, po2Var, ro2Var, unitedSchemeEntity, callbackHandler) == null) {
-            po2Var.g(ro2Var);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }
 }

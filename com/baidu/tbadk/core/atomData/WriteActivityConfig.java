@@ -30,11 +30,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.w0;
-import com.repackage.li;
-import com.repackage.wi8;
-import com.repackage.xi8;
-import com.repackage.yi8;
-/* loaded from: classes2.dex */
+import com.repackage.oj8;
+import com.repackage.pi;
+import com.repackage.pj8;
+import com.repackage.qj8;
+/* loaded from: classes3.dex */
 public class WriteActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ADDITION_DATA = "addition_data";
@@ -124,7 +124,7 @@ public class WriteActivityConfig extends IntentConfig {
     public void send() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            yi8.g = new Intent(getIntent());
+            qj8.g = new Intent(getIntent());
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this));
         }
     }
@@ -440,7 +440,7 @@ public class WriteActivityConfig extends IntentConfig {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048603, this, z)) == null) {
-            getIntent().putExtra("item_is_school", z);
+            getIntent().putExtra(ITEM_IS_SCHOOL, z);
             return this;
         }
         return (WriteActivityConfig) invokeZ.objValue;
@@ -542,7 +542,7 @@ public class WriteActivityConfig extends IntentConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, serializableItemInfo)) == null) {
-            getIntent().putExtra("item_info", serializableItemInfo);
+            getIntent().putExtra(ITEM_INFO, serializableItemInfo);
             return this;
         }
         return (WriteActivityConfig) invokeL.objValue;
@@ -665,10 +665,10 @@ public class WriteActivityConfig extends IntentConfig {
         Activity currentActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            boolean q = wi8.k().q();
-            xi8.a("发帖阻拦状态 = " + q);
+            boolean q = oj8.k().q();
+            pj8.a("发帖阻拦状态 = " + q);
             if (q && z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
-                li.O(currentActivity, "正在发布，请稍后");
+                pi.O(currentActivity, "正在发布，请稍后");
             }
             return q;
         }

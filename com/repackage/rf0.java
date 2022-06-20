@@ -1,24 +1,16 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebChromeClient;
-import java.util.HashMap;
-import java.util.Map;
-@Service
 /* loaded from: classes7.dex */
-public class rf0 extends hg0 {
+public class rf0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Inject(force = false)
+    public cb1<zk0> a;
 
     public rf0() {
         Interceptable interceptable = $ic;
@@ -30,33 +22,18 @@ public class rf0 extends hg0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        a();
     }
 
-    @Override // com.repackage.hg0
-    public String a() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "loadCache" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.hg0
-    public boolean b(@NonNull Context context, @NonNull lg0 lg0Var, @Nullable Map<String, Object> map, @Nullable pg0 pg0Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, lg0Var, map, pg0Var)) == null) {
-            super.b(context, lg0Var, map, pg0Var);
-            HashMap<String, String> d = lg0Var.d();
-            String str = d.get("key");
-            String str2 = d.get(WebChromeClient.KEY_ARG_CALLBACK);
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                d(pg0Var, lg0Var, sf0.a().b(str), 0, true);
-                return true;
-            }
-            c(pg0Var, lg0Var, 202, false);
-            return true;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ab1 b = ab1.b();
+            this.a = b;
+            b.a(new al0());
         }
-        return invokeLLLL.booleanValue;
     }
 }

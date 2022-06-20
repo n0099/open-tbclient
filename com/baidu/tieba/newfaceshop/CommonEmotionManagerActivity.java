@@ -11,16 +11,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
+import com.repackage.pi;
 /* loaded from: classes3.dex */
 public class CommonEmotionManagerActivity extends BaseFragmentActivity {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String FACE_SHOP_URL = "http://tieba.baidu.com/n/interact/emoticoncenter";
-    public static final String KEY_LOAD_URL = "key_load_url";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CommonEmotionCenterFragment mFragment;
-    public FrameLayout mRootView;
-    public String mUrl;
+    public FrameLayout a;
+    public CommonEmotionCenterFragment b;
+    public String c;
 
     public CommonEmotionManagerActivity() {
         Interceptable interceptable = $ic;
@@ -49,21 +47,21 @@ public class CommonEmotionManagerActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
-            setContentView(R.layout.obfuscated_res_0x7f0d01e5);
-            this.mRootView = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0906b0);
+            setContentView(R.layout.obfuscated_res_0x7f0d01e2);
+            this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09069b);
             if (isUseStyleImmersiveSticky()) {
-                ((FrameLayout.LayoutParams) this.mRootView.getLayoutParams()).topMargin = li.s(getPageContext().getPageActivity());
+                ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = pi.s(getPageContext().getPageActivity());
             }
             String stringExtra = getIntent().getStringExtra("url");
-            this.mUrl = stringExtra;
+            this.c = stringExtra;
             if (TextUtils.isEmpty(stringExtra)) {
-                this.mUrl = FACE_SHOP_URL;
+                this.c = "http://tieba.baidu.com/n/interact/emoticoncenter";
             }
-            this.mFragment = new CommonEmotionCenterFragment();
+            this.b = new CommonEmotionCenterFragment();
             Bundle bundle2 = new Bundle();
-            bundle2.putString("key_load_url", this.mUrl);
-            this.mFragment.setArguments(bundle2);
-            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0906b0, this.mFragment).commit();
+            bundle2.putString("key_load_url", this.c);
+            this.b.setArguments(bundle2);
+            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f09069b, this.b).commit();
         }
     }
 
@@ -71,7 +69,7 @@ public class CommonEmotionManagerActivity extends BaseFragmentActivity {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            CommonEmotionCenterFragment commonEmotionCenterFragment = this.mFragment;
+            CommonEmotionCenterFragment commonEmotionCenterFragment = this.b;
             if (commonEmotionCenterFragment != null) {
                 commonEmotionCenterFragment.onDestroy();
             }

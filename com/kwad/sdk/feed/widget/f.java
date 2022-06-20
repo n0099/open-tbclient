@@ -11,6 +11,6 @@ public class f extends a {
 
     @Override // com.kwad.sdk.feed.widget.base.a
     public int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d0420;
+        return R.layout.obfuscated_res_0x7f0d041a;
     }
 }

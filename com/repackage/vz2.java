@@ -1,59 +1,53 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayOutputStream;
+import android.os.Bundle;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.extcore.cores.SwanAppCores;
+import com.repackage.wz2;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes7.dex */
-public abstract class vz2<T> implements li2<byte[], T> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface vz2 {
+    public static final Set<String> e0 = new HashSet(Arrays.asList("update_tag_by_activity_on_create", "update_tag_by_activity_on_new_intent", "update_tag_by_activity_on_relaunch", "update_tag_by_remote_debug"));
 
-    public vz2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void A(wz2.a aVar);
 
-    public abstract void a(@NonNull T t, @NonNull ni2 ni2Var) throws Exception;
+    c23 B();
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.repackage.li2
-    public /* bridge */ /* synthetic */ byte[] call(Object obj) throws Exception {
-        return call2((vz2<T>) obj);
-    }
+    boolean E();
 
-    @Override // com.repackage.li2
-    /* renamed from: call  reason: avoid collision after fix types in other method */
-    public final byte[] call2(T t) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
-            if (t == null) {
-                return null;
-            }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            ni2 ni2Var = new ni2(byteArrayOutputStream);
-            a(t, ni2Var);
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            ni2Var.close();
-            byteArrayOutputStream.close();
-            return byteArray;
-        }
-        return (byte[]) invokeL.objValue;
-    }
+    void G();
+
+    String getAppId();
+
+    int l();
+
+    void m(Bundle bundle, String str);
+
+    SwanAppCores n();
+
+    String o(String... strArr);
+
+    void p(le3<wz2.a> le3Var);
+
+    void q(String str);
+
+    sz2 r();
+
+    void s(SwanAppActivity swanAppActivity);
+
+    void t();
+
+    void u(SwanAppActivity swanAppActivity);
+
+    void v(le3<wz2.a> le3Var);
+
+    void w(String str, Bundle bundle);
+
+    SwanAppActivity x();
+
+    vg1 y();
+
+    nw2 z();
 }

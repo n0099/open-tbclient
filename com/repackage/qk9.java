@@ -1,64 +1,58 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.activitys.H5Activity;
 /* loaded from: classes6.dex */
-public class qk9 implements lk9 {
+public class qk9 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ H5Activity a;
+    public final /* synthetic */ tl9 a;
 
-    public qk9(H5Activity h5Activity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qk9(tl9 tl9Var, Looper looper) {
+        super(looper);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {h5Activity};
+            Object[] objArr = {tl9Var, looper};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = h5Activity;
+        this.a = tl9Var;
     }
 
-    @Override // com.repackage.lk9
-    public boolean a(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            H5Activity h5Activity = this.a;
-            if (pm9.d(h5Activity.e, h5Activity.h)) {
-                this.a.h = System.currentTimeMillis();
-                H5Activity h5Activity2 = this.a;
-                pm9.a(h5Activity2.a, str, h5Activity2.e, h5Activity2.i, str2);
-                nn9 a = rn9.a(this.a.a);
-                a.h(new vn9(this.a.e), str);
-                a.l("desc", str2);
-                a.m();
-                kl9.c(this.a.e.getId() + this.a.f, "is_click", null);
-                ll9.p(this.a.e, str2);
-                return true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+            super.handleMessage(message);
+            if (message.what != 1101) {
+                return;
             }
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.repackage.lk9
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.a.g = str;
+            this.a.e.removeMessages(1101);
+            tl9 tl9Var = this.a;
+            if (!tl9Var.b && tl9Var.b(tl9Var.a)) {
+                ql9 ql9Var = this.a.c;
+                if (ql9Var != null) {
+                    ql9Var.a();
+                }
+                this.a.b = true;
+                return;
+            }
+            this.a.e.sendEmptyMessageDelayed(1101, 300L);
         }
     }
 }

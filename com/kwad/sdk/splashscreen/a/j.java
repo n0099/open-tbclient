@@ -45,7 +45,7 @@ public class j extends Presenter implements com.kwad.sdk.core.j.d {
                             AdInfo.AdSplashInfo adSplashInfo = j.adSplashInfo;
                             String str = z ? adSplashInfo.speakerIconUrl : adSplashInfo.speakerMuteIconUrl;
                             if (TextUtils.isEmpty(str)) {
-                                j.this.f.setImageDrawable(j.this.q().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080cdc));
+                                j.this.f.setImageDrawable(j.this.q().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080cc7));
                             } else {
                                 KSImageLoader.loadImage(j.this.f, str, j.this.a.d);
                             }
@@ -216,13 +216,13 @@ public class j extends Presenter implements com.kwad.sdk.core.j.d {
         com.kwad.sdk.splashscreen.g gVar = (com.kwad.sdk.splashscreen.g) p();
         this.a = gVar;
         this.h = com.kwad.sdk.core.response.a.d.j(gVar.d);
-        ((DetailVideoView) this.a.e.findViewById(R.id.obfuscated_res_0x7f091117)).setVisibility(0);
+        ((DetailVideoView) this.a.e.findViewById(R.id.obfuscated_res_0x7f091107)).setVisibility(0);
         com.kwad.sdk.splashscreen.b.a aVar2 = this.a.f;
         if (aVar2 != null) {
             aVar2.a(this.j);
         }
         this.a.i.a(this);
-        SkipView skipView = (SkipView) this.a.e.findViewById(R.id.obfuscated_res_0x7f091113);
+        SkipView skipView = (SkipView) this.a.e.findViewById(R.id.obfuscated_res_0x7f091103);
         this.g = skipView;
         a(skipView, this.h);
         final AdInfo j = com.kwad.sdk.core.response.a.d.j(this.a.d);
@@ -239,14 +239,14 @@ public class j extends Presenter implements com.kwad.sdk.core.j.d {
                     aVar.a(this.b, false);
                     this.a.f.a(this.i);
                 }
-                ImageView imageView = (ImageView) this.a.e.findViewById(R.id.obfuscated_res_0x7f091114);
+                ImageView imageView = (ImageView) this.a.e.findViewById(R.id.obfuscated_res_0x7f091104);
                 this.f = imageView;
                 imageView.setVisibility(0);
                 str = !this.b ? j.adSplashInfo.speakerIconUrl : j.adSplashInfo.speakerMuteIconUrl;
                 if (TextUtils.isEmpty(str)) {
                     KSImageLoader.loadImage(this.f, str, this.a.d);
                 } else {
-                    this.f.setImageDrawable(q().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080cdc));
+                    this.f.setImageDrawable(q().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080cc7));
                 }
                 this.f.setSelected(this.b);
                 this.f.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.splashscreen.a.j.3
@@ -256,7 +256,7 @@ public class j extends Presenter implements com.kwad.sdk.core.j.d {
                         jVar.b = !jVar.b;
                         String str2 = j.this.b ? j.adSplashInfo.speakerIconUrl : j.adSplashInfo.speakerMuteIconUrl;
                         if (TextUtils.isEmpty(str2)) {
-                            j.this.f.setImageDrawable(j.this.q().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080cdc));
+                            j.this.f.setImageDrawable(j.this.q().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080cc7));
                         } else {
                             KSImageLoader.loadImage(j.this.f, str2, j.this.a.d);
                         }
@@ -275,7 +275,7 @@ public class j extends Presenter implements com.kwad.sdk.core.j.d {
         aVar = this.a.f;
         if (aVar != null) {
         }
-        ImageView imageView2 = (ImageView) this.a.e.findViewById(R.id.obfuscated_res_0x7f091114);
+        ImageView imageView2 = (ImageView) this.a.e.findViewById(R.id.obfuscated_res_0x7f091104);
         this.f = imageView2;
         imageView2.setVisibility(0);
         if (!this.b) {
@@ -290,7 +290,7 @@ public class j extends Presenter implements com.kwad.sdk.core.j.d {
                 jVar.b = !jVar.b;
                 String str2 = j.this.b ? j.adSplashInfo.speakerIconUrl : j.adSplashInfo.speakerMuteIconUrl;
                 if (TextUtils.isEmpty(str2)) {
-                    j.this.f.setImageDrawable(j.this.q().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080cdc));
+                    j.this.f.setImageDrawable(j.this.q().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080cc7));
                 } else {
                     KSImageLoader.loadImage(j.this.f, str2, j.this.a.d);
                 }

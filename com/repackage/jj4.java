@@ -1,322 +1,20 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.net.Uri;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.BDPTask;
-import com.baidu.bdtask.component.buoy.BuoyComponent;
-import com.baidu.bdtask.component.buoy.TaskBuoyViewData;
-import com.baidu.bdtask.component.buoy.TaskBuoyViewModel;
-import com.baidu.bdtask.ctrl.model.TaskStatus;
-import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.bdtask.ui.components.buoy.TaskBuoyView;
-import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.sapi2.utils.ThirdPartyUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class jj4 {
+public abstract class jj4 implements ij4 {
     public static /* synthetic */ Interceptable $ic;
-    public static int b;
-    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-
-    /* loaded from: classes6.dex */
-    public class a implements zo {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(jj4 jj4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jj4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.zo
-        public void a(TaskInfo taskInfo, TaskStatus taskStatus) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, taskInfo, taskStatus) == null) {
-                BdLog.d(taskInfo.getActionId() + " taskStatus onChanged :" + taskStatus);
-                if (taskStatus.isRegistered()) {
-                    BdLog.d("isRegistered=============>");
-                }
-                if (taskStatus.isUnRegistered()) {
-                    BdLog.d("isUnRegistered=============>");
-                }
-                if (taskStatus.isRunning()) {
-                    BdLog.d("isRunning=============>");
-                }
-                if (taskStatus.isFinished()) {
-                    BdLog.d("isFinished=============>");
-                }
-            }
-        }
-
-        @Override // com.repackage.zo
-        public void b(TaskInfo taskInfo, int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, i, str) == null) {
-                BdLog.d("[debug]error:" + str + " " + i);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends pu {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(jj4 jj4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jj4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.pu, com.repackage.qu
-        public void a(View view2, TaskInfo taskInfo, TaskBuoyViewData taskBuoyViewData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, view2, taskInfo, taskBuoyViewData) == null) {
-                super.a(view2, taskInfo, taskBuoyViewData);
-                taskBuoyViewData.getTaskStatus().isFinished();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static final jj4 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-269417506, "Lcom/repackage/jj4$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-269417506, "Lcom/repackage/jj4$c;");
-                    return;
-                }
-            }
-            a = new jj4(null);
-        }
-    }
-
-    public /* synthetic */ jj4(a aVar) {
-        this();
-    }
-
-    public static jj4 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.a : (jj4) invokeV.objValue;
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || b(str) == null) {
-            return;
-        }
-        BDPTask.m.h(str);
-    }
-
-    public TaskInfo b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (BDPTask.m.m(str) == null) {
-                return null;
-            }
-            return BDPTask.m.m(str).getTaskInfo();
-        }
-        return (TaskInfo) invokeL.objValue;
-    }
-
-    public final void c(Uri uri) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri) == null) {
-            String queryParameter = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_EXPAND_DATA);
-            if (TextUtils.isEmpty(queryParameter)) {
-                return;
-            }
-            String queryParameter2 = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_TASK_ACTION_ID);
-            if (!TextUtils.isEmpty(queryParameter2)) {
-                l(queryParameter2, queryParameter);
-            }
-            d(uri, queryParameter);
-        }
-    }
-
-    public final void d(Uri uri, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, uri, str) == null) {
-            lh4 lh4Var = new lh4(str);
-            int i = StringHelper.equals(uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_SCHEME_FROM), BdUniDispatchSchemeController.SCHEME_FROM_TB_TOKEN) ? 2 : 1;
-            String queryParameter = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_KW);
-            String queryParameter2 = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_TID);
-            String queryParameter3 = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_QUERY);
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_NEW_SCHEME_PULL_UP).param("obj_source", lh4Var.e()).param("obj_type", lh4Var.d()).param("obj_param1", lh4Var.q()).param(TiebaStatic.Params.OBJ_PARAM2, i).param(TiebaStatic.Params.OBJ_PARAM3, lh4Var.s()).param("extra", lh4Var.v()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fname", queryParameter).param("tid", queryParameter2).param("query", queryParameter3).param("pid", uri.getQueryParameter("hightlight_anchor_pid")).param(TiebaStatic.Params.REFER, uri.getQueryParameter(TiebaStatic.Params.REFER)).param("obj_locate", TbadkCoreApplication.getInst().getStartType()).param("obj_name", 1));
-        }
-    }
-
-    public String e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            ys4 k = ys4.k();
-            String q = k.q("key_sdk_task_expand_data_" + str, "");
-            if (TextUtils.isEmpty(q)) {
-                return null;
-            }
-            try {
-                return new JSONObject(q).optString(str2);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public void g(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            hj4.e(context);
-            this.a = BdUniqueId.gen();
-            ij4.a().b(this.a);
-            c = UtilHelper.getDimenPixelSize(R.dimen.tbds340);
-            b = UtilHelper.getDimenPixelSize(R.dimen.M_W_X011);
-        }
-    }
-
-    public void h(BuoyComponent buoyComponent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, buoyComponent) == null) && buoyComponent != null && (buoyComponent instanceof ip)) {
-            ((ip) buoyComponent).F();
-        }
-    }
-
-    public void i(Uri uri) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, uri) == null) || uri == null) {
-            return;
-        }
-        String queryParameter = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_TASK_INFO);
-        if (TextUtils.isEmpty(queryParameter)) {
-            return;
-        }
-        j(queryParameter);
-        c(uri);
-    }
-
-    public final void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            BDPTask.m.A(str, new a(this));
-        }
-    }
-
-    public void k(BuoyComponent buoyComponent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, buoyComponent) == null) && buoyComponent != null && (buoyComponent instanceof ip)) {
-            ((ip) buoyComponent).H();
-        }
-    }
-
-    public void l(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, str, str2) == null) {
-            ys4 k = ys4.k();
-            k.y("key_sdk_task_expand_data_" + str, str2);
-        }
-    }
-
-    public BuoyComponent m(Activity activity, ViewGroup viewGroup, String str) {
-        InterceptResult invokeLLL;
-        TaskInfo b2;
-        BuoyComponent buoyComponent;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, activity, viewGroup, str)) == null) {
-            if (activity == null || (b2 = b(str)) == null) {
-                return null;
-            }
-            TaskBuoyView taskBuoyView = new TaskBuoyView(activity);
-            taskBuoyView.U(new b(this));
-            if (b2.isClickAction()) {
-                buoyComponent = bp.b(taskBuoyView, new TaskBuoyViewModel(b2), b2);
-            } else {
-                buoyComponent = bp.a(taskBuoyView, new jp(b2), b2);
-            }
-            if (viewGroup != null) {
-                buoyComponent.l(viewGroup, null);
-            } else {
-                int statusBarHeight = UtilHelper.getStatusBarHeight();
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-                layoutParams.gravity = 5;
-                layoutParams.topMargin = c + statusBarHeight;
-                layoutParams.rightMargin = b;
-                buoyComponent.l((FrameLayout) activity.findViewById(16908290), layoutParams);
-            }
-            if (buoyComponent instanceof ip) {
-                ((ip) buoyComponent).J();
-            }
-            return buoyComponent;
-        }
-        return (BuoyComponent) invokeLLL.objValue;
-    }
-
-    public void n(BuoyComponent buoyComponent) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, buoyComponent) == null) || buoyComponent == null) {
-            return;
-        }
-        buoyComponent.n();
-    }
 
     public jj4() {
         Interceptable interceptable = $ic;
@@ -330,5 +28,106 @@ public class jj4 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public void c(String[] strArr, StringBuilder sb, Map<String, String> map, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLI(1048576, this, strArr, sb, map, i) == null) || strArr == null || strArr.length <= i || map == null || sb == null) {
+            return;
+        }
+        LinkedHashMap linkedHashMap = new LinkedHashMap();
+        while (i < strArr.length) {
+            String str = "@" + strArr[i];
+            Iterator<Map.Entry<String, String>> it = map.entrySet().iterator();
+            while (true) {
+                if (it.hasNext()) {
+                    Map.Entry<String, String> next = it.next();
+                    if (str.startsWith(next.getKey())) {
+                        String replace = str.replace(next.getKey(), "");
+                        if ("@p".equals(next.getKey())) {
+                            String d = d(replace);
+                            if (!StringUtils.isNull(d)) {
+                                linkedHashMap.put(next.getValue(), d);
+                            }
+                        } else {
+                            linkedHashMap.put(next.getValue(), replace);
+                        }
+                    }
+                }
+            }
+            i++;
+        }
+        for (Map.Entry entry : linkedHashMap.entrySet()) {
+            if (!StringUtils.isNull((String) entry.getKey()) && !StringUtils.isNull((String) entry.getValue())) {
+                sb.append(sb.toString().contains("?") ? "&" : "?");
+                sb.append((String) entry.getKey());
+                sb.append("=");
+                sb.append((String) entry.getValue());
+            }
+        }
+    }
+
+    public final String d(String str) {
+        InterceptResult invokeL;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            int hashCode = str.hashCode();
+            if (hashCode == 81) {
+                if (str.equals("Q")) {
+                    c = 6;
+                }
+                c = 65535;
+            } else if (hashCode == 104) {
+                if (str.equals("h")) {
+                    c = 3;
+                }
+                c = 65535;
+            } else if (hashCode == 112) {
+                if (str.equals("p")) {
+                    c = 4;
+                }
+                c = 65535;
+            } else if (hashCode == 119) {
+                if (str.equals("w")) {
+                    c = 0;
+                }
+                c = 65535;
+            } else if (hashCode == 122) {
+                if (str.equals("z")) {
+                    c = 5;
+                }
+                c = 65535;
+            } else if (hashCode != 98) {
+                if (hashCode == 99 && str.equals("c")) {
+                    c = 1;
+                }
+                c = 65535;
+            } else {
+                if (str.equals("b")) {
+                    c = 2;
+                }
+                c = 65535;
+            }
+            switch (c) {
+                case 0:
+                    return "wise";
+                case 1:
+                    return ThirdPartyUtil.TYPE_WEIXIN;
+                case 2:
+                    return "shoubai";
+                case 3:
+                    return "tbShareH5";
+                case 4:
+                    return "pc";
+                case 5:
+                    return "zhongjianye";
+                case 6:
+                    return com.tencent.connect.common.Constants.SOURCE_QQ;
+                default:
+                    return null;
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

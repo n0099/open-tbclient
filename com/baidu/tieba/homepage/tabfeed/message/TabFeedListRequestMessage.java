@@ -9,9 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.am4;
-import com.repackage.dc5;
-import com.repackage.li;
+import com.repackage.km4;
+import com.repackage.pi;
+import com.repackage.qc5;
 import tbclient.ActivityPage.ActivityPageReqIdl;
 import tbclient.ActivityPage.DataReq;
 /* loaded from: classes3.dex */
@@ -55,12 +55,12 @@ public class TabFeedListRequestMessage extends NetMessage {
                 builder.activity_name = this.tabCode;
                 builder.pn = Integer.valueOf(this.pn);
                 builder.rn = 20;
-                builder.scr_h = Integer.valueOf(li.i(TbadkCoreApplication.getInst()));
-                builder.scr_w = Integer.valueOf(li.k(TbadkCoreApplication.getInst()));
-                builder.scr_dip = Integer.valueOf((int) li.h(TbadkCoreApplication.getInst()));
-                builder.q_type = Integer.valueOf(am4.c().e());
+                builder.scr_h = Integer.valueOf(pi.i(TbadkCoreApplication.getInst()));
+                builder.scr_w = Integer.valueOf(pi.k(TbadkCoreApplication.getInst()));
+                builder.scr_dip = Integer.valueOf((int) pi.h(TbadkCoreApplication.getInst()));
+                builder.q_type = Integer.valueOf(km4.c().e());
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    dc5.a(builder, true);
+                    qc5.a(builder, true);
                 }
                 ActivityPageReqIdl.Builder builder2 = new ActivityPageReqIdl.Builder();
                 builder2.data = builder.build(false);

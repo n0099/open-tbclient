@@ -32,24 +32,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gr9;
+import com.repackage.nr9;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class AssistActivity extends Activity {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String EXTRA_TYPE = "type";
-    public static final String EXTRA_URL = "url";
-    public static final String TYPE_WEB = "type_web";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WebChromeClient chromeClient;
-    public DownloadListener downloadListener;
-    public FrameLayout mFrameLayout;
-    public f mProgressView;
-    public TextView mTextView;
-    public String mURL;
-    public WebView mWebView;
-    public WebViewClient webviewClient;
+    public FrameLayout a;
+    public WebView b;
+    public TextView c;
+    public f d;
+    public String e;
+    public WebViewClient f;
+    public WebChromeClient g;
+    public DownloadListener h;
 
     /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
@@ -80,7 +77,7 @@ public final class AssistActivity extends Activity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 AssistActivity assistActivity = this.a;
-                assistActivity.mWebView.loadUrl(assistActivity.mURL);
+                assistActivity.b.loadUrl(assistActivity.e);
             }
         }
     }
@@ -147,7 +144,7 @@ public final class AssistActivity extends Activity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 super.onPageFinished(webView, str);
-                this.a.mProgressView.setVisibility(8);
+                this.a.d.setVisibility(8);
             }
         }
 
@@ -156,18 +153,18 @@ public final class AssistActivity extends Activity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
                 super.onPageStarted(webView, str, bitmap);
-                this.a.mProgressView.setVisibility(0);
-                this.a.mWebView.setVisibility(0);
-                this.a.mTextView.setVisibility(8);
+                this.a.d.setVisibility(0);
+                this.a.b.setVisibility(0);
+                this.a.c.setVisibility(8);
             }
         }
 
         @Override // android.webkit.WebViewClient
         public void onReceivedError(WebView webView, int i, String str, String str2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i, str, str2) == null) && this.a.mURL.equals(str2)) {
-                this.a.mTextView.setVisibility(0);
-                this.a.mWebView.setVisibility(4);
+            if ((interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i, str, str2) == null) && this.a.e.equals(str2)) {
+                this.a.c.setVisibility(0);
+                this.a.b.setVisibility(4);
             }
         }
 
@@ -178,10 +175,10 @@ public final class AssistActivity extends Activity {
                 super.onReceivedSslError(webView, sslErrorHandler, sslError);
                 int primaryError = sslError.getPrimaryError();
                 String str = primaryError != 0 ? primaryError != 1 ? primaryError != 2 ? primaryError != 3 ? primaryError != 4 ? "发生SSL一般错误" : "证书日期无效" : "证书颁发机构不受信任" : "证书主机名不匹配" : "证书已过期" : "证书尚未生效";
-                this.a.mProgressView.setVisibility(0);
-                this.a.mWebView.setVisibility(0);
-                this.a.mTextView.setVisibility(8);
-                this.a.mTextView.setText(str);
+                this.a.d.setVisibility(0);
+                this.a.b.setVisibility(0);
+                this.a.c.setVisibility(8);
+                this.a.c.setText(str);
                 sslErrorHandler.cancel();
             }
         }
@@ -191,7 +188,7 @@ public final class AssistActivity extends Activity {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-                if (str.startsWith(gr9.g(false))) {
+                if (str.startsWith(nr9.g(false))) {
                     try {
                         Intent intent = new Intent();
                         String queryParameter = Uri.parse(str).getQueryParameter("resCode");
@@ -234,7 +231,7 @@ public final class AssistActivity extends Activity {
                         e.printStackTrace();
                         return true;
                     }
-                } else if (str.startsWith(gr9.g(true))) {
+                } else if (str.startsWith(nr9.g(true))) {
                     try {
                         Intent intent2 = new Intent();
                         String queryParameter8 = Uri.parse(str).getQueryParameter("resCode");
@@ -327,7 +324,7 @@ public final class AssistActivity extends Activity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, webView, i) == null) {
                 super.onProgressChanged(webView, i);
-                this.a.mProgressView.a(i);
+                this.a.d.a(i);
             }
         }
     }
@@ -481,78 +478,78 @@ public final class AssistActivity extends Activity {
                 return;
             }
         }
-        this.webviewClient = new c(this);
-        this.chromeClient = new d(this);
-        this.downloadListener = new e(this);
+        this.f = new c(this);
+        this.g = new d(this);
+        this.h = new e(this);
     }
 
-    private void initView() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            FrameLayout frameLayout = new FrameLayout(this);
-            this.mFrameLayout = frameLayout;
-            frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            f fVar = new f(this, this);
-            this.mProgressView = fVar;
-            fVar.setLayoutParams(new FrameLayout.LayoutParams(-1, (int) (getResources().getDisplayMetrics().density * 4.0d), 48));
-            this.mProgressView.a(50);
-            int i = (int) (getResources().getDisplayMetrics().density * 5.0d);
-            TextView textView = new TextView(this);
-            this.mTextView = textView;
-            textView.setLayoutParams(new FrameLayout.LayoutParams(-2, -2, 17));
-            int i2 = i * 2;
-            int i3 = i * 3;
-            this.mTextView.setPadding(i2, i3, i2, i3);
-            this.mTextView.setBackgroundColor(-1728053248);
-            this.mTextView.setTextColor(-1);
-            this.mTextView.setText("无法访问，请稍候重试");
-            this.mTextView.setVisibility(8);
-            this.mTextView.setOnClickListener(new a(this));
-            WebView webView = new WebView(this);
-            this.mWebView = webView;
-            webView.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            this.mFrameLayout.addView(this.mWebView);
-            this.mFrameLayout.addView(this.mProgressView);
-            this.mFrameLayout.addView(this.mTextView);
-            ImageView imageView = new ImageView(this);
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f0805ce);
-            imageView.setOnClickListener(new b(this));
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-            layoutParams.setMargins(convertDipToPixels(5.0f), convertDipToPixels(5.0f), 0, 0);
-            imageView.setPadding(convertDipToPixels(10.0f), convertDipToPixels(10.0f), convertDipToPixels(10.0f), convertDipToPixels(10.0f));
-            this.mFrameLayout.addView(imageView, layoutParams);
-            setContentView(this.mFrameLayout);
-        }
-    }
-
-    @SuppressLint({"SetJavaScriptEnabled"})
-    private void initWebView() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            WebSettings settings = this.mWebView.getSettings();
-            settings.setJavaScriptEnabled(true);
-            settings.setSupportZoom(true);
-            settings.setLoadWithOverviewMode(true);
-            settings.setUseWideViewPort(true);
-            settings.setBuiltInZoomControls(true);
-            this.mWebView.setWebChromeClient(this.chromeClient);
-            this.mWebView.setWebViewClient(this.webviewClient);
-            this.mWebView.setDownloadListener(this.downloadListener);
-            this.mWebView.addJavascriptInterface(new g(this), "WebBridge");
-            this.mWebView.loadUrl(this.mURL);
-        }
-    }
-
-    public int convertDipToPixels(float f2) {
+    public int a(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? (int) ((f2 * getResources().getDisplayMetrics().density) + 0.5f) : invokeF.intValue;
     }
 
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            FrameLayout frameLayout = new FrameLayout(this);
+            this.a = frameLayout;
+            frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+            f fVar = new f(this, this);
+            this.d = fVar;
+            fVar.setLayoutParams(new FrameLayout.LayoutParams(-1, (int) (getResources().getDisplayMetrics().density * 4.0d), 48));
+            this.d.a(50);
+            int i = (int) (getResources().getDisplayMetrics().density * 5.0d);
+            TextView textView = new TextView(this);
+            this.c = textView;
+            textView.setLayoutParams(new FrameLayout.LayoutParams(-2, -2, 17));
+            int i2 = i * 2;
+            int i3 = i * 3;
+            this.c.setPadding(i2, i3, i2, i3);
+            this.c.setBackgroundColor(-1728053248);
+            this.c.setTextColor(-1);
+            this.c.setText("无法访问，请稍候重试");
+            this.c.setVisibility(8);
+            this.c.setOnClickListener(new a(this));
+            WebView webView = new WebView(this);
+            this.b = webView;
+            webView.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            this.a.addView(this.b);
+            this.a.addView(this.d);
+            this.a.addView(this.c);
+            ImageView imageView = new ImageView(this);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f0805cd);
+            imageView.setOnClickListener(new b(this));
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+            layoutParams.setMargins(a(5.0f), a(5.0f), 0, 0);
+            imageView.setPadding(a(10.0f), a(10.0f), a(10.0f), a(10.0f));
+            this.a.addView(imageView, layoutParams);
+            setContentView(this.a);
+        }
+    }
+
+    @SuppressLint({"SetJavaScriptEnabled"})
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            WebSettings settings = this.b.getSettings();
+            settings.setJavaScriptEnabled(true);
+            settings.setSupportZoom(true);
+            settings.setLoadWithOverviewMode(true);
+            settings.setUseWideViewPort(true);
+            settings.setBuiltInZoomControls(true);
+            this.b.setWebChromeClient(this.g);
+            this.b.setWebViewClient(this.f);
+            this.b.setDownloadListener(this.h);
+            this.b.addJavascriptInterface(new g(this), "WebBridge");
+            this.b.loadUrl(this.e);
+        }
+    }
+
     @Override // android.app.Activity
     public void onBackPressed() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             setResult(0, new Intent());
             super.onBackPressed();
         }
@@ -561,22 +558,22 @@ public final class AssistActivity extends Activity {
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             requestWindowFeature(1);
             super.onCreate(bundle);
             try {
-                this.mURL = getIntent().getStringExtra("url");
+                this.e = getIntent().getStringExtra("url");
             } catch (Exception e2) {
                 Log.e("YYOpenSdk", "URL getStringExtra exception " + e2);
             }
-            if (this.mURL == null) {
+            if (this.e == null) {
                 Log.e("YYOpenSdk", "URL Cannot Be NULL");
                 finish();
                 LogUtil.logActivity(this, "onCreate");
                 return;
             }
-            initView();
-            initWebView();
+            b();
+            c();
             LogUtil.logActivity(this, "onCreate");
         }
     }

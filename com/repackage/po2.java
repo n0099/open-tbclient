@@ -3,176 +3,98 @@ package com.repackage;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class po2 implements fm2 {
+public class po2 extends uo2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zk1 a;
-    public String b;
-    public ro2 c;
-    public boolean d;
-    public Context e;
 
-    public po2(Context context, @NonNull ro2 ro2Var) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755403266, "Lcom/repackage/po2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755403266, "Lcom/repackage/po2;");
+                return;
+            }
+        }
+        boolean z = cg1.a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public po2(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, ro2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.e = context;
-        this.c = ro2Var;
-        this.b = ro2Var.j;
-        e();
-        a();
     }
 
-    public final void a() {
+    @Override // com.repackage.uo2
+    public boolean a(ko2 ko2Var, mo2 mo2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, sz2 sz2Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.b)) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{ko2Var, mo2Var, context, unitedSchemeEntity, callbackHandler, sz2Var})) == null) {
+            sw1.i("video", "open, video id:" + mo2Var.j + " slave id: " + mo2Var.c);
+            ko2Var.l();
+            d(ko2Var, mo2Var, unitedSchemeEntity, callbackHandler);
+            return true;
         }
-        gm2.a(this);
+        return invokeCommon.booleanValue;
     }
 
-    @Override // com.repackage.fm2
-    public String b() {
-        InterceptResult invokeV;
+    @Override // com.repackage.uo2
+    public ko2 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c.c : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.fm2
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public ro2 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (ro2) invokeV.objValue;
-    }
-
-    public zk1 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.a == null) {
-                hw1.i("VrVideo", "create player");
-                this.a = oi2.D0().create();
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3, jSONObject)) == null) {
+            if (TextUtils.isEmpty(str3)) {
+                return null;
             }
-            return this.a;
-        }
-        return (zk1) invokeV.objValue;
-    }
-
-    @Override // com.repackage.fm2
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ro2 ro2Var = this.c;
-            return ro2Var != null ? ro2Var.t : "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void g(ro2 ro2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, ro2Var) == null) {
-            hw1.i("VrVideo", "Open Player " + ro2Var.j);
-            zk1 zk1Var = this.a;
-            if (zk1Var != null) {
-                zk1Var.e(ro2Var, this.e);
+            qm2 f = rm2.f(str, str2, str3);
+            if (f == null) {
+                return new ko2(context, mo2.h(jSONObject, new mo2()));
             }
-            this.c = ro2Var;
-        }
-    }
-
-    public void h(ro2 ro2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, ro2Var) == null) {
-            hw1.b("VrVideo", "update 接口");
-            zk1 zk1Var = this.a;
-            if (zk1Var != null) {
-                zk1Var.d(ro2Var, true);
+            if (f.i() instanceof ko2) {
+                return (ko2) f.i();
             }
-            this.c = ro2Var;
+            return null;
         }
+        return (ko2) invokeLLLLL.objValue;
     }
 
-    @Override // com.repackage.fm2
-    public Object i() {
-        InterceptResult invokeV;
+    public final void d(ko2 ko2Var, mo2 mo2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this : invokeV.objValue;
-    }
-
-    @Override // com.repackage.fm2
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-        }
-    }
-
-    @Override // com.repackage.fm2
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            if (z) {
-                if (this.d) {
-                    e().resume();
-                }
-                e().b();
-            } else if (this.a != null) {
-                this.d = e().isPlaying();
-                e().pause();
-                e().c();
-            }
-        }
-    }
-
-    @Override // com.repackage.fm2
-    public boolean onBackPressed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            hw1.i("VrVideo", "onBackPressed");
-            zk1 zk1Var = this.a;
-            return zk1Var != null && zk1Var.onBackPressed();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.fm2
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            hw1.i("VrVideo", MissionEvent.MESSAGE_DESTROY);
-            zk1 zk1Var = this.a;
-            if (zk1Var != null) {
-                zk1Var.stop();
-                this.a = null;
-            }
-            gm2.k(this);
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, ko2Var, mo2Var, unitedSchemeEntity, callbackHandler) == null) {
+            ko2Var.o(mo2Var);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }
 }

@@ -1,16 +1,15 @@
 package com.repackage;
 
-import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wt0;
 /* loaded from: classes7.dex */
-public abstract class xt0<VG extends ViewGroup, BE extends wt0> extends bu0<VG, BE> {
+public class xt0 extends eu0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public fq0 o;
 
     public xt0() {
         Interceptable interceptable = $ic;
@@ -26,19 +25,32 @@ public abstract class xt0<VG extends ViewGroup, BE extends wt0> extends bu0<VG, 
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.rt0
-    /* renamed from: S */
-    public lo0 v() {
-        InterceptResult invokeV;
+    @Override // com.repackage.eu0, com.repackage.fu0
+    public void R() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ko0 v = super.v();
-            if (v != null) {
-                return (lo0) v;
-            }
-            throw new NullPointerException("null cannot be cast to non-null type com.baidu.nadcore.player.BaseVideoPlayer");
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            J(new nq0());
+            J(new pq0());
+            J(new oq0());
+            J(new qq0());
+            n0();
+            m0();
         }
-        return (lo0) invokeV.objValue;
+    }
+
+    public void m0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            J(new eq0());
+        }
+    }
+
+    public void n0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            fq0 fq0Var = new fq0();
+            this.o = fq0Var;
+            J(fq0Var);
+        }
     }
 }

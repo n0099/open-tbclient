@@ -1,81 +1,87 @@
 package com.repackage;
 
-import android.content.Context;
+import android.content.res.Resources;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public class f9 {
     public static /* synthetic */ Interceptable $ic;
+    public static f9 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public Resources a;
 
-    public static b9<?> a(Context context) {
-        InterceptResult invokeL;
-        Object a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (context == null) {
-                return null;
-            }
-            if (context instanceof b9) {
-                return (b9) context;
-            }
-            if (context instanceof c9) {
-                return ((c9) context).getPageContext();
-            }
-            Field b = bi.b(context.getClass(), e9.class);
-            if (b == null || (a = bi.a(context, b)) == null || !(a instanceof e9) || !(a instanceof c9)) {
-                return null;
-            }
-            return ((c9) a).getPageContext();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1964041774, "Lcom/repackage/f9;")) == null) {
+            return;
         }
-        return (b9) invokeL.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1964041774, "Lcom/repackage/f9;");
+        }
     }
 
-    public static c9<?> b(Context context) {
-        InterceptResult invokeL;
-        Object a;
+    public f9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (context == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (context instanceof c9) {
-                return (c9) context;
-            }
-            Field b = bi.b(context.getClass(), e9.class);
-            if (b == null || (a = bi.a(context, b)) == null || !(a instanceof e9) || !(a instanceof c9)) {
-                return null;
-            }
-            return (c9) a;
         }
-        return (c9) invokeL.objValue;
+        this.a = null;
     }
 
-    public static e9 c(Context context) {
-        InterceptResult invokeL;
-        Object a;
+    public static f9 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (context == null) {
-                return null;
-            }
-            if (context instanceof e9) {
-                return (e9) context;
-            }
-            if (context instanceof c9) {
-                Object orignalPage = ((c9) context).getPageContext().getOrignalPage();
-                if (orignalPage instanceof e9) {
-                    return (e9) orignalPage;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (f9.class) {
+                    if (b == null) {
+                        b = new f9();
+                    }
                 }
             }
-            Field b = bi.b(context.getClass(), e9.class);
-            if (b == null || (a = bi.a(context, b)) == null || !(a instanceof e9)) {
-                return null;
-            }
-            return (e9) a;
+            return b;
         }
-        return (e9) invokeL.objValue;
+        return (f9) invokeV.objValue;
+    }
+
+    public synchronized void b(Resources resources) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, resources) == null) {
+            synchronized (this) {
+                this.a = resources;
+            }
+        }
+    }
+
+    public synchronized Resources getResources() {
+        InterceptResult invokeV;
+        Resources resources;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                resources = this.a;
+            }
+            return resources;
+        }
+        return (Resources) invokeV.objValue;
     }
 }

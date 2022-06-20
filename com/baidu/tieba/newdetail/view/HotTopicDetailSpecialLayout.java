@@ -11,8 +11,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ok7;
-import com.repackage.pk7;
+import com.repackage.am7;
+import com.repackage.zl7;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
@@ -46,8 +46,8 @@ public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new ok7(tbPageContext));
-            arrayList.add(new pk7(tbPageContext));
+            arrayList.add(new zl7(tbPageContext));
+            arrayList.add(new am7(tbPageContext));
             a(arrayList);
         }
     }

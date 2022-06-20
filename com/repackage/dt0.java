@@ -1,27 +1,38 @@
 package com.repackage;
 
+import androidx.annotation.Nullable;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.qk0;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class dt0 {
+public class dt0 implements qk0 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ct0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized ct0 a() {
-        InterceptResult invokeV;
-        ct0 ct0Var;
+    public dt0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (dt0.class) {
-                if (a == null) {
-                    a = new ct0();
-                }
-                ct0Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return ct0Var;
         }
-        return (ct0) invokeV.objValue;
+    }
+
+    @Override // com.repackage.qk0
+    public void a(@Nullable String str, @Nullable String str2, qk0.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, aVar) == null) {
+        }
     }
 }

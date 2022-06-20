@@ -19,9 +19,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ki;
-import com.repackage.li;
-/* loaded from: classes2.dex */
+import com.repackage.oi;
+import com.repackage.pi;
+/* loaded from: classes3.dex */
 public class WebViewActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG_AD_DEEPLINK_URL = "tag_ad_deeplink_url";
@@ -76,11 +76,11 @@ public class WebViewActivityConfig extends IntentConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (ki.isEmpty(str)) {
+            if (oi.isEmpty(str)) {
                 return str;
             }
             if (str.indexOf("_client_version=") < 0) {
-                if (ki.isEmpty(Uri.parse(str).getQuery())) {
+                if (oi.isEmpty(Uri.parse(str).getQuery())) {
                     str = str + "?_client_version=" + TbConfig.getVersion();
                 } else {
                     str = str + "&_client_version=" + TbConfig.getVersion();
@@ -100,7 +100,7 @@ public class WebViewActivityConfig extends IntentConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (UtilHelper.webViewIsProbablyCorrupt(getContext())) {
-                li.O(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f1594));
+                pi.O(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f159d));
                 return false;
             }
             return true;
@@ -198,8 +198,8 @@ public class WebViewActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra("tag_title", str);
-        getIntent().putExtra("tag_url", addTiebaParams(str2));
+        getIntent().putExtra(TAG_TITLE, str);
+        getIntent().putExtra(TAG_URL, addTiebaParams(str2));
         getIntent().putExtra(TAG_COOKIE, z);
         getIntent().putExtra(TAG_ENABLE_JS, true);
         getIntent().putExtra(TAG_NAV_BAR, true);
@@ -229,8 +229,8 @@ public class WebViewActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra("tag_title", str);
-        getIntent().putExtra("tag_url", addTiebaParams(str2));
+        getIntent().putExtra(TAG_TITLE, str);
+        getIntent().putExtra(TAG_URL, addTiebaParams(str2));
         getIntent().putExtra(TAG_NAV_BAR, z);
         getIntent().putExtra(TAG_COOKIE, z2);
         getIntent().putExtra(TAG_ENABLE_JS, z3);

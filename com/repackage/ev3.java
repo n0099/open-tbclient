@@ -1,138 +1,140 @@
 package com.repackage;
 
-import android.content.Intent;
-import android.text.TextUtils;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.os.Bundle;
+import android.util.Log;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.v8engine.V8ExceptionInfo;
-import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidu.swan.games.glsurface.DuMixGameSurfaceView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wv3;
-import java.io.File;
-@Singleton
-@Service
+import com.repackage.aa2;
 /* loaded from: classes5.dex */
-public class ev3 implements rg1 {
+public class ev3 extends ea2<mv3, nv3> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
+    public static volatile ev3 e;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* loaded from: classes5.dex */
+    public static class a extends aa2.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.aa2.a
+        public int e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 1;
+            }
+            return invokeV.intValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755724209, "Lcom/repackage/ev3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755724209, "Lcom/repackage/ev3;");
+                return;
+            }
+        }
+        d = cg1.a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ev3() {
+        super(new mv3(), new nv3());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((eb2) objArr[0], (hb2) objArr[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.repackage.rg1
-    public SwanCoreVersion n() {
+    public static ev3 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? gv3.m().s() : (SwanCoreVersion) invokeV.objValue;
-    }
-
-    @Override // com.repackage.rg1
-    public gc2 o(SwanAppActivity swanAppActivity, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, swanAppActivity, str)) == null) ? new hv3(swanAppActivity, str) : (gc2) invokeLL.objValue;
-    }
-
-    @Override // com.repackage.rg1
-    public p22 p(ae3<Exception> ae3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ae3Var)) == null) ? new mv3(ae3Var) : (p22) invokeL.objValue;
-    }
-
-    @Override // com.repackage.rg1
-    public void q(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
-            gv3.m().z(intent);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (e == null) {
+                synchronized (ev3.class) {
+                    if (e == null) {
+                        e = new ev3();
+                    }
+                }
+            }
+            return e;
         }
+        return (ev3) invokeV.objValue;
     }
 
-    @Override // com.repackage.rg1
-    public View r(ny1 ny1Var) {
-        InterceptResult invokeL;
+    @Override // com.repackage.ea2
+    public String b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, ny1Var)) == null) {
-            if (ny1Var instanceof dv3) {
-                return ((dv3) ny1Var).u3();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i == 1) {
+                return gv3.b().getPath();
             }
             return null;
         }
-        return (View) invokeL.objValue;
+        return (String) invokeI.objValue;
     }
 
-    @Override // com.repackage.rg1
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            gv3.C();
-        }
-    }
-
-    @Override // com.repackage.rg1
-    public void s(V8ExceptionInfo v8ExceptionInfo) {
-        DuMixGameSurfaceView r;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, v8ExceptionInfo) == null) || (r = gv3.m().r()) == null) {
-            return;
-        }
-        r.q(v8ExceptionInfo);
-    }
-
-    @Override // com.repackage.rg1
-    public ExtensionCore t() {
+    @Override // com.repackage.ea2
+    @Nullable
+    public ExtensionCore c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? gv3.m().k() : (ExtensionCore) invokeV.objValue;
-    }
-
-    @Override // com.repackage.rg1
-    public t92 u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? tu3.i() : (t92) invokeV.objValue;
-    }
-
-    @Override // com.repackage.rg1
-    public int v(String str, long j) {
-        InterceptResult invokeLJ;
-        az3 a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048585, this, str, j)) == null) {
-            if (TextUtils.isEmpty(str) || (a = az3.a(kf4.E(new File(wv3.d.h(str, String.valueOf(j)), "game.json")))) == null) {
-                return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (ProcessUtils.isMainProcess()) {
+                return d();
             }
-            return a.b;
+            Bundle bundle = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, null).mResult;
+            bundle.setClassLoader(ExtensionCore.class.getClassLoader());
+            ExtensionCore extensionCore = (ExtensionCore) bundle.getParcelable("aiapps_extension_core");
+            if (d) {
+                Log.d("ExtCore-GamesManager", "getExtensionCore:" + ProcessUtils.getCurProcessName() + " extension core: " + extensionCore);
+                return extensionCore;
+            }
+            return extensionCore;
         }
-        return invokeLJ.intValue;
-    }
-
-    @Override // com.repackage.rg1
-    public void w(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048586, this, str, z) == null) {
-            m14.a().d(str, z);
-        }
+        return (ExtensionCore) invokeV.objValue;
     }
 }

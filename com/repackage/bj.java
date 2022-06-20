@@ -1,7 +1,5 @@
 package com.repackage;
 /* loaded from: classes5.dex */
-public interface bj extends zi {
-    void a(int i);
-
-    void e();
+public interface bj extends dj {
+    void d(int i);
 }

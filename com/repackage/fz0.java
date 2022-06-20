@@ -1,10 +1,8 @@
 package com.repackage;
 
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import com.baidu.nadcore.thread.executor.BaseExecutorCell;
 import com.baidu.nadcore.thread.task.ElasticTask;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,72 +11,53 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class fz0 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile fz0 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755690667, "Lcom/repackage/fz0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755690667, "Lcom/repackage/fz0;");
-        }
-    }
+    @NonNull
+    public BaseExecutorCell a;
+    @NonNull
+    public BaseExecutorCell b;
+    @NonNull
+    public BaseExecutorCell c;
 
     public fz0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0L;
+        this.a = BaseExecutorCell.b(sy0.d, BaseExecutorCell.ExecutorType.ARTERY);
+        this.b = BaseExecutorCell.b(sy0.e, BaseExecutorCell.ExecutorType.ARTERY);
+        this.c = BaseExecutorCell.b(sy0.f, BaseExecutorCell.ExecutorType.ARTERY);
     }
 
-    public static fz0 b() {
-        InterceptResult invokeV;
+    public boolean a(ElasticTask elasticTask) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (fz0.class) {
-                    if (b == null) {
-                        b = new fz0();
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, elasticTask)) == null) {
+            int b = elasticTask.b();
+            if (b == 0 || b == 1) {
+                if (this.a.c(elasticTask) || this.b.c(elasticTask)) {
+                    return true;
                 }
-            }
-            return b;
-        }
-        return (fz0) invokeV.objValue;
-    }
-
-    public ElasticTask a(@NonNull Runnable runnable, @NonNull String str, int i) {
-        InterceptResult invokeLLI;
-        ElasticTask elasticTask;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, runnable, str, i)) == null) {
-            if (runnable != null && !TextUtils.isEmpty(str)) {
-                synchronized (this) {
-                    long j = this.a + 1;
-                    this.a = j;
-                    elasticTask = new ElasticTask(runnable, str, j, i);
+                return this.c.c(elasticTask);
+            } else if (b == 2) {
+                if (this.b.c(elasticTask)) {
+                    return true;
                 }
-                return elasticTask;
+                return this.c.c(elasticTask);
+            } else if (b == 3) {
+                return this.c.c(elasticTask);
+            } else {
+                return false;
             }
-            throw new IllegalArgumentException("illegal params");
         }
-        return (ElasticTask) invokeLLI.objValue;
+        return invokeL.booleanValue;
     }
 }

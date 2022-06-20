@@ -2,15 +2,16 @@ package com.repackage;
 
 import android.app.Activity;
 import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public interface x11 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "statusBarTool");
-    public static final x11 b = new a();
+    public static final x11 a = new a();
 
     /* loaded from: classes7.dex */
     public static class a implements x11 {
@@ -32,12 +33,50 @@ public interface x11 {
         }
 
         @Override // com.repackage.x11
-        public void a(@NonNull Activity activity) {
+        public void a(Activity activity) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, activity) == null) || activity == null) {
+                return;
             }
+            activity.finish();
         }
     }
 
-    void a(@NonNull Activity activity);
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static x11 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(78660507, "Lcom/repackage/x11$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(78660507, "Lcom/repackage/x11$b;");
+                    return;
+                }
+            }
+            a = t11.d();
+        }
+
+        @NonNull
+        public static x11 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                if (a == null) {
+                    a = x11.a;
+                }
+                return a;
+            }
+            return (x11) invokeV.objValue;
+        }
+    }
+
+    void a(Activity activity);
 }

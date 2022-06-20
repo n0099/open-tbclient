@@ -3,21 +3,22 @@ package com.repackage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.PBError;
+import com.win.opensdk.PBNativeListener;
 /* loaded from: classes5.dex */
-public class ek9 implements mk9 {
+public class ek9 implements sk9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ ik9 a;
+    public final /* synthetic */ mk9 a;
 
-    public ek9(ik9 ik9Var) {
+    public ek9(mk9 mk9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ik9Var};
+            Object[] objArr = {mk9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,46 +28,39 @@ public class ek9 implements mk9 {
                 return;
             }
         }
-        this.a = ik9Var;
+        this.a = mk9Var;
     }
 
-    @Override // com.win.opensdk.PBListener
-    public void onClicked() {
-        mk9 mk9Var;
+    @Override // com.repackage.sk9
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (mk9Var = this.a.b) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
         }
-        mk9Var.onClicked();
     }
 
-    @Override // com.repackage.mk9
-    public void onDisplayed() {
-        mk9 mk9Var;
+    @Override // com.repackage.sk9
+    public boolean a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (mk9Var = this.a.b) == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            mk9 mk9Var = this.a;
+            if (wm9.d(mk9Var.c, mk9Var.h)) {
+                this.a.h = System.currentTimeMillis();
+                mk9 mk9Var2 = this.a;
+                wm9.a(mk9Var2.a, str, mk9Var2.c, mk9Var2.g, str2);
+                un9 a = yn9.a(this.a.a);
+                a.h(new co9(this.a.c), str);
+                a.l("desc", str2);
+                a.m();
+                PBNativeListener pBNativeListener = this.a.f;
+                if (pBNativeListener != null) {
+                    pBNativeListener.onClicked();
+                }
+                sl9.p(this.a.c, str2);
+                return true;
+            }
+            return true;
         }
-        mk9Var.onDisplayed();
-    }
-
-    @Override // com.win.opensdk.PBListener
-    public void onFail(PBError pBError) {
-        mk9 mk9Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (mk9Var = this.a.b) == null) {
-            return;
-        }
-        mk9Var.onFail(pBError);
-    }
-
-    @Override // com.win.opensdk.PBListener
-    public void onLoaded() {
-        mk9 mk9Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (mk9Var = this.a.b) == null) {
-            return;
-        }
-        mk9Var.onLoaded();
+        return invokeLL.booleanValue;
     }
 }

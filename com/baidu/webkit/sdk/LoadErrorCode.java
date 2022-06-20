@@ -3,7 +3,6 @@ package com.baidu.webkit.sdk;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.pm.provider.BundleOpProvider;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -561,7 +560,7 @@ public class LoadErrorCode {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65549, null) == null) {
                 synchronized (Statistics.class) {
-                    addInfo(BundleOpProvider.METHOD_BUNDLE_RECORD);
+                    addInfo("record");
                     LoadErrorCode loadErrorCode = LoadErrorCode.getInstance();
                     if (!sIsInited) {
                         Log.e(TAG, "[ERROR]record before init");

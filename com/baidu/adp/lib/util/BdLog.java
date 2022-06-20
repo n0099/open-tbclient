@@ -4,6 +4,8 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.logsystem.exceptionhandler.api.ExceptionHandler;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -23,6 +25,53 @@ public class BdLog {
     public static String LogFilter_classNameStartsWith;
     public static ArrayList<String> logPackage;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes.dex */
+    public static class a extends BdAsyncTask<Void, Void, Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Exception a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ Map d;
+
+        public a(Exception exc, String str, String str2, Map map) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {exc, str, str2, map};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = exc;
+            this.b = str;
+            this.c = str2;
+            this.d = map;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Void doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+                ExceptionHandler exceptionHandler = (ExceptionHandler) ServiceManager.getService(ExceptionHandler.SERVICE_REFERENCE);
+                if (exceptionHandler != null) {
+                    exceptionHandler.onException(this.a, this.b, this.c, this.d);
+                    return null;
+                }
+                return null;
+            }
+            return (Void) invokeL.objValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -189,12 +238,10 @@ public class BdLog {
     }
 
     public static void reportException(Exception exc, String str, String str2, Map<String, String> map) {
-        ExceptionHandler exceptionHandler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65557, null, exc, str, str2, map) == null) || (exceptionHandler = (ExceptionHandler) ServiceManager.getService(ExceptionHandler.SERVICE_REFERENCE)) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLLLL(65557, null, exc, str, str2, map) == null) {
+            new a(exc, str, str2, map).execute(new Void[0]);
         }
-        exceptionHandler.onException(exc, str, str2, map);
     }
 
     public static void setClassNameStartWithLogFilter(String str) {

@@ -23,26 +23,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
-import com.repackage.xl7;
+import com.repackage.in7;
+import com.repackage.pi;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xl7 mAdapter;
-    public View mBackView;
-    public List<BazhuInfoData.BaInfo> mDataList;
-    public View mDivider;
-    public View mLayoutConfirm;
-    public BdListView mListView;
-    public NavigationBar mNavigationBar;
-    public View.OnClickListener mOnClickListener;
-    public AdapterView.OnItemClickListener mOnItemClickListener;
-    public View mRootView;
-    public TextView mTitleView;
-    public TextView mTransmitConfirmButton;
+    public TextView a;
+    public BdListView b;
+    public NavigationBar c;
+    public View d;
+    public TextView e;
+    public in7 f;
+    public List<BazhuInfoData.BaInfo> g;
+    public View h;
+    public View i;
+    public View j;
+    public View.OnClickListener k;
+    public AdapterView.OnItemClickListener l;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -74,15 +74,15 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || view2 == null) {
                 return;
             }
-            if (view2.getId() == this.a.mTransmitConfirmButton.getId()) {
-                if (this.a.getSelectedData() == null) {
+            if (view2.getId() == this.a.a.getId()) {
+                if (this.a.F1() == null) {
                     return;
                 }
                 Intent intent = new Intent();
-                intent.putExtra(SelectSingleForumActivityConfig.KEY_OUTPUT_FORUM, this.a.getSelectedData());
+                intent.putExtra(SelectSingleForumActivityConfig.KEY_OUTPUT_FORUM, this.a.F1());
                 this.a.setResult(-1, intent);
                 this.a.finish();
-            } else if (view2.getId() == this.a.mBackView.getId()) {
+            } else if (view2.getId() == this.a.d.getId()) {
                 this.a.setResult(0);
                 this.a.finish();
             }
@@ -117,17 +117,17 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
         public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                BazhuInfoData.BaInfo baInfo = (BazhuInfoData.BaInfo) this.a.mDataList.get(i);
-                CheckBox checkBox = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f09212c);
+                BazhuInfoData.BaInfo baInfo = (BazhuInfoData.BaInfo) this.a.g.get(i);
+                CheckBox checkBox = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f092127);
                 if (checkBox.isChecked()) {
                     return;
                 }
-                if (this.a.getSelectedData() != null && this.a.getSelectedData().isChecked) {
-                    this.a.getSelectedData().isChecked = false;
+                if (this.a.F1() != null && this.a.F1().isChecked) {
+                    this.a.F1().isChecked = false;
                 }
                 baInfo.isChecked = true;
                 checkBox.setChecked(!checkBox.isChecked());
-                this.a.mAdapter.notifyDataSetChanged();
+                this.a.f.notifyDataSetChanged();
             }
         }
     }
@@ -145,17 +145,16 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
                 return;
             }
         }
-        this.mDataList = new ArrayList();
-        this.mOnClickListener = new a(this);
-        this.mOnItemClickListener = new b(this);
+        this.g = new ArrayList();
+        this.k = new a(this);
+        this.l = new b(this);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public BazhuInfoData.BaInfo getSelectedData() {
+    public final BazhuInfoData.BaInfo F1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
-            for (BazhuInfoData.BaInfo baInfo : this.mDataList) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            for (BazhuInfoData.BaInfo baInfo : this.g) {
                 if (baInfo.isChecked) {
                     return baInfo;
                 }
@@ -165,66 +164,66 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
         return (BazhuInfoData.BaInfo) invokeV.objValue;
     }
 
-    private void setTransmitConfirmButtonText() {
+    public final void G1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.mTransmitConfirmButton.setText(R.string.obfuscated_res_0x7f0f10fe);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.setText(R.string.obfuscated_res_0x7f0f1109);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-            SkinManager.setViewTextColor(this.mTitleView, (int) R.color.CAM_X0105);
-            SkinManager.setBackgroundResource(this.mTransmitConfirmButton, R.drawable.btn_all_blue);
-            SkinManager.setViewTextColor(this.mTransmitConfirmButton, R.color.CAM_X0111, 1);
-            SkinManager.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
-            SkinManager.setBackgroundColor(this.mDivider, R.color.CAM_X0204);
-            this.mAdapter.c(i);
-            this.mListView.setSelector(SkinManager.getDrawable(R.drawable.selector_select_forum_item));
-            SkinManager.setBackgroundColor(this.mLayoutConfirm, R.color.cp_bg_line_d_alpha95);
+            this.c.onChangeSkinType(getPageContext(), i);
+            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0105);
+            SkinManager.setBackgroundResource(this.a, R.drawable.btn_all_blue);
+            SkinManager.setViewTextColor(this.a, R.color.CAM_X0111, 1);
+            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.i, R.color.CAM_X0204);
+            this.f.c(i);
+            this.b.setSelector(SkinManager.getDrawable(R.drawable.selector_select_forum_item));
+            SkinManager.setBackgroundColor(this.j, R.color.cp_bg_line_d_alpha95);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0746);
-            this.mRootView = findViewById(R.id.obfuscated_res_0x7f091adb);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923a2);
-            this.mNavigationBar = navigationBar;
+            setContentView(R.layout.obfuscated_res_0x7f0d0745);
+            this.h = findViewById(R.id.obfuscated_res_0x7f091ad3);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09238f);
+            this.c = navigationBar;
             View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.mBackView = addSystemImageButton;
+            this.d = addSystemImageButton;
             if (addSystemImageButton.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mBackView.getLayoutParams();
-                layoutParams.leftMargin = li.f(getActivity(), R.dimen.obfuscated_res_0x7f070234);
-                this.mBackView.setLayoutParams(layoutParams);
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.d.getLayoutParams();
+                layoutParams.leftMargin = pi.f(getActivity(), R.dimen.obfuscated_res_0x7f070234);
+                this.d.setLayoutParams(layoutParams);
             }
-            this.mTitleView = this.mNavigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0553));
-            this.mBackView.setOnClickListener(this.mOnClickListener);
-            this.mDivider = findViewById(R.id.obfuscated_res_0x7f09238f);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09212d);
-            this.mTransmitConfirmButton = textView;
-            textView.setOnClickListener(this.mOnClickListener);
-            this.mLayoutConfirm = findViewById(R.id.obfuscated_res_0x7f091197);
-            this.mListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f092130);
+            this.e = this.c.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0547));
+            this.d.setOnClickListener(this.k);
+            this.i = findViewById(R.id.obfuscated_res_0x7f09237c);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092128);
+            this.a = textView;
+            textView.setOnClickListener(this.k);
+            this.j = findViewById(R.id.obfuscated_res_0x7f09118c);
+            this.b = (BdListView) findViewById(R.id.obfuscated_res_0x7f09212c);
             if (getIntent() != null) {
                 ArrayList parcelableArrayListExtra = getIntent().getParcelableArrayListExtra("KEY_INTPUT_FORUM_LIST");
                 if (ListUtils.getCount(parcelableArrayListExtra) > 0) {
-                    this.mDataList.addAll(parcelableArrayListExtra);
+                    this.g.addAll(parcelableArrayListExtra);
                 }
             }
-            this.mListView.setOnItemClickListener(this.mOnItemClickListener);
-            xl7 xl7Var = new xl7(getActivity());
-            this.mAdapter = xl7Var;
-            this.mListView.setAdapter((ListAdapter) xl7Var);
-            this.mAdapter.b(this.mDataList);
-            setTransmitConfirmButtonText();
+            this.b.setOnItemClickListener(this.l);
+            in7 in7Var = new in7(getActivity());
+            this.f = in7Var;
+            this.b.setAdapter((ListAdapter) in7Var);
+            this.f.b(this.g);
+            G1();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }

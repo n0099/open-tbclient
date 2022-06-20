@@ -1,152 +1,52 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class cy {
+public abstract class cy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    public static int a(Context context, int i) {
-        InterceptResult invokeLI;
+    public cy(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, context, i)) == null) {
-            int a = gq.a(context);
-            if (-1 == a) {
-                return -1;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return (i * (a == 0 ? 13 : 11)) / 10;
         }
-        return invokeLI.intValue;
+        this.a = i;
     }
 
-    public static int a(hf hfVar) {
-        InterceptResult invokeL;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hfVar)) == null) ? ek.a(hfVar.a()) : invokeL.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public static int a(iq iqVar, hf hfVar) {
-        InterceptResult invokeLL;
-        int a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, iqVar, hfVar)) == null) {
-            switch (cz.a[hfVar.ordinal()]) {
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-                case 10:
-                    return ek.a(hfVar.a());
-                case 11:
-                    a = ek.a(hfVar.a());
-                    if (iqVar != null) {
-                        try {
-                            if (iqVar instanceof hw) {
-                                String str = ((hw) iqVar).f575d;
-                                if (!TextUtils.isEmpty(str) && ek.a(ek.m323a(str)) != -1) {
-                                    a = ek.a(ek.m323a(str));
-                                    break;
-                                }
-                            } else if (iqVar instanceof ie) {
-                                String str2 = ((ie) iqVar).f636d;
-                                if (!TextUtils.isEmpty(str2)) {
-                                    if (ek.a(ek.m323a(str2)) != -1) {
-                                        a = ek.a(ek.m323a(str2));
-                                    }
-                                    if (hp.B.equals(ek.m323a(str2))) {
-                                        return -1;
-                                    }
-                                }
-                            }
-                        } catch (Exception unused) {
-                            com.xiaomi.channel.commonutils.logger.b.d("PERF_ERROR : parse Notification type error");
-                            return a;
-                        }
-                    }
-                    break;
-                case 12:
-                    a = ek.a(hfVar.a());
-                    if (iqVar != null) {
-                        try {
-                            if (iqVar instanceof ia) {
-                                String b = ((ia) iqVar).b();
-                                if (!TextUtils.isEmpty(b) && ev.a(b) != -1) {
-                                    a = ev.a(b);
-                                    break;
-                                }
-                            } else if (iqVar instanceof hz) {
-                                String a2 = ((hz) iqVar).a();
-                                if (!TextUtils.isEmpty(a2) && ev.a(a2) != -1) {
-                                    return ev.a(a2);
-                                }
-                            }
-                        } catch (Exception unused2) {
-                            com.xiaomi.channel.commonutils.logger.b.d("PERF_ERROR : parse Command type error");
-                            break;
-                        }
-                    }
-                    break;
-                default:
-                    return -1;
-            }
-            return a;
-        }
-        return invokeLL.intValue;
-    }
+    public abstract String a(Context context, String str, List<bi> list);
 
-    public static void a(String str, Context context, int i, int i2) {
+    /* renamed from: a  reason: collision with other method in class */
+    public boolean m256a(Context context, String str, List<bi> list) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLII(65539, null, str, context, i, i2) == null) || i <= 0 || i2 <= 0) {
-            return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, list)) == null) {
+            return true;
         }
-        int a = a(context, i2);
-        if (i != ek.a(hp.B)) {
-            el.a(context.getApplicationContext()).a(str, i, 1L, a);
-        }
-    }
-
-    public static void a(String str, Context context, ib ibVar, int i) {
-        hf a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, context, ibVar, i) == null) || context == null || ibVar == null || (a = ibVar.a()) == null) {
-            return;
-        }
-        int a2 = a(a);
-        if (i <= 0) {
-            byte[] a3 = ip.a(ibVar);
-            i = a3 != null ? a3.length : 0;
-        }
-        a(str, context, a2, i);
-    }
-
-    public static void a(String str, Context context, iq iqVar, hf hfVar, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, context, iqVar, hfVar, Integer.valueOf(i)}) == null) {
-            a(str, context, a(iqVar, hfVar), i);
-        }
-    }
-
-    public static void a(String str, Context context, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65542, null, str, context, bArr) == null) || context == null || bArr == null || bArr.length <= 0) {
-            return;
-        }
-        ib ibVar = new ib();
-        try {
-            ip.a(ibVar, bArr);
-            a(str, context, ibVar, bArr.length);
-        } catch (iv unused) {
-            com.xiaomi.channel.commonutils.logger.b.m108a("fail to convert bytes to container");
-        }
+        return invokeLLL.booleanValue;
     }
 }

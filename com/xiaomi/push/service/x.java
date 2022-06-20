@@ -1,77 +1,140 @@
 package com.xiaomi.push.service;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.content.Intent;
+import android.util.Pair;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.fw;
-import com.xiaomi.push.hf;
-import com.xiaomi.push.hp;
-import com.xiaomi.push.hw;
-import com.xiaomi.push.ib;
-import com.xiaomi.push.ie;
-import com.xiaomi.push.service.XMPushService;
+import com.xiaomi.push.gh;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public final class x extends XMPushService.i {
+public class x {
     public static /* synthetic */ Interceptable $ic;
+    public static ArrayList<Pair<String, byte[]>> a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public static final Map<String, byte[]> f1003a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ ib a;
 
-    /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ ie f963a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ XMPushService f964a;
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x(int i, ie ieVar, ib ibVar, XMPushService xMPushService) {
-        super(i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), ieVar, ibVar, xMPushService};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(311648952, "Lcom/xiaomi/push/service/x;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(311648952, "Lcom/xiaomi/push/service/x;");
                 return;
             }
         }
-        this.f963a = ieVar;
-        this.a = ibVar;
-        this.f964a = xMPushService;
+        f1003a = new HashMap();
+        a = new ArrayList<>();
     }
 
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public String a() {
-        InterceptResult invokeV;
+    public static void a(Context context, int i, String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "send ack message for clear push message." : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLIL(65537, null, context, i, str) == null) {
+            synchronized (f1003a) {
+                for (String str2 : f1003a.keySet()) {
+                    com.xiaomi.channel.commonutils.logger.b.m84a("notify registration error. " + str2);
+                    a(context, str2, f1003a.get(str2), i, str);
+                }
+                f1003a.clear();
+            }
+        }
     }
 
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public void a() {
+    public static void a(Context context, String str, byte[] bArr, int i, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, str, bArr, Integer.valueOf(i), str2}) == null) {
+            Intent intent = new Intent("com.xiaomi.mipush.ERROR");
+            intent.setPackage(str);
+            intent.putExtra("mipush_payload", bArr);
+            intent.putExtra("mipush_error_code", i);
+            intent.putExtra("mipush_error_msg", str2);
+            context.sendBroadcast(intent, ah.a(str));
+        }
+    }
+
+    public static void a(XMPushService xMPushService) {
+        ArrayList<Pair<String, byte[]>> arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, xMPushService) == null) {
             try {
-                hw hwVar = new hw();
-                hwVar.c(hp.D.f490a);
-                hwVar.a(this.f963a.m503a());
-                hwVar.a(this.f963a.a());
-                hwVar.b(this.f963a.b());
-                hwVar.e(this.f963a.c());
-                hwVar.a(0L);
-                hwVar.d("success clear push message.");
-                y.a(this.f964a, y.b(this.a.b(), this.a.m489a(), hwVar, hf.i));
-            } catch (fw e) {
-                com.xiaomi.channel.commonutils.logger.b.d("clear push message. " + e);
-                this.f964a.a(10, e);
+                synchronized (a) {
+                    arrayList = a;
+                    a = new ArrayList<>();
+                }
+                boolean a2 = com.xiaomi.push.w.a();
+                Iterator<Pair<String, byte[]>> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    Pair<String, byte[]> next = it.next();
+                    ah.a(xMPushService, (String) next.first, (byte[]) next.second);
+                    if (!a2) {
+                        try {
+                            Thread.sleep(100L);
+                        } catch (InterruptedException unused) {
+                        }
+                    }
+                }
+            } catch (gh e) {
+                com.xiaomi.channel.commonutils.logger.b.d("meet error when process pending message. " + e);
+                xMPushService.a(10, e);
+            }
+        }
+    }
+
+    public static void a(XMPushService xMPushService, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, xMPushService, z) == null) {
+            try {
+                synchronized (f1003a) {
+                    for (String str : f1003a.keySet()) {
+                        com.xiaomi.channel.commonutils.logger.b.m84a("processing pending registration request. " + str);
+                        ah.a(xMPushService, str, f1003a.get(str));
+                        if (z && !com.xiaomi.push.w.a()) {
+                            try {
+                                Thread.sleep(200L);
+                            } catch (Exception unused) {
+                            }
+                        }
+                    }
+                    f1003a.clear();
+                }
+            } catch (gh e) {
+                com.xiaomi.channel.commonutils.logger.b.d("fail to deal with pending register request. " + e);
+                xMPushService.a(10, e);
+            }
+        }
+    }
+
+    public static void a(String str, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, bArr) == null) {
+            synchronized (f1003a) {
+                com.xiaomi.channel.commonutils.logger.b.m84a("pending registration request. " + str);
+                f1003a.put(str, bArr);
+            }
+        }
+    }
+
+    public static void b(String str, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, bArr) == null) {
+            synchronized (a) {
+                a.add(new Pair<>(str, bArr));
+                if (a.size() > 50) {
+                    a.remove(0);
+                }
             }
         }
     }

@@ -146,7 +146,7 @@ public class c {
 
     private void b(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65544, this, context) == null) && Build.VERSION.SDK_INT >= 26 && d.l(context)) {
+        if ((interceptable == null || interceptable.invokeL(65544, this, context) == null) && Build.VERSION.SDK_INT >= 26 && d.m(context)) {
             a = new a();
         }
     }

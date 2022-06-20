@@ -14,11 +14,11 @@ public interface e extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C0606a implements e {
+        public static class C0612a implements e {
             public static e a;
             public IBinder b;
 
-            public C0606a(IBinder iBinder) {
+            public C0612a(IBinder iBinder) {
                 this.b = iBinder;
             }
 
@@ -58,7 +58,7 @@ public interface e extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof e)) {
                 return (e) queryLocalInterface;
             }
-            return new C0606a(iBinder);
+            return new C0612a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -83,7 +83,7 @@ public interface e extends IInterface {
         }
 
         public static e a() {
-            return C0606a.a;
+            return C0612a.a;
         }
     }
 }

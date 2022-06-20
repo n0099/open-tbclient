@@ -14,11 +14,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hy3;
-import com.repackage.iy3;
-import com.repackage.ky3;
-import com.repackage.ly3;
-import com.repackage.rf1;
+import com.repackage.cg1;
+import com.repackage.sy3;
+import com.repackage.ty3;
+import com.repackage.vy3;
+import com.repackage.wy3;
 import java.nio.ByteBuffer;
 import java.util.Map;
 import org.json.JSONObject;
@@ -104,7 +104,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
                 return;
             }
         }
-        b = rf1.a;
+        b = cg1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -133,7 +133,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
             this.a = SocketTaskState.CLOSE;
-            y("close", new hy3(jSONObject != null ? jSONObject.optInt("code", 0) : 0, jSONObject == null ? "" : jSONObject.optString("reason")));
+            y("close", new sy3(jSONObject != null ? jSONObject.optInt("code", 0) : 0, jSONObject == null ? "" : jSONObject.optString("reason")));
         }
     }
 
@@ -141,7 +141,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
     public void onError(Throwable th, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, jSONObject) == null) && this.a == SocketTaskState.IDLE) {
-            y("error", new iy3(th.getMessage()));
+            y("error", new ty3(th.getMessage()));
         }
     }
 
@@ -149,7 +149,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
     public void onMessage(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            y("message", new ky3(str));
+            y("message", new vy3(str));
         }
     }
 
@@ -158,7 +158,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
             this.a = SocketTaskState.OPEN;
-            y("open", new ly3(new JSONObject(map)));
+            y("open", new wy3(new JSONObject(map)));
         }
     }
 
@@ -179,7 +179,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
             int remaining = byteBuffer.remaining();
             byte[] bArr = new byte[remaining];
             byteBuffer.get(bArr);
-            y("message", new ky3(new JsArrayBuffer(bArr, remaining)));
+            y("message", new vy3(new JsArrayBuffer(bArr, remaining)));
         }
     }
 }

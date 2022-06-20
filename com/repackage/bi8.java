@@ -1,47 +1,43 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class bi8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public String b;
+    public String c;
+    public ai8 d;
+    public ai8 e;
+    public ai8 f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755825920, "Lcom/repackage/bi8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755825920, "Lcom/repackage/bi8;");
-        }
-    }
-
-    public static String a(String str) {
-        InterceptResult invokeL;
-        String[] split;
+    public bi8(String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || (split = str.split(":")) == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            for (String str2 : split) {
-                if (!TextUtils.isEmpty(str2) && str2.contains("TBCGameID=")) {
-                    int indexOf = str2.indexOf("=") + 1;
-                    return indexOf < str2.length() ? str2.substring(indexOf, str2.length()) : "";
-                }
-            }
-            return "";
         }
-        return (String) invokeL.objValue;
+        this.a = false;
+        this.b = null;
+        this.c = null;
+        this.d = new ai8();
+        this.e = new ai8();
+        this.f = new ai8();
+        this.c = str;
+        this.b = str2;
+        this.a = z;
     }
 }

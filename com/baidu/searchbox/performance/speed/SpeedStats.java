@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.Flow;
 import com.baidu.ubc.UBCManager;
-import com.repackage.nb;
+import com.repackage.qb;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -281,7 +281,7 @@ public class SpeedStats {
                 this.val$map = map;
             }
 
-            /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x0098 -> B:37:0x009b). Please submit an issue!!! */
+            /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x0097 -> B:37:0x009a). Please submit an issue!!! */
             @Override // java.lang.Runnable
             public void run() {
                 BufferedWriter bufferedWriter;
@@ -738,7 +738,7 @@ public class SpeedStats {
             return;
         }
         this.isMainPageStatsEnd = true;
-        nb.b().c();
+        qb.b().d();
         this.mSpeedStatsManager.addStatsTimeStamp(6000);
         if (this.mSpeedStatsManager.getStatsFlag() == 0) {
             this.mUbcPage = SpeedStatsUtils.UBC_PAGE_ALLCACHE;
@@ -765,7 +765,7 @@ public class SpeedStats {
             return;
         }
         this.isSchemePushStatsEnd = true;
-        nb.b().c();
+        qb.b().d();
         if (this.mSpeedStatsManager.getStatsFlag() == 2 || this.mSpeedStatsManager.getStatsFlag() == 1) {
             this.mStartMainActivityType = i;
             this.mUbcPage = str;

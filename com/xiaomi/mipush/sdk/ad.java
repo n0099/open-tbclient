@@ -1,31 +1,24 @@
 package com.xiaomi.mipush.sdk;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.ai;
-import com.xiaomi.push.hf;
-import com.xiaomi.push.hl;
-import com.xiaomi.push.hp;
-import com.xiaomi.push.hs;
-import com.xiaomi.push.hx;
-import com.xiaomi.push.ie;
-import com.xiaomi.push.ip;
 /* loaded from: classes8.dex */
-public class ad extends ai.a {
+public class ad extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public final /* synthetic */ NotificationClickedActivity a;
 
-    public ad(Context context) {
+    public ad(NotificationClickedActivity notificationClickedActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {notificationClickedActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,29 +28,15 @@ public class ad extends ai.a {
                 return;
             }
         }
-        this.a = context;
+        this.a = notificationClickedActivity;
     }
 
-    @Override // com.xiaomi.push.ai.a
-    /* renamed from: a */
-    public String mo222a() {
-        InterceptResult invokeV;
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "2" : (String) invokeV.objValue;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            com.xiaomi.push.service.aq a = com.xiaomi.push.service.aq.a(this.a);
-            hx hxVar = new hx();
-            hxVar.a(com.xiaomi.push.service.ar.a(a, hl.a));
-            hxVar.b(com.xiaomi.push.service.ar.a(a, hl.b));
-            ie ieVar = new ie("-1", false);
-            ieVar.c(hp.p.f490a);
-            ieVar.a(ip.a(hxVar));
-            an.a(this.a).a((an) ieVar, hf.i, (hs) null);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+            com.xiaomi.channel.commonutils.logger.b.b("clicked activity finish by normal.");
+            this.a.finish();
         }
     }
 }

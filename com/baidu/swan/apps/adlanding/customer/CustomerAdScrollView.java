@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.em1;
+import com.repackage.pm1;
 /* loaded from: classes2.dex */
 public class CustomerAdScrollView extends ScrollView {
     public static /* synthetic */ Interceptable $ic;
@@ -17,7 +17,7 @@ public class CustomerAdScrollView extends ScrollView {
     public boolean a;
     public boolean b;
     public float c;
-    public em1 d;
+    public pm1 d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CustomerAdScrollView(Context context) {
@@ -71,9 +71,9 @@ public class CustomerAdScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
             super.onScrollChanged(i, i2, i3, i4);
-            em1 em1Var = this.d;
-            if (em1Var != null) {
-                em1Var.onScrollChanged(i, i2, i3, i4);
+            pm1 pm1Var = this.d;
+            if (pm1Var != null) {
+                pm1Var.onScrollChanged(i, i2, i3, i4);
             }
         }
     }
@@ -92,10 +92,10 @@ public class CustomerAdScrollView extends ScrollView {
         }
     }
 
-    public void setScrollViewListener(em1 em1Var) {
+    public void setScrollViewListener(pm1 pm1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, em1Var) == null) {
-            this.d = em1Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, pm1Var) == null) {
+            this.d = pm1Var;
         }
     }
 }

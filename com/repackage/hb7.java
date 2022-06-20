@@ -1,47 +1,53 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.res.Resources;
-import android.os.Build;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.clientupdate.ClientUpdater;
+import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
+import com.baidu.clientupdate.download.Download;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
 /* loaded from: classes6.dex */
-public class hb7 {
+public class hb7 extends BdAsyncTask<String, Integer, Download> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ClientUpdateInfo a;
 
-    public static int a() {
-        InterceptResult invokeV;
+    public hb7(ClientUpdateInfo clientUpdateInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            try {
-                return Integer.parseInt(Build.VERSION.SDK);
-            } catch (NumberFormatException unused) {
-                return 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {clientUpdateInfo};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeV.intValue;
+        this.a = clientUpdateInfo;
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a() >= 14 : invokeV.booleanValue;
-    }
-
-    public static boolean c(Activity activity) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: b */
+    public Download doInBackground(String... strArr) throws IOException {
         InterceptResult invokeL;
-        Resources resources;
-        int identifier;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
-            if (!b() || (identifier = (resources = activity.getResources()).getIdentifier(SapiSystemBarTintManager.SystemBarConfig.k, "bool", "android")) <= 0) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+            if (this.a == null) {
+                return null;
             }
-            return resources.getBoolean(identifier);
+            ClientUpdater.getInstance(TbadkCoreApplication.getInst()).startDownload(this.a, null);
+            return null;
         }
-        return invokeL.booleanValue;
+        return (Download) invokeL.objValue;
     }
 }

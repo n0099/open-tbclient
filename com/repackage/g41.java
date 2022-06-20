@@ -1,21 +1,11 @@
 package com.repackage;
 
-import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes6.dex */
 public interface g41 {
-    void a(AdBaseModel adBaseModel);
+    public static final ServiceReference a = new ServiceReference("nad.core", "crius.runtime");
 
-    void b(AdBaseModel adBaseModel);
+    int a();
 
-    void c(AdBaseModel adBaseModel);
-
-    void d(AdBaseModel adBaseModel);
-
-    void e(AdBaseModel adBaseModel, String str);
-
-    void f(AdBaseModel adBaseModel);
-
-    void g(boolean z, AdBaseModel adBaseModel);
-
-    void h(AdBaseModel adBaseModel);
+    boolean b();
 }

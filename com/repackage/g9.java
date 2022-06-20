@@ -1,20 +1,13 @@
 package com.repackage;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes6.dex */
 public interface g9 {
+    BdUniqueId getUniqueId();
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void onDatabaseCreated(SQLiteDatabase sQLiteDatabase);
-    }
+    boolean isScroll();
 
-    boolean dropDatabase(Context context);
+    void onPreLoad(rn rnVar);
 
-    SQLiteDatabase getWritableDatabase();
-
-    void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2);
-
-    void setOnCreateCallback(a aVar);
+    void setIsScroll(boolean z);
 }

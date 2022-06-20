@@ -79,9 +79,9 @@ public class ComplianceTextView extends TextView {
     private void a(Context context, AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04036e, R.attr.obfuscated_res_0x7f040399});
         this.f = obtainStyledAttributes.getDimensionPixelOffset(1, Cea708Decoder.COMMAND_DF2);
-        this.i = obtainStyledAttributes.getColor(0, getResources().getColor(R.color.obfuscated_res_0x7f060752));
+        this.i = obtainStyledAttributes.getColor(0, getResources().getColor(R.color.obfuscated_res_0x7f060750));
         if (getBackground() == null) {
-            setBackground(ContextCompat.getDrawable(context, R.drawable.obfuscated_res_0x7f080bc7));
+            setBackground(ContextCompat.getDrawable(context, R.drawable.obfuscated_res_0x7f080bb2));
         }
         getViewTreeObserver().addOnGlobalLayoutListener(this.j);
         obtainStyledAttributes.recycle();
@@ -96,7 +96,7 @@ public class ComplianceTextView extends TextView {
             spannableStringBuilder.setSpan(new ClickableSpan() { // from class: com.kwad.sdk.compliance.widget.ComplianceTextView.1
                 @Override // android.text.style.ClickableSpan
                 public void onClick(@NonNull View view2) {
-                    AdWebViewActivityProxy.launch(ComplianceTextView.this.getContext(), new AdWebViewActivityProxy.a.C0303a().a(str).b(ComplianceTextView.this.d).a(ComplianceTextView.this.h).a());
+                    AdWebViewActivityProxy.launch(ComplianceTextView.this.getContext(), new AdWebViewActivityProxy.a.C0311a().a(str).b(ComplianceTextView.this.d).a(ComplianceTextView.this.h).a());
                 }
 
                 @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -116,7 +116,7 @@ public class ComplianceTextView extends TextView {
             spannableStringBuilder.setSpan(new ClickableSpan() { // from class: com.kwad.sdk.compliance.widget.ComplianceTextView.2
                 @Override // android.text.style.ClickableSpan
                 public void onClick(@NonNull View view2) {
-                    AdWebViewActivityProxy.launch(ComplianceTextView.this.getContext(), new AdWebViewActivityProxy.a.C0303a().a(str2).b(ComplianceTextView.this.e).a(ComplianceTextView.this.h).a());
+                    AdWebViewActivityProxy.launch(ComplianceTextView.this.getContext(), new AdWebViewActivityProxy.a.C0311a().a(str2).b(ComplianceTextView.this.e).a(ComplianceTextView.this.h).a());
                 }
 
                 @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -128,7 +128,7 @@ public class ComplianceTextView extends TextView {
             }, length2, spannableStringBuilder.length(), 33);
         }
         setMovementMethod(LinkMovementMethod.getInstance());
-        setHighlightColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f060767));
+        setHighlightColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f060765));
         setText(spannableStringBuilder);
     }
 

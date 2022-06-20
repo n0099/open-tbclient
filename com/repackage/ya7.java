@@ -1,74 +1,74 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class ya7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
 
-    public static xa7 a(AdvertAppInfo advertAppInfo) {
-        InterceptResult invokeL;
-        AdvertAppInfo.ILegoAdvert iLegoAdvert;
+    public ya7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, advertAppInfo)) == null) {
-            if (advertAppInfo == null || (iLegoAdvert = advertAppInfo.h) == null || !(iLegoAdvert instanceof xa7)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static ya7 c(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
                 return null;
             }
-            return (xa7) iLegoAdvert;
+            int optInt = jSONObject.optInt(Config.TRACE_VISIT_RECENT_DAY);
+            int optInt2 = jSONObject.optInt("forum_num");
+            ya7 ya7Var = new ya7();
+            ya7Var.d(optInt);
+            ya7Var.e(optInt2);
+            return ya7Var;
         }
-        return (xa7) invokeL.objValue;
+        return (ya7) invokeL.objValue;
     }
 
-    public static void b(xa7 xa7Var) {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, xa7Var) == null) || xa7Var == null || xa7Var.getParallelCharge() == null) {
-            return;
-        }
-        sx0.b(xa7Var.getParallelCharge().b);
-        Iterator<String> it = xa7Var.getParallelCharge().c.iterator();
-        while (it.hasNext()) {
-            sx0.b(it.next());
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.a = i;
         }
     }
 
-    public static void c(AdvertAppInfo advertAppInfo) {
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, advertAppInfo) == null) && d(a(advertAppInfo))) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.w(ClogBuilder.LogType.EXCEPTION).i("1").j(DpStatConstants.FILECACHE_CLOSE_TYPE_OPT_DISABLE).n(advertAppInfo.g);
-            AdvertAppInfo.ILegoAdvert iLegoAdvert = advertAppInfo.h;
-            if (iLegoAdvert != null) {
-                clogBuilder.k(String.valueOf(iLegoAdvert.getGoodsStyle()));
-            }
-            rx0.c(clogBuilder);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.b = i;
         }
-    }
-
-    public static boolean d(xa7 xa7Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, xa7Var)) == null) {
-            if (xa7Var == null || xa7Var.getParallelCharge() == null) {
-                return false;
-            }
-            String str = xa7Var.getParallelCharge().a;
-            sx0.b(str);
-            boolean z = !TextUtils.isEmpty(str);
-            Iterator<String> it = xa7Var.getParallelCharge().d.iterator();
-            while (it.hasNext()) {
-                String next = it.next();
-                z = z || !TextUtils.isEmpty(next);
-                sx0.b(next);
-            }
-            return z;
-        }
-        return invokeL.booleanValue;
     }
 }

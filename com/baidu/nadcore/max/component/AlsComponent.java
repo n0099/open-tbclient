@@ -13,18 +13,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b21;
-import com.repackage.dm0;
-import com.repackage.gl0;
-import com.repackage.hl0;
-import com.repackage.hx0;
-import com.repackage.il0;
-import com.repackage.ol0;
-import com.repackage.rl0;
-import com.repackage.rx0;
-import com.repackage.ul0;
-import com.repackage.vg0;
+import com.repackage.f21;
+import com.repackage.hm0;
+import com.repackage.kl0;
+import com.repackage.ll0;
+import com.repackage.lx0;
+import com.repackage.ml0;
+import com.repackage.sl0;
 import com.repackage.vl0;
+import com.repackage.vx0;
+import com.repackage.yl0;
+import com.repackage.zg0;
+import com.repackage.zl0;
 import java.io.Serializable;
 import java.util.HashMap;
 import kotlin.Lazy;
@@ -38,7 +38,7 @@ public final class AlsComponent extends AbsComponentPlugin {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String d;
-    public final dm0 e;
+    public final hm0 e;
     public boolean f;
     public boolean g;
     public final Lazy h;
@@ -56,7 +56,7 @@ public final class AlsComponent extends AbsComponentPlugin {
                 return;
             }
         }
-        this.e = new dm0();
+        this.e = new hm0();
         this.h = LazyKt__LazyJVMKt.lazy(new AlsComponent$alsService$2(this));
     }
 
@@ -66,22 +66,22 @@ public final class AlsComponent extends AbsComponentPlugin {
         if (interceptable == null || interceptable.invokeL(1048576, this, intent) == null) {
             Intrinsics.checkNotNullParameter(intent, "intent");
             super.b(intent);
-            n(intent);
+            p(intent);
         }
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
-    public void c(vg0 event) {
+    public void c(zg0 event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
             super.c(event);
             String a = event.a();
-            if (Intrinsics.areEqual(a, il0.class.getSimpleName())) {
-                l((il0) event);
-            } else if (Intrinsics.areEqual(a, ol0.class.getSimpleName())) {
-                m((ol0) event);
-            } else if (Intrinsics.areEqual(a, hl0.class.getSimpleName())) {
+            if (Intrinsics.areEqual(a, ml0.class.getSimpleName())) {
+                n((ml0) event);
+            } else if (Intrinsics.areEqual(a, sl0.class.getSimpleName())) {
+                o((sl0) event);
+            } else if (Intrinsics.areEqual(a, ll0.class.getSimpleName())) {
                 if (this.e.b() == 0) {
                     this.e.h(System.currentTimeMillis());
                 }
@@ -89,36 +89,36 @@ public final class AlsComponent extends AbsComponentPlugin {
                     return;
                 }
                 this.g = true;
-                ul0 ul0Var = (ul0) j().q(ul0.class);
-                if (ul0Var == null || !ul0Var.k()) {
+                yl0 yl0Var = (yl0) l().q(yl0.class);
+                if (yl0Var == null || !yl0Var.k()) {
                     return;
                 }
                 long max = Math.max(System.currentTimeMillis() - Math.max(this.e.e(), this.e.f()), 0L);
-                dm0 dm0Var = this.e;
-                dm0Var.i(dm0Var.c() + max);
+                hm0 hm0Var = this.e;
+                hm0Var.i(hm0Var.c() + max);
             }
         }
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
-    public void e() {
+    public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.e();
-            j().t(rl0.class, k());
+            super.f();
+            l().t(vl0.class, m());
         }
     }
 
-    public final rl0 k() {
+    public final vl0 m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (rl0) this.h.getValue() : (rl0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (vl0) this.h.getValue() : (vl0) invokeV.objValue;
     }
 
-    public final void l(il0 il0Var) {
+    public final void n(ml0 ml0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, il0Var) == null) {
-            int i = gl0.$EnumSwitchMapping$0[il0Var.getType().ordinal()];
+        if (interceptable == null || interceptable.invokeL(1048580, this, ml0Var) == null) {
+            int i = kl0.$EnumSwitchMapping$0[ml0Var.getType().ordinal()];
             if (i == 1) {
                 this.e.l(System.currentTimeMillis());
                 this.g = false;
@@ -129,19 +129,19 @@ public final class AlsComponent extends AbsComponentPlugin {
         }
     }
 
-    public final void m(ol0 ol0Var) {
+    public final void o(sl0 sl0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ol0Var) == null) {
-            int i = gl0.$EnumSwitchMapping$1[ol0Var.getType().ordinal()];
+        if (interceptable == null || interceptable.invokeL(1048581, this, sl0Var) == null) {
+            int i = kl0.$EnumSwitchMapping$1[sl0Var.getType().ordinal()];
             if (i != 1) {
                 if (i != 2) {
                     return;
                 }
-                q();
+                s();
                 return;
             }
-            ul0 ul0Var = (ul0) j().q(ul0.class);
-            if (ul0Var != null && !ul0Var.k()) {
+            yl0 yl0Var = (yl0) l().q(yl0.class);
+            if (yl0Var != null && !yl0Var.k()) {
                 this.e.h(System.currentTimeMillis());
             } else {
                 this.e.g(System.currentTimeMillis());
@@ -149,52 +149,29 @@ public final class AlsComponent extends AbsComponentPlugin {
         }
     }
 
-    public final void n(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, intent) == null) {
-            Serializable serializableExtra = intent.getSerializableExtra("map");
-            if (!(serializableExtra instanceof HashMap)) {
-                serializableExtra = null;
-            }
-            HashMap hashMap = (HashMap) serializableExtra;
-            if (hashMap != null) {
-                this.d = String.valueOf(hashMap.get("ext_info"));
-            }
-        }
-    }
-
-    public final void o(String type, String area) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, type, area) == null) {
-            Intrinsics.checkNotNullParameter(type, "type");
-            Intrinsics.checkNotNullParameter(area, "area");
-            p(type, area, "");
-        }
-    }
-
     @Override // com.baidu.nadcore.component.AbsComponentPlugin
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onPause();
-            ul0 ul0Var = (ul0) j().q(ul0.class);
-            if (ul0Var == null || !ul0Var.k()) {
+            yl0 yl0Var = (yl0) l().q(yl0.class);
+            if (yl0Var == null || !yl0Var.k()) {
                 return;
             }
             this.e.j(System.currentTimeMillis());
             long max = Math.max(this.e.d() - Math.max(this.e.e(), this.e.f()), 0L);
-            dm0 dm0Var = this.e;
-            dm0Var.i(dm0Var.c() + max);
+            hm0 hm0Var = this.e;
+            hm0Var.i(hm0Var.c() + max);
         }
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onResume();
-            ul0 ul0Var = (ul0) j().q(ul0.class);
-            if (ul0Var == null || !ul0Var.k()) {
+            yl0 yl0Var = (yl0) l().q(yl0.class);
+            if (yl0Var == null || !yl0Var.k()) {
                 return;
             }
             this.e.k(System.currentTimeMillis());
@@ -206,7 +183,30 @@ public final class AlsComponent extends AbsComponentPlugin {
         }
     }
 
-    public final void p(String type, String area, String ext1) {
+    public final void p(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent) == null) {
+            Serializable serializableExtra = intent.getSerializableExtra("map");
+            if (!(serializableExtra instanceof HashMap)) {
+                serializableExtra = null;
+            }
+            HashMap hashMap = (HashMap) serializableExtra;
+            if (hashMap != null) {
+                this.d = String.valueOf(hashMap.get("ext_info"));
+            }
+        }
+    }
+
+    public final void q(String type, String area) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, type, area) == null) {
+            Intrinsics.checkNotNullParameter(type, "type");
+            Intrinsics.checkNotNullParameter(area, "area");
+            r(type, area, "");
+        }
+    }
+
+    public final void r(String type, String area, String ext1) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048586, this, type, area, ext1) == null) {
             Intrinsics.checkNotNullParameter(type, "type");
@@ -222,27 +222,27 @@ public final class AlsComponent extends AbsComponentPlugin {
             if (!TextUtils.isEmpty(ext1)) {
                 s.i(ext1);
             }
-            rx0.c(s);
+            vx0.c(s);
         }
     }
 
-    public final void q() {
-        b21 e;
+    public final void s() {
+        f21 e;
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            ul0 ul0Var = (ul0) j().q(ul0.class);
-            if (ul0Var == null || ul0Var.k()) {
+            yl0 yl0Var = (yl0) l().q(yl0.class);
+            if (yl0Var == null || yl0Var.k()) {
                 long max = Math.max(System.currentTimeMillis() - Math.max(this.e.e(), this.e.f()), 0L);
-                dm0 dm0Var = this.e;
-                dm0Var.i(dm0Var.c() + max);
+                hm0 hm0Var = this.e;
+                hm0Var.i(hm0Var.c() + max);
             }
-            vl0 vl0Var = (vl0) j().q(vl0.class);
-            if (vl0Var == null || (e = vl0Var.b().e()) == null || (jSONObject = e.d) == null) {
+            zl0 zl0Var = (zl0) l().q(zl0.class);
+            if (zl0Var == null || (e = zl0Var.b().e()) == null || (jSONObject = e.d) == null) {
                 return;
             }
-            hx0.e(jSONObject, "immersive_video_stay_time", this.e.c());
-            hx0.e(jSONObject, "immersive_webview_first_show_time", this.e.b());
+            lx0.e(jSONObject, "immersive_video_stay_time", this.e.c());
+            lx0.e(jSONObject, "immersive_webview_first_show_time", this.e.b());
         }
     }
 }

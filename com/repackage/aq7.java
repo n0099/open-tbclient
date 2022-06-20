@@ -1,45 +1,299 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.content.res.Resources;
+import android.net.Uri;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tbadk.data.ShareFromPBMsgData;
+import com.baidu.tieba.R;
+import com.baidu.tieba.pb.chosen.PbChosenActivity;
+import com.baidu.tieba.pb.chosen.view.ShareThreadView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Error;
-import tbclient.Page;
-import tbclient.PbFloor.DataRes;
-import tbclient.SubPostList;
+import com.repackage.nq4;
+import java.text.MessageFormat;
 /* loaded from: classes5.dex */
 public class aq7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ForumData a;
-    public PostData b;
-    public ArrayList<PostData> c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public AntiData i;
-    public ThreadData j;
-    public boolean k;
-    public boolean l;
-    public Error m;
+    public PbChosenActivity a;
 
-    public aq7() {
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ aq7 a;
+
+        public a(aq7 aq7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aq7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aq7Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.a.sendMessage(new CustomMessage(2001277));
+                TiebaStatic.eventStat(this.a.a.getPageContext().getPageActivity(), "pb_new_share", "loc", 0, new Object[0]);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ShareItem a;
+        public final /* synthetic */ aq7 b;
+
+        public b(aq7 aq7Var, ShareItem shareItem) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aq7Var, shareItem};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = aq7Var;
+            this.a = shareItem;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                ShareItem shareItem = this.a;
+                shareItem.w = ly4.v(shareItem.w, shareItem.N, UtilHelper.isVideoThread(shareItem.P));
+                ei.a(this.a.w);
+                pi.O(this.b.a.getPageContext().getPageActivity(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f043e));
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c implements nq4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dq7 a;
+        public final /* synthetic */ PbChosenActivity b;
+        public final /* synthetic */ ShareThreadView c;
+        public final /* synthetic */ long d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ String f;
+        public final /* synthetic */ String g;
+        public final /* synthetic */ String h;
+
+        public c(dq7 dq7Var, PbChosenActivity pbChosenActivity, ShareThreadView shareThreadView, long j, String str, String str2, String str3, String str4) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dq7Var, pbChosenActivity, shareThreadView, Long.valueOf(j), str, str2, str3, str4};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dq7Var;
+            this.b = pbChosenActivity;
+            this.c = shareThreadView;
+            this.d = j;
+            this.e = str;
+            this.f = str2;
+            this.g = str3;
+            this.h = str4;
+        }
+
+        @Override // com.repackage.nq4.e
+        public void onClick(nq4 nq4Var) {
+            dq7 dq7Var;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, nq4Var) == null) || (dq7Var = this.a) == null || dq7Var.getThreadInfo() == null) {
+                return;
+            }
+            pi.x(this.b.getPageContext().getPageActivity(), this.c.getChatMsgView());
+            Activity pageActivity = this.b.getPageContext().getPageActivity();
+            long j = this.d;
+            String str = this.e;
+            String str2 = this.f;
+            String str3 = this.g;
+            String leaveMsg = this.c.getLeaveMsg();
+            dq7 dq7Var2 = this.a;
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(pageActivity, j, str, str2, str3, 0, leaveMsg, aq7.c(dq7Var2, dq7Var2.getThreadInfo().excid.longValue(), this.h).toChatMessageContent())));
+            nq4Var.dismiss();
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class d implements nq4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PbChosenActivity a;
+        public final /* synthetic */ ShareThreadView b;
+
+        public d(PbChosenActivity pbChosenActivity, ShareThreadView shareThreadView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pbChosenActivity, shareThreadView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pbChosenActivity;
+            this.b = shareThreadView;
+        }
+
+        @Override // com.repackage.nq4.e
+        public void onClick(nq4 nq4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, nq4Var) == null) {
+                pi.x(this.a.getPageContext().getPageActivity(), this.b.getChatMsgView());
+                nq4Var.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class e implements nq4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dq7 a;
+        public final /* synthetic */ PbChosenActivity b;
+        public final /* synthetic */ ShareThreadView c;
+        public final /* synthetic */ long d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ long f;
+        public final /* synthetic */ String g;
+
+        public e(dq7 dq7Var, PbChosenActivity pbChosenActivity, ShareThreadView shareThreadView, long j, String str, long j2, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dq7Var, pbChosenActivity, shareThreadView, Long.valueOf(j), str, Long.valueOf(j2), str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dq7Var;
+            this.b = pbChosenActivity;
+            this.c = shareThreadView;
+            this.d = j;
+            this.e = str;
+            this.f = j2;
+            this.g = str2;
+        }
+
+        @Override // com.repackage.nq4.e
+        public void onClick(nq4 nq4Var) {
+            dq7 dq7Var;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, nq4Var) == null) || (dq7Var = this.a) == null || dq7Var.getThreadInfo() == null) {
+                return;
+            }
+            pi.x(this.b.getPageContext().getPageActivity(), this.c.getChatMsgView());
+            Activity pageActivity = this.b.getPageContext().getPageActivity();
+            long j = this.d;
+            String str = this.e;
+            long j2 = this.f;
+            String leaveMsg = this.c.getLeaveMsg();
+            dq7 dq7Var2 = this.a;
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(pageActivity, j, str, j2, "from_share", leaveMsg, aq7.c(dq7Var2, dq7Var2.getThreadInfo().excid.longValue(), this.g).toChatMessageContent())));
+            nq4Var.dismiss();
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class f implements nq4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PbChosenActivity a;
+        public final /* synthetic */ ShareThreadView b;
+
+        public f(PbChosenActivity pbChosenActivity, ShareThreadView shareThreadView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pbChosenActivity, shareThreadView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pbChosenActivity;
+            this.b = shareThreadView;
+        }
+
+        @Override // com.repackage.nq4.e
+        public void onClick(nq4 nq4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, nq4Var) == null) {
+                pi.x(this.a.getPageContext().getPageActivity(), this.b.getChatMsgView());
+                nq4Var.dismiss();
+            }
+        }
+    }
+
+    public aq7(PbChosenActivity pbChosenActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pbChosenActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -49,374 +303,89 @@ public class aq7 {
                 return;
             }
         }
-        this.f = 20;
-        this.h = -1;
-        this.k = false;
-        this.b = null;
-        this.c = new ArrayList<>();
-        this.d = 1;
+        this.a = pbChosenActivity;
     }
 
-    public static aq7 w(DataRes dataRes) {
-        InterceptResult invokeL;
+    public static ShareFromPBMsgData c(dq7 dq7Var, long j, String str) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, dataRes)) == null) {
-            if (dataRes == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{dq7Var, Long.valueOf(j), str})) == null) {
+            if (dq7Var == null || dq7Var.getThreadInfo() == null) {
                 return null;
             }
-            try {
-                aq7 aq7Var = new aq7();
-                AntiData antiData = new AntiData();
-                antiData.parserProtobuf(dataRes.anti);
-                aq7Var.x(antiData);
-                ThreadData threadData = new ThreadData();
-                threadData.parserProtobuf(dataRes.thread);
-                aq7Var.E(threadData);
-                ForumData forumData = new ForumData();
-                forumData.parserProtobuf(dataRes.forum);
-                aq7Var.A(forumData);
-                PostData postData = new PostData();
-                postData.s0(forumData.isBrandForum);
-                postData.k0(dataRes.post, threadData);
-                aq7Var.C(postData);
-                List<SubPostList> list = dataRes.subpost_list;
-                int size = list.size();
-                ArrayList<PostData> arrayList = new ArrayList<>();
-                int A = postData.A();
-                for (int i = 0; i < size; i++) {
-                    PostData postData2 = new PostData();
-                    postData2.s0(forumData.isBrandForum);
-                    postData2.i0(list.get(i), false, threadData, A);
-                    if (postData2.q() != null && postData2.q().baijiahaoData == null && threadData.getBaijiahaoData() != null) {
-                        postData2.q().baijiahaoData = threadData.getBaijiahaoData();
-                    }
-                    arrayList.add(postData2);
-                }
-                aq7Var.D(arrayList);
-                AntiData antiData2 = new AntiData();
-                antiData2.parserProtobuf(dataRes.anti);
-                aq7Var.x(antiData2);
-                Page page = dataRes.page;
-                if (page != null) {
-                    int intValue = page.total_page.intValue();
-                    int intValue2 = page.page_size.intValue() == 0 ? 20 : page.page_size.intValue();
-                    int intValue3 = page.current_page.intValue();
-                    int intValue4 = page.total_count.intValue();
-                    aq7Var.z(intValue3);
-                    aq7Var.B(intValue2);
-                    aq7Var.F(intValue4);
-                    aq7Var.G(intValue);
-                }
-                aq7Var.y(dataRes.is_black_white.intValue() == 1);
-                return aq7Var;
-            } catch (Exception e) {
-                BdLog.detailException(e);
-                return null;
-            }
+            ShareFromPBMsgData shareFromPBMsgData = new ShareFromPBMsgData();
+            shareFromPBMsgData.setContent(dq7Var.getThreadInfo()._abstract);
+            shareFromPBMsgData.setImageUrl(str);
+            shareFromPBMsgData.setForumName(dq7Var.getThreadInfo().forum.forum_name);
+            shareFromPBMsgData.setPostId(null);
+            shareFromPBMsgData.setThreadId(dq7Var.getThreadInfo().thread_id + "");
+            shareFromPBMsgData.setTheNewThemeId(String.valueOf(j));
+            shareFromPBMsgData.setTitle(dq7Var.getThreadInfo().title);
+            return shareFromPBMsgData;
         }
-        return (aq7) invokeL.objValue;
+        return (ShareFromPBMsgData) invokeCommon.objValue;
     }
 
-    public void A(ForumData forumData) {
+    public static void d(PbChosenActivity pbChosenActivity, dq7 dq7Var, long j, String str, long j2, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, forumData) == null) {
-            this.a = forumData;
-        }
-    }
-
-    public void B(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || i == 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{pbChosenActivity, dq7Var, Long.valueOf(j), str, Long.valueOf(j2), str2}) == null) || dq7Var == null || dq7Var.getThreadInfo() == null) {
             return;
         }
-        this.f = i;
+        nq4 nq4Var = new nq4(pbChosenActivity.getPageContext().getPageActivity());
+        ShareThreadView shareThreadView = new ShareThreadView(pbChosenActivity.getPageContext().getPageActivity());
+        shareThreadView.c(str2, false);
+        shareThreadView.setTitle(dq7Var.getThreadInfo().title);
+        shareThreadView.setDesc(dq7Var.getThreadInfo()._abstract);
+        nq4Var.setContentView(shareThreadView);
+        nq4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1145, new e(dq7Var, pbChosenActivity, shareThreadView, j, str, j2, str2));
+        nq4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0366, new f(pbChosenActivity, shareThreadView));
+        nq4Var.setCanceledOnTouchOutside(false);
+        nq4Var.create(pbChosenActivity.getPageContext()).show();
     }
 
-    public void C(PostData postData) {
+    public static void e(PbChosenActivity pbChosenActivity, dq7 dq7Var, long j, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, postData) == null) {
-            this.b = postData;
-        }
-    }
-
-    public void D(ArrayList<PostData> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
-            this.c = arrayList;
-        }
-    }
-
-    public void E(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) {
-            this.j = threadData;
-        }
-    }
-
-    public void F(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void G(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void H() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            int i = this.h;
-            if (i < 0) {
-                this.h = this.g;
-                return;
-            }
-            int i2 = this.g;
-            if (i > i2) {
-                this.h = i2;
-            }
-        }
-    }
-
-    public AntiData a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.i : (AntiData) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.g : invokeV.intValue;
-    }
-
-    public Error c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.m : (Error) invokeV.objValue;
-    }
-
-    public ForumData d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.a : (ForumData) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            ThreadData threadData = this.j;
-            return (threadData == null || this.b == null || threadData.getAuthor() == null || this.j.getAuthor().getUserId() == null || this.b.s() == null || this.b.s().getUserId() == null || !this.j.getAuthor().getUserId().equals(this.b.s().getUserId())) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.k : invokeV.booleanValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f : invokeV.intValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.h : invokeV.intValue;
-    }
-
-    public PostData i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.b : (PostData) invokeV.objValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            if (this.h == -1) {
-                this.h = this.g;
-            }
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public ArrayList<PostData> k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.c : (ArrayList) invokeV.objValue;
-    }
-
-    public ThreadData l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.j : (ThreadData) invokeV.objValue;
-    }
-
-    public int m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.e : invokeV.intValue;
-    }
-
-    public int n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.g < this.d : invokeV.booleanValue;
-    }
-
-    public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            ThreadData threadData = this.j;
-            return threadData != null && threadData.isUgcThreadType();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.l : invokeV.booleanValue;
-    }
-
-    public void r(aq7 aq7Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048601, this, aq7Var, z) == null) || aq7Var == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{pbChosenActivity, dq7Var, Long.valueOf(j), str, str2, str3, str4}) == null) || dq7Var == null || dq7Var.getThreadInfo() == null) {
             return;
         }
-        x(aq7Var.a());
-        A(aq7Var.d());
-        C(aq7Var.i());
-        E(aq7Var.l());
-        y(aq7Var.q());
-        if (aq7Var.k() != null) {
-            z(aq7Var.b());
-            B(aq7Var.g());
-            F(aq7Var.m());
-            G(aq7Var.n());
-        }
-        int size = this.c.size();
-        if (z && size % this.f != 0) {
-            for (int i = 0; i < size % this.f; i++) {
-                ArrayList<PostData> arrayList = this.c;
-                arrayList.remove(arrayList.size() - 1);
-            }
-        }
-        this.c.addAll(aq7Var.k());
+        nq4 nq4Var = new nq4(pbChosenActivity.getPageContext().getPageActivity());
+        ShareThreadView shareThreadView = new ShareThreadView(pbChosenActivity.getPageContext().getPageActivity());
+        shareThreadView.setTitle(dq7Var.getThreadInfo().title);
+        shareThreadView.setDesc(dq7Var.getThreadInfo()._abstract);
+        shareThreadView.c(str4, false);
+        nq4Var.setContentView(shareThreadView);
+        nq4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1145, new c(dq7Var, pbChosenActivity, shareThreadView, j, str, str2, str3, str4));
+        nq4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0366, new d(pbChosenActivity, shareThreadView));
+        nq4Var.setCanceledOnTouchOutside(false);
+        nq4Var.create(pbChosenActivity.getPageContext()).show();
     }
 
-    public void s(aq7 aq7Var) {
+    public void f(dq7 dq7Var, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048602, this, aq7Var) == null) || aq7Var == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, dq7Var, str) == null) || dq7Var == null || dq7Var.getThreadInfo() == null || dq7Var.getThreadInfo().excid == null) {
             return;
         }
-        x(aq7Var.a());
-        A(aq7Var.d());
-        C(aq7Var.i());
-        E(aq7Var.l());
-        y(aq7Var.q());
-        if (aq7Var.k() != null && aq7Var.k().size() > 0) {
-            z(aq7Var.b());
-            B(aq7Var.g());
-            F(aq7Var.m());
-            G(aq7Var.n());
-            int i = this.f;
-            int size = (this.g - (((aq7Var.k().size() - 1) + i) / i)) + 1;
-            this.h = size;
-            if (size < 0) {
-                this.h = 0;
-            }
+        String str2 = dq7Var.getThreadInfo().forum.forum_name;
+        String str3 = dq7Var.getThreadInfo().title;
+        String str4 = dq7Var.getThreadInfo()._abstract;
+        Resources resources = this.a.getPageContext().getPageActivity().getResources();
+        String format = MessageFormat.format(resources.getString(R.string.obfuscated_res_0x7f0f114d), str3, str4);
+        resources.getString(R.string.obfuscated_res_0x7f0f03c7, str3);
+        ShareItem shareItem = new ShareItem();
+        shareItem.u = str3;
+        shareItem.v = format;
+        shareItem.w = "http://tieba.baidu.com/mo/q/recommendpb?ftid=" + dq7Var.getThreadInfo().excid;
+        shareItem.G = str4;
+        shareItem.F = Long.toString(dq7Var.getThreadInfo().excid.longValue());
+        shareItem.N = Long.toString(dq7Var.getThreadInfo().thread_id.longValue());
+        shareItem.a = true;
+        if (!StringUtils.isNull(str)) {
+            shareItem.y = Uri.parse(str);
         }
-        this.c.addAll(aq7Var.k());
-    }
-
-    public void t(aq7 aq7Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048603, this, aq7Var, z) == null) || aq7Var == null) {
-            return;
-        }
-        x(aq7Var.a());
-        A(aq7Var.d());
-        C(aq7Var.i());
-        E(aq7Var.l());
-        y(aq7Var.q());
-        if (aq7Var.k() != null && aq7Var.k().size() > 0) {
-            z(aq7Var.b());
-            B(aq7Var.g());
-            F(aq7Var.m());
-            G(aq7Var.n());
-        }
-        int size = this.c.size();
-        if (z && size % this.f != 0) {
-            for (int i = 0; i < size % this.f; i++) {
-                ArrayList<PostData> arrayList = this.c;
-                arrayList.remove(arrayList.size() - 1);
-            }
-        }
-        this.c.addAll(aq7Var.k());
-        H();
-    }
-
-    public void u(aq7 aq7Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048604, this, aq7Var, z) == null) {
-            v(aq7Var, z);
-        }
-    }
-
-    public void v(aq7 aq7Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048605, this, aq7Var, z) == null) || aq7Var == null) {
-            return;
-        }
-        x(aq7Var.a());
-        this.h = aq7Var.b();
-        A(aq7Var.d());
-        B(aq7Var.g());
-        E(aq7Var.l());
-        F(aq7Var.m());
-        G(aq7Var.n());
-        y(aq7Var.q());
-        this.c.addAll(0, aq7Var.k());
-    }
-
-    public void x(AntiData antiData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, antiData) == null) {
-            this.i = antiData;
-        }
-    }
-
-    public void y(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
-            this.l = z;
-        }
-    }
-
-    public void z(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
-            this.g = i;
-        }
+        ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.a.getPageContext().getPageActivity(), shareItem, true);
+        shareDialogConfig.setIsCopyLink(true);
+        shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f0664, R.drawable.icon_share_friends_n, new a(this));
+        shareDialogConfig.setCopyLinkListener(new b(this, shareItem));
+        this.a.sendMessage(new CustomMessage(2001276, shareDialogConfig));
     }
 }

@@ -41,7 +41,7 @@ public class MemoryPooledByteBuffer implements PooledByteBuffer {
         }
         Preconditions.checkNotNull(closeableReference);
         Preconditions.checkArgument(i >= 0 && i <= closeableReference.get().getSize());
-        this.mBufRef = closeableReference.m100clone();
+        this.mBufRef = closeableReference.m76clone();
         this.mSize = i;
     }
 

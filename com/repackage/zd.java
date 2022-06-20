@@ -1,50 +1,119 @@
 package com.repackage;
 
-import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
 /* loaded from: classes7.dex */
 public class zd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final boolean a(ac acVar, vc vcVar) {
-        InterceptResult invokeLL;
-        ic a;
+    public static final List<Object> a(be beVar, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, acVar, vcVar)) == null) {
-            if (acVar == null || vcVar == null) {
-                return false;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, beVar, i)) == null) {
+            Class<?> a = beVar.a();
+            if (a != List.class && a != ArrayList.class) {
+                if (a == LinkedList.class) {
+                    return new LinkedList();
+                }
+                Object g = bc.g(a, i);
+                if (g == null) {
+                    g = bc.f(a);
+                }
+                if (g instanceof List) {
+                    return (List) g;
+                }
+                return null;
             }
-            for (Field field : yb.b(acVar.getClass())) {
-                if (field != null && !Modifier.isTransient(field.getModifiers()) && !Modifier.isStatic(field.getModifiers())) {
-                    String name = field.getName();
-                    if (!TextUtils.isEmpty(name) && (a = be.a(yb.d(acVar, name))) != null) {
-                        Object obj = null;
-                        if (vcVar instanceof xc) {
-                            obj = a.f(new yd(field.getGenericType()));
-                        } else if (vcVar instanceof tc) {
-                            obj = a.d(new yd(field.getGenericType()));
-                        } else if (vcVar instanceof wc) {
-                            obj = a.e(new yd(field.getGenericType()));
-                        } else if (vcVar instanceof yc) {
-                            obj = a.b(new yd(field.getGenericType()));
-                        } else if (vcVar instanceof uc) {
-                            obj = a.a(new yd(field.getGenericType()));
-                        } else if (vcVar instanceof zc) {
-                            obj = a.c(new yd(field.getGenericType()));
-                        }
-                        if (obj != null) {
-                            vcVar.a(name, obj);
-                        }
+            return new ArrayList(i);
+        }
+        return (List) invokeLI.objValue;
+    }
+
+    public static final Map<String, Object> b(be beVar, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, beVar, i)) == null) {
+            Class<?> a = beVar.a();
+            Type[] b = beVar.b();
+            if (bc.e(a, Map.class)) {
+                if (b != null && b.length >= 2 && b[0] == String.class) {
+                    if (a == Map.class) {
+                        return new HashMap(i);
                     }
+                    Object g = bc.g(a, i);
+                    if (g == null) {
+                        g = bc.f(a);
+                    }
+                    if (g instanceof Map) {
+                        return (Map) g;
+                    }
+                    return null;
+                } else if (a == Map.class) {
+                    return new HashMap(i);
+                } else {
+                    Object g2 = bc.g(a, i);
+                    if (g2 == null) {
+                        g2 = bc.f(a);
+                    }
+                    if (g2 instanceof Map) {
+                        return (Map) g2;
+                    }
+                    return null;
                 }
             }
-            return true;
+            return null;
         }
-        return invokeLL.booleanValue;
+        return (Map) invokeLI.objValue;
+    }
+
+    public static final Queue<Object> c(be beVar, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, beVar, i)) == null) {
+            Class<?> a = beVar.a();
+            if (a == Queue.class) {
+                return new LinkedList();
+            }
+            Object g = bc.g(a, i);
+            if (g == null) {
+                g = bc.f(a);
+            }
+            if (g instanceof Queue) {
+                return (Queue) g;
+            }
+            return null;
+        }
+        return (Queue) invokeLI.objValue;
+    }
+
+    public static final Set<Object> d(be beVar, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, beVar, i)) == null) {
+            Class<?> a = beVar.a();
+            if (a == Set.class) {
+                return new HashSet();
+            }
+            Object g = bc.g(a, i);
+            if (g == null) {
+                g = bc.f(a);
+            }
+            if (g instanceof Set) {
+                return (Set) g;
+            }
+            return null;
+        }
+        return (Set) invokeLI.objValue;
     }
 }

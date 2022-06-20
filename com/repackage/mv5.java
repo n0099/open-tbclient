@@ -1,413 +1,63 @@
 package com.repackage;
 
-import android.util.SparseArray;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.FollowUserDecorView;
-import com.baidu.card.view.ForumEnterLayout;
-import com.baidu.card.view.UnfollowedDecorView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
-import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.om4;
+import tbclient.Search.DataRes;
 /* loaded from: classes6.dex */
-public abstract class mv5<T extends om4> extends nv5<T> {
+public class mv5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> i;
-    public BdUniqueId j;
-    public T k;
-    public ThreadCommentAndPraiseInfoLayout l;
-    public ThreadCommentAndPraiseInfoLayout m;
-    public NEGFeedBackView n;
-    public UnfollowedDecorView o;
-    public FollowUserDecorView p;
-    public ForumEnterLayout q;
-    public boolean r;
-    public boolean s;
-    public boolean t;
-    public View u;
+    public long a;
+    public long b;
+    public String c;
+    public String d;
+    public long e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public String j;
+    public boolean k;
+    public long l;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mv5(TbPageContext tbPageContext) {
-        super(tbPageContext);
+    public mv5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.n = null;
-        this.o = null;
-        this.r = false;
-        this.s = false;
-        this.t = false;
-    }
-
-    public void A(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.s = z;
-        }
-    }
-
-    public void B(View view2, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) && view2 != null && (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
-            if (marginLayoutParams.topMargin != i) {
-                marginLayoutParams.topMargin = i;
-                view2.setLayoutParams(marginLayoutParams);
             }
         }
     }
 
-    public void C(NEGFeedBackView.b bVar) {
-        NEGFeedBackView nEGFeedBackView;
+    public void a(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || (nEGFeedBackView = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) || dataRes == null) {
             return;
         }
-        nEGFeedBackView.setEventCallback(bVar);
-    }
-
-    public void D(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.h = i;
-            ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = this.l;
-            if (threadCommentAndPraiseInfoLayout != null) {
-                threadCommentAndPraiseInfoLayout.Q = i;
-            }
-            ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout2 = this.m;
-            if (threadCommentAndPraiseInfoLayout2 != null) {
-                threadCommentAndPraiseInfoLayout2.Q = i;
-            }
-        }
-    }
-
-    public void E(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, viewGroup) == null) {
-            H(viewGroup, I(viewGroup));
-            J(viewGroup);
-            G();
-            if (v()) {
-                ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = this.l;
-                if (threadCommentAndPraiseInfoLayout != null) {
-                    threadCommentAndPraiseInfoLayout.setVisibility(8);
-                }
-                ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout2 = this.m;
-                if (threadCommentAndPraiseInfoLayout2 != null) {
-                    threadCommentAndPraiseInfoLayout2.setVisibility(8);
-                }
-                View view2 = this.u;
-                if (view2 != null) {
-                    view2.setVisibility(0);
-                }
-            } else {
-                F();
-            }
-            s();
-        }
-    }
-
-    public void F() {
-        T t;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (t = this.k) == null || t.getThreadData() == null) {
-            return;
-        }
-        ThreadData threadData = this.k.getThreadData();
-        this.l.setVisibility(8);
-        this.m.setData(threadData);
-    }
-
-    public final void G() {
-        T t;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (t = this.k) == null || t.getThreadData() == null || this.q == null) {
-            return;
-        }
-        if (this.k.showCardEnterFourm()) {
-            this.q.setData(this.k.getThreadData());
-        } else if (this.r) {
-            this.q.setData(this.k.getThreadData());
-        }
-    }
-
-    public final void H(ViewGroup viewGroup, boolean z) {
-        T t;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048583, this, viewGroup, z) == null) || (t = this.k) == null || t.getThreadData() == null) {
-            return;
-        }
-        if (this.p == null) {
-            FollowUserDecorView followUserDecorView = new FollowUserDecorView(this.i.getPageActivity());
-            this.p = followUserDecorView;
-            followUserDecorView.setIsShowIcon(this.s);
-            viewGroup.addView(this.p);
-        }
-        if (w()) {
-            this.p.setPageUniqueId(this.j);
-            this.p.setSvgIconResId(0);
-            int t2 = t(R.dimen.tbds166);
-            int t3 = t(R.dimen.tbds78);
-            int i = R.dimen.tbds44;
-            int t4 = t(z ? R.dimen.tbds104 : R.dimen.tbds44);
-            int t5 = t(R.dimen.tbds50);
-            if (UbsABTestHelper.showNewUI()) {
-                t2 = t(R.dimen.tbds177);
-                t3 = t(R.dimen.tbds76);
-                if (z) {
-                    i = R.dimen.tbds126;
-                }
-                t4 = t(i);
-                t5 = t(R.dimen.tbds52);
-                this.p.setUseNewStyle(true);
-            }
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(t2, t3);
-            layoutParams.topMargin = t5;
-            layoutParams.rightMargin = t4;
-            layoutParams.gravity = 53;
-            this.p.setLayoutParams(layoutParams);
-            this.p.setData(this.k.getThreadData());
-            return;
-        }
-        FollowUserDecorView followUserDecorView2 = this.p;
-        if (followUserDecorView2 != null) {
-            followUserDecorView2.setVisibility(8);
-        }
-    }
-
-    public final boolean I(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        SparseArray<String> sparseArray;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
-            T t = this.k;
-            if (t == null || t.getThreadData() == null) {
-                return false;
-            }
-            if (this.k.getThreadData() != null && (sparseArray = this.k.feedBackReasonMap) != null && sparseArray.size() > 0) {
-                if (this.n == null) {
-                    NEGFeedBackView nEGFeedBackView = new NEGFeedBackView(j());
-                    this.n = nEGFeedBackView;
-                    viewGroup.addView(nEGFeedBackView);
-                }
-                this.n.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-                int f = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds90);
-                int f2 = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds14);
-                int f3 = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds14);
-                int f4 = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds42);
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(f, f);
-                layoutParams.rightMargin = f3;
-                layoutParams.topMargin = f4;
-                layoutParams.gravity = 53;
-                this.n.setPadding(f2, f2, f2, f2);
-                this.n.setLayoutParams(layoutParams);
-                lo4 lo4Var = new lo4();
-                lo4Var.o(this.k.getThreadData().getTid());
-                lo4Var.k(this.k.getThreadData().getFid());
-                lo4Var.n(this.k.getThreadData().getNid());
-                lo4Var.j(this.k.feedBackReasonMap);
-                this.n.setVisibility(0);
-                this.n.setData(lo4Var);
-                this.n.setFirstRowSingleColumn(true);
-                return true;
-            }
-            NEGFeedBackView nEGFeedBackView2 = this.n;
-            if (nEGFeedBackView2 != null) {
-                nEGFeedBackView2.setVisibility(8);
-                return false;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void J(ViewGroup viewGroup) {
-        T t;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, viewGroup) == null) || (t = this.k) == null || t.getThreadData() == null) {
-            return;
-        }
-        if (this.o == null) {
-            UnfollowedDecorView unfollowedDecorView = new UnfollowedDecorView(this.i.getPageActivity());
-            this.o = unfollowedDecorView;
-            viewGroup.addView(unfollowedDecorView);
-        }
-        if (this.k.getThreadData().isFromConcern && !ThreadCardUtils.isSelf(this.k.getThreadData())) {
-            this.o.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-            int f = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds90);
-            int f2 = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds14);
-            int f3 = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds14);
-            int f4 = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds42);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(f, f);
-            layoutParams.rightMargin = f3;
-            layoutParams.topMargin = f4;
-            layoutParams.gravity = 53;
-            this.o.setPadding(f2, f2, f2, f2);
-            this.o.setLayoutParams(layoutParams);
-            this.o.setVisibility(0);
-            this.o.m(this.k.getThreadData());
-            return;
-        }
-        UnfollowedDecorView unfollowedDecorView2 = this.o;
-        if (unfollowedDecorView2 != null) {
-            unfollowedDecorView2.setVisibility(8);
-        }
-    }
-
-    public final void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            ForumEnterLayout forumEnterLayout = this.q;
-            if ((forumEnterLayout == null || forumEnterLayout.getVisibility() != 0) && !UbsABTestHelper.showNewUI()) {
-                B(this.l, t(R.dimen.tbds20));
-                B(this.m, t(R.dimen.tbds20));
-                return;
-            }
-            B(this.l, 0);
-            B(this.m, 0);
-        }
-    }
-
-    public int t(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) ? li.f(TbadkCoreApplication.getInst(), i) : invokeI.intValue;
-    }
-
-    public void u(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, threadCommentAndPraiseInfoLayout) == null) || threadCommentAndPraiseInfoLayout == null) {
-            return;
-        }
-        threadCommentAndPraiseInfoLayout.setOnClickListener(this);
-        threadCommentAndPraiseInfoLayout.setReplyTimeVisible(false);
-        threadCommentAndPraiseInfoLayout.setShowPraiseNum(true);
-        threadCommentAndPraiseInfoLayout.setCommentNumEnable(true);
-        threadCommentAndPraiseInfoLayout.setNeedAddReplyIcon(true);
-        threadCommentAndPraiseInfoLayout.setNeedAddPraiseIcon(true);
-        if (threadCommentAndPraiseInfoLayout.getCommentContainer() != null) {
-            threadCommentAndPraiseInfoLayout.getCommentContainer().setOnClickListener(this);
-        }
-        threadCommentAndPraiseInfoLayout.setShareVisible(true);
-        threadCommentAndPraiseInfoLayout.setFrom(7);
-        threadCommentAndPraiseInfoLayout.setShareReportFrom(3);
-        threadCommentAndPraiseInfoLayout.hideDisagree();
-        um4 um4Var = new um4();
-        um4Var.b = 7;
-        um4Var.h = 1;
-        threadCommentAndPraiseInfoLayout.setAgreeStatisticData(um4Var);
-    }
-
-    public boolean v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.t : invokeV.booleanValue;
-    }
-
-    public final boolean w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            T t = this.k;
-            if (t == null || t.getThreadData() == null || this.k.getThreadData().getAuthor() == null) {
-                return false;
-            }
-            ThreadData threadData = this.k.getThreadData();
-            if (ThreadCardUtils.isSelf(threadData)) {
-                return false;
-            }
-            boolean z = threadData.isBjhDynamicThread() || threadData.isBJHArticleThreadType() || threadData.isBJHVideoThreadType();
-            if ((!z || !threadData.isFromHomPage) && (!z || !threadData.isFromVideoTab || threadData.getAuthor().hadConcerned())) {
-                if (threadData.getThreadAlaInfo() == null || !yw5.W(threadData)) {
-                    return false;
-                }
-                if (!threadData.isFromHomPage && !threadData.isFromFeedTab) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void x(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048591, this, tbPageContext, i) == null) {
-            ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = this.l;
-            if (threadCommentAndPraiseInfoLayout != null) {
-                threadCommentAndPraiseInfoLayout.onChangeSkinType();
-            }
-            ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout2 = this.m;
-            if (threadCommentAndPraiseInfoLayout2 != null) {
-                threadCommentAndPraiseInfoLayout2.onChangeSkinType();
-            }
-            NEGFeedBackView nEGFeedBackView = this.n;
-            if (nEGFeedBackView != null) {
-                nEGFeedBackView.u();
-            }
-            UnfollowedDecorView unfollowedDecorView = this.o;
-            if (unfollowedDecorView != null) {
-                unfollowedDecorView.o();
-            }
-            ForumEnterLayout forumEnterLayout = this.q;
-            if (forumEnterLayout != null) {
-                forumEnterLayout.n(tbPageContext, i);
-            }
-            FollowUserDecorView followUserDecorView = this.p;
-            if (followUserDecorView != null) {
-                followUserDecorView.s(i);
-            }
-        }
-    }
-
-    public void y(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, bdUniqueId) == null) || bdUniqueId == null) {
-            return;
-        }
-        o(bdUniqueId);
-        NEGFeedBackView nEGFeedBackView = this.n;
-        if (nEGFeedBackView != null) {
-            nEGFeedBackView.setUniqueId(bdUniqueId);
-        }
-        FollowUserDecorView followUserDecorView = this.p;
-        if (followUserDecorView != null) {
-            followUserDecorView.setPageUniqueId(bdUniqueId);
-        }
-    }
-
-    public void z(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            this.t = z;
-        }
+        Long l = dataRes.uid;
+        this.b = l == null ? 0L : l.longValue();
+        this.c = dataRes.portrait;
+        this.d = dataRes.name_show;
+        Long l2 = dataRes.apply_id;
+        this.e = l2 == null ? 0L : l2.longValue();
+        Integer num = dataRes.vote_num;
+        this.f = num == null ? 0 : num.intValue();
+        Integer num2 = dataRes.agree_num;
+        this.g = num2 == null ? 0 : num2.intValue();
+        Integer num3 = dataRes.thread_num;
+        this.h = num3 == null ? 0 : num3.intValue();
+        Integer num4 = dataRes.post_num;
+        this.i = num4 == null ? 0 : num4.intValue();
+        Boolean bool = dataRes.is_vote;
+        this.k = bool != null ? bool.booleanValue() : false;
+        Long l3 = dataRes.tid;
+        this.l = l3 != null ? l3.longValue() : 0L;
     }
 }

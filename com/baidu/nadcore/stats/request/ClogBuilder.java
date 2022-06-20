@@ -17,14 +17,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hx0;
-import com.repackage.wx0;
-import com.repackage.xx0;
+import com.repackage.ay0;
+import com.repackage.by0;
+import com.repackage.lx0;
 import java.net.URLEncoder;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class ClogBuilder extends wx0 {
+public class ClogBuilder extends ay0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final JSONObject c;
@@ -443,12 +443,12 @@ public class ClogBuilder extends wx0 {
                 return;
             }
         }
-        this.c = hx0.c(null);
+        this.c = lx0.c(null);
         c("origin_time", String.valueOf(System.currentTimeMillis()));
     }
 
-    @Override // com.repackage.ux0, com.repackage.xx0
-    public <T extends xx0> T a(String str, String str2) {
+    @Override // com.repackage.yx0, com.repackage.by0
+    public <T extends by0> T a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
@@ -458,15 +458,15 @@ public class ClogBuilder extends wx0 {
         return (T) invokeLL.objValue;
     }
 
-    @Override // com.repackage.ux0
-    public <T extends xx0> T c(String str, Object obj) {
+    @Override // com.repackage.yx0
+    public <T extends by0> T c(String str, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return this;
             }
-            hx0.f(this.c, str, obj);
+            lx0.f(this.c, str, obj);
             return this;
         }
         return (T) invokeLL.objValue;
@@ -509,7 +509,7 @@ public class ClogBuilder extends wx0 {
         return (ClogBuilder) invokeL.objValue;
     }
 
-    @Override // com.repackage.wx0, com.repackage.xx0
+    @Override // com.repackage.ay0, com.repackage.by0
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -632,7 +632,7 @@ public class ClogBuilder extends wx0 {
         return (ClogBuilder) invokeL.objValue;
     }
 
-    @Override // com.repackage.wx0, com.repackage.ux0, com.repackage.xx0
+    @Override // com.repackage.ay0, com.repackage.yx0, com.repackage.by0
     @NonNull
     public String toString() {
         InterceptResult invokeV;

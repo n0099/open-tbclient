@@ -18,7 +18,6 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
@@ -29,22 +28,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.w71;
+import com.repackage.h81;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 /* loaded from: classes2.dex */
 public class PayWebActivity extends Activity {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String LAUNCH_PAYMENT_DATA = "launch_payment_data";
-    public static final String LOAD_URL = "load_url";
-    public static final String URL_CLOSE_WINDOW = "cashier://closewindow";
-    public static final String URL_WEIXIN = "weixin://";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageView ivBack;
-    public boolean jumpedWX;
-    public String loadUrl;
-    public Bundle mBundle;
-    public WebView webView;
+    public WebView a;
+    public ImageView b;
+    public boolean c;
+    public String d;
+    public Bundle e;
 
     /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
@@ -94,23 +89,22 @@ public class PayWebActivity extends Activity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean handleRedirectUrl(String str) {
+    public final boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return true;
             }
-            if (str.startsWith(URL_CLOSE_WINDOW)) {
-                w71.g(119102, "3", "BAIDU-SUPER-WECHAT-WISE", "-105", "调起微信H5支付失败");
+            if (str.startsWith("cashier://closewindow")) {
+                h81.g(119102, "3", "BAIDU-SUPER-WECHAT-WISE", "-105", "调起微信H5支付失败");
                 setResult(0);
                 finish();
                 return true;
             } else if (URLUtil.isNetworkUrl(str)) {
                 return false;
             } else {
-                this.jumpedWX = str.contains(URL_WEIXIN);
+                this.c = str.contains("weixin://");
                 Intent intent = new Intent("android.intent.action.VIEW");
                 intent.setData(Uri.parse(str));
                 startActivity(intent);
@@ -120,41 +114,41 @@ public class PayWebActivity extends Activity {
         return invokeL.booleanValue;
     }
 
-    private void initLoadUrl() {
+    public final void c() {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (intent = getIntent()) == null) {
             return;
         }
-        this.loadUrl = intent.getStringExtra(LOAD_URL);
-        this.mBundle = intent.getBundleExtra(LAUNCH_PAYMENT_DATA);
+        this.d = intent.getStringExtra("load_url");
+        this.e = intent.getBundleExtra("launch_payment_data");
     }
 
     @SuppressLint({"SetJavaScriptEnabled"})
-    private void initView() {
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fb2);
-            this.ivBack = imageView;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fa1);
+            this.b = imageView;
             imageView.setOnClickListener(new a(this));
-            WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f092418);
-            this.webView = webView;
+            WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f092405);
+            this.a = webView;
             webView.setVerticalScrollBarEnabled(false);
-            this.webView.setHorizontalScrollBarEnabled(false);
-            this.webView.getSettings().setJavaScriptEnabled(true);
-            this.webView.setWebViewClient(new b(this));
-            if (TextUtils.isEmpty(this.loadUrl)) {
+            this.a.setHorizontalScrollBarEnabled(false);
+            this.a.getSettings().setJavaScriptEnabled(true);
+            this.a.setWebViewClient(new b(this));
+            if (TextUtils.isEmpty(this.d)) {
                 return;
             }
-            this.webView.loadUrl(this.loadUrl);
+            this.a.loadUrl(this.d);
         }
     }
 
     @Override // android.app.Activity
     public void onBackPressed() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            w71.g(119103, "4", "BAIDU-SUPER-WECHAT-WISE", "-106", "取消微信H5支付");
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            h81.g(119103, "4", "BAIDU-SUPER-WECHAT-WISE", "-106", "取消微信H5支付");
             setResult(0);
             finish();
             super.onBackPressed();
@@ -164,12 +158,12 @@ public class PayWebActivity extends Activity {
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0047);
-            this.jumpedWX = false;
-            initLoadUrl();
-            initView();
+            this.c = false;
+            c();
+            d();
             LogUtil.logActivity(this, "onCreate");
         }
     }
@@ -177,14 +171,14 @@ public class PayWebActivity extends Activity {
     @Override // android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            WebView webView = this.webView;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            WebView webView = this.a;
             if (webView != null) {
                 webView.loadDataWithBaseURL(null, "", SapiWebView.DATA_MIME_TYPE, IMAudioTransRequest.CHARSET, null);
-                this.webView.clearHistory();
-                ((ViewGroup) this.webView.getParent()).removeView(this.webView);
-                this.webView.destroy();
-                this.webView = null;
+                this.a.clearHistory();
+                ((ViewGroup) this.a.getParent()).removeView(this.a);
+                this.a.destroy();
+                this.a = null;
             }
             super.onDestroy();
         }
@@ -193,11 +187,11 @@ public class PayWebActivity extends Activity {
     @Override // android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onResume();
-            if (this.jumpedWX) {
+            if (this.c) {
                 Intent intent = new Intent();
-                intent.putExtras(this.mBundle);
+                intent.putExtras(this.e);
                 setResult(-1, intent);
                 finish();
             }
@@ -266,7 +260,7 @@ public class PayWebActivity extends Activity {
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
-                return this.a.handleRedirectUrl(str);
+                return this.a.b(str);
             }
             return invokeLL.booleanValue;
         }
@@ -283,7 +277,7 @@ public class PayWebActivity extends Activity {
                     } catch (UnsupportedEncodingException e) {
                         e.printStackTrace();
                     }
-                    return this.a.handleRedirectUrl(uri);
+                    return this.a.b(uri);
                 }
                 return true;
             }

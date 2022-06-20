@@ -1,47 +1,61 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
+import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
+import com.baidu.minivideo.effect.core.vlogedit.MediaOneAEffect;
+import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.tachikoma.core.component.anim.AnimationProperty;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public final class qe0 {
+public class qe0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Activity activity) {
-        InterceptResult invokeL;
+    public static MediaOneAEffect a(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
-            if (activity == null || !b(activity.getIntent())) {
-                return false;
-            }
-            try {
-                activity.finish();
-            } catch (Exception unused) {
-            }
-            return true;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65536, null, j)) == null) {
+            MediaOneAEffect mediaOneAEffect = new MediaOneAEffect();
+            mediaOneAEffect.start = 0L;
+            mediaOneAEffect.end = j;
+            ArrayList arrayList = new ArrayList();
+            mediaOneAEffect.aParams = arrayList;
+            arrayList.add(c());
+            return mediaOneAEffect;
         }
-        return invokeL.booleanValue;
+        return (MediaOneAEffect) invokeJ.objValue;
     }
 
-    public static boolean b(Intent intent) {
-        InterceptResult invokeL;
-        Bundle extras;
+    public static MediaAEffect b(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, intent)) == null) {
-            if (intent == null || (extras = intent.getExtras()) == null) {
-                return false;
-            }
-            try {
-                extras.isEmpty();
-                return false;
-            } catch (Exception unused) {
-                return true;
-            }
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
+            MediaAEffect mediaAEffect = new MediaAEffect();
+            mediaAEffect.name = "defaultScene";
+            mediaAEffect.duration = j;
+            mediaAEffect.repeatMode = MediaAEffect.AE_ANIM_ONCE;
+            mediaAEffect.effectType = "scene";
+            mediaAEffect.shaderConfigKey = re0.b;
+            ArrayList arrayList = new ArrayList();
+            mediaAEffect.mediaOneAEffects = arrayList;
+            arrayList.add(a(j));
+            return mediaAEffect;
         }
-        return invokeL.booleanValue;
+        return (MediaAEffect) invokeJ.objValue;
+    }
+
+    public static ShaderParams c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            ShaderParams shaderParams = new ShaderParams();
+            shaderParams.name = AnimationProperty.SCALE;
+            shaderParams.type = ShaderParams.VALUE_TYPE_ANIMATOR;
+            shaderParams.values = new float[]{1.0f, 1.2f};
+            return shaderParams;
+        }
+        return (ShaderParams) invokeV.objValue;
     }
 }

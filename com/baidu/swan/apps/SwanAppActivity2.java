@@ -26,7 +26,7 @@ public class SwanAppActivity2 extends SwanAppActivity {
     }
 
     @Override // com.baidu.swan.apps.SwanAppActivity
-    public SwanAppProcessInfo getProcessInfo() {
+    public SwanAppProcessInfo U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SwanAppProcessInfo.P2 : (SwanAppProcessInfo) invokeV.objValue;

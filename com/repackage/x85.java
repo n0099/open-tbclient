@@ -1,23 +1,20 @@
 package com.repackage;
 
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.template.model.LoadType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.aa5;
-import com.repackage.z95;
 /* loaded from: classes7.dex */
-public class x85<Q extends z95, P extends aa5> implements y85<Q, P> {
+public class x85 extends qa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public int c;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x85() {
+        super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -25,62 +22,29 @@ public class x85<Q extends z95, P extends aa5> implements y85<Q, P> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = true;
-        this.b = 1;
-        this.c = 1;
     }
 
-    @Override // com.repackage.y85
-    public void a(Q q, P p) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.ua
+    /* renamed from: c */
+    public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, q, p) == null) || p == null) {
-            return;
-        }
-        if (p.getPageInfo() != null) {
-            u95 pageInfo = p.getPageInfo();
-            this.c = pageInfo.a;
-            this.a = pageInfo.b;
-            if (q != null && q.c() != null) {
-                q.c().d = pageInfo.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage)) == null) {
+            if (httpResponsedMessage == null) {
+                return null;
             }
-        }
-        if (this.c <= 0 && q != null && q.c() != null && q.c().c > 0) {
-            this.c = q.c().c;
-            this.a = true;
-        }
-        pa5.b("onResp--->pn=" + this.c + ",hasMore=" + this.a);
-    }
-
-    @Override // com.repackage.y85
-    public void b(Q q, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q, z) == null) || q == null || q.c() == null) {
-            return;
-        }
-        t95 c = q.c();
-        if (z) {
-            if (!c.a()) {
-                this.c = this.b;
+            if (httpResponsedMessage.getError() == 2260104) {
+                ic5.a();
             }
-            c.b = c.a() ? LoadType.PREPEND : LoadType.REFRESH;
-            c.c = this.c;
-        } else {
-            int i = this.c + 1;
-            this.c = i;
-            c.b = LoadType.APPEND;
-            c.c = i;
+            return httpResponsedMessage;
         }
-        pa5.b("onReq--->pn=" + this.c + ",hasMore=" + this.a + ",isPullRefresh=" + z + ",loadType=" + c.b);
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.booleanValue;
+        return (HttpResponsedMessage) invokeL.objValue;
     }
 }

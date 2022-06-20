@@ -15,10 +15,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ot4;
-import com.repackage.pu4;
+import com.repackage.xt4;
+import com.repackage.zu4;
 /* loaded from: classes4.dex */
-public class DynamicUserLikeButton extends TBSpecificationBtn implements pu4 {
+public class DynamicUserLikeButton extends TBSpecificationBtn implements zu4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a o;
@@ -51,7 +51,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements pu4 {
         }
     }
 
-    @Override // com.repackage.pu4
+    @Override // com.repackage.zu4
     public void a(View view2) {
         a aVar;
         Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements pu4 {
         aVar.a(view2);
     }
 
-    @Override // com.repackage.pu4
+    @Override // com.repackage.zu4
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
@@ -69,7 +69,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements pu4 {
         }
     }
 
-    @Override // com.repackage.pu4
+    @Override // com.repackage.zu4
     public void c(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -77,7 +77,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements pu4 {
         }
     }
 
-    @Override // com.repackage.pu4
+    @Override // com.repackage.zu4
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
@@ -88,79 +88,79 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements pu4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             if (z) {
-                t(true);
+                s(true);
             } else {
-                t(false);
+                s(false);
             }
         }
     }
 
-    public void s(int i) {
+    public void r(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             k();
         }
     }
 
-    public void setGodRecommendStyle(boolean z) {
+    public void s(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            if (this.q) {
+                if (z) {
+                    xt4 xt4Var = new xt4();
+                    xt4Var.q();
+                    setConfig(xt4Var);
+                    setClickable(true);
+                    setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fa3));
+                } else {
+                    xt4 xt4Var2 = new xt4();
+                    xt4Var2.u(R.color.CAM_X0105);
+                    xt4Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
+                    xt4Var2.i(R.drawable.icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
+                    xt4Var2.h(R.color.CAM_X0105);
+                    setConfig(xt4Var2);
+                    setClickable(true);
+                    setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a4));
+                }
+            } else if (z) {
+                xt4 xt4Var3 = new xt4();
+                xt4Var3.t(R.color.CAM_X0109);
+                setConfig(xt4Var3);
+                setClickable(true);
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fa3));
+            } else {
+                xt4 xt4Var4 = new xt4();
+                xt4Var4.r(R.color.CAM_X0302);
+                if (this.p) {
+                    xt4Var4.g(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
+                    xt4Var4.i(R.drawable.icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
+                }
+                setConfig(xt4Var4);
+                setClickable(true);
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a4));
+            }
+            r(TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
+
+    public void setGodRecommendStyle(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             this.q = z;
         }
     }
 
     public void setOnClickEvent(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
             this.o = aVar;
         }
     }
 
     public void setUseNewStyle(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.p = z;
-        }
-    }
-
-    public void t(boolean z) {
-        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            if (this.q) {
-                if (z) {
-                    ot4 ot4Var = new ot4();
-                    ot4Var.q();
-                    setConfig(ot4Var);
-                    setClickable(true);
-                    setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f98));
-                } else {
-                    ot4 ot4Var2 = new ot4();
-                    ot4Var2.u(R.color.CAM_X0105);
-                    ot4Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
-                    ot4Var2.i(R.drawable.icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
-                    ot4Var2.h(R.color.CAM_X0105);
-                    setConfig(ot4Var2);
-                    setClickable(true);
-                    setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a4));
-                }
-            } else if (z) {
-                ot4 ot4Var3 = new ot4();
-                ot4Var3.t(R.color.CAM_X0109);
-                setConfig(ot4Var3);
-                setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f98));
-            } else {
-                ot4 ot4Var4 = new ot4();
-                ot4Var4.r(R.color.CAM_X0302);
-                if (this.p) {
-                    ot4Var4.g(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
-                    ot4Var4.i(R.drawable.icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
-                }
-                setConfig(ot4Var4);
-                setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a4));
-            }
-            s(TbadkCoreApplication.getInst().getSkinType());
+            this.p = z;
         }
     }
 
@@ -204,9 +204,9 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements pu4 {
                 return;
             }
         }
-        ot4 ot4Var = new ot4();
-        ot4Var.r(R.color.CAM_X0302);
-        setConfig(ot4Var);
+        xt4 xt4Var = new xt4();
+        xt4Var.r(R.color.CAM_X0302);
+        setConfig(xt4Var);
         setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a4));
     }
 }

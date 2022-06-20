@@ -49,7 +49,7 @@ public class a extends g implements c.a {
             com.kwad.sdk.core.page.c cVar = new com.kwad.sdk.core.page.c(q(), this.d, 4, false);
             this.c = cVar;
             cVar.a(this);
-            this.c.a(new c.C0304c().b(false).a(true).a("").b(com.kwad.sdk.core.response.a.b.i(this.d)).a());
+            this.c.a(new c.C0312c().b(false).a(true).a("").b(com.kwad.sdk.core.response.a.b.i(this.d)).a());
             this.b.addView(this.c.a());
             this.f = this.c.b();
             this.g = this.c.c();
@@ -72,8 +72,8 @@ public class a extends g implements c.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.b = (FrameLayout) a(R.id.obfuscated_res_0x7f091060);
-        this.h = (ComplianceTextView) a(R.id.obfuscated_res_0x7f091023);
+        this.b = (FrameLayout) a(R.id.obfuscated_res_0x7f091050);
+        this.h = (ComplianceTextView) a(R.id.obfuscated_res_0x7f091013);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

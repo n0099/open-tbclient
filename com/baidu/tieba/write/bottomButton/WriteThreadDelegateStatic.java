@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.y35;
-import com.repackage.z35;
+import com.repackage.n45;
+import com.repackage.o45;
 /* loaded from: classes4.dex */
-public class WriteThreadDelegateStatic extends y35 {
+public class WriteThreadDelegateStatic extends n45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,23 +33,23 @@ public class WriteThreadDelegateStatic extends y35 {
         }
     }
 
-    @Override // com.repackage.y35
-    public z35 a() {
+    @Override // com.repackage.n45
+    public o45 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            z35 z35Var = new z35();
-            z35Var.a = new WriteThreadFragment();
-            z35Var.e = 9;
-            z35Var.b = R.string.obfuscated_res_0x7f0f1109;
-            z35Var.d = R.drawable.icon_tabbar_add_n;
-            z35Var.i = z35.j;
-            return z35Var;
+            o45 o45Var = new o45();
+            o45Var.a = new WriteThreadFragment();
+            o45Var.e = 9;
+            o45Var.b = R.string.obfuscated_res_0x7f0f1114;
+            o45Var.d = R.drawable.icon_tabbar_add_n;
+            o45Var.i = o45.j;
+            return o45Var;
         }
-        return (z35) invokeV.objValue;
+        return (o45) invokeV.objValue;
     }
 
-    @Override // com.repackage.y35
+    @Override // com.repackage.n45
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class WriteThreadDelegateStatic extends y35 {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // com.repackage.y35
+    @Override // com.repackage.n45
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

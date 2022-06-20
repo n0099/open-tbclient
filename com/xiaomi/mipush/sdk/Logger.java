@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.channel.commonutils.logger.LoggerInterface;
-import com.xiaomi.push.de;
-import com.xiaomi.push.df;
+import com.xiaomi.push.di;
+import com.xiaomi.push.dj;
 import java.io.File;
 /* loaded from: classes8.dex */
 public class Logger {
@@ -125,7 +125,7 @@ public class Logger {
                 z2 = z3;
             }
             z = false;
-            com.xiaomi.channel.commonutils.logger.b.a(new de(z2 ? sUserLogger : null, z ? new df(context) : null));
+            com.xiaomi.channel.commonutils.logger.b.a(new di(z2 ? sUserLogger : null, z ? dj.a(context) : null));
         }
     }
 

@@ -1,5 +1,6 @@
 package com.baidu.tieba.memberCenter.memberTask;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eh7;
+import com.repackage.pi7;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +23,7 @@ public class MemberTaskCenterSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<ImgInfo> mImageList;
-    public List<eh7> mTaskList;
+    public List<pi7> mTaskList;
     public UserPointInfo mUserPointInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -44,32 +45,15 @@ public class MemberTaskCenterSocketResMessage extends SocketResponsedMessage {
         this.mTaskList = new ArrayList();
     }
 
-    public List<ImgInfo> getImageList() {
-        InterceptResult invokeV;
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mImageList : (List) invokeV.objValue;
-    }
-
-    public List<eh7> getTaskList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mTaskList : (List) invokeV.objValue;
-    }
-
-    public UserPointInfo getUserPointInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mUserPointInfo : (UserPointInfo) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
             GetMemberTaskListResIdl getMemberTaskListResIdl = (GetMemberTaskListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetMemberTaskListResIdl.class);
             if (getMemberTaskListResIdl == null) {
-                return;
+                return null;
             }
             Error error = getMemberTaskListResIdl.error;
             if (error != null) {
@@ -78,20 +62,39 @@ public class MemberTaskCenterSocketResMessage extends SocketResponsedMessage {
             }
             DataRes dataRes = getMemberTaskListResIdl.data;
             if (dataRes == null) {
-                return;
+                return getMemberTaskListResIdl;
             }
             this.mImageList = dataRes.img_list;
             this.mUserPointInfo = dataRes.user_point_info;
             List<PointTaskInfo> list = dataRes.task_list;
-            if (list == null || list.size() <= 0) {
-                return;
-            }
-            int size = getMemberTaskListResIdl.data.task_list.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                if (getMemberTaskListResIdl.data.task_list.get(i2) != null) {
-                    this.mTaskList.add(new eh7(getMemberTaskListResIdl.data.task_list.get(i2)));
+            if (list != null && list.size() > 0) {
+                int size = getMemberTaskListResIdl.data.task_list.size();
+                for (int i2 = 0; i2 < size; i2++) {
+                    if (getMemberTaskListResIdl.data.task_list.get(i2) != null) {
+                        this.mTaskList.add(new pi7(getMemberTaskListResIdl.data.task_list.get(i2)));
+                    }
                 }
             }
+            return getMemberTaskListResIdl;
         }
+        return invokeIL.objValue;
+    }
+
+    public List<ImgInfo> getImageList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mImageList : (List) invokeV.objValue;
+    }
+
+    public List<pi7> getTaskList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mTaskList : (List) invokeV.objValue;
+    }
+
+    public UserPointInfo getUserPointInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mUserPointInfo : (UserPointInfo) invokeV.objValue;
     }
 }

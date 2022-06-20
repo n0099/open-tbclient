@@ -10,9 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fw2;
-import com.repackage.fy1;
-import com.repackage.rf1;
+import com.repackage.cg1;
+import com.repackage.qw2;
+import com.repackage.qy1;
 @Keep
 /* loaded from: classes2.dex */
 public class SwanAppPreloadJsBridge {
@@ -21,7 +21,7 @@ public class SwanAppPreloadJsBridge {
     public static final String JAVASCRIPT_INTERFACE_NAME = "swanPreload";
     public static final String TAG = "SwanAppPreloadJsBridge";
     public transient /* synthetic */ FieldHolder $fh;
-    public fy1 mJSContainer;
+    public qy1 mJSContainer;
 
     static {
         InterceptResult invokeClinit;
@@ -36,15 +36,15 @@ public class SwanAppPreloadJsBridge {
                 return;
             }
         }
-        DEBUG = rf1.a;
+        DEBUG = cg1.a;
     }
 
-    public SwanAppPreloadJsBridge(fy1 fy1Var) {
+    public SwanAppPreloadJsBridge(qy1 qy1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fy1Var};
+            Object[] objArr = {qy1Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -54,7 +54,7 @@ public class SwanAppPreloadJsBridge {
                 return;
             }
         }
-        this.mJSContainer = fy1Var;
+        this.mJSContainer = qy1Var;
     }
 
     @JavascriptInterface
@@ -66,7 +66,7 @@ public class SwanAppPreloadJsBridge {
             if (DEBUG) {
                 Log.d(TAG, "onJsLoaded");
             }
-            return fw2.f();
+            return qw2.f();
         }
         return (String) invokeV.objValue;
     }

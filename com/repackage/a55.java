@@ -1,360 +1,216 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.app.Application;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Process;
+import android.text.TextUtils;
+import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.FrameHelper;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.common.others.url.UrlUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.mutiprocess.StickyEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.module.hottopic.HotTopicStat;
+import com.baidu.tieba.R;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Map;
+import tbclient.PbContent;
 /* loaded from: classes5.dex */
 public class a55 {
     public static /* synthetic */ Interceptable $ic;
-    public static a55 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public final Map<Class<? extends t45>, u45> b;
-    public final Map<Class<? extends t45>, LinkedList<b55>> c;
-    public final Handler d;
-    public w45 e;
-    public final v45 f;
-    public final ll4 g;
+    @NonNull
+    public ThreadData a;
+    @NonNull
+    public PbContent b;
+    public boolean c;
+    public int d;
+    public int e;
+    @Nullable
+    public PostData f;
+    @NonNull
+    public HotTopicStat.Locate g;
+    @Nullable
+    public String h;
+    public boolean i;
 
-    /* loaded from: classes5.dex */
-    public class a implements v45 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a55 a;
-
-        public a(a55 a55Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a55Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = a55Var;
-        }
-
-        @Override // com.repackage.v45
-        public void a(t45 t45Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, t45Var) == null) {
-                this.a.d(t45Var);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t45 a;
-        public final /* synthetic */ a55 b;
-
-        public b(a55 a55Var, t45 t45Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a55Var, t45Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = a55Var;
-            this.a = t45Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.c(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c extends ll4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a55 a;
-
-        public c(a55 a55Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a55Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = a55Var;
-        }
-
-        @Override // com.repackage.ll4, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityDestroyed(Activity activity) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && (activity instanceof TbPageContextSupport)) {
-                this.a.n(((TbPageContextSupport) activity).getPageContext().getUniqueId());
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755905776, "Lcom/repackage/a55;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755905776, "Lcom/repackage/a55;");
-        }
-    }
-
-    public a55() {
+    public a55(@NonNull ThreadData threadData, @NonNull PbContent pbContent) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {threadData, pbContent};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        this.d = new Handler(Looper.getMainLooper());
-        this.f = new a(this);
-        this.g = new c(this);
-        this.b = new HashMap();
-        this.c = new HashMap();
+        this.g = HotTopicStat.Locate.UNDEFINED;
+        this.a = threadData;
+        this.b = pbContent;
+        this.c = TextUtils.equals(UrlUtils.getParamValue(pbContent.link, "is_video_topic"), "1");
     }
 
-    public static a55 f() {
+    @NonNull
+    public static a55 f(@NonNull ThreadData threadData, @NonNull PbContent pbContent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, threadData, pbContent)) == null) ? new a55(threadData, pbContent) : (a55) invokeLL.objValue;
+    }
+
+    @NonNull
+    public a55 a(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            this.i = z;
+            return this;
+        }
+        return (a55) invokeZ.objValue;
+    }
+
+    @NonNull
+    public a55 b(@NonNull HotTopicStat.Locate locate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, locate)) == null) {
+            this.g = locate;
+            return this;
+        }
+        return (a55) invokeL.objValue;
+    }
+
+    @NonNull
+    public a55 c(@Nullable PostData postData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, postData)) == null) {
+            this.f = postData;
+            return this;
+        }
+        return (a55) invokeL.objValue;
+    }
+
+    @NonNull
+    public a55 d(@ColorRes int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            this.d = i;
+            return this;
+        }
+        return (a55) invokeI.objValue;
+    }
+
+    @NonNull
+    public a55 e(@ColorRes int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            this.e = i;
+            return this;
+        }
+        return (a55) invokeI.objValue;
+    }
+
+    @NonNull
+    public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (h == null) {
-                synchronized (a55.class) {
-                    if (h == null) {
-                        h = new a55();
-                    }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? String.valueOf(this.a.getFid()) : (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.h == null) {
+                this.h = UrlUtils.appendParam(this.b.link, "locate", i().toString());
+            }
+            return this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public HotTopicStat.Locate i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.g : (HotTopicStat.Locate) invokeV.objValue;
+    }
+
+    @NonNull
+    public PbContent j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b : (PbContent) invokeV.objValue;
+    }
+
+    @Nullable
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            PostData postData = this.f;
+            if (postData == null) {
+                return null;
+            }
+            return postData.J();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public ThreadData l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a : (ThreadData) invokeV.objValue;
+    }
+
+    @ColorRes
+    public int m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (o()) {
+                int i = this.e;
+                if (i != 0) {
+                    return i;
                 }
-            }
-            return h;
-        }
-        return (a55) invokeV.objValue;
-    }
-
-    public static void i(@NonNull t45 t45Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, t45Var) == null) {
-            f().h(t45Var);
-        }
-    }
-
-    public final void c(t45 t45Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, t45Var) == null) || t45Var == null) {
-            return;
-        }
-        Class<?> cls = t45Var.getClass();
-        try {
-            u45 u45Var = this.b.get(cls);
-            if (u45Var != null) {
-                u45Var.onEvent(t45Var);
-            }
-        } catch (Exception e) {
-            BdLog.detailException(cls.getName(), e);
-        }
-        try {
-            LinkedList<b55> linkedList = this.c.get(cls);
-            if (ListUtils.isEmpty(linkedList)) {
-                return;
-            }
-            int myPid = Process.myPid();
-            for (b55 b55Var : linkedList) {
-                if (b55Var != null && (!b55Var.isSelfListener() || (t45Var.getPid() == myPid && b55Var.getTag() != null && b55Var.getTag().getId() == t45Var.getTag()))) {
-                    try {
-                        b55Var.onEvent(t45Var);
-                    } catch (Exception e2) {
-                        BdLog.detailException(cls.getName(), e2);
-                    }
-                }
-            }
-        } catch (Exception e3) {
-            BdLog.detailException(cls.getName(), e3);
-        }
-    }
-
-    public final void d(t45 t45Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t45Var) == null) {
-            if (li.C()) {
-                c(t45Var);
             } else {
-                this.d.post(new b(this, t45Var));
-            }
-        }
-    }
-
-    public final void e(@NonNull Class<? extends t45> cls, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cls, bdUniqueId) == null) && StickyEvent.class.isAssignableFrom(cls)) {
-            OrmObject c2 = z45.c(cls.getSimpleName(), cls);
-            if (c2 instanceof StickyEvent) {
-                StickyEvent stickyEvent = (StickyEvent) c2;
-                stickyEvent.resetPid();
-                stickyEvent.setTag(bdUniqueId);
-                stickyEvent.setType(2);
-                i(stickyEvent);
-            }
-        }
-    }
-
-    public void g(@NonNull Application application) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, application) == null) || this.a) {
-            return;
-        }
-        y45.g();
-        k(application);
-        x45 x45Var = new x45(application);
-        this.e = x45Var;
-        x45Var.b(this.f);
-        this.e.startService();
-        this.a = true;
-    }
-
-    public void h(@NonNull t45 t45Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, t45Var) == null) {
-            if (!y45.i()) {
-                String c2 = y45.c();
-                y45.m(c2 + " Process Not In WhiteList，Ignore Event!");
-                return;
-            }
-            int myPid = Process.myPid();
-            int pid = t45Var.getPid();
-            if (t45Var.getType() == 2 && myPid == pid) {
-                d(t45Var);
-            } else {
-                j(t45Var);
-            }
-        }
-    }
-
-    public final void j(t45 t45Var) {
-        w45 w45Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, t45Var) == null) || (w45Var = this.e) == null) {
-            return;
-        }
-        w45Var.a(t45Var);
-    }
-
-    public final void k(Application application) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, application) == null) {
-            try {
-                application.registerActivityLifecycleCallbacks(this.g);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void l(@NonNull Class<? extends t45> cls, @NonNull u45 u45Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, cls, u45Var) == null) {
-            if (this.b.containsKey(cls)) {
-                BdLog.e(cls + " has existed, Please unRegister old listener first！");
-                return;
-            }
-            this.b.put(cls, u45Var);
-        }
-    }
-
-    public void m(@NonNull Class<? extends t45> cls, @NonNull b55 b55Var, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cls, b55Var, bdUniqueId) == null) {
-            LinkedList<b55> linkedList = this.c.get(cls);
-            if (linkedList == null) {
-                linkedList = new LinkedList<>();
-                this.c.put(cls, linkedList);
-            }
-            if (linkedList.contains(b55Var)) {
-                BdLog.e("listener has existed, Please unRegister old listener first！");
-                return;
-            }
-            b55Var.setTag(bdUniqueId);
-            FrameHelper.insert(linkedList, b55Var);
-            e(cls, bdUniqueId);
-        }
-    }
-
-    public void n(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, bdUniqueId) == null) || bdUniqueId == null) {
-            return;
-        }
-        for (Map.Entry<Class<? extends t45>, LinkedList<b55>> entry : this.c.entrySet()) {
-            LinkedList<b55> value = entry.getValue();
-            if (!ListUtils.isEmpty(value)) {
-                Iterator<b55> it = value.iterator();
-                while (it.hasNext()) {
-                    b55 next = it.next();
-                    if (next != null && next.getTag() != null && next.getTag() == bdUniqueId) {
-                        it.remove();
-                    }
+                int i2 = this.d;
+                if (i2 != 0) {
+                    return i2;
                 }
             }
+            return R.color.CAM_X0304;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.i : invokeV.booleanValue;
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.c : invokeV.booleanValue;
+    }
+
+    public void p(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            this.c = z;
         }
     }
 }

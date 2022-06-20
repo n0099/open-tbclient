@@ -1,80 +1,52 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-import tbclient.FrsPage.DataRes;
 /* loaded from: classes7.dex */
 public class yw4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final yw4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean a;
+    public boolean a;
+    public boolean b;
+    public int c;
+    public int d;
+    public String e;
+    public String f;
+    public String g;
+    public int h;
+    public String i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755127397, "Lcom/repackage/yw4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755127397, "Lcom/repackage/yw4;");
-                return;
-            }
-        }
-        b = new yw4(false);
-    }
-
-    public yw4(boolean z) {
+    public yw4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = z;
     }
 
-    @NonNull
-    public static yw4 b(@Nullable JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            return new yw4((jSONObject != null ? jSONObject.optInt("voice_room_config") : 0) == 1);
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return (yw4) invokeL.objValue;
-    }
-
-    @NonNull
-    public static yw4 c(@Nullable DataRes dataRes) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, dataRes)) == null) {
-            return new yw4((dataRes != null ? dataRes.voice_room_config.intValue() : 0) == 1);
-        }
-        return (yw4) invokeL.objValue;
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
+        this.a = jSONObject.optInt("isShowDownloadNaniPanel", 2) == 1;
+        this.b = jSONObject.optInt("isActivateNaniApp", 1) == 1;
+        this.c = jSONObject.optInt("downloadNaniShowPosition", 3);
+        this.d = jSONObject.optInt("downloadNaniShowRate", 2);
+        this.e = jSONObject.optString("downloadNaniLinkUrl", null);
+        this.f = jSONObject.optString("downloadNaniTxt", null);
+        this.g = jSONObject.optString("showNaniTailTxt", null);
+        this.h = jSONObject.optInt("showNaniTailVideoType", 0);
+        this.i = jSONObject.optString("preNaniShareUrl", TbConfig.NANI_DEFAULT_H5_PREFIX);
     }
 }

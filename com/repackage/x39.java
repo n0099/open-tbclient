@@ -1,55 +1,176 @@
 package com.repackage;
 
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.minivideo.plugin.capture.report.ReportConfig;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.AbstractMap;
-import java.util.ArrayList;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 /* loaded from: classes7.dex */
-public class x39 {
-    public static /* synthetic */ Interceptable $ic;
+public final class x39 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1000;
+    public static boolean b = true;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, b49 b49Var, a49 a49Var) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755222381, "Lcom/repackage/x39;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755222381, "Lcom/repackage/x39;");
+        }
+    }
+
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, str, b49Var, a49Var) == null) {
-            if (p79.a) {
-                p79.c("UGC_ArKpiReport", "perf_record_arperf, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + a49Var.toString());
-            }
-            v39 g = s39.c().g();
-            if (g != null) {
-                ArrayList arrayList = null;
-                if (a49Var != null) {
-                    arrayList = new ArrayList();
-                    arrayList.add(new AbstractMap.SimpleEntry("sft", a49Var.a));
-                    arrayList.add(new AbstractMap.SimpleEntry("bft", a49Var.b));
-                    arrayList.add(new AbstractMap.SimpleEntry("mem", a49Var.f));
-                    arrayList.add(new AbstractMap.SimpleEntry("fc", a49Var.c));
-                    arrayList.add(new AbstractMap.SimpleEntry("time", a49Var.d + ""));
+        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && b) {
+            c(2, "BaiDuAbSDK", str, null);
+        }
+    }
+
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && b) {
+            c(5, "BaiDuAbSDK", str, null);
+        }
+    }
+
+    public static void c(int i, String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), str, str2, th}) == null) {
+            if (!TextUtils.isEmpty(str2)) {
+                int length = str2.length();
+                int i2 = a;
+                if (length >= i2) {
+                    if (i == 1) {
+                        Log.v(str, str2.substring(0, i2));
+                    } else if (i == 2) {
+                        Log.d(str, str2.substring(0, i2));
+                    } else if (i == 3) {
+                        Log.i(str, str2.substring(0, i2));
+                    } else if (i == 4) {
+                        Log.w(str, str2.substring(0, i2));
+                    } else if (i == 5) {
+                        Log.e(str, str2.substring(0, i2));
+                    }
+                } else if (i == 1) {
+                    Log.v(str, str2);
+                } else if (i == 2) {
+                    Log.d(str, str2);
+                } else if (i == 3) {
+                    Log.i(str, str2);
+                } else if (i == 4) {
+                    Log.w(str, str2);
+                } else if (i != 5) {
+                    Log.d(str, str2);
+                } else {
+                    Log.e(str, str2);
                 }
-                g.a("perf_record_arperf", str, b49Var.a, b49Var.b, b49Var.c, b49Var.d, b49Var.e, null, arrayList);
+            }
+            if (th != null) {
+                String f = f(th);
+                if (TextUtils.isEmpty(f)) {
+                    return;
+                }
+                if (i == 1) {
+                    Log.v(str, f);
+                } else if (i == 2) {
+                    Log.d(str, f);
+                } else if (i == 3) {
+                    Log.i(str, f);
+                } else if (i == 4) {
+                    Log.w(str, f);
+                } else if (i != 5) {
+                    Log.d(str, str2);
+                } else {
+                    Log.e(str, f);
+                }
             }
         }
     }
 
-    public static void b(String str, String str2) {
+    public static void d(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            if (p79.a) {
-                p79.c("UGC_ArKpiReport", "perf_publish_debug, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2);
-            }
-            v39 g = s39.c().g();
-            if (g != null) {
-                ArrayList arrayList = null;
-                if (str2 != null) {
-                    arrayList = new ArrayList(3);
-                    arrayList.add(new AbstractMap.SimpleEntry<>("ext", str2));
-                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vername", n79.a(s39.c().getContext())));
-                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vercode", String.valueOf(n79.b(s39.c().getContext()))));
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) == null) && b) {
+            c(2, "BaiDuAbSDK", "", th);
+        }
+    }
+
+    public static void e(Throwable th) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, th) == null) && b) {
+            c(4, "BaiDuAbSDK", "", th);
+        }
+    }
+
+    public static String f(Throwable th) {
+        InterceptResult invokeL;
+        PrintWriter printWriter;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65542, null, th)) != null) {
+            return (String) invokeL.objValue;
+        }
+        StringWriter stringWriter = null;
+        try {
+            StringWriter stringWriter2 = new StringWriter();
+            try {
+                printWriter = new PrintWriter(stringWriter2);
+                try {
+                    th.printStackTrace(printWriter);
+                    printWriter.flush();
+                    stringWriter2.flush();
+                    String stringWriter3 = stringWriter2.toString();
+                    try {
+                        stringWriter2.close();
+                    } catch (Throwable th2) {
+                        th2.printStackTrace();
+                    }
+                    printWriter.close();
+                    return stringWriter3;
+                } catch (Throwable th3) {
+                    th = th3;
+                    stringWriter = stringWriter2;
+                    try {
+                        th.printStackTrace();
+                        return "";
+                    } finally {
+                        if (stringWriter != null) {
+                            try {
+                                stringWriter.close();
+                            } catch (Throwable th4) {
+                                th4.printStackTrace();
+                            }
+                        }
+                        if (printWriter != null) {
+                            printWriter.close();
+                        }
+                    }
                 }
-                g.a(ReportConfig.LOG_KEY_PUBLISH_DEBUG, str, null, null, null, null, null, null, arrayList);
+            } catch (Throwable th5) {
+                th = th5;
+                printWriter = null;
             }
+        } catch (Throwable th6) {
+            th = th6;
+            printWriter = null;
+        }
+    }
+
+    public static void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
+            b = z;
         }
     }
 }

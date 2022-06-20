@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
+import com.repackage.pi;
 /* loaded from: classes3.dex */
 public class HeadPendantView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -98,7 +98,7 @@ public class HeadPendantView extends RelativeLayout {
         this.f = false;
         this.g = false;
         this.h = false;
-        this.i = li.f(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.i = pi.f(TbadkApplication.getInst(), R.dimen.tbds36);
         this.k = true;
         this.l = false;
         this.a = context;
@@ -155,7 +155,7 @@ public class HeadPendantView extends RelativeLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.i = li.f(getContext(), R.dimen.tbds42);
+            this.i = pi.f(getContext(), R.dimen.tbds42);
             b();
             c();
             a();
@@ -282,7 +282,7 @@ public class HeadPendantView extends RelativeLayout {
     public void k(String str, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            this.e.H(str, i, 0, 0, z);
+            this.e.G(str, i, 0, 0, z);
         }
     }
 
@@ -309,7 +309,7 @@ public class HeadPendantView extends RelativeLayout {
         if (this.f && !StringUtils.isNull(str)) {
             this.c.setVisibility(0);
             this.c.setImageDrawable(null);
-            this.c.K(str, 10, false);
+            this.c.J(str, 10, false);
             if (this.l) {
                 e(this.c);
                 return;
@@ -377,7 +377,7 @@ public class HeadPendantView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
             if (i > 0) {
-                this.i = li.f(getContext(), i);
+                this.i = pi.f(getContext(), i);
             }
             f();
         }
@@ -512,7 +512,7 @@ public class HeadPendantView extends RelativeLayout {
         this.f = false;
         this.g = false;
         this.h = false;
-        this.i = li.f(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.i = pi.f(TbadkApplication.getInst(), R.dimen.tbds36);
         this.k = true;
         this.l = false;
         this.a = context;
@@ -540,7 +540,7 @@ public class HeadPendantView extends RelativeLayout {
         this.f = false;
         this.g = false;
         this.h = false;
-        this.i = li.f(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.i = pi.f(TbadkApplication.getInst(), R.dimen.tbds36);
         this.k = true;
         this.l = false;
         this.a = context;

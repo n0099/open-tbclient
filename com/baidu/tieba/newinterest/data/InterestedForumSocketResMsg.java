@@ -1,5 +1,6 @@
 package com.baidu.tieba.newinterest.data;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ym7;
+import com.repackage.go7;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetVerticalForumList.GetVerticalForumListResIdl;
@@ -15,7 +16,7 @@ import tbclient.GetVerticalForumList.GetVerticalForumListResIdl;
 public class InterestedForumSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ym7 pageData;
+    public go7 pageData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public InterestedForumSocketResMsg() {
@@ -35,30 +36,35 @@ public class InterestedForumSocketResMsg extends SocketResponsedMessage {
         }
     }
 
-    public ym7 getPageData() {
-        InterceptResult invokeV;
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.pageData : (ym7) invokeV.objValue;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            GetVerticalForumListResIdl getVerticalForumListResIdl = (GetVerticalForumListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetVerticalForumListResIdl.class);
+            if (getVerticalForumListResIdl == null) {
+                return null;
+            }
+            Error error = getVerticalForumListResIdl.error;
+            if (error != null) {
+                Integer num = error.errorno;
+                if (num != null) {
+                    setError(num.intValue());
+                }
+                setErrorString(getVerticalForumListResIdl.error.usermsg);
+            }
+            go7 go7Var = new go7();
+            this.pageData = go7Var;
+            go7Var.a(getVerticalForumListResIdl.data);
+            return getVerticalForumListResIdl;
+        }
+        return invokeIL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        GetVerticalForumListResIdl getVerticalForumListResIdl;
+    public go7 getPageData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getVerticalForumListResIdl = (GetVerticalForumListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetVerticalForumListResIdl.class)) == null) {
-            return;
-        }
-        Error error = getVerticalForumListResIdl.error;
-        if (error != null) {
-            Integer num = error.errorno;
-            if (num != null) {
-                setError(num.intValue());
-            }
-            setErrorString(getVerticalForumListResIdl.error.usermsg);
-        }
-        ym7 ym7Var = new ym7();
-        this.pageData = ym7Var;
-        ym7Var.a(getVerticalForumListResIdl.data);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.pageData : (go7) invokeV.objValue;
     }
 }

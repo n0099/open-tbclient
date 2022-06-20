@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e91;
+import com.repackage.p91;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class DigitalBankPayView extends FrameLayout implements View.OnClickListener, AdapterView.OnItemClickListener {
@@ -29,7 +29,7 @@ public class DigitalBankPayView extends FrameLayout implements View.OnClickListe
     public ListView a;
     public ProgressButton b;
     public List<PayChannelEntity> c;
-    public e91 d;
+    public p91 d;
     public b e;
 
     /* loaded from: classes2.dex */
@@ -108,7 +108,7 @@ public class DigitalBankPayView extends FrameLayout implements View.OnClickListe
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010121);
+            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010123);
             loadAnimation.setAnimationListener(new a(this));
             startAnimation(loadAnimation);
         }
@@ -117,9 +117,9 @@ public class DigitalBankPayView extends FrameLayout implements View.OnClickListe
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06d8, (ViewGroup) this, true);
-            this.a = (ListView) findViewById(R.id.obfuscated_res_0x7f091881);
-            ProgressButton progressButton = (ProgressButton) findViewById(R.id.obfuscated_res_0x7f091885);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06d6, (ViewGroup) this, true);
+            this.a = (ListView) findViewById(R.id.obfuscated_res_0x7f091878);
+            ProgressButton progressButton = (ProgressButton) findViewById(R.id.obfuscated_res_0x7f09187c);
             this.b = progressButton;
             progressButton.setText("下一步");
             this.b.setOnClickListener(this);
@@ -131,7 +131,7 @@ public class DigitalBankPayView extends FrameLayout implements View.OnClickListe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setVisibility(0);
-            startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010123));
+            startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010125));
         }
     }
 
@@ -156,7 +156,7 @@ public class DigitalBankPayView extends FrameLayout implements View.OnClickListe
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091885) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f09187c) {
             this.b.setEnable(false);
             b bVar = this.e;
             if (bVar != null) {
@@ -201,7 +201,7 @@ public class DigitalBankPayView extends FrameLayout implements View.OnClickListe
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
             this.c = list;
             if (this.d == null) {
-                this.d = new e91(getContext());
+                this.d = new p91(getContext());
             }
             this.a.setAdapter((ListAdapter) this.d);
             this.d.b(this.c);

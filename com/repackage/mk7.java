@@ -1,53 +1,36 @@
 package com.repackage;
 
-import android.view.View;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface mk7 {
-    void a();
+public class mk7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(boolean z);
-
-    void c(int i);
-
-    void d(d17 d17Var);
-
-    void destroy();
-
-    void e();
-
-    void f(boolean z);
-
-    void g(long j, long j2);
-
-    View getRootView();
-
-    d17 h();
-
-    void i();
-
-    void j(boolean z, int i);
-
-    void k(int i);
-
-    int l();
-
-    void m();
-
-    void n(d17 d17Var);
-
-    void o(long j, long j2, int i);
-
-    c17 p(int i);
-
-    void pause();
-
-    void q();
-
-    void r();
-
-    void resume();
-
-    void s(int i);
-
-    void t(c17 c17Var, boolean z, int i);
+    public static String a(Throwable th) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, th)) == null) {
+            if (th == null) {
+                return "";
+            }
+            StringBuilder sb = new StringBuilder(th.toString());
+            StackTraceElement[] stackTrace = th.getStackTrace();
+            if (stackTrace != null) {
+                for (int i = 0; i < stackTrace.length; i++) {
+                    StackTraceElement stackTraceElement = stackTrace[i];
+                    if (stackTraceElement != null && i < 7) {
+                        sb.append(" ----> ");
+                        sb.append(stackTraceElement.getClassName());
+                        sb.append(".");
+                        sb.append(stackTraceElement.getMethodName());
+                        sb.append("()");
+                    }
+                }
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
 }

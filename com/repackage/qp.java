@@ -1,12 +1,12 @@
 package com.repackage;
 
-import com.baidu.bdtask.component.toast.TaskToastViewData;
+import com.baidu.bdtask.component.dialog.TaskDialogViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class qp extends qs<TaskToastViewData> {
+/* loaded from: classes7.dex */
+public final class qp extends ms<TaskDialogViewData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

@@ -1,35 +1,46 @@
 package com.xiaomi.push;
 
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.io.FileFilter;
 /* loaded from: classes8.dex */
-public final class z implements FileFilter {
+public final class z extends y {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ Runnable a;
 
-    public z() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public z(Context context, File file, Runnable runnable) {
+        super(context, file, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, file, runnable};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (File) objArr2[1], (z) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = runnable;
     }
 
-    @Override // java.io.FileFilter
-    public boolean accept(File file) {
-        InterceptResult invokeL;
+    @Override // com.xiaomi.push.y
+    public void a(Context context) {
+        Runnable runnable;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) ? file.isDirectory() : invokeL.booleanValue;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || (runnable = this.a) == null) {
+            return;
+        }
+        runnable.run();
     }
 }

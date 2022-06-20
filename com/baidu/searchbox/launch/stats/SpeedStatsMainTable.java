@@ -22,6 +22,7 @@ public class SpeedStatsMainTable {
     public static final String DURATION = "duration";
     public static final String FIRST_FRAME_STAGE = "firstFrame";
     public static final String FRAME_2_LAYOUT_GAP = "frame2layout";
+    public static final String IGNORE_FLAG = "Ignore_";
     public static final String LAYOUT_2_END_GAP = "layout2end";
     public static final String PART = "part";
     public static final String PUSH_SCHEME_LANDING_PAGE = "pushSchemeLanding";

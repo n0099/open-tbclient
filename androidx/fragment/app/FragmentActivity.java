@@ -377,12 +377,12 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
                 String str = this.mPendingFragmentActivityResults.get(i4);
                 this.mPendingFragmentActivityResults.remove(i4);
                 if (str == null) {
-                    Log.w("FragmentActivity", "Activity result delivered for unknown Fragment.");
+                    Log.w(TAG, "Activity result delivered for unknown Fragment.");
                     return;
                 }
                 Fragment findFragmentByWho = this.mFragments.findFragmentByWho(str);
                 if (findFragmentByWho == null) {
-                    Log.w("FragmentActivity", "Activity result no fragment exists for who: " + str);
+                    Log.w(TAG, "Activity result no fragment exists for who: " + str);
                     return;
                 }
                 findFragmentByWho.onActivityResult(i & 65535, i2, intent);
@@ -417,7 +417,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             this.mFragments.attachHost(null);
             if (bundle != null) {
-                this.mFragments.restoreSaveState(bundle.getParcelable("android:support:fragments"));
+                this.mFragments.restoreSaveState(bundle.getParcelable(FRAGMENTS_TAG));
                 if (bundle.containsKey(NEXT_CANDIDATE_REQUEST_INDEX_TAG)) {
                     this.mNextCandidateRequestIndex = bundle.getInt(NEXT_CANDIDATE_REQUEST_INDEX_TAG);
                     int[] intArray = bundle.getIntArray(ALLOCATED_REQUEST_INDICIES_TAG);
@@ -428,7 +428,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
                             this.mPendingFragmentActivityResults.put(intArray[i], stringArray[i]);
                         }
                     } else {
-                        Log.w("FragmentActivity", "Invalid requestCode mapping in savedInstanceState.");
+                        Log.w(TAG, "Invalid requestCode mapping in savedInstanceState.");
                     }
                 }
             }
@@ -596,12 +596,12 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
                 String str = this.mPendingFragmentActivityResults.get(i3);
                 this.mPendingFragmentActivityResults.remove(i3);
                 if (str == null) {
-                    Log.w("FragmentActivity", "Activity result delivered for unknown Fragment.");
+                    Log.w(TAG, "Activity result delivered for unknown Fragment.");
                     return;
                 }
                 Fragment findFragmentByWho = this.mFragments.findFragmentByWho(str);
                 if (findFragmentByWho == null) {
-                    Log.w("FragmentActivity", "Activity result no fragment exists for who: " + str);
+                    Log.w(TAG, "Activity result no fragment exists for who: " + str);
                     return;
                 }
                 findFragmentByWho.onRequestPermissionsResult(i & 65535, strArr, iArr);
@@ -637,7 +637,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
             this.mFragmentLifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_STOP);
             Parcelable saveAllState = this.mFragments.saveAllState();
             if (saveAllState != null) {
-                bundle.putParcelable("android:support:fragments", saveAllState);
+                bundle.putParcelable(FRAGMENTS_TAG, saveAllState);
             }
             if (this.mPendingFragmentActivityResults.size() > 0) {
                 bundle.putInt(NEXT_CANDIDATE_REQUEST_INDEX_TAG, this.mNextCandidateRequestIndex);

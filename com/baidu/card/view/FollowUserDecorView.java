@@ -18,15 +18,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
-import com.repackage.ot4;
-import com.repackage.qu4;
+import com.repackage.av4;
+import com.repackage.pi;
+import com.repackage.xt4;
 /* loaded from: classes.dex */
 public class FollowUserDecorView extends FollowUserButton {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId r;
-    public qu4 s;
+    public av4 s;
     public boolean t;
     public boolean u;
 
@@ -50,19 +50,39 @@ public class FollowUserDecorView extends FollowUserButton {
         }
     }
 
+    @Override // com.baidu.tbadk.core.view.FollowUserButton
+    public void s(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            super.s(z);
+            if (!this.t || z) {
+                return;
+            }
+            xt4 xt4Var = new xt4();
+            if (this.u) {
+                xt4Var.i(R.drawable.obfuscated_res_0x7f08090c, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                xt4Var.h(R.color.CAM_X0304);
+                xt4Var.g(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26));
+                xt4Var.f(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
+            }
+            xt4Var.r(R.color.CAM_X0304);
+            setConfig(xt4Var);
+        }
+    }
+
     public void setData(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) == null) {
             if (threadData != null && threadData.getAuthor() != null) {
                 if (this.s == null) {
-                    qu4 qu4Var = new qu4(u(getContext()), this);
-                    this.s = qu4Var;
-                    qu4Var.l(this.r);
+                    av4 av4Var = new av4(t(getContext()), this);
+                    this.s = av4Var;
+                    av4Var.l(this.r);
                 }
                 setVisibility(0);
-                this.s.r(true);
+                this.s.q(true);
                 this.s.n(threadData.getAuthor());
-                this.s.q(threadData.tid);
+                this.s.p(threadData.tid);
                 return;
             }
             setVisibility(8);
@@ -71,50 +91,30 @@ public class FollowUserDecorView extends FollowUserButton {
 
     public void setIsShowIcon(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             this.u = z;
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
             this.r = bdUniqueId;
-            qu4 qu4Var = this.s;
-            if (qu4Var != null) {
-                qu4Var.l(bdUniqueId);
+            av4 av4Var = this.s;
+            if (av4Var != null) {
+                av4Var.l(bdUniqueId);
             }
         }
     }
 
     public void setUseNewStyle(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             this.t = z;
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.FollowUserButton
-    public void t(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            super.t(z);
-            if (!this.t || z) {
-                return;
-            }
-            ot4 ot4Var = new ot4();
-            if (this.u) {
-                ot4Var.i(R.drawable.obfuscated_res_0x7f080924, 0, TBSpecificationButtonConfig.IconType.WEBP);
-                ot4Var.h(R.color.CAM_X0304);
-                ot4Var.g(li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26));
-                ot4Var.f(li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
-            }
-            ot4Var.r(R.color.CAM_X0304);
-            setConfig(ot4Var);
-        }
-    }
-
-    public final TbPageContext u(Context context) {
+    public final TbPageContext t(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {

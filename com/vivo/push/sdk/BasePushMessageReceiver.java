@@ -18,7 +18,7 @@ import com.vivo.push.util.ContextDelegate;
 import com.vivo.push.util.p;
 import com.vivo.push.util.t;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class BasePushMessageReceiver extends BroadcastReceiver implements PushMessageCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PushMessageReceiver";
@@ -112,17 +112,12 @@ public abstract class BasePushMessageReceiver extends BroadcastReceiver implemen
         if (interceptable == null || interceptable.invokeLL(1048583, this, context, intent) == null) {
             Context applicationContext = ContextDelegate.getContext(context).getApplicationContext();
             e.a().a(applicationContext);
+            String stringExtra = intent.getStringExtra("req_id");
+            p.d("PushMessageReceiver", "PushMessageReceiver " + applicationContext.getPackageName() + " ; requestId = " + stringExtra);
             try {
-                int intExtra = intent.getIntExtra("method", -1);
-                String stringExtra = intent.getStringExtra("req_id");
-                p.d("PushMessageReceiver", "PushMessageReceiver " + applicationContext.getPackageName() + " ; type = " + intExtra + " ; requestId = " + stringExtra);
-                try {
-                    e.a().a(intent, this);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            } catch (Exception e2) {
-                p.b("PushMessageReceiver", "get method error", e2);
+                e.a().a(intent, this);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

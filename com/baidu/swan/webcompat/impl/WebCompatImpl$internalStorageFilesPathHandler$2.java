@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gz2;
+import com.repackage.rz2;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
@@ -46,9 +46,9 @@ public final class WebCompatImpl$internalStorageFilesPathHandler$2 extends Lambd
         FilePathInfo l;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            gz2 J = gz2.J();
+            rz2 K = rz2.K();
             l = this.this$0.l();
-            return new WebViewAssetLoader.InternalStoragePathHandler(J, l.c());
+            return new WebViewAssetLoader.InternalStoragePathHandler(K, l.c());
         }
         return (WebViewAssetLoader.InternalStoragePathHandler) invokeV.objValue;
     }

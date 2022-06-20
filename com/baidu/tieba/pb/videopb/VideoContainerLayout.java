@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
+import com.repackage.pi;
 /* loaded from: classes3.dex */
 public class VideoContainerLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -39,7 +39,7 @@ public class VideoContainerLayout extends FrameLayout {
                 return;
             }
         }
-        this.d = li.k(context) / 10;
+        this.d = pi.k(context) / 10;
     }
 
     public int getMaxHeight() {
@@ -113,7 +113,7 @@ public class VideoContainerLayout extends FrameLayout {
                 return;
             }
         }
-        this.d = li.k(context) / 10;
+        this.d = pi.k(context) / 10;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -135,6 +135,6 @@ public class VideoContainerLayout extends FrameLayout {
                 return;
             }
         }
-        this.d = li.k(context) / 10;
+        this.d = pi.k(context) / 10;
     }
 }

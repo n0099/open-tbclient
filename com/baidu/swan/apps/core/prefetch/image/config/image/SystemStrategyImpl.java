@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c42;
-import com.repackage.n32;
+import com.repackage.n42;
+import com.repackage.y32;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class SystemStrategyImpl implements n32 {
+public class SystemStrategyImpl implements y32 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<String> a;
@@ -63,8 +63,8 @@ public class SystemStrategyImpl implements n32 {
         };
     }
 
-    @Override // com.repackage.n32
-    public boolean a(@NonNull c42.a aVar) {
+    @Override // com.repackage.y32
+    public boolean a(@NonNull n42.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {

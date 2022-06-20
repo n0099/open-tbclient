@@ -8,14 +8,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ek2;
-import com.repackage.hw1;
+import com.repackage.pk2;
+import com.repackage.sw1;
 /* loaded from: classes2.dex */
 public class SwanAppClearCacheErrorActivity extends SwanAppErrorActivity {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String TAG = "SwanAppClearCacheErrorActivity";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile boolean mHasGotoClearCache;
+    public volatile boolean v;
 
     public SwanAppClearCacheErrorActivity() {
         Interceptable interceptable = $ic;
@@ -31,10 +30,10 @@ public class SwanAppClearCacheErrorActivity extends SwanAppErrorActivity {
         }
     }
 
-    public void markHasGotoClearCache() {
+    public void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.mHasGotoClearCache = true;
+            this.v = true;
         }
     }
 
@@ -43,19 +42,19 @@ public class SwanAppClearCacheErrorActivity extends SwanAppErrorActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onRestart();
-            if (SwanAppErrorActivity.DEBUG) {
-                Log.d(TAG, "SwanAppClearCacheErrorActivity#onRestart");
+            if (SwanAppErrorActivity.u) {
+                Log.d("SwanAppClearCacheErrorActivity", "SwanAppClearCacheErrorActivity#onRestart");
             }
-            if (this.mHasGotoClearCache) {
-                this.mHasGotoClearCache = false;
+            if (this.v) {
+                this.v = false;
                 try {
-                    ek2 launchInfo = getLaunchInfo();
+                    pk2 x = x();
                     if (SwanAppNetworkUtils.i(this)) {
-                        SwanLauncher.j().n(launchInfo, null);
+                        SwanLauncher.j().n(x, null);
                         finish();
                     }
                 } catch (Exception e) {
-                    hw1.l(TAG, "SwanAppClearCacheErrorActivity#onRestart", e);
+                    sw1.l("SwanAppClearCacheErrorActivity", "SwanAppClearCacheErrorActivity#onRestart", e);
                 }
             }
         }

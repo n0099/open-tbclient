@@ -28,12 +28,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.je5;
-import com.repackage.le5;
-import com.repackage.me5;
+import com.repackage.gf5;
+import com.repackage.if5;
+import com.repackage.jf5;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes3.dex */
-public abstract class LoadingLayout extends FrameLayout implements je5 {
+public abstract class LoadingLayout extends FrameLayout implements gf5 {
     public static /* synthetic */ Interceptable $ic;
     public static final Interpolator l;
     public transient /* synthetic */ FieldHolder $fh;
@@ -136,26 +136,26 @@ public abstract class LoadingLayout extends FrameLayout implements je5 {
         } else {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07fb, this);
         }
-        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0909a6);
+        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090994);
         this.a = frameLayout;
-        this.e = (TextView) frameLayout.findViewById(R.id.obfuscated_res_0x7f091975);
-        this.c = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f091973);
-        this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091974);
-        this.b = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091970);
+        this.e = (TextView) frameLayout.findViewById(R.id.obfuscated_res_0x7f09196c);
+        this.c = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f09196a);
+        this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09196b);
+        this.b = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091967);
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.a.getLayoutParams();
         if (a.b[mode.ordinal()] != 1) {
             layoutParams.gravity = orientation == PullToRefreshBase.Orientation.VERTICAL ? 80 : 5;
-            this.i = context.getString(R.string.obfuscated_res_0x7f0f0f25);
-            this.j = context.getString(R.string.obfuscated_res_0x7f0f0f26);
-            this.k = context.getString(R.string.obfuscated_res_0x7f0f0f27);
+            this.i = context.getString(R.string.obfuscated_res_0x7f0f0f30);
+            this.j = context.getString(R.string.obfuscated_res_0x7f0f0f31);
+            this.k = context.getString(R.string.obfuscated_res_0x7f0f0f32);
         } else {
             layoutParams.gravity = orientation == PullToRefreshBase.Orientation.VERTICAL ? 48 : 3;
-            this.i = context.getString(R.string.obfuscated_res_0x7f0f0f25);
-            this.j = context.getString(R.string.obfuscated_res_0x7f0f0f26);
-            this.k = context.getString(R.string.obfuscated_res_0x7f0f0f27);
+            this.i = context.getString(R.string.obfuscated_res_0x7f0f0f30);
+            this.j = context.getString(R.string.obfuscated_res_0x7f0f0f31);
+            this.k = context.getString(R.string.obfuscated_res_0x7f0f0f32);
         }
         if (typedArray.hasValue(7) && (drawable = typedArray.getDrawable(7)) != null) {
-            me5.b(this, drawable);
+            jf5.b(this, drawable);
         }
         if (typedArray.hasValue(9)) {
             TypedValue typedValue = new TypedValue();
@@ -178,13 +178,13 @@ public abstract class LoadingLayout extends FrameLayout implements je5 {
             if (typedArray.hasValue(5)) {
                 drawable2 = typedArray.getDrawable(5);
             } else if (typedArray.hasValue(6)) {
-                le5.a("ptrDrawableTop", "ptrDrawableStart");
+                if5.a("ptrDrawableTop", "ptrDrawableStart");
                 drawable2 = typedArray.getDrawable(6);
             }
         } else if (typedArray.hasValue(4)) {
             drawable2 = typedArray.getDrawable(4);
         } else if (typedArray.hasValue(3)) {
-            le5.a("ptrDrawableBottom", "ptrDrawableEnd");
+            if5.a("ptrDrawableBottom", "ptrDrawableEnd");
             drawable2 = typedArray.getDrawable(3);
         }
         setLoadingDrawable(drawable2 == null ? SkinManager.getDrawable(getDefaultDrawableResId()) : drawable2);
@@ -359,7 +359,7 @@ public abstract class LoadingLayout extends FrameLayout implements je5 {
         }
     }
 
-    @Override // com.repackage.je5
+    @Override // com.repackage.gf5
     public void setLastUpdatedLabel(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, charSequence) == null) {
@@ -367,7 +367,7 @@ public abstract class LoadingLayout extends FrameLayout implements je5 {
         }
     }
 
-    @Override // com.repackage.je5
+    @Override // com.repackage.gf5
     public final void setLoadingDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, drawable) == null) {
@@ -377,7 +377,7 @@ public abstract class LoadingLayout extends FrameLayout implements je5 {
         }
     }
 
-    @Override // com.repackage.je5
+    @Override // com.repackage.gf5
     public void setPullLabel(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, charSequence) == null) {
@@ -385,7 +385,7 @@ public abstract class LoadingLayout extends FrameLayout implements je5 {
         }
     }
 
-    @Override // com.repackage.je5
+    @Override // com.repackage.gf5
     public void setRefreshingLabel(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, charSequence) == null) {
@@ -393,7 +393,7 @@ public abstract class LoadingLayout extends FrameLayout implements je5 {
         }
     }
 
-    @Override // com.repackage.je5
+    @Override // com.repackage.gf5
     public void setReleaseLabel(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, charSequence) == null) {

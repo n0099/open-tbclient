@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pg;
+import com.repackage.tg;
 import java.io.File;
 import java.io.FileFilter;
 /* loaded from: classes2.dex */
@@ -118,7 +118,7 @@ public class DeleteApkTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            pg.a().b(new Runnable(this) { // from class: com.baidu.searchbox.task.async.privacy.DeleteApkTask.1
+            tg.a().b(new Runnable(this) { // from class: com.baidu.searchbox.task.async.privacy.DeleteApkTask.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DeleteApkTask this$0;
@@ -157,7 +157,7 @@ public class DeleteApkTask extends LaunchTask {
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "DeleteApkTask" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "Ignore_DeleteApkTask" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask

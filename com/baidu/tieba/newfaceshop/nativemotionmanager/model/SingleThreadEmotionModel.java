@@ -19,10 +19,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dm7;
-import com.repackage.gl7;
-import com.repackage.jl7;
-import com.repackage.mg;
+import com.repackage.on7;
+import com.repackage.qg;
+import com.repackage.rm7;
+import com.repackage.um7;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +31,7 @@ import org.json.JSONArray;
 public class SingleThreadEmotionModel extends NativeManageEmotionModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dm7 a;
+    public on7 a;
     public List<String> b;
     public final HttpMessageListener c;
 
@@ -70,7 +70,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
                 SingleThreadEmotionResponseMessage singleThreadEmotionResponseMessage = (SingleThreadEmotionResponseMessage) httpResponsedMessage;
                 if (this.a.a != null) {
                     if (singleThreadEmotionResponseMessage.data != null) {
-                        this.a.a.onSuccess(this.a.C(singleThreadEmotionResponseMessage.data.pkg_list));
+                        this.a.a.onSuccess(this.a.D(singleThreadEmotionResponseMessage.data.pkg_list));
                     } else {
                         this.a.a.onFail();
                     }
@@ -107,19 +107,19 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.F();
-                List<MyEmotionGroupData> f = jl7.i().f();
+                this.a.G();
+                List<MyEmotionGroupData> f = um7.i().f();
                 JSONArray jSONArray = new JSONArray();
                 if (f != null && !f.isEmpty()) {
                     for (MyEmotionGroupData myEmotionGroupData : f) {
                         if (myEmotionGroupData != null) {
                             jSONArray.put(myEmotionGroupData.getGroupId());
-                            this.a.H(myEmotionGroupData.getGroupId());
+                            this.a.I(myEmotionGroupData.getGroupId());
                         }
                     }
                 }
                 SingleThreadEmotionModel singleThreadEmotionModel = this.a;
-                mg.a().post(new c(singleThreadEmotionModel, singleThreadEmotionModel));
+                qg.a().post(new c(singleThreadEmotionModel, singleThreadEmotionModel));
             }
         }
     }
@@ -180,17 +180,17 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
         registerListener(this.c);
     }
 
-    public final List<EmotionPackageData> C(List<EmotionPackageData> list) {
+    public final List<EmotionPackageData> D(List<EmotionPackageData> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
             ArrayList arrayList = new ArrayList();
             if (list != null) {
-                List<String> D = D();
+                List<String> E = E();
                 for (EmotionPackageData emotionPackageData : list) {
                     int i = emotionPackageData.status;
                     if (i == 5 || i == 1) {
-                        if (emotionPackageData.status == 1 && D.contains(String.valueOf(emotionPackageData.id))) {
+                        if (emotionPackageData.status == 1 && E.contains(String.valueOf(emotionPackageData.id))) {
                             emotionPackageData.ishasdownload = true;
                         }
                         arrayList.add(emotionPackageData);
@@ -202,7 +202,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
         return (List) invokeL.objValue;
     }
 
-    public final synchronized List<String> D() {
+    public final synchronized List<String> E() {
         InterceptResult invokeV;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
@@ -215,7 +215,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
         return (List) invokeV.objValue;
     }
 
-    public void E() {
+    public void F() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.c == null) {
             return;
@@ -223,7 +223,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
         MessageManager.getInstance().unRegisterListener(this.c);
     }
 
-    public final synchronized void F() {
+    public final synchronized void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
@@ -232,14 +232,14 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
         }
     }
 
-    public void G(dm7 dm7Var) {
+    public void H(on7 on7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, dm7Var) == null) {
-            this.a = dm7Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, on7Var) == null) {
+            this.a = on7Var;
         }
     }
 
-    public final synchronized void H(String str) {
+    public final synchronized void I(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             synchronized (this) {
@@ -263,7 +263,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            gl7.b().a(new b(this));
+            rm7.b().a(new b(this));
             return false;
         }
         return invokeV.booleanValue;

@@ -147,8 +147,8 @@ public class LottieSlideLoadingLayout extends BaseSlideLoadingLayout {
     public void t(FrameLayout frameLayout) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, frameLayout) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d083d, (ViewGroup) frameLayout, true);
-            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) frameLayout.findViewById(R.id.obfuscated_res_0x7f0912d9);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d083e, (ViewGroup) frameLayout, true);
+            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) frameLayout.findViewById(R.id.obfuscated_res_0x7f0912d0);
             this.t = continuousAnimationView;
             continuousAnimationView.setMinAndMaxProgress(0.0f, 1.0f);
             this.t.setSpeed(1.3f);

@@ -10,15 +10,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.td6;
-import com.repackage.vd6;
+import com.repackage.te6;
+import com.repackage.ve6;
 /* loaded from: classes3.dex */
 public class AchievementActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public td6 inviteLetter;
-    public View.OnClickListener onShareClickListener;
-    public vd6 thanksLetter;
+    public ve6 a;
+    public te6 b;
+    public View.OnClickListener c;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -48,8 +48,8 @@ public class AchievementActivity extends BaseActivity {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.thanksLetter.h(false);
-                this.a.inviteLetter.h(true);
+                this.a.a.h(false);
+                this.a.b.h(true);
             }
         }
     }
@@ -67,7 +67,7 @@ public class AchievementActivity extends BaseActivity {
                 return;
             }
         }
-        this.onShareClickListener = new a(this);
+        this.c = new a(this);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -91,8 +91,8 @@ public class AchievementActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            this.thanksLetter.g(i);
-            this.inviteLetter.g(i);
+            this.a.g(i);
+            this.b.g(i);
         }
     }
 
@@ -103,13 +103,13 @@ public class AchievementActivity extends BaseActivity {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0027);
-            vd6 vd6Var = new vd6(getPageContext(), findViewById(R.id.obfuscated_res_0x7f0911c0));
-            this.thanksLetter = vd6Var;
-            vd6Var.h(true);
-            this.thanksLetter.j(this.onShareClickListener);
-            td6 td6Var = new td6(getPageContext(), findViewById(R.id.obfuscated_res_0x7f0911aa));
-            this.inviteLetter = td6Var;
-            td6Var.h(false);
+            ve6 ve6Var = new ve6(getPageContext(), findViewById(R.id.obfuscated_res_0x7f0911b5));
+            this.a = ve6Var;
+            ve6Var.h(true);
+            this.a.j(this.c);
+            te6 te6Var = new te6(getPageContext(), findViewById(R.id.obfuscated_res_0x7f09119f));
+            this.b = te6Var;
+            te6Var.h(false);
         }
     }
 }

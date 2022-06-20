@@ -15,17 +15,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ki;
+import com.repackage.oi;
 /* loaded from: classes3.dex */
 public class PersonIntroductionActivity extends BaseActivity {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String PERSON_INTRODUCTION = "person_introduction";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageView mBackImg;
-    public View.OnClickListener mClickListener;
-    public TextView mIntroView;
-    public NavigationBar mNavigationBar;
-    public View mRootView;
+    public NavigationBar a;
+    public ImageView b;
+    public TextView c;
+    public View d;
+    public View.OnClickListener e;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -73,17 +72,17 @@ public class PersonIntroductionActivity extends BaseActivity {
                 return;
             }
         }
-        this.mClickListener = new a(this);
+        this.e = new a(this);
     }
 
-    public static void startPersonIntroductionActivity(Context context, String str) {
+    public static void A1(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) || ki.isEmpty(str) || context == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) || oi.isEmpty(str) || context == null) {
             return;
         }
         Intent intent = new Intent();
         intent.setClass(context, PersonIntroductionActivity.class);
-        intent.putExtra(PERSON_INTRODUCTION, str);
+        intent.putExtra("person_introduction", str);
         context.startActivity(intent);
     }
 
@@ -92,9 +91,9 @@ public class PersonIntroductionActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
-            this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-            SkinManager.setViewTextColor(this.mIntroView, R.color.CAM_X0105, 1, i);
-            SkinManager.setBackgroundResource(this.mRootView, R.color.CAM_X0201, i);
+            this.a.onChangeSkinType(getPageContext(), i);
+            SkinManager.setViewTextColor(this.c, R.color.CAM_X0105, 1, i);
+            SkinManager.setBackgroundResource(this.d, R.color.CAM_X0201, i);
         }
     }
 
@@ -103,18 +102,18 @@ public class PersonIntroductionActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d06b2);
-            this.mRootView = findViewById(R.id.obfuscated_res_0x7f0917f4);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923a2);
-            this.mNavigationBar = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0e3f));
-            ImageView imageView = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d0886, (View.OnClickListener) null);
-            this.mBackImg = imageView;
-            imageView.setOnClickListener(this.mClickListener);
-            SkinManager.setImageResource(this.mBackImg, R.drawable.selector_topbar_return_black);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0917f3);
-            this.mIntroView = textView;
-            textView.setText(getIntent().getStringExtra(PERSON_INTRODUCTION));
+            setContentView(R.layout.obfuscated_res_0x7f0d06b0);
+            this.d = findViewById(R.id.obfuscated_res_0x7f0917ea);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09238f);
+            this.a = navigationBar;
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0e47));
+            ImageView imageView = (ImageView) this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d0885, (View.OnClickListener) null);
+            this.b = imageView;
+            imageView.setOnClickListener(this.e);
+            SkinManager.setImageResource(this.b, R.drawable.selector_topbar_return_black);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0917e9);
+            this.c = textView;
+            textView.setText(getIntent().getStringExtra("person_introduction"));
         }
     }
 }

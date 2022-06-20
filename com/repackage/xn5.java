@@ -1,70 +1,83 @@
 package com.repackage;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernTitleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class xn5 extends wm<sp5, LiveTabConcernTitleView.ViewHolder> {
+public class xn5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
+    public TbPageContext a;
+    public Context b;
+    public BdTypeRecyclerView c;
+    public List<an> d;
+    public do5 e;
+    public do5 f;
+    public co5 g;
+    public bo5 h;
+    public ao5 i;
+    public int j;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xn5(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), sp5.c);
+    public xn5(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, bdTypeRecyclerView, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = tbPageContext;
+        this.a = tbPageContext;
+        this.b = tbPageContext.getPageActivity();
+        this.c = bdTypeRecyclerView;
+        this.j = i;
+        a();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.wm
-    /* renamed from: Z */
-    public LiveTabConcernTitleView.ViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new LiveTabConcernTitleView.ViewHolder(new LiveTabConcernTitleView(this.i, viewGroup)) : (LiveTabConcernTitleView.ViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.wm
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, sp5 sp5Var, LiveTabConcernTitleView.ViewHolder viewHolder) {
-        InterceptResult invokeCommon;
-        LiveTabConcernTitleView liveTabConcernTitleView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, sp5Var, viewHolder})) == null) {
-            if (viewHolder == null || (liveTabConcernTitleView = viewHolder.a) == null) {
-                return null;
-            }
-            liveTabConcernTitleView.l(sp5Var);
-            viewHolder.a.m(this.i, TbadkCoreApplication.getInst().getSkinType());
-            return viewHolder.b();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d = new ArrayList();
+            this.e = new do5(this.a, this.j, false);
+            this.f = new do5(this.a, this.j, true);
+            this.g = new co5(this.a);
+            this.h = new bo5(this.a);
+            this.i = new ao5(this.a);
+            this.d.add(this.e);
+            this.d.add(this.f);
+            this.d.add(this.g);
+            this.d.add(this.h);
+            this.d.add(this.i);
+            this.c.a(this.d);
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public void b() {
+        BdTypeRecyclerView bdTypeRecyclerView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bdTypeRecyclerView = this.c) == null) {
+            return;
+        }
+        bdTypeRecyclerView.getListAdapter().notifyDataSetChanged();
+    }
+
+    public void c(List<nn> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.c.setData(list);
+        }
     }
 }

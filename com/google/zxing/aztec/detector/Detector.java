@@ -21,7 +21,7 @@ import com.google.zxing.common.reedsolomon.GenericGF;
 import com.google.zxing.common.reedsolomon.ReedSolomonDecoder;
 import com.google.zxing.common.reedsolomon.ReedSolomonException;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class Detector {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] EXPECTED_CORNER_BITS;
@@ -33,7 +33,7 @@ public final class Detector {
     public int nbLayers;
     public int shift;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class Point {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

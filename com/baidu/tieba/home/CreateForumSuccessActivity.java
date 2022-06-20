@@ -21,20 +21,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
-import com.repackage.q85;
+import com.repackage.d95;
+import com.repackage.pi;
 /* loaded from: classes3.dex */
 public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessActivity> {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String FORUM_NAME_STRING = "forumname";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NoDataView emptyView;
-    public String mForumName;
-    public NavigationBar mNavigationBar;
-    public NoNetworkView mNoNetView;
-    public LinearLayout mRootView;
-    public TextView mTextAuditTip;
-    public TextView mTextView;
+    public String a;
+    public LinearLayout b;
+    public NavigationBar c;
+    public NoNetworkView d;
+    public NoDataView e;
+    public TextView f;
+    public TextView g;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -82,78 +81,78 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
                 return;
             }
         }
-        this.mForumName = null;
-        this.mTextView = null;
-        this.mTextAuditTip = null;
-    }
-
-    private void initData() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            String stringExtra = getIntent().getStringExtra(FORUM_NAME_STRING);
-            this.mForumName = stringExtra;
-            if (stringExtra == null) {
-                this.mForumName = "";
-            }
-        }
-    }
-
-    private void initUi() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.mRootView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091adb);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923a2);
-            this.mNavigationBar = navigationBar;
-            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.mNavigationBar.setTitleText(R.string.obfuscated_res_0x7f0f0466);
-            this.mNoNetView = (NoNetworkView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0923a4);
-            int f = li.f(getActivity(), R.dimen.obfuscated_res_0x7f07019a);
-            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090871), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, f), null, null);
-            this.emptyView = a2;
-            a2.setVisibility(0);
-            this.mTextView = (TextView) findViewById(R.id.obfuscated_res_0x7f091f3a);
-            this.mTextView.setText(getActivity().getString(R.string.obfuscated_res_0x7f0f0c86) + this.mForumName + getActivity().getString(R.string.obfuscated_res_0x7f0f0c87));
-            this.mTextAuditTip = (TextView) findViewById(R.id.obfuscated_res_0x7f091f11);
-            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0c82);
-            if (!StringUtils.isNull(string) && this.mTextAuditTip != null) {
-                this.mTextAuditTip.setText(string.replace("%s", this.mForumName));
-            }
-            findViewById(R.id.obfuscated_res_0x7f091f1e).setOnClickListener(new a(this));
-        }
+        this.a = null;
+        this.f = null;
+        this.g = null;
     }
 
     public static void startActivity(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) || str == null || str.length() <= 0) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) || str == null || str.length() <= 0) {
             return;
         }
         Intent intent = new Intent(context, CreateForumSuccessActivity.class);
-        intent.putExtra(FORUM_NAME_STRING, str);
+        intent.putExtra("forumname", str);
         if (!(context instanceof Activity)) {
             intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
         }
         context.startActivity(intent);
     }
 
+    public final void A1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ad3);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09238f);
+            this.c = navigationBar;
+            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.c.setTitleText(R.string.obfuscated_res_0x7f0f0457);
+            this.d = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f092391);
+            int f = pi.f(getActivity(), R.dimen.obfuscated_res_0x7f07019a);
+            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09085c), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, f), null, null);
+            this.e = a2;
+            a2.setVisibility(0);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091f3a);
+            this.f.setText(getActivity().getString(R.string.obfuscated_res_0x7f0f0c89) + this.a + getActivity().getString(R.string.obfuscated_res_0x7f0f0c8a));
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091f10);
+            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0c85);
+            if (!StringUtils.isNull(string) && this.g != null) {
+                this.g.setText(string.replace("%s", this.a));
+            }
+            findViewById(R.id.obfuscated_res_0x7f091f1d).setOnClickListener(new a(this));
+        }
+    }
+
     @Override // com.baidu.tbadk.BaseActivity
     public void changeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.changeSkinType(i);
             super.changeSkinType(i);
-            getLayoutMode().j(this.mRootView);
-            q85.a(getPageContext(), this.mRootView);
-            NoNetworkView noNetworkView = this.mNoNetView;
+            getLayoutMode().j(this.b);
+            d95.a(getPageContext(), this.b);
+            NoNetworkView noNetworkView = this.d;
             if (noNetworkView != null && noNetworkView.getVisibility() == 0) {
-                this.mNoNetView.c(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+                this.d.d(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             }
-            NoDataView noDataView = this.emptyView;
+            NoDataView noDataView = this.e;
             if (noDataView != null) {
                 noDataView.f(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             }
-            NavigationBar navigationBar = this.mNavigationBar;
+            NavigationBar navigationBar = this.c;
             if (navigationBar != null) {
                 navigationBar.onChangeSkinType(getPageContext(), i);
+            }
+        }
+    }
+
+    public final void initData() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            String stringExtra = getIntent().getStringExtra("forumname");
+            this.a = stringExtra;
+            if (stringExtra == null) {
+                this.a = "";
             }
         }
     }
@@ -161,11 +160,11 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0201);
+            setContentView(R.layout.obfuscated_res_0x7f0d01fe);
             initData();
-            initUi();
+            A1();
         }
     }
 }

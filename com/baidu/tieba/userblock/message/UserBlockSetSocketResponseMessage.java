@@ -1,9 +1,10 @@
 package com.baidu.tieba.userblock.message;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
@@ -31,22 +32,25 @@ public class UserBlockSetSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
             try {
                 SetUserBlackResIdl setUserBlackResIdl = (SetUserBlackResIdl) new Wire(new Class[0]).parseFrom(bArr, SetUserBlackResIdl.class);
-                if (setUserBlackResIdl == null || setUserBlackResIdl.error == null) {
-                    return;
+                if (setUserBlackResIdl != null && setUserBlackResIdl.error != null) {
+                    setError(setUserBlackResIdl.error.errorno.intValue());
+                    setErrorString(setUserBlackResIdl.error.usermsg);
                 }
-                setError(setUserBlackResIdl.error.errorno.intValue());
-                setErrorString(setUserBlackResIdl.error.usermsg);
+                return setUserBlackResIdl;
             } catch (Exception e) {
                 e.printStackTrace();
                 setError(-2);
+                return null;
             }
         }
+        return invokeIL.objValue;
     }
 }

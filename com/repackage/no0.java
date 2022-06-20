@@ -1,94 +1,124 @@
 package com.repackage;
 
 import android.content.Context;
+import android.util.DisplayMetrics;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.so0;
 /* loaded from: classes6.dex */
-public class no0 implements so0.a {
+public class no0 {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
+    public static int b;
+    public static Context c;
+    public static boolean d;
+    public static qu0 e;
+    public static pt0 f;
+    public static String g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ds0 a;
 
-    /* loaded from: classes6.dex */
-    public class a implements ds0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(no0 no0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {no0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755462910, "Lcom/repackage/no0;")) == null) {
+            return;
         }
-
-        @Override // com.repackage.ds0
-        @NonNull
-        public es0 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new mr0() : (es0) invokeV.objValue;
-        }
-    }
-
-    public no0() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = new a(this);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755462910, "Lcom/repackage/no0;");
+        }
     }
 
-    @Override // com.repackage.so0.a
-    public so0 a(Context context, int i) {
-        InterceptResult invokeLI;
+    @NonNull
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i)) == null) ? new uo0(new ou0(this.a, context)) : (so0) invokeLI.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? g : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.so0.a
-    public so0 b(Context context, int i, @Nullable to0 to0Var) {
-        InterceptResult invokeLIL;
+    public static Context b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i, to0Var)) == null) {
-            if (to0Var == null) {
-                to0Var = to0.b;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c : (Context) invokeV.objValue;
+    }
+
+    @NonNull
+    public static pt0 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (f == null) {
+                f = new ot0();
             }
-            int i2 = to0Var.a;
-            if (i2 != 0) {
-                if (i2 != 1) {
-                    if (i2 != 2) {
-                        return new uo0(new io0(this.a, context));
-                    }
-                    return new uo0(new ho0(this.a, context));
-                }
-                return new uo0(new go0(this.a, context));
-            }
-            return new uo0(new io0(this.a, context));
+            return f;
         }
-        return (so0) invokeLIL.objValue;
+        return (pt0) invokeV.objValue;
+    }
+
+    @NonNull
+    public static qu0 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (e == null) {
+                e = new ru0();
+            }
+            return e;
+        }
+        return (qu0) invokeV.objValue;
+    }
+
+    public static void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65541, null, z) == null) {
+            h(z);
+            Context context = c;
+            if (context != null) {
+                DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+                b = Math.min(displayMetrics.widthPixels, displayMetrics.heightPixels);
+                a = Math.max(displayMetrics.widthPixels, displayMetrics.heightPixels);
+            }
+        }
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? d : invokeV.booleanValue;
+    }
+
+    public static void g(@NonNull Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, context) == null) {
+            c = context;
+        }
+    }
+
+    public static void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
+            d = z;
+        }
+    }
+
+    public static void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
+            g = str;
+        }
+    }
+
+    public static void j(@NonNull pt0 pt0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, pt0Var) == null) {
+            f = pt0Var;
+        }
     }
 }

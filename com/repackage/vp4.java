@@ -1,20 +1,20 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.BirthdayInfo;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.SeniorLottery;
 /* loaded from: classes7.dex */
 public class vp4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public int c;
-    public int d;
+    public to4 a;
+    public List<in4> b;
+    public List<jn4> c;
+    public List<so4> d;
 
     public vp4() {
         Interceptable interceptable = $ic;
@@ -30,25 +30,36 @@ public class vp4 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public void a(SeniorLottery seniorLottery) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, seniorLottery) == null) || seniorLottery == null) {
             return;
         }
-        this.a = jSONObject.optLong("birthday_time", 0L);
-        this.d = jSONObject.optInt("birthday_show_status", 0);
-        this.b = jSONObject.optString("constellation", "");
-        this.c = jSONObject.optInt("age", 0);
-    }
-
-    public void b(BirthdayInfo birthdayInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, birthdayInfo) == null) || birthdayInfo == null) {
-            return;
+        to4 to4Var = new to4();
+        this.a = to4Var;
+        to4Var.a(seniorLottery.theme);
+        this.b = new ArrayList();
+        int size = seniorLottery.award_info.size();
+        for (int i = 0; i < size; i++) {
+            in4 in4Var = new in4();
+            in4Var.a(seniorLottery.award_info.get(i));
+            this.b.add(in4Var);
         }
-        this.a = birthdayInfo.birthday_time.longValue();
-        this.d = birthdayInfo.birthday_show_status.intValue();
-        this.b = birthdayInfo.constellation;
-        this.c = birthdayInfo.age.intValue();
+        String str = seniorLottery.myaward;
+        this.c = new ArrayList();
+        int size2 = seniorLottery.luck_users.size();
+        for (int i2 = 0; i2 < size2; i2++) {
+            jn4 jn4Var = new jn4();
+            jn4Var.a(seniorLottery.luck_users.get(i2));
+            this.c.add(jn4Var);
+        }
+        String str2 = seniorLottery.act_desc;
+        this.d = new ArrayList();
+        int size3 = seniorLottery.act_regular.size();
+        for (int i3 = 0; i3 < size3; i3++) {
+            so4 so4Var = new so4();
+            so4Var.a(seniorLottery.act_regular.get(i3));
+            this.d.add(so4Var);
+        }
     }
 }

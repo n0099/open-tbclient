@@ -1,13 +1,17 @@
 package com.repackage;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class oi1 implements el1 {
+public class oi1 implements yk1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,39 +29,27 @@ public class oi1 implements el1 {
         }
     }
 
-    @Override // com.repackage.el1
-    public void a(Context context, ae3<Boolean> ae3Var) {
+    @Override // com.repackage.yk1
+    public void a(@NonNull JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, ae3Var) == null) || ae3Var == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
         }
-        ae3Var.onCallback(null);
     }
 
-    @Override // com.repackage.el1
-    public void b(boolean z, ae3<String> ae3Var) {
+    @Override // com.repackage.yk1
+    public v32 b(Context context, File file, long j) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, ae3Var) == null) || ae3Var == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, file, Long.valueOf(j)})) == null) {
+            return null;
         }
-        ae3Var.onCallback(null);
+        return (v32) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.el1
-    public void c(Context context, ae3<String> ae3Var) {
+    @Override // com.repackage.yk1
+    public void c(@NonNull JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, ae3Var) == null) || ae3Var == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray) == null) {
         }
-        ae3Var.onCallback(null);
-    }
-
-    @Override // com.repackage.el1
-    public void d(ae3<Integer> ae3Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, ae3Var) == null) || ae3Var == null) {
-            return;
-        }
-        ae3Var.onCallback(null);
     }
 }

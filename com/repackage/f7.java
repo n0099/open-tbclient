@@ -1,5 +1,10 @@
 package com.repackage;
-/* loaded from: classes5.dex */
-public interface f7 {
-    void dispose();
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes6.dex */
+public class f7 {
+    public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public transient /* synthetic */ FieldHolder $fh;
 }

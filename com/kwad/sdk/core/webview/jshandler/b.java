@@ -27,7 +27,7 @@ public class b implements com.kwad.sdk.core.webview.kwai.a {
         @Deprecated
         public boolean b;
         public int c;
-        public C0313b d;
+        public C0321b d;
         public long e = -1;
 
         public boolean a() {
@@ -37,7 +37,7 @@ public class b implements com.kwad.sdk.core.webview.kwai.a {
 
     /* renamed from: com.kwad.sdk.core.webview.jshandler.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static final class C0313b extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b {
+    public static final class C0321b extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b {
         public String a;
     }
 

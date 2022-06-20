@@ -1,11 +1,12 @@
 package android.support.v4.media.session;
 
+import android.annotation.SuppressLint;
+import android.media.session.PlaybackState;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.SystemClock;
-import android.support.v4.media.session.PlaybackStateCompatApi21;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
@@ -22,6 +23,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
+@SuppressLint({"BanParcelableUsage"})
 /* loaded from: classes.dex */
 public final class PlaybackStateCompat implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
@@ -96,11 +98,11 @@ public final class PlaybackStateCompat implements Parcelable {
     public final long mPosition;
     public final float mSpeed;
     public final int mState;
-    public Object mStateObj;
+    public PlaybackState mStateFwk;
     public final long mUpdateTime;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface Actions {
     }
@@ -180,6 +182,7 @@ public final class PlaybackStateCompat implements Parcelable {
             return (Builder) invokeJ.objValue;
         }
 
+        @Deprecated
         public Builder setErrorMessage(CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -214,7 +217,7 @@ public final class PlaybackStateCompat implements Parcelable {
                     this.mCustomActions.add(customAction);
                     return this;
                 }
-                throw new IllegalArgumentException("You may not add a null CustomAction to PlaybackStateCompat.");
+                throw new IllegalArgumentException("You may not add a null CustomAction to PlaybackStateCompat");
             }
             return (Builder) invokeL.objValue;
         }
@@ -279,31 +282,25 @@ public final class PlaybackStateCompat implements Parcelable {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes.dex */
-    public @interface ErrorCode {
-    }
-
-    @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public @interface MediaKeyAction {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface RepeatMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface ShuffleMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface State {
     }
@@ -392,21 +389,27 @@ public final class PlaybackStateCompat implements Parcelable {
         ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) {
+            Bundle bundle = null;
             if (obj == null || Build.VERSION.SDK_INT < 21) {
                 return null;
             }
-            List<Object> customActions = PlaybackStateCompatApi21.getCustomActions(obj);
+            PlaybackState playbackState = (PlaybackState) obj;
+            List<PlaybackState.CustomAction> customActions = playbackState.getCustomActions();
             if (customActions != null) {
                 ArrayList arrayList2 = new ArrayList(customActions.size());
-                for (Object obj2 : customActions) {
-                    arrayList2.add(CustomAction.fromCustomAction(obj2));
+                for (PlaybackState.CustomAction customAction : customActions) {
+                    arrayList2.add(CustomAction.fromCustomAction(customAction));
                 }
                 arrayList = arrayList2;
             } else {
                 arrayList = null;
             }
-            PlaybackStateCompat playbackStateCompat = new PlaybackStateCompat(PlaybackStateCompatApi21.getState(obj), PlaybackStateCompatApi21.getPosition(obj), PlaybackStateCompatApi21.getBufferedPosition(obj), PlaybackStateCompatApi21.getPlaybackSpeed(obj), PlaybackStateCompatApi21.getActions(obj), 0, PlaybackStateCompatApi21.getErrorMessage(obj), PlaybackStateCompatApi21.getLastPositionUpdateTime(obj), arrayList, PlaybackStateCompatApi21.getActiveQueueItemId(obj), Build.VERSION.SDK_INT >= 22 ? PlaybackStateCompatApi22.getExtras(obj) : null);
-            playbackStateCompat.mStateObj = obj;
+            if (Build.VERSION.SDK_INT >= 22) {
+                bundle = playbackState.getExtras();
+                MediaSessionCompat.ensureClassLoader(bundle);
+            }
+            PlaybackStateCompat playbackStateCompat = new PlaybackStateCompat(playbackState.getState(), playbackState.getPosition(), playbackState.getBufferedPosition(), playbackState.getPlaybackSpeed(), playbackState.getActions(), 0, playbackState.getErrorMessage(), playbackState.getLastPositionUpdateTime(), arrayList, playbackState.getActiveQueueItemId(), bundle);
+            playbackStateCompat.mStateFwk = playbackState;
             return playbackStateCompat;
         }
         return (PlaybackStateCompat) invokeL.objValue;
@@ -470,7 +473,7 @@ public final class PlaybackStateCompat implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mBufferedPosition : invokeV.longValue;
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public long getCurrentPosition(Long l) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -521,22 +524,22 @@ public final class PlaybackStateCompat implements Parcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.mStateObj == null && Build.VERSION.SDK_INT >= 21) {
-                ArrayList arrayList = null;
-                if (this.mCustomActions != null) {
-                    arrayList = new ArrayList(this.mCustomActions.size());
-                    for (CustomAction customAction : this.mCustomActions) {
-                        arrayList.add(customAction.getCustomAction());
-                    }
+            if (this.mStateFwk == null && Build.VERSION.SDK_INT >= 21) {
+                PlaybackState.Builder builder = new PlaybackState.Builder();
+                builder.setState(this.mState, this.mPosition, this.mSpeed, this.mUpdateTime);
+                builder.setBufferedPosition(this.mBufferedPosition);
+                builder.setActions(this.mActions);
+                builder.setErrorMessage(this.mErrorMessage);
+                for (CustomAction customAction : this.mCustomActions) {
+                    builder.addCustomAction((PlaybackState.CustomAction) customAction.getCustomAction());
                 }
-                ArrayList arrayList2 = arrayList;
+                builder.setActiveQueueItemId(this.mActiveItemId);
                 if (Build.VERSION.SDK_INT >= 22) {
-                    this.mStateObj = PlaybackStateCompatApi22.newInstance(this.mState, this.mPosition, this.mBufferedPosition, this.mSpeed, this.mActions, this.mErrorMessage, this.mUpdateTime, arrayList2, this.mActiveItemId, this.mExtras);
-                } else {
-                    this.mStateObj = PlaybackStateCompatApi21.newInstance(this.mState, this.mPosition, this.mBufferedPosition, this.mSpeed, this.mActions, this.mErrorMessage, this.mUpdateTime, arrayList2, this.mActiveItemId);
+                    builder.setExtras(this.mExtras);
                 }
+                this.mStateFwk = builder.build();
             }
-            return this.mStateObj;
+            return this.mStateFwk;
         }
         return invokeV.objValue;
     }
@@ -586,7 +589,7 @@ public final class PlaybackStateCompat implements Parcelable {
         public static final Parcelable.Creator<CustomAction> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public final String mAction;
-        public Object mCustomActionObj;
+        public PlaybackState.CustomAction mCustomActionFwk;
         public final Bundle mExtras;
         public final int mIcon;
         public final CharSequence mName;
@@ -617,7 +620,7 @@ public final class PlaybackStateCompat implements Parcelable {
                 }
                 if (!TextUtils.isEmpty(str)) {
                     if (TextUtils.isEmpty(charSequence)) {
-                        throw new IllegalArgumentException("You must specify a name to build a CustomAction.");
+                        throw new IllegalArgumentException("You must specify a name to build a CustomAction");
                     }
                     if (i != 0) {
                         this.mAction = str;
@@ -625,9 +628,9 @@ public final class PlaybackStateCompat implements Parcelable {
                         this.mIcon = i;
                         return;
                     }
-                    throw new IllegalArgumentException("You must specify an icon resource id to build a CustomAction.");
+                    throw new IllegalArgumentException("You must specify an icon resource id to build a CustomAction");
                 }
-                throw new IllegalArgumentException("You must specify an action to build a CustomAction.");
+                throw new IllegalArgumentException("You must specify an action to build a CustomAction");
             }
 
             public CustomAction build() {
@@ -726,9 +729,12 @@ public final class PlaybackStateCompat implements Parcelable {
                 if (obj == null || Build.VERSION.SDK_INT < 21) {
                     return null;
                 }
-                CustomAction customAction = new CustomAction(PlaybackStateCompatApi21.CustomAction.getAction(obj), PlaybackStateCompatApi21.CustomAction.getName(obj), PlaybackStateCompatApi21.CustomAction.getIcon(obj), PlaybackStateCompatApi21.CustomAction.getExtras(obj));
-                customAction.mCustomActionObj = obj;
-                return customAction;
+                PlaybackState.CustomAction customAction = (PlaybackState.CustomAction) obj;
+                Bundle extras = customAction.getExtras();
+                MediaSessionCompat.ensureClassLoader(extras);
+                CustomAction customAction2 = new CustomAction(customAction.getAction(), customAction.getName(), customAction.getIcon(), extras);
+                customAction2.mCustomActionFwk = customAction;
+                return customAction2;
             }
             return (CustomAction) invokeL.objValue;
         }
@@ -753,12 +759,12 @@ public final class PlaybackStateCompat implements Parcelable {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (this.mCustomActionObj == null && Build.VERSION.SDK_INT >= 21) {
-                    Object newInstance = PlaybackStateCompatApi21.CustomAction.newInstance(this.mAction, this.mName, this.mIcon, this.mExtras);
-                    this.mCustomActionObj = newInstance;
-                    return newInstance;
+                if (this.mCustomActionFwk == null && Build.VERSION.SDK_INT >= 21) {
+                    PlaybackState.CustomAction.Builder builder = new PlaybackState.CustomAction.Builder(this.mAction, this.mName, this.mIcon);
+                    builder.setExtras(this.mExtras);
+                    return builder.build();
                 }
-                return this.mCustomActionObj;
+                return this.mCustomActionFwk;
             }
             return invokeV.objValue;
         }

@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
+import com.repackage.pi;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -103,17 +103,17 @@ public class ReplyLinearLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeLI(1048576, this, textView, i) == null) {
             if (i == 0) {
                 SkinManager.setViewTextColor(textView, R.color.common_color_10039, 1);
-                textView.setPadding(0, li.d(getContext(), 10.0f), 0, li.d(getContext(), 10.0f));
+                textView.setPadding(0, pi.d(getContext(), 10.0f), 0, pi.d(getContext(), 10.0f));
                 return;
             }
             int i2 = i % 3;
             if (i2 == 2) {
                 SkinManager.setViewTextColor(textView, R.color.common_color_10081, 1);
                 textView.setBackgroundResource(R.color.CAM_X0201);
-                textView.setPadding(0, li.d(getContext(), 10.0f), 0, li.d(getContext(), 2.0f));
+                textView.setPadding(0, pi.d(getContext(), 10.0f), 0, pi.d(getContext(), 2.0f));
             } else if (i2 == 0) {
                 SkinManager.setViewTextColor(textView, R.color.common_color_10005, 1);
-                textView.setPadding(0, li.d(getContext(), 2.0f), 0, li.d(getContext(), 10.0f));
+                textView.setPadding(0, pi.d(getContext(), 2.0f), 0, pi.d(getContext(), 10.0f));
             }
         }
     }

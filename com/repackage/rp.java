@@ -1,14 +1,14 @@
 package com.repackage;
 
-import com.baidu.bdtask.framework.ui.toast.ToastViewData;
+import com.baidu.bdtask.framework.ui.dialog.TaskDialogData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qs;
-import com.repackage.rs;
+import com.repackage.ms;
+import com.repackage.ns;
 /* loaded from: classes7.dex */
-public final class rp<VD extends ToastViewData, VM extends qs<VD>, View extends rs<VM>> {
+public final class rp<VD extends TaskDialogData, VM extends ms<VD>, View extends ns<VM>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final View a;

@@ -1,11 +1,8 @@
 package com.repackage;
 
-import android.app.Activity;
 import android.content.Context;
-import android.provider.Settings;
-import android.view.Window;
-import android.view.WindowManager;
-import androidx.core.view.InputDeviceCompat;
+import android.os.Build;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +11,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class j01 {
     public static /* synthetic */ Interceptable $ic = null;
-    public static int a = -1;
+    public static boolean a = false;
+    public static boolean b = false;
+    public static boolean c = false;
+    public static boolean d = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,74 +32,40 @@ public class j01 {
         }
     }
 
-    public static int a(Activity activity) {
-        InterceptResult invokeL;
+    public static boolean a(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            if (activity != null) {
-                float f = activity.getWindow().getAttributes().screenBrightness;
-                int b = f < 0.0f ? b(activity) : (int) (f * 255.0f);
-                int i = a;
-                return (i < 0 || b > 50) ? b : i;
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
             try {
-                return Settings.System.getInt(context.getContentResolver(), "screen_brightness");
-            } catch (Exception e) {
-                e.printStackTrace();
-                return 0;
+                return Build.VERSION.SDK_INT >= 23 ? context.checkSelfPermission(str) == 0 : context.checkCallingOrSelfPermission(str) == 0;
+            } catch (Throwable unused) {
+                return false;
             }
         }
-        return invokeL.intValue;
+        return invokeLL.booleanValue;
     }
 
-    public static int c(int i, int i2, int i3) {
-        InterceptResult invokeIII;
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65539, null, i, i2, i3)) == null) {
-            if (i < i2) {
-                i = i2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
-            return i > i3 ? i3 : i;
+            if ("permission_location".equalsIgnoreCase(str)) {
+                return b;
+            }
+            if ("permission_storage".equalsIgnoreCase(str)) {
+                return c;
+            }
+            if ("permission_app_list".equalsIgnoreCase(str)) {
+                return d;
+            }
+            if ("permission_read_phone_state".equalsIgnoreCase(str)) {
+                return a;
+            }
+            return false;
         }
-        return invokeIII.intValue;
-    }
-
-    public static void d(Activity activity, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, i) == null) || activity == null) {
-            return;
-        }
-        a = c(i, 0, 255);
-        int c = c(i, 50, 255);
-        WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
-        attributes.screenBrightness = Float.valueOf(c).floatValue() * 0.003921569f;
-        activity.getWindow().setAttributes(attributes);
-    }
-
-    public static void e(Activity activity, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65541, null, activity, i) == null) || activity == null) {
-            return;
-        }
-        Window window = activity.getWindow();
-        WindowManager.LayoutParams attributes = window.getAttributes();
-        attributes.screenBrightness = i;
-        window.setAttributes(attributes);
-    }
-
-    public static void f(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, activity) == null) {
-            e(activity, -1);
-        }
+        return invokeL.booleanValue;
     }
 }

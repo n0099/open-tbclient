@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -21,29 +20,29 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.u66;
-import com.repackage.ub5;
-import com.repackage.um;
+import com.repackage.hc5;
+import com.repackage.u76;
+import com.repackage.ym;
 /* loaded from: classes3.dex */
 public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int adviceHeight;
-    public int adviceWidth;
-    public int from;
-    public String gifUrl;
-    public int height;
-    public String iconUrl;
-    public TextView mDetail;
-    public GifView mGifVew;
-    public TbImageView mIcon;
-    public NavigationBar mNavigationBar;
-    public TextView mPName;
-    public String pid;
-    public String pname;
-    public String sharpText;
-    public String staticUrl;
-    public int width;
+    public NavigationBar a;
+    public GifView b;
+    public TbImageView c;
+    public TextView d;
+    public TextView e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public String k;
+    public int l;
+    public int m;
+    public int n;
+    public int o;
+    public int p;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -106,8 +105,8 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                int i = this.a.from;
-                this.a.sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(this.a.getPageContext().getPageActivity(), this.a.pid, false, i != 1 ? i != 2 ? i != 3 ? "emotion_image" : "faceshop_from_gchat_detail" : "faceshop_from_pchat_detail" : "faceshop_from_forum_detail")));
+                int i = this.a.p;
+                this.a.sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(this.a.getPageContext().getPageActivity(), this.a.f, false, i != 1 ? i != 2 ? i != 3 ? "emotion_image" : "faceshop_from_gchat_detail" : "faceshop_from_pchat_detail" : "faceshop_from_forum_detail")));
             }
         }
     }
@@ -125,80 +124,80 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
                 return;
             }
         }
-        this.from = 0;
+        this.p = 0;
     }
 
-    private void initData(Bundle bundle) {
+    public final void C1(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             int i = (getResources().getDisplayMetrics().density > 1.5d ? 1 : (getResources().getDisplayMetrics().density == 1.5d ? 0 : -1));
-            this.adviceWidth = i < 0 ? 160 : 240;
-            this.adviceHeight = i >= 0 ? 240 : 160;
+            this.n = i < 0 ? 160 : 240;
+            this.o = i >= 0 ? 240 : 160;
             if (bundle != null) {
-                this.pid = bundle.getString("pid");
-                this.pname = bundle.getString("panme");
-                this.iconUrl = bundle.getString("iconUrl");
-                this.gifUrl = bundle.getString("gifUrl");
-                this.staticUrl = bundle.getString("staticUrl");
-                this.sharpText = bundle.getString("sharpText");
-                this.width = bundle.getInt("width");
-                this.height = bundle.getInt("height");
+                this.f = bundle.getString("pid");
+                this.g = bundle.getString("panme");
+                this.h = bundle.getString("iconUrl");
+                this.i = bundle.getString("gifUrl");
+                this.j = bundle.getString("staticUrl");
+                this.k = bundle.getString("sharpText");
+                this.l = bundle.getInt("width");
+                this.m = bundle.getInt("height");
             } else {
                 Intent intent = getIntent();
-                this.pid = intent.getStringExtra("pid");
-                this.pname = intent.getStringExtra("panme");
-                this.iconUrl = intent.getStringExtra("iconUrl");
-                this.gifUrl = intent.getStringExtra("gifUrl");
-                this.staticUrl = intent.getStringExtra("staticUrl");
-                this.sharpText = intent.getStringExtra("sharpText");
-                this.width = intent.getIntExtra("width", this.adviceWidth);
-                this.height = intent.getIntExtra("height", this.adviceHeight);
+                this.f = intent.getStringExtra("pid");
+                this.g = intent.getStringExtra("panme");
+                this.h = intent.getStringExtra("iconUrl");
+                this.i = intent.getStringExtra("gifUrl");
+                this.j = intent.getStringExtra("staticUrl");
+                this.k = intent.getStringExtra("sharpText");
+                this.l = intent.getIntExtra("width", this.n);
+                this.m = intent.getIntExtra("height", this.o);
             }
-            this.from = getIntent().getIntExtra("from", 0);
+            this.p = getIntent().getIntExtra("from", 0);
         }
     }
 
-    private void initUI() {
+    public final void D1() {
         FrameLayout.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0914f2);
-            this.mNavigationBar = navigationBar;
-            navigationBar.setTitleText(getString(R.string.obfuscated_res_0x7f0f0552));
-            this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            this.mGifVew = (GifView) findViewById(R.id.obfuscated_res_0x7f090c79);
-            if (this.width != 0 && this.height != 0) {
-                layoutParams = new FrameLayout.LayoutParams(this.width, this.height, 17);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0914e4);
+            this.a = navigationBar;
+            navigationBar.setTitleText(getString(R.string.obfuscated_res_0x7f0f0546));
+            this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
+            this.b = (GifView) findViewById(R.id.obfuscated_res_0x7f090c69);
+            if (this.l != 0 && this.m != 0) {
+                layoutParams = new FrameLayout.LayoutParams(this.l, this.m, 17);
             } else {
-                layoutParams = new FrameLayout.LayoutParams(this.adviceWidth, this.adviceHeight, 17);
+                layoutParams = new FrameLayout.LayoutParams(this.n, this.o, 17);
             }
-            this.mGifVew.setLayoutParams(layoutParams);
-            boolean c = ub5.c();
+            this.b.setLayoutParams(layoutParams);
+            boolean c = hc5.c();
             GifInfo gifInfo = new GifInfo();
-            gifInfo.mSharpText = this.sharpText;
-            gifInfo.mGid = this.pid;
-            gifInfo.mGifHeight = this.height;
-            gifInfo.mGifWidth = this.width;
+            gifInfo.mSharpText = this.k;
+            gifInfo.mGid = this.f;
+            gifInfo.mGifHeight = this.m;
+            gifInfo.mGifWidth = this.l;
             if (c) {
-                gifInfo.mDynamicUrl = this.gifUrl;
+                gifInfo.mDynamicUrl = this.i;
             } else {
-                gifInfo.mStaticUrl = this.staticUrl;
+                gifInfo.mStaticUrl = this.j;
             }
-            this.mGifVew.i0(gifInfo);
-            this.mIcon = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09086d);
-            if (!TextUtils.isEmpty(this.iconUrl)) {
-                this.mIcon.K(this.iconUrl, 10, false);
+            this.b.i0(gifInfo);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090858);
+            if (!TextUtils.isEmpty(this.h)) {
+                this.c.J(this.h, 10, false);
             } else {
-                Bitmap f = u66.f(this.pid, "panel.png");
+                Bitmap f = u76.f(this.f, "panel.png");
                 if (f != null) {
-                    new um(f, false).h(this.mIcon);
+                    new ym(f, false).h(this.c);
                 }
             }
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090890);
-            this.mPName = textView;
-            textView.setText(this.pname);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f09085d);
-            this.mDetail = textView2;
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09087b);
+            this.d = textView;
+            textView.setText(this.g);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f090848);
+            this.e = textView2;
             textView2.setOnClickListener(new b(this));
         }
     }
@@ -206,29 +205,29 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
             getLayoutMode().k(i == 1);
-            getLayoutMode().j(findViewById(R.id.obfuscated_res_0x7f09086e));
-            this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+            getLayoutMode().j(findViewById(R.id.obfuscated_res_0x7f090859));
+            this.a.onChangeSkinType(getPageContext(), i);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0248);
-            initData(bundle);
-            initUI();
+            setContentView(R.layout.obfuscated_res_0x7f0d0245);
+            C1(bundle);
+            D1();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
         }
     }
@@ -236,16 +235,16 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
     @Override // android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
-            bundle.putString("pid", this.pid);
-            bundle.putString("panme", this.pname);
-            bundle.putString("iconUrl", this.iconUrl);
-            bundle.putString("gifUrl", this.gifUrl);
-            bundle.putString("staticUrl", this.staticUrl);
-            bundle.putString("sharpText", this.sharpText);
-            bundle.putInt("width", this.width);
-            bundle.putInt("height", this.height);
+            bundle.putString("pid", this.f);
+            bundle.putString("panme", this.g);
+            bundle.putString("iconUrl", this.h);
+            bundle.putString("gifUrl", this.i);
+            bundle.putString("staticUrl", this.j);
+            bundle.putString("sharpText", this.k);
+            bundle.putInt("width", this.l);
+            bundle.putInt("height", this.m);
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.tieba.write.transmit.model;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,45 +40,49 @@ public class GetRepostForumSocketResMessage extends SocketResponsedMessage {
         }
     }
 
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            GetRepostRecommendForumResIdl getRepostRecommendForumResIdl = (GetRepostRecommendForumResIdl) new Wire(new Class[0]).parseFrom(bArr, GetRepostRecommendForumResIdl.class);
+            if (getRepostRecommendForumResIdl != null) {
+                Error error = getRepostRecommendForumResIdl.error;
+                if (error != null) {
+                    setError(error.errorno.intValue());
+                    setErrorString(getRepostRecommendForumResIdl.error.usermsg);
+                    if (getError() != 0) {
+                        return getRepostRecommendForumResIdl;
+                    }
+                }
+                DataRes dataRes = getRepostRecommendForumResIdl.data;
+                if (dataRes != null) {
+                    this.forumList = dataRes.recommend_forum_list;
+                    this.recommendExt = dataRes.recommend_ext;
+                    this.privateThread = dataRes.priv_thread.intValue();
+                }
+            }
+            return getRepostRecommendForumResIdl;
+        }
+        return invokeIL.objValue;
+    }
+
     public List<SimpleForum> getForumList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.forumList : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.forumList : (List) invokeV.objValue;
     }
 
     public int getPrivateThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.privateThread : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.privateThread : invokeV.intValue;
     }
 
     public String getRecommendExtension() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.recommendExt : (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        GetRepostRecommendForumResIdl getRepostRecommendForumResIdl;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getRepostRecommendForumResIdl = (GetRepostRecommendForumResIdl) new Wire(new Class[0]).parseFrom(bArr, GetRepostRecommendForumResIdl.class)) == null) {
-            return;
-        }
-        Error error = getRepostRecommendForumResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(getRepostRecommendForumResIdl.error.usermsg);
-            if (getError() != 0) {
-                return;
-            }
-        }
-        DataRes dataRes = getRepostRecommendForumResIdl.data;
-        if (dataRes != null) {
-            this.forumList = dataRes.recommend_forum_list;
-            this.recommendExt = dataRes.recommend_ext;
-            this.privateThread = dataRes.priv_thread.intValue();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.recommendExt : (String) invokeV.objValue;
     }
 }

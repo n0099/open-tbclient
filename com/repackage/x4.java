@@ -1,7 +1,5 @@
 package com.repackage;
 
-import com.badlogic.gdx.math.Quaternion;
-import com.badlogic.gdx.math.Vector3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -11,9 +9,8 @@ public class x4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public y6<y4<Vector3>> b;
-    public y6<y4<Quaternion>> c;
-    public y6<y4<Vector3>> d;
+    public short[] b;
+    public int c;
 
     public x4() {
         Interceptable interceptable = $ic;

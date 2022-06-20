@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ap4;
-/* loaded from: classes2.dex */
+import com.repackage.kp4;
+/* loaded from: classes3.dex */
 public class PbCommentFloatActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTIVITY_RESULT_DELETE = 1;
@@ -286,8 +286,8 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
             }
             Intent intent = getIntent();
             intent.putExtra("thread_id", threadData.getTid());
-            if (threadData.getTopAgreePost() != null && !StringUtils.isNull(threadData.getTopAgreePost().I())) {
-                intent.putExtra("god_reply_id", threadData.getTopAgreePost().I());
+            if (threadData.getTopAgreePost() != null && !StringUtils.isNull(threadData.getTopAgreePost().J())) {
+                intent.putExtra("god_reply_id", threadData.getTopAgreePost().J());
             }
             intent.putExtra("is_good", threadData.getIs_good());
             intent.putExtra("is_top", threadData.getIs_top());
@@ -768,13 +768,13 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
         intent.putExtra("lego_pre_load_data", str);
     }
 
-    public void setRecomData(ap4 ap4Var) {
+    public void setRecomData(kp4 kp4Var) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048620, this, ap4Var) == null) || (intent = getIntent()) == null || ap4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048620, this, kp4Var) == null) || (intent = getIntent()) == null || kp4Var == null) {
             return;
         }
-        ap4Var.c(intent);
+        kp4Var.c(intent);
     }
 
     public void setSmartFrsPosition(int i) {

@@ -1,30 +1,33 @@
 package com.repackage;
 
-import com.baidu.ala.widget.multicolumn.BdTypeMultiColumnListView;
+import android.graphics.drawable.ColorDrawable;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class xq5 {
+public abstract class xq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b9 a;
-    public final List<wm> b;
-    public BdTypeMultiColumnListView c;
-    public yq5 d;
-    public br5 e;
+    public int a;
+    public int b;
+    public TbPageContext c;
+    public lq5 d;
+    public View e;
 
-    public xq5(b9 b9Var, BdTypeMultiColumnListView bdTypeMultiColumnListView) {
+    public xq5(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {b9Var, bdTypeMultiColumnListView};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,43 +37,81 @@ public class xq5 {
                 return;
             }
         }
-        this.b = new ArrayList();
-        this.a = b9Var;
-        this.c = bdTypeMultiColumnListView;
-        a();
+        this.c = tbPageContext;
+        int k = pi.k(tbPageContext.getPageActivity());
+        this.a = k;
+        this.b = (int) ((k * 9.0d) / 16.0d);
     }
 
-    public final void a() {
+    public void a(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d = new yq5((TbPageContext) this.a, er5.b);
-            this.e = new br5((TbPageContext) this.a, er5.c);
-            this.b.add(this.d);
-            this.b.add(this.e);
-            this.c.addAdapters(this.b);
-        }
-    }
-
-    public void b(mm5 mm5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mm5Var) == null) {
-            yq5 yq5Var = this.d;
-            if (yq5Var != null) {
-                yq5Var.b0(mm5Var);
-            }
-            br5 br5Var = this.e;
-            if (br5Var != null) {
-                br5Var.b0(mm5Var);
-            }
-        }
-    }
-
-    public void c(List<jn> list) {
-        BdTypeMultiColumnListView bdTypeMultiColumnListView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || (bdTypeMultiColumnListView = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) || viewGroup == null) {
             return;
         }
-        bdTypeMultiColumnListView.setData(list);
+        viewGroup.removeAllViews();
+        viewGroup.addView(c());
     }
+
+    public void b(lq5 lq5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lq5Var) == null) {
+            this.d = lq5Var;
+        }
+    }
+
+    public abstract View c();
+
+    public abstract void d();
+
+    public View e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            this.e = new View(this.c.getPageActivity());
+            this.e.setLayoutParams(new FrameLayout.LayoutParams(this.a, this.b));
+            this.e.setBackgroundDrawable(new ColorDrawable(this.c.getPageActivity().getResources().getColor(R.color.black_alpha30)));
+            return this.e;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public abstract boolean f(lq5 lq5Var);
+
+    public abstract void g(boolean z);
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            int k = pi.k(this.c.getPageActivity());
+            this.a = k;
+            this.b = (int) ((k * 9.0d) / 16.0d);
+            View view2 = this.e;
+            if (view2 != null) {
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view2.getLayoutParams();
+                layoutParams.width = this.a;
+                layoutParams.height = this.b;
+                this.e.setLayoutParams(layoutParams);
+            }
+        }
+    }
+
+    public abstract void i(int i);
+
+    public abstract void j();
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        }
+    }
+
+    public abstract void m();
+
+    public abstract void n();
 }
