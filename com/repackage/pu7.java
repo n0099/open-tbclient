@@ -1,59 +1,16 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.face.SearchEmotionModel;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class pu7 {
+public class pu7 implements c55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Handler a;
-    public SearchEmotionModel b;
-    public String c;
-    public SearchEmotionModel.b d;
-    public Runnable e;
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pu7 a;
-
-        public a(pu7 pu7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pu7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pu7Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.a.c) || this.a.d == null) {
-                return;
-            }
-            if (this.a.b == null) {
-                this.a.b = new SearchEmotionModel();
-            }
-            this.a.b.z(this.a.c, 0, 30, this.a.d);
-        }
-    }
 
     public pu7() {
         Interceptable interceptable = $ic;
@@ -65,41 +22,15 @@ public class pu7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.e = new a(this);
-        this.a = new Handler();
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SearchEmotionModel searchEmotionModel = this.b;
-            if (searchEmotionModel != null) {
-                searchEmotionModel.cancelLoadData();
-            }
-            this.a.removeCallbacks(this.e);
         }
     }
 
-    public void f(String str) {
+    @Override // com.repackage.c55
+    @NonNull
+    public b55 b(@NonNull TbPageContext tbPageContext) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                this.c = "";
-                return;
-            }
-            this.a.removeCallbacks(this.e);
-            this.a.postDelayed(this.e, 300L);
-            this.c = str;
-        }
-    }
-
-    public void g(SearchEmotionModel.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.d = bVar;
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tbPageContext)) == null) ? new zs7(tbPageContext) : (b55) invokeL.objValue;
     }
 }

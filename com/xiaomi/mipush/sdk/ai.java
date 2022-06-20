@@ -1,71 +1,151 @@
 package com.xiaomi.mipush.sdk;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.xiaomi.push.hf;
+import com.xiaomi.push.Cif;
+import com.xiaomi.push.bm;
+import com.xiaomi.push.hj;
+import com.xiaomi.push.hy;
+import com.xiaomi.push.hz;
+import com.xiaomi.push.ia;
+import com.xiaomi.push.ie;
+import com.xiaomi.push.ii;
+import com.xiaomi.push.ik;
+import com.xiaomi.push.il;
+import com.xiaomi.push.im;
+import com.xiaomi.push.io;
+import com.xiaomi.push.iq;
+import com.xiaomi.push.is;
+import com.xiaomi.push.it;
+import com.xiaomi.push.iu;
+import java.nio.ByteBuffer;
 /* loaded from: classes8.dex */
-public /* synthetic */ class ai {
+public class ai {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ int[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1871206817, "Lcom/xiaomi/mipush/sdk/ai;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static <T extends iu<T, ?>> Cif a(Context context, T t, hj hjVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, t, hjVar)) == null) ? a(context, t, hjVar, !hjVar.equals(hj.a), context.getPackageName(), b.m126a(context).m127a()) : (Cif) invokeLLL.objValue;
+    }
+
+    public static <T extends iu<T, ?>> Cif a(Context context, T t, hj hjVar, boolean z, String str, String str2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, t, hjVar, Boolean.valueOf(z), str, str2})) == null) ? a(context, t, hjVar, z, str, str2, true) : (Cif) invokeCommon.objValue;
+    }
+
+    public static <T extends iu<T, ?>> Cif a(Context context, T t, hj hjVar, boolean z, String str, String str2, boolean z2) {
+        InterceptResult invokeCommon;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, t, hjVar, Boolean.valueOf(z), str, str2, Boolean.valueOf(z2)})) == null) {
+            byte[] a = it.a(t);
+            if (a != null) {
+                Cif cif = new Cif();
+                if (z) {
+                    String d = b.m126a(context).d();
+                    if (TextUtils.isEmpty(d)) {
+                        str3 = "regSecret is empty, return null";
+                    } else {
+                        try {
+                            a = com.xiaomi.push.i.b(bm.m197a(d), a);
+                        } catch (Exception unused) {
+                            com.xiaomi.channel.commonutils.logger.b.d("encryption error. ");
+                        }
+                    }
+                }
+                hy hyVar = new hy();
+                hyVar.f546a = 5L;
+                hyVar.f547a = "fakeid";
+                cif.a(hyVar);
+                cif.a(ByteBuffer.wrap(a));
+                cif.a(hjVar);
+                cif.b(z2);
+                cif.b(str);
+                cif.a(z);
+                cif.a(str2);
+                return cif;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1871206817, "Lcom/xiaomi/mipush/sdk/ai;");
-                return;
+            str3 = "invoke convertThriftObjectToBytes method, return null.";
+            com.xiaomi.channel.commonutils.logger.b.m84a(str3);
+            return null;
+        }
+        return (Cif) invokeCommon.objValue;
+    }
+
+    public static iu a(Context context, Cif cif) {
+        InterceptResult invokeLL;
+        byte[] m466a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, cif)) == null) {
+            if (cif.m468b()) {
+                byte[] a = i.a(context, cif, e.b);
+                if (a == null) {
+                    a = bm.m197a(b.m126a(context).d());
+                }
+                try {
+                    m466a = com.xiaomi.push.i.a(a, cif.m466a());
+                } catch (Exception e) {
+                    throw new u("the aes decrypt failed.", e);
+                }
+            } else {
+                m466a = cif.m466a();
+            }
+            iu a2 = a(cif.a(), cif.f626b);
+            if (a2 != null) {
+                it.a(a2, m466a);
+            }
+            return a2;
+        }
+        return (iu) invokeLL.objValue;
+    }
+
+    public static iu a(hj hjVar, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, hjVar, z)) == null) {
+            switch (aj.a[hjVar.ordinal()]) {
+                case 1:
+                    return new ik();
+                case 2:
+                    return new iq();
+                case 3:
+                    return new io();
+                case 4:
+                    return new is();
+                case 5:
+                    return new im();
+                case 6:
+                    return new hz();
+                case 7:
+                    return new ie();
+                case 8:
+                    return new il();
+                case 9:
+                    if (z) {
+                        return new ii();
+                    }
+                    ia iaVar = new ia();
+                    iaVar.a(true);
+                    return iaVar;
+                case 10:
+                    return new ie();
+                default:
+                    return null;
             }
         }
-        int[] iArr = new int[hf.values().length];
-        a = iArr;
-        try {
-            iArr[hf.a.ordinal()] = 1;
-        } catch (NoSuchFieldError unused) {
-        }
-        try {
-            a[hf.b.ordinal()] = 2;
-        } catch (NoSuchFieldError unused2) {
-        }
-        try {
-            a[hf.c.ordinal()] = 3;
-        } catch (NoSuchFieldError unused3) {
-        }
-        try {
-            a[hf.d.ordinal()] = 4;
-        } catch (NoSuchFieldError unused4) {
-        }
-        try {
-            a[hf.e.ordinal()] = 5;
-        } catch (NoSuchFieldError unused5) {
-        }
-        try {
-            a[hf.f.ordinal()] = 6;
-        } catch (NoSuchFieldError unused6) {
-        }
-        try {
-            a[hf.g.ordinal()] = 7;
-        } catch (NoSuchFieldError unused7) {
-        }
-        try {
-            a[hf.h.ordinal()] = 8;
-        } catch (NoSuchFieldError unused8) {
-        }
-        try {
-            a[hf.i.ordinal()] = 9;
-        } catch (NoSuchFieldError unused9) {
-        }
-        try {
-            a[hf.j.ordinal()] = 10;
-        } catch (NoSuchFieldError unused10) {
-        }
+        return (iu) invokeLZ.objValue;
+    }
+
+    public static <T extends iu<T, ?>> Cif b(Context context, T t, hj hjVar, boolean z, String str, String str2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, t, hjVar, Boolean.valueOf(z), str, str2})) == null) ? a(context, t, hjVar, z, str, str2, false) : (Cif) invokeCommon.objValue;
     }
 }

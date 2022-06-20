@@ -46,7 +46,7 @@ public class e extends g implements View.OnClickListener {
         int i = (int) ((((float) (j - j2)) / 1000.0f) + 0.5f);
         if (i < 0) {
             this.g.setVisibility(8);
-            this.h.setText(q().getString(R.string.obfuscated_res_0x7f0f09bc));
+            this.h.setText(q().getString(R.string.obfuscated_res_0x7f0f09c1));
             r();
         } else if (i == 0) {
         } else {
@@ -59,7 +59,7 @@ public class e extends g implements View.OnClickListener {
 
     private void a(final String str) {
         if (at.a(str) || !FrameSequence.isEnable()) {
-            this.f.setImageResource(R.drawable.obfuscated_res_0x7f080cc5);
+            this.f.setImageResource(R.drawable.obfuscated_res_0x7f080cb0);
         } else {
             KSImageLoader.loadImage(str, this.i, KSImageLoader.IMGOPTION_ENTRY_FS(), new SimpleImageLoadingListener() { // from class: com.kwad.sdk.reward.presenter.platdetail.kwai.e.2
                 @Override // com.kwad.sdk.core.imageloader.core.listener.SimpleImageLoadingListener, com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
@@ -108,7 +108,7 @@ public class e extends g implements View.OnClickListener {
         String a = com.kwad.sdk.core.response.a.c.a(this.i);
         this.k = a;
         if (at.a(a)) {
-            this.k = q().getString(R.string.obfuscated_res_0x7f0f09bb);
+            this.k = q().getString(R.string.obfuscated_res_0x7f0f09c0);
         }
         a(com.kwad.sdk.core.response.a.c.b(this.i));
         a(b, 0L);
@@ -146,20 +146,20 @@ public class e extends g implements View.OnClickListener {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.c = (TextView) a(R.id.obfuscated_res_0x7f091132);
-        this.b = (ImageView) a(R.id.obfuscated_res_0x7f091147);
-        this.d = (ImageView) a(R.id.obfuscated_res_0x7f091030);
-        ViewGroup viewGroup = (ViewGroup) a(R.id.obfuscated_res_0x7f0910b7);
+        this.c = (TextView) a(R.id.obfuscated_res_0x7f091122);
+        this.b = (ImageView) a(R.id.obfuscated_res_0x7f091137);
+        this.d = (ImageView) a(R.id.obfuscated_res_0x7f091020);
+        ViewGroup viewGroup = (ViewGroup) a(R.id.obfuscated_res_0x7f0910a7);
         this.e = viewGroup;
-        this.f = (WebpAnimationImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091032);
-        this.g = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091133);
-        this.h = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091033);
+        this.f = (WebpAnimationImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091022);
+        this.g = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091123);
+        this.h = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091023);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         if (view2 == this.e) {
-            com.kwad.sdk.core.download.a.a.a(new a.C0296a(view2.getContext()).a(this.i).a(this.j).a(2).a(new a.b() { // from class: com.kwad.sdk.reward.presenter.platdetail.kwai.e.3
+            com.kwad.sdk.core.download.a.a.a(new a.C0304a(view2.getContext()).a(this.i).a(this.j).a(2).a(new a.b() { // from class: com.kwad.sdk.reward.presenter.platdetail.kwai.e.3
                 @Override // com.kwad.sdk.core.download.a.a.b
                 public void a() {
                     e.this.i();

@@ -396,9 +396,9 @@ public class f {
             synchronized (g) {
                 if (PushSocket.a) {
                     if (n()) {
-                        boolean p = m.p(this.h);
-                        this.j = p;
-                        if (p) {
+                        boolean B = m.B(this.h);
+                        this.j = B;
+                        if (B) {
                             i();
                         }
                         g.b(this.h);
@@ -427,7 +427,7 @@ public class f {
                 intent = new Intent();
                 com.baidu.android.pushservice.f.a.c("PushSDK", "--- handleOnStart by null intent!", this.h);
             }
-            if (!com.baidu.android.pushservice.b.d.q(this.h) || com.baidu.android.pushservice.b.d.c(this.h)) {
+            if (!com.baidu.android.pushservice.b.d.r(this.h) || com.baidu.android.pushservice.b.d.c(this.h)) {
                 int intExtra = intent.getIntExtra("push_start_source", 0);
                 if (!this.f.booleanValue()) {
                     a(intExtra);

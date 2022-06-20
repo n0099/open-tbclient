@@ -15,6 +15,7 @@ public final class AdLoadState {
     public static /* synthetic */ Interceptable $ic;
     public static final AdLoadState DISMISSED;
     public static final AdLoadState FAILED;
+    public static final AdLoadState FORCESHOW;
     public static final AdLoadState INIT;
     public static final AdLoadState LOADING;
     public static final AdLoadState SHOWED;
@@ -39,9 +40,10 @@ public final class AdLoadState {
         SUCCEED = new AdLoadState("SUCCEED", 2);
         FAILED = new AdLoadState("FAILED", 3);
         SHOWED = new AdLoadState("SHOWED", 4);
-        AdLoadState adLoadState = new AdLoadState("DISMISSED", 5);
-        DISMISSED = adLoadState;
-        $VALUES = new AdLoadState[]{INIT, LOADING, SUCCEED, FAILED, SHOWED, adLoadState};
+        DISMISSED = new AdLoadState("DISMISSED", 5);
+        AdLoadState adLoadState = new AdLoadState("FORCESHOW", 6);
+        FORCESHOW = adLoadState;
+        $VALUES = new AdLoadState[]{INIT, LOADING, SUCCEED, FAILED, SHOWED, DISMISSED, adLoadState};
     }
 
     public AdLoadState(String str, int i) {

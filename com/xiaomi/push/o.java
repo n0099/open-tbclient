@@ -1,5 +1,13 @@
 package com.xiaomi.push;
 
+import android.content.BroadcastReceiver;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Handler;
+import android.os.HandlerThread;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,18 +15,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes8.dex */
-public final class o {
+public class o {
     public static /* synthetic */ Interceptable $ic;
-    public static final o a;
+    public static volatile Handler a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ o[] f801a;
-    public static final o b;
-    public static final o c;
-    public static final o d;
-    public static final o e;
+    public static final Object f812a;
+    public static volatile Handler b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,43 +38,89 @@ public final class o {
                 return;
             }
         }
-        a = new o("China", 0);
-        b = new o("Global", 1);
-        c = new o("Europe", 2);
-        d = new o("Russia", 3);
-        o oVar = new o("India", 4);
-        e = oVar;
-        f801a = new o[]{a, b, c, d, oVar};
+        f812a = new Object();
     }
 
-    public o(String str, int i) {
+    public o() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                String str2 = (String) objArr2[0];
-                ((Integer) objArr2[1]).intValue();
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static o valueOf(String str) {
-        InterceptResult invokeL;
+    public static Intent a(Context context, BroadcastReceiver broadcastReceiver, IntentFilter intentFilter) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (o) Enum.valueOf(o.class, str) : (o) invokeL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, broadcastReceiver, intentFilter)) == null) ? a(context, broadcastReceiver, intentFilter, null) : (Intent) invokeLLL.objValue;
     }
 
-    public static o[] values() {
+    public static Intent a(Context context, BroadcastReceiver broadcastReceiver, IntentFilter intentFilter, String str) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, context, broadcastReceiver, intentFilter, str)) == null) {
+            if (context == null || broadcastReceiver == null || intentFilter == null) {
+                return null;
+            }
+            return context.registerReceiver(broadcastReceiver, intentFilter, str, b());
+        }
+        return (Intent) invokeLLLL.objValue;
+    }
+
+    public static Handler a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (o[]) f801a.clone() : (o[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (b == null) {
+                synchronized (f812a) {
+                    if (b == null) {
+                        HandlerThread handlerThread = new HandlerThread("receiver_task");
+                        handlerThread.start();
+                        b = new Handler(handlerThread.getLooper());
+                    }
+                }
+            }
+            return b;
+        }
+        return (Handler) invokeV.objValue;
+    }
+
+    public static void a(Context context, ComponentName componentName) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, componentName) == null) {
+            b().post(new p(context, componentName));
+        }
+    }
+
+    public static void a(Context context, Class<?> cls) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65542, null, context, cls) == null) || context == null || cls == null) {
+            return;
+        }
+        a(context, new ComponentName(context, cls));
+    }
+
+    public static Handler b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (a == null) {
+                synchronized (o.class) {
+                    if (a == null) {
+                        HandlerThread handlerThread = new HandlerThread("handle_receiver");
+                        handlerThread.start();
+                        a = new Handler(handlerThread.getLooper());
+                    }
+                }
+            }
+            return a;
+        }
+        return (Handler) invokeV.objValue;
     }
 }

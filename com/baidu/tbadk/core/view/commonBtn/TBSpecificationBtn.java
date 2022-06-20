@@ -22,8 +22,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
-import com.repackage.ot4;
+import com.repackage.pi;
+import com.repackage.xt4;
 /* loaded from: classes3.dex */
 public class TBSpecificationBtn extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -222,12 +222,12 @@ public class TBSpecificationBtn extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.l = TbadkCoreApplication.getInst().getSkinType();
-            ot4 ot4Var = new ot4();
-            this.b = ot4Var;
-            ot4Var.t = this.n;
+            xt4 xt4Var = new xt4();
+            this.b = xt4Var;
+            xt4Var.t = this.n;
             Paint paint = new Paint();
             this.d = paint;
-            paint.setTextSize(li.f(getContext(), R.dimen.T_X08));
+            paint.setTextSize(pi.f(getContext(), R.dimen.T_X08));
             this.d.setAntiAlias(true);
         }
     }
@@ -311,12 +311,12 @@ public class TBSpecificationBtn extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
             super.onMeasure(i, i2);
-            int r = r(i);
-            setMeasuredDimension(r, !this.b.i ? q(i2) : r);
+            int q = q(i);
+            setMeasuredDimension(q, !this.b.i ? p(i2) : q);
         }
     }
 
-    public final int q(int i) {
+    public final int p(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
@@ -329,7 +329,7 @@ public class TBSpecificationBtn extends View {
         return invokeI.intValue;
     }
 
-    public final int r(int i) {
+    public final int q(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
@@ -399,7 +399,7 @@ public class TBSpecificationBtn extends View {
     public void setTextSize(@DimenRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.d.setTextSize(li.f(getContext(), i));
+            this.d.setTextSize(pi.f(getContext(), i));
             Paint paint = this.d;
             String str = this.e;
             paint.getTextBounds(str, 0, str.length(), this.h);

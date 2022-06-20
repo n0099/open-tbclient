@@ -1,101 +1,164 @@
 package com.repackage;
 
-import android.text.SpannableStringBuilder;
-import android.text.style.ForegroundColorSpan;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.widget.layout.FrsBaseVideoView;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.iw5;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class jw5 extends nv5<ThreadData> implements bi5 {
+public class jw5 implements iw5, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final View i;
-    public TbPageContext<?> j;
-    public HeadImageView k;
-    public TextView l;
-    public TextView m;
-    public TextView n;
-    public ThreadData o;
-    public hw5 p;
-    public FrsBaseVideoView q;
+    public TbPageContext a;
+    public LinearLayout b;
+    public TextView c;
+    public TextView d;
+    public TextView e;
+    public TextView f;
+    public TextView g;
+    public hw5 h;
+    public iw5.a i;
+    public int j;
+    public Map<Integer, Float> k;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jw5(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
-        super(tbPageContext, viewGroup);
+    public jw5(TbPageContext tbPageContext, hw5 hw5Var, iw5.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup};
+            Object[] objArr = {tbPageContext, hw5Var, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        View k = k();
-        k.setOnClickListener(this);
-        this.j = tbPageContext;
-        HeadImageView headImageView = (HeadImageView) k.findViewById(R.id.obfuscated_res_0x7f0920d7);
-        this.k = headImageView;
-        headImageView.setIsRound(true);
-        this.k.setDefaultResource(R.drawable.obfuscated_res_0x7f080f4c);
-        this.l = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090585);
-        this.n = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090574);
-        this.m = (TextView) k.findViewById(R.id.obfuscated_res_0x7f09056f);
-        this.i = k.findViewById(R.id.obfuscated_res_0x7f0904f4);
-        FrsBaseVideoView frsBaseVideoView = (FrsBaseVideoView) k.findViewById(R.id.obfuscated_res_0x7f090329);
-        this.q = frsBaseVideoView;
-        frsBaseVideoView.setClickListener(this);
+        this.j = 0;
+        this.k = new HashMap();
+        this.a = tbPageContext;
+        this.h = hw5Var;
+        this.i = aVar;
+        e();
     }
 
-    @Override // com.repackage.bi5
-    public void b(String str) {
+    @Override // com.repackage.iw5
+    public float a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.k.get(Integer.valueOf(this.j)).floatValue() : invokeV.floatValue;
+    }
+
+    @Override // com.repackage.iw5
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b.getVisibility() : invokeV.intValue;
+    }
+
+    @Override // com.repackage.iw5
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b.setVisibility(i);
         }
     }
 
-    @Override // com.repackage.nv5
-    public int d() {
+    @Override // com.repackage.iw5
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d031f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.j != 0 : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.nv5
-    public void m(TbPageContext<?> tbPageContext, int i) {
+    public boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
-            this.k.invalidate();
-            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0105);
-            SkinManager.setBackgroundResource(k(), R.drawable.addresslist_item_bg);
-            SkinManager.setBackgroundColor(this.i, R.color.CAM_X0204);
-            FrsBaseVideoView frsBaseVideoView = this.q;
-            if (frsBaseVideoView != null) {
-                frsBaseVideoView.h(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            this.k.put(0, Float.valueOf(1.0f));
+            this.k.put(1, Float.valueOf(0.5f));
+            this.k.put(2, Float.valueOf(0.33333334f));
+            this.k.put(3, Float.valueOf(2.0f));
+            this.k.put(4, Float.valueOf(3.0f));
+            f();
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b = (LinearLayout) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f090498);
+            this.c = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091d42);
+            this.d = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091d41);
+            this.e = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091d40);
+            this.f = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091d3d);
+            this.g = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091d3e);
+            this.c.setOnClickListener(this);
+            this.d.setOnClickListener(this);
+            this.e.setOnClickListener(this);
+            this.f.setOnClickListener(this);
+            this.g.setOnClickListener(this);
+            fr4 d = fr4.d(this.b);
+            d.n(R.string.J_X05);
+            d.f(R.color.CAM_X0214);
+            h(this.e, true);
+            h(this.c, false);
+            h(this.d, false);
+            h(this.f, false);
+            h(this.g, false);
+        }
+    }
+
+    public final void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            i(this.j, false);
+            this.j = i;
+            i(i, true);
+            hw5 hw5Var = this.h;
+            if (hw5Var != null) {
+                hw5Var.a(a());
+            }
+        }
+    }
+
+    public final void h(TextView textView, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048583, this, textView, z) == null) {
+            textView.setTextColor(this.a.getResources().getColor(z ? R.color.CAM_X0302 : R.color.CAM_X0101));
+            textView.setTextSize(0, UtilHelper.getDimenPixelSize(z ? R.dimen.T_X05 : R.dimen.T_X07));
+        }
+    }
+
+    public final void i(int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            if (i == 0) {
+                h(this.e, z);
+            } else if (i == 1) {
+                h(this.d, z);
+            } else if (i == 2) {
+                h(this.c, z);
+            } else if (i == 3) {
+                h(this.f, z);
+            } else if (i != 4) {
+            } else {
+                h(this.g, z);
             }
         }
     }
@@ -103,63 +166,41 @@ public class jw5 extends nv5<ThreadData> implements bi5 {
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, view2) == null) || this.o == null) {
-            return;
-        }
-        if (e() != null) {
-            e().b(view2, this.o, this.p);
-        }
-        yv5.a(this.o.getTid());
-        yv5.l(this.n, this.o.getTid(), R.color.CAM_X0105, R.color.CAM_X0109);
-        s();
-    }
-
-    public final void s() {
-        ThreadData threadData;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (threadData = this.o) == null || threadData.getAuthor() == null || this.o.getAuthor().getName_show() == null) {
-            return;
-        }
-        String name_show = this.o.getAuthor().getName_show();
-        HotTopicActivityConfig hotTopicActivityConfig = new HotTopicActivityConfig(getContext());
-        HotTopicActivityConfig createNormalConfig = hotTopicActivityConfig.createNormalConfig("", name_show + "", "3");
-        createNormalConfig.setExtra(this.o.getFid(), this.o.getFirstClassName(), this.o.getSecondClassName(), jg.g(this.o.getTid(), 0L));
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.nv5
-    /* renamed from: t */
-    public void l(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, threadData) == null) {
-            if (threadData == null) {
-                if (k() != null) {
-                    k().setVisibility(8);
-                    return;
+        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091d42) {
+                iw5.a aVar = this.i;
+                if (aVar == null || aVar.a(2)) {
+                    g(2);
                 }
-                return;
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d41) {
+                iw5.a aVar2 = this.i;
+                if (aVar2 == null || aVar2.a(1)) {
+                    g(1);
+                }
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d40) {
+                iw5.a aVar3 = this.i;
+                if (aVar3 == null || aVar3.a(0)) {
+                    g(0);
+                }
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d3d) {
+                iw5.a aVar4 = this.i;
+                if (aVar4 == null || aVar4.a(3)) {
+                    g(3);
+                }
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d3e) {
+                iw5.a aVar5 = this.i;
+                if (aVar5 == null || aVar5.a(4)) {
+                    g(4);
+                }
             }
-            this.o = threadData;
-            if (k() != null) {
-                k().setVisibility(0);
-                k().setOnClickListener(this);
-            }
-            FrsBaseVideoView frsBaseVideoView = this.q;
-            if (frsBaseVideoView != null) {
-                frsBaseVideoView.g(this.o, threadData.getHotTopicInfo());
-            }
-            if (threadData.getAuthor() != null) {
-                this.l.setText(threadData.getAuthor().getName_show());
-            }
-            this.m.setText(StringHelper.getFormatTime(threadData.getLast_time_int() * 1000));
-            String str = threadData.getTopicUserName() + "：";
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.append((CharSequence) threadData.parseTitleOrAbstractForFrsNew(false, true));
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), 0, str.length(), 33);
-            this.n.setText(spannableStringBuilder);
-            yv5.l(this.n, this.o.getTid(), R.color.CAM_X0105, R.color.CAM_X0109);
-            m(this.j, TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
+
+    @Override // com.repackage.iw5
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            g(0);
         }
     }
 }

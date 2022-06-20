@@ -30,14 +30,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cx;
-import com.repackage.fn;
-import com.repackage.hn;
-import com.repackage.ip4;
-import com.repackage.kl4;
-import com.repackage.li;
+import com.repackage.gx;
+import com.repackage.jn;
+import com.repackage.ln;
+import com.repackage.pi;
+import com.repackage.sp4;
+import com.repackage.ul4;
 /* loaded from: classes3.dex */
-public class ConcernRecommendLayout extends LinearLayout implements cx {
+public class ConcernRecommendLayout extends LinearLayout implements gx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
@@ -45,7 +45,7 @@ public class ConcernRecommendLayout extends LinearLayout implements cx {
     public TextView c;
     public RecyclerView d;
     public ConcernRecommendListAdapter e;
-    public hn f;
+    public ln f;
     public int g;
     public CustomMessageListener h;
 
@@ -83,7 +83,7 @@ public class ConcernRecommendLayout extends LinearLayout implements cx {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
                     if (this.a.f == null) {
-                        this.a.f = new hn(new fn());
+                        this.a.f = new ln(new jn());
                     }
                     this.a.f.q(this.a.d, 1);
                 } else if (this.a.f != null) {
@@ -117,7 +117,7 @@ public class ConcernRecommendLayout extends LinearLayout implements cx {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01ef, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01ec, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092017);
@@ -127,26 +127,26 @@ public class ConcernRecommendLayout extends LinearLayout implements cx {
             this.d.setAdapter(concernRecommendListAdapter);
             this.d.setClipChildren(false);
             if (TbSingleton.getInstance().isSlideAnimEnable()) {
-                hn hnVar = new hn(new fn());
-                this.f = hnVar;
-                hnVar.q(this.d, 1);
+                ln lnVar = new ln(new jn());
+                this.f = lnVar;
+                lnVar.q(this.d, 1);
             }
-            int f = li.f(this.a, R.dimen.tbds21);
-            int f2 = li.f(this.a, R.dimen.tbds44);
+            int f = pi.f(this.a, R.dimen.tbds21);
+            int f2 = pi.f(this.a, R.dimen.tbds44);
             this.d.setLayoutManager(new LinearLayoutManager(this.a, 0, false));
             this.d.setItemAnimator(new DefaultItemAnimator());
             this.d.addItemDecoration(new SpaceItemDecoration(f2, f, f2));
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.d.getLayoutParams();
             if (UbsABTestHelper.showNewUI()) {
-                layoutParams.bottomMargin = li.f(this.a, R.dimen.tbds39);
+                layoutParams.bottomMargin = pi.f(this.a, R.dimen.tbds39);
             } else {
-                layoutParams.bottomMargin = li.f(this.a, R.dimen.tbds22);
+                layoutParams.bottomMargin = pi.f(this.a, R.dimen.tbds22);
             }
             this.d.setLayoutParams(layoutParams);
         }
     }
 
-    @Override // com.repackage.cx
+    @Override // com.repackage.gx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
@@ -166,27 +166,27 @@ public class ConcernRecommendLayout extends LinearLayout implements cx {
         }
     }
 
-    public void setData(ip4 ip4Var) {
+    public void setData(sp4 sp4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ip4Var) == null) {
-            if (ip4Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, sp4Var) == null) {
+            if (sp4Var == null) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            if (!TextUtils.isEmpty(ip4Var.a) && ip4Var.b != 0) {
-                this.c.setTextSize(0, li.f(this.a, R.dimen.tbds37));
-                this.c.setText(ip4Var.a);
+            if (!TextUtils.isEmpty(sp4Var.a) && sp4Var.b != 0) {
+                this.c.setTextSize(0, pi.f(this.a, R.dimen.tbds37));
+                this.c.setText(sp4Var.a);
                 this.c.setTypeface(Typeface.DEFAULT_BOLD);
-                this.g = ip4Var.b;
+                this.g = sp4Var.b;
             } else {
-                this.c.setTextSize(0, li.f(this.a, R.dimen.tbds37));
-                this.c.setText(R.string.obfuscated_res_0x7f0f0429);
+                this.c.setTextSize(0, pi.f(this.a, R.dimen.tbds37));
+                this.c.setText(R.string.obfuscated_res_0x7f0f041a);
                 this.c.setTypeface(Typeface.DEFAULT_BOLD);
                 this.g = R.color.CAM_X0105;
             }
             this.e.h(TbadkCoreApplication.getInst().getSkinType());
-            this.e.setData(ip4Var.e());
+            this.e.setData(sp4Var.c());
             this.e.notifyDataSetChanged();
         }
     }
@@ -198,10 +198,10 @@ public class ConcernRecommendLayout extends LinearLayout implements cx {
         }
     }
 
-    public void setOnItemCoverListener(kl4<MetaData> kl4Var) {
+    public void setOnItemCoverListener(ul4<MetaData> ul4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, kl4Var) == null) {
-            this.e.l(kl4Var);
+        if (interceptable == null || interceptable.invokeL(1048581, this, ul4Var) == null) {
+            this.e.l(ul4Var);
         }
     }
 

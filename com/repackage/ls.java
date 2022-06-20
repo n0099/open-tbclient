@@ -1,6 +1,7 @@
 package com.repackage;
-
-import com.baidu.bdtask.framework.ui.mvvm.IViewData;
 /* loaded from: classes6.dex */
-public interface ls<ViewData extends IViewData> {
+public interface ls {
+    void a();
+
+    void b();
 }

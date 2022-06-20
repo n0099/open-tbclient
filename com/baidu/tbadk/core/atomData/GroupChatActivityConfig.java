@@ -6,12 +6,13 @@ import android.content.Intent;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.GroupData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GroupChatActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTO_SEND_EXTRA_MSG = "auto_send_extra_msg";
@@ -98,7 +99,7 @@ public class GroupChatActivityConfig extends IntentConfig {
         Intent intent = getIntent();
         intent.putExtra(GROUP_AUTHOR_ID, String.valueOf(groupData.getAuthorId()));
         intent.putExtra(GROUP_OBJ_TP, str2);
-        intent.putExtra("chat_mode", 0);
+        intent.putExtra(TbEnum.ParamKey.CHAT_MODE, 0);
         intent.putExtra("group", groupData);
         intent.putExtra(IntentConfig.IS_ACCEPT_NOTIFY, true);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
@@ -133,7 +134,7 @@ public class GroupChatActivityConfig extends IntentConfig {
         Intent intent = getIntent();
         intent.putExtra(GROUP_AUTHOR_ID, String.valueOf(groupData.getAuthorId()));
         intent.putExtra(GROUP_OBJ_TP, str2);
-        intent.putExtra("chat_mode", 0);
+        intent.putExtra(TbEnum.ParamKey.CHAT_MODE, 0);
         intent.putExtra("group", groupData);
         intent.putExtra(IntentConfig.IS_ACCEPT_NOTIFY, true);
         if (str3 != null) {

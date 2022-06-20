@@ -1,119 +1,45 @@
 package com.repackage;
 
-import android.util.SparseIntArray;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class rg8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] c;
-    public static final int[] d;
-    public static final int[] e;
-    public static final int[] f;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseIntArray a;
-    public final int[] b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755351186, "Lcom/repackage/rg8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static boolean a(String str, Boolean bool) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, bool)) == null) {
+            if (SwitchManager.getInstance().findType("voice") != 0 || ((str != null && b(str)) || bool == null)) {
+                return false;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755351186, "Lcom/repackage/rg8;");
-                return;
-            }
+            return bool.booleanValue();
         }
-        c = new int[]{3, 8, 13};
-        d = new int[]{2, 12};
-        e = new int[]{20};
-        f = new int[]{3, 13, 23};
+        return invokeLL.booleanValue;
     }
 
-    public rg8(String str, int[] iArr) {
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, iArr};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = iArr;
-        this.a = new SparseIntArray();
-    }
-
-    public void a(int i, int i2) {
-        SparseIntArray sparseIntArray;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) || i < 0 || i2 < 0 || (sparseIntArray = this.a) == null) {
-            return;
-        }
-        sparseIntArray.append(i2, i);
-    }
-
-    public int b(int i) {
-        InterceptResult invokeI;
-        SparseIntArray sparseIntArray;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i >= 0 && (sparseIntArray = this.a) != null) {
-                return sparseIntArray.get(i, -1);
-            }
-            return -1;
-        }
-        return invokeI.intValue;
-    }
-
-    public void c(int i) {
-        SparseIntArray sparseIntArray;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (sparseIntArray = this.a) == null) {
-            return;
-        }
-        sparseIntArray.delete(i);
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            e(0);
-        }
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            if (i < 0) {
-                i = 0;
-            }
-            SparseIntArray sparseIntArray = this.a;
-            if (sparseIntArray != null) {
-                sparseIntArray.clear();
-                int[] iArr = this.b;
-                if (iArr != null) {
-                    for (int i2 : iArr) {
-                        if (i2 >= 0) {
-                            this.a.append(i2 + i, i2);
-                        }
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            String[] stringArray = TbadkCoreApplication.getInst().getApp().getResources().getStringArray(R.array.obfuscated_res_0x7f030014);
+            String string = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f0646);
+            int length = stringArray.length;
+            for (int i = 0; i < length; i++) {
+                if (stringArray[i].equals(str)) {
+                    return true;
+                }
+                if (str.equals(stringArray[i] + string)) {
+                    return true;
                 }
             }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 }

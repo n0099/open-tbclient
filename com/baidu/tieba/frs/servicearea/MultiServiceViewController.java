@@ -31,22 +31,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fg8;
-import com.repackage.gg8;
-import com.repackage.id6;
-import com.repackage.il6;
-import com.repackage.jg;
-import com.repackage.kl6;
-import com.repackage.li;
+import com.repackage.ie6;
+import com.repackage.lm6;
+import com.repackage.ng;
+import com.repackage.nm6;
+import com.repackage.pi;
+import com.repackage.yg8;
+import com.repackage.zg8;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class MultiServiceViewController implements il6 {
+public class MultiServiceViewController implements lm6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
     public RecyclerView b;
-    public List<gg8> c;
+    public List<zg8> c;
     public FrsViewData d;
     public RecyclerView.Adapter e;
 
@@ -58,7 +58,7 @@ public class MultiServiceViewController implements il6 {
         public FrameLayout b;
         public TbClipImageView c;
         public TextView d;
-        public gg8 e;
+        public zg8 e;
         public List<String> f;
         public FrsViewData g;
         public View.OnClickListener h;
@@ -92,24 +92,24 @@ public class MultiServiceViewController implements il6 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                     if (this.a.e != null && "tiebaclient://accelerator".equals(this.a.e.d)) {
-                        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new id6(3));
+                        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new ie6(3));
                         CustomMessage customMessage = new CustomMessage(2921662);
                         customMessage.setTag(this.a.g.getFrsFragmentTag());
                         customResponsedMessage.setOrginalMessage(customMessage);
                         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                     }
-                    if (!TextUtils.equals(view2.getResources().getString(R.string.obfuscated_res_0x7f0f0894), this.a.e.b) || this.a.g == null || this.a.g.getForum() == null || TextUtils.isEmpty(this.a.g.getForum().getId())) {
+                    if (!TextUtils.equals(view2.getResources().getString(R.string.obfuscated_res_0x7f0f0891), this.a.e.b) || this.a.g == null || this.a.g.getForum() == null || TextUtils.isEmpty(this.a.g.getForum().getId())) {
                         if (this.a.e != null && this.a.e.f != null) {
                             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", this.a.e.g).param("obj_source", "frs_card").param("obj_id", this.a.e.f.b).param("obj_name", this.a.e.f.a).param("obj_param1", this.a.e.f.d.intValue()));
                         }
                         if (this.a.e != null && !"tiebaclient://accelerator".equals(this.a.e.d)) {
-                            kl6.b(view2.getContext(), this.a.e);
+                            nm6.b(view2.getContext(), this.a.e);
                         }
-                        kl6.c(this.a.e);
+                        nm6.c(this.a.e);
                         return;
                     }
                     HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(view2.getContext());
-                    hotUserRankActivityConfig.setForumId(Long.valueOf(jg.g(this.a.g.getForum().getId(), 0L)));
+                    hotUserRankActivityConfig.setForumId(Long.valueOf(ng.g(this.a.g.getForum().getId(), 0L)));
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotUserRankActivityConfig));
                     StatisticItem statisticItem = new StatisticItem("c13666");
                     statisticItem.param("fid", this.a.g.getForum().getId());
@@ -146,7 +146,7 @@ public class MultiServiceViewController implements il6 {
             this.a.setOrientation(0);
             this.b = new FrameLayout(context);
             this.c = new TbClipImageView(context);
-            int f = li.f(context, R.dimen.tbds57);
+            int f = pi.f(context, R.dimen.tbds57);
             this.c.setDrawerType(1);
             this.c.setIsRound(true);
             this.c.setBorderWidth(R.dimen.L_X01);
@@ -154,38 +154,38 @@ public class MultiServiceViewController implements il6 {
             this.c.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.c.setPlaceHolder(1);
             this.b.addView(this.c, new FrameLayout.LayoutParams(f, f));
-            this.a.addView(this.b, new LinearLayout.LayoutParams(-2, li.f(this.c.getContext(), R.dimen.tbds62)));
+            this.a.addView(this.b, new LinearLayout.LayoutParams(-2, pi.f(this.c.getContext(), R.dimen.tbds62)));
             TextView textView = new TextView(context);
             this.d = textView;
-            textView.setTextSize(0, li.f(context, R.dimen.T_X08));
+            textView.setTextSize(0, pi.f(context, R.dimen.T_X08));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.leftMargin = li.f(context, R.dimen.tbds10);
-            layoutParams.rightMargin = li.f(context, R.dimen.M_W_X008);
+            layoutParams.leftMargin = pi.f(context, R.dimen.tbds10);
+            layoutParams.rightMargin = pi.f(context, R.dimen.M_W_X008);
             this.a.addView(this.d, layoutParams);
             view2.setOnClickListener(this.h);
         }
 
-        public void c(gg8 gg8Var) {
+        public void c(zg8 zg8Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, gg8Var) == null) || gg8Var == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, zg8Var) == null) || zg8Var == null) {
                 return;
             }
-            this.e = gg8Var;
-            if (TextUtils.equals(this.itemView.getResources().getString(R.string.obfuscated_res_0x7f0f0894), gg8Var.b)) {
+            this.e = zg8Var;
+            if (TextUtils.equals(this.itemView.getResources().getString(R.string.obfuscated_res_0x7f0f0891), zg8Var.b)) {
                 this.c.setImageResource(R.drawable.icon_mask_service_celebrity24);
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.c.getLayoutParams();
-                layoutParams.width = li.f(this.c.getContext(), R.dimen.tbds62);
-                layoutParams.height = li.f(this.c.getContext(), R.dimen.tbds62);
+                layoutParams.width = pi.f(this.c.getContext(), R.dimen.tbds62);
+                layoutParams.height = pi.f(this.c.getContext(), R.dimen.tbds62);
             } else {
-                this.c.K(gg8Var.b, 10, false);
+                this.c.J(zg8Var.b, 10, false);
             }
-            this.d.setText(StringHelper.cutChineseAndEnglishWithSuffix(gg8Var.c, 10, ""));
+            this.d.setText(StringHelper.cutChineseAndEnglishWithSuffix(zg8Var.c, 10, ""));
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
-            if (this.f.contains(gg8Var.c)) {
+            if (this.f.contains(zg8Var.c)) {
                 return;
             }
-            kl6.d(gg8Var);
-            this.f.add(gg8Var.c);
+            nm6.d(zg8Var);
+            this.f.add(zg8Var.c);
         }
     }
 
@@ -219,7 +219,7 @@ public class MultiServiceViewController implements il6 {
         public void onBindViewHolder(ServiceViewHolder serviceViewHolder, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, serviceViewHolder, i) == null) {
-                serviceViewHolder.c((gg8) this.a.c.get(i));
+                serviceViewHolder.c((zg8) this.a.c.get(i));
             }
         }
 
@@ -265,28 +265,28 @@ public class MultiServiceViewController implements il6 {
         this.b.setAdapter(this.e);
     }
 
-    @Override // com.repackage.il6
-    public void a(fg8 fg8Var, FrsViewData frsViewData) {
+    @Override // com.repackage.lm6
+    public void a(yg8 yg8Var, FrsViewData frsViewData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, fg8Var, frsViewData) == null) || fg8Var == null || ListUtils.isEmpty(fg8Var.b)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, yg8Var, frsViewData) == null) || yg8Var == null || ListUtils.isEmpty(yg8Var.b)) {
             return;
         }
-        this.c = fg8Var.b;
+        this.c = yg8Var.b;
         this.d = frsViewData;
         this.e.notifyDataSetChanged();
         RecyclerView recyclerView = this.b;
-        recyclerView.setPadding(li.f(recyclerView.getContext(), R.dimen.M_W_X007), 0, 0, 0);
+        recyclerView.setPadding(pi.f(recyclerView.getContext(), R.dimen.M_W_X007), 0, 0, 0);
         this.b.setClipToPadding(false);
     }
 
-    @Override // com.repackage.il6
+    @Override // com.repackage.lm6
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.il6
+    @Override // com.repackage.lm6
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {

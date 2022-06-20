@@ -53,16 +53,16 @@ public class SweepLightLoadingView extends FrameLayout implements NoProguard {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04c8, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04c6, (ViewGroup) this, true);
             this.a = inflate;
-            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091b94);
-            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091bb9);
-            this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091bba);
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091b8c);
+            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091bb1);
+            this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091bb2);
             if (SapiAccountManager.getInstance().getConfignation().isNightMode || SapiAccountManager.getInstance().getConfignation().isDarkMode) {
-                this.d.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609be));
-                this.b.setImageResource(R.drawable.obfuscated_res_0x7f081097);
-                this.c.setImageResource(R.drawable.obfuscated_res_0x7f081095);
-                this.a.findViewById(R.id.obfuscated_res_0x7f091bb8).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060a0b));
+                this.d.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609bc));
+                this.b.setImageResource(R.drawable.obfuscated_res_0x7f081088);
+                this.c.setImageResource(R.drawable.obfuscated_res_0x7f081086);
+                this.a.findViewById(R.id.obfuscated_res_0x7f091bb0).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060a09));
             }
         }
     }
@@ -70,7 +70,7 @@ public class SweepLightLoadingView extends FrameLayout implements NoProguard {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.c.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010114));
+            this.c.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010116));
         }
     }
 

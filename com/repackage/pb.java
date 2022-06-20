@@ -1,23 +1,16 @@
 package com.repackage;
 
-import android.os.Environment;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.gif.NSGif;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes6.dex */
-public class pb {
+public class pb implements mb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public String b;
-    public String c;
-    public String d;
 
     public pb() {
         Interceptable interceptable = $ic;
@@ -29,104 +22,35 @@ public class pb {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = Environment.getExternalStorageDirectory().getAbsolutePath();
-        this.b = this.a + "/baidu/";
-        this.c = null;
-        this.d = null;
-        try {
-            this.c = BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath() + "/";
-            this.d = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
         }
     }
 
-    public String a(String str, boolean z, boolean z2, boolean z3) {
-        InterceptResult invokeCommon;
-        String str2;
-        String str3;
+    @Override // com.repackage.mb
+    public ym a(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
-            if (z2) {
-                if (!b()) {
-                    return null;
-                }
-                if (str != null) {
-                    str3 = this.b + str + "/";
-                } else {
-                    str3 = this.b;
-                }
-            } else if (z3) {
-                str2 = this.d;
-                if (str2 == null) {
-                    return null;
-                }
-                if (str != null) {
-                    str3 = this.d + str + "/";
-                }
-                str3 = str2;
-            } else {
-                str2 = this.c;
-                if (str2 == null) {
-                    return null;
-                }
-                if (str != null) {
-                    str3 = this.c + str + "/";
-                }
-                str3 = str2;
-            }
-            File file = new File(str3);
-            if (file.exists()) {
-                return str3;
-            }
-            if (z && file.mkdirs()) {
-                return str3;
-            }
-            return null;
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Environment.getExternalStorageState().equals("mounted") : invokeV.booleanValue;
-    }
-
-    public File c(String str, String str2, boolean z, boolean z2, boolean z3) {
-        InterceptResult invokeCommon;
-        String a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
-            if (str2 == null || (a = a(str, z, z2, z3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
+            NSGif f = NSGif.f(bArr, i, i2);
+            if (f == null) {
                 return null;
             }
-            return new File(a + str2);
+            return new ym(f);
         }
-        return (File) invokeCommon.objValue;
+        return (ym) invokeLII.objValue;
     }
 
-    public File d(String str, boolean z, boolean z2, boolean z3) {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.mb
+    public ym get(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
-            String a = a(str, z, z2, z3);
-            if (a == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            NSGif e = NSGif.e(str);
+            if (e == null) {
                 return null;
             }
-            return new File(a);
+            return new ym(e);
         }
-        return (File) invokeCommon.objValue;
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || str == null) {
-            return;
-        }
-        this.b = this.a + "/" + str + "/";
+        return (ym) invokeL.objValue;
     }
 }

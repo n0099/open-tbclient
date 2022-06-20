@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 /* loaded from: classes2.dex */
 public class FaceEnum {
     public static /* synthetic */ Interceptable $ic;
@@ -164,7 +165,7 @@ public class FaceEnum {
                     return;
                 }
             }
-            NONE = new LivenessControl("NONE", 0);
+            NONE = new LivenessControl(HlsPlaylistParser.METHOD_NONE, 0);
             LOW = new LivenessControl("LOW", 1);
             NORMAL = new LivenessControl("NORMAL", 2);
             LivenessControl livenessControl = new LivenessControl("HIGH", 3);
@@ -228,7 +229,7 @@ public class FaceEnum {
                     return;
                 }
             }
-            NONE = new QualityControl("NONE", 0);
+            NONE = new QualityControl(HlsPlaylistParser.METHOD_NONE, 0);
             LOW = new QualityControl("LOW", 1);
             NORMAL = new QualityControl("NORMAL", 2);
             QualityControl qualityControl = new QualityControl("HIGH", 3);
@@ -292,7 +293,7 @@ public class FaceEnum {
                     return;
                 }
             }
-            NONE = new SpoofingControl("NONE", 0);
+            NONE = new SpoofingControl(HlsPlaylistParser.METHOD_NONE, 0);
             LOW = new SpoofingControl("LOW", 1);
             NORMAL = new SpoofingControl("NORMAL", 2);
             SpoofingControl spoofingControl = new SpoofingControl("HIGH", 3);

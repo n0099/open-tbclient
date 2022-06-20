@@ -1,17 +1,83 @@
 package com.repackage;
 
-import com.baidu.swan.apps.media.audio.service.BgMusicPlayState;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public interface om2 {
-    void onGetCurrentSong(String str);
+public class om2 implements rp2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<lm2> a;
+    public int b;
+    public float c;
+    public boolean d;
 
-    void onGetDownloadProgress(int i);
+    public om2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = 0;
+        this.c = 0.0f;
+        this.d = false;
+    }
 
-    void onGetDuration(int i);
+    @Override // com.repackage.rp2
+    public void a(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("points")) {
+            JSONArray optJSONArray = jSONObject.optJSONArray("points");
+            int length = optJSONArray == null ? 0 : optJSONArray.length();
+            if (length > 0) {
+                this.a = new ArrayList<>(length);
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        lm2 lm2Var = new lm2();
+                        lm2Var.a(optJSONObject);
+                        if (lm2Var.isValid()) {
+                            this.a.add(lm2Var);
+                        }
+                    }
+                }
+            }
+            ArrayList<lm2> arrayList = this.a;
+            if (arrayList == null || arrayList.size() <= 0) {
+                return;
+            }
+            this.b = fm2.a(jSONObject.optString("color"), 0);
+            this.c = Math.abs(fm2.b(jSONObject.optDouble("width", 0.0d)));
+            this.d = jSONObject.optBoolean("dottedLine", false);
+            jSONObject.optBoolean("arrowLine", false);
+            jSONObject.optString("arrowIconPath");
+            fm2.a(jSONObject.optString("borderColor"), 0);
+            Math.abs(fm2.b(jSONObject.optDouble("borderWidth", 0.0d)));
+        }
+    }
 
-    void onGetPosition(int i, int i2);
-
-    void onInvokeFailed();
-
-    void onStateChanged(BgMusicPlayState bgMusicPlayState);
+    @Override // com.repackage.rp2
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ArrayList<lm2> arrayList = this.a;
+            return arrayList != null && arrayList.size() > 0;
+        }
+        return invokeV.booleanValue;
+    }
 }

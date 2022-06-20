@@ -1,17 +1,19 @@
 package com.baidu.searchbox.task.view.appcreate;
 
-import android.widget.LinearLayout;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b45;
+import com.repackage.q45;
 /* loaded from: classes2.dex */
 public class InitBottomIndicatorViewTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -36,15 +38,9 @@ public class InitBottomIndicatorViewTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                MaintabBottomIndicator maintabBottomIndicator = new MaintabBottomIndicator(TbadkCoreApplication.getInst());
-                maintabBottomIndicator.setLayoutParams(new LinearLayout.LayoutParams(0, -1, 1.0f));
-                b45.e().a(1001, maintabBottomIndicator);
-                MaintabBottomIndicator maintabBottomIndicator2 = new MaintabBottomIndicator(TbadkCoreApplication.getInst());
-                maintabBottomIndicator2.setLayoutParams(new LinearLayout.LayoutParams(0, -1, 1.0f));
-                b45.e().a(1002, maintabBottomIndicator2);
-                MaintabBottomIndicator maintabBottomIndicator3 = new MaintabBottomIndicator(TbadkCoreApplication.getInst());
-                maintabBottomIndicator3.setLayoutParams(new LinearLayout.LayoutParams(0, -1, 1.0f));
-                b45.e().a(1003, maintabBottomIndicator3);
+                q45.e().a(1001, (MaintabBottomIndicator) LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null));
+                q45.e().a(1002, (MaintabBottomIndicator) LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null));
+                q45.e().a(1003, (MaintabBottomIndicator) LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null));
             } catch (Exception e) {
                 BdLog.e(e);
             }

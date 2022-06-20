@@ -1,7 +1,6 @@
 package com.repackage;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,14 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class yz7 extends BaseCardInfo implements jn {
+public class yz7 implements nn {
     public static /* synthetic */ Interceptable $ic;
-    public static BdUniqueId b;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<jz7> a;
+    public String a;
 
     static {
         InterceptResult invokeClinit;
@@ -34,10 +32,12 @@ public class yz7 extends BaseCardInfo implements jn {
         b = BdUniqueId.gen();
     }
 
-    public yz7() {
+    public yz7(boolean z, vz7 vz7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), vz7Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -47,10 +47,15 @@ public class yz7 extends BaseCardInfo implements jn {
                 return;
             }
         }
-        this.a = new ArrayList();
+        String str = vz7Var.e;
+        String str2 = vz7Var.d;
+        this.a = vz7Var.a;
+        String str3 = vz7Var.f;
+        List<wz7> list = vz7Var.c;
+        int i3 = vz7Var.b;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.jn
+    @Override // com.repackage.nn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

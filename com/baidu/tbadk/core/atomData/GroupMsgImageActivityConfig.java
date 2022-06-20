@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GroupMsgImageActivityConfig extends AbsMsgImageActivityConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,9 +30,9 @@ public class GroupMsgImageActivityConfig extends AbsMsgImageActivityConfig {
             }
         }
         Intent intent = getIntent();
-        intent.putExtra("current_url", str);
+        intent.putExtra(AbsMsgImageActivityConfig.CURRENT_URL, str);
         intent.putExtra("id", String.valueOf(j));
-        intent.putExtra("uniqueid", str2);
+        intent.putExtra(AbsMsgImageActivityConfig.ID_UNIQUE, str2);
         intent.putExtra("isSingle", z);
     }
 
@@ -55,10 +55,10 @@ public class GroupMsgImageActivityConfig extends AbsMsgImageActivityConfig {
             }
         }
         Intent intent = getIntent();
-        intent.putExtra("current_url", str);
+        intent.putExtra(AbsMsgImageActivityConfig.CURRENT_URL, str);
         intent.putExtra("id", String.valueOf(j));
-        intent.putExtra("uniqueid", str2);
+        intent.putExtra(AbsMsgImageActivityConfig.ID_UNIQUE, str2);
         intent.putExtra("isSingle", z);
-        intent.putExtra("assist_url", str3);
+        intent.putExtra(AbsMsgImageActivityConfig.ASSIST_URL, str3);
     }
 }

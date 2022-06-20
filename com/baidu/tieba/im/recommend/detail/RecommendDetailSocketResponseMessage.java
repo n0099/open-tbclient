@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.recommend.detail;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cq4;
-import com.repackage.qe;
+import com.repackage.mq4;
+import com.repackage.te;
 import com.squareup.wire.Wire;
 import tbclient.Bigvip.BigvipResIdl;
 import tbclient.Bigvip.UserInfoBigVip;
@@ -36,10 +37,28 @@ public class RecommendDetailSocketResponseMessage extends SocketResponsedMessage
         }
     }
 
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bArr)) == null) {
+            BigvipResIdl bigvipResIdl = (BigvipResIdl) new Wire(new Class[0]).parseFrom(bArr, BigvipResIdl.class);
+            setError(bigvipResIdl.error.errorno.intValue());
+            setErrorString(bigvipResIdl.error.usermsg);
+            if (getError() != 0) {
+                return bigvipResIdl;
+            }
+            this.mDetailInfo = bigvipResIdl.data.user_info;
+            return bigvipResIdl;
+        }
+        return invokeIL.objValue;
+    }
+
     public UserInfoBigVip getDetailInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mDetailInfo : (UserInfoBigVip) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mDetailInfo : (UserInfoBigVip) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -48,27 +67,12 @@ public class RecommendDetailSocketResponseMessage extends SocketResponsedMessage
         UserInfoBigVip userInfoBigVip;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
-            cq4.f();
-            qe<byte[]> d = cq4.d("tb.im_recommend_detail");
+            mq4.f();
+            te<byte[]> d = mq4.d("tb.im_recommend_detail");
             if (d == null || bArr == null || (userInfoBigVip = this.mDetailInfo) == null || userInfoBigVip.user_id == null) {
                 return;
             }
             d.g(this.mDetailInfo.user_id + "", bArr);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
-            BigvipResIdl bigvipResIdl = (BigvipResIdl) new Wire(new Class[0]).parseFrom(bArr, BigvipResIdl.class);
-            setError(bigvipResIdl.error.errorno.intValue());
-            setErrorString(bigvipResIdl.error.usermsg);
-            if (getError() != 0) {
-                return;
-            }
-            this.mDetailInfo = bigvipResIdl.data.user_info;
         }
     }
 }

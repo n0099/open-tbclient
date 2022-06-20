@@ -1,11 +1,11 @@
 package com.repackage;
 
-import com.baidu.swan.apps.core.container.NgWebView;
-import com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.swan.pms.model.PMSAppInfo;
 /* loaded from: classes6.dex */
-public class p52 implements PullToRefreshBase.h<NgWebView> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface p52 {
+    void a(PMSAppInfo pMSAppInfo);
+
+    void b(PMSAppInfo pMSAppInfo);
+
+    void onFailed(int i);
 }

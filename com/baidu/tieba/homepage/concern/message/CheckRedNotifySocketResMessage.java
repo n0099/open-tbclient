@@ -1,5 +1,6 @@
 package com.baidu.tieba.homepage.concern.message;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,18 +37,13 @@ public class CheckRedNotifySocketResMessage extends SocketResponsedMessage {
         }
     }
 
-    public boolean isShowRedNotify() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.isShowRedNotify : invokeV.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         RedNotify redNotify;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
             RedNotifyResIdl redNotifyResIdl = (RedNotifyResIdl) new Wire(new Class[0]).parseFrom(bArr, RedNotifyResIdl.class);
             if (redNotifyResIdl != null) {
                 Error error = redNotifyResIdl.error;
@@ -56,11 +52,18 @@ public class CheckRedNotifySocketResMessage extends SocketResponsedMessage {
                     setErrorString(redNotifyResIdl.error.errmsg);
                 }
                 DataRes dataRes = redNotifyResIdl.data;
-                if (dataRes == null || (redNotify = dataRes.notify_data) == null) {
-                    return;
+                if (dataRes != null && (redNotify = dataRes.notify_data) != null) {
+                    this.isShowRedNotify = redNotify.notify_status.intValue() == 1;
                 }
-                this.isShowRedNotify = redNotify.notify_status.intValue() == 1;
             }
+            return redNotifyResIdl;
         }
+        return invokeIL.objValue;
+    }
+
+    public boolean isShowRedNotify() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.isShowRedNotify : invokeV.booleanValue;
     }
 }

@@ -15,8 +15,8 @@ public class l extends com.kwad.sdk.reward.g {
         DetailVideoView detailVideoView;
         int i;
         super.a();
-        this.b = (DetailVideoView) a(R.id.obfuscated_res_0x7f091142);
-        this.c = (ViewGroup) a(R.id.obfuscated_res_0x7f090fda);
+        this.b = (DetailVideoView) a(R.id.obfuscated_res_0x7f091132);
+        this.c = (ViewGroup) a(R.id.obfuscated_res_0x7f090fca);
         AdInfo j = com.kwad.sdk.core.response.a.d.j(((com.kwad.sdk.reward.g) this).a.g);
         if (!(!af.e(q())) || (!f() && !g())) {
             this.c.setVisibility(8);

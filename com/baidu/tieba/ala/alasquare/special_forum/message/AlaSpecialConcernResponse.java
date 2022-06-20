@@ -2,12 +2,13 @@ package com.baidu.tieba.ala.alasquare.special_forum.message;
 
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.mobstat.Config;
+import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pp5;
+import com.repackage.oq5;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -16,10 +17,10 @@ import org.json.JSONObject;
 public class AlaSpecialConcernResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<pp5> followList;
+    public List<oq5> followList;
     public boolean hasMore;
     public int pn;
-    public List<pp5> recommendList;
+    public List<oq5> recommendList;
     public int totalFollowCount;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -51,7 +52,7 @@ public class AlaSpecialConcernResponse extends JsonHttpResponsedMessage {
             if (jSONObject != null) {
                 this.hasMore = jSONObject.optInt("has_more") == 1;
                 this.pn = jSONObject.optInt(Config.PACKAGE_NAME);
-                this.totalFollowCount = jSONObject.optInt("total_follow_num");
+                this.totalFollowCount = jSONObject.optInt(PersonListActivityConfig.TOTLEFOLLOWNUM);
                 JSONArray optJSONArray = jSONObject.optJSONArray("follow_list");
                 if (optJSONArray != null) {
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
@@ -59,9 +60,9 @@ public class AlaSpecialConcernResponse extends JsonHttpResponsedMessage {
                         JSONObject optJSONObject = jSONObject2.optJSONObject("user");
                         JSONObject optJSONObject2 = jSONObject2.optJSONObject("ala_live_info");
                         if (optJSONObject != null && optJSONObject2 != null) {
-                            pp5 pp5Var = new pp5();
-                            pp5Var.a(optJSONObject, optJSONObject2);
-                            this.followList.add(pp5Var);
+                            oq5 oq5Var = new oq5();
+                            oq5Var.a(optJSONObject, optJSONObject2);
+                            this.followList.add(oq5Var);
                         }
                     }
                 }
@@ -72,9 +73,9 @@ public class AlaSpecialConcernResponse extends JsonHttpResponsedMessage {
                         JSONObject optJSONObject3 = jSONObject3.optJSONObject("user");
                         JSONObject optJSONObject4 = jSONObject3.optJSONObject("ala_live_info");
                         if (optJSONObject3 != null && optJSONObject4 != null) {
-                            pp5 pp5Var2 = new pp5();
-                            pp5Var2.a(optJSONObject3, optJSONObject4);
-                            this.recommendList.add(pp5Var2);
+                            oq5 oq5Var2 = new oq5();
+                            oq5Var2.a(optJSONObject3, optJSONObject4);
+                            this.recommendList.add(oq5Var2);
                         }
                     }
                 }

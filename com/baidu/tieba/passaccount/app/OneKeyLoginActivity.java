@@ -13,23 +13,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rn7;
-import com.repackage.sn7;
-import com.repackage.tn7;
-import com.repackage.un7;
-import com.repackage.vn7;
-import com.repackage.wn7;
-import com.repackage.xn7;
+import com.repackage.ap7;
+import com.repackage.bp7;
+import com.repackage.cp7;
+import com.repackage.dp7;
+import com.repackage.ep7;
+import com.repackage.yo7;
+import com.repackage.zo7;
 /* loaded from: classes3.dex */
 public class OneKeyLoginActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rn7 controller;
-    public tn7 oneKeyLoginData;
-    public String shareModelJSONStr;
-
-    /* renamed from: view  reason: collision with root package name */
-    public sn7 f1009view;
+    public String a;
+    public ap7 b;
+    public zo7 c;
+    public yo7 d;
 
     public OneKeyLoginActivity() {
         Interceptable interceptable = $ic;
@@ -45,26 +43,26 @@ public class OneKeyLoginActivity extends BaseActivity {
         }
     }
 
-    private void initData() {
+    public final void initData() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.shareModelJSONStr = getIntent().getStringExtra(LoginDialogActivityConfig.SHARE_MODEL_JSON_STRING);
-            tn7 tn7Var = new tn7();
-            this.oneKeyLoginData = tn7Var;
-            tn7Var.a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
-            this.oneKeyLoginData.b = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_OPERATOR);
-            this.oneKeyLoginData.c = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_SIGN);
-            this.oneKeyLoginData.d = this.shareModelJSONStr;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = getIntent().getStringExtra(LoginDialogActivityConfig.SHARE_MODEL_JSON_STRING);
+            ap7 ap7Var = new ap7();
+            this.b = ap7Var;
+            ap7Var.a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
+            this.b.b = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_OPERATOR);
+            this.b.c = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_SIGN);
+            this.b.d = this.a;
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
             if (i == 25061) {
-                this.controller.c(i2);
+                this.d.c(i2);
             }
         }
     }
@@ -72,31 +70,31 @@ public class OneKeyLoginActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            this.f1009view.a(i);
+            this.c.a(i);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0045);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091adb);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091ad3);
             initData();
-            if (TextUtils.isEmpty(this.shareModelJSONStr)) {
-                this.f1009view = new vn7(getPageContext(), findViewById);
-                this.controller = new un7(getPageContext(), this.f1009view);
+            if (TextUtils.isEmpty(this.a)) {
+                this.c = new cp7(getPageContext(), findViewById);
+                this.d = new bp7(getPageContext(), this.c);
             } else {
-                this.f1009view = new xn7(getPageContext(), findViewById);
-                this.controller = new wn7(getPageContext(), this.f1009view);
+                this.c = new ep7(getPageContext(), findViewById);
+                this.d = new dp7(getPageContext(), this.c);
             }
-            this.f1009view.c(this.oneKeyLoginData);
-            this.controller.j(this.oneKeyLoginData);
-            this.controller.i(false);
-            this.controller.k(UbsABTestHelper.isFirstLoginTestB());
+            this.c.c(this.b);
+            this.d.j(this.b);
+            this.d.i(false);
+            this.d.k(UbsABTestHelper.isFirstLoginTestB());
         }
     }
 }

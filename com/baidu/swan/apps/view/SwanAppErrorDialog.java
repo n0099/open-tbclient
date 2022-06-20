@@ -11,15 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bd3;
-import com.repackage.rf1;
+import com.repackage.cg1;
+import com.repackage.md3;
 /* loaded from: classes2.dex */
 public class SwanAppErrorDialog extends BaseActivityDialog {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final boolean DEBUG;
-    public static final String TAG = "SwanAppErrorDialog";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView mMessage;
+    public TextView r;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +32,7 @@ public class SwanAppErrorDialog extends BaseActivityDialog {
                 return;
             }
         }
-        DEBUG = rf1.a;
+        boolean z = cg1.a;
     }
 
     public SwanAppErrorDialog() {
@@ -51,7 +49,7 @@ public class SwanAppErrorDialog extends BaseActivityDialog {
         }
     }
 
-    public static BaseActivityDialog.e newBuilder() {
+    public static BaseActivityDialog.e r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new BaseActivityDialog.e(SwanAppErrorDialog.class) : (BaseActivityDialog.e) invokeV.objValue;
@@ -61,11 +59,11 @@ public class SwanAppErrorDialog extends BaseActivityDialog {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            int c0 = bd3.c0(this);
+            int c0 = md3.c0(this);
             super.onCreate(bundle);
-            bd3.g(this, c0);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090796);
-            this.mMessage = textView;
+            md3.g(this, c0);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090781);
+            this.r = textView;
             textView.setGravity(17);
         }
     }

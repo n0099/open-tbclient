@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nw0;
+import com.repackage.rw0;
 /* loaded from: classes2.dex */
 public class BdVideoNewCacheView extends BdVideoCacheView {
     public static /* synthetic */ Interceptable $ic;
@@ -37,7 +37,7 @@ public class BdVideoNewCacheView extends BdVideoCacheView {
     public void onWindowVisibilityChanged(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            nw0.b("BdVideoNewCacheView", "onWindowVisibilityChanged(" + i + SmallTailInfo.EMOTION_SUFFIX);
+            rw0.b("BdVideoNewCacheView", "onWindowVisibilityChanged(" + i + SmallTailInfo.EMOTION_SUFFIX);
             if (i != 0) {
                 setVisibility(4);
             } else if (this.b.b()) {

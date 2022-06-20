@@ -1,34 +1,20 @@
 package com.repackage;
 
-import android.app.Dialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes5.dex */
 public class c2a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Dialog dialog, PayDialogType payDialogType) {
+    public static void a(String str, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, dialog, payDialogType) == null) {
-            RLog.info("DialogUtils", "onPayFlow closeDialogAndContinueFlow payDialogType:" + payDialogType);
-            if (dialog == null || !dialog.isShowing()) {
-                return;
-            }
-            dialog.dismiss();
-        }
-    }
-
-    public static void b(Dialog dialog, PayDialogType payDialogType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, dialog, payDialogType) == null) {
-            RLog.info("DialogUtils", "onPayFlow closeDialogAndInterrupteFlow payDialogType:" + payDialogType);
-            if (dialog == null || !dialog.isShowing()) {
-                return;
-            }
-            dialog.cancel();
+        if (interceptable == null || interceptable.invokeLL(65536, null, str, context) == null) {
+            ((ClipboardManager) context.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setPrimaryClip(ClipData.newPlainText("Label", str));
         }
     }
 }

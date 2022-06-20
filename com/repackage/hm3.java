@@ -1,27 +1,42 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes6.dex */
 public class hm3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile gm3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized gm3 a() {
-        InterceptResult invokeV;
-        gm3 gm3Var;
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (hm3.class) {
-                if (a == null) {
-                    a = new gm3();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            try {
+                byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes());
+                StringBuilder sb = new StringBuilder();
+                for (byte b : digest) {
+                    int i = b & 255;
+                    if (i < 16) {
+                        sb.append(0);
+                    }
+                    sb.append(Integer.toHexString(i));
                 }
-                gm3Var = a;
+                return sb.toString();
+            } catch (NoSuchAlgorithmException unused) {
+                return "";
             }
-            return gm3Var;
         }
-        return (gm3) invokeV.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    @SuppressLint({"DefaultLocale"})
+    public static String b(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, str, j)) == null) ? a(String.format("%d%s%d", 1, str.toLowerCase(), Long.valueOf(j))) : (String) invokeLJ.objValue;
     }
 }

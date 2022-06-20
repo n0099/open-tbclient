@@ -1,9 +1,7 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import android.view.MotionEvent;
 /* loaded from: classes6.dex */
 public interface gs0 {
-    boolean e(@NonNull er0 er0Var);
-
-    fs0 getInterceptorLayer();
+    boolean onTouchEvent(MotionEvent motionEvent);
 }

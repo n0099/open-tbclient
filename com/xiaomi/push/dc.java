@@ -1,92 +1,78 @@
 package com.xiaomi.push;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.db;
-import java.io.File;
-import java.util.Date;
 /* loaded from: classes8.dex */
-public class dc extends db.b {
+public /* synthetic */ class dc {
     public static /* synthetic */ Interceptable $ic;
+    public static final /* synthetic */ int[] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ int a;
 
-    /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ db f205a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public File f206a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f207a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ Date f208a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ boolean f209a;
-    public final /* synthetic */ String b;
-
-    /* renamed from: b  reason: collision with other field name */
-    public final /* synthetic */ Date f210b;
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dc(db dbVar, int i, Date date, Date date2, String str, String str2, boolean z) {
-        super(dbVar);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dbVar, Integer.valueOf(i), date, date2, str, str2, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((db) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-56376927, "Lcom/xiaomi/push/dc;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-56376927, "Lcom/xiaomi/push/dc;");
                 return;
             }
         }
-        this.f205a = dbVar;
-        this.a = i;
-        this.f208a = date;
-        this.f210b = date2;
-        this.f207a = str;
-        this.b = str2;
-        this.f209a = z;
-    }
-
-    @Override // com.xiaomi.push.db.b, com.xiaomi.push.al.b
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && aa.d()) {
-            try {
-                File file = new File(this.f205a.f198a.getExternalFilesDir(null) + "/.logcache");
-                file.mkdirs();
-                if (file.isDirectory()) {
-                    da daVar = new da();
-                    daVar.a(this.a);
-                    this.f206a = daVar.a(this.f205a.f198a, this.f208a, this.f210b, file);
-                }
-            } catch (NullPointerException unused) {
-            }
+        int[] iArr = new int[hj.values().length];
+        a = iArr;
+        try {
+            iArr[hj.a.ordinal()] = 1;
+        } catch (NoSuchFieldError unused) {
         }
-    }
-
-    @Override // com.xiaomi.push.al.b
-    /* renamed from: c */
-    public void mo280c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            File file = this.f206a;
-            if (file != null && file.exists()) {
-                this.f205a.f199a.add(new db.c(this.f205a, this.f207a, this.b, this.f206a, this.f209a));
-            }
-            this.f205a.a(0L);
+        try {
+            a[hj.b.ordinal()] = 2;
+        } catch (NoSuchFieldError unused2) {
+        }
+        try {
+            a[hj.c.ordinal()] = 3;
+        } catch (NoSuchFieldError unused3) {
+        }
+        try {
+            a[hj.d.ordinal()] = 4;
+        } catch (NoSuchFieldError unused4) {
+        }
+        try {
+            a[hj.e.ordinal()] = 5;
+        } catch (NoSuchFieldError unused5) {
+        }
+        try {
+            a[hj.f.ordinal()] = 6;
+        } catch (NoSuchFieldError unused6) {
+        }
+        try {
+            a[hj.g.ordinal()] = 7;
+        } catch (NoSuchFieldError unused7) {
+        }
+        try {
+            a[hj.h.ordinal()] = 8;
+        } catch (NoSuchFieldError unused8) {
+        }
+        try {
+            a[hj.k.ordinal()] = 9;
+        } catch (NoSuchFieldError unused9) {
+        }
+        try {
+            a[hj.l.ordinal()] = 10;
+        } catch (NoSuchFieldError unused10) {
+        }
+        try {
+            a[hj.i.ordinal()] = 11;
+        } catch (NoSuchFieldError unused11) {
+        }
+        try {
+            a[hj.j.ordinal()] = 12;
+        } catch (NoSuchFieldError unused12) {
         }
     }
 }

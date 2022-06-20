@@ -1,231 +1,78 @@
 package com.repackage;
 
-import android.app.ActivityManager;
-import android.os.Process;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.recapp.adapter.FrsAppEmptyHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class c98 {
+public class c98 extends fc6<ThreadData, FrsAppEmptyHolder> implements t88 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755842257, "Lcom/repackage/c98;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755842257, "Lcom/repackage/c98;");
-        }
-    }
-
-    public static void a(ClogBuilder clogBuilder, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c98(u88 u88Var, BdUniqueId bdUniqueId) {
+        super(u88Var.o(), bdUniqueId);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, clogBuilder, i) == null) {
-            clogBuilder.w(ClogBuilder.LogType.DEEP_LINK);
-            boolean z = i == 1000;
-            clogBuilder.h(z ? "APP" : "URL");
-            if (!z) {
-                clogBuilder.j(String.valueOf(i));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {u88Var, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            clogBuilder.t("DEEPLINK");
         }
     }
 
-    public static String b(HashMap hashMap) {
+    @Override // com.repackage.t88
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.an
+    /* renamed from: l0 */
+    public FrsAppEmptyHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hashMap)) == null) {
-            String valueOf = hashMap != null ? String.valueOf(hashMap.get("da_area")) : null;
-            return TextUtils.isEmpty(valueOf) ? "hotarea" : valueOf;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            View view2 = new View(this.k.getPageActivity());
+            view2.setVisibility(8);
+            return new FrsAppEmptyHolder(view2);
         }
-        return (String) invokeL.objValue;
+        return (FrsAppEmptyHolder) invokeL.objValue;
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.fc6, com.repackage.an
+    /* renamed from: m0 */
+    public View S(int i, View view2, ViewGroup viewGroup, ThreadData threadData, FrsAppEmptyHolder frsAppEmptyHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            try {
-                int myPid = Process.myPid();
-                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) TbadkCoreApplication.getInst().getContext().getSystemService("activity")).getRunningAppProcesses()) {
-                    if (runningAppProcessInfo.pid == myPid) {
-                        return runningAppProcessInfo.processName;
-                    }
-                }
-                return "GET_PROCESS_NAME_FAIL";
-            } catch (Exception unused) {
-                return "GET_PROCESS_NAME_FAIL";
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, threadData, frsAppEmptyHolder})) == null) {
+            if (threadData instanceof AdvertAppInfo) {
+                AdvertAppInfo advertAppInfo = (AdvertAppInfo) threadData;
+                dn4.c(advertAppInfo.i, threadData.position, advertAppInfo.c == -1001);
             }
+            return frsAppEmptyHolder.b();
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static void d(String str, @NonNull String str2, int i, int i2, String str3, String str4, String str5, String str6, String str7, String str8) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), str3, str4, str5, str6, str7, str8}) == null) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.x(String.valueOf(i2)).o(String.valueOf(i)).t(str).h(str3).i(str4).j(str5).k(str6).l(str7).m(str8).n(str2);
-            rx0.c(clogBuilder);
-        }
-    }
-
-    public static void e(AdvertAppInfo advertAppInfo, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65541, null, advertAppInfo, i) == null) {
-            f(advertAppInfo, 0, "", i);
-        }
-    }
-
-    public static void f(AdvertAppInfo advertAppInfo, int i, String str, int i2) {
-        ag0 ag0Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{advertAppInfo, Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) || advertAppInfo == null) {
-            return;
-        }
-        if (TextUtils.isEmpty(str)) {
-            str = "hotarea";
-        }
-        boolean equals = "PB_BANNER".equals(advertAppInfo.j);
-        ClogBuilder clogBuilder = new ClogBuilder();
-        ClogBuilder o = clogBuilder.w(ClogBuilder.LogType.CLICK).o(String.valueOf(equals ? -1 : advertAppInfo.position + 1));
-        if (equals) {
-            i = -1;
-        }
-        o.u(String.valueOf(i)).t(advertAppInfo.j).h(str).n(advertAppInfo.g);
-        if (advertAppInfo != null && (ag0Var = advertAppInfo.r) != null) {
-            clogBuilder.k(ag0Var.a());
-        }
-        rx0.c(clogBuilder);
-        a(clogBuilder, i2);
-        rx0.c(clogBuilder);
-    }
-
-    public static void g(AdvertAppInfo advertAppInfo, int i, HashMap hashMap, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{advertAppInfo, Integer.valueOf(i), hashMap, Integer.valueOf(i2)}) == null) {
-            f(advertAppInfo, i, b(hashMap), i2);
-        }
-    }
-
-    public static void h(AdvertAppInfo advertAppInfo, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65544, null, advertAppInfo, i, i2) == null) {
-            i(advertAppInfo, i, i2, -999, -999);
-        }
-    }
-
-    public static void i(AdvertAppInfo advertAppInfo, int i, int i2, int i3, int i4) {
-        int i5;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{advertAppInfo, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || advertAppInfo == null || (i5 = advertAppInfo.c) == 1001 || i5 == -1001) {
-            return;
-        }
-        boolean equals = "PB_BANNER".equals(advertAppInfo.j);
-        ClogBuilder clogBuilder = new ClogBuilder();
-        ClogBuilder o = clogBuilder.w(ClogBuilder.LogType.DISCARD).i(String.valueOf(i2)).o(String.valueOf(equals ? -1 : advertAppInfo.position + 1));
-        if (equals) {
-            i = -1;
-        }
-        o.u(String.valueOf(i)).t(advertAppInfo.j).n(advertAppInfo.g);
-        if (i3 != -999) {
-            clogBuilder.j(String.valueOf(i3));
-        }
-        if (i4 != -999) {
-            clogBuilder.k(String.valueOf(i4));
-        }
-        if (i2 == 31) {
-            if (TextUtils.isEmpty(a)) {
-                a = c();
-            }
-            clogBuilder.m(a);
-        }
-        rx0.c(clogBuilder);
-    }
-
-    public static void j(ah8 ah8Var, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65546, null, ah8Var, i) == null) {
-            k(ah8Var, i, -999, -999);
-        }
-    }
-
-    public static void k(ah8 ah8Var, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIII(65547, null, ah8Var, i, i2, i3) == null) || ah8Var == null || ah8Var.getAdvertAppInfo() == null || ah8Var.getAdvertAppInfo().c == 1001 || ah8Var.getAdvertAppInfo().c == -1001) {
-            return;
-        }
-        AdvertAppInfo advertAppInfo = ah8Var.getAdvertAppInfo();
-        ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.w(ClogBuilder.LogType.DISCARD).i(String.valueOf(i)).o(String.valueOf(ah8Var.G0 ? -1 : ah8Var.N0 + 1)).u(String.valueOf(ah8Var.G0 ? -1 : ah8Var.L0)).t(ah8Var.O0()).p(ah8Var.I0).q(ah8Var.J0).r(ah8Var.H0).n(advertAppInfo.g);
-        if (i2 != -999) {
-            clogBuilder.j(String.valueOf(i2));
-        }
-        if (i3 != -999) {
-            clogBuilder.k(String.valueOf(i3));
-        }
-        rx0.c(clogBuilder);
-    }
-
-    public static void l(AdvertAppInfo advertAppInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, advertAppInfo) == null) {
-            m(advertAppInfo, 0, "");
-        }
-    }
-
-    public static void m(AdvertAppInfo advertAppInfo, int i, String str) {
-        ag0 ag0Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65549, null, advertAppInfo, i, str) == null) || advertAppInfo == null) {
-            return;
-        }
-        if (TextUtils.isEmpty(str)) {
-            str = "hotarea";
-        }
-        boolean equals = "PB_BANNER".equals(advertAppInfo.j);
-        ClogBuilder clogBuilder = new ClogBuilder();
-        ClogBuilder o = clogBuilder.w(ClogBuilder.LogType.CLICK).o(String.valueOf(equals ? -1 : advertAppInfo.position + 1));
-        if (equals) {
-            i = -1;
-        }
-        o.u(String.valueOf(i)).t(advertAppInfo.j).h(str).n(advertAppInfo.g);
-        if (advertAppInfo != null && (ag0Var = advertAppInfo.r) != null) {
-            clogBuilder.k(ag0Var.a());
-        }
-        rx0.c(clogBuilder);
-    }
-
-    public static void n(AdvertAppInfo advertAppInfo, int i, String str, String str2, HashMap hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65550, null, new Object[]{advertAppInfo, Integer.valueOf(i), str, str2, hashMap}) == null) {
-            m(advertAppInfo, i, b(hashMap));
-        }
-    }
-
-    public static void o(AdvertAppInfo advertAppInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65551, null, advertAppInfo) == null) || advertAppInfo == null) {
-            return;
-        }
-        ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.w(ClogBuilder.LogType.SHOW).o(String.valueOf(advertAppInfo.position + 1)).u(String.valueOf(-1)).t(advertAppInfo.j).n(advertAppInfo.g);
-        rx0.c(clogBuilder);
+        return (View) invokeCommon.objValue;
     }
 }

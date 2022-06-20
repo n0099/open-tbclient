@@ -22,17 +22,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ys4;
+import com.repackage.ht4;
 import java.util.Calendar;
 /* loaded from: classes3.dex */
 public class BigdayActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageView bigdayClose;
-    public long bigdayId;
-    public TbImageView bigdayImg;
-    public String imgUrl;
-    public String jumpUrl;
+    public TbImageView a;
+    public ImageView b;
+    public String c;
+    public String d;
+    public long e;
 
     public BigdayActivity() {
         Interceptable interceptable = $ic;
@@ -68,20 +68,20 @@ public class BigdayActivity extends BaseActivity {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            if (view2.getId() == this.bigdayImg.getId()) {
-                if (StringUtils.isNULL(this.jumpUrl)) {
+            if (view2.getId() == this.a.getId()) {
+                if (StringUtils.isNULL(this.d)) {
                     return;
                 }
-                UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{this.jumpUrl});
-                TiebaStatic.log(new StatisticItem("c13112").param("obj_id", this.bigdayId).param(TiebaStatic.Params.OBJ_TO, this.jumpUrl));
+                UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{this.d});
+                TiebaStatic.log(new StatisticItem("c13112").param("obj_id", this.e).param(TiebaStatic.Params.OBJ_TO, this.d));
                 finish();
-            } else if (view2.getId() == this.bigdayClose.getId()) {
+            } else if (view2.getId() == this.b.getId()) {
                 Calendar calendar = Calendar.getInstance();
                 calendar.set(11, 23);
                 calendar.set(12, 59);
                 calendar.set(13, 59);
                 calendar.set(14, 0);
-                ys4.k().x("key_bigday_next_showtime_home", calendar.getTimeInMillis());
+                ht4.k().x("key_bigday_next_showtime_home", calendar.getTimeInMillis());
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, null));
                 finish();
             }
@@ -94,25 +94,25 @@ public class BigdayActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0156);
+            setContentView(R.layout.obfuscated_res_0x7f0d0155);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09036d);
-            this.bigdayImg = tbImageView;
+            this.a = tbImageView;
             tbImageView.setAutoChangeStyle(false);
-            this.bigdayClose = (ImageView) findViewById(R.id.obfuscated_res_0x7f09036c);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09036c);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
-                ((FrameLayout.LayoutParams) this.bigdayClose.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + getResources().getDimension(R.dimen.obfuscated_res_0x7f07028a));
+                ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + getResources().getDimension(R.dimen.obfuscated_res_0x7f07028a));
             }
             Intent intent = getIntent();
             if (intent != null) {
-                this.imgUrl = intent.getStringExtra(BigdayActivityConfig.IMG_URL);
-                this.jumpUrl = intent.getStringExtra(BigdayActivityConfig.JUMP_URL);
-                this.bigdayId = intent.getLongExtra(BigdayActivityConfig.BIGDAY_ID, 0L);
+                this.c = intent.getStringExtra(BigdayActivityConfig.IMG_URL);
+                this.d = intent.getStringExtra(BigdayActivityConfig.JUMP_URL);
+                this.e = intent.getLongExtra(BigdayActivityConfig.BIGDAY_ID, 0L);
             }
-            this.bigdayImg.setTag(getPageContext().getUniqueId());
-            this.bigdayImg.K(this.imgUrl, 41, false);
-            this.bigdayImg.setOnClickListener(this);
-            this.bigdayClose.setOnClickListener(this);
-            TiebaStatic.log(new StatisticItem("c13111").param("obj_id", this.bigdayId).param(TiebaStatic.Params.OBJ_TO, this.jumpUrl));
+            this.a.setTag(getPageContext().getUniqueId());
+            this.a.J(this.c, 41, false);
+            this.a.setOnClickListener(this);
+            this.b.setOnClickListener(this);
+            TiebaStatic.log(new StatisticItem("c13111").param("obj_id", this.e).param(TiebaStatic.Params.OBJ_TO, this.d));
         }
     }
 

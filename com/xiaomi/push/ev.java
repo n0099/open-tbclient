@@ -1,113 +1,136 @@
 package com.xiaomi.push;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
+import android.os.SystemClock;
+import androidx.core.app.NotificationCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.mipush.sdk.MiPushClient;
-/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+import com.xiaomi.push.eu;
 /* loaded from: classes8.dex */
-public final class ev {
+public class ev implements eu.a {
     public static /* synthetic */ Interceptable $ic;
-    public static final ev a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ ev[] f320a;
-    public static final ev b;
-    public static final ev c;
-    public static final ev d;
-    public static final ev e;
-    public static final ev f;
-    public static final ev g;
-    public static final ev h;
-    public static final ev i;
-    public static final ev j;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile long a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final String f321a;
+    public PendingIntent f321a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-56375377, "Lcom/xiaomi/push/ev;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-56375377, "Lcom/xiaomi/push/ev;");
-                return;
-            }
-        }
-        a = new ev("COMMAND_REGISTER", 0, MiPushClient.COMMAND_REGISTER);
-        b = new ev("COMMAND_UNREGISTER", 1, MiPushClient.COMMAND_UNREGISTER);
-        c = new ev("COMMAND_SET_ALIAS", 2, MiPushClient.COMMAND_SET_ALIAS);
-        d = new ev("COMMAND_UNSET_ALIAS", 3, MiPushClient.COMMAND_UNSET_ALIAS);
-        e = new ev("COMMAND_SET_ACCOUNT", 4, MiPushClient.COMMAND_SET_ACCOUNT);
-        f = new ev("COMMAND_UNSET_ACCOUNT", 5, MiPushClient.COMMAND_UNSET_ACCOUNT);
-        g = new ev("COMMAND_SUBSCRIBE_TOPIC", 6, MiPushClient.COMMAND_SUBSCRIBE_TOPIC);
-        h = new ev("COMMAND_UNSUBSCRIBE_TOPIC", 7, MiPushClient.COMMAND_UNSUBSCRIBE_TOPIC);
-        i = new ev("COMMAND_SET_ACCEPT_TIME", 8, MiPushClient.COMMAND_SET_ACCEPT_TIME);
-        ev evVar = new ev("COMMAND_CHK_VDEVID", 9, "check-vdeviceid");
-        j = evVar;
-        f320a = new ev[]{a, b, c, d, e, f, g, h, i, evVar};
-    }
+    /* renamed from: a  reason: collision with other field name */
+    public Context f322a;
 
-    public ev(String str, int i2, String str2) {
+    public ev(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                String str3 = (String) objArr2[0];
-                ((Integer) objArr2[1]).intValue();
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f321a = str2;
+        this.f321a = null;
+        this.f322a = null;
+        this.a = 0L;
+        this.f322a = context;
     }
 
-    public static int a(String str) {
-        InterceptResult invokeL;
-        ev[] values;
+    private void a(AlarmManager alarmManager, long j, PendingIntent pendingIntent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            int i2 = -1;
-            if (TextUtils.isEmpty(str)) {
-                return -1;
+        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{alarmManager, Long.valueOf(j), pendingIntent}) == null) {
+            try {
+                AlarmManager.class.getMethod("setExact", Integer.TYPE, Long.TYPE, PendingIntent.class).invoke(alarmManager, 2, Long.valueOf(j), pendingIntent);
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.d("[Alarm] invoke setExact method meet error. " + e);
             }
-            for (ev evVar : values()) {
-                if (evVar.f321a.equals(str)) {
-                    i2 = ek.a(evVar);
-                }
-            }
-            return i2;
         }
-        return invokeL.intValue;
     }
 
-    public static ev valueOf(String str) {
-        InterceptResult invokeL;
+    @Override // com.xiaomi.push.eu.a
+    public void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (ev) Enum.valueOf(ev.class, str) : (ev) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.f321a != null) {
+                try {
+                    ((AlarmManager) this.f322a.getSystemService(NotificationCompat.CATEGORY_ALARM)).cancel(this.f321a);
+                } catch (Exception unused) {
+                } catch (Throwable th) {
+                    this.f321a = null;
+                    com.xiaomi.channel.commonutils.logger.b.c("[Alarm] unregister timer");
+                    this.a = 0L;
+                    throw th;
+                }
+                this.f321a = null;
+                com.xiaomi.channel.commonutils.logger.b.c("[Alarm] unregister timer");
+                this.a = 0L;
+            }
+            this.a = 0L;
+        }
     }
 
-    public static ev[] values() {
+    public void a(Intent intent, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent, j) == null) {
+            AlarmManager alarmManager = (AlarmManager) this.f322a.getSystemService(NotificationCompat.CATEGORY_ALARM);
+            this.f321a = Build.VERSION.SDK_INT >= 31 ? PendingIntent.getBroadcast(this.f322a, 0, intent, 33554432) : PendingIntent.getBroadcast(this.f322a, 0, intent, 0);
+            if (Build.VERSION.SDK_INT >= 23) {
+                bk.a((Object) alarmManager, "setExactAndAllowWhileIdle", 2, Long.valueOf(j), this.f321a);
+            } else {
+                a(alarmManager, j, this.f321a);
+            }
+            com.xiaomi.channel.commonutils.logger.b.c("[Alarm] register timer " + j);
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x003a, code lost:
+        if (r8.a < r4) goto L19;
+     */
+    @Override // com.xiaomi.push.eu.a
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            long m658a = com.xiaomi.push.service.o.a(this.f322a).m658a();
+            if (z || this.a != 0) {
+                if (z) {
+                    a();
+                }
+                long elapsedRealtime = SystemClock.elapsedRealtime();
+                if (!z && this.a != 0) {
+                    if (this.a <= elapsedRealtime) {
+                        this.a += m658a;
+                    }
+                    Intent intent = new Intent(com.xiaomi.push.service.bk.p);
+                    intent.setPackage(this.f322a.getPackageName());
+                    a(intent, this.a);
+                }
+                m658a -= elapsedRealtime % m658a;
+                this.a = elapsedRealtime + m658a;
+                Intent intent2 = new Intent(com.xiaomi.push.service.bk.p);
+                intent2.setPackage(this.f322a.getPackageName());
+                a(intent2, this.a);
+            }
+        }
+    }
+
+    @Override // com.xiaomi.push.eu.a
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ev[]) f320a.clone() : (ev[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a != 0 : invokeV.booleanValue;
     }
 }

@@ -1,51 +1,53 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.CompoundButton;
+import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.NEGFeedBack.NEGFeedBackReasonCheckBox;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class di5 extends BaseAdapter {
+public class di5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseActivity a;
-    public boolean b;
-    public List<AccountData> c;
-    public View.OnClickListener d;
+    public boolean a;
+    public TbPageContext b;
+    public SparseArray<String> c;
+    public SparseArray<String> d;
+    public String[] e;
+    public LinearLayout f;
+    public CompoundButton.OnCheckedChangeListener g;
+    public CompoundButton.OnCheckedChangeListener h;
+    public HashMap<NEGFeedBackReasonCheckBox, Boolean> i;
+    public int j;
+    public boolean k;
+    public boolean l;
+    public int m;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public class a implements CompoundButton.OnCheckedChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ di5 a;
 
-    /* loaded from: classes5.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public TextView b;
-        public ImageView c;
-        public TextView d;
-
-        public b(di5 di5Var) {
+        public a(di5 di5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,21 +59,97 @@ public class di5 extends BaseAdapter {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = di5Var;
         }
 
-        public /* synthetic */ b(di5 di5Var, a aVar) {
-            this(di5Var);
+        @Override // android.widget.CompoundButton.OnCheckedChangeListener
+        public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+            Map.Entry entry;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLZ(1048576, this, compoundButton, z) == null) || compoundButton == null || this.a.i == null || this.a.i.isEmpty()) {
+                return;
+            }
+            boolean z2 = false;
+            if (z && this.a.k) {
+                for (Map.Entry entry2 : this.a.i.entrySet()) {
+                    if (entry2 != null) {
+                        if (entry2.getKey() == compoundButton) {
+                            ((NEGFeedBackReasonCheckBox) entry2.getKey()).setChecked(true);
+                            entry2.setValue(Boolean.TRUE);
+                        } else {
+                            ((NEGFeedBackReasonCheckBox) entry2.getKey()).setChecked(false);
+                            entry2.setValue(Boolean.FALSE);
+                        }
+                    }
+                }
+            }
+            if (this.a.k && !z && !this.a.l) {
+                Iterator it = this.a.i.entrySet().iterator();
+                while (it.hasNext() && ((entry = (Map.Entry) it.next()) == null || entry.getKey() == null || !(z2 = ((NEGFeedBackReasonCheckBox) entry.getKey()).isChecked()))) {
+                }
+                if (!z2) {
+                    for (Map.Entry entry3 : this.a.i.entrySet()) {
+                        if (entry3 != null && entry3.getKey() == compoundButton) {
+                            ((NEGFeedBackReasonCheckBox) entry3.getKey()).setChecked(true);
+                            entry3.setValue(Boolean.TRUE);
+                            return;
+                        }
+                    }
+                }
+            }
+            if (this.a.g != null) {
+                this.a.g.onCheckedChanged(compoundButton, z);
+            }
         }
     }
 
-    public di5(BaseActivity baseActivity, View.OnClickListener onClickListener) {
+    /* loaded from: classes5.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public String c;
+        public String d;
+
+        public b(di5 di5Var, int i, int i2, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {di5Var, Integer.valueOf(i), Integer.valueOf(i2), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = i2;
+            if (str != null && str.contains("%")) {
+                String[] split = str.split("%");
+                this.c = split[0];
+                if (split.length > 1) {
+                    this.d = split[1];
+                }
+            } else {
+                this.c = str;
+            }
+            this.a = i;
+        }
+    }
+
+    public di5(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity, onClickListener};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -81,141 +159,378 @@ public class di5 extends BaseAdapter {
                 return;
             }
         }
-        this.a = baseActivity;
+        this.a = false;
         this.c = null;
-        this.b = false;
-        this.d = onClickListener;
+        this.d = null;
+        this.k = false;
+        this.l = true;
+        this.m = -1;
+        this.b = tbPageContext;
+        this.j = pi.f(tbPageContext.getPageActivity(), R.dimen.M_H_X003);
+        this.h = new a(this);
     }
 
-    public boolean a() {
+    public final View e(List<b> list, boolean z, View view2) {
+        InterceptResult invokeCommon;
+        LinearLayout linearLayout;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{list, Boolean.valueOf(z), view2})) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return null;
+            }
+            if (view2 instanceof LinearLayout) {
+                linearLayout = (LinearLayout) view2;
+            } else {
+                linearLayout = (LinearLayout) LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d05d6, (ViewGroup) this.f, false);
+            }
+            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.obfuscated_res_0x7f0911df);
+            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox2 = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.obfuscated_res_0x7f091a9c);
+            nEGFeedBackReasonCheckBox.a();
+            nEGFeedBackReasonCheckBox2.a();
+            nEGFeedBackReasonCheckBox.setChecked(false);
+            nEGFeedBackReasonCheckBox2.setChecked(false);
+            this.i.put(nEGFeedBackReasonCheckBox, Boolean.FALSE);
+            this.i.put(nEGFeedBackReasonCheckBox2, Boolean.FALSE);
+            b bVar = list.get(0);
+            if (bVar != null) {
+                nEGFeedBackReasonCheckBox.setText(bVar.c);
+                nEGFeedBackReasonCheckBox.setTag(bVar);
+                if (bVar.a == this.m) {
+                    nEGFeedBackReasonCheckBox.setEnabled(false);
+                }
+            }
+            if (list.size() > 1 && list.get(1) != null) {
+                b bVar2 = list.get(1);
+                nEGFeedBackReasonCheckBox2.setText(bVar2.c);
+                nEGFeedBackReasonCheckBox2.setVisibility(0);
+                nEGFeedBackReasonCheckBox2.setTag(bVar2);
+                if (bVar2.a == this.m) {
+                    nEGFeedBackReasonCheckBox2.setEnabled(false);
+                }
+            } else {
+                nEGFeedBackReasonCheckBox2.setVisibility(4);
+            }
+            nEGFeedBackReasonCheckBox.setOnCheckedChangeListener(this.h);
+            nEGFeedBackReasonCheckBox2.setOnCheckedChangeListener(this.h);
+            int i = z ? 0 : this.j;
+            if (linearLayout.getLayoutParams() != null) {
+                ((ViewGroup.MarginLayoutParams) linearLayout.getLayoutParams()).bottomMargin = i;
+            }
+            return linearLayout;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public final View f(List<b> list, boolean z, View view2) {
+        InterceptResult invokeCommon;
+        LinearLayout linearLayout;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{list, Boolean.valueOf(z), view2})) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return null;
+            }
+            if (view2 instanceof LinearLayout) {
+                linearLayout = (LinearLayout) view2;
+            } else {
+                linearLayout = (LinearLayout) LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d05d6, (ViewGroup) this.f, false);
+            }
+            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.obfuscated_res_0x7f0911df);
+            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox2 = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.obfuscated_res_0x7f091a9c);
+            nEGFeedBackReasonCheckBox.a();
+            nEGFeedBackReasonCheckBox2.a();
+            nEGFeedBackReasonCheckBox.setChecked(false);
+            nEGFeedBackReasonCheckBox2.setChecked(false);
+            this.i.put(nEGFeedBackReasonCheckBox, Boolean.FALSE);
+            this.i.put(nEGFeedBackReasonCheckBox2, Boolean.FALSE);
+            b bVar = list.get(0);
+            if (bVar != null) {
+                nEGFeedBackReasonCheckBox.setText(bVar.c);
+                nEGFeedBackReasonCheckBox.setTag(bVar);
+            }
+            if (list.size() > 1 && list.get(1) != null) {
+                b bVar2 = list.get(1);
+                nEGFeedBackReasonCheckBox2.setText(bVar2.c);
+                nEGFeedBackReasonCheckBox2.setVisibility(0);
+                nEGFeedBackReasonCheckBox2.setTag(bVar2);
+            } else {
+                nEGFeedBackReasonCheckBox2.setVisibility(8);
+            }
+            nEGFeedBackReasonCheckBox.setOnCheckedChangeListener(this.h);
+            nEGFeedBackReasonCheckBox2.setOnCheckedChangeListener(this.h);
+            int i = z ? 0 : this.j;
+            if (linearLayout.getLayoutParams() != null) {
+                ((ViewGroup.MarginLayoutParams) linearLayout.getLayoutParams()).bottomMargin = i;
+            }
+            return linearLayout;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public View g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    public void b(List<AccountData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.c = list;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.f == null) {
+                LinearLayout linearLayout = new LinearLayout(this.b.getPageActivity());
+                this.f = linearLayout;
+                linearLayout.setOrientation(1);
+            }
+            List<List<b>> p = p();
+            if (ListUtils.isEmpty(p)) {
+                return null;
+            }
+            int size = p.size();
+            HashMap<NEGFeedBackReasonCheckBox, Boolean> hashMap = this.i;
+            if (hashMap == null) {
+                this.i = new HashMap<>();
+            } else {
+                hashMap.clear();
+            }
+            int i = 0;
+            while (i < size) {
+                View e = e(p.get(i), i == size + (-1), this.f.getChildAt(i));
+                if (e != null && e.getParent() == null) {
+                    this.f.addView(e);
+                }
+                i++;
+            }
+            if (this.f.getChildCount() > size) {
+                LinearLayout linearLayout2 = this.f;
+                linearLayout2.removeViews(size, linearLayout2.getChildCount() - size);
+            }
+            return this.f;
         }
+        return (View) invokeV.objValue;
     }
 
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public View h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<AccountData> list = this.c;
-            return (list != null ? list.size() : 0) + 1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            List<AccountData> list = this.c;
-            if (list == null || i < 0 || i >= list.size()) {
+            if (this.f == null) {
+                LinearLayout linearLayout = new LinearLayout(this.b.getPageActivity());
+                this.f = linearLayout;
+                linearLayout.setOrientation(1);
+            }
+            List<List<b>> s = s();
+            if (ListUtils.isEmpty(s)) {
                 return null;
             }
-            return this.c.get(i);
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            if (getItem(i) != null) {
-                return i;
+            int size = s.size();
+            HashMap<NEGFeedBackReasonCheckBox, Boolean> hashMap = this.i;
+            if (hashMap == null) {
+                this.i = new HashMap<>();
+            } else {
+                hashMap.clear();
             }
-            return -1L;
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? getItemId(i) >= 0 ? 0 : 1 : invokeI.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
-            try {
-                try {
-                    if (view2 == null) {
-                        if (getItemViewType(i) == 0) {
-                            view2 = LayoutInflater.from(this.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d0022, viewGroup, false);
-                            bVar = new b(this, null);
-                            bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09004c);
-                            bVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09006c);
-                            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090757);
-                            bVar.d = textView;
-                            wq4.d(textView).v(R.color.CAM_X0105);
-                            bVar.d.setOnClickListener(this.d);
-                            view2.setTag(bVar);
-                            wq4.d(bVar.a).v(R.color.CAM_X0105);
-                            SkinManager.setBackgroundResource(bVar.c, R.drawable.icon_set_list_ok_s);
-                        } else {
-                            view2 = LayoutInflater.from(this.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d0020, viewGroup, false);
-                            bVar = new b(this, null);
-                            bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090119);
-                            view2.setTag(bVar);
-                            wq4.d(bVar.b).v(R.color.CAM_X0302);
-                        }
-                    } else {
-                        bVar = (b) view2.getTag();
-                    }
-                    if (getItemViewType(i) == 0) {
-                        AccountData accountData = (AccountData) getItem(i);
-                        bVar.c.setVisibility(8);
-                        bVar.d.setVisibility(8);
-                        bVar.d.setTag(accountData);
-                        if (accountData != null) {
-                            bVar.a.setText(accountData.getAccountNameShow());
-                            if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
-                                bVar.c.setVisibility(0);
-                            }
-                            if (this.b) {
-                                bVar.d.setVisibility(0);
-                            }
-                        }
-                    }
-                } catch (Exception e) {
-                    BdLog.detailException(e);
+            int i = 0;
+            while (i < size) {
+                View f = f(s.get(i), i == size + (-1), this.f.getChildAt(i));
+                if (f != null && f.getParent() == null) {
+                    this.f.addView(f);
                 }
-                return view2;
-            } finally {
-                wq4.d(view2).f(R.color.CAM_X0205);
+                i++;
             }
+            if (this.f.getChildCount() > size) {
+                LinearLayout linearLayout2 = this.f;
+                linearLayout2.removeViews(size, linearLayout2.getChildCount() - size);
+            }
+            return this.f;
         }
-        return (View) invokeILL.objValue;
+        return (View) invokeV.objValue;
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
+    public void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.l = z;
+        }
+    }
+
+    public void j(vo4 vo4Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, vo4Var) == null) || vo4Var == null) {
+            return;
+        }
+        this.c = vo4Var.b();
+        this.d = vo4Var.g;
+    }
+
+    public void k(String[] strArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, strArr) == null) {
+            this.e = strArr;
+        }
+    }
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.m = i;
+        }
+    }
+
+    public void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.k = z;
+        }
+    }
+
+    public void o(CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, onCheckedChangeListener) == null) {
+            this.g = onCheckedChangeListener;
+        }
+    }
+
+    public final List<List<b>> p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return 2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            SparseArray<String> sparseArray = this.c;
+            if (sparseArray != null && sparseArray.size() != 0) {
+                int size = this.c.size();
+                ArrayList arrayList = new ArrayList();
+                int i = 0;
+                while (i < size) {
+                    int i2 = i + 1;
+                    int i3 = i + 2;
+                    ArrayList arrayList2 = new ArrayList();
+                    b bVar = new b(this, i, this.c.keyAt(i), this.c.valueAt(i));
+                    SparseArray<String> sparseArray2 = this.d;
+                    if (sparseArray2 != null && !StringUtils.isNull(sparseArray2.get(this.c.keyAt(i)))) {
+                        bVar.d = this.d.get(this.c.keyAt(i));
+                    }
+                    arrayList2.add(bVar);
+                    if (i2 > i && i2 < size) {
+                        b bVar2 = new b(this, i2, this.c.keyAt(i2), this.c.valueAt(i2));
+                        SparseArray<String> sparseArray3 = this.d;
+                        if (sparseArray3 != null && !StringUtils.isNull(sparseArray3.get(this.c.keyAt(i)))) {
+                            bVar2.d = this.d.get(this.c.keyAt(i2));
+                        }
+                        arrayList2.add(bVar2);
+                    }
+                    arrayList.add(arrayList2);
+                    i = i3;
+                }
+                return arrayList;
+            }
+            return q();
         }
-        return invokeV.intValue;
+        return (List) invokeV.objValue;
+    }
+
+    public final List<List<b>> q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            String[] strArr = this.e;
+            if (strArr == null || strArr.length <= 0) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < this.e.length; i += 2) {
+                ArrayList arrayList2 = new ArrayList();
+                if (!StringUtils.isNull(this.e[i])) {
+                    arrayList2.add(new b(this, i, i + 1, this.e[i]));
+                }
+                int i2 = i + 1;
+                String[] strArr2 = this.e;
+                if (i2 < strArr2.length && !StringUtils.isNull(strArr2[i2])) {
+                    arrayList2.add(new b(this, i2, i + 2, this.e[i2]));
+                }
+                if (arrayList2.size() > 0) {
+                    arrayList.add(arrayList2);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final List<List<b>> r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            String[] strArr = this.e;
+            if (strArr == null || strArr.length <= 0) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < this.e.length; i += 2) {
+                ArrayList arrayList2 = new ArrayList();
+                if (!StringUtils.isNull(this.e[i])) {
+                    arrayList2.add(new b(this, i, 0, this.e[i]));
+                }
+                int i2 = i + 1;
+                String[] strArr2 = this.e;
+                if (i2 < strArr2.length && !StringUtils.isNull(strArr2[i2])) {
+                    arrayList2.add(new b(this, i2, 0, this.e[i2]));
+                }
+                if (arrayList2.size() > 0) {
+                    arrayList.add(arrayList2);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final List<List<b>> s() {
+        InterceptResult invokeV;
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            SparseArray<String> sparseArray = this.c;
+            if (sparseArray != null && sparseArray.size() != 0) {
+                int size = this.c.size();
+                int i3 = 0;
+                int i4 = -1;
+                int i5 = this.a ? 0 : -1;
+                int i6 = this.a ? size - 1 : size;
+                if (i6 > 1 && i6 % 2 == 1) {
+                    i4 = i5 + 1;
+                }
+                ArrayList arrayList = new ArrayList();
+                while (i3 < size) {
+                    if (i3 == i5 || i3 == i4) {
+                        i = i3 + 1;
+                        i2 = i3;
+                    } else {
+                        i2 = i3 + 1;
+                        i = i3 + 2;
+                    }
+                    ArrayList arrayList2 = new ArrayList();
+                    b bVar = new b(this, i3, this.c.keyAt(i3), this.c.valueAt(i3));
+                    SparseArray<String> sparseArray2 = this.d;
+                    if (sparseArray2 != null && !StringUtils.isNull(sparseArray2.get(this.c.keyAt(i3)))) {
+                        bVar.d = this.d.get(this.c.keyAt(i3));
+                    }
+                    arrayList2.add(bVar);
+                    if (i2 > i3 && i2 < size) {
+                        b bVar2 = new b(this, i2, this.c.keyAt(i2), this.c.valueAt(i2));
+                        SparseArray<String> sparseArray3 = this.d;
+                        if (sparseArray3 != null && !StringUtils.isNull(sparseArray3.get(this.c.keyAt(i3)))) {
+                            bVar2.d = this.d.get(this.c.keyAt(i2));
+                        }
+                        arrayList2.add(bVar2);
+                    }
+                    arrayList.add(arrayList2);
+                    i3 = i;
+                }
+                return arrayList;
+            }
+            return r();
+        }
+        return (List) invokeV.objValue;
     }
 }

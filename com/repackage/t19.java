@@ -1,12 +1,9 @@
 package com.repackage;
 
-import android.util.JsonWriter;
-import java.io.IOException;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.os.IBinder;
 /* loaded from: classes7.dex */
 public interface t19 {
-    JSONObject a() throws JSONException;
+    IBinder a(String str);
 
-    void b(JsonWriter jsonWriter) throws IOException;
+    void b();
 }

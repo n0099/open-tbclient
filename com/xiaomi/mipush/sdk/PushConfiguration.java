@@ -143,7 +143,7 @@ public class PushConfiguration {
         this.mOpenFTOSPush = pushConfigurationBuilder.mOpenFTOSPush;
     }
 
-    public /* synthetic */ PushConfiguration(PushConfigurationBuilder pushConfigurationBuilder, ag agVar) {
+    public /* synthetic */ PushConfiguration(PushConfigurationBuilder pushConfigurationBuilder, ah ahVar) {
         this(pushConfigurationBuilder);
     }
 

@@ -1,181 +1,16 @@
 package com.xiaomi.push;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.util.zip.GZIPInputStream;
+import com.xiaomi.push.service.bg;
 /* loaded from: classes8.dex */
-public class fe {
+public /* synthetic */ class fe {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[] a;
+    public static final /* synthetic */ int[] a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with other field name */
-    public byte f358a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public int f359a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public short f360a;
-    public byte[] b;
-
-    /* loaded from: classes8.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final c a;
-
-        /* renamed from: a  reason: collision with other field name */
-        public static final d f361a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1658235588, "Lcom/xiaomi/push/fe$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(1658235588, "Lcom/xiaomi/push/fe$a;");
-                    return;
-                }
-            }
-            a = new c();
-            f361a = new d();
-        }
-
-        public static byte[] a(byte[] bArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) ? a(bArr, f361a) : (byte[]) invokeL.objValue;
-        }
-
-        public static byte[] a(byte[] bArr, b bVar) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, bVar)) == null) {
-                if (fe.m351a(bArr)) {
-                    fe a2 = fe.a(bArr);
-                    return (a2.f358a == 0 || a2.f358a != bVar.a()) ? a2.b : bVar.a(a2.b, a2.f359a);
-                }
-                return bArr;
-            }
-            return (byte[]) invokeLL.objValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public interface b {
-        byte a();
-
-        byte[] a(byte[] bArr, int i);
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class d implements b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.xiaomi.push.fe.b
-        public byte a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return (byte) 2;
-            }
-            return invokeV.byteValue;
-        }
-
-        @Override // com.xiaomi.push.fe.b
-        public byte[] a(byte[] bArr, int i) {
-            InterceptResult invokeLI;
-            GZIPInputStream gZIPInputStream;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i)) == null) {
-                GZIPInputStream gZIPInputStream2 = null;
-                try {
-                    gZIPInputStream = new GZIPInputStream(new ByteArrayInputStream(bArr), i);
-                } catch (IOException unused) {
-                } catch (Throwable th) {
-                    th = th;
-                }
-                try {
-                    byte[] bArr2 = new byte[i];
-                    gZIPInputStream.read(bArr2);
-                    try {
-                        gZIPInputStream.close();
-                    } catch (IOException unused2) {
-                    }
-                    return bArr2;
-                } catch (IOException unused3) {
-                    gZIPInputStream2 = gZIPInputStream;
-                    if (gZIPInputStream2 != null) {
-                        try {
-                            gZIPInputStream2.close();
-                        } catch (IOException unused4) {
-                        }
-                    }
-                    return bArr;
-                } catch (Throwable th2) {
-                    th = th2;
-                    gZIPInputStream2 = gZIPInputStream;
-                    if (gZIPInputStream2 != null) {
-                        try {
-                            gZIPInputStream2.close();
-                        } catch (IOException unused5) {
-                        }
-                    }
-                    throw th;
-                }
-            }
-            return (byte[]) invokeLI.objValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -190,108 +25,19 @@ public class fe {
                 return;
             }
         }
-        a = new byte[]{80, 85, 83, 72};
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public fe(byte b2, int i, byte[] bArr) {
-        this((short) 1, b2, i, bArr);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Byte.valueOf(b2), Integer.valueOf(i), bArr};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Short) objArr2[0]).shortValue(), ((Byte) objArr2[1]).byteValue(), ((Integer) objArr2[2]).intValue(), (byte[]) objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        int[] iArr = new int[bg.c.values().length];
+        a = iArr;
+        try {
+            iArr[bg.c.a.ordinal()] = 1;
+        } catch (NoSuchFieldError unused) {
         }
-    }
-
-    public fe(short s, byte b2, int i, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Short.valueOf(s), Byte.valueOf(b2), Integer.valueOf(i), bArr};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+        try {
+            a[bg.c.b.ordinal()] = 2;
+        } catch (NoSuchFieldError unused2) {
         }
-        this.f360a = (short) 1;
-        this.f360a = s;
-        this.f358a = b2;
-        this.f359a = i;
-        this.b = bArr;
-    }
-
-    public static fe a(byte b2, int i, byte[] bArr) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Byte.valueOf(b2), Integer.valueOf(i), bArr})) == null) ? new fe(b2, i, bArr) : (fe) invokeCommon.objValue;
-    }
-
-    public static fe a(short s, byte b2, int i, byte[] bArr) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Short.valueOf(s), Byte.valueOf(b2), Integer.valueOf(i), bArr})) == null) ? new fe(s, b2, i, bArr) : (fe) invokeCommon.objValue;
-    }
-
-    public static fe a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) {
-            if (m351a(bArr)) {
-                ByteBuffer order = ByteBuffer.wrap(bArr).order(ByteOrder.BIG_ENDIAN);
-                order.getInt();
-                short s = order.getShort();
-                byte b2 = order.get();
-                int i = order.getInt();
-                byte[] bArr2 = new byte[order.getInt()];
-                order.get(bArr2);
-                return a(s, b2, i, bArr2);
-            }
-            return a((byte) 0, bArr.length, bArr);
+        try {
+            a[bg.c.c.ordinal()] = 3;
+        } catch (NoSuchFieldError unused3) {
         }
-        return (fe) invokeL.objValue;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public static boolean m351a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bArr)) == null) {
-            byte[] bArr2 = a;
-            return a(bArr2, bArr, bArr2.length);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean a(byte[] bArr, byte[] bArr2, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65545, null, bArr, bArr2, i)) == null) {
-            if (bArr.length < i || bArr2.length < i) {
-                return false;
-            }
-            for (int i2 = 0; i2 < i; i2++) {
-                if (bArr[i2] != bArr2[i2]) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeLLI.booleanValue;
     }
 }

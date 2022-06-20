@@ -13,12 +13,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ib;
+import com.repackage.lb;
 /* loaded from: classes.dex */
 public class HttpMessageTask extends MessageTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ib mConnectTimeOut;
+    public lb mConnectTimeOut;
     public boolean mIsImm;
     public HTTP_METHOD mMethod;
     public boolean mNeedGzip;
@@ -132,10 +132,10 @@ public class HttpMessageTask extends MessageTask {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? FrameHelper.b(this.mCmd) : invokeV.booleanValue;
     }
 
-    public ib getConnectTimeOut() {
+    public lb getConnectTimeOut() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mConnectTimeOut : (ib) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mConnectTimeOut : (lb) invokeV.objValue;
     }
 
     public boolean getIsImm() {
@@ -168,10 +168,10 @@ public class HttpMessageTask extends MessageTask {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mNeedGzip : invokeV.booleanValue;
     }
 
-    public void setConnectTimeOut(ib ibVar) {
+    public void setConnectTimeOut(lb lbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, ibVar) == null) {
-            this.mConnectTimeOut = ibVar;
+        if (interceptable == null || interceptable.invokeL(1048583, this, lbVar) == null) {
+            this.mConnectTimeOut = lbVar;
         }
     }
 

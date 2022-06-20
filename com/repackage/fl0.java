@@ -1,57 +1,84 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.Intent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.max.ImmersiveVideoDetailActivity;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-@Service
-/* loaded from: classes5.dex */
-public class fl0 extends hg0 {
+/* loaded from: classes6.dex */
+public class fl0 {
     public static /* synthetic */ Interceptable $ic;
+    public static hl0 a;
+    public static il0 b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755704121, "Lcom/repackage/fl0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755704121, "Lcom/repackage/fl0;");
+        }
+    }
 
     public fl0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.repackage.hg0
-    public String a() {
+    public static hl0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "max" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (fl0.class) {
+                    if (a == null) {
+                        a = (hl0) ServiceManager.getService(hl0.a);
+                    }
+                    if (a == null) {
+                        a = hl0.b;
+                    }
+                }
+            }
+            return a;
+        }
+        return (hl0) invokeV.objValue;
     }
 
-    @Override // com.repackage.hg0
-    public boolean b(@NonNull Context context, @NonNull lg0 lg0Var, @Nullable Map<String, Object> map, @Nullable pg0 pg0Var) {
-        InterceptResult invokeLLLL;
+    public static il0 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, lg0Var, map, pg0Var)) == null) {
-            super.b(context, lg0Var, map, pg0Var);
-            HashMap<String, String> d = lg0Var.d();
-            Intent intent = new Intent(context, ImmersiveVideoDetailActivity.class);
-            intent.putExtra("map", d);
-            return tz0.c(context, intent);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == null) {
+                synchronized (fl0.class) {
+                    if (b == null) {
+                        b = (il0) ServiceManager.getService(il0.a);
+                    }
+                    if (b == null) {
+                        b = il0.b;
+                    }
+                }
+            }
+            return b;
         }
-        return invokeLLLL.booleanValue;
+        return (il0) invokeV.objValue;
     }
 }

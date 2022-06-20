@@ -6,8 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qu9;
-import com.repackage.uu9;
+import com.repackage.vu9;
 /* loaded from: classes5.dex */
 public abstract class cz9 {
     public static /* synthetic */ Interceptable $ic;
@@ -28,30 +27,23 @@ public abstract class cz9 {
     }
 
     @Deprecated
-    public <T> uu9.c<T> a(uu9.c<T> cVar) {
+    public vu9.f a(vu9.f fVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? cVar : (uu9.c) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) ? fVar : (vu9.f) invokeL.objValue;
     }
 
     @Deprecated
-    public <T> Throwable b(Throwable th) {
+    public Throwable b(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th)) == null) ? th : (Throwable) invokeL.objValue;
     }
 
     @Deprecated
-    public <T> xu9 c(xu9 xu9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xu9Var)) == null) ? xu9Var : (xu9) invokeL.objValue;
-    }
-
-    @Deprecated
-    public <T> qu9.a<T> d(uu9<? extends T> uu9Var, qu9.a<T> aVar) {
+    public vu9.f c(vu9 vu9Var, vu9.f fVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, uu9Var, aVar)) == null) ? aVar : (qu9.a) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, vu9Var, fVar)) == null) ? fVar : (vu9.f) invokeLL.objValue;
     }
 }

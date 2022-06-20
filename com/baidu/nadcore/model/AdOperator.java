@@ -1,7 +1,6 @@
 package com.baidu.nadcore.model;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.nps.pm.provider.BundleOpProvider;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -43,7 +42,7 @@ public class AdOperator {
                     return;
                 }
             }
-            CHECK = new TYPE("CHECK", 0, BundleOpProvider.METHOD_BUNDLE_CHECK);
+            CHECK = new TYPE("CHECK", 0, "check");
             TYPE type = new TYPE("DOWNLOAD", 1, "download");
             DOWNLOAD = type;
             $VALUES = new TYPE[]{CHECK, type};

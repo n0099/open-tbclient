@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c91;
+import com.repackage.n91;
 import java.text.DecimalFormat;
 import java.util.Iterator;
 import java.util.List;
@@ -25,8 +25,8 @@ public class CouponEntranceView extends FrameLayout {
     public TextView a;
     public TextView b;
     public View c;
-    public c91 d;
-    public c91.a e;
+    public n91 d;
+    public n91.a e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CouponEntranceView(Context context) {
@@ -58,29 +58,29 @@ public class CouponEntranceView extends FrameLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01f9, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0906ec);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0906eb);
-            this.c = findViewById(R.id.obfuscated_res_0x7f090dcf);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01f6, (ViewGroup) this, true);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0906d7);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0906d6);
+            this.c = findViewById(R.id.obfuscated_res_0x7f090dc0);
         }
     }
 
     public void c() {
-        List<c91.a> list;
+        List<n91.a> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.e = null;
-            c91 c91Var = this.d;
-            if (!((c91Var == null || (list = c91Var.b) == null || list.size() <= 0) ? false : true)) {
+            n91 n91Var = this.d;
+            if (!((n91Var == null || (list = n91Var.b) == null || list.size() <= 0) ? false : true)) {
                 setVisibility(8);
                 return;
             }
-            Iterator<c91.a> it = this.d.b.iterator();
+            Iterator<n91.a> it = this.d.b.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
-                c91.a next = it.next();
+                n91.a next = it.next();
                 if (next.h == 1) {
                     this.e = next;
                     break;
@@ -92,7 +92,7 @@ public class CouponEntranceView extends FrameLayout {
             }
             setVisibility(0);
             this.a.setText(this.e.c);
-            c91.a aVar = this.e;
+            n91.a aVar = this.e;
             if (aVar.b == -1) {
                 String str = aVar.d;
                 this.b.setVisibility(8);
@@ -111,16 +111,16 @@ public class CouponEntranceView extends FrameLayout {
         }
     }
 
-    public c91.a getSelectedItem() {
+    public n91.a getSelectedItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (c91.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (n91.a) invokeV.objValue;
     }
 
-    public void update(c91 c91Var) {
+    public void update(n91 n91Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, c91Var) == null) {
-            this.d = c91Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, n91Var) == null) {
+            this.d = n91Var;
             c();
         }
     }

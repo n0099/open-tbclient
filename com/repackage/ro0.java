@@ -9,92 +9,86 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.wo0;
 /* loaded from: classes7.dex */
-public class ro0 extends mo0 {
+public class ro0 implements wo0.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gu0 O;
+    public final hs0 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ro0(@NonNull ds0 ds0Var, @Nullable Context context) {
-        super(ds0Var, context);
+    /* loaded from: classes7.dex */
+    public class a implements hs0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(ro0 ro0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ro0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.hs0
+        @NonNull
+        public is0 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new qr0() : (is0) invokeV.objValue;
+        }
+    }
+
+    public ro0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ds0Var, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((ds0) objArr2[0], (Context) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new a(this);
     }
 
-    @Override // com.repackage.lo0, com.repackage.ko0
-    public int B() {
-        InterceptResult invokeV;
+    @Override // com.repackage.wo0.a
+    public wo0 a(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 23;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i)) == null) ? new yo0(new su0(this.a, context)) : (wo0) invokeLI.objValue;
     }
 
-    @Override // com.repackage.lo0
-    public void D1() {
+    @Override // com.repackage.wo0.a
+    public wo0 b(Context context, int i, @Nullable xo0 xo0Var) {
+        InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.xo0, com.repackage.ko0
-    public void G0(@Nullable Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            gu0 gu0Var = new gu0();
-            this.O = gu0Var;
-            b(gu0Var);
-            yt0 yt0Var = this.b;
-            if (yt0Var != null) {
-                yt0Var.f0(Boolean.FALSE);
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i, xo0Var)) == null) {
+            if (xo0Var == null) {
+                xo0Var = xo0.b;
             }
-            v().setClickable(false);
-            w0(true);
-        }
-    }
-
-    @Override // com.repackage.ko0
-    public boolean X() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? V() : invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.ko0, com.repackage.mt0
-    public void onPrepared() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onPrepared();
-            int i = this.a.d;
-            if (i > 0) {
-                o0(i);
+            int i2 = xo0Var.a;
+            if (i2 != 0) {
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        return new yo0(new mo0(this.a, context));
+                    }
+                    return new yo0(new lo0(this.a, context));
+                }
+                return new yo0(new ko0(this.a, context));
             }
+            return new yo0(new mo0(this.a, context));
         }
-    }
-
-    @Override // com.repackage.lo0
-    public boolean s1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
+        return (wo0) invokeLIL.objValue;
     }
 }

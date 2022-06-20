@@ -1,310 +1,41 @@
 package com.repackage;
 
-import android.content.DialogInterface;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.R;
-import com.baidu.tieba.userblock.UserBlockInfoModel;
-import com.baidu.tieba.userblock.UserBlockSetModel;
+import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import tbclient.GetUserBlackInfo.DataRes;
-import tbclient.PermissionList;
+import java.net.URLEncoder;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ao8 {
+public class ao8 extends BdAsyncTask<String, String, Integer> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public BdUniqueId b;
-    public at4 c;
-    public iq4 d;
-    public ArrayList<qq4> e;
-    public long f;
-    public UserBlockSetModel g;
-    public UserBlockInfoModel h;
-    public AdapterView.OnItemClickListener i;
-    public View.OnClickListener j;
-    public View.OnClickListener k;
+    public String a;
+    public a b;
 
     /* loaded from: classes5.dex */
-    public class a implements el4<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ao8 a;
+    public interface a {
+        void a();
 
-        public a(ao8 ao8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ao8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ao8Var;
-        }
+        void b();
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.el4
-        /* renamed from: b */
-        public void onSuccess(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.a.k();
-                zn8.g((ViewGroup) this.a.a.getPageActivity().findViewById(16908290), str, true);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921690));
-            }
-        }
+        void c();
 
-        @Override // com.repackage.el4
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                this.a.k();
-                zn8.g((ViewGroup) this.a.a.getPageActivity().findViewById(16908290), str, false);
-            }
-        }
+        void onError(String str);
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements el4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ao8 a;
-
-        public b(ao8 ao8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ao8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ao8Var;
-        }
-
-        @Override // com.repackage.el4
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) || this.a.a == null) {
-                return;
-            }
-            this.a.a.showToast(str);
-        }
-
-        @Override // com.repackage.el4
-        public void onSuccess(Object obj) {
-            int i;
-            PermissionList permissionList;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-                if (obj instanceof DataRes) {
-                    DataRes dataRes = (DataRes) obj;
-                    i = dataRes.is_black_white.intValue();
-                    permissionList = dataRes.perm_list;
-                } else {
-                    i = 0;
-                    permissionList = null;
-                }
-                if (permissionList != null) {
-                    this.a.m(i, permissionList);
-                } else if (this.a.a != null) {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f05ac);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements AdapterView.OnItemClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ao8 a;
-
-        public c(ao8 ao8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ao8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ao8Var;
-        }
-
-        @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                qq4 qq4Var = (qq4) ListUtils.getItem(this.a.e, i);
-                if (qq4Var != null) {
-                    this.a.d.r(true);
-                }
-                this.a.d.h(i);
-                zn8.a(qq4Var, i);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ao8 a;
-
-        public d(ao8 ao8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ao8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ao8Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.d.d();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ao8 a;
-
-        public e(ao8 ao8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ao8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ao8Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.d.d();
-                if (this.a.e == null || !ji.z() || TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                    return;
-                }
-                Iterator it = this.a.e.iterator();
-                int i = 0;
-                int i2 = 0;
-                int i3 = 0;
-                while (it.hasNext()) {
-                    qq4 qq4Var = (qq4) it.next();
-                    if (qq4Var.d() && "1".equals(qq4Var.b())) {
-                        i = 1;
-                    } else if (qq4Var.d() && "2".equals(qq4Var.b())) {
-                        i2 = 1;
-                    } else if (qq4Var.d() && "3".equals(qq4Var.b())) {
-                        i3 = 1;
-                    }
-                }
-                this.a.o();
-                this.a.g.E(this.a.f, i, i2, i3);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class f implements DialogInterface.OnCancelListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ao8 a;
-
-        public f(ao8 ao8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ao8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ao8Var;
-        }
-
-        @Override // android.content.DialogInterface.OnCancelListener
-        public void onCancel(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_USER_BLOCK_SET, this.a.b);
-            }
-        }
-    }
-
-    public ao8(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+    public ao8(String str, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {str, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -314,107 +45,54 @@ public class ao8 {
                 return;
             }
         }
-        this.i = new c(this);
-        this.j = new d(this);
-        this.k = new e(this);
-        this.a = tbPageContext;
-        this.b = bdUniqueId;
-        UserBlockSetModel userBlockSetModel = new UserBlockSetModel(tbPageContext, bdUniqueId);
-        this.g = userBlockSetModel;
-        userBlockSetModel.F(new a(this));
-        UserBlockInfoModel userBlockInfoModel = new UserBlockInfoModel(tbPageContext, bdUniqueId);
-        this.h = userBlockInfoModel;
-        userBlockInfoModel.F(new b(this));
+        this.a = "https://lookup.api.bsb.baidu.com/urlquery?url=" + URLEncoder.encode(str) + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getCuid();
+        this.b = aVar;
     }
 
-    public final String j(int i) {
-        InterceptResult invokeI;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Integer doInBackground(String... strArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? TbadkCoreApplication.getInst().getString(i) : (String) invokeI.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+            try {
+                NetWork netWork = new NetWork(this.a);
+                netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
+                netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
+                JSONArray optJSONArray = new JSONObject(new String(netWork.getNetData())).optJSONArray("result");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                        if (optJSONObject != null) {
+                            return Integer.valueOf(optJSONObject.optInt("main", -1));
+                        }
+                    }
+                    return -1;
+                }
+                return -1;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return -1;
+            }
+        }
+        return (Integer) invokeL.objValue;
     }
 
-    public final void k() {
-        at4 at4Var;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPostExecute(Integer num) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (at4Var = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num) == null) || this.b == null || num == null) {
             return;
         }
-        at4Var.h(false);
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f = -1L;
-            at4 at4Var = this.c;
-            if (at4Var != null) {
-                at4Var.h(false);
-            }
-            iq4 iq4Var = this.d;
-            if (iq4Var != null) {
-                iq4Var.d();
-            }
-            UserBlockInfoModel userBlockInfoModel = this.h;
-            if (userBlockInfoModel != null) {
-                userBlockInfoModel.onDestroy();
-            }
-            UserBlockSetModel userBlockSetModel = this.g;
-            if (userBlockSetModel != null) {
-                userBlockSetModel.onDestroy();
-            }
-            MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, this.b);
-            MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_USER_BLOCK_SET, this.b);
-        }
-    }
-
-    public final void m(int i, PermissionList permissionList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, permissionList) == null) {
-            boolean z = false;
-            boolean z2 = permissionList != null && permissionList.follow.intValue() == 1;
-            boolean z3 = permissionList != null && permissionList.interact.intValue() == 1;
-            if (permissionList != null && permissionList.chat.intValue() == 1) {
-                z = true;
-            }
-            ArrayList<qq4> arrayList = new ArrayList<>();
-            this.e = arrayList;
-            if (i == 1) {
-                arrayList.add(new qq4(j(R.string.obfuscated_res_0x7f0f0315), z2, "1"));
-                this.e.add(new qq4(j(R.string.obfuscated_res_0x7f0f0310), z3, "2"));
-                this.e.add(new qq4(j(R.string.obfuscated_res_0x7f0f0316), z, "3"));
-            } else {
-                arrayList.add(new qq4(j(R.string.obfuscated_res_0x7f0f0314), z3, "2"));
-                this.e.add(new qq4(j(R.string.obfuscated_res_0x7f0f0316), z, "3"));
-            }
-            iq4 iq4Var = new iq4(this.a);
-            this.d = iq4Var;
-            iq4Var.l(R.string.obfuscated_res_0x7f0f031d);
-            this.d.k(this.e, this.i);
-            this.d.q(R.string.obfuscated_res_0x7f0f04f4, this.k);
-            this.d.p(R.string.obfuscated_res_0x7f0f0376, this.j);
-            iq4 iq4Var2 = this.d;
-            iq4Var2.c();
-            iq4Var2.n();
-        }
-    }
-
-    public void n(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.f = j;
-            this.h.E(j);
-        }
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.c == null) {
-                at4 at4Var = new at4(this.a);
-                this.c = at4Var;
-                at4Var.e(new f(this));
-            }
-            this.c.h(true);
+        if (num.intValue() == -1) {
+            this.b.onError(null);
+        } else if (num.intValue() == 1) {
+            this.b.c();
+        } else if (num.intValue() != 2 && num.intValue() != 0) {
+            this.b.a();
+        } else {
+            this.b.b();
         }
     }
 }

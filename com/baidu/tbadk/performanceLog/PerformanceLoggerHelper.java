@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b85;
-import com.repackage.c85;
-import com.repackage.d85;
-import com.repackage.e85;
-import com.repackage.jg;
-import com.repackage.ji;
-import com.repackage.x75;
-import com.repackage.ys4;
+import com.repackage.ht4;
+import com.repackage.k85;
+import com.repackage.ng;
+import com.repackage.ni;
+import com.repackage.o85;
+import com.repackage.p85;
+import com.repackage.q85;
+import com.repackage.r85;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes3.dex */
@@ -69,7 +69,7 @@ public class PerformanceLoggerHelper {
         this.isSmallFlow = false;
         this.maxIntervalForOnce = 86400L;
         this.smallFlowInterval = 0L;
-        this.startSmallFlowTime = ys4.k().m(TB_PERFOR_SMALLFLOW_TIME, 0L);
+        this.startSmallFlowTime = ht4.k().m(TB_PERFOR_SMALLFLOW_TIME, 0L);
         BdBaseApplication.getInst().setStartSmallFlowTime(this.startSmallFlowTime);
         this.smallFlowInterval = this.maxIntervalForOnce;
         BdBaseApplication.getInst().setSmallFlowInterval(this.smallFlowInterval);
@@ -168,7 +168,7 @@ public class PerformanceLoggerHelper {
                                         str2 = str;
                                         if (str2 != null) {
                                         }
-                                        return jg.e(str2, -1);
+                                        return ng.e(str2, -1);
                                     }
                                 }
                                 if (bufferedReader != null) {
@@ -177,7 +177,7 @@ public class PerformanceLoggerHelper {
                                 str2 = str;
                                 if (str2 != null) {
                                 }
-                                return jg.e(str2, -1);
+                                return ng.e(str2, -1);
                             } catch (Throwable th) {
                                 th = th;
                                 if (process != null) {
@@ -234,7 +234,7 @@ public class PerformanceLoggerHelper {
                     str2 = split2[0];
                 }
             }
-            return jg.e(str2, -1);
+            return ng.e(str2, -1);
         }
         return invokeV.intValue;
     }
@@ -348,72 +348,72 @@ public class PerformanceLoggerHelper {
         return invokeV.longValue;
     }
 
-    public c85 getLoggerWithType(int i) {
+    public p85 getLoggerWithType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             if (isSmallFlow()) {
                 switch (i) {
                     case 1000:
-                        e85 e85Var = new e85();
-                        e85Var.a = "frs";
-                        return e85Var;
+                        r85 r85Var = new r85();
+                        r85Var.a = "frs";
+                        return r85Var;
                     case 1001:
-                        e85 e85Var2 = new e85();
-                        e85Var2.a = "pb";
-                        return e85Var2;
+                        r85 r85Var2 = new r85();
+                        r85Var2.a = "pb";
+                        return r85Var2;
                     case 1002:
-                        b85 b85Var = new b85();
-                        b85Var.a = "im";
-                        return b85Var;
+                        o85 o85Var = new o85();
+                        o85Var.a = "im";
+                        return o85Var;
                     case 1003:
                     case 1006:
                     case 1007:
                     default:
                         return null;
                     case 1004:
-                        e85 e85Var3 = new e85();
-                        e85Var3.a = "photo_live";
-                        return e85Var3;
+                        r85 r85Var3 = new r85();
+                        r85Var3.a = "photo_live";
+                        return r85Var3;
                     case 1005:
-                        x75 x75Var = new x75();
-                        x75Var.a = "home_page";
-                        return x75Var;
+                        k85 k85Var = new k85();
+                        k85Var.a = "home_page";
+                        return k85Var;
                     case 1008:
-                        e85 e85Var4 = new e85();
-                        e85Var4.a = "user_center";
-                        return e85Var4;
+                        r85 r85Var4 = new r85();
+                        r85Var4.a = "user_center";
+                        return r85Var4;
                     case 1009:
-                        e85 e85Var5 = new e85();
-                        e85Var5.a = "sign_all";
-                        return e85Var5;
+                        r85 r85Var5 = new r85();
+                        r85Var5.a = "sign_all";
+                        return r85Var5;
                     case 1010:
-                        e85 e85Var6 = new e85();
-                        e85Var6.a = "person_center";
-                        return e85Var6;
+                        r85 r85Var6 = new r85();
+                        r85Var6.a = "person_center";
+                        return r85Var6;
                     case 1011:
-                        e85 e85Var7 = new e85();
-                        e85Var7.a = "person_center_home";
-                        return e85Var7;
+                        r85 r85Var7 = new r85();
+                        r85Var7.a = "person_center_home";
+                        return r85Var7;
                     case 1012:
-                        e85 e85Var8 = new e85();
-                        e85Var8.a = "person_center_post";
-                        return e85Var8;
+                        r85 r85Var8 = new r85();
+                        r85Var8.a = "person_center_post";
+                        return r85Var8;
                     case 1013:
-                        e85 e85Var9 = new e85();
-                        e85Var9.a = "person_center_dynamic";
-                        return e85Var9;
+                        r85 r85Var9 = new r85();
+                        r85Var9.a = "person_center_dynamic";
+                        return r85Var9;
                 }
             }
             return null;
         }
-        return (c85) invokeI.objValue;
+        return (p85) invokeI.objValue;
     }
 
     public String getNetType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? !ji.z() ? "N" : ji.H() ? "WIFI" : ji.v() ? "4G" : ji.u() ? "3G" : ji.t() ? "2G" : "N" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? !ni.z() ? "N" : ni.H() ? "WIFI" : ni.v() ? "4G" : ni.u() ? "3G" : ni.t() ? "2G" : "N" : (String) invokeV.objValue;
     }
 
     public boolean isSmallFlow() {
@@ -437,17 +437,17 @@ public class PerformanceLoggerHelper {
                 if (0 == j || currentTimeMillis - j >= this.smallFlowInterval) {
                     this.startSmallFlowTime = currentTimeMillis;
                     BdBaseApplication.getInst().setStartSmallFlowTime(this.startSmallFlowTime);
-                    ys4.k().x(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
+                    ht4.k().x(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
                 }
             } else {
                 this.startSmallFlowTime = 0L;
                 BdBaseApplication.getInst().setStartSmallFlowTime(0L);
-                ys4.k().x(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
+                ht4.k().x(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
             }
             this.isSmallFlow = z;
             BdBaseApplication.getInst().setIsSmallFlow(z);
             if (BdStatisticsManager.getInstance().isMainProcess()) {
-                d85.b().f();
+                q85.b().f();
             }
         }
     }

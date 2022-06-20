@@ -21,16 +21,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mk5;
-import com.repackage.rx0;
-import com.repackage.uj5;
-import com.repackage.vj5;
+import com.repackage.jl5;
+import com.repackage.rk5;
+import com.repackage.sk5;
+import com.repackage.vx0;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class SplashAdView extends BCAdView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public uj5 m;
+    public rk5 m;
     public boolean n;
     public ScalableVideoView o;
 
@@ -96,9 +96,9 @@ public class SplashAdView extends BCAdView {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, mediaPlayer, i, i2)) == null) {
-                mk5.a();
+                jl5.c();
                 this.a.m.d = "";
-                mk5.h(this.a.m);
+                jl5.k(this.a.m);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, "advertevent://timeout"));
                 return false;
             }
@@ -166,13 +166,13 @@ public class SplashAdView extends BCAdView {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || mk5.f()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || jl5.i()) {
                 return;
             }
             if (this.a.f.advisible != 0) {
                 ClogBuilder clogBuilder = new ClogBuilder();
                 clogBuilder.w(ClogBuilder.LogType.CLICK).t("HOMEPAGE").v(this.a.f.placeId).h("video").n(this.a.f.extraParam);
-                rx0.c(clogBuilder);
+                vx0.c(clogBuilder);
             }
             SplashAdView splashAdView = this.a;
             if (splashAdView.a == null || TextUtils.isEmpty(splashAdView.m.e)) {
@@ -210,13 +210,13 @@ public class SplashAdView extends BCAdView {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || mk5.f()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || jl5.i()) {
                 return;
             }
             if (this.a.f.advisible != 0) {
                 ClogBuilder clogBuilder = new ClogBuilder();
                 clogBuilder.w(ClogBuilder.LogType.CLICK).t("HOMEPAGE").v(this.a.f.placeId).h("image").n(this.a.f.extraParam);
-                rx0.c(clogBuilder);
+                vx0.c(clogBuilder);
             }
             SplashAdView splashAdView = this.a;
             if (splashAdView.a == null || TextUtils.isEmpty(splashAdView.m.b)) {
@@ -246,7 +246,7 @@ public class SplashAdView extends BCAdView {
                 return;
             }
         }
-        this.l = new vj5(tbPageContext.getPageActivity());
+        this.l = new sk5(tbPageContext.getPageActivity());
         this.f = new AdInfo();
     }
 
@@ -261,9 +261,9 @@ public class SplashAdView extends BCAdView {
             if (jsonToObject.advisible == 0) {
                 ClogBuilder clogBuilder = new ClogBuilder();
                 clogBuilder.w(ClogBuilder.LogType.SHOW).t("HOMEPAGE").v(this.f.placeId).n(this.f.extraParam);
-                rx0.c(clogBuilder);
+                vx0.c(clogBuilder);
             }
-            uj5 b2 = uj5.b(mk5.d());
+            rk5 b2 = rk5.b(jl5.f());
             this.m = b2;
             if (b2.c()) {
                 if (this.m.d()) {
@@ -271,7 +271,7 @@ public class SplashAdView extends BCAdView {
                     String str = this.m.d;
                     File file = new File(str);
                     if (file.exists()) {
-                        mk5.b(file);
+                        jl5.d(file);
                         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.j, this.i);
                         ScalableVideoView scalableVideoView = new ScalableVideoView(this.e);
                         this.o = scalableVideoView;
@@ -286,21 +286,21 @@ public class SplashAdView extends BCAdView {
                             addView(this.o, layoutParams);
                             ClogBuilder clogBuilder2 = new ClogBuilder();
                             clogBuilder2.w(ClogBuilder.LogType.SHOW).t("HOMEPAGE").v(this.f.placeId).h("video").n(this.f.extraParam);
-                            rx0.c(clogBuilder2);
+                            vx0.c(clogBuilder2);
                             return true;
                         } catch (Exception e2) {
                             e2.printStackTrace();
-                            mk5.a();
-                            uj5 uj5Var = this.m;
-                            uj5Var.d = "";
-                            mk5.h(uj5Var);
+                            jl5.c();
+                            rk5 rk5Var = this.m;
+                            rk5Var.d = "";
+                            jl5.k(rk5Var);
                             return false;
                         }
                     }
-                    mk5.a();
-                    uj5 uj5Var2 = this.m;
-                    uj5Var2.d = "";
-                    mk5.h(uj5Var2);
+                    jl5.c();
+                    rk5 rk5Var2 = this.m;
+                    rk5Var2.d = "";
+                    jl5.k(rk5Var2);
                     return false;
                 } else if (!TextUtils.isEmpty(this.m.a)) {
                     if (this.c != null) {
@@ -309,19 +309,19 @@ public class SplashAdView extends BCAdView {
                     TbImageView tbImageView = new TbImageView(this.e);
                     this.c = tbImageView;
                     tbImageView.setOnClickListener(new e(this));
-                    this.c.K(this.f.adImgUrl, 10, false);
+                    this.c.J(this.f.adImgUrl, 10, false);
                     this.c.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     addView(this.c, new RelativeLayout.LayoutParams(this.j, this.i));
                     ClogBuilder clogBuilder3 = new ClogBuilder();
                     clogBuilder3.w(ClogBuilder.LogType.SHOW).t("HOMEPAGE").v(this.f.placeId).h("image").n(this.f.extraParam);
-                    rx0.c(clogBuilder3);
+                    vx0.c(clogBuilder3);
                     return true;
                 } else {
-                    mk5.a();
+                    jl5.c();
                 }
             } else {
-                mk5.c();
-                mk5.a();
+                jl5.e();
+                jl5.c();
             }
             return false;
         }
@@ -345,10 +345,10 @@ public class SplashAdView extends BCAdView {
         return (String) invokeV.objValue;
     }
 
-    public uj5 getEntryInfoData() {
+    public rk5 getEntryInfoData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.m : (uj5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.m : (rk5) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.advert.sdk.view.BCAdView, android.view.ViewGroup, android.view.View

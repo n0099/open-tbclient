@@ -84,8 +84,8 @@ public class d implements KsLoadManager {
                         }
                         final b.a aVar = new b.a(size);
                         for (KsFeedAd ksFeedAd : arrayList) {
-                            ((com.kwad.sdk.feed.b) ksFeedAd).a(new b.InterfaceC0322b() { // from class: com.kwad.sdk.core.request.d.5.2.1
-                                @Override // com.kwad.sdk.feed.b.InterfaceC0322b
+                            ((com.kwad.sdk.feed.b) ksFeedAd).a(new b.InterfaceC0330b() { // from class: com.kwad.sdk.core.request.d.5.2.1
+                                @Override // com.kwad.sdk.feed.b.InterfaceC0330b
                                 public void a() {
                                     if (aVar.a()) {
                                         AnonymousClass2 anonymousClass2 = AnonymousClass2.this;

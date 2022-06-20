@@ -11,8 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ye;
-import com.repackage.ze;
+import com.repackage.bf;
+import com.repackage.cf;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -23,7 +23,7 @@ public class SwitchManager {
     public static SwitchManager sSwitchManager;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, Integer> mBaseSwitchs;
-    public ConcurrentHashMap<String, ze> mSwitchs;
+    public ConcurrentHashMap<String, cf> mSwitchs;
 
     static {
         InterceptResult invokeClinit;
@@ -74,12 +74,12 @@ public class SwitchManager {
         return (SwitchManager) invokeV.objValue;
     }
 
-    public void addSwitchData(ye yeVar) {
+    public void addSwitchData(bf bfVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, yeVar) == null) || yeVar == null || this.mSwitchs.containsKey(yeVar.e())) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, bfVar) == null) || bfVar == null || this.mSwitchs.containsKey(bfVar.e())) {
             return;
         }
-        this.mSwitchs.put(yeVar.e(), new ze(yeVar));
+        this.mSwitchs.put(bfVar.e(), new cf(bfVar));
     }
 
     public void clear() {
@@ -88,11 +88,11 @@ public class SwitchManager {
             return;
         }
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        for (ze zeVar : this.mSwitchs.values()) {
-            if (zeVar != null) {
-                zeVar.h(0);
-                edit.putInt(zeVar.d() + ze.d, 0);
-                edit.putInt(zeVar.d() + ze.e, zeVar.c());
+        for (cf cfVar : this.mSwitchs.values()) {
+            if (cfVar != null) {
+                cfVar.h(0);
+                edit.putInt(cfVar.d() + cf.d, 0);
+                edit.putInt(cfVar.d() + cf.e, cfVar.c());
             }
         }
         edit.commit();
@@ -101,7 +101,7 @@ public class SwitchManager {
     public void crash(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            Iterator<ze> it = this.mSwitchs.values().iterator();
+            Iterator<cf> it = this.mSwitchs.values().iterator();
             while (it.hasNext() && !it.next().a(str)) {
             }
         }
@@ -111,9 +111,9 @@ public class SwitchManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            ze zeVar = this.mSwitchs.get(str);
-            if (zeVar != null) {
-                return zeVar.getType();
+            cf cfVar = this.mSwitchs.get(str);
+            if (cfVar != null) {
+                return cfVar.getType();
             }
             return -1;
         }
@@ -152,26 +152,26 @@ public class SwitchManager {
         }
     }
 
-    public ye removeSwitchData(String str) {
+    public bf removeSwitchData(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            ze remove = this.mSwitchs.remove(str);
+            cf remove = this.mSwitchs.remove(str);
             if (remove != null) {
                 return remove.b();
             }
             return null;
         }
-        return (ye) invokeL.objValue;
+        return (bf) invokeL.objValue;
     }
 
     public boolean turn(String str, int i) {
         InterceptResult invokeLI;
-        ze zeVar;
+        cf cfVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i)) == null) {
-            if (i >= 0 && (zeVar = this.mSwitchs.get(str)) != null) {
-                return zeVar.i(i);
+            if (i >= 0 && (cfVar = this.mSwitchs.get(str)) != null) {
+                return cfVar.i(i);
             }
             return false;
         }

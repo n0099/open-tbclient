@@ -16,23 +16,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.bd3;
-import com.repackage.fr3;
-import com.repackage.hc3;
-import com.repackage.hr3;
-import com.repackage.qc3;
-import com.repackage.vq3;
+import com.repackage.gr3;
+import com.repackage.md3;
+import com.repackage.qr3;
+import com.repackage.sc3;
+import com.repackage.sr3;
+import com.sina.weibo.sdk.share.BaseActivity;
 import org.json.JSONObject;
-@SuppressLint({"BaseActivity"})
+@SuppressLint({BaseActivity.TAG})
 /* loaded from: classes2.dex */
 public class InstallAntiBlockingActivity extends Activity {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String KEY_TYPE = "type";
-    public static final String KEY_UBC_PARAMS = "ubc_params";
-    public static final String PARAM_PACKAGE_NAME = "packageName";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String mPackageName;
-    public String mType;
-    public JSONObject mUbcParams;
+    public String a;
+    public JSONObject b;
+    public String c;
 
     /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
@@ -62,7 +60,7 @@ public class InstallAntiBlockingActivity extends Activity {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                hr3.a(this.a.mPackageName, TextUtils.equals(this.a.mType, "authorize") ? "authorizeClick" : "continueClick", "success", null, new fr3(this.a.mUbcParams));
+                sr3.a(this.a.a, TextUtils.equals(this.a.c, "authorize") ? "authorizeClick" : "continueClick", "success", null, new qr3(this.a.b));
                 this.a.finish();
             }
         }
@@ -86,46 +84,46 @@ public class InstallAntiBlockingActivity extends Activity {
     public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            int c0 = bd3.c0(this);
+            int c0 = md3.c0(this);
             super.onCreate(bundle);
-            bd3.g(this, c0);
-            vq3.t();
-            setContentView(R.layout.obfuscated_res_0x7f0d00af);
+            md3.g(this, c0);
+            gr3.t();
+            setContentView(R.layout.obfuscated_res_0x7f0d00ae);
             Intent intent = getIntent();
             if (intent != null) {
-                this.mType = intent.getStringExtra("type");
-                this.mPackageName = intent.getStringExtra("packageName");
-                this.mUbcParams = hc3.d(intent.getStringExtra("ubc_params"));
+                this.c = intent.getStringExtra("type");
+                this.a = intent.getStringExtra("packageName");
+                this.b = sc3.d(intent.getStringExtra("ubc_params"));
             }
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ed8);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f090eda);
-            if (TextUtils.equals(this.mType, "authorize")) {
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ecb);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f090ecd);
+            if (TextUtils.equals(this.c, "authorize")) {
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07014f));
                 layoutParams.gravity = 80;
                 imageView.setLayoutParams(layoutParams);
-                findViewById(R.id.obfuscated_res_0x7f090ed9).setVisibility(0);
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017e);
-                findViewById(R.id.obfuscated_res_0x7f090ed6).setBackgroundResource(R.color.obfuscated_res_0x7f0603b3);
-                vq3.o();
+                findViewById(R.id.obfuscated_res_0x7f090ecc).setVisibility(0);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017d);
+                findViewById(R.id.obfuscated_res_0x7f090ec9).setBackgroundResource(R.color.obfuscated_res_0x7f0603b3);
+                gr3.o();
             } else {
                 FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07014e));
                 layoutParams2.gravity = 80;
                 imageView.setLayoutParams(layoutParams2);
-                findViewById(R.id.obfuscated_res_0x7f090ed9).setVisibility(8);
-                if (qc3.m()) {
-                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017c);
-                } else if (qc3.n()) {
-                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017d);
-                } else if (qc3.r()) {
-                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017f);
-                } else {
+                findViewById(R.id.obfuscated_res_0x7f090ecc).setVisibility(8);
+                if (bd3.m()) {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017b);
+                } else if (bd3.n()) {
+                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017c);
+                } else if (bd3.r()) {
+                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017e);
+                } else {
+                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017a);
                 }
-                findViewById(R.id.obfuscated_res_0x7f090ed6).setBackgroundResource(R.color.obfuscated_res_0x7f060382);
-                vq3.p();
+                findViewById(R.id.obfuscated_res_0x7f090ec9).setBackgroundResource(R.color.obfuscated_res_0x7f060382);
+                gr3.p();
             }
             findViewById.setOnClickListener(new a(this));
-            hr3.a(this.mPackageName, this.mType, "success", null, new fr3(this.mUbcParams));
+            sr3.a(this.a, this.c, "success", null, new qr3(this.b));
             LogUtil.logActivity(this, "onCreate");
         }
     }

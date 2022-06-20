@@ -1,56 +1,38 @@
 package com.repackage;
 
+import android.graphics.Typeface;
+import android.widget.TextView;
+import com.baidu.nadcore.styles.Font;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface dy0 {
+public class dy0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final long a;
-        public final int b;
-
-        public a(long j, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j;
-            this.b = i;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "Res{rowId=" + this.a + ", updateCount=" + this.b + '}';
-            }
-            return (String) invokeV.objValue;
-        }
+    public static boolean a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? i >= 100 && i <= 900 && i % 100 == 0 : invokeI.booleanValue;
     }
 
-    a a(ky0 ky0Var, by0... by0VarArr);
+    public static void b(TextView textView, Font font) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, textView, font) == null) || textView == null || font == null) {
+            return;
+        }
+        c(textView, font.getFontWeight());
+    }
 
-    void beginTransaction();
-
-    void endTransaction();
-
-    void setTransactionSuccessful();
-
-    int update(ky0 ky0Var, by0... by0VarArr);
+    public static void c(TextView textView, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65538, null, textView, i) == null) && textView != null && a(i)) {
+            if (i >= 600) {
+                textView.setTypeface(Typeface.defaultFromStyle(1));
+            } else {
+                textView.setTypeface(Typeface.defaultFromStyle(0));
+            }
+        }
+    }
 }

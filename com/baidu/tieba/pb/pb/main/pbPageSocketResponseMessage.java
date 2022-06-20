@@ -1,5 +1,6 @@
 package com.baidu.tieba.pb.pb.main;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -10,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.as7;
-import com.repackage.b98;
-import com.repackage.ip7;
-import com.repackage.kp7;
+import com.repackage.ht7;
+import com.repackage.ia8;
+import com.repackage.pq7;
+import com.repackage.rq7;
 import java.util.ArrayList;
 import org.json.JSONObject;
 import tbclient.PbPage.AppealInfo;
@@ -26,8 +27,8 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public String cacheKey;
     public boolean isFromMark;
-    public ip7 mAppealInfo;
-    public kp7 pbData;
+    public pq7 mAppealInfo;
+    public rq7 pbData;
     public int updateType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -48,28 +49,73 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
-    public ip7 getAppealInfo() {
-        InterceptResult invokeV;
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mAppealInfo : (ip7) invokeV.objValue;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bArr)) == null) {
+            PbPageResIdl pbPageResIdl = (PbPageResIdl) PbPageRequestMessage.WIRE.parseFrom(bArr, PbPageResIdl.class);
+            setError(pbPageResIdl.error.errorno.intValue());
+            setErrorString(pbPageResIdl.error.usermsg);
+            if (getError() != 0) {
+                if (getError() != 4 || pbPageResIdl.data == null) {
+                    return pbPageResIdl;
+                }
+                pq7 pq7Var = new pq7();
+                this.mAppealInfo = pq7Var;
+                AppealInfo appealInfo = pbPageResIdl.data.appeal_info;
+                if (appealInfo != null) {
+                    pq7Var.a = appealInfo.source;
+                    pq7Var.c = appealInfo.appeal_url;
+                }
+                SimpleForum simpleForum = pbPageResIdl.data.forum;
+                if (simpleForum != null) {
+                    this.mAppealInfo.b = simpleForum.name;
+                }
+                return pbPageResIdl;
+            }
+            rq7 rq7Var = new rq7();
+            this.pbData = rq7Var;
+            rq7Var.y0(2);
+            this.pbData.x0(pbPageResIdl.data);
+            DataRes dataRes = pbPageResIdl.data;
+            if (dataRes != null) {
+                JSONObject b = ia8.b(dataRes.thread);
+                ArrayList arrayList = new ArrayList();
+                if (b != null) {
+                    arrayList.add(b);
+                }
+                ia8.f().h("PB", arrayList);
+            }
+            BdLog.detailException(null);
+            return pbPageResIdl;
+        }
+        return invokeIL.objValue;
     }
 
-    public kp7 getPbData() {
+    public pq7 getAppealInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.pbData : (kp7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mAppealInfo : (pq7) invokeV.objValue;
+    }
+
+    public rq7 getPbData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.pbData : (rq7) invokeV.objValue;
     }
 
     public int getUpdateType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.updateType : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.updateType : invokeV.intValue;
     }
 
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void setOrginalMessage(Message<?> message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, message) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, message) == null) {
             super.setOrginalMessage(message);
             if (message.getExtra() instanceof PbPageRequestMessage) {
                 PbPageRequestMessage pbPageRequestMessage = (PbPageRequestMessage) message.getExtra();
@@ -87,54 +133,11 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             int i2 = this.updateType;
             if (i2 == 3) {
-                as7.b().e(this.cacheKey, this.isFromMark, bArr);
+                ht7.b().e(this.cacheKey, this.isFromMark, bArr);
             } else if (i2 != 4) {
             } else {
-                as7.b().f(this.cacheKey, bArr);
+                ht7.b().f(this.cacheKey, bArr);
             }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
-            PbPageResIdl pbPageResIdl = (PbPageResIdl) PbPageRequestMessage.WIRE.parseFrom(bArr, PbPageResIdl.class);
-            setError(pbPageResIdl.error.errorno.intValue());
-            setErrorString(pbPageResIdl.error.usermsg);
-            if (getError() != 0) {
-                if (getError() != 4 || pbPageResIdl.data == null) {
-                    return;
-                }
-                ip7 ip7Var = new ip7();
-                this.mAppealInfo = ip7Var;
-                AppealInfo appealInfo = pbPageResIdl.data.appeal_info;
-                if (appealInfo != null) {
-                    ip7Var.a = appealInfo.source;
-                    ip7Var.c = appealInfo.appeal_url;
-                }
-                SimpleForum simpleForum = pbPageResIdl.data.forum;
-                if (simpleForum != null) {
-                    this.mAppealInfo.b = simpleForum.name;
-                    return;
-                }
-                return;
-            }
-            kp7 kp7Var = new kp7();
-            this.pbData = kp7Var;
-            kp7Var.y0(2);
-            this.pbData.x0(pbPageResIdl.data);
-            DataRes dataRes = pbPageResIdl.data;
-            if (dataRes != null) {
-                JSONObject b = b98.b(dataRes.thread);
-                ArrayList arrayList = new ArrayList();
-                if (b != null) {
-                    arrayList.add(b);
-                }
-                b98.f().h("PB", arrayList);
-            }
-            BdLog.detailException(null);
         }
     }
 }

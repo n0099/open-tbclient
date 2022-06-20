@@ -1,13 +1,13 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.player.event.ControlEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class vq0 extends er0 {
+public class vq0 extends cr0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,9 +25,63 @@ public class vq0 extends er0 {
         }
     }
 
-    public static er0 w(@NonNull String str) {
-        InterceptResult invokeL;
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? er0.m(str, 4) : (er0) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            ir0 w = uq0.w(ControlEvent.ACTION_PAUSE);
+            w.n(11, Integer.valueOf(i));
+            w.n(7, Boolean.valueOf(i == 1));
+            c(w);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            c(uq0.w(ControlEvent.ACTION_RESUME));
+        }
+    }
+
+    public void f(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            ir0 w = uq0.w(ControlEvent.ACTION_SEEK_MS);
+            w.n(5, Integer.valueOf(i));
+            w.n(12, Integer.valueOf(i2));
+            c(w);
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            c(uq0.w(ControlEvent.ACTION_SHOW_TIP));
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            c(uq0.w(ControlEvent.ACTION_START));
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            c(uq0.w(ControlEvent.ACTION_STOP));
+        }
+    }
+
+    public void j(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(1048582, this, i, i2, i3) == null) {
+            ir0 w = uq0.w(ControlEvent.ACTION_SYNC_PROGRESS);
+            w.n(1, Integer.valueOf(i));
+            w.n(2, Integer.valueOf(i2));
+            w.n(3, Integer.valueOf(i3));
+            w.r(1);
+            c(w);
+        }
     }
 }

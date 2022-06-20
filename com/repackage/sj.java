@@ -4,18 +4,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes7.dex */
-public class sj extends uj {
+public class sj extends yj {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Exception a;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String[] e;
+    public List<BasicNameValuePair> f;
 
-    public sj(Exception exc) {
+    public sj(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {exc};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -25,6 +32,10 @@ public class sj extends uj {
                 return;
             }
         }
-        this.a = exc;
+        this.a = str;
+        this.b = "/";
+        this.d = null;
+        this.e = null;
+        this.f = null;
     }
 }

@@ -1,27 +1,33 @@
 package com.repackage;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import androidx.annotation.NonNull;
-import androidx.core.content.FileProvider;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
 /* loaded from: classes5.dex */
-public final class ed3 {
+public class ed3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Uri a(@NonNull Context context, @NonNull File file) {
-        InterceptResult invokeLL;
+    public static void a(@NonNull Context context, @NonNull File file) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, file)) == null) ? FileProvider.getUriForFile(context, b().a(context), file) : (Uri) invokeLL.objValue;
-    }
-
-    public static vi1 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? oi2.p() : (vi1) invokeV.objValue;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, context, file) == null) && file.exists()) {
+            Intent intent = new Intent();
+            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+            intent.setAction("android.intent.action.SEND");
+            intent.setTypeAndNormalize(md3.s(file));
+            if (Build.VERSION.SDK_INT >= 24) {
+                intent.putExtra("android.intent.extra.STREAM", pd3.a(context, file));
+                intent.addFlags(1);
+            } else {
+                intent.putExtra("android.intent.extra.STREAM", Uri.fromFile(file));
+            }
+            context.startActivity(intent);
+        }
     }
 }

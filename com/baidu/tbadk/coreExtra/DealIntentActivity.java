@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.w8;
+import com.repackage.y8;
 /* loaded from: classes3.dex */
 public class DealIntentActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
@@ -48,7 +48,7 @@ public class DealIntentActivity extends Activity {
     public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            w8.b(this);
+            y8.b(this);
             super.onCreate(bundle);
             Intent intent = getIntent();
             if (intent != null) {
@@ -64,7 +64,7 @@ public class DealIntentActivity extends Activity {
     public void setRequestedOrientation(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            if (w8.d(this) && w8.a(i)) {
+            if (y8.d(this) && y8.a(i)) {
                 return;
             }
             super.setRequestedOrientation(i);

@@ -101,7 +101,7 @@ public class f extends c {
                     intent.putExtra("baidu_message_secur_info", k);
                     intent.putExtra("notify_id", b);
                     intent.putExtra("widget_badge_info", kVar.c());
-                    if (kVar.a() < 1 || !m.q(this.a)) {
+                    if (kVar.a() < 1 || !m.C(this.a)) {
                         a = m.a(this.a, intent, "com.baidu.android.pushservice.action.MESSAGE", a3);
                         String str2 = ">>> Deliver message to client: " + a2.a.b() + " result: " + a;
                     } else {

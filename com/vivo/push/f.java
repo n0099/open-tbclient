@@ -6,8 +6,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.push.util.aa;
-/* loaded from: classes7.dex */
+import com.vivo.push.util.z;
+/* loaded from: classes8.dex */
 public final class f implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public final class f implements Runnable {
             }
             context2 = this.b.h;
             context3 = this.b.h;
-            if (aa.a(context2, context3.getPackageName(), this.a)) {
+            if (z.b(context2, context3.getPackageName(), this.a)) {
                 this.b.i();
             }
         }

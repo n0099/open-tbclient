@@ -1,51 +1,138 @@
 package com.xiaomi.push;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import kotlin.jvm.internal.ByteCompanionObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
 /* loaded from: classes8.dex */
 public class bl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public LinkedList<a> a;
 
-    public static String a(byte b) {
-        InterceptResult invokeB;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeB = interceptable.invokeB(65536, null, b)) == null) {
-            int i = (b & ByteCompanionObject.MAX_VALUE) + (b < 0 ? 128 : 0);
-            StringBuilder sb = new StringBuilder();
-            sb.append(i < 16 ? "0" : "");
-            sb.append(Integer.toHexString(i).toLowerCase());
-            return sb.toString();
+    /* loaded from: classes8.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final bl a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with other field name */
+        public int f135a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public Object f136a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public String f137a;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1654750041, "Lcom/xiaomi/push/bl$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(1654750041, "Lcom/xiaomi/push/bl$a;");
+                    return;
+                }
+            }
+            a = new bl();
         }
-        return (String) invokeB.objValue;
+
+        public a(int i, Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), obj};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.f135a = i;
+            this.f136a = obj;
+        }
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public bl() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                StringBuffer stringBuffer = new StringBuffer();
-                messageDigest.update(str.getBytes(), 0, str.length());
-                for (byte b : messageDigest.digest()) {
-                    stringBuffer.append(a(b));
-                }
-                return stringBuffer.toString();
-            } catch (NoSuchAlgorithmException unused) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String) invokeL.objValue;
+        this.a = new LinkedList<>();
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    public static bl a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? a(str).subSequence(8, 24).toString() : (String) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (bl) invokeV.objValue;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    private void m194a() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.a.size() <= 100) {
+            return;
+        }
+        this.a.removeFirst();
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public synchronized int m195a() {
+        InterceptResult invokeV;
+        int size;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                size = this.a.size();
+            }
+            return size;
+        }
+        return invokeV.intValue;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public synchronized LinkedList<a> m196a() {
+        InterceptResult invokeV;
+        LinkedList<a> linkedList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                linkedList = this.a;
+                this.a = new LinkedList<>();
+            }
+            return linkedList;
+        }
+        return (LinkedList) invokeV.objValue;
+    }
+
+    public synchronized void a(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            synchronized (this) {
+                this.a.add(new a(0, obj));
+                m194a();
+            }
+        }
     }
 }

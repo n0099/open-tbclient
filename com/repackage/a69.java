@@ -1,233 +1,228 @@
 package com.repackage;
 
-import android.annotation.TargetApi;
-import android.media.MediaCodec;
-import android.media.MediaCrypto;
-import android.media.MediaExtractor;
-import android.media.MediaFormat;
+import android.os.Process;
 import android.text.TextUtils;
-import android.view.Surface;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b69;
-import com.repackage.e69;
-import java.io.FileOutputStream;
-import java.nio.ByteBuffer;
+import com.baidu.ugc.download.exception.DownloadException;
+import com.repackage.u59;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 /* loaded from: classes5.dex */
-public class a69 extends b69 {
+public class a69 implements u59 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final u59.a b;
+    public volatile int c;
+    public volatile long d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a69(String str) {
-        super(str);
+    public a69(String str, u59.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {str, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = str;
+        this.b = aVar;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:49:0x015c A[Catch: all -> 0x0282, TryCatch #0 {all -> 0x0282, blocks: (B:27:0x00e3, B:29:0x00e9, B:31:0x00f2, B:47:0x0156, B:49:0x015c, B:51:0x0162, B:52:0x016f, B:55:0x0175, B:57:0x0178, B:59:0x0192, B:61:0x0198, B:63:0x01a6, B:65:0x01ac, B:69:0x01b9, B:76:0x01c9, B:78:0x01d0, B:79:0x01d9, B:81:0x01f7, B:83:0x0201, B:86:0x020f, B:89:0x021c, B:33:0x010d, B:35:0x0115, B:39:0x0126, B:44:0x0143, B:42:0x0131, B:93:0x0240, B:95:0x0246, B:96:0x024e), top: B:108:0x00e3 }] */
-    /* JADX WARN: Removed duplicated region for block: B:84:0x0209  */
-    @TargetApi(16)
+    public final void a() throws DownloadException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (!isCanceled()) {
+                if (isPaused()) {
+                    throw new DownloadException(106, "Connection Paused!");
+                }
+                return;
+            }
+            throw new DownloadException(107, "Connection Canceled!");
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0064 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x0082  */
+    /* JADX WARN: Type inference failed for: r2v2 */
+    /* JADX WARN: Type inference failed for: r2v5, types: [java.net.HttpURLConnection] */
+    /* JADX WARN: Type inference failed for: r2v6 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public b69.b a(String str, boolean z, e69.f fVar, e69.f fVar2, long j, long j2, long j3) throws Exception {
-        InterceptResult invokeCommon;
-        MediaFormat mediaFormat;
-        ByteBuffer[] byteBufferArr;
-        long j4;
-        int dequeueOutputBuffer;
-        ByteBuffer[] byteBufferArr2;
-        byte[] bArr;
-        byte[] bArr2;
+    public final void b() throws DownloadException {
+        IOException e;
+        ProtocolException e2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), fVar, fVar2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            e69.f fVar3 = fVar2;
-            long j5 = j2;
-            if (TextUtils.isEmpty(str) || fVar == null || fVar3 == null) {
-                return null;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            String str2 = this.a;
-            MediaExtractor mediaExtractor = new MediaExtractor();
-            mediaExtractor.setDataSource(str2);
-            int i = 0;
-            while (true) {
-                if (i >= mediaExtractor.getTrackCount()) {
-                    mediaFormat = null;
-                    break;
-                }
-                mediaFormat = mediaExtractor.getTrackFormat(i);
-                if (mediaFormat.getString("mime").startsWith("audio/")) {
-                    mediaExtractor.selectTrack(i);
-                    break;
-                }
-                i++;
-            }
-            p79.c("AndroidAudioDecoder", "startTime:" + j + ",endTime:" + j5);
-            if (j > 0) {
-                mediaExtractor.seekTo(j * 1000, 0);
-            }
-            if (mediaFormat == null) {
-                p79.b("not a valid file with audio track..");
-                mediaExtractor.release();
-                return null;
-            }
-            p79.b("mediaFormat " + mediaFormat);
-            b69.b bVar = new b69.b();
-            int i2 = fVar3.b;
-            int i3 = fVar3.a;
-            int i4 = fVar3.c;
-            bVar.a = str;
-            FileOutputStream fileOutputStream = new FileOutputStream(bVar.a);
-            MediaCodec createDecoderByType = MediaCodec.createDecoderByType(mediaFormat.getString("mime"));
-            createDecoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 0);
-            createDecoderByType.start();
-            ByteBuffer[] inputBuffers = createDecoderByType.getInputBuffers();
-            ByteBuffer[] outputBuffers = createDecoderByType.getOutputBuffers();
-            double d = mediaFormat.getLong("durationUs");
-            MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
-            boolean z2 = false;
-            boolean z3 = false;
-            ByteBuffer[] byteBufferArr3 = outputBuffers;
-            while (!z2) {
-                long j6 = currentTimeMillis;
-                if (!z3) {
-                    try {
-                        int dequeueInputBuffer = createDecoderByType.dequeueInputBuffer(5000L);
-                        if (dequeueInputBuffer >= 0) {
-                            int readSampleData = mediaExtractor.readSampleData(inputBuffers[dequeueInputBuffer], 0);
-                            if (readSampleData < 0) {
-                                p79.b("saw input EOS.");
-                                createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
-                                byteBufferArr = inputBuffers;
-                                j4 = 5000;
-                            } else {
-                                long sampleTime = mediaExtractor.getSampleTime();
-                                if (j3 != 0) {
-                                    byteBufferArr = inputBuffers;
-                                    mediaExtractor.seekTo(sampleTime + j3, 0);
-                                } else {
-                                    byteBufferArr = inputBuffers;
-                                }
-                                if (j5 != -1 && sampleTime + j3 >= j5 * 1000) {
-                                    createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
-                                    j4 = 5000;
-                                }
-                                createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, readSampleData, sampleTime, 0);
-                                mediaExtractor.advance();
-                                j4 = 5000;
-                                dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, j4);
-                                if (dequeueOutputBuffer < 0) {
-                                    byteBufferArr2 = byteBufferArr3;
-                                    if (dequeueOutputBuffer == -3) {
-                                        byteBufferArr3 = createDecoderByType.getOutputBuffers();
-                                        p79.b("output buffers have changed.");
-                                        fVar3 = fVar2;
-                                        inputBuffers = byteBufferArr;
-                                        j5 = j2;
-                                        currentTimeMillis = j6;
-                                    } else if (dequeueOutputBuffer == -2) {
-                                        p79.b("output format has changed to " + createDecoderByType.getOutputFormat());
-                                    }
-                                } else if ((bufferInfo.flags & 2) != 0) {
-                                    p79.b("audio encoder: codec config buffer");
-                                    createDecoderByType.releaseOutputBuffer(dequeueOutputBuffer, false);
-                                    inputBuffers = byteBufferArr;
-                                    currentTimeMillis = j6;
-                                } else {
-                                    if (bufferInfo.size == 0 || dequeueOutputBuffer < 0 || byteBufferArr3.length <= dequeueOutputBuffer) {
-                                        byteBufferArr2 = byteBufferArr3;
-                                    } else {
-                                        ByteBuffer byteBuffer = byteBufferArr3[dequeueOutputBuffer];
-                                        byteBuffer.position(bufferInfo.offset);
-                                        byteBufferArr2 = byteBufferArr3;
-                                        byteBuffer.limit(bufferInfo.offset + bufferInfo.size);
-                                        byte[] bArr3 = new byte[bufferInfo.size];
-                                        byteBuffer.get(bArr3);
-                                        if (z) {
-                                            bArr = null;
-                                            bArr2 = null;
-                                        } else {
-                                            bArr2 = fVar2.a() ? e69.c(fVar3.c / 8, fVar.c / 8, bArr3) : null;
-                                            if (fVar2.b()) {
-                                                bArr = e69.d(fVar3.b, fVar.b, fVar.c / 8, bArr2 == null ? bArr3 : bArr2);
-                                            } else {
-                                                bArr = null;
-                                            }
-                                        }
-                                        if (bArr == null) {
-                                            bArr = bArr2 == null ? bArr3 : bArr2;
-                                        }
-                                        fileOutputStream.write(bArr);
-                                        if (this.b != null) {
-                                            this.b.a(bArr3, bufferInfo.presentationTimeUs / d);
-                                        }
-                                        p79.b(this.a + " presentationTimeUs : " + bufferInfo.presentationTimeUs);
-                                    }
-                                    createDecoderByType.releaseOutputBuffer(dequeueOutputBuffer, false);
-                                    if ((bufferInfo.flags & 4) != 0) {
-                                        p79.b("saw output EOS.");
-                                        z2 = true;
-                                    }
-                                }
-                                byteBufferArr3 = byteBufferArr2;
-                                fVar3 = fVar2;
-                                inputBuffers = byteBufferArr;
-                                j5 = j2;
-                                currentTimeMillis = j6;
-                            }
-                            z3 = true;
-                            dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, j4);
-                            if (dequeueOutputBuffer < 0) {
-                            }
-                            byteBufferArr3 = byteBufferArr2;
-                            fVar3 = fVar2;
-                            inputBuffers = byteBufferArr;
-                            j5 = j2;
-                            currentTimeMillis = j6;
-                        }
-                    } finally {
-                        fileOutputStream.close();
-                        createDecoderByType.stop();
-                        createDecoderByType.release();
-                        mediaExtractor.release();
-                    }
-                }
-                byteBufferArr = inputBuffers;
-                j4 = 5000;
-                dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, j4);
-                if (dequeueOutputBuffer < 0) {
-                }
-                byteBufferArr3 = byteBufferArr2;
-                fVar3 = fVar2;
-                inputBuffers = byteBufferArr;
-                j5 = j2;
-                currentTimeMillis = j6;
-            }
-            long j7 = currentTimeMillis;
-            if (this.b != null) {
-                this.b.a(null, 1.0d);
-            }
-            p79.b("decode " + str + " cost " + (System.currentTimeMillis() - j7) + " milliseconds !");
-            return bVar;
+        if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
+            return;
         }
-        return (b69.b) invokeCommon.objValue;
+        this.d = System.currentTimeMillis();
+        try {
+            URL url = new URL(this.a);
+            ?? r2 = 0;
+            try {
+                try {
+                    HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                    try {
+                        httpURLConnection.setConnectTimeout(4000);
+                        httpURLConnection.setReadTimeout(4000);
+                        httpURLConnection.setRequestMethod("GET");
+                        httpURLConnection.setRequestProperty("Range", "bytes=0-");
+                        int responseCode = httpURLConnection.getResponseCode();
+                        if (responseCode == 200) {
+                            d(httpURLConnection, false);
+                        } else if (responseCode == 206) {
+                            d(httpURLConnection, true);
+                        } else {
+                            throw new DownloadException(108, "UnSupported response code:" + responseCode);
+                        }
+                        if (httpURLConnection != null) {
+                            httpURLConnection.disconnect();
+                        }
+                    } catch (ProtocolException e3) {
+                        e2 = e3;
+                        throw new DownloadException(108, "Protocol error", e2);
+                    } catch (IOException e4) {
+                        e = e4;
+                        throw new DownloadException(108, "IO error", e);
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    r2 = url;
+                    if (r2 != 0) {
+                        r2.disconnect();
+                    }
+                    throw th;
+                }
+            } catch (ProtocolException e5) {
+                e2 = e5;
+            } catch (IOException e6) {
+                e = e6;
+            } catch (Throwable th2) {
+                th = th2;
+                if (r2 != 0) {
+                }
+                throw th;
+            }
+        } catch (MalformedURLException e7) {
+            throw new DownloadException(108, "Bad url.", e7);
+        }
+    }
+
+    public final void c(DownloadException downloadException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadException) == null) {
+            switch (downloadException.getErrorCode()) {
+                case 106:
+                    synchronized (this.b) {
+                        this.c = 106;
+                        this.b.onConnectPaused();
+                    }
+                    return;
+                case 107:
+                    synchronized (this.b) {
+                        this.c = 107;
+                        this.b.onConnectCanceled();
+                    }
+                    return;
+                case 108:
+                    synchronized (this.b) {
+                        this.c = 108;
+                        this.b.b(downloadException);
+                    }
+                    return;
+                default:
+                    throw new IllegalArgumentException("Unknown state");
+            }
+        }
+    }
+
+    @Override // com.repackage.u59
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.c = 107;
+        }
+    }
+
+    public final void d(HttpURLConnection httpURLConnection, boolean z) throws DownloadException {
+        long contentLength;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048580, this, httpURLConnection, z) == null) {
+            String headerField = httpURLConnection.getHeaderField("Content-Length");
+            if (!TextUtils.isEmpty(headerField) && !headerField.equals("0") && !headerField.equals("-1")) {
+                contentLength = Long.parseLong(headerField);
+            } else {
+                contentLength = httpURLConnection.getContentLength();
+            }
+            if (contentLength <= 0) {
+                String headerField2 = httpURLConnection.getHeaderField("Ohc-File-Size");
+                if (!TextUtils.isEmpty(headerField2) && !headerField2.equals("0") && !headerField2.equals("-1")) {
+                    contentLength = Long.parseLong(headerField2);
+                } else {
+                    contentLength = httpURLConnection.getContentLength();
+                }
+                if (contentLength <= 0) {
+                    throw new DownloadException(108, "length <= 0");
+                }
+            }
+            a();
+            this.c = 103;
+            this.b.onConnected(System.currentTimeMillis() - this.d, contentLength, z);
+        }
+    }
+
+    @Override // com.repackage.u59
+    public boolean isCanceled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c == 107 : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.u59
+    public boolean isPaused() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c == 106 : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.u59
+    public void pause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.c = 106;
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            Process.setThreadPriority(10);
+            this.c = 102;
+            this.b.onConnecting();
+            try {
+                b();
+            } catch (DownloadException e) {
+                c(e);
+            }
+        }
     }
 }

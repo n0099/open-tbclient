@@ -9,11 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jn;
+import com.repackage.nn;
 import java.io.Serializable;
 import tbclient.Hottopic.RelateForum;
 /* loaded from: classes3.dex */
-public class RelateForumItemData implements Serializable, jn {
+public class RelateForumItemData implements Serializable, nn {
     public static /* synthetic */ Interceptable $ic = null;
     public static final BdUniqueId TYPE_FORUM_CARD;
     public static final long serialVersionUID = 1;
@@ -66,7 +66,7 @@ public class RelateForumItemData implements Serializable, jn {
         this.isLiked = false;
     }
 
-    @Override // com.repackage.jn
+    @Override // com.repackage.nn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

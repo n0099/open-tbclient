@@ -115,7 +115,7 @@ public class d {
 
     /* renamed from: com.kwai.sodler.lib.ext.d$d  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static final class C0360d {
+    public static final class C0368d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -177,7 +177,7 @@ public class d {
                 if (file != null) {
                     if (file.exists()) {
                         if ((Build.VERSION.SDK_INT == 25 && Build.VERSION.PREVIEW_SDK_INT != 0) || Build.VERSION.SDK_INT > 25) {
-                            C0360d.b(classLoader, file);
+                            C0368d.b(classLoader, file);
                         } else if (Build.VERSION.SDK_INT == 24) {
                             c.b(classLoader, file);
                         } else if (Build.VERSION.SDK_INT >= 23) {

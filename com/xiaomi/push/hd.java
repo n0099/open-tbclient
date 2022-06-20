@@ -2,25 +2,43 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import com.xiaomi.push.service.XMPushService;
+import java.io.File;
 /* loaded from: classes8.dex */
-public class hd {
+public class hd implements XMPushService.n {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile hd a;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Context f450a;
+    public int f455a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map<String, he> f451a;
+    public Context f456a;
+    public boolean b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-56373052, "Lcom/xiaomi/push/hd;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-56373052, "Lcom/xiaomi/push/hd;");
+        }
+    }
 
     public hd(Context context) {
         Interceptable interceptable = $ic;
@@ -28,117 +46,80 @@ public class hd {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f451a = new HashMap();
-        this.f450a = context;
+        this.f456a = context;
     }
 
-    public static hd a(Context context) {
+    private String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (context == null) {
-                com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]:mContext is null, TinyDataManager.getInstance(Context) failed.");
-                return null;
-            }
-            if (a == null) {
-                synchronized (hd.class) {
-                    if (a == null) {
-                        a = new hd(context);
-                    }
-                }
-            }
-            return a;
-        }
-        return (hd) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) ? "com.xiaomi.xmsf".equals(str) ? "1000271" : this.f456a.getSharedPreferences("pref_registered_pkg_names", 0).getString(str, null) : (String) invokeL.objValue;
     }
 
-    private boolean a(String str, String str2, String str3, String str4, long j, String str5) {
-        InterceptResult invokeCommon;
+    private void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{str, str2, str3, str4, Long.valueOf(j), str5})) == null) {
-            hj hjVar = new hj();
-            hjVar.d(str3);
-            hjVar.c(str4);
-            hjVar.a(j);
-            hjVar.b(str5);
-            hjVar.a(true);
-            hjVar.a("push_sdk_channel");
-            hjVar.e(str2);
-            return a(hjVar, str);
+        if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
+            this.b = com.xiaomi.push.service.ba.a(context).a(ho.ak.a(), true);
+            int a2 = com.xiaomi.push.service.ba.a(context).a(ho.al.a(), 7200);
+            this.f455a = a2;
+            this.f455a = Math.max(60, a2);
         }
-        return invokeCommon.booleanValue;
     }
 
-    public he a() {
+    public static void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
+            a = z;
+        }
+    }
+
+    private boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            he heVar = this.f451a.get("UPLOADER_PUSH_CHANNEL");
-            if (heVar != null) {
-                return heVar;
-            }
-            he heVar2 = this.f451a.get("UPLOADER_HTTP");
-            if (heVar2 != null) {
-                return heVar2;
-            }
-            return null;
-        }
-        return (he) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? Math.abs((System.currentTimeMillis() / 1000) - this.f456a.getSharedPreferences("mipush_extra", 4).getLong("last_tiny_data_upload_timestamp", -1L)) > ((long) this.f455a) : invokeV.booleanValue;
     }
 
+    private boolean a(hh hhVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, hhVar)) == null) {
+            if (!bj.b(this.f456a) || hhVar == null || TextUtils.isEmpty(a(this.f456a.getPackageName())) || !new File(this.f456a.getFilesDir(), "tiny_data.data").exists() || a) {
+                return false;
+            }
+            return !com.xiaomi.push.service.ba.a(this.f456a).a(ho.aV.a(), false) || j.m531a(this.f456a) || j.m533b(this.f456a);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.xiaomi.push.service.XMPushService.n
     /* renamed from: a  reason: collision with other method in class */
-    public Map<String, he> m409a() {
-        InterceptResult invokeV;
+    public void mo389a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f451a : (Map) invokeV.objValue;
-    }
-
-    public void a(he heVar, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, heVar, str) == null) {
-            if (heVar == null) {
-                com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]: please do not add null mUploader to TinyDataManager.");
-            } else if (TextUtils.isEmpty(str)) {
-                com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]: can not add a provider from unkown resource.");
-            } else {
-                m409a().put(str, heVar);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            hh a2 = hg.a(this.f456a).a();
+            if (hi.a(this.f456a) && a2 != null) {
+                hf.a(this.f456a, a2, com.xiaomi.push.service.ca.f957a);
+                com.xiaomi.push.service.ca.a();
+                com.xiaomi.channel.commonutils.logger.b.c("coord data upload");
             }
-        }
-    }
-
-    public boolean a(hj hjVar, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, hjVar, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                com.xiaomi.channel.commonutils.logger.b.m108a("pkgName is null or empty, upload ClientUploadDataItem failed.");
-                return false;
-            } else if (com.xiaomi.push.service.bm.a(hjVar, false)) {
-                return false;
-            } else {
-                if (TextUtils.isEmpty(hjVar.d())) {
-                    hjVar.f(com.xiaomi.push.service.bm.a());
+            a(this.f456a);
+            if (this.b && a()) {
+                com.xiaomi.channel.commonutils.logger.b.m84a("TinyData TinyDataCacheProcessor.pingFollowUpAction ts:" + System.currentTimeMillis());
+                if (a(a2)) {
+                    a = true;
+                    he.a(this.f456a, a2);
+                    return;
                 }
-                hjVar.g(str);
-                com.xiaomi.push.service.bn.a(this.f450a, hjVar);
-                return true;
+                com.xiaomi.channel.commonutils.logger.b.m84a("TinyData TinyDataCacheProcessor.pingFollowUpAction !canUpload(uploader) ts:" + System.currentTimeMillis());
             }
         }
-        return invokeLL.booleanValue;
-    }
-
-    public boolean a(String str, String str2, long j, String str3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Long.valueOf(j), str3})) == null) ? a(this.f450a.getPackageName(), this.f450a.getPackageName(), str, str2, j, str3) : invokeCommon.booleanValue;
     }
 }

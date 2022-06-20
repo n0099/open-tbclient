@@ -1,9 +1,5 @@
 package com.repackage;
 /* loaded from: classes5.dex */
 public interface dk1 {
-    void a();
-
-    void b();
-
-    void c();
+    u43 a();
 }

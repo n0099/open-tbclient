@@ -46,27 +46,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c25;
-import com.repackage.cw4;
-import com.repackage.dw4;
-import com.repackage.f05;
-import com.repackage.j15;
-import com.repackage.jv8;
-import com.repackage.li;
-import com.repackage.mg;
-import com.repackage.n05;
-import com.repackage.o66;
-import com.repackage.ot4;
-import com.repackage.p66;
-import com.repackage.sz4;
-import com.repackage.uq4;
-import com.repackage.wq4;
+import com.repackage.c15;
+import com.repackage.dr4;
+import com.repackage.fr4;
+import com.repackage.h05;
+import com.repackage.nw4;
+import com.repackage.o76;
+import com.repackage.ow4;
+import com.repackage.p76;
+import com.repackage.pi;
+import com.repackage.qg;
+import com.repackage.r25;
+import com.repackage.rv8;
+import com.repackage.u05;
+import com.repackage.xt4;
+import com.repackage.y15;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
 /* loaded from: classes3.dex */
-public class PbNewInputContainer extends LinearLayout implements f05, View.OnClickListener {
+public class PbNewInputContainer extends LinearLayout implements u05, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static int x = 1;
     public static int y;
@@ -79,7 +79,7 @@ public class PbNewInputContainer extends LinearLayout implements f05, View.OnCli
     public View f;
     public TextView g;
     public int h;
-    public c25 i;
+    public r25 i;
     public SpannableStringBuilder j;
     public String k;
     public String l;
@@ -92,7 +92,7 @@ public class PbNewInputContainer extends LinearLayout implements f05, View.OnCli
     public boolean[] s;
     public int[] t;
     public int u;
-    public List<cw4> v;
+    public List<nw4> v;
     public Runnable w;
 
     /* loaded from: classes3.dex */
@@ -126,7 +126,7 @@ public class PbNewInputContainer extends LinearLayout implements f05, View.OnCli
                 return;
             }
             PbNewInputContainer pbNewInputContainer = this.a;
-            pbNewInputContainer.g(new sz4(4, -1, pbNewInputContainer.b.getSpanGroupManager()));
+            pbNewInputContainer.L(new h05(4, -1, pbNewInputContainer.b.getSpanGroupManager()));
         }
     }
 
@@ -159,10 +159,11 @@ public class PbNewInputContainer extends LinearLayout implements f05, View.OnCli
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.b != null && this.a.b.getText().toString().trim().equals("")) {
-                    li.O(this.a.getContext(), String.format(uq4.E(R.string.obfuscated_res_0x7f0f0fbd), new Object[0]));
+                    pi.O(this.a.getContext(), String.format(dr4.E(R.string.obfuscated_res_0x7f0f0fc8), new Object[0]));
                     return;
                 }
-                this.a.g(new sz4(8, -1, null));
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 3).param("obj_locate", 11).param("obj_type", 1).param("obj_source", UtilHelper.getCurrentPageName(TbadkCoreApplication.getInst().getCurrentActivity())));
+                this.a.L(new h05(8, -1, null));
             }
         }
     }
@@ -199,7 +200,7 @@ public class PbNewInputContainer extends LinearLayout implements f05, View.OnCli
             }
             if (!TextUtils.isEmpty(this.a.j)) {
                 if (this.a.i == null) {
-                    this.a.i = new c25();
+                    this.a.i = new r25();
                 }
                 this.a.i.b = this.a.j.toString();
                 this.a.i.d = this.a.k;
@@ -207,11 +208,11 @@ public class PbNewInputContainer extends LinearLayout implements f05, View.OnCli
                 this.a.i.a = this.a.b.getText().toString();
                 this.a.i.c = this.a.b.getSpanGroupManager();
                 PbNewInputContainer pbNewInputContainer = this.a;
-                pbNewInputContainer.g(new sz4(4, -1, pbNewInputContainer.i));
+                pbNewInputContainer.L(new h05(4, -1, pbNewInputContainer.i));
                 return;
             }
-            mg.a().removeCallbacks(this.a.w);
-            mg.a().post(this.a.w);
+            qg.a().removeCallbacks(this.a.w);
+            qg.a().post(this.a.w);
         }
 
         @Override // android.text.TextWatcher
@@ -286,7 +287,7 @@ public class PbNewInputContainer extends LinearLayout implements f05, View.OnCli
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (motionEvent.getAction() == 1) {
-                    this.a.g(new sz4(5, -1, null));
+                    this.a.L(new h05(5, -1, null));
                     this.a.b.requestFocus();
                 }
                 return false;
@@ -296,7 +297,7 @@ public class PbNewInputContainer extends LinearLayout implements f05, View.OnCli
     }
 
     /* loaded from: classes3.dex */
-    public class e implements p66.h {
+    public class e implements p76.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbNewInputContainer a;
@@ -319,31 +320,31 @@ public class PbNewInputContainer extends LinearLayout implements f05, View.OnCli
             this.a = pbNewInputContainer;
         }
 
-        @Override // com.repackage.p66.h
+        @Override // com.repackage.p76.h
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
                 this.a.b.setText(spannableStringBuilder);
                 this.a.b.setSelection(this.a.b.getText().length());
-                this.a.g(new sz4(5, -1, null));
+                this.a.L(new h05(5, -1, null));
                 this.a.requestFocus();
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class f implements p66.h {
+    public class f implements p76.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c25 a;
+        public final /* synthetic */ r25 a;
         public final /* synthetic */ PbNewInputContainer b;
 
-        public f(PbNewInputContainer pbNewInputContainer, c25 c25Var) {
+        public f(PbNewInputContainer pbNewInputContainer, r25 r25Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pbNewInputContainer, c25Var};
+                Object[] objArr = {pbNewInputContainer, r25Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -354,10 +355,10 @@ public class PbNewInputContainer extends LinearLayout implements f05, View.OnCli
                 }
             }
             this.b = pbNewInputContainer;
-            this.a = c25Var;
+            this.a = r25Var;
         }
 
-        @Override // com.repackage.p66.h
+        @Override // com.repackage.p76.h
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -366,7 +367,7 @@ public class PbNewInputContainer extends LinearLayout implements f05, View.OnCli
                 this.b.l = this.a.e;
                 if (TextUtils.isEmpty(this.a.a)) {
                     this.b.b.setText("");
-                    this.b.g(new sz4(5, -1, null));
+                    this.b.L(new h05(5, -1, null));
                     this.b.requestFocus();
                 }
             }
@@ -374,7 +375,7 @@ public class PbNewInputContainer extends LinearLayout implements f05, View.OnCli
     }
 
     /* loaded from: classes3.dex */
-    public class g implements p66.h {
+    public class g implements p76.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbNewInputContainer a;
@@ -397,13 +398,13 @@ public class PbNewInputContainer extends LinearLayout implements f05, View.OnCli
             this.a = pbNewInputContainer;
         }
 
-        @Override // com.repackage.p66.h
+        @Override // com.repackage.p76.h
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
                 this.a.b.setText(spannableStringBuilder);
                 this.a.b.setSelection(this.a.b.getText().length());
-                this.a.g(new sz4(5, -1, null));
+                this.a.L(new h05(5, -1, null));
                 this.a.requestFocus();
             }
         }
@@ -445,263 +446,106 @@ public class PbNewInputContainer extends LinearLayout implements f05, View.OnCli
         }
     }
 
-    public final void A(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            ot4 ot4Var = new ot4();
-            ot4Var.p(R.color.CAM_X0209, R.color.CAM_X0105);
-            ot4Var.i(R.drawable.obfuscated_res_0x7f0805fc, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            ot4Var.h(R.color.CAM_X0110);
-            ot4Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
-            ot4Var.m(li.f(getContext(), R.dimen.M_W_X004), li.f(getContext(), R.dimen.M_W_X004));
-            ot4Var.n(li.f(getContext(), R.dimen.M_H_X002));
-            ot4Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, li.f(getContext(), R.dimen.tbds62));
-            layoutParams.setMargins(li.f(context, R.dimen.M_W_X007), li.f(context, R.dimen.M_H_X004), li.f(context, R.dimen.M_W_X007), li.f(context, R.dimen.M_H_X003));
-            TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(getContext());
-            this.d = tBSpecificationBtn;
-            tBSpecificationBtn.setLayoutParams(layoutParams);
-            this.d.setOnClickListener(this);
-            this.d.setConfig(ot4Var);
-            this.d.setTextSize(R.dimen.T_X09);
-            this.d.setOnClickListener(this);
-            this.d.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a57));
-            addView(this.d);
-        }
-    }
-
-    public final void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            EMTextView eMTextView = new EMTextView(getContext());
-            this.g = eMTextView;
-            eMTextView.setId(R.id.obfuscated_res_0x7f090668);
-            this.g.setVisibility(8);
-            this.g.setMaxLines(1);
-            this.g.setEllipsize(TextUtils.TruncateAt.END);
-            this.g.setPadding(li.f(getContext(), R.dimen.M_W_X009), li.f(getContext(), R.dimen.M_H_X005), li.f(getContext(), R.dimen.M_W_X009), li.f(getContext(), R.dimen.M_H_X003));
-            this.g.setTextSize(0, li.f(getContext(), R.dimen.T_X08));
-            addView(this.g, new LinearLayout.LayoutParams(-1, -2));
-        }
-    }
-
-    public final void C(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            LinearLayout linearLayout = new LinearLayout(context);
-            linearLayout.setOrientation(1);
-            linearLayout.setGravity(80);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
-            ot4 ot4Var = new ot4();
-            ot4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
-            TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(context);
-            this.c = tBSpecificationBtn;
-            tBSpecificationBtn.setConfig(ot4Var);
-            this.c.setEnabled(false);
-            this.c.setTextSize(R.dimen.T_X08);
-            this.c.setText(context.getString(R.string.obfuscated_res_0x7f0f0ddf));
-            this.c.setOnClickListener(new b(this));
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(li.f(context, R.dimen.tbds150), li.f(context, R.dimen.tbds75));
-            layoutParams2.rightMargin = li.f(context, R.dimen.M_W_X007);
-            layoutParams2.bottomMargin = li.f(context, R.dimen.M_H_X002);
-            linearLayout.addView(this.c, layoutParams2);
-            this.e.addView(linearLayout, layoutParams);
-        }
-    }
-
-    public final void D(sz4 sz4Var) {
+    public final void A(h05 h05Var) {
         Object obj;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, sz4Var) == null) || sz4Var == null || (obj = sz4Var.c) == null || !(obj instanceof cw4) || EmotionGroupType.isSendAsPic(((cw4) obj).getType())) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, h05Var) == null) || h05Var == null || (obj = h05Var.c) == null || !(obj instanceof nw4) || EmotionGroupType.isSendAsPic(((nw4) obj).getType())) {
             return;
         }
-        cw4 cw4Var = (cw4) sz4Var.c;
-        if (cw4Var.getType() == EmotionGroupType.NET_SUG) {
-            F(cw4Var);
+        nw4 nw4Var = (nw4) h05Var.c;
+        if (nw4Var.getType() == EmotionGroupType.NET_SUG) {
+            D(nw4Var);
         } else {
-            E(cw4Var);
+            B(nw4Var);
         }
     }
 
-    public final void E(cw4 cw4Var) {
+    public final void B(nw4 nw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, cw4Var) == null) {
-            if (!this.o || cw4Var.getType() == EmotionGroupType.LOCAL) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nw4Var) == null) {
+            if (!this.o || nw4Var.getType() == EmotionGroupType.LOCAL) {
                 String obj = this.b.getText().toString();
-                if (this.p && o66.a(obj) >= 10 && getContext() != null) {
-                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f143d);
+                if (this.p && o76.a(obj) >= 10 && getContext() != null) {
+                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f144a);
                     return;
                 }
-                this.v.add(cw4Var);
-                p66.b(getContext(), cw4Var, this.b);
+                this.v.add(nw4Var);
+                p76.b(getContext(), nw4Var, this.b);
             }
         }
     }
 
-    public final void F(cw4 cw4Var) {
+    @Override // com.repackage.i05
+    public void C(h05 h05Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, cw4Var) == null) || cw4Var == null || TextUtils.isEmpty(cw4Var.d()) || TextUtils.isEmpty(cw4Var.g())) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, h05Var) == null) || h05Var == null) {
             return;
         }
-        String obj = this.b.getText().toString();
-        if (this.p && o66.a(obj) >= 10 && getContext() != null) {
-            CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f143d);
-            return;
-        }
-        this.v.add(cw4Var);
-        p66.c(getContext(), cw4Var, this.b);
-    }
-
-    public void G(boolean z) {
-        TBSpecificationBtn tBSpecificationBtn;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (tBSpecificationBtn = this.d) == null) {
-            return;
-        }
-        tBSpecificationBtn.setVisibility(z ? 0 : 8);
-    }
-
-    @Override // com.repackage.f05
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.b != null && this.e.getVisibility() == 0) {
-                this.b.setFocusable(true);
-                this.b.setFocusableInTouchMode(true);
-                this.b.requestFocus();
-                li.M(getContext(), this.b);
-            }
-            setVisibility(0);
-        }
-    }
-
-    @Override // com.repackage.f05
-    public void g(sz4 sz4Var) {
-        EditorTools editorTools;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sz4Var) == null) || (editorTools = this.a) == null) {
-            return;
-        }
-        editorTools.A(sz4Var);
-    }
-
-    public LinearLayout getInputLayout() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.e : (LinearLayout) invokeV.objValue;
-    }
-
-    public EditText getInputView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.b : (EditText) invokeV.objValue;
-    }
-
-    public TBSpecificationBtn getSendView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.c : (TBSpecificationBtn) invokeV.objValue;
-    }
-
-    public TextView getTitleView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.g : (TextView) invokeV.objValue;
-    }
-
-    @Override // com.repackage.f05
-    public int getToolId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.h : invokeV.intValue;
-    }
-
-    @Override // com.repackage.f05
-    public void hide() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            setVisibility(8);
-        }
-    }
-
-    @Override // com.repackage.f05
-    public void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.tz4
-    public void onAction(sz4 sz4Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, sz4Var) == null) || sz4Var == null) {
-            return;
-        }
-        int i = sz4Var.a;
+        int i = h05Var.a;
         if (i != 3) {
             if (i == 4) {
-                u(sz4Var);
+                q(h05Var);
             } else if (i == 6) {
-                Object obj = sz4Var.c;
+                Object obj = h05Var.c;
                 if (obj == null) {
                     this.b.setText((CharSequence) null);
                 } else if (obj instanceof String) {
                     if (TextUtils.isEmpty((String) obj)) {
                         this.b.setText((CharSequence) null);
                     } else {
-                        p66.f(getContext(), (String) sz4Var.c, new e(this));
+                        p76.f(getContext(), (String) h05Var.c, new e(this));
                     }
-                } else if (obj instanceof c25) {
+                } else if (obj instanceof r25) {
                     this.j = null;
                     String str = this.m;
                     if (str != null) {
                         this.b.setHint(str);
                     }
-                    Object obj2 = sz4Var.c;
-                    c25 c25Var = (c25) obj2;
-                    if (TextUtils.isEmpty(((c25) obj2).b) && TextUtils.isEmpty(((c25) sz4Var.c).a)) {
+                    Object obj2 = h05Var.c;
+                    r25 r25Var = (r25) obj2;
+                    if (TextUtils.isEmpty(((r25) obj2).b) && TextUtils.isEmpty(((r25) h05Var.c).a)) {
                         this.b.setText((CharSequence) null);
                     } else {
-                        if (!TextUtils.isEmpty(c25Var.b)) {
-                            p66.f(getContext(), c25Var.b, new f(this, c25Var));
+                        if (!TextUtils.isEmpty(r25Var.b)) {
+                            p76.f(getContext(), r25Var.b, new f(this, r25Var));
                         }
-                        if (!TextUtils.isEmpty(c25Var.a)) {
-                            p66.f(getContext(), c25Var.a, new g(this));
+                        if (!TextUtils.isEmpty(r25Var.a)) {
+                            p76.f(getContext(), r25Var.a, new g(this));
                         }
                     }
                 }
-                u(sz4Var);
+                q(h05Var);
             } else if (i == 17) {
-                Object obj3 = sz4Var.c;
+                Object obj3 = h05Var.c;
                 if (obj3 != null && (obj3 instanceof ArrayList)) {
-                    v((ArrayList) obj3);
+                    s((ArrayList) obj3);
                 }
             } else if (i != 24) {
                 if (i != 39) {
                     if (i != 19) {
                         if (i == 20) {
-                            G(true);
-                            this.d.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a57));
+                            E(true);
+                            this.d.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a5b));
                         } else if (i != 28) {
                             if (i == 29) {
                                 this.s[3] = false;
                             } else if (i == 44) {
-                                Object obj4 = sz4Var.c;
+                                Object obj4 = h05Var.c;
                                 if (obj4 != null) {
                                     if (obj4 instanceof String) {
-                                        w((String) obj4);
-                                    } else if ((obj4 instanceof c25) && ((c25) obj4).a != null) {
-                                        w(((c25) obj4).a);
+                                        t((String) obj4);
+                                    } else if ((obj4 instanceof r25) && ((r25) obj4).a != null) {
+                                        t(((r25) obj4).a);
                                     }
                                 }
                             } else if (i != 45) {
                                 switch (i) {
                                     case 9:
-                                        for (cw4 cw4Var : this.v) {
-                                            y(cw4Var.a());
+                                        for (nw4 nw4Var : this.v) {
+                                            v(nw4Var.a());
                                         }
                                         this.v.clear();
-                                        if (((Boolean) sz4Var.c).booleanValue()) {
+                                        if (((Boolean) h05Var.c).booleanValue()) {
                                             this.i = null;
                                             this.j = null;
                                             this.b.setText((CharSequence) null);
@@ -723,13 +567,13 @@ public class PbNewInputContainer extends LinearLayout implements f05, View.OnCli
                                         this.s[2] = false;
                                         break;
                                     case 12:
-                                        Object obj5 = sz4Var.c;
-                                        if (obj5 instanceof n05) {
-                                            n05 n05Var = (n05) obj5;
-                                            WriteImagesInfo writeImagesInfo = n05Var.a;
+                                        Object obj5 = h05Var.c;
+                                        if (obj5 instanceof c15) {
+                                            c15 c15Var = (c15) obj5;
+                                            WriteImagesInfo writeImagesInfo = c15Var.a;
                                             if (writeImagesInfo != null) {
                                                 if (writeImagesInfo.getChosedFiles() != null) {
-                                                    this.t[0] = n05Var.a.getChosedFiles().size();
+                                                    this.t[0] = c15Var.a.getChosedFiles().size();
                                                 } else {
                                                     this.t[0] = 0;
                                                 }
@@ -756,7 +600,7 @@ public class PbNewInputContainer extends LinearLayout implements f05, View.OnCli
                                         }
                                 }
                             } else {
-                                Object obj6 = sz4Var.c;
+                                Object obj6 = h05Var.c;
                                 if (obj6 instanceof String) {
                                     String str2 = (String) obj6;
                                     if (StringUtils.isNull(str2)) {
@@ -770,36 +614,36 @@ public class PbNewInputContainer extends LinearLayout implements f05, View.OnCli
                                 }
                             }
                         }
-                    } else if (sz4Var.c == null) {
-                        G(false);
+                    } else if (h05Var.c == null) {
+                        E(false);
                     } else {
-                        G(true);
-                        j15 j15Var = (j15) sz4Var.c;
-                        if (j15Var.a == 1) {
-                            this.d.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a51));
-                        } else if (!TextUtils.isEmpty(j15Var.b)) {
-                            this.d.setText(j15Var.b);
+                        E(true);
+                        y15 y15Var = (y15) h05Var.c;
+                        if (y15Var.a == 1) {
+                            this.d.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a55));
+                        } else if (!TextUtils.isEmpty(y15Var.b)) {
+                            this.d.setText(y15Var.b);
                         } else {
-                            this.d.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a57));
+                            this.d.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a5b));
                         }
                     }
                 }
                 this.s[3] = true;
             } else {
-                D(sz4Var);
+                A(h05Var);
             }
         } else if (this.b.getSelectionStart() > 0) {
             String substring = this.b.getText().toString().substring(0, this.b.getSelectionStart());
-            Matcher matcher = o66.b.matcher(substring);
+            Matcher matcher = o76.b.matcher(substring);
             if (matcher.find()) {
                 int length = substring.length() - matcher.replaceFirst("").length();
                 String substring2 = this.b.getText().toString().substring(this.b.getSelectionStart() - length, this.b.getSelectionStart());
-                Iterator<cw4> it = this.v.iterator();
+                Iterator<nw4> it = this.v.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
-                    cw4 next = it.next();
+                    nw4 next = it.next();
                     if (next.d().equals(substring2)) {
                         this.v.remove(next);
                         break;
@@ -810,119 +654,130 @@ public class PbNewInputContainer extends LinearLayout implements f05, View.OnCli
                 this.b.getText().delete(this.b.getSelectionStart() - 1, this.b.getSelectionStart());
             }
         }
-        x(this.u);
+        u(this.u);
     }
 
-    @Override // com.repackage.f05
+    public final void D(nw4 nw4Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, nw4Var) == null) || nw4Var == null || TextUtils.isEmpty(nw4Var.d()) || TextUtils.isEmpty(nw4Var.g())) {
+            return;
+        }
+        String obj = this.b.getText().toString();
+        if (this.p && o76.a(obj) >= 10 && getContext() != null) {
+            CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f144a);
+            return;
+        }
+        this.v.add(nw4Var);
+        p76.c(getContext(), nw4Var, this.b);
+    }
+
+    public void E(boolean z) {
+        TBSpecificationBtn tBSpecificationBtn;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (tBSpecificationBtn = this.d) == null) {
+            return;
+        }
+        tBSpecificationBtn.setVisibility(z ? 0 : 8);
+    }
+
+    @Override // com.repackage.u05
+    public void L(h05 h05Var) {
+        EditorTools editorTools;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, h05Var) == null) || (editorTools = this.a) == null) {
+            return;
+        }
+        editorTools.A(h05Var);
+    }
+
+    public LinearLayout getInputLayout() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : (LinearLayout) invokeV.objValue;
+    }
+
+    public EditText getInputView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : (EditText) invokeV.objValue;
+    }
+
+    public TBSpecificationBtn getSendView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.c : (TBSpecificationBtn) invokeV.objValue;
+    }
+
+    public TextView getTitleView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.g : (TextView) invokeV.objValue;
+    }
+
+    @Override // com.repackage.u05
+    public int getToolId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.h : invokeV.intValue;
+    }
+
+    @Override // com.repackage.u05
+    public void hide() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            setVisibility(8);
+        }
+    }
+
+    @Override // com.repackage.u05
+    public void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.u05
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             this.b.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             SkinManager.setViewTextColor(this.b, R.color.CAM_X0105, 2, i);
-            TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0209, i).setShape(0).radius(li.f(getContext(), R.dimen.tbds21)).into(this.b);
+            TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0209, i).setShape(0).radius(pi.f(getContext(), R.dimen.tbds21)).into(this.b);
             SkinManager.setBackgroundColor(this.f, R.color.CAM_X0207, i);
             SkinManager.setBackgroundColor(this, R.color.CAM_X0207, i);
             if (i == 0) {
-                jv8.l(this.b, R.drawable.obfuscated_res_0x7f0804ae);
+                rv8.l(this.b, R.drawable.obfuscated_res_0x7f0804ac);
                 this.b.setHintTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0109));
             } else {
-                jv8.l(this.b, R.drawable.obfuscated_res_0x7f0804af);
+                rv8.l(this.b, R.drawable.obfuscated_res_0x7f0804ad);
                 this.b.setHintTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0109));
             }
             this.c.l(i);
             this.d.l(i);
-            wq4.d(this.g).v(R.color.CAM_X0109);
+            fr4.d(this.g).v(R.color.CAM_X0109);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048594, this, view2) == null) && view2 == this.d) {
-            g(new sz4(18, -1, null));
+        if ((interceptable == null || interceptable.invokeL(1048590, this, view2) == null) && view2 == this.d) {
+            L(new h05(18, -1, null));
         }
     }
 
-    public void setDefaultHint(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            this.m = str;
-        }
-    }
-
-    @Override // com.repackage.f05
-    public void setEditorTools(EditorTools editorTools) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, editorTools) == null) {
-            this.a = editorTools;
-        }
-    }
-
-    public void setHasHint(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
-        }
-    }
-
-    public void setHint(int i) {
-        SpanGroupEditText spanGroupEditText;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048598, this, i) == null) || (spanGroupEditText = this.b) == null) {
-            return;
-        }
-        spanGroupEditText.setHint(getContext().getString(i));
-    }
-
-    public void setIsOnlyLocalEmotion(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
-            this.o = z;
-        }
-    }
-
-    @Override // com.repackage.f05
-    public void setToolId(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
-            this.h = i;
-        }
-    }
-
-    public void setTransLink(boolean z) {
-        SpanGroupEditText spanGroupEditText;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048602, this, z) == null) || (spanGroupEditText = this.b) == null) {
-            return;
-        }
-        spanGroupEditText.setTransLink(z);
-    }
-
-    public void setType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
-            this.u = i;
-        }
-    }
-
-    public void setmAtListRequestResponseCode(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
-            this.n = i;
-        }
-    }
-
-    public final void u(sz4 sz4Var) {
+    public final void q(h05 h05Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048605, this, sz4Var) == null) || sz4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, h05Var) == null) || h05Var == null) {
             return;
         }
         boolean[] zArr = this.s;
-        Object obj = sz4Var.c;
+        Object obj = h05Var.c;
         if (obj != null && (!(obj instanceof String) || !StringUtils.isNull((String) obj))) {
-            Object obj2 = sz4Var.c;
-            if (!(obj2 instanceof c25) || !TextUtils.isEmpty(((c25) obj2).a)) {
-                Object obj3 = sz4Var.c;
+            Object obj2 = h05Var.c;
+            if (!(obj2 instanceof r25) || !TextUtils.isEmpty(((r25) obj2).a)) {
+                Object obj3 = h05Var.c;
                 if (!(obj3 instanceof SpanGroupManager) || !((SpanGroupManager) obj3).I()) {
                     z = true;
                     zArr[0] = z;
@@ -935,9 +790,23 @@ public class PbNewInputContainer extends LinearLayout implements f05, View.OnCli
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921706, Boolean.valueOf(true ^ this.s[0])));
     }
 
-    public final void v(ArrayList<AtSelectData> arrayList) {
+    @Override // com.repackage.u05
+    public void r() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            if (this.b != null && this.e.getVisibility() == 0) {
+                this.b.setFocusable(true);
+                this.b.setFocusableInTouchMode(true);
+                this.b.requestFocus();
+                pi.M(getContext(), this.b);
+            }
+            setVisibility(0);
+        }
+    }
+
+    public final void s(ArrayList<AtSelectData> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, arrayList) == null) {
             int selectionStart = this.b.getSelectionStart();
             if (selectionStart > 0) {
                 int i = selectionStart - 1;
@@ -960,17 +829,85 @@ public class PbNewInputContainer extends LinearLayout implements f05, View.OnCli
         }
     }
 
-    public final void w(String str) {
+    public void setDefaultHint(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048607, this, str) == null) || StringUtils.isNull(str)) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            this.m = str;
+        }
+    }
+
+    @Override // com.repackage.u05
+    public void setEditorTools(EditorTools editorTools) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, editorTools) == null) {
+            this.a = editorTools;
+        }
+    }
+
+    public void setHasHint(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+        }
+    }
+
+    public void setHint(int i) {
+        SpanGroupEditText spanGroupEditText;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048597, this, i) == null) || (spanGroupEditText = this.b) == null) {
+            return;
+        }
+        spanGroupEditText.setHint(getContext().getString(i));
+    }
+
+    public void setIsOnlyLocalEmotion(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
+            this.o = z;
+        }
+    }
+
+    @Override // com.repackage.u05
+    public void setToolId(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.h = i;
+        }
+    }
+
+    public void setTransLink(boolean z) {
+        SpanGroupEditText spanGroupEditText;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048601, this, z) == null) || (spanGroupEditText = this.b) == null) {
+            return;
+        }
+        spanGroupEditText.setTransLink(z);
+    }
+
+    public void setType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+            this.u = i;
+        }
+    }
+
+    public void setmAtListRequestResponseCode(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
+            this.n = i;
+        }
+    }
+
+    public final void t(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048604, this, str) == null) || StringUtils.isNull(str)) {
             return;
         }
         this.b.getText().insert(this.b.getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
     }
 
-    public void x(int i) {
+    public void u(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
             if (i == y) {
                 boolean[] zArr = this.s;
                 if (!zArr[0] && !zArr[1] && !zArr[2] && !zArr[3] && !zArr[4]) {
@@ -988,18 +925,18 @@ public class PbNewInputContainer extends LinearLayout implements f05, View.OnCli
         }
     }
 
-    public final void y(dw4 dw4Var) {
+    public final void v(ow4 ow4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, dw4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048606, this, ow4Var) == null) {
             StatisticItem statisticItem = new StatisticItem("c14122");
-            statisticItem.param("fid", dw4Var.a).param("tid", dw4Var.b).param("uid", dw4Var.c).param("obj_type", dw4Var.d).param("obj_source", dw4Var.e).param("obj_locate", dw4Var.f).param("obj_param1", 1).param(TiebaStatic.Params.OBJ_PARAM2, dw4Var.h);
+            statisticItem.param("fid", ow4Var.a).param("tid", ow4Var.b).param("uid", ow4Var.c).param("obj_type", ow4Var.d).param("obj_source", ow4Var.e).param("obj_locate", ow4Var.f).param("obj_param1", 1).param(TiebaStatic.Params.OBJ_PARAM2, ow4Var.h);
             TiebaStatic.log(statisticItem);
         }
     }
 
-    public final void z(Context context) {
+    public final void w(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048607, this, context) == null) {
             SpanGroupEditText spanGroupEditText = new SpanGroupEditText(context);
             this.b = spanGroupEditText;
             spanGroupEditText.setMinHeight(context.getResources().getDimensionPixelSize(R.dimen.M_H_X005));
@@ -1010,16 +947,80 @@ public class PbNewInputContainer extends LinearLayout implements f05, View.OnCli
             this.b.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.T_X06));
             this.b.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             this.b.setHintTextColor(getResources().getColor(R.color.CAM_X0109));
-            jv8.l(this.b, R.drawable.obfuscated_res_0x7f0804ae);
-            this.b.setLineSpacing(li.f(context, R.dimen.M_T_X002), 1.0f);
-            this.b.setPadding(li.f(context, R.dimen.M_W_X006), li.f(context, R.dimen.M_H_X004), li.f(context, R.dimen.M_W_X006), li.f(context, R.dimen.M_H_X004));
+            rv8.l(this.b, R.drawable.obfuscated_res_0x7f0804ac);
+            this.b.setLineSpacing(pi.f(context, R.dimen.M_T_X002), 1.0f);
+            this.b.setPadding(pi.f(context, R.dimen.M_W_X006), pi.f(context, R.dimen.M_H_X004), pi.f(context, R.dimen.M_W_X006), pi.f(context, R.dimen.M_H_X004));
             this.b.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
             this.b.addTextChangedListener(new c(this));
             this.b.setOnTouchListener(new d(this));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
             layoutParams.weight = 1.0f;
-            layoutParams.setMargins(li.f(context, R.dimen.M_W_X007), li.f(context, R.dimen.M_H_X002), li.f(context, R.dimen.M_W_X006), li.f(context, R.dimen.M_H_X002));
+            layoutParams.setMargins(pi.f(context, R.dimen.M_W_X007), pi.f(context, R.dimen.M_H_X002), pi.f(context, R.dimen.M_W_X006), pi.f(context, R.dimen.M_H_X002));
             this.e.addView(this.b, layoutParams);
+        }
+    }
+
+    public final void x(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048608, this, context) == null) {
+            xt4 xt4Var = new xt4();
+            xt4Var.p(R.color.CAM_X0209, R.color.CAM_X0105);
+            xt4Var.i(R.drawable.obfuscated_res_0x7f0805fa, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            xt4Var.h(R.color.CAM_X0110);
+            xt4Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
+            xt4Var.m(pi.f(getContext(), R.dimen.M_W_X004), pi.f(getContext(), R.dimen.M_W_X004));
+            xt4Var.n(pi.f(getContext(), R.dimen.M_H_X002));
+            xt4Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, pi.f(getContext(), R.dimen.tbds62));
+            layoutParams.setMargins(pi.f(context, R.dimen.M_W_X007), pi.f(context, R.dimen.M_H_X004), pi.f(context, R.dimen.M_W_X007), pi.f(context, R.dimen.M_H_X003));
+            TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(getContext());
+            this.d = tBSpecificationBtn;
+            tBSpecificationBtn.setLayoutParams(layoutParams);
+            this.d.setOnClickListener(this);
+            this.d.setConfig(xt4Var);
+            this.d.setTextSize(R.dimen.T_X09);
+            this.d.setOnClickListener(this);
+            this.d.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a5b));
+            addView(this.d);
+        }
+    }
+
+    public final void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
+            EMTextView eMTextView = new EMTextView(getContext());
+            this.g = eMTextView;
+            eMTextView.setId(R.id.obfuscated_res_0x7f090649);
+            this.g.setVisibility(8);
+            this.g.setMaxLines(1);
+            this.g.setEllipsize(TextUtils.TruncateAt.END);
+            this.g.setPadding(pi.f(getContext(), R.dimen.M_W_X009), pi.f(getContext(), R.dimen.M_H_X005), pi.f(getContext(), R.dimen.M_W_X009), pi.f(getContext(), R.dimen.M_H_X003));
+            this.g.setTextSize(0, pi.f(getContext(), R.dimen.T_X08));
+            addView(this.g, new LinearLayout.LayoutParams(-1, -2));
+        }
+    }
+
+    public final void z(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048610, this, context) == null) {
+            LinearLayout linearLayout = new LinearLayout(context);
+            linearLayout.setOrientation(1);
+            linearLayout.setGravity(80);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
+            xt4 xt4Var = new xt4();
+            xt4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
+            TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(context);
+            this.c = tBSpecificationBtn;
+            tBSpecificationBtn.setConfig(xt4Var);
+            this.c.setEnabled(false);
+            this.c.setTextSize(R.dimen.T_X08);
+            this.c.setText(context.getString(R.string.obfuscated_res_0x7f0f0de5));
+            this.c.setOnClickListener(new b(this));
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(pi.f(context, R.dimen.tbds150), pi.f(context, R.dimen.tbds75));
+            layoutParams2.rightMargin = pi.f(context, R.dimen.M_W_X007);
+            layoutParams2.bottomMargin = pi.f(context, R.dimen.M_H_X002);
+            linearLayout.addView(this.c, layoutParams2);
+            this.e.addView(linearLayout, layoutParams);
         }
     }
 
@@ -1076,17 +1077,17 @@ public class PbNewInputContainer extends LinearLayout implements f05, View.OnCli
         setOrientation(1);
         setGravity(48);
         setMinimumHeight(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07030b));
-        B();
-        A(context);
+        y();
+        x(context);
         LinearLayout linearLayout = new LinearLayout(getContext());
         this.e = linearLayout;
         linearLayout.setOrientation(0);
-        this.e.setMinimumHeight(li.f(context, R.dimen.tbds128));
+        this.e.setMinimumHeight(pi.f(context, R.dimen.tbds128));
         addView(this.e, new LinearLayout.LayoutParams(-1, -2));
+        w(context);
         z(context);
-        C(context);
         this.f = new View(getContext());
-        this.f.setLayoutParams(new LinearLayout.LayoutParams(-1, li.f(getContext(), R.dimen.obfuscated_res_0x7f070198)));
+        this.f.setLayoutParams(new LinearLayout.LayoutParams(-1, pi.f(getContext(), R.dimen.obfuscated_res_0x7f070198)));
         addView(this.f);
         this.v = new ArrayList();
     }
@@ -1094,7 +1095,7 @@ public class PbNewInputContainer extends LinearLayout implements f05, View.OnCli
     public void setHint(CharSequence charSequence) {
         SpanGroupEditText spanGroupEditText;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048599, this, charSequence) == null) || (spanGroupEditText = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048598, this, charSequence) == null) || (spanGroupEditText = this.b) == null) {
             return;
         }
         spanGroupEditText.setHint(charSequence);

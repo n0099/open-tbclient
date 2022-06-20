@@ -3,7 +3,7 @@ package com.tencent.mm.sdk.openapi;
 import android.content.Intent;
 import com.tencent.mm.sdk.modelbase.BaseReq;
 import com.tencent.mm.sdk.modelbase.BaseResp;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface IWXAPI {
     void detach();
 

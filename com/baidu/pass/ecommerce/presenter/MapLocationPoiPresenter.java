@@ -102,7 +102,7 @@ public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements
             mapObject.putValue("city_name", str);
             mapObject.putValue(SuggestAddrField.KEY_LAT, Double.valueOf(this.locLat4Api));
             mapObject.putValue(SuggestAddrField.KEY_LNG, Double.valueOf(this.locLng4Api));
-            mapObject.putValue("page_size", 20);
+            mapObject.putValue(SuggestAddrField.KEY_PAGE_SIZE, 20);
             return mapObject;
         }
         return (MapObject) invokeL.objValue;

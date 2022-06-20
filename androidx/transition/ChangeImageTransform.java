@@ -174,7 +174,7 @@ public class ChangeImageTransform extends Transition {
     private void captureValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, transitionValues) == null) {
-            View view2 = transitionValues.f980view;
+            View view2 = transitionValues.f1020view;
             if ((view2 instanceof ImageView) && view2.getVisibility() == 0) {
                 ImageView imageView = (ImageView) view2;
                 if (imageView.getDrawable() == null) {
@@ -295,7 +295,7 @@ public class ChangeImageTransform extends Transition {
             if (rect.equals(rect2) && z) {
                 return null;
             }
-            ImageView imageView = (ImageView) transitionValues2.f980view;
+            ImageView imageView = (ImageView) transitionValues2.f1020view;
             Drawable drawable = imageView.getDrawable();
             int intrinsicWidth = drawable.getIntrinsicWidth();
             int intrinsicHeight = drawable.getIntrinsicHeight();

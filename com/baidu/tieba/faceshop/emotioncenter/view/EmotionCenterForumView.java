@@ -54,10 +54,10 @@ public class EmotionCenterForumView extends RelativeLayout implements View.OnCli
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d024f, this);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090a75);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090a51);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090a02);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d024c, this);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090a64);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090a40);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0909f1);
             setOnClickListener(this);
         }
     }
@@ -67,7 +67,7 @@ public class EmotionCenterForumView extends RelativeLayout implements View.OnCli
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             SkinManager.setViewTextColor(this.b, R.color.CAM_X0105, i);
             SkinManager.setViewTextColor(this.c, R.color.cp_cont_r, i);
-            SkinManager.setBackgroundResource(this.d, R.drawable.obfuscated_res_0x7f0804b1, i);
+            SkinManager.setBackgroundResource(this.d, R.drawable.obfuscated_res_0x7f0804af, i);
         }
     }
 

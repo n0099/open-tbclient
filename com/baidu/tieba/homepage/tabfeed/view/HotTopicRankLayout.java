@@ -19,16 +19,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bx;
-import com.repackage.cx;
-import com.repackage.du6;
-import com.repackage.kl4;
-import com.repackage.li;
-import com.repackage.vx6;
-import com.repackage.vy6;
-import com.repackage.wq4;
+import com.repackage.e07;
+import com.repackage.ez6;
+import com.repackage.fr4;
+import com.repackage.fx;
+import com.repackage.gx;
+import com.repackage.iv6;
+import com.repackage.pi;
+import com.repackage.ul4;
 /* loaded from: classes3.dex */
-public class HotTopicRankLayout extends LinearLayout implements cx, bx<vy6>, View.OnClickListener {
+public class HotTopicRankLayout extends LinearLayout implements gx, fx<e07>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -41,10 +41,10 @@ public class HotTopicRankLayout extends LinearLayout implements cx, bx<vy6>, Vie
     public View h;
     public LinearLayout i;
     public String j;
-    public kl4<du6> k;
+    public ul4<iv6> k;
 
     /* loaded from: classes3.dex */
-    public class a implements kl4<du6> {
+    public class a implements ul4<iv6> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotTopicRankLayout a;
@@ -68,23 +68,23 @@ public class HotTopicRankLayout extends LinearLayout implements cx, bx<vy6>, Vie
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.kl4
-        /* renamed from: b */
-        public void c(View view2, du6 du6Var, int i, long j) {
+        @Override // com.repackage.ul4
+        /* renamed from: a */
+        public void d(View view2, iv6 iv6Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, du6Var, Integer.valueOf(i), Long.valueOf(j)}) != null) || du6Var == null) {
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, iv6Var, Integer.valueOf(i), Long.valueOf(j)}) != null) || iv6Var == null) {
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.kl4
-        /* renamed from: d */
-        public void a(View view2, du6 du6Var, int i, long j) {
+        @Override // com.repackage.ul4
+        /* renamed from: b */
+        public void c(View view2, iv6 iv6Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view2, du6Var, Integer.valueOf(i), Long.valueOf(j)}) == null) || du6Var == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, iv6Var, Integer.valueOf(i), Long.valueOf(j)}) == null) || iv6Var == null) {
                 return;
             }
-            vx6.a("c13753", du6Var, i + 1, this.a.j);
+            ez6.a("c13753", iv6Var, i + 1, this.a.j);
         }
     }
 
@@ -115,19 +115,19 @@ public class HotTopicRankLayout extends LinearLayout implements cx, bx<vy6>, Vie
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d037e, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d037b, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0921ff);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fa5);
-            this.e = findViewById(R.id.obfuscated_res_0x7f0911a9);
-            this.g = findViewById(R.id.obfuscated_res_0x7f0907e3);
-            this.h = findViewById(R.id.obfuscated_res_0x7f0907dd);
-            this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906be);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0921fb);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f94);
+            this.e = findViewById(R.id.obfuscated_res_0x7f09119e);
+            this.g = findViewById(R.id.obfuscated_res_0x7f0907ce);
+            this.h = findViewById(R.id.obfuscated_res_0x7f0907c8);
+            this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906a9);
             this.c = findViewById(R.id.obfuscated_res_0x7f092030);
-            int f = li.f(getContext(), R.dimen.M_H_X004);
-            int f2 = li.f(getContext(), R.dimen.M_H_X004);
-            int f3 = li.f(getContext(), R.dimen.M_W_X005);
+            int f = pi.f(getContext(), R.dimen.M_H_X004);
+            int f2 = pi.f(getContext(), R.dimen.M_H_X004);
+            int f3 = pi.f(getContext(), R.dimen.M_W_X005);
             this.c.setPadding(f3, f, f3, f2);
             ViewGroup.LayoutParams layoutParams = this.c.getLayoutParams();
             layoutParams.width = -1;
@@ -135,7 +135,7 @@ public class HotTopicRankLayout extends LinearLayout implements cx, bx<vy6>, Vie
             this.c.setLayoutParams(layoutParams);
             this.d.setMaxLines(1);
             this.d.setEllipsize(TextUtils.TruncateAt.END);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0904ef);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0904cf);
             HotTopicTabRankListLayout hotTopicTabRankListLayout = new HotTopicTabRankListLayout(getContext());
             this.b = hotTopicTabRankListLayout;
             hotTopicTabRankListLayout.setOnItemCoverListener(this.k);
@@ -148,39 +148,39 @@ public class HotTopicRankLayout extends LinearLayout implements cx, bx<vy6>, Vie
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.bx
+    @Override // com.repackage.fx
     /* renamed from: d */
-    public void a(vy6 vy6Var) {
+    public void a(e07 e07Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vy6Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e07Var) == null) {
             TextView textView = this.d;
-            String str = vy6Var.b;
+            String str = e07Var.b;
             if (str == null) {
                 str = "";
             }
             textView.setText(str);
-            this.b.b(vy6Var);
+            this.b.b(e07Var);
             this.g.setVisibility(0);
             this.h.setVisibility(8);
             HomeGroupUbsUIHelper.handleLine(this.g);
-            vx6.c("c13753", this.j);
+            ez6.c("c13753", this.j);
         }
     }
 
-    @Override // com.repackage.cx
+    @Override // com.repackage.gx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) || this.a == i) {
             return;
         }
-        wq4 d = wq4.d(this.d);
+        fr4 d = fr4.d(this.d);
         d.v(R.color.CAM_X0105);
         d.z(R.dimen.T_X07);
         d.A(R.string.F_X02);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f08093e, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f080926, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
         HomeGroupUbsUIHelper.handleLineColor(this.g);
         this.a = i;
-        wq4 d2 = wq4.d(this.i);
+        fr4 d2 = fr4.d(this.i);
         d2.n(R.string.J_X06);
         d2.f(R.color.CAM_X0205);
     }

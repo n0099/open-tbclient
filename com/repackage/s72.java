@@ -2,27 +2,199 @@ package com.repackage;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.collection.ArraySet;
-import androidx.core.util.Pair;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.HttpManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Request;
+import okhttp3.Response;
 /* loaded from: classes7.dex */
 public class s72 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public HttpManager a;
+    public String b;
+    public String c;
+    public q72 d;
+
+    /* loaded from: classes7.dex */
+    public class a implements Callback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ s72 a;
+
+        public a(s72 s72Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s72Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = s72Var;
+        }
+
+        @Override // okhttp3.Callback
+        public void onFailure(Call call, IOException iOException) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
+                if (s72.e) {
+                    Log.e("ImageDownloader", this.a.b + " load failed");
+                    iOException.printStackTrace();
+                }
+                if (this.a.d != null) {
+                    this.a.d.fail(-1, this.a.b);
+                }
+            }
+        }
+
+        @Override // okhttp3.Callback
+        public void onResponse(Call call, Response response) {
+            FileOutputStream fileOutputStream;
+            File file;
+            InputStream byteStream;
+            String c;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
+                if (TextUtils.isEmpty(this.a.c)) {
+                    if (cg1.a) {
+                        Log.e("SwanGameRuntime", "非手百环境依赖注入接口未实现，直接返回");
+                        return;
+                    }
+                    return;
+                }
+                byte[] bArr = new byte[2048];
+                InputStream inputStream = null;
+                try {
+                    byteStream = response.body().byteStream();
+                    try {
+                        try {
+                            c = aj2.f().c(this.a.b);
+                        } catch (Throwable th) {
+                            th = th;
+                            fileOutputStream = null;
+                        }
+                    } catch (Exception e) {
+                        e = e;
+                        file = null;
+                        fileOutputStream = null;
+                    }
+                } catch (Exception e2) {
+                    e = e2;
+                    file = null;
+                    fileOutputStream = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileOutputStream = null;
+                }
+                if (TextUtils.isEmpty(c)) {
+                    if (cg1.a) {
+                        Log.e("SwanGameRuntime", "非手百环境依赖注入接口convertSrc()未实现，直接返回");
+                    }
+                    uf4.d(byteStream);
+                    uf4.d(null);
+                    uf4.d(response);
+                    return;
+                }
+                String str = this.a.c + c.substring(0, c.lastIndexOf("/"));
+                File file2 = new File(str);
+                if (!file2.exists() || !file2.isDirectory()) {
+                    file2.mkdirs();
+                }
+                String substring = c.substring(c.lastIndexOf("/") + 1);
+                file = new File(str, substring + ".bddownload");
+                try {
+                    fileOutputStream = new FileOutputStream(file);
+                    while (true) {
+                        try {
+                            int read = byteStream.read(bArr);
+                            if (read == -1) {
+                                break;
+                            }
+                            fileOutputStream.write(bArr, 0, read);
+                        } catch (Exception e3) {
+                            e = e3;
+                            inputStream = byteStream;
+                            try {
+                                if (s72.e) {
+                                    Log.e("ImageDownloader", this.a.b + " load failed", e);
+                                }
+                                if (file != null) {
+                                    file.delete();
+                                }
+                                if (this.a.d != null) {
+                                    this.a.d.fail(-1, this.a.b);
+                                }
+                                uf4.d(inputStream);
+                                uf4.d(fileOutputStream);
+                                uf4.d(response);
+                            } catch (Throwable th3) {
+                                th = th3;
+                                uf4.d(inputStream);
+                                uf4.d(fileOutputStream);
+                                uf4.d(response);
+                                throw th;
+                            }
+                        } catch (Throwable th4) {
+                            th = th4;
+                            inputStream = byteStream;
+                            uf4.d(inputStream);
+                            uf4.d(fileOutputStream);
+                            uf4.d(response);
+                            throw th;
+                        }
+                    }
+                    fileOutputStream.flush();
+                    File file3 = new File(str, substring);
+                    if (file3.exists() && !file3.isDirectory()) {
+                        file3.delete();
+                    }
+                    String absolutePath = file3.getAbsolutePath();
+                    if (file.renameTo(file3)) {
+                        if (s72.e) {
+                            Log.e("ImageDownloader", this.a.b + " load rename success path = " + absolutePath);
+                        }
+                        if (this.a.d != null) {
+                            this.a.d.a(this.a.b, absolutePath);
+                        }
+                    } else {
+                        if (s72.e) {
+                            Log.e("ImageDownloader", this.a.b + " load rename error path = " + absolutePath);
+                        }
+                        file.delete();
+                        if (this.a.d != null) {
+                            this.a.d.fail(-1, absolutePath);
+                        }
+                    }
+                    uf4.d(byteStream);
+                } catch (Exception e4) {
+                    e = e4;
+                    fileOutputStream = null;
+                }
+                uf4.d(fileOutputStream);
+                uf4.d(response);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -37,160 +209,36 @@ public class s72 {
                 return;
             }
         }
-        a = rf1.a;
+        e = cg1.a;
     }
 
-    @Nullable
-    public static Set<String> a(int i, List<String> list) {
-        InterceptResult invokeIL;
+    public s72(HttpManager httpManager, String str, String str2, q72 q72Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, list)) == null) {
-            if (list == null || list.isEmpty()) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {httpManager, str, str2, q72Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            HashSet hashSet = new HashSet();
-            for (gw2 gw2Var : iw2.k().q()) {
-                String appId = gw2Var.getAppId();
-                if (TextUtils.isEmpty(appId)) {
-                    appId = gw2Var.M();
-                }
-                boolean z = gw2Var.D() || gw2Var.P();
-                if (gw2Var.S() && z && list.contains(appId)) {
-                    xv2 e = xv2.e();
-                    zv2 zv2Var = new zv2(i);
-                    zv2Var.b(gw2Var.b);
-                    e.h(zv2Var);
-                    hashSet.add(appId);
-                    if (a) {
-                        Log.i("PurgerUtils", "sent msg(" + i + ") to active swan(" + appId + SmallTailInfo.EMOTION_SUFFIX);
-                    }
-                }
-            }
-            return hashSet;
         }
-        return (Set) invokeIL.objValue;
+        this.b = "";
+        this.c = "";
+        this.a = httpManager;
+        this.c = str;
+        this.b = str2;
+        this.d = q72Var;
     }
 
-    public static void b(@NonNull File file, @NonNull String str, @NonNull String str2, Set<String> set, boolean z) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{file, str, str2, set, Boolean.valueOf(z)}) == null) {
-            c(file, str, str2, set, z, null);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            aj2.l().call(this.a, new Request.Builder().url(this.b).build(), new a(this));
         }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:43:0x0077  */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x008f  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00a6  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void c(@NonNull File file, @NonNull String str, @NonNull String str2, Set<String> set, boolean z, @Nullable pj3<Pair<String, File>> pj3Var) {
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{file, str, str2, set, Boolean.valueOf(z), pj3Var}) == null) && file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
-            for (File file2 : listFiles) {
-                String name = file2.getName();
-                if (!name.isEmpty() && file2.isFile() && name.startsWith(str) && name.endsWith(str2)) {
-                    int length = name.length();
-                    int length2 = str.length();
-                    int length3 = str2.length();
-                    if (length >= length2 + length3) {
-                        String substring = name.substring(length2, length - length3);
-                        if (set == null) {
-                            set = Collections.emptySet();
-                        }
-                        if (!TextUtils.isEmpty(substring)) {
-                            if (z) {
-                                if (set.contains(substring)) {
-                                }
-                                if (a) {
-                                    Log.i("PurgerUtils", "clearByDeleteFiles : " + substring);
-                                }
-                                if (pj3Var == null) {
-                                    pj3Var.run(Pair.create(str + substring, file2));
-                                } else {
-                                    kf4.L(file2);
-                                }
-                            } else {
-                                if (!set.contains(substring)) {
-                                }
-                                if (a) {
-                                }
-                                if (pj3Var == null) {
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    @Nullable
-    public static Set<String> d(List<String> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
-            if (list == null || list.isEmpty()) {
-                return null;
-            }
-            return a(106, list);
-        }
-        return (Set) invokeL.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:43:0x0080  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00a8  */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x00ab A[SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static ArraySet<String> e(@NonNull File file, @NonNull String str, @NonNull String str2, Set<String> set, boolean z) {
-        InterceptResult invokeCommon;
-        File[] listFiles;
-        String J;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{file, str, str2, set, Boolean.valueOf(z)})) == null) {
-            ArraySet<String> arraySet = new ArraySet<>();
-            if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
-                for (File file2 : listFiles) {
-                    String name = file2.getName();
-                    if (!name.isEmpty() && file2.isFile() && name.startsWith(str) && name.endsWith(str2)) {
-                        int length = name.length();
-                        int length2 = str.length();
-                        int length3 = str2.length();
-                        if (length >= length2 + length3) {
-                            String substring = name.substring(length2, length - length3);
-                            if (set == null) {
-                                set = Collections.emptySet();
-                            }
-                            if (!TextUtils.isEmpty(substring)) {
-                                if (z) {
-                                    if (set.contains(substring)) {
-                                    }
-                                    J = kf4.J(file2);
-                                    if (a) {
-                                        Log.i("PurgerUtils", "originFile:" + file2.getAbsolutePath() + ", renameFile:" + J);
-                                    }
-                                    if (TextUtils.isEmpty(J)) {
-                                        arraySet.add(J);
-                                    }
-                                } else {
-                                    if (!set.contains(substring)) {
-                                    }
-                                    J = kf4.J(file2);
-                                    if (a) {
-                                    }
-                                    if (TextUtils.isEmpty(J)) {
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            return arraySet;
-        }
-        return (ArraySet) invokeCommon.objValue;
     }
 }

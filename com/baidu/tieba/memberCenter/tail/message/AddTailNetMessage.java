@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dc5;
+import com.repackage.qc5;
 import tbclient.AddTail.AddTailReqIdl;
 import tbclient.AddTail.ReqData;
 /* loaded from: classes3.dex */
@@ -50,7 +50,7 @@ public class AddTailNetMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             AddTailReqIdl.Builder builder = new AddTailReqIdl.Builder();
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                dc5.a(this.data, true);
+                qc5.a(this.data, true);
             }
             builder.data = this.data.build(false);
             return builder.build(false);

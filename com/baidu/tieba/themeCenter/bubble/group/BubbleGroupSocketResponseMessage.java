@@ -1,5 +1,6 @@
 package com.baidu.tieba.themeCenter.bubble.group;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -8,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ln8;
-import com.repackage.zm8;
+import com.repackage.hn8;
+import com.repackage.tn8;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +22,8 @@ import tbclient.GetBubbleByCategory.ThemeBubbleInMain;
 public class BubbleGroupSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<zm8> mBubbleGroupList;
-    public ln8 mRecommand;
+    public List<hn8> mBubbleGroupList;
+    public tn8 mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BubbleGroupSocketResponseMessage() {
@@ -42,48 +43,53 @@ public class BubbleGroupSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
-    public List<zm8> getGroupList() {
-        InterceptResult invokeV;
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mBubbleGroupList : (List) invokeV.objValue;
-    }
-
-    public ln8 getRecommand() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRecommand : (ln8) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        GetBubbleByCategoryResIdl getBubbleByCategoryResIdl;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getBubbleByCategoryResIdl = (GetBubbleByCategoryResIdl) new Wire(new Class[0]).parseFrom(bArr, GetBubbleByCategoryResIdl.class)) == null) {
-            return;
-        }
-        Error error = getBubbleByCategoryResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(getBubbleByCategoryResIdl.error.usermsg);
-        }
-        DataRes dataRes = getBubbleByCategoryResIdl.data;
-        if (dataRes != null) {
-            if (dataRes.recommend != null) {
-                ln8 ln8Var = new ln8();
-                this.mRecommand = ln8Var;
-                ln8Var.d(getBubbleByCategoryResIdl.data.recommend);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            GetBubbleByCategoryResIdl getBubbleByCategoryResIdl = (GetBubbleByCategoryResIdl) new Wire(new Class[0]).parseFrom(bArr, GetBubbleByCategoryResIdl.class);
+            if (getBubbleByCategoryResIdl == null) {
+                return null;
             }
-            if (getBubbleByCategoryResIdl.data.bubbles != null) {
-                this.mBubbleGroupList = new ArrayList();
-                for (ThemeBubbleInMain themeBubbleInMain : getBubbleByCategoryResIdl.data.bubbles) {
-                    if (themeBubbleInMain != null && !StringUtils.isNull(themeBubbleInMain.bubble_category)) {
-                        zm8 zm8Var = new zm8();
-                        zm8Var.c(themeBubbleInMain);
-                        this.mBubbleGroupList.add(zm8Var);
+            Error error = getBubbleByCategoryResIdl.error;
+            if (error != null) {
+                setError(error.errorno.intValue());
+                setErrorString(getBubbleByCategoryResIdl.error.usermsg);
+            }
+            DataRes dataRes = getBubbleByCategoryResIdl.data;
+            if (dataRes != null) {
+                if (dataRes.recommend != null) {
+                    tn8 tn8Var = new tn8();
+                    this.mRecommand = tn8Var;
+                    tn8Var.d(getBubbleByCategoryResIdl.data.recommend);
+                }
+                if (getBubbleByCategoryResIdl.data.bubbles != null) {
+                    this.mBubbleGroupList = new ArrayList();
+                    for (ThemeBubbleInMain themeBubbleInMain : getBubbleByCategoryResIdl.data.bubbles) {
+                        if (themeBubbleInMain != null && !StringUtils.isNull(themeBubbleInMain.bubble_category)) {
+                            hn8 hn8Var = new hn8();
+                            hn8Var.c(themeBubbleInMain);
+                            this.mBubbleGroupList.add(hn8Var);
+                        }
                     }
                 }
             }
+            return getBubbleByCategoryResIdl;
         }
+        return invokeIL.objValue;
+    }
+
+    public List<hn8> getGroupList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mBubbleGroupList : (List) invokeV.objValue;
+    }
+
+    public tn8 getRecommand() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mRecommand : (tn8) invokeV.objValue;
     }
 }

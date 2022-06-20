@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mg;
+import com.repackage.qg;
 /* loaded from: classes4.dex */
 public class NavigationBarCoverTip extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -58,7 +58,7 @@ public class NavigationBarCoverTip extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                mg.a().removeCallbacks(this.a.c);
+                qg.a().removeCallbacks(this.a.c);
                 this.a.e();
             }
         }
@@ -253,10 +253,10 @@ public class NavigationBarCoverTip extends LinearLayout {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01008c);
+            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01008e);
             this.a = loadAnimation;
             loadAnimation.setAnimationListener(new b(this));
-            Animation loadAnimation2 = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100b8);
+            Animation loadAnimation2 = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100ba);
             this.b = loadAnimation2;
             loadAnimation2.setAnimationListener(new c(this));
             this.c = new d(this);
@@ -282,7 +282,7 @@ public class NavigationBarCoverTip extends LinearLayout {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            mg.a().removeCallbacks(this.c);
+            qg.a().removeCallbacks(this.c);
             clearAnimation();
             setVisibility(8);
             Activity activity = this.e;
@@ -303,8 +303,8 @@ public class NavigationBarCoverTip extends LinearLayout {
             setVisibility(0);
             clearAnimation();
             startAnimation(this.a);
-            mg.a().removeCallbacks(this.c);
-            mg.a().postDelayed(this.c, i);
+            qg.a().removeCallbacks(this.c);
+            qg.a().postDelayed(this.c, i);
         }
     }
 
@@ -330,8 +330,8 @@ public class NavigationBarCoverTip extends LinearLayout {
             setVisibility(0);
             clearAnimation();
             startAnimation(this.a);
-            mg.a().removeCallbacks(this.c);
-            mg.a().postDelayed(this.c, i);
+            qg.a().removeCallbacks(this.c);
+            qg.a().postDelayed(this.c, i);
         }
     }
 

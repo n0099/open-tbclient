@@ -10,7 +10,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: tv  reason: collision with root package name */
-    public boolean f986tv;
+    public boolean f1026tv;
     public String[] tw;
     public int type;
 

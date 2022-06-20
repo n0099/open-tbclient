@@ -24,9 +24,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eg;
-import com.repackage.fg;
-import com.repackage.um;
+import com.repackage.ig;
+import com.repackage.jg;
+import com.repackage.ym;
 /* loaded from: classes4.dex */
 public class FrsAnomalyImg extends AppCompatImageView {
     public static /* synthetic */ Interceptable $ic;
@@ -48,10 +48,10 @@ public class FrsAnomalyImg extends AppCompatImageView {
     public Shader o;
     public final Matrix p;
     public boolean q;
-    public final eg<um> r;
+    public final ig<ym> r;
 
     /* loaded from: classes4.dex */
-    public class a extends eg<um> {
+    public class a extends ig<ym> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsAnomalyImg a;
@@ -74,7 +74,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
             this.a = frsAnomalyImg;
         }
 
-        @Override // com.repackage.eg
+        @Override // com.repackage.ig
         public void onCancelled(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -82,7 +82,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
             }
         }
 
-        @Override // com.repackage.eg
+        @Override // com.repackage.ig
         public void onProgressUpdate(Object... objArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, objArr) == null) {
@@ -91,15 +91,15 @@ public class FrsAnomalyImg extends AppCompatImageView {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.eg
-        public void onLoaded(um umVar, String str, int i) {
+        @Override // com.repackage.ig
+        public void onLoaded(ym ymVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, umVar, str, i) == null) || umVar == null) {
+            if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ymVar, str, i) == null) || ymVar == null) {
                 return;
             }
-            this.a.m = umVar.r();
-            this.a.n = umVar.m();
-            this.a.o = umVar.d();
+            this.a.m = ymVar.r();
+            this.a.n = ymVar.m();
+            this.a.o = ymVar.d();
             this.a.invalidate();
         }
     }
@@ -192,7 +192,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
     private int getA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             b bVar = this.e;
             if (bVar != null) {
                 return (int) Math.round(this.e.d / Math.tan(Math.toRadians((int) (((bVar.b + 90) / 2) + 0.5d))));
@@ -205,7 +205,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
     private int getB() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             b bVar = this.e;
             if (bVar != null) {
                 return (int) Math.round(this.e.a * Math.tan(Math.toRadians(bVar.b)));
@@ -218,7 +218,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
     private int getC() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             b bVar = this.e;
             if (bVar != null) {
                 return (int) Math.round(getA() * Math.sin(Math.toRadians(bVar.b)));
@@ -231,7 +231,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
     private int getD() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
             b bVar = this.e;
             if (bVar != null) {
                 return (int) Math.round(getA() * Math.cos(Math.toRadians(bVar.b)));
@@ -244,7 +244,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
     private int getDistance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
             b bVar = this.e;
             if (bVar != null) {
                 return bVar.c;
@@ -257,7 +257,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
     private int getTenonHeigh() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
             b bVar = this.e;
             if (bVar != null) {
                 return bVar.a;
@@ -267,13 +267,40 @@ public class FrsAnomalyImg extends AppCompatImageView {
         return invokeV.intValue;
     }
 
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            s();
+            this.b.setColor(SkinManager.getColor(R.color.CAM_X0210));
+            invalidate();
+        }
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f = Math.max(getPaddingLeft(), getPaddingRight());
+            this.g = Math.max(getPaddingTop(), getPaddingBottom());
+        }
+    }
+
+    public FrsAnomalyImg o(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            this.d = i;
+            return this;
+        }
+        return (FrsAnomalyImg) invokeI.objValue;
+    }
+
     @Override // android.widget.ImageView, android.view.View
     @SuppressLint({"DrawAllocation"})
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
             super.onDraw(canvas);
-            r();
+            n();
             this.p.reset();
             if (this.o != null) {
                 float min = Math.min(this.h / this.m, this.i / this.n);
@@ -315,7 +342,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
     @Override // android.widget.ImageView, android.view.View
     public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
             super.onMeasure(i, i2);
             this.h = getMeasuredWidth();
             int measuredWidth = (int) (getMeasuredWidth() * 0.21851853f);
@@ -324,61 +351,27 @@ public class FrsAnomalyImg extends AppCompatImageView {
         }
     }
 
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            v();
-            this.b.setColor(SkinManager.getColor(R.color.CAM_X0210));
-            invalidate();
-        }
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f = Math.max(getPaddingLeft(), getPaddingRight());
-            this.g = Math.max(getPaddingTop(), getPaddingBottom());
-        }
-    }
-
-    public FrsAnomalyImg s(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            this.d = i;
-            return this;
-        }
-        return (FrsAnomalyImg) invokeI.objValue;
-    }
-
-    public void setVisible(Boolean bool) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bool) == null) {
-            this.q = bool.booleanValue();
-        }
-    }
-
-    public FrsAnomalyImg t(b bVar) {
+    public FrsAnomalyImg p(b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bVar)) == null) {
             this.e = bVar;
             return this;
         }
         return (FrsAnomalyImg) invokeL.objValue;
     }
 
-    public void u(String str, BdUniqueId bdUniqueId) {
+    public void q(String str, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, bdUniqueId) == null) {
-            fg.h().k(str, 10, this.r, this.h, this.i, bdUniqueId, new Object[0]);
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, bdUniqueId) == null) {
+            jg.h().k(str, 10, this.r, this.h, this.i, bdUniqueId, new Object[0]);
         }
     }
 
-    public final void v() {
+    public final void s() {
         Drawable pureDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080931, SkinManager.getColor(R.color.CAM_X0112), WebPManager.ResourceStateType.NORMAL)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080919, SkinManager.getColor(R.color.CAM_X0112), WebPManager.ResourceStateType.NORMAL)) == null) {
             return;
         }
         this.k = pureDrawable.getIntrinsicHeight();
@@ -389,6 +382,13 @@ public class FrsAnomalyImg extends AppCompatImageView {
         pureDrawable.draw(canvas);
         Shader.TileMode tileMode = Shader.TileMode.CLAMP;
         this.l = new BitmapShader(createBitmap, tileMode, tileMode);
+    }
+
+    public void setVisible(Boolean bool) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bool) == null) {
+            this.q = bool.booleanValue();
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

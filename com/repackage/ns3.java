@@ -1,102 +1,108 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.bz1;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class ns3 {
+public class ns3 implements ho3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ot3 a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755458973, "Lcom/repackage/ns3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755458973, "Lcom/repackage/ns3;");
-                return;
-            }
-        }
-        b = rf1.a;
-    }
 
     public ns3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static ns3 d(or1 or1Var) {
-        InterceptResult invokeL;
+    @Override // com.repackage.ho3
+    public void a(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, or1Var)) == null) {
-            if (or1Var == null) {
-                return null;
-            }
-            ns3 ns3Var = new ns3();
-            ns3Var.a = ot3.e(or1Var);
-            return ns3Var;
-        }
-        return (ns3) invokeL.objValue;
-    }
-
-    public final JSONObject a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
-                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, com.baidu.pass.biometrics.face.liveness.b.a.g0);
-                jSONObject.put("errDes", to3.a(str));
-            } catch (Exception e) {
-                if (b) {
-                    e.printStackTrace();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
+            bz1 V = fl2.U().V();
+            Context appContext = AppRuntime.getAppContext();
+            if (V == null) {
+                if (appContext != null) {
+                    kz2.f(appContext, R.string.obfuscated_res_0x7f0f019f).G();
+                    return;
                 }
+                return;
             }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            JSONObject a = a(str);
-            ot3 ot3Var = this.a;
-            if (ot3Var != null) {
-                ot3Var.b(a);
-            }
+            sp2 d = sp2.d(str, str);
+            d.h(jSONObject.toString());
+            bz1.b i = V.i("adLanding");
+            i.n(bz1.g, bz1.i);
+            i.k("adLanding", d).b();
         }
     }
 
-    public void c() {
-        ot3 ot3Var;
+    @Override // com.repackage.ho3
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (ot3Var = this.a) == null) {
-            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? qs3.b() : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.ho3
+    public boolean c(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) ? qs3.c(view2) : invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.ho3
+    public boolean d(View view2, bn3 bn3Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, bn3Var)) == null) ? qs3.a(view2, new yp2(bn3Var.c(), bn3Var.d(), bn3Var.e(), bn3Var.b())) : invokeLL.booleanValue;
+    }
+
+    @Override // com.repackage.ho3
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && b()) {
+            SwanAppActivity activity = fl2.U().getActivity();
+            if (activity != null) {
+                activity.setRequestedOrientation(1);
+            }
+            fl2.U().W().g(true);
         }
-        ot3Var.c();
+    }
+
+    @Override // com.repackage.ho3
+    public boolean f(View view2, bn3 bn3Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, view2, bn3Var)) == null) {
+            jh1 W = fl2.U().W();
+            return W != null && W.a(view2, new yp2(bn3Var.c(), bn3Var.d(), bn3Var.e(), bn3Var.b()));
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.repackage.ho3
+    public boolean removeView(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, view2)) == null) ? qs3.d(view2) : invokeL.booleanValue;
     }
 }

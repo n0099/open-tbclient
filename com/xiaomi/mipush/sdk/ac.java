@@ -1,14 +1,11 @@
 package com.xiaomi.mipush.sdk;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class ac extends BroadcastReceiver {
+public class ac implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ NotificationClickedActivity a;
@@ -31,11 +28,11 @@ public class ac extends BroadcastReceiver {
         this.a = notificationClickedActivity;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-            com.xiaomi.channel.commonutils.logger.b.b("clicked activity finish by normal.");
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            com.xiaomi.channel.commonutils.logger.b.e("clicked activity finish by timeout.");
             this.a.finish();
         }
     }

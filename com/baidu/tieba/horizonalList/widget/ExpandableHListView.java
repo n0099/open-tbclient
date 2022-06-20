@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.s07;
+import com.repackage.b27;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class ExpandableHListView extends HListView {
@@ -320,14 +320,14 @@ public class ExpandableHListView extends HListView {
         return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i + getHeaderViewsCount() : invokeI.intValue;
     }
 
-    public final long b(s07 s07Var) {
+    public final long b(b27 b27Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, s07Var)) == null) {
-            if (s07Var.d == 1) {
-                return this.b.getChildId(s07Var.a, s07Var.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b27Var)) == null) {
+            if (b27Var.d == 1) {
+                return this.b.getChildId(b27Var.a, b27Var.b);
             }
-            return this.b.getGroupId(s07Var.a);
+            return this.b.getGroupId(b27Var.a);
         }
         return invokeL.longValue;
     }
@@ -356,9 +356,9 @@ public class ExpandableHListView extends HListView {
                 return new AdapterView.b(view2, i, j);
             }
             ExpandableHListConnector.b i2 = this.a.i(d(i));
-            s07 s07Var = i2.a;
-            long b2 = b(s07Var);
-            long a2 = s07Var.a();
+            b27 b27Var = i2.a;
+            long b2 = b(b27Var);
+            long a2 = b27Var.a();
             i2.d();
             return new b(view2, a2, b2);
         }
@@ -524,11 +524,11 @@ public class ExpandableHListView extends HListView {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{view2, Integer.valueOf(i), Long.valueOf(j)})) == null) {
             ExpandableHListConnector.b i2 = this.a.i(i);
             long b2 = b(i2.a);
-            s07 s07Var = i2.a;
+            b27 b27Var = i2.a;
             boolean z2 = true;
-            if (s07Var.d == 2) {
+            if (b27Var.d == 2) {
                 d dVar = this.t;
-                if (dVar != null && dVar.a(this, view2, s07Var.a, b2)) {
+                if (dVar != null && dVar.a(this, view2, b27Var.a, b2)) {
                     i2.d();
                     return true;
                 } else if (i2.b()) {
@@ -545,16 +545,16 @@ public class ExpandableHListView extends HListView {
                     if (fVar != null) {
                         fVar.a(i2.a.a);
                     }
-                    s07 s07Var2 = i2.a;
-                    int i3 = s07Var2.a;
-                    int headerViewsCount = s07Var2.c + getHeaderViewsCount();
+                    b27 b27Var2 = i2.a;
+                    int i3 = b27Var2.a;
+                    int headerViewsCount = b27Var2.c + getHeaderViewsCount();
                     smoothScrollToPosition(this.b.getChildrenCount(i3) + headerViewsCount, headerViewsCount);
                 }
             } else if (this.u != null) {
                 playSoundEffect(0);
                 c cVar = this.u;
-                s07 s07Var3 = i2.a;
-                return cVar.a(this, view2, s07Var3.a, s07Var3.b, b2);
+                b27 b27Var3 = i2.a;
+                return cVar.a(this, view2, b27Var3.a, b27Var3.b, b2);
             } else {
                 z2 = false;
             }
@@ -735,7 +735,7 @@ public class ExpandableHListView extends HListView {
     public void setSelectedGroup(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
-            s07 d2 = s07.d(i);
+            b27 d2 = b27.d(i);
             ExpandableHListConnector.b h = this.a.h(d2);
             d2.e();
             super.setSelection(a(h.a.c));

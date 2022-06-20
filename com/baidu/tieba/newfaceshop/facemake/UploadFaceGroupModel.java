@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
-import com.repackage.tl7;
+import com.repackage.en7;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -67,7 +67,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            tl7.l lVar;
+            en7.l lVar;
             ArrayList arrayList;
             boolean z;
             Object extra;
@@ -81,31 +81,31 @@ public class UploadFaceGroupModel extends FaceBaseModel {
             } else {
                 HashMap hashMap = (HashMap) extra;
                 Object obj = hashMap.get(WebChromeClient.KEY_ARG_CALLBACK);
-                lVar = (obj == null || !(obj instanceof tl7.l)) ? null : (tl7.l) obj;
+                lVar = (obj == null || !(obj instanceof en7.l)) ? null : (en7.l) obj;
                 Object obj2 = hashMap.get("list");
                 arrayList = (obj2 == null || !(obj2 instanceof ArrayList)) ? null : (ArrayList) obj2;
                 Object obj3 = hashMap.get("autoInstall");
                 if (obj3 != null && (obj3 instanceof Boolean)) {
                     z = ((Boolean) obj3).booleanValue();
                     if (arrayList != null) {
-                        this.a.z(lVar, null);
+                        this.a.A(lVar, null);
                         BdLog.e("msg extra empty");
                         return;
                     } else if (httpResponsedMessage.getError() != 0) {
-                        this.a.z(lVar, httpResponsedMessage.getErrorString());
+                        this.a.A(lVar, httpResponsedMessage.getErrorString());
                         return;
                     } else {
                         String groupId = ((UploadFaceGroupResponseMessage) httpResponsedMessage).getGroupId();
                         if (TextUtils.isEmpty(groupId)) {
-                            this.a.z(lVar, httpResponsedMessage.getErrorString());
+                            this.a.A(lVar, httpResponsedMessage.getErrorString());
                             return;
                         }
                         if (lVar != null) {
                             lVar.a(groupId, arrayList);
                         }
-                        tl7.l().u(true, httpResponsedMessage.getErrorString());
+                        en7.l().u(true, httpResponsedMessage.getErrorString());
                         if (z) {
-                            tl7.l().p(groupId, arrayList, null);
+                            en7.l().p(groupId, arrayList, null);
                             return;
                         }
                         HashMap hashMap2 = new HashMap();
@@ -142,9 +142,19 @@ public class UploadFaceGroupModel extends FaceBaseModel {
         registerListener(this.a);
     }
 
-    public void A(String str, List<FaceData> list, tl7.l lVar, int i) {
+    public final void A(en7.l lVar, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(1048576, this, str, list, lVar, i) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, lVar, str) == null) {
+            if (lVar != null) {
+                lVar.onFail(str);
+            }
+            en7.l().u(false, str);
+        }
+    }
+
+    public void B(String str, List<FaceData> list, en7.l lVar, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, list, lVar, i) == null) {
             if (list != null && !list.isEmpty()) {
                 StringBuilder sb = new StringBuilder();
                 for (int i2 = 0; i2 < list.size(); i2++) {
@@ -172,7 +182,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
                 sendMessage(httpMessage);
                 return;
             }
-            z(lVar, "empty list");
+            A(lVar, "empty list");
         }
     }
 
@@ -180,7 +190,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             MessageManager.getInstance().unRegisterListener(this.a);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
             return true;
@@ -192,7 +202,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -200,20 +210,10 @@ public class UploadFaceGroupModel extends FaceBaseModel {
 
     public final void registerTask() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_UPLOAD_FACE_GROUP, TbConfig.SERVER_ADDRESS + "c/e/meme/addPackage");
             tbHttpMessageTask.setResponsedClass(UploadFaceGroupResponseMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public final void z(tl7.l lVar, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, lVar, str) == null) {
-            if (lVar != null) {
-                lVar.onFail(str);
-            }
-            tl7.l().u(false, str);
         }
     }
 }

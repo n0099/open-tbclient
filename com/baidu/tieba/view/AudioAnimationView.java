@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
-import com.repackage.mg;
+import com.repackage.pi;
+import com.repackage.qg;
 import java.util.Random;
 /* loaded from: classes4.dex */
 public class AudioAnimationView extends View {
@@ -96,7 +96,7 @@ public class AudioAnimationView extends View {
         this.f = false;
         this.g = true;
         this.k = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.l = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds5);
+        this.l = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds5);
         this.m = R.color.CAM_X0302;
         this.n = new a(this);
         c();
@@ -109,11 +109,11 @@ public class AudioAnimationView extends View {
             if (this.f) {
                 invalidate();
             }
-            mg.a().removeCallbacks(this.n);
+            qg.a().removeCallbacks(this.n);
             if (this.g) {
                 return;
             }
-            mg.a().postDelayed(this.n, 250L);
+            qg.a().postDelayed(this.n, 250L);
         }
     }
 
@@ -191,7 +191,7 @@ public class AudioAnimationView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDetachedFromWindow();
-            mg.a().removeCallbacks(this.n);
+            qg.a().removeCallbacks(this.n);
         }
     }
 
@@ -291,7 +291,7 @@ public class AudioAnimationView extends View {
         this.f = false;
         this.g = true;
         this.k = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.l = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds5);
+        this.l = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds5);
         this.m = R.color.CAM_X0302;
         this.n = new a(this);
         c();

@@ -1,35 +1,21 @@
 package com.repackage;
 
 import androidx.core.view.InputDeviceCompat;
-import com.badlogic.gdx.graphics.Mesh;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g3d.model.data.ModelMaterial;
-import com.badlogic.gdx.math.Matrix4;
-import com.badlogic.gdx.math.Quaternion;
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.utils.BufferUtils;
-import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.u7;
-import com.repackage.y6;
-import com.repackage.z6;
+import java.util.Comparator;
+import java.util.Iterator;
 /* loaded from: classes5.dex */
-public class e4 implements f7 {
+public class e4 implements Iterable<d4>, Comparator<d4>, Comparable<e4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final y6<d4> a;
-    public final y6<o4> b;
-    public final y6<m4> c;
-    public final y6<Mesh> d;
-    public final y6<n4> e;
-    public final y6<f7> f;
-    public u7<r4, z6<String, Matrix4>> g;
+    public long a;
+    public final a7<d4> b;
+    public boolean c;
 
     public e4() {
         Interceptable interceptable = $ic;
@@ -44,402 +30,187 @@ public class e4 implements f7 {
                 return;
             }
         }
-        this.a = new y6<>();
-        this.b = new y6<>();
-        this.c = new y6<>();
-        this.d = new y6<>();
-        this.e = new y6<>();
-        this.f = new y6<>();
-        this.g = new u7<>();
+        this.b = new a7<>();
+        this.c = true;
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int i = this.b.b;
-            for (int i2 = 0; i2 < i; i2++) {
-                this.b.get(i2).d(true);
-            }
-            for (int i3 = 0; i3 < i; i3++) {
-                this.b.get(i3).b(true);
-            }
-        }
-    }
-
-    @Override // com.repackage.f7
-    public void dispose() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            y6.b<f7> it = this.f.iterator();
-            while (it.hasNext()) {
-                it.next().dispose();
-            }
-        }
-    }
-
-    public d4 f(ModelMaterial modelMaterial, m5 m5Var) {
-        InterceptResult invokeLL;
-        Texture load;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, modelMaterial, m5Var)) == null) {
-            d4 d4Var = new d4();
-            d4Var.d = modelMaterial.a;
-            if (modelMaterial.b != null) {
-                d4Var.i(new g4(g4.g, modelMaterial.b));
-            }
-            if (modelMaterial.c != null) {
-                d4Var.i(new g4(g4.e, modelMaterial.c));
-            }
-            if (modelMaterial.d != null) {
-                d4Var.i(new g4(g4.f, modelMaterial.d));
-            }
-            if (modelMaterial.e != null) {
-                d4Var.i(new g4(g4.h, modelMaterial.e));
-            }
-            if (modelMaterial.f != null) {
-                d4Var.i(new g4(g4.i, modelMaterial.f));
-            }
-            if (modelMaterial.g > 0.0f) {
-                d4Var.i(new h4(h4.e, modelMaterial.g));
-            }
-            if (modelMaterial.h != 1.0f) {
-                d4Var.i(new f4(770, 771, modelMaterial.h));
-            }
-            u7 u7Var = new u7();
-            y6<a5> y6Var = modelMaterial.i;
-            if (y6Var != null) {
-                y6.b<a5> it = y6Var.iterator();
-                while (it.hasNext()) {
-                    a5 next = it.next();
-                    if (u7Var.a(next.a)) {
-                        load = (Texture) u7Var.c(next.a);
-                    } else {
-                        load = m5Var.load(next.a);
-                        u7Var.i(next.a, load);
-                        this.f.a(load);
-                    }
-                    l5 l5Var = new l5(load);
-                    l5Var.b = load.h();
-                    l5Var.c = load.f();
-                    l5Var.d = load.j();
-                    l5Var.e = load.k();
-                    Vector2 vector2 = next.b;
-                    float f = vector2 == null ? 0.0f : vector2.x;
-                    Vector2 vector22 = next.b;
-                    float f2 = vector22 == null ? 0.0f : vector22.y;
-                    Vector2 vector23 = next.c;
-                    float f3 = vector23 == null ? 1.0f : vector23.x;
-                    Vector2 vector24 = next.c;
-                    float f4 = vector24 == null ? 1.0f : vector24.y;
-                    int i = next.d;
-                    if (i == 2) {
-                        d4Var.i(new i4(i4.j, l5Var, f, f2, f3, f4));
-                    } else if (i == 3) {
-                        d4Var.i(new i4(i4.o, l5Var, f, f2, f3, f4));
-                    } else if (i == 4) {
-                        d4Var.i(new i4(i4.n, l5Var, f, f2, f3, f4));
-                    } else if (i == 5) {
-                        d4Var.i(new i4(i4.k, l5Var, f, f2, f3, f4));
-                    } else if (i == 7) {
-                        d4Var.i(new i4(i4.m, l5Var, f, f2, f3, f4));
-                    } else if (i == 8) {
-                        d4Var.i(new i4(i4.l, l5Var, f, f2, f3, f4));
-                    } else if (i == 10) {
-                        d4Var.i(new i4(i4.p, l5Var, f, f2, f3, f4));
-                    }
-                }
-            }
-            return d4Var;
-        }
-        return (d4) invokeLL.objValue;
-    }
-
-    public void g(u4 u4Var) {
-        v4[] v4VarArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, u4Var) == null) {
-            int i = 0;
-            for (v4 v4Var : u4Var.c) {
-                i += v4Var.b.length;
-            }
-            boolean z = i > 0;
-            r3 r3Var = new r3(u4Var.a);
-            int length = u4Var.b.length / (r3Var.b / 4);
-            Mesh mesh = new Mesh(true, length, i, r3Var);
-            this.d.a(mesh);
-            this.f.a(mesh);
-            BufferUtils.a(u4Var.b, mesh.m(), u4Var.b.length, 0);
-            mesh.j().clear();
-            int i2 = 0;
-            for (v4 v4Var2 : u4Var.c) {
-                n4 n4Var = new n4();
-                n4Var.a = v4Var2.a;
-                n4Var.b = v4Var2.c;
-                n4Var.c = i2;
-                n4Var.d = z ? v4Var2.b.length : length;
-                n4Var.e = mesh;
-                if (z) {
-                    mesh.j().put(v4Var2.b);
-                }
-                i2 += n4Var.d;
-                this.e.a(n4Var);
-            }
-            mesh.j().position(0);
-            y6.b<n4> it = this.e.iterator();
-            while (it.hasNext()) {
-                it.next().update();
-            }
-        }
-    }
-
-    public Iterable<f7> h() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : (Iterable) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            j();
+            int i = this.b.b;
+            long j = this.a + 71;
+            int i2 = 1;
+            for (int i3 = 0; i3 < i; i3++) {
+                i2 = (i2 * 7) & 65535;
+                j += this.a * this.b.get(i3).hashCode() * i2;
+            }
+            return (int) (j ^ (j >> 32));
+        }
+        return invokeV.intValue;
     }
 
-    public o4 i(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    /* renamed from: c */
+    public final int compare(d4 d4Var, d4 d4Var2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d4Var, d4Var2)) == null) ? (int) (d4Var.a - d4Var2.a) : invokeLL.intValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: d */
+    public int compareTo(e4 e4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? j(str, true) : (o4) invokeL.objValue;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048580, this, e4Var)) != null) {
+            return invokeL.intValue;
+        }
+        if (e4Var == this) {
+            return 0;
+        }
+        long j = this.a;
+        long j2 = e4Var.a;
+        if (j != j2) {
+            return j < j2 ? -1 : 1;
+        }
+        j();
+        e4Var.j();
+        int i = 0;
+        while (true) {
+            a7<d4> a7Var = this.b;
+            if (i >= a7Var.b) {
+                return 0;
+            }
+            int compareTo = a7Var.get(i).compareTo(e4Var.b.get(i));
+            if (compareTo != 0) {
+                if (compareTo < 0) {
+                    return -1;
+                }
+                return compareTo > 0 ? 1 : 0;
+            }
+            i++;
+        }
     }
 
-    public o4 j(String str, boolean z) {
+    public final void e(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.a = j | this.a;
+        }
+    }
+
+    @Override // java.util.Comparator
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
+            if (obj instanceof e4) {
+                if (obj == this) {
+                    return true;
+                }
+                return h((e4) obj, true);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean f(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) ? j != 0 && (this.a & j) == j : invokeJ.booleanValue;
+    }
+
+    public int g(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) != null) {
+            return invokeJ.intValue;
+        }
+        if (!f(j)) {
+            return -1;
+        }
+        int i = 0;
+        while (true) {
+            a7<d4> a7Var = this.b;
+            if (i >= a7Var.b) {
+                return -1;
+            }
+            if (a7Var.get(i).a == j) {
+                return i;
+            }
+            i++;
+        }
+    }
+
+    public final boolean h(e4 e4Var, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048582, this, str, z)) == null) ? k(str, z, false) : (o4) invokeLZ.objValue;
-    }
-
-    public o4 k(String str, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? o4.f(this.b, str, z, z2) : (o4) invokeCommon.objValue;
-    }
-
-    public void l(t4 t4Var, m5 m5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t4Var, m5Var) == null) {
-            o(t4Var.b);
-            n(t4Var.c, m5Var);
-            q(t4Var.d);
-            m(t4Var.e);
-            a();
+        if (interceptable != null && (invokeLZ = interceptable.invokeLZ(1048585, this, e4Var, z)) != null) {
+            return invokeLZ.booleanValue;
+        }
+        if (e4Var == this) {
+            return true;
+        }
+        if (e4Var == null || this.a != e4Var.a) {
+            return false;
+        }
+        if (!z) {
+            return true;
+        }
+        j();
+        e4Var.j();
+        int i = 0;
+        while (true) {
+            a7<d4> a7Var = this.b;
+            if (i >= a7Var.b) {
+                return true;
+            }
+            if (!a7Var.get(i).a(e4Var.b.get(i))) {
+                return false;
+            }
+            i++;
         }
     }
 
-    public void m(Iterable<s4> iterable) {
-        y6<q4<Quaternion>> y6Var;
-        y6<q4<Vector3>> y6Var2;
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, iterable) == null) {
-            for (s4 s4Var : iterable) {
-                m4 m4Var = new m4();
-                String str = s4Var.a;
-                y6.b<x4> it = s4Var.b.iterator();
-                while (it.hasNext()) {
-                    x4 next = it.next();
-                    o4 i = i(next.a);
-                    if (i != null) {
-                        p4 p4Var = new p4();
-                        if (next.b != null) {
-                            y6<q4<Vector3>> y6Var3 = new y6<>();
-                            p4Var.a = y6Var3;
-                            y6Var3.e(next.b.b);
-                            y6.b<y4<Vector3>> it2 = next.b.iterator();
-                            while (it2.hasNext()) {
-                                y4<Vector3> next2 = it2.next();
-                                float f = next2.a;
-                                if (f > m4Var.a) {
-                                    m4Var.a = f;
-                                }
-                                y6<q4<Vector3>> y6Var4 = p4Var.a;
-                                float f2 = next2.a;
-                                Vector3 vector3 = next2.b;
-                                y6Var4.a(new q4<>(f2, new Vector3(vector3 == null ? i.d : vector3)));
-                            }
-                        }
-                        if (next.c != null) {
-                            y6<q4<Quaternion>> y6Var5 = new y6<>();
-                            p4Var.b = y6Var5;
-                            y6Var5.e(next.c.b);
-                            y6.b<y4<Quaternion>> it3 = next.c.iterator();
-                            while (it3.hasNext()) {
-                                y4<Quaternion> next3 = it3.next();
-                                float f3 = next3.a;
-                                if (f3 > m4Var.a) {
-                                    m4Var.a = f3;
-                                }
-                                y6<q4<Quaternion>> y6Var6 = p4Var.b;
-                                float f4 = next3.a;
-                                Quaternion quaternion = next3.b;
-                                y6Var6.a(new q4<>(f4, new Quaternion(quaternion == null ? i.e : quaternion)));
-                            }
-                        }
-                        if (next.d != null) {
-                            y6<q4<Vector3>> y6Var7 = new y6<>();
-                            p4Var.c = y6Var7;
-                            y6Var7.e(next.d.b);
-                            y6.b<y4<Vector3>> it4 = next.d.iterator();
-                            while (it4.hasNext()) {
-                                y4<Vector3> next4 = it4.next();
-                                float f5 = next4.a;
-                                if (f5 > m4Var.a) {
-                                    m4Var.a = f5;
-                                }
-                                y6<q4<Vector3>> y6Var8 = p4Var.c;
-                                float f6 = next4.a;
-                                Vector3 vector32 = next4.b;
-                                y6Var8.a(new q4<>(f6, new Vector3(vector32 == null ? i.f : vector32)));
-                            }
-                        }
-                        y6<q4<Vector3>> y6Var9 = p4Var.a;
-                        if ((y6Var9 != null && y6Var9.b > 0) || (((y6Var = p4Var.b) != null && y6Var.b > 0) || ((y6Var2 = p4Var.c) != null && y6Var2.b > 0))) {
-                            m4Var.b.a(p4Var);
-                        }
-                    }
-                }
-                if (m4Var.b.b > 0) {
-                    this.c.a(m4Var);
-                }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? b() : invokeV.intValue;
+    }
+
+    public final void i(d4 d4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, d4Var) == null) {
+            int g = g(d4Var.a);
+            if (g < 0) {
+                e(d4Var.a);
+                this.b.a(d4Var);
+                this.c = false;
+            } else {
+                this.b.l(g, d4Var);
             }
+            j();
         }
     }
 
-    public void n(Iterable<ModelMaterial> iterable, m5 m5Var) {
+    @Override // java.lang.Iterable
+    public final Iterator<d4> iterator() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, iterable, m5Var) == null) {
-            for (ModelMaterial modelMaterial : iterable) {
-                this.a.a(f(modelMaterial, m5Var));
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.b.iterator() : (Iterator) invokeV.objValue;
     }
 
-    public void o(Iterable<u4> iterable) {
+    public final void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, iterable) == null) {
-            for (u4 u4Var : iterable) {
-                g(u4Var);
-            }
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || this.c) {
+            return;
         }
-    }
-
-    public o4 p(w4 w4Var) {
-        InterceptResult invokeL;
-        n4 n4Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, w4Var)) == null) {
-            o4 o4Var = new o4();
-            o4Var.a = w4Var.a;
-            Vector3 vector3 = w4Var.b;
-            if (vector3 != null) {
-                o4Var.d.set(vector3);
-            }
-            Quaternion quaternion = w4Var.c;
-            if (quaternion != null) {
-                o4Var.e.set(quaternion);
-            }
-            Vector3 vector32 = w4Var.d;
-            if (vector32 != null) {
-                o4Var.f.set(vector32);
-            }
-            z4[] z4VarArr = w4Var.e;
-            if (z4VarArr != null) {
-                for (z4 z4Var : z4VarArr) {
-                    d4 d4Var = null;
-                    if (z4Var.b != null) {
-                        y6.b<n4> it = this.e.iterator();
-                        while (it.hasNext()) {
-                            n4Var = it.next();
-                            if (z4Var.b.equals(n4Var.a)) {
-                                break;
-                            }
-                        }
-                    }
-                    n4Var = null;
-                    if (z4Var.a != null) {
-                        y6.b<d4> it2 = this.a.iterator();
-                        while (true) {
-                            if (!it2.hasNext()) {
-                                break;
-                            }
-                            d4 next = it2.next();
-                            if (z4Var.a.equals(next.d)) {
-                                d4Var = next;
-                                break;
-                            }
-                        }
-                    }
-                    if (n4Var != null && d4Var != null) {
-                        r4 r4Var = new r4();
-                        o4Var.i.a(r4Var);
-                        z6<String, Matrix4> z6Var = z4Var.c;
-                        if (z6Var != null) {
-                            this.g.i(r4Var, z6Var);
-                        }
-                    } else {
-                        throw new GdxRuntimeException("Invalid node: " + o4Var.a);
-                    }
-                }
-            }
-            w4[] w4VarArr = w4Var.f;
-            if (w4VarArr != null) {
-                for (w4 w4Var2 : w4VarArr) {
-                    o4Var.a(p(w4Var2));
-                }
-            }
-            return o4Var;
-        }
-        return (o4) invokeL.objValue;
-    }
-
-    public void q(Iterable<w4> iterable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, iterable) == null) {
-            this.g.clear();
-            for (w4 w4Var : iterable) {
-                this.b.a(p(w4Var));
-            }
-            u7.a<r4, z6<String, Matrix4>> b = this.g.b();
-            b.d();
-            while (b.hasNext()) {
-                u7.b next = b.next();
-                K k = next.a;
-                if (((r4) k).a == null) {
-                    ((r4) k).a = new z6<>(o4.class, Matrix4.class);
-                }
-                ((r4) next.a).a.clear();
-                z6.a b2 = ((z6) next.b).b();
-                b2.iterator();
-                while (b2.hasNext()) {
-                    u7.b next2 = b2.next();
-                    ((r4) next.a).a.f(i((String) next2.a), new Matrix4((Matrix4) next2.b).inv());
-                }
-            }
-        }
-    }
-
-    public e4(t4 t4Var, m5 m5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {t4Var, m5Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new y6<>();
-        this.b = new y6<>();
-        this.c = new y6<>();
-        this.d = new y6<>();
-        this.e = new y6<>();
-        this.f = new y6<>();
-        this.g = new u7<>();
-        l(t4Var, m5Var);
+        this.b.sort(this);
+        this.c = true;
     }
 }

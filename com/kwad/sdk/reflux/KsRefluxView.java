@@ -125,16 +125,16 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
     }
 
     private void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d043d, this);
-        this.c = findViewById(R.id.obfuscated_res_0x7f0910a7);
-        this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f09109a);
-        this.a = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0910a8);
-        this.b = (KsRefluxNativeView) findViewById(R.id.obfuscated_res_0x7f0910a3);
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f0910a1);
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0437, this);
+        this.c = findViewById(R.id.obfuscated_res_0x7f091097);
+        this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f09108a);
+        this.a = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091098);
+        this.b = (KsRefluxNativeView) findViewById(R.id.obfuscated_res_0x7f091093);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f091091);
         this.e = findViewById;
         findViewById.setOnClickListener(this);
         this.d.setOnClickListener(this);
-        ((KsRefluxContentView) findViewById(R.id.obfuscated_res_0x7f0910a2)).setContentViewListener(this);
+        ((KsRefluxContentView) findViewById(R.id.obfuscated_res_0x7f091092)).setContentViewListener(this);
     }
 
     private boolean e() {

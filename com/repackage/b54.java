@@ -1,215 +1,141 @@
 package com.repackage;
 
-import android.graphics.Color;
-import android.os.Bundle;
-import android.util.Log;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.BitmapDescriptor;
-import com.baidu.mapapi.map.BitmapDescriptorFactory;
 import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.map.MarkerOptions;
-import com.baidu.mapapi.map.Overlay;
-import com.baidu.mapapi.map.OverlayOptions;
-import com.baidu.mapapi.map.Polyline;
-import com.baidu.mapapi.map.PolylineOptions;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.search.route.DrivingRouteLine;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.mapapi.map.TextureMapView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class b54 extends d54 {
+public class b54 extends hv1<TextureMapView, em2> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
-    public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
-    public DrivingRouteLine d;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755876016, "Lcom/repackage/b54;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755876016, "Lcom/repackage/b54;");
-                return;
-            }
-        }
-        e = rf1.a;
-        f = Color.argb(178, 0, 78, 255);
-    }
+    public String i;
+    public String j;
+    public boolean k;
+    @NonNull
+    public TextureMapView l;
+    public Context m;
+    public List<a54> n;
+    public List<z44> o;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b54(BaiduMap baiduMap) {
-        super(baiduMap);
+    public b54(@NonNull Context context, @NonNull em2 em2Var) {
+        super(context, em2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baiduMap};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context, em2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((BaiduMap) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (iv1) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = null;
+        this.n = new ArrayList();
+        this.o = new ArrayList();
+        this.i = em2Var.c;
+        this.j = em2Var.b;
+        String str = em2Var.d;
+        this.m = context;
+        this.l = new TextureMapView(context);
+        this.k = em2Var.r;
     }
 
-    @Override // com.repackage.d54
-    public final List<OverlayOptions> b() {
-        InterceptResult invokeV;
+    public static b54 K(Context context, em2 em2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.d == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, em2Var)) == null) {
+            if (context == null || em2Var == null || !em2Var.isValid()) {
                 return null;
             }
-            ArrayList arrayList = new ArrayList();
-            List<DrivingRouteLine.DrivingStep> allStep = this.d.getAllStep();
-            if (allStep != null && allStep.size() > 0) {
-                for (DrivingRouteLine.DrivingStep drivingStep : allStep) {
-                    Bundle bundle = new Bundle();
-                    bundle.putInt("index", allStep.indexOf(drivingStep));
-                    if (drivingStep.getEntrance() != null) {
-                        arrayList.add(new MarkerOptions().position(drivingStep.getEntrance().getLocation()).anchor(0.5f, 0.5f).zIndex(10).rotate(360 - drivingStep.getDirection()).extraInfo(bundle).icon(BitmapDescriptorFactory.fromResource(R.drawable.obfuscated_res_0x7f080177)));
-                    }
-                    if (allStep.indexOf(drivingStep) == allStep.size() - 1 && drivingStep.getExit() != null) {
-                        arrayList.add(new MarkerOptions().position(drivingStep.getExit().getLocation()).anchor(0.5f, 0.5f).zIndex(10).icon(BitmapDescriptorFactory.fromResource(R.drawable.obfuscated_res_0x7f080177)));
-                    }
+            return new b54(context, em2Var);
+        }
+        return (b54) invokeLL.objValue;
+    }
+
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (a54 a54Var : this.n) {
+                this.l.removeView(a54Var.e);
+            }
+            this.n.clear();
+            for (z44 z44Var : this.o) {
+                this.l.removeView(z44Var.b);
+            }
+            this.o.clear();
+            this.l.getMap().clear();
+        }
+    }
+
+    public z44 G(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+            for (z44 z44Var : this.o) {
+                if (z44Var.b == view2) {
+                    return z44Var;
                 }
             }
-            if (allStep != null && allStep.size() > 0) {
-                int size = allStep.size();
-                ArrayList arrayList2 = new ArrayList();
-                ArrayList arrayList3 = new ArrayList();
-                for (int i = 0; i < size; i++) {
-                    List<LatLng> wayPoints = allStep.get(i).getWayPoints();
-                    if (i == size - 1) {
-                        arrayList2.addAll(wayPoints);
-                    } else {
-                        arrayList2.addAll(wayPoints.subList(0, wayPoints.size() - 1));
-                    }
-                    wayPoints.size();
-                    int[] trafficList = allStep.get(i).getTrafficList();
-                    if (trafficList != null && trafficList.length > 0) {
-                        for (int i2 : trafficList) {
-                            arrayList3.add(Integer.valueOf(i2));
-                        }
-                    }
+            return null;
+        }
+        return (z44) invokeL.objValue;
+    }
+
+    @Nullable
+    public a54 H(Marker marker) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, marker)) == null) {
+            for (a54 a54Var : this.n) {
+                if (marker == a54Var.b) {
+                    return a54Var;
                 }
-                boolean z = arrayList3.size() > 0;
-                PolylineOptions zIndex = new PolylineOptions().points(arrayList2).textureIndex(arrayList3).width(14).dottedLine(z).focus(true).color(f() != 0 ? f() : f).zIndex(0);
-                if (z) {
-                    zIndex.customTextureList(e());
+            }
+            return null;
+        }
+        return (a54) invokeL.objValue;
+    }
+
+    public List<a54> I(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            ArrayList arrayList = new ArrayList(1);
+            for (a54 a54Var : this.n) {
+                mm2 mm2Var = a54Var.a;
+                if (mm2Var != null && TextUtils.equals(str, mm2Var.a)) {
+                    arrayList.add(a54Var);
                 }
-                arrayList.add(zIndex);
             }
             return arrayList;
         }
-        return (List) invokeV.objValue;
+        return (List) invokeL.objValue;
     }
 
-    public List<BitmapDescriptor> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(BitmapDescriptorFactory.fromAsset("Icon_road_blue_arrow.png"));
-            arrayList.add(BitmapDescriptorFactory.fromAsset("Icon_road_green_arrow.png"));
-            arrayList.add(BitmapDescriptorFactory.fromAsset("Icon_road_yellow_arrow.png"));
-            arrayList.add(BitmapDescriptorFactory.fromAsset("Icon_road_red_arrow.png"));
-            arrayList.add(BitmapDescriptorFactory.fromAsset("Icon_road_nofocus.png"));
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public abstract int f();
-
-    public boolean g(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (this.d.getAllStep() == null || this.d.getAllStep().get(i) == null || !e) {
-                return false;
-            }
-            Log.i("baidumapsdk", "DrivingRouteOverlay onRouteNodeClick");
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public void h(DrivingRouteLine drivingRouteLine) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, drivingRouteLine) == null) {
-            this.d = drivingRouteLine;
-        }
-    }
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            for (Overlay overlay : this.c) {
-                if (overlay instanceof Polyline) {
-                    ((Polyline) overlay).setFocus(z);
-                    return;
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMarkerClickListener
-    public final boolean onMarkerClick(Marker marker) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.hv1
+    @NonNull
+    /* renamed from: J */
+    public TextureMapView v(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, marker)) == null) {
-            for (Overlay overlay : this.c) {
-                if ((overlay instanceof Marker) && overlay.equals(marker) && marker.getExtraInfo() != null) {
-                    g(marker.getExtraInfo().getInt("index"));
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.mapapi.map.BaiduMap.OnPolylineClickListener
-    public boolean onPolylineClick(Polyline polyline) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, polyline)) == null) {
-            Iterator<Overlay> it = this.c.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    z = false;
-                    break;
-                }
-                Overlay next = it.next();
-                if ((next instanceof Polyline) && next.equals(polyline)) {
-                    z = true;
-                    break;
-                }
-            }
-            i(z);
-            return true;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) ? this.l : (TextureMapView) invokeL.objValue;
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hw1;
+import com.repackage.sw1;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -93,7 +93,7 @@ public class CommonSyncServerData implements Serializable, NoProGuard {
                         metaItemInfo.appKey = optJSONObject.getString("AppKey");
                         metaItemInfo.payProtected = optJSONObject.getInt("PayProtected");
                     } catch (JSONException e) {
-                        hw1.l("CommonSyncServerData", "parse item failed:" + optJSONObject.toString(), e);
+                        sw1.l("CommonSyncServerData", "parse item failed:" + optJSONObject.toString(), e);
                         metaItemInfo = null;
                     }
                     if (metaItemInfo != null) {

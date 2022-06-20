@@ -5,14 +5,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dh4;
-import com.repackage.gz2;
+import com.repackage.nh4;
+import com.repackage.rz2;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u0004\u0018\u00010\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "Lcom/baidu/swan/webcompat/impl/ExternalStoragePathHandler;", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
-public final class WebCompatImpl$externalStorageFilesPathHandler$2 extends Lambda implements Function0<dh4> {
+public final class WebCompatImpl$externalStorageFilesPathHandler$2 extends Lambda implements Function0<nh4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ WebCompatImpl this$0;
@@ -41,17 +41,17 @@ public final class WebCompatImpl$externalStorageFilesPathHandler$2 extends Lambd
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
-    public final dh4 invoke() {
+    public final nh4 invoke() {
         InterceptResult invokeV;
         FilePathInfo j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             j = this.this$0.j();
             if (j != null) {
-                return new dh4(gz2.J(), j.c());
+                return new nh4(rz2.K(), j.c());
             }
             return null;
         }
-        return (dh4) invokeV.objValue;
+        return (nh4) invokeV.objValue;
     }
 }

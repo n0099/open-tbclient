@@ -1,5 +1,6 @@
 package com.baidu.tieba.themeCenter.card.detail;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gm8;
+import com.repackage.om8;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetCard.GetCardResIdl;
@@ -15,7 +16,7 @@ import tbclient.GetCard.GetCardResIdl;
 public class PersonalCardDetailSocketReponse extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gm8 cardData;
+    public om8 cardData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonalCardDetailSocketReponse() {
@@ -35,49 +36,54 @@ public class PersonalCardDetailSocketReponse extends SocketResponsedMessage {
         }
     }
 
-    public gm8 getCardData() {
-        InterceptResult invokeV;
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.cardData : (gm8) invokeV.objValue;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            GetCardResIdl getCardResIdl = (GetCardResIdl) new Wire(new Class[0]).parseFrom(bArr, GetCardResIdl.class);
+            PersonalCardDetailRequest personalCardDetailRequest = null;
+            if (getCardResIdl == null) {
+                return null;
+            }
+            Error error = getCardResIdl.error;
+            if (error != null) {
+                setError(error.errorno.intValue());
+                setErrorString(getCardResIdl.error.usermsg);
+                if (getCardResIdl.error.errorno.intValue() != 0) {
+                    return getCardResIdl;
+                }
+            }
+            if (getCardResIdl.data == null) {
+                return getCardResIdl;
+            }
+            if (getOrginalMessage() != null && getOrginalMessage().getExtra() != null) {
+                personalCardDetailRequest = (PersonalCardDetailRequest) getOrginalMessage().getExtra();
+            }
+            om8 om8Var = new om8();
+            this.cardData = om8Var;
+            if (personalCardDetailRequest != null) {
+                om8Var.m(personalCardDetailRequest.getCardId());
+            }
+            this.cardData.v(getCardResIdl.data.title);
+            this.cardData.p(getCardResIdl.data.description);
+            this.cardData.q(getCardResIdl.data.pic_url);
+            this.cardData.u(getCardResIdl.data.permission);
+            this.cardData.n(getCardResIdl.data.props_state_img);
+            this.cardData.s(getCardResIdl.data.in_use.intValue());
+            this.cardData.r(getCardResIdl.data.free_user_level.intValue());
+            this.cardData.l(getCardResIdl.data.activity_url);
+            this.cardData.t(getCardResIdl.data.is_finished.intValue());
+            this.cardData.o(getCardResIdl.data.daily_privilege_status.intValue());
+            return getCardResIdl;
+        }
+        return invokeIL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        GetCardResIdl getCardResIdl;
+    public om8 getCardData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getCardResIdl = (GetCardResIdl) new Wire(new Class[0]).parseFrom(bArr, GetCardResIdl.class)) == null) {
-            return;
-        }
-        Error error = getCardResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(getCardResIdl.error.usermsg);
-            if (getCardResIdl.error.errorno.intValue() != 0) {
-                return;
-            }
-        }
-        if (getCardResIdl.data == null) {
-            return;
-        }
-        PersonalCardDetailRequest personalCardDetailRequest = null;
-        if (getOrginalMessage() != null && getOrginalMessage().getExtra() != null) {
-            personalCardDetailRequest = (PersonalCardDetailRequest) getOrginalMessage().getExtra();
-        }
-        gm8 gm8Var = new gm8();
-        this.cardData = gm8Var;
-        if (personalCardDetailRequest != null) {
-            gm8Var.m(personalCardDetailRequest.getCardId());
-        }
-        this.cardData.v(getCardResIdl.data.title);
-        this.cardData.p(getCardResIdl.data.description);
-        this.cardData.q(getCardResIdl.data.pic_url);
-        this.cardData.u(getCardResIdl.data.permission);
-        this.cardData.n(getCardResIdl.data.props_state_img);
-        this.cardData.s(getCardResIdl.data.in_use.intValue());
-        this.cardData.r(getCardResIdl.data.free_user_level.intValue());
-        this.cardData.l(getCardResIdl.data.activity_url);
-        this.cardData.t(getCardResIdl.data.is_finished.intValue());
-        this.cardData.o(getCardResIdl.data.daily_privilege_status.intValue());
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.cardData : (om8) invokeV.objValue;
     }
 }

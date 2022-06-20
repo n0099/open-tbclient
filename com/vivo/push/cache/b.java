@@ -6,10 +6,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.push.util.aa;
 import com.vivo.push.util.p;
 import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public static volatile b a;
@@ -55,9 +54,8 @@ public final class b {
                 return dVar;
             }
             try {
-                String str = aa.a(context) ? "com.vivo.push.cache.ServerConfigManagerImpl" : "com.vivo.push.cache.ClientConfigManagerImpl";
-                Method method = Class.forName(str).getMethod("getInstance", Context.class);
-                p.d("ConfigManagerFactory", "createConfig success is ".concat(str));
+                Method method = Class.forName("com.vivo.push.cache.ClientConfigManagerImpl").getMethod("getInstance", Context.class);
+                p.d("ConfigManagerFactory", "createConfig success is ".concat("com.vivo.push.cache.ClientConfigManagerImpl"));
                 d dVar2 = (d) method.invoke(null, context);
                 this.b = dVar2;
                 return dVar2;

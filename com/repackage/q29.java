@@ -29,41 +29,25 @@ public final class q29 {
                 return;
             }
         }
-        this.a = l29.a().c();
+        this.a = t29.a().c();
     }
 
-    public final void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.a.execSQL("delete from tb_ab_sessionlog where not ( _sessionId = ? )", new String[]{str});
-        }
-    }
-
-    public final boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Cursor rawQuery = this.a.rawQuery("select * from tb_ab_sessionlog where _sessionId = ? ", new String[]{str});
-            int count = rawQuery.getCount();
-            rawQuery.close();
-            return count > 0;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final List<com.baidu.ubs.analytics.a.n> c() {
+    public final List<com.baidu.ubs.analytics.a.a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Cursor rawQuery = this.a.rawQuery("SELECT * FROM  tb_ab_sessionlog", null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Cursor rawQuery = this.a.rawQuery("SELECT * FROM tb_ab_click_log order by _id ", null);
             ArrayList arrayList = new ArrayList();
             while (rawQuery.moveToNext()) {
-                com.baidu.ubs.analytics.a.n nVar = new com.baidu.ubs.analytics.a.n();
-                nVar.x(rawQuery.getString(rawQuery.getColumnIndex("_sessionId")));
-                nVar.setStartTime(rawQuery.getString(rawQuery.getColumnIndex("_startTime")));
-                nVar.A(rawQuery.getString(rawQuery.getColumnIndex("_keepTime")));
-                nVar.z(rawQuery.getString(rawQuery.getColumnIndex("_endTime")));
-                arrayList.add(nVar);
+                com.baidu.ubs.analytics.a.a aVar = new com.baidu.ubs.analytics.a.a();
+                aVar.v(rawQuery.getString(rawQuery.getColumnIndex("_eventId")));
+                aVar.w(rawQuery.getString(rawQuery.getColumnIndex("_parameter")));
+                aVar.x(rawQuery.getString(rawQuery.getColumnIndex("_sessionId")));
+                aVar.u(rawQuery.getString(rawQuery.getColumnIndex("_timeStamp")));
+                aVar.t(rawQuery.getString(rawQuery.getColumnIndex("_pagerName")));
+                aVar.s(rawQuery.getString(rawQuery.getColumnIndex("_productLine")));
+                aVar.setId(rawQuery.getInt(rawQuery.getColumnIndex("_id")));
+                arrayList.add(aVar);
             }
             rawQuery.close();
             return arrayList;
@@ -71,17 +55,17 @@ public final class q29 {
         return (List) invokeV.objValue;
     }
 
-    public final void d(com.baidu.ubs.analytics.a.n nVar) {
+    public final void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, nVar) == null) {
-            this.a.execSQL("INSERT INTO tb_ab_sessionlog(_startTime,_keepTime,_endTime,_sessionId) VALUES (?,?,?,?);", new String[]{nVar.N(), nVar.P(), nVar.O(), nVar.I()});
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a.execSQL("delete from tb_ab_click_log where _id <= " + i);
         }
     }
 
-    public final void e(com.baidu.ubs.analytics.a.n nVar) {
+    public final void c(com.baidu.ubs.analytics.a.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, nVar) == null) {
-            this.a.execSQL("UPDATE tb_ab_sessionlog SET _keepTime= ? , _endTime = ? WHERE _sessionId= ?", new String[]{nVar.P(), nVar.O(), nVar.I()});
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.a.execSQL("INSERT INTO tb_ab_click_log(_eventId,_parameter,_sessionId,_timeStamp,_pagerName,_productLine) VALUES (?,?,?,?,?,?);", new String[]{aVar.G(), aVar.H(), aVar.I(), aVar.F(), aVar.E(), aVar.D()});
         }
     }
 }

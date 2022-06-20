@@ -1,17 +1,19 @@
 package com.repackage;
 
 import android.content.Context;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.Nullable;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class sg0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface sg0 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "cmd");
+    public static final sg0 b = new rg0();
 
-    public static boolean a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) ? mg0.a().d(context, str) : invokeLL.booleanValue;
-    }
+    boolean a(Context context, String str, @Nullable Map<String, Object> map, @Nullable tg0 tg0Var);
+
+    void b(String str, String str2, vg0 vg0Var);
+
+    String[] c();
+
+    boolean d(Context context, String str);
 }

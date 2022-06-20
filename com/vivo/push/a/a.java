@@ -3,17 +3,20 @@ package com.vivo.push.a;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.vivo.push.b;
+import com.vivo.push.c.d;
 import com.vivo.push.o;
 import com.vivo.push.util.p;
 import com.vivo.push.util.t;
+import com.vivo.push.util.u;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -88,6 +91,10 @@ public final class a {
                         intent.putExtra("security_avoid_pull", com.vivo.push.util.a.a(context).a("com.vivo.pushservice"));
                         oVar.b(intent);
                         intent.putExtra("command_type", "reflect_receiver");
+                        if (Build.VERSION.SDK_INT >= 18) {
+                            intent.putExtra("security_avoid_pull_rsa", d.a(context).a().a("com.vivo.pushservice"));
+                            intent.putExtra("security_avoid_rsa_public_key", u.a(d.a(context).a().a()));
+                        }
                         a(context, intent);
                         return;
                     }

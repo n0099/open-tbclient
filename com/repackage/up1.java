@@ -1,162 +1,276 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Pair;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import androidx.lifecycle.SavedStateHandle;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hx1;
+import java.util.Collection;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class up1 extends np1 {
+public class up1 extends tp1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile sf4 f;
+    public static long g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ up1 b;
 
-        public a(up1 up1Var, String str) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {up1Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.b = up1Var;
-            this.a = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.d(this.a, new hr1(0, b.a().b()));
+                long unused = up1.g = up1.f.c();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public float a;
-        public float b;
-        public float c;
-        public float d;
-        public float e;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755253381, "Lcom/repackage/up1;")) == null) {
+            return;
         }
-
-        @NonNull
-        public static b a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                b bVar = new b();
-                bVar.a = hx1.d();
-                hx1.c i = hx1.i();
-                bVar.b = i.c;
-                bVar.c = i.a;
-                bVar.d = i.b;
-                bVar.e = gx1.b();
-                return bVar;
-            }
-            return (b) invokeV.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        public JSONObject b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("deviceTotalMem", this.a);
-                    jSONObject.put("deviceUsedMem", this.b);
-                    jSONObject.put("hostUsedMem", this.c);
-                    jSONObject.put("appUsedMem", this.d);
-                    jSONObject.put("appUsedCpu", this.e);
-                } catch (JSONException e) {
-                    hw1.l("GetDeviceProfileApi", "#toJSONObject 失败", e);
-                }
-                return jSONObject;
-            }
-            return (JSONObject) invokeV.objValue;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755253381, "Lcom/repackage/up1;");
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public up1(@NonNull in1 in1Var) {
-        super(in1Var);
+    public up1(@NonNull tn1 tn1Var) {
+        super(tn1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {in1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {tn1Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((in1) newInitContext.callArgs[0]);
+                super((tn1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        synchronized (up1.class) {
+            if (f == null) {
+                a0();
+            }
+        }
     }
 
-    @Override // com.repackage.kn1
+    public static synchronized void a0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            synchronized (up1.class) {
+                if (f == null) {
+                    try {
+                        f = new j83("swan_js_global_storage", 2, oi2.g().getAbsolutePath());
+                    } catch (NoClassDefFoundError | UnsatisfiedLinkError unused) {
+                        f = new ag4("swan_js_global_storage");
+                        k83.i(1, "swan_js_global_storage");
+                    }
+                    b0();
+                }
+            }
+        }
+    }
+
+    public static void b0() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65541, null) == null) || f == null) {
+            return;
+        }
+        mc3.f().execute(new a());
+    }
+
+    @Override // com.repackage.tp1
+    public sr1 A() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            q("#clearStorage", false);
+            return super.A();
+        }
+        return (sr1) invokeV.objValue;
+    }
+
+    @Override // com.repackage.tp1
+    public sr1 C() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            q("#clearStorageSync", false);
+            return super.C();
+        }
+        return (sr1) invokeV.objValue;
+    }
+
+    @Override // com.repackage.tp1
+    public sr1 D(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#getStorage", false);
+            return super.D(str);
+        }
+        return (sr1) invokeL.objValue;
+    }
+
+    @Override // com.repackage.tp1
+    public sf4 F(@NonNull sz2 sz2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sz2Var)) == null) ? f : (sf4) invokeL.objValue;
+    }
+
+    @Override // com.repackage.tp1
+    public sr1 G() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            q("#getStorageInfo", false);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(SavedStateHandle.KEYS, new JSONArray((Collection) f.a()));
+                jSONObject.put("currentSize", g / 1024);
+                jSONObject.put("limitSize", 10240);
+                return new sr1(0, jSONObject);
+            } catch (JSONException unused) {
+                return new sr1(202, "JSONException");
+            }
+        }
+        return (sr1) invokeV.objValue;
+    }
+
+    @Override // com.repackage.tp1
+    public sr1 J() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            q("#getStorageInfoSync", false);
+            return G();
+        }
+        return (sr1) invokeV.objValue;
+    }
+
+    @Override // com.repackage.tp1
+    public sr1 K(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            q("#getStorageSync", false);
+            return super.K(str);
+        }
+        return (sr1) invokeL.objValue;
+    }
+
+    @Override // com.repackage.tp1
+    public boolean M() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.tp1
+    public boolean N(@Nullable sz2 sz2Var, @NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sz2Var, str, str2)) == null) ? (g - ((long) f.getString(str, "").length())) + ((long) str2.length()) > Config.FULL_TRACE_LOG_LIMIT : invokeLLL.booleanValue;
+    }
+
+    @Override // com.repackage.tp1
+    public sr1 R(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            q("#removeStorage", false);
+            return super.R(str);
+        }
+        return (sr1) invokeL.objValue;
+    }
+
+    @Override // com.repackage.tp1
+    public sr1 T(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            q("#removeStorageSync", false);
+            return super.T(str);
+        }
+        return (sr1) invokeL.objValue;
+    }
+
+    @Override // com.repackage.tp1
+    public sr1 U(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            q("#setStorage", false);
+            return super.U(str);
+        }
+        return (sr1) invokeL.objValue;
+    }
+
+    @Override // com.repackage.tp1
+    public sr1 W(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            q("#setStorageSync", false);
+            return super.W(str);
+        }
+        return (sr1) invokeL.objValue;
+    }
+
+    @Override // com.repackage.tp1
+    public void X() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            b0();
+        }
+    }
+
+    @Override // com.repackage.tp1, com.repackage.vn1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "GetDeviceProfileApi" : (String) invokeV.objValue;
-    }
-
-    public hr1 x(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#getDeviceProfile", false);
-            Pair<hr1, JSONObject> s = s(str);
-            hr1 hr1Var = (hr1) s.first;
-            if (hr1Var.isSuccess()) {
-                String optString = ((JSONObject) s.second).optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    return new hr1(202, "cb is empty");
-                }
-                bc3.k(new a(this, optString), "GetDeviceProfileApi");
-                return hr1.f();
-            }
-            return hr1Var;
-        }
-        return (hr1) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? "SwanGlobalStorageApi" : (String) invokeV.objValue;
     }
 }

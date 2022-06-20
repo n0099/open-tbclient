@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlbumActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_SELECT_IMAGE_RESULT = "com.baidu.tieba.AlbumActivity.SelectImageResult";
@@ -25,6 +25,7 @@ public class AlbumActivityConfig extends IntentConfig {
     public static final String FROM_AIAPPS = "aiapps";
     public static final int FROM_DEFAULT = 0;
     public static final String FROM_FLUTTER = "flutterpicker";
+    public static final String FROM_FLUTTER_MULTI = "flutter_multi_picker";
     public static final String FROM_FRS = "frs";
     public static final int FROM_HOME_OR_FRS_PUBLISH = 4;
     public static final String FROM_MAIN_TAB = "main_tab";

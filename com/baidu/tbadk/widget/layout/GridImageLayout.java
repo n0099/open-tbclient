@@ -27,22 +27,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ag;
-import com.repackage.fg;
-import com.repackage.ki;
-import com.repackage.li;
-import com.repackage.ne5;
-import com.repackage.u25;
-import com.repackage.um;
-import com.repackage.wq4;
+import com.repackage.eg;
+import com.repackage.fr4;
+import com.repackage.j35;
+import com.repackage.jg;
+import com.repackage.kf5;
+import com.repackage.oi;
+import com.repackage.pi;
+import com.repackage.ym;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class GridImageLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ag<ImageView> a;
-    public ag<GifView> b;
-    public ne5 c;
+    public eg<ImageView> a;
+    public eg<GifView> b;
+    public kf5 c;
     public ArrayList<TbRichTextImageInfo> d;
     public int e;
     public int f;
@@ -148,7 +148,7 @@ public class GridImageLayout extends RelativeLayout {
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) || tbImageView == null || tbImageView.getImageMatrix() == null) {
                 return;
             }
-            um m = u25.k().m(fg.h().g(tbImageView.getUrl(), this.a.n));
+            ym m = j35.k().m(jg.h().g(tbImageView.getUrl(), this.a.n));
             int i2 = 0;
             if (m != null) {
                 i2 = m.r();
@@ -198,7 +198,7 @@ public class GridImageLayout extends RelativeLayout {
         this.a = null;
         this.b = null;
         this.m = true;
-        this.q = new int[]{R.id.obfuscated_res_0x7f090c9b, R.id.obfuscated_res_0x7f090c9c, R.id.obfuscated_res_0x7f090c9d, R.id.obfuscated_res_0x7f090c9e, R.id.obfuscated_res_0x7f090c9f, R.id.obfuscated_res_0x7f090ca0, R.id.obfuscated_res_0x7f090ca1, R.id.obfuscated_res_0x7f090ca2, R.id.obfuscated_res_0x7f090ca3};
+        this.q = new int[]{R.id.obfuscated_res_0x7f090c8b, R.id.obfuscated_res_0x7f090c8c, R.id.obfuscated_res_0x7f090c8d, R.id.obfuscated_res_0x7f090c8e, R.id.obfuscated_res_0x7f090c8f, R.id.obfuscated_res_0x7f090c90, R.id.obfuscated_res_0x7f090c91, R.id.obfuscated_res_0x7f090c92, R.id.obfuscated_res_0x7f090c93};
         this.t = new a(this);
         this.v = new b(this);
         m();
@@ -210,7 +210,7 @@ public class GridImageLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             super.dispatchDraw(canvas);
-            if (ki.isEmpty(this.h) || (childCount = getChildCount()) != 9) {
+            if (oi.isEmpty(this.h) || (childCount = getChildCount()) != 9) {
                 return;
             }
             View childAt = getChildAt(childCount - 1);
@@ -231,16 +231,16 @@ public class GridImageLayout extends RelativeLayout {
 
     public final void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !ki.isEmpty(this.h) && getChildCount() == 9) {
-            int f = li.f(getContext(), R.dimen.M_W_X003);
-            int f2 = li.f(getContext(), R.dimen.M_W_X004);
-            int f3 = li.f(getContext(), R.dimen.tbds52);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !oi.isEmpty(this.h) && getChildCount() == 9) {
+            int f = pi.f(getContext(), R.dimen.M_W_X003);
+            int f2 = pi.f(getContext(), R.dimen.M_W_X004);
+            int f3 = pi.f(getContext(), R.dimen.tbds52);
             RelativeLayout relativeLayout = new RelativeLayout(getContext());
             EMTextView eMTextView = new EMTextView(getContext());
             eMTextView.setPadding(f, 0, f, 0);
             eMTextView.setGravity(16);
             eMTextView.setText(this.h);
-            wq4 d = wq4.d(eMTextView);
+            fr4 d = fr4.d(eMTextView);
             d.z(R.dimen.T_X09);
             d.v(R.color.CAM_X0101);
             d.A(R.string.F_X02);
@@ -272,8 +272,8 @@ public class GridImageLayout extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, tbRichTextImageInfo) == null) || tbRichTextImageInfo == null || this.c == null) {
             return;
         }
-        ag<GifView> agVar = this.b;
-        GifView b2 = agVar != null ? agVar.b() : null;
+        eg<GifView> egVar = this.b;
+        GifView b2 = egVar != null ? egVar.b() : null;
         if (b2 == null || b2.getParent() != null) {
             b2 = new GifView(getContext());
         }
@@ -297,8 +297,8 @@ public class GridImageLayout extends RelativeLayout {
             b2.setPlaceHolder(2);
             b2.setScaleType(ImageView.ScaleType.CENTER_CROP);
         }
-        b2.setIsLongPic(tbRichTextImageInfo.H());
-        if (i == 8 && !ki.isEmpty(this.h)) {
+        b2.setIsLongPic(tbRichTextImageInfo.I());
+        if (i == 8 && !oi.isEmpty(this.h)) {
             b2.setLongIconSupport(false);
             b2.setGifIconSupport(false);
         } else {
@@ -309,18 +309,18 @@ public class GridImageLayout extends RelativeLayout {
             b2.setSupportNoImage(true);
         }
         b2.setDefaultNoImageDay(SkinManager.getResourceId(R.drawable.icon_click));
-        String B = tbRichTextImageInfo.B();
-        if (StringUtils.isNull(B)) {
+        String C = tbRichTextImageInfo.C();
+        if (StringUtils.isNull(C)) {
             if (this.c.c()) {
-                B = this.c.s ? tbRichTextImageInfo.y() : tbRichTextImageInfo.z();
+                C = this.c.s ? tbRichTextImageInfo.z() : tbRichTextImageInfo.A();
             }
-            if (StringUtils.isNull(B)) {
-                B = this.c.s ? tbRichTextImageInfo.A() : tbRichTextImageInfo.E();
+            if (StringUtils.isNull(C)) {
+                C = this.c.s ? tbRichTextImageInfo.B() : tbRichTextImageInfo.F();
             }
         }
         b2.setShowStaticDrawable(false);
         this.n = 38;
-        b2.j0(B, 38);
+        b2.j0(C, 38);
         q(b2, i);
     }
 
@@ -335,7 +335,7 @@ public class GridImageLayout extends RelativeLayout {
                 int width = tbRichTextImageInfo.getWidth();
                 int height = tbRichTextImageInfo.getHeight();
                 if (width > 0 && height > 0) {
-                    if (this.m && TbadkCoreApplication.getInst().isGifAutoPlay() && !tbRichTextImageInfo.H()) {
+                    if (this.m && TbadkCoreApplication.getInst().isGifAutoPlay() && !tbRichTextImageInfo.I()) {
                         h(i, tbRichTextImageInfo);
                     } else {
                         k(i, tbRichTextImageInfo);
@@ -357,7 +357,7 @@ public class GridImageLayout extends RelativeLayout {
         if (width <= 0 || height <= 0) {
             return;
         }
-        if (this.m && TbadkCoreApplication.getInst().isGifAutoPlay() && !tbRichTextImageInfo.H()) {
+        if (this.m && TbadkCoreApplication.getInst().isGifAutoPlay() && !tbRichTextImageInfo.I()) {
             h(0, tbRichTextImageInfo);
         } else {
             k(0, tbRichTextImageInfo);
@@ -369,9 +369,9 @@ public class GridImageLayout extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeIL(1048582, this, i, tbRichTextImageInfo) == null) || tbRichTextImageInfo == null || this.c == null) {
             return;
         }
-        ag<ImageView> agVar = this.a;
+        eg<ImageView> egVar = this.a;
         String str = null;
-        ImageView b2 = agVar != null ? agVar.b() : null;
+        ImageView b2 = egVar != null ? egVar.b() : null;
         if (b2 == null || b2.getParent() != null) {
             b2 = new TbImageView(getContext());
         }
@@ -397,8 +397,8 @@ public class GridImageLayout extends RelativeLayout {
                 tbImageView.setPlaceHolder(2);
                 tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             }
-            tbImageView.setIsLongPic(tbRichTextImageInfo.H());
-            if (i == 8 && !ki.isEmpty(this.h)) {
+            tbImageView.setIsLongPic(tbRichTextImageInfo.I());
+            if (i == 8 && !oi.isEmpty(this.h)) {
                 tbImageView.setLongIconSupport(false);
                 tbImageView.setGifIconSupport(false);
             } else {
@@ -409,9 +409,9 @@ public class GridImageLayout extends RelativeLayout {
                 tbImageView.setSupportNoImage(true);
             }
             if (!this.m) {
-                str = tbRichTextImageInfo.E();
-                String C = tbRichTextImageInfo.C();
-                if (!TextUtils.isEmpty(C) && C.toLowerCase().contains(".gif")) {
+                str = tbRichTextImageInfo.F();
+                String D = tbRichTextImageInfo.D();
+                if (!TextUtils.isEmpty(D) && D.toLowerCase().contains(".gif")) {
                     tbImageView.setIsGifPic(true);
                 } else {
                     tbImageView.setIsGifPic(false);
@@ -419,15 +419,15 @@ public class GridImageLayout extends RelativeLayout {
                 this.n = 13;
             } else {
                 if (this.c.c()) {
-                    str = this.c.s ? tbRichTextImageInfo.y() : tbRichTextImageInfo.z();
+                    str = this.c.s ? tbRichTextImageInfo.z() : tbRichTextImageInfo.A();
                 }
                 if (StringUtils.isNull(str)) {
-                    str = this.c.s ? tbRichTextImageInfo.A() : tbRichTextImageInfo.E();
+                    str = this.c.s ? tbRichTextImageInfo.B() : tbRichTextImageInfo.F();
                 }
                 this.n = this.c.s ? 13 : 14;
             }
-            tbImageView.K(str, this.n, false);
-            if (!tbRichTextImageInfo.F()) {
+            tbImageView.J(str, this.n, false);
+            if (!tbRichTextImageInfo.G()) {
                 tbImageView.setAdjustViewBounds(false);
             }
             q(tbImageView, i);
@@ -585,7 +585,7 @@ public class GridImageLayout extends RelativeLayout {
         this.d = arrayList;
         int size = arrayList.size();
         this.e = size;
-        this.h = size > 9 ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f043b, new Object[]{Integer.valueOf(this.e - 9)}) : "";
+        this.h = size > 9 ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f042c, new Object[]{Integer.valueOf(this.e - 9)}) : "";
         s();
     }
 
@@ -602,21 +602,21 @@ public class GridImageLayout extends RelativeLayout {
         }
     }
 
-    public void setLayoutStrategy(ne5 ne5Var) {
+    public void setLayoutStrategy(kf5 kf5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, ne5Var) == null) {
-            this.c = ne5Var;
-            if (ne5Var != null) {
-                this.f = ne5Var.I;
+        if (interceptable == null || interceptable.invokeL(1048596, this, kf5Var) == null) {
+            this.c = kf5Var;
+            if (kf5Var != null) {
+                this.f = kf5Var.I;
             }
         }
     }
 
-    public void setObjectPool(ag<ImageView> agVar, ag<GifView> agVar2) {
+    public void setObjectPool(eg<ImageView> egVar, eg<GifView> egVar2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048597, this, agVar, agVar2) == null) {
-            this.a = agVar;
-            this.b = agVar2;
+        if (interceptable == null || interceptable.invokeLL(1048597, this, egVar, egVar2) == null) {
+            this.a = egVar;
+            this.b = egVar2;
         }
     }
 
@@ -765,7 +765,7 @@ public class GridImageLayout extends RelativeLayout {
         this.a = null;
         this.b = null;
         this.m = true;
-        this.q = new int[]{R.id.obfuscated_res_0x7f090c9b, R.id.obfuscated_res_0x7f090c9c, R.id.obfuscated_res_0x7f090c9d, R.id.obfuscated_res_0x7f090c9e, R.id.obfuscated_res_0x7f090c9f, R.id.obfuscated_res_0x7f090ca0, R.id.obfuscated_res_0x7f090ca1, R.id.obfuscated_res_0x7f090ca2, R.id.obfuscated_res_0x7f090ca3};
+        this.q = new int[]{R.id.obfuscated_res_0x7f090c8b, R.id.obfuscated_res_0x7f090c8c, R.id.obfuscated_res_0x7f090c8d, R.id.obfuscated_res_0x7f090c8e, R.id.obfuscated_res_0x7f090c8f, R.id.obfuscated_res_0x7f090c90, R.id.obfuscated_res_0x7f090c91, R.id.obfuscated_res_0x7f090c92, R.id.obfuscated_res_0x7f090c93};
         this.t = new a(this);
         this.v = new b(this);
         m();
@@ -793,7 +793,7 @@ public class GridImageLayout extends RelativeLayout {
         this.a = null;
         this.b = null;
         this.m = true;
-        this.q = new int[]{R.id.obfuscated_res_0x7f090c9b, R.id.obfuscated_res_0x7f090c9c, R.id.obfuscated_res_0x7f090c9d, R.id.obfuscated_res_0x7f090c9e, R.id.obfuscated_res_0x7f090c9f, R.id.obfuscated_res_0x7f090ca0, R.id.obfuscated_res_0x7f090ca1, R.id.obfuscated_res_0x7f090ca2, R.id.obfuscated_res_0x7f090ca3};
+        this.q = new int[]{R.id.obfuscated_res_0x7f090c8b, R.id.obfuscated_res_0x7f090c8c, R.id.obfuscated_res_0x7f090c8d, R.id.obfuscated_res_0x7f090c8e, R.id.obfuscated_res_0x7f090c8f, R.id.obfuscated_res_0x7f090c90, R.id.obfuscated_res_0x7f090c91, R.id.obfuscated_res_0x7f090c92, R.id.obfuscated_res_0x7f090c93};
         this.t = new a(this);
         this.v = new b(this);
         m();

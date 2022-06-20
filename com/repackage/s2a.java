@@ -1,91 +1,69 @@
 package com.repackage;
 
+import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.Context;
-import android.widget.BaseAdapter;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 /* loaded from: classes7.dex */
-public abstract class s2a<T> extends BaseAdapter {
+public final class s2a {
     public static /* synthetic */ Interceptable $ic;
+    public static final s2a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<T> a;
-    public Context b;
 
-    public s2a(Context context) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755371057, "Lcom/repackage/s2a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755371057, "Lcom/repackage/s2a;");
+                return;
+            }
+        }
+        a = new s2a();
+    }
+
+    public s2a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = new ArrayList();
-        this.b = context;
     }
 
-    public List<T> a() {
-        InterceptResult invokeV;
+    @TargetApi(17)
+    public final boolean a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
-    }
-
-    public void b(List<T> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            c(list, true);
-        }
-    }
-
-    public final void c(List<T> list, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, list, z) == null) || list == null || list.size() == 0) {
-            return;
-        }
-        if (z) {
-            this.a.clear();
-        }
-        this.a.addAll(list);
-        notifyDataSetChanged();
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.size() : invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public T getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            if (this.a.size() == 0) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            if (context != null && (context instanceof Activity)) {
+                Activity activity = (Activity) context;
+                if (!activity.isFinishing()) {
+                    return Build.VERSION.SDK_INT < 17 || !activity.isDestroyed();
+                }
+                RLog.warn("ViewUtils", "activity is finishing");
+                return false;
             }
-            List<T> list = this.a;
-            return list.get(i % list.size());
+            RLog.warn("ViewUtils", "mContext is null or not activity");
+            return false;
         }
-        return (T) invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
+        return invokeL.booleanValue;
     }
 }

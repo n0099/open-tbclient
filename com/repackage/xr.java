@@ -1,9 +1,7 @@
 package com.repackage;
-
-import android.graphics.Bitmap;
 /* loaded from: classes7.dex */
 public interface xr {
-    void a(Bitmap bitmap);
+    String a(String str);
 
-    void onError();
+    void a(String str, String str2);
 }

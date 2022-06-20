@@ -1,30 +1,24 @@
 package com.repackage;
 
-import android.content.Context;
-import android.net.Uri;
-import android.text.TextUtils;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.activitys.H5OpenActivity;
-import com.win.opensdk.core.Info;
-import java.util.HashMap;
+import com.win.opensdk.activitys.H5Activity;
 /* loaded from: classes7.dex */
-public class xk9 extends WebViewClient {
+public class xk9 implements sk9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ H5OpenActivity a;
+    public final /* synthetic */ H5Activity a;
 
-    public xk9(H5OpenActivity h5OpenActivity) {
+    public xk9(H5Activity h5Activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {h5OpenActivity};
+            Object[] objArr = {h5Activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,39 +28,37 @@ public class xk9 extends WebViewClient {
                 return;
             }
         }
-        this.a = h5OpenActivity;
+        this.a = h5Activity;
     }
 
-    @Override // android.webkit.WebViewClient
-    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+    @Override // com.repackage.sk9
+    public boolean a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
-            Context applicationContext = this.a.getApplicationContext();
-            Uri parse = Uri.parse(str);
-            String scheme = parse.getScheme();
-            if ((TextUtils.isEmpty(scheme) || scheme.equals("http") || scheme.equals("https")) ? false : true) {
-                try {
-                    nn9 a = rn9.a(applicationContext);
-                    a.i(new vn9(this.a.d), parse.toString(), 0);
-                    a.m();
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("__SCHEME__", parse.toString());
-                    Info info = this.a.d;
-                    if (info != null) {
-                        ll9.K(ll9.i((String) info.getEvents().get(600, ""), "", info.isHo_c_sw(), hashMap));
-                    }
-                    sn9.b(applicationContext, parse);
-                    return true;
-                } catch (Exception e) {
-                    nn9 a2 = rn9.a(applicationContext);
-                    a2.i(new vn9(this.a.d), e.getMessage(), 2);
-                    a2.m();
-                    e.printStackTrace();
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            H5Activity h5Activity = this.a;
+            if (wm9.d(h5Activity.e, h5Activity.h)) {
+                this.a.h = System.currentTimeMillis();
+                H5Activity h5Activity2 = this.a;
+                wm9.a(h5Activity2.a, str, h5Activity2.e, h5Activity2.i, str2);
+                un9 a = yn9.a(this.a.a);
+                a.h(new co9(this.a.e), str);
+                a.l("desc", str2);
+                a.m();
+                rl9.c(this.a.e.getId() + this.a.f, "is_click", null);
+                sl9.p(this.a.e, str2);
+                return true;
             }
-            return false;
+            return true;
         }
         return invokeLL.booleanValue;
+    }
+
+    @Override // com.repackage.sk9
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.a.g = str;
+        }
     }
 }

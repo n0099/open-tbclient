@@ -1,39 +1,51 @@
 package com.repackage;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.ContextWrapper;
+import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.swan.apps.model.SwanAppBearInfo;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.swan.apps.view.BearLayout;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ly2;
+import com.baidubce.services.vod.VodClient;
+import java.util.LinkedHashMap;
+import okhttp3.Response;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class pe3 implements ly2.c {
+public class pe3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrameLayout a;
+    public BearLayout a;
+    public Activity b;
+    public SwanAppBearInfo c;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a extends ResponseCallback<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ViewGroup a;
-        public final /* synthetic */ pe3 b;
+        public BearLayout.d a;
+        public boolean b;
 
-        public a(pe3 pe3Var, ViewGroup viewGroup) {
+        public a(pe3 pe3Var, BearLayout.d dVar, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pe3Var, viewGroup};
+                Object[] objArr = {pe3Var, dVar, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,87 +55,143 @@ public class pe3 implements ly2.c {
                     return;
                 }
             }
-            this.b = pe3Var;
-            this.a = viewGroup;
+            this.a = dVar;
+            this.b = z;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.b.a == null) {
-                    this.b.a = new FrameLayout(this.a.getContext());
-                    this.b.a.setBackgroundResource(R.color.obfuscated_res_0x7f0603c8);
-                }
-                this.a.removeView(this.b.a);
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-                layoutParams.gravity = 17;
-                this.a.addView(this.b.a, layoutParams);
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) || this.a == null) {
+                return;
             }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                int optInt = jSONObject.optInt("errno");
+                if (optInt == 0) {
+                    if (this.b) {
+                        JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                        if (optJSONObject != null) {
+                            JSONArray optJSONArray = optJSONObject.optJSONArray("items");
+                            if (optJSONArray != null && optJSONArray.length() > 0) {
+                                this.a.a(true);
+                            }
+                            this.a.a(false);
+                        }
+                    } else {
+                        this.a.a(true);
+                    }
+                } else if (800200 == optInt) {
+                    String optString = jSONObject.optString("errmsg");
+                    BearLayout.d dVar = this.a;
+                    dVar.b("errNo:" + optInt + ",errMsg:" + optString);
+                } else {
+                    BearLayout.d dVar2 = this.a;
+                    dVar2.b("errNo:" + optInt);
+                }
+            } catch (JSONException e) {
+                if (pe3.d) {
+                    e.printStackTrace();
+                    this.a.b(e.getMessage());
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) && pe3.d) {
+                exc.printStackTrace();
+                this.a.b(exc.getMessage());
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public String parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) ? (response == null || response.body() == null) ? "" : response.body().string() : (String) invokeLI.objValue;
         }
     }
 
-    public pe3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755412845, "Lcom/repackage/pe3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755412845, "Lcom/repackage/pe3;");
                 return;
             }
         }
-        this.a = null;
+        d = cg1.a;
     }
 
-    @Override // com.repackage.ly2.c
-    public void a(ly2 ly2Var, ly2.b bVar) {
+    public pe3(Activity activity, View view2, @NonNull SwanAppBearInfo swanAppBearInfo, @IdRes int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, ly2Var, bVar) == null) || ly2Var == null || bVar == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
-            return;
-        }
-        f(ly2Var);
-        ViewGroup viewGroup = (ViewGroup) ly2Var.findViewById(16908290);
-        if (viewGroup != null) {
-            if (oi2.M().a()) {
-                d(viewGroup, bVar.r);
-            } else {
-                e(viewGroup);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, view2, swanAppBearInfo, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = activity;
+        this.c = swanAppBearInfo;
+        BearLayout bearLayout = (BearLayout) view2.findViewById(i);
+        this.a = bearLayout;
+        bearLayout.setVisibility(0);
+        this.a.k(activity, swanAppBearInfo, this);
     }
 
-    public final void d(ViewGroup viewGroup, View view2) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, view2) == null) || viewGroup == null || view2 == null || !(viewGroup instanceof FrameLayout)) {
-            return;
-        }
-        view2.post(new a(this, viewGroup));
-    }
-
-    public final void e(ViewGroup viewGroup) {
-        FrameLayout frameLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) || viewGroup == null || (frameLayout = this.a) == null) {
-            return;
-        }
-        viewGroup.removeView(frameLayout);
-        this.a = null;
-    }
-
-    public final void f(ly2 ly2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ly2Var) == null) {
-            Context context = ly2Var.getContext();
-            if (ly2Var.getContext() instanceof ContextWrapper) {
-                context = ((ContextWrapper) ly2Var.getContext()).getBaseContext();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (SwanAppNetworkUtils.i(this.b)) {
+                LinkedHashMap linkedHashMap = new LinkedHashMap();
+                linkedHashMap.put("type", VodClient.PATH_MEDIA);
+                linkedHashMap.put("sfrom", "searchpaws");
+                linkedHashMap.put("store", "uid_cuid");
+                linkedHashMap.put("source", "dusite_na_subbar");
+                linkedHashMap.put("third_id", this.c.bearId);
+                linkedHashMap.put("op_type", "add");
+                String b = wu1.b();
+                if (TextUtils.isEmpty(b)) {
+                    return;
+                }
+                u64.g().getRequest().url(b).addUrlParams(linkedHashMap).cookieManager(zi2.q().a()).build().executeAsyncOnUIBack(new a(this, this.a.getCallback(), false));
+                return;
             }
-            if (context instanceof Activity) {
-                qb3.b((Activity) context, ly2Var);
+            kz2.f(this.b, R.string.obfuscated_res_0x7f0f0199).G();
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && SwanAppNetworkUtils.i(this.b)) {
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            linkedHashMap.put("type", VodClient.PATH_MEDIA);
+            linkedHashMap.put("sfrom", "searchpaws");
+            linkedHashMap.put("store", "uid_cuid");
+            linkedHashMap.put("source", "dusite_na_subbar");
+            linkedHashMap.put("third_id", this.c.bearId);
+            String B = zi2.o().B();
+            if (TextUtils.isEmpty(B)) {
+                return;
             }
+            u64.g().getRequest().url(B).connectionTimeout(3000).addUrlParams(linkedHashMap).cookieManager(zi2.q().a()).build().executeAsyncOnUIBack(new a(this, this.a.getCallback(), true));
         }
     }
 }

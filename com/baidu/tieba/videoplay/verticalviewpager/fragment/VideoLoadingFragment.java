@@ -26,15 +26,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ji;
-import com.repackage.js8;
-import com.repackage.ms8;
-import com.repackage.t35;
+import com.repackage.i45;
+import com.repackage.ni;
+import com.repackage.rs8;
+import com.repackage.us8;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000R\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u00002\u00020\u00012\u00020\u0002B\u0005¢\u0006\u0002\u0010\u0003J\n\u0010\u0010\u001a\u0004\u0018\u00010\u000fH\u0016J\b\u0010\u0011\u001a\u00020\u0007H\u0016J\b\u0010\u0012\u001a\u00020\u0013H\u0002J\u0012\u0010\u0014\u001a\u00020\u00132\b\u0010\u0015\u001a\u0004\u0018\u00010\u0016H\u0016J&\u0010\u0017\u001a\u0004\u0018\u00010\r2\u0006\u0010\u0018\u001a\u00020\u00192\b\u0010\u001a\u001a\u0004\u0018\u00010\u001b2\b\u0010\u0015\u001a\u0004\u0018\u00010\u0016H\u0016J\b\u0010\u001c\u001a\u00020\u0013H\u0016J\b\u0010\u001d\u001a\u00020\u0013H\u0016J\u0010\u0010\u001e\u001a\u00020\u00132\u0006\u0010\u001f\u001a\u00020\u0007H\u0016J\b\u0010 \u001a\u00020\u0013H\u0002R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\u0007X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\t\u001a\u0004\u0018\u00010\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\u0005X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\f\u001a\u0004\u0018\u00010\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000e\u001a\u0004\u0018\u00010\u000fX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006!"}, d2 = {"Lcom/baidu/tieba/videoplay/verticalviewpager/fragment/VideoLoadingFragment;", "Lcom/baidu/tbadk/core/BaseFragment;", "Lcom/baidu/tieba/videoplay/verticalviewpager/transforms/IVideoFragment;", "()V", "mBackHomeAnimListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "mCurrentType", "", "mFragmentIndex", "mFromPage", "", "mNetworkChangedMessageListener", "mRootView", "Landroid/view/View;", "mVideoLoadingData", "Lcom/baidu/tieba/video/VideoItemModel;", "getCurrentData", "getFragmentIndex", "hideErrorView", "", "onActivityCreated", "savedInstanceState", "Landroid/os/Bundle;", "onCreateView", "inflater", "Landroid/view/LayoutInflater;", "container", "Landroid/view/ViewGroup;", "onDestroyView", "onPrimary", "setFragmentIndex", "index", "showErrorView", "VideoPlay_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes4.dex */
-public final class VideoLoadingFragment extends BaseFragment implements ms8 {
+public final class VideoLoadingFragment extends BaseFragment implements us8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public VideoItemModel a;
@@ -123,13 +123,13 @@ public final class VideoLoadingFragment extends BaseFragment implements ms8 {
             if (interceptable == null || interceptable.invokeL(1048576, this, resMsg) == null) {
                 Intrinsics.checkNotNullParameter(resMsg, "resMsg");
                 if ((resMsg instanceof NetWorkChangedMessage) && resMsg.getCmd() == 2000994 && !resMsg.hasError()) {
-                    if (ji.z()) {
+                    if (ni.z()) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921574));
                         return;
                     }
                     VideoLoadingFragment videoLoadingFragment = this.a;
                     videoLoadingFragment.hideLoadingView(videoLoadingFragment.c);
-                    this.a.K0();
+                    this.a.x1();
                 }
             }
         }
@@ -201,7 +201,7 @@ public final class VideoLoadingFragment extends BaseFragment implements ms8 {
         this.f = new a(this);
     }
 
-    public static final boolean I0(GestureDetectorCompat detectorCompat, View view2, MotionEvent motionEvent) {
+    public static final boolean v1(GestureDetectorCompat detectorCompat, View view2, MotionEvent motionEvent) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, detectorCompat, view2, motionEvent)) == null) {
@@ -211,7 +211,7 @@ public final class VideoLoadingFragment extends BaseFragment implements ms8 {
         return invokeLLL.booleanValue;
     }
 
-    public static final boolean J0(View view2) {
+    public static final boolean w1(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, view2)) == null) {
@@ -220,7 +220,7 @@ public final class VideoLoadingFragment extends BaseFragment implements ms8 {
         return invokeL.booleanValue;
     }
 
-    public static final void L0(VideoLoadingFragment this$0, View view2) {
+    public static final void y1(VideoLoadingFragment this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -230,73 +230,25 @@ public final class VideoLoadingFragment extends BaseFragment implements ms8 {
         }
     }
 
-    public final void H0() {
+    @Override // com.repackage.us8
+    public VideoItemModel E0() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View view2 = this.c;
-            if (view2 != null) {
-                FrameLayout frameLayout = (FrameLayout) view2;
-                t35 t35Var = this.mRefreshView;
-                frameLayout.removeView(t35Var == null ? null : t35Var.b());
-                return;
-            }
-            throw new NullPointerException("null cannot be cast to non-null type android.widget.FrameLayout");
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (VideoItemModel) invokeV.objValue;
     }
 
-    public final void K0() {
+    @Override // com.repackage.us8
+    public void n0(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            t35 t35Var = new t35(getContext(), new View.OnClickListener() { // from class: com.repackage.ls8
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.view.View.OnClickListener
-                public final void onClick(View view2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        VideoLoadingFragment.L0(VideoLoadingFragment.this, view2);
-                    }
-                }
-            });
-            this.mRefreshView = t35Var;
-            t35Var.p();
-            this.mRefreshView.m(null);
-            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0f95);
-            Intrinsics.checkNotNullExpressionValue(string, "resources.getString(R.st….refresh_view_title_text)");
-            this.mRefreshView.n(string);
-            this.mRefreshView.i(R.drawable.new_pic_emotion_08);
-            this.mRefreshView.l(0);
-            this.mRefreshView.attachView(this.c, true);
-        }
-    }
-
-    @Override // com.repackage.ms8
-    public void M(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             this.b = i;
         }
-    }
-
-    @Override // com.repackage.ms8
-    public VideoItemModel X() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (VideoItemModel) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ms8
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onActivityCreated(bundle);
             registerListener(this.f);
         }
@@ -306,7 +258,7 @@ public final class VideoLoadingFragment extends BaseFragment implements ms8 {
     public View onCreateView(LayoutInflater inflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, inflater, viewGroup, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, inflater, viewGroup, bundle)) == null) {
             Intrinsics.checkNotNullParameter(inflater, "inflater");
             Bundle arguments = getArguments();
             if (arguments != null) {
@@ -318,12 +270,12 @@ public final class VideoLoadingFragment extends BaseFragment implements ms8 {
                 this.a = obj2 instanceof VideoItemModel ? (VideoItemModel) obj2 : null;
                 this.d = arguments.getInt(VideoPlayActivityConfig.CURRENT_TYPE);
             }
-            this.c = inflater.inflate(R.layout.obfuscated_res_0x7f0d0863, viewGroup, false);
+            this.c = inflater.inflate(R.layout.obfuscated_res_0x7f0d0862, viewGroup, false);
             registerListener(this.e);
             final GestureDetectorCompat gestureDetectorCompat = new GestureDetectorCompat(getContext(), new c(this));
             View view2 = this.c;
             if (view2 != null) {
-                view2.setOnTouchListener(new View.OnTouchListener() { // from class: com.repackage.ks8
+                view2.setOnTouchListener(new View.OnTouchListener() { // from class: com.repackage.ss8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -331,13 +283,13 @@ public final class VideoLoadingFragment extends BaseFragment implements ms8 {
                     public final boolean onTouch(View view3, MotionEvent motionEvent) {
                         InterceptResult invokeLL;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view3, motionEvent)) == null) ? VideoLoadingFragment.I0(GestureDetectorCompat.this, view3, motionEvent) : invokeLL.booleanValue;
+                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view3, motionEvent)) == null) ? VideoLoadingFragment.v1(GestureDetectorCompat.this, view3, motionEvent) : invokeLL.booleanValue;
                     }
                 });
             }
             View view3 = this.c;
             if (view3 != null) {
-                view3.setOnLongClickListener(js8.a);
+                view3.setOnLongClickListener(rs8.a);
             }
             return this.c;
         }
@@ -347,7 +299,7 @@ public final class VideoLoadingFragment extends BaseFragment implements ms8 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroyView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroyView();
             this.c = null;
         }
@@ -356,17 +308,65 @@ public final class VideoLoadingFragment extends BaseFragment implements ms8 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onPrimary();
             if (isPrimary()) {
-                if (ji.z()) {
-                    H0();
+                if (ni.z()) {
+                    u1();
                     showLoadingView(this.c, true);
                     return;
                 }
                 hideLoadingView(this.c);
-                K0();
+                x1();
             }
+        }
+    }
+
+    @Override // com.repackage.us8
+    public int q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public final void u1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            View view2 = this.c;
+            if (view2 != null) {
+                FrameLayout frameLayout = (FrameLayout) view2;
+                i45 i45Var = this.mRefreshView;
+                frameLayout.removeView(i45Var == null ? null : i45Var.b());
+                return;
+            }
+            throw new NullPointerException("null cannot be cast to non-null type android.widget.FrameLayout");
+        }
+    }
+
+    public final void x1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            i45 i45Var = new i45(getContext(), new View.OnClickListener() { // from class: com.repackage.ts8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // android.view.View.OnClickListener
+                public final void onClick(View view2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                        VideoLoadingFragment.y1(VideoLoadingFragment.this, view2);
+                    }
+                }
+            });
+            this.mRefreshView = i45Var;
+            i45Var.p();
+            this.mRefreshView.m(null);
+            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0fa0);
+            Intrinsics.checkNotNullExpressionValue(string, "resources.getString(R.st….refresh_view_title_text)");
+            this.mRefreshView.n(string);
+            this.mRefreshView.i(R.drawable.new_pic_emotion_08);
+            this.mRefreshView.l(0);
+            this.mRefreshView.attachView(this.c, true);
         }
     }
 }

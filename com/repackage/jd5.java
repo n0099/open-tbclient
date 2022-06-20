@@ -1,55 +1,30 @@
 package com.repackage;
 
-import android.graphics.Point;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewConfiguration;
-import android.widget.ListView;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.PbGoodsData;
+import com.baidu.tbadk.core.data.PbLinkData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.data.CardLinkInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class jd5 extends md5 implements View.OnTouchListener, GestureDetector.OnGestureListener {
+public class jd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean A;
-    public ListView B;
-    public id5 C;
-    public int D;
-    public GestureDetector.OnGestureListener E;
-    public int e;
-    public boolean f;
-    public int g;
-    public boolean h;
-    public boolean i;
-    public GestureDetector j;
-    public GestureDetector k;
-    public GestureDetector l;
-    public int m;
-    public int n;
-    public int o;
-    public int p;
-    public int[] q;
-    public int r;
-    public int s;
-    public int t;
-    public int u;
-    public boolean v;
-    public float w;
-    public int x;
-    public int y;
-    public int z;
+    public boolean a;
+    public List<rx5> b;
 
     /* loaded from: classes6.dex */
-    public class a implements GestureDetector.OnGestureListener {
+    public class a implements Comparator<rx5> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jd5 a;
 
         public a(jd5 jd5Var) {
             Interceptable interceptable = $ic;
@@ -63,453 +38,76 @@ public class jd5 extends md5 implements View.OnTouchListener, GestureDetector.On
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = jd5Var;
         }
 
-        @Override // android.view.GestureDetector.OnGestureListener
-        public boolean onDown(MotionEvent motionEvent) {
-            InterceptResult invokeL;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(rx5 rx5Var, rx5 rx5Var2) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-                if (!this.a.C.g0() || this.a.C.h0()) {
-                    return false;
-                }
-                this.a.onDown(motionEvent);
-                this.a.t = (int) motionEvent.getX();
-                this.a.u = (int) motionEvent.getY();
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // android.view.GestureDetector.OnGestureListener
-        public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-                return false;
-            }
-            return invokeCommon.booleanValue;
-        }
-
-        @Override // android.view.GestureDetector.OnGestureListener
-        public void onLongPress(MotionEvent motionEvent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent) == null) {
-                this.a.onLongPress(motionEvent);
-            }
-        }
-
-        @Override // android.view.GestureDetector.OnGestureListener
-        public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-                return false;
-            }
-            return invokeCommon.booleanValue;
-        }
-
-        @Override // android.view.GestureDetector.OnGestureListener
-        public void onShowPress(MotionEvent motionEvent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, motionEvent) == null) {
-            }
-        }
-
-        @Override // android.view.GestureDetector.OnGestureListener
-        public boolean onSingleTapUp(MotionEvent motionEvent) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
-                return false;
-            }
-            return invokeL.booleanValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, rx5Var, rx5Var2)) == null) ? rx5Var.sort() - rx5Var2.sort() : invokeLL.intValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b extends GestureDetector.SimpleOnGestureListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jd5 a;
-
-        public b(jd5 jd5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jd5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = jd5Var;
-        }
-
-        @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-        public final boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-                if (this.a.h && this.a.i) {
-                    int width = this.a.B.getWidth() / 5;
-                    if (f > this.a.w) {
-                        if (this.a.D > (-width)) {
-                            this.a.C.A0(true, f);
-                        }
-                    } else if (f < (-this.a.w) && this.a.D < width) {
-                        this.a.C.A0(true, f);
-                    }
-                    this.a.i = false;
-                }
-                return false;
-            }
-            return invokeCommon.booleanValue;
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public jd5(id5 id5Var, ListView listView, int i, int i2, int i3) {
-        this(id5Var, listView, i, i2, i3, 0);
+    public jd5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {id5Var, listView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((id5) objArr2[0], (ListView) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue(), ((Integer) objArr2[5]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = new LinkedList();
     }
 
-    @Override // com.repackage.id5.j
-    public void c(View view2, Point point, Point point2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048576, this, view2, point, point2) == null) && this.h && this.i) {
-            this.D = point.x;
-        }
-    }
-
-    public int o(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) ? z(motionEvent, this.x) : invokeL.intValue;
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onDown(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            if (this.h && this.g == 0) {
-                this.p = z(motionEvent, this.y);
-            }
-            int w = w(motionEvent);
-            this.n = w;
-            if (w != -1 && this.e == 0) {
-                v(w, ((int) motionEvent.getX()) - this.r, ((int) motionEvent.getY()) - this.s);
-            }
-            this.i = false;
-            this.A = true;
-            this.D = 0;
-            this.o = y(motionEvent);
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public final boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public void onLongPress(MotionEvent motionEvent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, motionEvent) == null) && this.n != -1 && this.e == 2) {
-            this.B.performHapticFeedback(0);
-            v(this.n, this.t - this.r, this.u - this.s);
-        }
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            if (motionEvent != null && motionEvent2 != null) {
-                int x = (int) motionEvent.getX();
-                int y = (int) motionEvent.getY();
-                int x2 = (int) motionEvent2.getX();
-                int y2 = (int) motionEvent2.getY();
-                int i = x2 - this.r;
-                int i2 = y2 - this.s;
-                if (this.A && !this.v && (this.n != -1 || this.o != -1)) {
-                    if (this.n != -1) {
-                        if (this.e == 1 && Math.abs(y2 - y) > this.m && this.f) {
-                            v(this.n, i, i2);
-                        } else if (this.e != 0 && Math.abs(x2 - x) > this.m && this.h) {
-                            this.i = true;
-                            v(this.o, i, i2);
-                        }
-                    } else if (this.o != -1) {
-                        if (Math.abs(x2 - x) > this.m && this.h) {
-                            this.i = true;
-                            v(this.o, i, i2);
-                        } else if (Math.abs(y2 - y) > this.m) {
-                            this.A = false;
-                        }
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public void onShowPress(MotionEvent motionEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, motionEvent) == null) {
-        }
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onSingleTapUp(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, motionEvent)) == null) {
-            if (this.h && this.g == 0 && (i = this.p) != -1) {
-                this.C.l0(i - this.B.getHeaderViewsCount());
-                return true;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
+    public List<rx5> a(List<PbLinkData> list, List<PbGoodsData> list2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, motionEvent)) == null) {
-            if (this.C.g0() && !this.C.h0()) {
-                this.j.onTouchEvent(motionEvent);
-                if (this.h && this.v && this.g == 1) {
-                    this.l.onTouchEvent(motionEvent);
-                }
-                int action = motionEvent.getAction() & 255;
-                if (action == 0) {
-                    this.t = (int) motionEvent.getX();
-                    this.u = (int) motionEvent.getY();
-                } else if (action == 1) {
-                    if (this.h && this.i) {
-                        int i = this.D;
-                        if (i < 0) {
-                            i = -i;
-                        }
-                        if (i > this.B.getWidth() / 2) {
-                            this.C.A0(true, 0.0f);
-                        }
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, list, list2)) == null) ? b(list, list2, null) : (List) invokeLL.objValue;
+    }
+
+    public List<rx5> b(List<PbLinkData> list, List<PbGoodsData> list2, List<CardLinkInfoData> list3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2, list3)) == null) {
+            if (!ListUtils.isEmpty(list)) {
+                for (int i = 0; i < list.size(); i++) {
+                    PbLinkData pbLinkData = list.get(i);
+                    if (pbLinkData.urlType == 2 && !this.a) {
+                        this.a = true;
                     }
-                    this.i = false;
-                    this.v = false;
-                } else if (action == 3) {
-                    this.i = false;
-                    this.v = false;
+                    this.b.add(pbLinkData);
                 }
             }
-            return false;
+            if (!ListUtils.isEmpty(list2)) {
+                this.a = true;
+                for (int i2 = 0; i2 < list2.size(); i2++) {
+                    this.b.add(list2.get(i2));
+                }
+            }
+            if (!ListUtils.isEmpty(list3)) {
+                this.a = false;
+                for (int i3 = 0; i3 < list3.size(); i3++) {
+                    this.b.add(list3.get(i3));
+                }
+            }
+            Collections.sort(this.b, new a(this));
+            return this.b;
         }
-        return invokeLL.booleanValue;
+        return (List) invokeLLL.objValue;
     }
 
-    public int p(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, motionEvent)) == null) ? z(motionEvent, this.z) : invokeL.intValue;
-    }
-
-    public GestureDetector q() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.k : (GestureDetector) invokeV.objValue;
-    }
-
-    public void r(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void s(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.h = z;
-        }
-    }
-
-    public void t(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public void u(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.f = z;
-        }
-    }
-
-    public boolean v(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048591, this, i, i2, i3)) == null) {
-            int i4 = (!this.f || this.i) ? 0 : 12;
-            if (this.h && this.i) {
-                i4 = i4 | 1 | 2;
-            }
-            boolean w0 = this.C.w0(i - this.B.getHeaderViewsCount(), i4, i2, i3);
-            this.v = w0;
-            return w0;
-        }
-        return invokeIII.booleanValue;
-    }
-
-    public int w(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, motionEvent)) == null) ? o(motionEvent) : invokeL.intValue;
-    }
-
-    public int y(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, motionEvent)) == null) {
-            if (this.g == 1) {
-                return p(motionEvent);
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public int z(MotionEvent motionEvent, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048594, this, motionEvent, i)) == null) {
-            int pointToPosition = this.B.pointToPosition((int) motionEvent.getX(), (int) motionEvent.getY());
-            int headerViewsCount = this.B.getHeaderViewsCount();
-            int footerViewsCount = this.B.getFooterViewsCount();
-            int count = this.B.getCount();
-            if (pointToPosition != -1 && pointToPosition >= headerViewsCount && pointToPosition < count - footerViewsCount) {
-                ListView listView = this.B;
-                View childAt = listView.getChildAt(pointToPosition - listView.getFirstVisiblePosition());
-                int rawX = (int) motionEvent.getRawX();
-                int rawY = (int) motionEvent.getRawY();
-                View findViewById = i == 0 ? childAt : childAt.findViewById(i);
-                if (findViewById != null) {
-                    findViewById.getLocationOnScreen(this.q);
-                    int[] iArr = this.q;
-                    if (rawX > iArr[0] && rawY > iArr[1] && rawX < iArr[0] + findViewById.getWidth() && rawY < this.q[1] + findViewById.getHeight()) {
-                        this.r = childAt.getLeft();
-                        this.s = childAt.getTop();
-                        return pointToPosition;
-                    }
-                }
-            }
-            return -1;
-        }
-        return invokeLI.intValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public jd5(id5 id5Var, ListView listView, int i, int i2, int i3, int i4) {
-        this(id5Var, listView, i, i2, i3, i4, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {id5Var, listView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((id5) objArr2[0], (ListView) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue(), ((Integer) objArr2[5]).intValue(), ((Integer) objArr2[6]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jd5(id5 id5Var, ListView listView, int i, int i2, int i3, int i4, int i5) {
-        super(listView);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {id5Var, listView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
-                super((ListView) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.e = 0;
-        this.f = true;
-        this.h = false;
-        this.i = false;
-        this.n = -1;
-        this.o = -1;
-        this.p = -1;
-        this.q = new int[2];
-        this.v = false;
-        this.w = 500.0f;
-        this.E = new b(this);
-        this.C = id5Var;
-        this.B = listView;
-        this.j = new GestureDetector(listView.getContext(), this);
-        this.k = new GestureDetector(listView.getContext(), new a(this));
-        GestureDetector gestureDetector = new GestureDetector(listView.getContext(), this.E);
-        this.l = gestureDetector;
-        gestureDetector.setIsLongpressEnabled(false);
-        this.m = ViewConfiguration.get(listView.getContext()).getScaledTouchSlop();
-        this.x = i;
-        this.y = i4;
-        this.z = i5;
-        t(i3);
-        r(i2);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.booleanValue;
     }
 }

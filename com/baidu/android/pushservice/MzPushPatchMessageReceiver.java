@@ -78,7 +78,7 @@ public class MzPushPatchMessageReceiver extends MzPushMessageReceiver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, intent) == null) {
             try {
-                if (Double.parseDouble(m.n(context)) < 6.0d) {
+                if (Double.parseDouble(m.z(context)) < 6.0d) {
                     return;
                 }
             } catch (Exception e) {

@@ -1,53 +1,25 @@
 package com.xiaomi.push.service;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.fa;
-import com.xiaomi.push.fq;
-import com.xiaomi.push.gc;
-import com.xiaomi.push.service.XMPushService;
+import com.xiaomi.push.hw;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class br implements fq {
+public class br {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ XMPushService a;
 
-    public br(XMPushService xMPushService) {
+    public static hw a(hw hwVar) {
+        InterceptResult invokeL;
+        Map<String, String> map;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {xMPushService};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, hwVar)) == null) {
+            if (hwVar != null && (map = hwVar.f537b) != null) {
+                map.remove("score_info");
             }
+            return hwVar;
         }
-        this.a = xMPushService;
-    }
-
-    @Override // com.xiaomi.push.fq
-    public void a(fa faVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, faVar) == null) {
-            XMPushService xMPushService = this.a;
-            xMPushService.a(new XMPushService.c(xMPushService, faVar));
-        }
-    }
-
-    @Override // com.xiaomi.push.fq, com.xiaomi.push.fy
-    public void a(gc gcVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gcVar) == null) {
-            XMPushService xMPushService = this.a;
-            xMPushService.a(new XMPushService.k(xMPushService, gcVar));
-        }
+        return (hw) invokeL.objValue;
     }
 }

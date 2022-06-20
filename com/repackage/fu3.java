@@ -1,46 +1,75 @@
 package com.repackage;
 
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URLEncoder;
-/* loaded from: classes5.dex */
-public class fu3 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class fu3 extends JSEvent {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(nt3 nt3Var, JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, nt3Var, jsObject) == null) {
-            gu3 gu3Var = new gu3();
-            or1 F = or1.F(jsObject);
-            if (F == null) {
-                F = new or1();
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @V8JavascriptField
+        public String cmd;
+        @V8JavascriptField
+        public String type;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            boolean z = false;
-            if (nt3Var == null) {
-                gu3Var.errMsg = "openCustomerServiceConversation:fail";
-                s14.call(F, false, gu3Var);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fu3(Object obj) {
+        super("sconsoleCmdMessage", obj);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {obj};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            if (qv3.c()) {
-                hz2 L = hz2.L();
-                if (L != null) {
-                    String str = "{\"appKey\":\"" + L.N() + "\"}";
-                    if (SchemeRouter.invoke(oi2.c(), "baiduboxapp://v35/message/deliverMnpAppKey?params=" + URLEncoder.encode(str))) {
-                        gu3Var.errMsg = "openCustomerServiceConversation:ok";
-                        z = true;
-                    } else {
-                        gu3Var.errMsg = "openCustomerServiceConversation:fail";
-                    }
-                } else {
-                    gu3Var.errMsg = "openCustomerServiceConversation:fail";
-                }
-            } else {
-                gu3Var.errMsg = "openCustomerServiceConversation:fail require user interaction";
-            }
-            s14.call(F, z, gu3Var);
         }
+    }
+
+    public static fu3 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            a aVar = new a();
+            if (jSONObject == null) {
+                jSONObject = new JSONObject();
+            }
+            aVar.type = jSONObject.optString("type");
+            aVar.cmd = jSONObject.optString("cmd");
+            return new fu3(aVar);
+        }
+        return (fu3) invokeL.objValue;
     }
 }

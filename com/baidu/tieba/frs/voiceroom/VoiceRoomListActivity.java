@@ -22,7 +22,7 @@ import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
 public final class VoiceRoomListActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
-    public static final a Companion;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -75,7 +75,7 @@ public final class VoiceRoomListActivity extends BaseFragmentActivity {
                 return;
             }
         }
-        Companion = new a(null);
+        a = new a(null);
     }
 
     public VoiceRoomListActivity() {
@@ -104,10 +104,10 @@ public final class VoiceRoomListActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d005c);
+            setContentView(R.layout.obfuscated_res_0x7f0d005b);
             VoiceRoomListFragment voiceRoomListFragment = new VoiceRoomListFragment();
             voiceRoomListFragment.setArguments(getIntent().getExtras());
-            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f090a86, voiceRoomListFragment).commitAllowingStateLoss();
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f090a75, voiceRoomListFragment).commitAllowingStateLoss();
         }
     }
 }

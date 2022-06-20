@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import com.google.ar.core.exceptions.FatalException;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes4.dex */
@@ -35,7 +36,7 @@ public final class TrackingFailureReason {
                 return;
             }
         }
-        NONE = new TrackingFailureReason("NONE", 0, 0);
+        NONE = new TrackingFailureReason(HlsPlaylistParser.METHOD_NONE, 0, 0);
         BAD_STATE = new TrackingFailureReason("BAD_STATE", 1, 1);
         INSUFFICIENT_LIGHT = new TrackingFailureReason("INSUFFICIENT_LIGHT", 2, 2);
         EXCESSIVE_MOTION = new TrackingFailureReason("EXCESSIVE_MOTION", 3, 3);

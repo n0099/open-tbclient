@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.b.kwai;
 
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.kwad.sdk.core.response.model.PhotoComment;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
@@ -25,8 +26,8 @@ public class cy implements com.kwad.sdk.core.d<PhotoComment> {
         photoComment.photo_id = jSONObject.optLong("photo_id");
         photoComment.author_id = jSONObject.optLong("author_id");
         photoComment.user_id = jSONObject.optLong("user_id");
-        photoComment.user_sex = jSONObject.optString("user_sex");
-        if (jSONObject.opt("user_sex") == JSONObject.NULL) {
+        photoComment.user_sex = jSONObject.optString(IntentConfig.USER_SEX);
+        if (jSONObject.opt(IntentConfig.USER_SEX) == JSONObject.NULL) {
             photoComment.user_sex = "";
         }
         photoComment.comment_id = jSONObject.optLong("comment_id");
@@ -55,7 +56,7 @@ public class cy implements com.kwad.sdk.core.d<PhotoComment> {
         com.kwad.sdk.utils.t.a(jSONObject, "photo_id", photoComment.photo_id);
         com.kwad.sdk.utils.t.a(jSONObject, "author_id", photoComment.author_id);
         com.kwad.sdk.utils.t.a(jSONObject, "user_id", photoComment.user_id);
-        com.kwad.sdk.utils.t.a(jSONObject, "user_sex", photoComment.user_sex);
+        com.kwad.sdk.utils.t.a(jSONObject, IntentConfig.USER_SEX, photoComment.user_sex);
         com.kwad.sdk.utils.t.a(jSONObject, "comment_id", photoComment.comment_id);
         com.kwad.sdk.utils.t.a(jSONObject, "headurl", photoComment.headurl);
         com.kwad.sdk.utils.t.a(jSONObject, "author_name", photoComment.author_name);

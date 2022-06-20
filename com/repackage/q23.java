@@ -1,48 +1,42 @@
 package com.repackage;
 
-import android.net.Uri;
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qy1;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.repackage.wo1;
+import com.repackage.x43;
+import com.repackage.xo1;
 /* loaded from: classes6.dex */
-public final class q23 {
+public final class q23 extends p13 implements xo1.c {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public CallbackHandler c;
 
     /* loaded from: classes6.dex */
-    public static class a implements Runnable {
+    public class a implements le3<v43<x43.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ wo1.c b;
+        public final /* synthetic */ sz2 c;
+        public final /* synthetic */ q23 d;
 
-        public a(String str) {
+        public a(q23 q23Var, CallbackHandler callbackHandler, wo1.c cVar, sz2 sz2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str};
+                Object[] objArr = {q23Var, callbackHandler, cVar, sz2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,310 +46,121 @@ public final class q23 {
                     return;
                 }
             }
-            this.a = str;
+            this.d = q23Var;
+            this.a = callbackHandler;
+            this.b = cVar;
+            this.c = sz2Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            qy1 V;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.le3
+        /* renamed from: b */
+        public void a(v43<x43.e> v43Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (V = uk2.U().V()) == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v43Var) == null) {
+                this.d.k(v43Var, this.a, this.b, this.c.n0());
             }
-            qy1.b i = V.i(this.a);
-            i.f();
-            i.b();
-            hw1.k("ActionUtils", "popAllFragment: finish");
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755432065, "Lcom/repackage/q23;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755432065, "Lcom/repackage/q23;");
-                return;
-            }
-        }
-        a = rf1.a;
-    }
-
-    public static y52 a(nl1<?> nl1Var, hp2 hp2Var, String str) {
-        InterceptResult invokeLLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public q23(p03 p03Var) {
+        super(p03Var, "/swanAPI/getLocation");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, nl1Var, hp2Var, str)) == null) {
-            wz2 f = uk2.U().f(hp2Var.d);
-            y52 y52Var = new y52();
-            y52Var.i = nl1Var.M();
-            y52Var.a = hp2Var.c;
-            if (hz2.L() != null) {
-                y52Var.c = hz2.L().c0(hp2Var.d);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {p03Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            y52Var.k = v52.c(hz2.L(), hp2Var.a);
-            y52Var.b = hp2.b(hp2Var);
-            y52Var.d = f.g;
-            y52Var.e = String.valueOf(ew1.a());
-            if (hz2.L() != null) {
-                String W = hz2.L().W(hp2Var.d);
-                if (!TextUtils.isEmpty(W)) {
-                    if (a) {
-                        Log.d("ActionUtils", "add initData: " + W);
-                    }
-                    y52Var.f = W;
-                }
-            }
-            y52Var.g = a || uk2.U().N();
-            y52Var.h = str;
-            if (gv2.H()) {
-                y52Var.j = kw1.d();
-            }
-            if (a) {
-                Log.i("ActionUtils", "buildPageEvent: " + Arrays.toString(new Exception().getStackTrace()));
-            }
-            j93.b(y52Var.a, y52Var.b);
-            return y52Var;
         }
-        return (y52) invokeLLL.objValue;
     }
 
-    public static JSONObject b(@NonNull hz2 hz2Var, String str, String str2, List<String> list) {
+    @Override // com.repackage.xo1.c
+    public void b(wo1.c cVar, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, cVar, i) == null) || this.c == null) {
+            return;
+        }
+        sw1.c("GetLocationAction", "request location error code : " + i);
+        this.c.handleSchemeDispatchCallback(cVar.c, UnitedSchemeUtility.wrapCallbackParams(i).toString());
+    }
+
+    @Override // com.repackage.p13
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, sz2 sz2Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, hz2Var, str, str2, list)) == null) {
-            String f = zc3.f(str);
-            String o = zc3.o(str);
-            String b = z23.b(f);
-            String b0 = hz2Var.b0(f);
-            String c0 = hz2Var.c0(f);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, str2);
-                jSONObject.put("root", b0);
-                jSONObject.put("pageType", c0);
-                if (!TextUtils.isEmpty(str)) {
-                    jSONObject.put(PrefetchEvent.EVENT_KEY_PAGE_URL, str);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, sz2Var)) == null) {
+            if (p13.b) {
+                Log.d("GetLocationAction", "handle entity: " + unitedSchemeEntity.toString());
+            }
+            this.c = callbackHandler;
+            if (sz2Var == null) {
+                sw1.c("location", "swan app is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            }
+            wo1.c b = wo1.c.b(unitedSchemeEntity.getParam("params"));
+            if (b != null && b.a()) {
+                if (TextUtils.isEmpty(b.c)) {
+                    sw1.c("location", "empty cb");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
+                    return false;
                 }
-                if (!TextUtils.equals(f, b)) {
-                    if (!TextUtils.isEmpty(o)) {
-                        b = b + "?" + o;
-                    }
-                    jSONObject.put("pageRoutePath", b);
-                }
-                if (list != null && !list.isEmpty()) {
-                    JSONArray jSONArray = new JSONArray();
-                    for (String str3 : list) {
-                        jSONArray.put(str3);
-                    }
-                    jSONObject.put("removedSlaveIDs", jSONArray);
-                }
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
+                sz2Var.e0().g(context, "mapp_location", new a(this, callbackHandler, b, sz2Var));
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                return true;
             }
-            return jSONObject;
-        }
-        return (JSONObject) invokeLLLL.objValue;
-    }
-
-    public static JSONObject c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? d(str, "") : (JSONObject) invokeL.objValue;
-    }
-
-    public static JSONObject d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, str);
-                if (!TextUtils.isEmpty(str2)) {
-                    jSONObject.put(PrefetchEvent.EVENT_KEY_PAGE_URL, str2);
-                }
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeLL.objValue;
-    }
-
-    /* JADX WARN: Type inference failed for: r7v2, types: [com.repackage.ol1] */
-    public static void e(nl1<?> nl1Var, hp2 hp2Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, nl1Var, hp2Var, str) == null) {
-            ls2.a("route", "createAndLoadPage start.");
-            String a2 = bd3.a(hp2Var.c, hp2Var.a, hp2Var.b);
-            y52 a3 = a(nl1Var, hp2Var, str);
-            ms2.q("route", str).F(new UbcFlowEvent("slave_dispatch_start"));
-            oc3.d();
-            nl1Var.u().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, hp2Var.e());
-            nl1Var.U(a3.b);
-            uk2.U().m(nl1Var.c(), y52.a(a3));
-            if (z52.b()) {
-                z52 z52Var = new z52();
-                z52Var.a = nl1Var.c();
-                uk2.U().u(z52.a(z52Var));
-            }
-            r53.F(nl1Var.c(), a3.b);
-            m52.o(a2, nl1Var);
-            ls2.a("route", "createAndLoadPage end.");
-        }
-    }
-
-    public static void f(String str, String str2, @NonNull String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65542, null, str, str2, str3) == null) {
-            HashMap hashMap = new HashMap();
-            if (!TextUtils.isEmpty(str2)) {
-                hashMap.put("from", str2);
-            }
-            hashMap.put("url", str3);
-            i92 i92Var = new i92(str, hashMap);
-            PrefetchEvent.c createFromReLaunch = PrefetchEvent.createFromReLaunch(str2);
-            if (createFromReLaunch == null) {
-                uk2.U().u(i92Var);
-                return;
-            }
-            x52 x52Var = new x52();
-            x52Var.t(createFromReLaunch);
-            x52Var.t(i92Var);
-            uk2.U().u(x52Var);
-        }
-    }
-
-    public static List<String> g(qy1 qy1Var) {
-        InterceptResult invokeL;
-        ny1 j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, qy1Var)) == null) {
-            if (qy1Var != null && qy1Var.k() >= ap1.g && (j = qy1Var.j(0)) != null && (j instanceof py1)) {
-                return ((py1) j).t3();
-            }
-            return null;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static String h() {
-        InterceptResult invokeV;
-        nl1 n3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            py1 H = uk2.U().H();
-            if (H == null || (n3 = H.n3()) == null) {
-                return null;
-            }
-            return n3.o();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean i(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            String h = h();
-            if (a) {
-                Log.i("ActionUtils", "lastPageUrl: " + h + "\ncurPageUrl: " + str);
-            }
-            if (h != null && str != null) {
-                String x1 = ek2.x1(h);
-                String x12 = ek2.x1(str);
-                return (TextUtils.equals(x1, x12) || TextUtils.equals(Uri.decode(x1), x12) || TextUtils.equals(x1, Uri.decode(x12))) ? false : true;
-            }
+            sw1.c("location", "params is invalid");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public static void j(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
+    @Override // com.repackage.xo1.c
+    public void f(wo1.c cVar, String str) {
+        CallbackHandler callbackHandler;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65546, null, unitedSchemeEntity, callbackHandler, str) == null) {
-            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001, "No Package").toString(), str);
-        }
-    }
-
-    public static void k(hn1 hn1Var, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65547, null, hn1Var, str) == null) || hn1Var == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, str) == null) || (callbackHandler = this.c) == null) {
             return;
         }
-        hn1Var.d(str, new hr1(1001, "No Package"));
+        callbackHandler.handleSchemeDispatchCallback(cVar.c, UnitedSchemeUtility.wrapCallbackParams(10005, "system deny").toString());
     }
 
-    public static void l(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hz2 hz2Var, String str, String str2, List<String> list, String str3) {
+    @Override // com.repackage.xo1.c
+    public void g(wo1.c cVar, r23 r23Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{unitedSchemeEntity, callbackHandler, hz2Var, str, str2, list, str3}) == null) || hz2Var == null || TextUtils.isEmpty(str3)) {
-            return;
-        }
-        UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(b(hz2Var, str2, str, list), 0).toString(), str3);
-    }
-
-    public static void m(hn1 hn1Var, hz2 hz2Var, String str, String str2, List<String> list, String str3) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{hn1Var, hz2Var, str, str2, list, str3}) == null) || hn1Var == null || hz2Var == null || TextUtils.isEmpty(str3)) {
-            return;
-        }
-        hn1Var.d(str3, new hr1(0, b(hz2Var, str2, str, list)));
-    }
-
-    public static String n(UnitedSchemeEntity unitedSchemeEntity, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65550, null, unitedSchemeEntity, str, str2)) == null) {
-            if (TextUtils.isEmpty(str2)) {
-                return null;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, cVar, r23Var) == null) {
+            if (p13.b) {
+                Log.d("GetLocationAction", "convert info : " + r23Var.a());
             }
-            String str3 = unitedSchemeEntity.getParams().get(str);
-            if (TextUtils.isEmpty(str3)) {
-                return null;
+            CallbackHandler callbackHandler = this.c;
+            if (callbackHandler == null) {
+                return;
             }
-            try {
-                return new JSONObject(str3).optString(str2);
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-                return null;
-            }
+            callbackHandler.handleSchemeDispatchCallback(cVar.c, UnitedSchemeUtility.wrapCallbackParams(r23Var.a(), 0).toString());
         }
-        return (String) invokeLLL.objValue;
     }
 
-    public static String o(UnitedSchemeEntity unitedSchemeEntity, String str) {
-        InterceptResult invokeLL;
+    public final void k(v43<x43.e> v43Var, CallbackHandler callbackHandler, wo1.c cVar, boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, unitedSchemeEntity, str)) == null) ? n(unitedSchemeEntity, str, "url") : (String) invokeLL.objValue;
-    }
-
-    @Nullable
-    public static String p(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{v43Var, callbackHandler, cVar, Boolean.valueOf(z)}) == null) {
+            sw1.i("GetLocationAction", "authorized result is " + v43Var);
+            if (q43.h(v43Var)) {
+                xo1.d().e(cVar, this, z);
+                return;
             }
-            return jSONObject.optString("url");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65553, null, str) == null) {
-            hw1.k("ActionUtils", "popAllFragment: routeType=" + str);
-            bd3.e0(new a(str));
+            int b = v43Var.b();
+            callbackHandler.handleSchemeDispatchCallback(cVar.c, UnitedSchemeUtility.wrapCallbackParams(b, q43.f(b)).toString());
         }
     }
 }

@@ -1,26 +1,26 @@
 package com.repackage;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
-import android.graphics.PointF;
-import android.graphics.RectF;
-import android.graphics.Shader;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
 import android.widget.ImageView;
-import com.baidu.adp.newwidget.ImageView.DrawerArgs;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class uk extends kk {
+public class uk extends xk {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Matrix s;
-    public BitmapShader t;
-    public RectF u;
+    public final Rect A;
+    public final Paint x;
+    public final Paint y;
+    public final Rect z;
 
     public uk() {
         Interceptable interceptable = $ic;
@@ -35,120 +35,56 @@ public class uk extends kk {
                 return;
             }
         }
-        this.s = new Matrix();
-        this.u = new RectF();
+        this.x = new Paint();
+        this.y = new Paint();
+        this.z = new Rect(0, 0, 0, 0);
+        this.A = new Rect(0, 0, 0, 0);
+        this.x.setColor(-16777216);
+        this.x.setStyle(Paint.Style.FILL);
+        this.x.setAntiAlias(true);
+        this.y.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
     }
 
-    @Override // com.repackage.kk
-    public void a(nk nkVar, ImageView imageView) {
+    @Override // com.repackage.qk, com.repackage.ok
+    public void h(Canvas canvas, rk rkVar, ImageView imageView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, nkVar, imageView) == null) {
-            int b = nkVar.b();
-            int a = nkVar.a();
-            RectF rectF = this.g;
-            PointF b2 = b(rectF.left, rectF.top, this.f);
-            int i = (int) b2.x;
-            int i2 = (int) b2.y;
-            RectF rectF2 = this.g;
-            PointF b3 = b(rectF2.right, rectF2.bottom, this.f);
-            int i3 = (int) b3.x;
-            int i4 = (int) b3.y;
-            this.s.reset();
-            this.s.postScale((i3 - i) / b, (i4 - i2) / a);
-            this.s.postTranslate(i, i2);
-            if (nkVar.e()) {
-                Bitmap bitmap = nkVar.a.getBitmap();
-                Shader.TileMode tileMode = Shader.TileMode.CLAMP;
-                this.t = new BitmapShader(bitmap, tileMode, tileMode);
-            } else {
-                this.t = nkVar.b.d();
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, canvas, rkVar, imageView) == null) {
+            Matrix matrix = this.f;
+            if (matrix != null) {
+                canvas.concat(matrix);
             }
-            BitmapShader bitmapShader = this.t;
-            if (bitmapShader == null) {
-                return;
-            }
-            bitmapShader.setLocalMatrix(this.s);
-            this.c.setShader(this.t);
-            int width = (imageView.getWidth() - imageView.getPaddingLeft()) - imageView.getPaddingRight();
-            int height = (imageView.getHeight() - imageView.getPaddingTop()) - imageView.getPaddingBottom();
-            this.u.set(Math.max(i, 0), Math.max(i2, 0), Math.min(i3, width), Math.min(i4, height));
-            DrawerArgs drawerArgs = this.l;
-            if (drawerArgs.c) {
-                float f = drawerArgs.d / 2.0f;
-                if (!drawerArgs.g) {
-                    this.h.set(f, f, imageView.getWidth() - f, imageView.getHeight() - f);
+            if (rkVar.e()) {
+                Bitmap bitmap = rkVar.a.getBitmap();
+                if (this.w) {
+                    x(canvas, bitmap);
                     return;
                 }
-                RectF rectF3 = this.h;
-                RectF rectF4 = this.u;
-                rectF3.set(rectF4.left + f, rectF4.top + f, rectF4.right - f, rectF4.bottom - f);
-            }
-        }
-    }
-
-    @Override // com.repackage.kk
-    public void f(Canvas canvas, ImageView imageView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, imageView) == null) {
-            DrawerArgs drawerArgs = this.l;
-            if (drawerArgs.c) {
-                if (!drawerArgs.b) {
-                    canvas.drawPath(l(this.h, drawerArgs.a), this.d);
+                this.A.set(0, 0, rkVar.b(), rkVar.a());
+                rkVar.b.g(canvas, this.A, this.g, this.c);
+            } else if (rkVar.d()) {
+                if (this.w) {
+                    x(canvas, rkVar.b.p());
                     return;
                 }
-                RectF rectF = this.u;
-                float f = (rectF.right + rectF.left) / 2.0f;
-                float f2 = (rectF.top + rectF.bottom) / 2.0f;
-                float min = Math.min(rectF.width(), this.u.height()) / 2.0f;
-                if (min <= 0.0f) {
-                    f = (imageView.getRight() + imageView.getLeft()) / 2.0f;
-                    f2 = (imageView.getTop() + imageView.getBottom()) / 2.0f;
-                    min = Math.min(imageView.getWidth(), imageView.getHeight()) / 2.0f;
-                }
-                canvas.drawCircle(f, f2, min - (this.l.d / 2.0f), this.d);
-            }
-        }
-    }
-
-    @Override // com.repackage.kk
-    public void h(Canvas canvas, nk nkVar, ImageView imageView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, canvas, nkVar, imageView) == null) {
-            boolean d = nkVar.d();
-            if (d && nkVar.d()) {
-                nkVar.b.b(true);
-            }
-            DrawerArgs drawerArgs = this.l;
-            if (!drawerArgs.b) {
-                canvas.drawPath(l(this.u, drawerArgs.a), this.c);
+                this.A.set(0, 0, rkVar.b(), rkVar.a());
+                rkVar.b.g(canvas, this.A, this.g, this.c);
             } else {
-                RectF rectF = this.u;
-                canvas.drawCircle((rectF.right + rectF.left) / 2.0f, (rectF.top + rectF.bottom) / 2.0f, Math.min(rectF.width(), this.u.height()) / 2.0f, this.c);
-            }
-            if (d && nkVar.d()) {
-                nkVar.b.b(false);
+                this.A.set(0, 0, rkVar.b(), rkVar.a());
+                rkVar.b.g(canvas, this.A, this.g, this.c);
             }
         }
     }
 
-    @Override // com.repackage.kk
-    public void i(Canvas canvas, ImageView imageView) {
+    public void x(Canvas canvas, Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, canvas, imageView) == null) || this.l.m == 0) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, bitmap) == null) {
+            this.A.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
+            this.z.set(0, 0, (int) this.g.width(), (int) this.g.height());
+            canvas.save();
+            canvas.drawARGB(0, 0, 0, 0);
+            canvas.drawPath(this.t, this.x);
+            canvas.drawBitmap(bitmap, this.A, this.g, this.y);
+            canvas.restore();
         }
-        int scrollX = imageView.getScrollX();
-        int scrollY = imageView.getScrollY();
-        canvas.translate(scrollX, scrollY);
-        this.e.setColor(this.l.m);
-        if (!this.l.b) {
-            this.o.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
-            canvas.drawPath(l(this.o, this.l.a), this.e);
-        } else {
-            float width = imageView.getWidth() / 2.0f;
-            float height = imageView.getHeight() / 2.0f;
-            canvas.drawCircle(width, height, Math.min(width, height) - (this.l.d / 2.0f), this.e);
-        }
-        canvas.translate(-scrollX, -scrollY);
     }
 }

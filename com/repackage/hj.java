@@ -1,7 +1,6 @@
 package com.repackage;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,349 +8,132 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.InetSocketAddress;
-import java.net.Socket;
+import java.nio.Buffer;
 import java.nio.ByteBuffer;
-import java.nio.channels.SocketChannel;
 /* loaded from: classes6.dex */
-public class hj {
+public class hj extends OutputStream {
     public static /* synthetic */ Interceptable $ic;
-    public static ej a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public final int b;
+    public ByteBuffer c;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        int a();
-
-        String b();
-
-        long c();
-
-        void close() throws IOException;
-
-        String d();
-
-        String getLocalDns();
-
-        boolean isConnected();
-
-        int read(ByteBuffer byteBuffer) throws Exception;
-
-        int write(ByteBuffer byteBuffer) throws Exception;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public SocketChannel a;
-        public long b;
-        public String c;
-        public String d;
-        public String e;
-
-        public b(String str, int i, gk gkVar) throws Exception {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i), gkVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = null;
-            this.b = 0L;
-            this.c = null;
-            this.d = null;
-            this.e = null;
-            this.a = SocketChannel.open();
-            long currentTimeMillis = System.currentTimeMillis();
-            InetSocketAddress inetSocketAddress = new InetSocketAddress(str, i);
-            if (inetSocketAddress.getAddress() != null) {
-                this.c = inetSocketAddress.getAddress().getHostAddress();
-                this.b = System.currentTimeMillis() - currentTimeMillis;
-            }
-            this.a.socket().connect(inetSocketAddress, gkVar.e());
-            this.a.socket().setSoTimeout(gkVar.f());
-            this.a.socket().setTcpNoDelay(gkVar.g());
-            this.d = li.m();
-            this.e = li.n();
-        }
-
-        @Override // com.repackage.hj.a
-        public int a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.repackage.hj.a
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (String) invokeV.objValue;
-        }
-
-        @Override // com.repackage.hj.a
-        public long c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.longValue;
-        }
-
-        @Override // com.repackage.hj.a
-        public void close() throws IOException {
-            SocketChannel socketChannel;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (socketChannel = this.a) == null) {
-                return;
-            }
-            socketChannel.close();
-        }
-
-        @Override // com.repackage.hj.a
-        public String d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (String) invokeV.objValue;
-        }
-
-        @Override // com.repackage.hj.a
-        public String getLocalDns() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : (String) invokeV.objValue;
-        }
-
-        @Override // com.repackage.hj.a
-        public boolean isConnected() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                SocketChannel socketChannel = this.a;
-                if (socketChannel != null) {
-                    return socketChannel.isConnected();
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.repackage.hj.a
-        public int read(ByteBuffer byteBuffer) throws Exception {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, byteBuffer)) == null) ? this.a.read(byteBuffer) : invokeL.intValue;
-        }
-
-        @Override // com.repackage.hj.a
-        public int write(ByteBuffer byteBuffer) throws Exception {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, byteBuffer)) == null) ? this.a.write(byteBuffer) : invokeL.intValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c implements a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Socket a;
-        public InputStream b;
-        public OutputStream c;
-        public byte[] d;
-        public long e;
-        public String f;
-        public String g;
-        public String h;
-
-        public c(String str, int i, gk gkVar) throws Exception {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i), gkVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = null;
-            this.b = null;
-            this.c = null;
-            this.d = null;
-            this.e = 0L;
-            this.f = null;
-            this.g = null;
-            this.h = null;
-            this.a = new Socket();
-            long currentTimeMillis = System.currentTimeMillis();
-            InetSocketAddress inetSocketAddress = new InetSocketAddress(str, i);
-            if (inetSocketAddress.getAddress() != null) {
-                this.f = inetSocketAddress.getAddress().getHostAddress();
-                this.e = System.currentTimeMillis() - currentTimeMillis;
-            }
-            this.a.connect(inetSocketAddress, gkVar.e());
-            this.a.setSoTimeout(gkVar.f());
-            this.a.setTcpNoDelay(gkVar.g());
-            this.b = this.a.getInputStream();
-            this.c = this.a.getOutputStream();
-            this.d = new byte[1024];
-            this.g = li.m();
-            this.h = li.n();
-        }
-
-        @Override // com.repackage.hj.a
-        public int a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.repackage.hj.a
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h : (String) invokeV.objValue;
-        }
-
-        @Override // com.repackage.hj.a
-        public long c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : invokeV.longValue;
-        }
-
-        @Override // com.repackage.hj.a
-        public void close() throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                try {
-                    this.b.close();
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
-                try {
-                    this.c.close();
-                } catch (Exception e2) {
-                    BdLog.e(e2.getMessage());
-                }
-                Socket socket = this.a;
-                if (socket != null) {
-                    try {
-                        socket.close();
-                    } catch (IOException e3) {
-                        throw e3;
-                    } catch (Throwable unused) {
-                    }
-                }
-            }
-        }
-
-        @Override // com.repackage.hj.a
-        public String d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : (String) invokeV.objValue;
-        }
-
-        @Override // com.repackage.hj.a
-        public String getLocalDns() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.g : (String) invokeV.objValue;
-        }
-
-        @Override // com.repackage.hj.a
-        public boolean isConnected() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                Socket socket = this.a;
-                if (socket != null) {
-                    return socket.isConnected();
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.repackage.hj.a
-        public int read(ByteBuffer byteBuffer) throws Exception {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, byteBuffer)) == null) {
-                int read = this.b.read(this.d);
-                if (read > 0) {
-                    byteBuffer.put(this.d, 0, read);
-                }
-                return read;
-            }
-            return invokeL.intValue;
-        }
-
-        @Override // com.repackage.hj.a
-        public int write(ByteBuffer byteBuffer) throws Exception {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, byteBuffer)) == null) {
-                int remaining = byteBuffer.remaining();
-                if (remaining > 0) {
-                    byte[] bArr = new byte[remaining];
-                    byteBuffer.get(bArr);
-                    this.c.write(bArr);
-                }
-                return remaining;
-            }
-            return invokeL.intValue;
-        }
-    }
-
-    public hj() {
+    public hj(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = i;
+        this.b = i2;
+        ByteBuffer allocateDirect = ByteBuffer.allocateDirect(i);
+        this.c = allocateDirect;
+        allocateDirect.clear();
+    }
+
+    public Buffer a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c.clear() : (Buffer) invokeV.objValue;
+    }
+
+    public synchronized void c() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                write(13);
+                write(10);
             }
         }
     }
 
-    public a a(String str, int i, gk gkVar, boolean z) throws Exception {
-        InterceptResult invokeCommon;
+    public synchronized void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), gkVar, Boolean.valueOf(z)})) == null) {
-            ej ejVar = a;
-            if (ejVar != null) {
-                return ejVar.a(str, i, gkVar);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            synchronized (this) {
+                if (i > this.c.capacity()) {
+                    ByteBuffer byteBuffer = this.c;
+                    int position = this.c.position();
+                    this.c = ByteBuffer.allocateDirect(((i / this.b) + 1) * this.b);
+                    byteBuffer.clear();
+                    this.c.clear();
+                    this.c.put(byteBuffer);
+                    this.c.position(position);
+                }
             }
-            if (z) {
-                return new b(str, i, gkVar);
-            }
-            return new c(str, i, gkVar);
         }
-        return (a) invokeCommon.objValue;
+    }
+
+    public Buffer e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c.flip() : (Buffer) invokeV.objValue;
+    }
+
+    public ByteBuffer f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (ByteBuffer) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c.remaining() : invokeV.intValue;
+    }
+
+    public synchronized void h(String str) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            synchronized (this) {
+                write(str.getBytes("UTF-8"));
+            }
+        }
+    }
+
+    @Override // java.io.OutputStream
+    public synchronized void write(int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            synchronized (this) {
+                if (this.c.position() + 1 > this.c.capacity()) {
+                    d(this.c.capacity() + 1);
+                }
+                this.c.put((byte) i);
+            }
+        }
+    }
+
+    @Override // java.io.OutputStream
+    public synchronized void write(byte[] bArr, int i, int i2) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048585, this, bArr, i, i2) == null) {
+            synchronized (this) {
+                if (this.c.position() + i2 > this.c.capacity()) {
+                    d(this.c.capacity() + i2);
+                }
+                this.c.put(bArr, i, i2);
+            }
+        }
+    }
+
+    @Override // java.io.OutputStream
+    public synchronized void write(byte[] bArr) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr) == null) {
+            synchronized (this) {
+                write(bArr, 0, bArr.length);
+            }
+        }
     }
 }

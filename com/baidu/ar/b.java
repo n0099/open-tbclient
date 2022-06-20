@@ -98,8 +98,8 @@ public class b {
                             this.F.a(cVar.mClassName, cVar.H, cVar.I, cVar.G, cVar.J, cVar.K);
                             return;
                         case 1002:
-                            C0051b c0051b = (C0051b) message.obj;
-                            this.F.a(c0051b.mClassName, c0051b.G);
+                            C0053b c0053b = (C0053b) message.obj;
+                            this.F.a(c0053b.mClassName, c0053b.G);
                             return;
                         case 1003:
                             d dVar = (d) message.obj;
@@ -118,14 +118,14 @@ public class b {
 
     /* renamed from: com.baidu.ar.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0051b {
+    public class C0053b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b F;
         public HashMap<String, Object> G;
         public String mClassName;
 
-        public C0051b(b bVar, String str, HashMap<String, Object> hashMap) {
+        public C0053b(b bVar, String str, HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1068,9 +1068,9 @@ public class b {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, hashMap)) == null) {
             if (this.u.contains(str)) {
                 if (this.c != null) {
-                    C0051b c0051b = new C0051b(this, this.j.get(str), hashMap);
+                    C0053b c0053b = new C0053b(this, this.j.get(str), hashMap);
                     a aVar = this.c;
-                    aVar.sendMessage(aVar.obtainMessage(1002, c0051b));
+                    aVar.sendMessage(aVar.obtainMessage(1002, c0053b));
                     return true;
                 }
                 return false;

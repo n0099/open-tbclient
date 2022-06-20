@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -32,24 +31,24 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pr5;
+import com.repackage.os5;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<AlaSquareTabInfo> mAlaSquareTabInfos;
-    public View mCustomScrollView;
-    public pr5 mGameEntryAdapter;
-    public NoScrollGridView mGridView;
-    public int mHasSearchTab;
-    public NavigationBar mNavigationBar;
-    public LinearLayout mNoDataRootView;
-    public LinearLayout mRootView;
-    public ImageView mSearchIcon;
-    public LinearLayout mSearchRoot;
-    public IAlaSquareTabController mSquareTabController;
-    public TextView mTextSearchHint;
+    public LinearLayout a;
+    public NavigationBar b;
+    public LinearLayout c;
+    public TextView d;
+    public ImageView e;
+    public NoScrollGridView f;
+    public View g;
+    public LinearLayout h;
+    public os5 i;
+    public int j;
+    public ArrayList<AlaSquareTabInfo> k;
+    public IAlaSquareTabController l;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -112,12 +111,12 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
         public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
             AlaSquareTabInfo alaSquareTabInfo;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || (alaSquareTabInfo = (AlaSquareTabInfo) ListUtils.getItem(this.a.mGameEntryAdapter.a(), i)) == null || this.a.mSquareTabController == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || (alaSquareTabInfo = (AlaSquareTabInfo) ListUtils.getItem(this.a.i.a(), i)) == null || this.a.l == null) {
                 return;
             }
-            int tabIndex = this.a.mSquareTabController.getTabIndex(alaSquareTabInfo.id);
+            int tabIndex = this.a.l.getTabIndex(alaSquareTabInfo.id);
             if (tabIndex >= 0) {
-                this.a.mSquareTabController.goToTab(tabIndex);
+                this.a.l.goToTab(tabIndex);
                 this.a.finish();
                 return;
             }
@@ -139,89 +138,89 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
         }
     }
 
-    private void dealWithIntent() {
-        Intent intent;
+    public final void initView() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        this.mHasSearchTab = intent.getIntExtra(AlaAllGameLiveEntryActivityConfig.ALA_ALL_GAME_ENTRY_HAS_SEARCH, 0);
-        this.mAlaSquareTabInfos = intent.getParcelableArrayListExtra(AlaAllGameLiveEntryActivityConfig.ALA_ALL_GAME_ENTRY_DATA);
-    }
-
-    private void initView() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) View.inflate(getPageContext().getPageActivity(), R.layout.obfuscated_res_0x7f0d00e3, null);
-            this.mRootView = linearLayout;
-            NavigationBar navigationBar = (NavigationBar) linearLayout.findViewById(R.id.obfuscated_res_0x7f0923a2);
-            this.mNavigationBar = navigationBar;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LinearLayout linearLayout = (LinearLayout) View.inflate(getPageContext().getPageActivity(), R.layout.obfuscated_res_0x7f0d00e2, null);
+            this.a = linearLayout;
+            NavigationBar navigationBar = (NavigationBar) linearLayout.findViewById(R.id.obfuscated_res_0x7f09238f);
+            this.b = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.mNavigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f01f9));
-            LinearLayout linearLayout2 = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091c0e);
-            this.mSearchRoot = linearLayout2;
-            TextView textView = (TextView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f091c36);
-            this.mTextSearchHint = textView;
+            this.b.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f01f9));
+            LinearLayout linearLayout2 = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091c06);
+            this.c = linearLayout2;
+            TextView textView = (TextView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f091c2e);
+            this.d = textView;
             textView.setClickable(false);
-            this.mSearchIcon = (ImageView) this.mSearchRoot.findViewById(R.id.obfuscated_res_0x7f091c20);
-            this.mSearchRoot.setOnClickListener(new a(this));
-            if (this.mHasSearchTab == 1) {
-                this.mSearchRoot.setVisibility(0);
+            this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091c18);
+            this.c.setOnClickListener(new a(this));
+            if (this.j == 1) {
+                this.c.setVisibility(0);
             } else {
-                this.mSearchRoot.setVisibility(8);
+                this.c.setVisibility(8);
             }
-            this.mNoDataRootView = (LinearLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00e5, (ViewGroup) null);
-            this.mCustomScrollView = this.mRootView.findViewById(R.id.obfuscated_res_0x7f091bf8);
-            this.mGameEntryAdapter = new pr5(getPageContext());
-            NoScrollGridView noScrollGridView = (NoScrollGridView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0901e2);
-            this.mGridView = noScrollGridView;
+            this.h = (LinearLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00e4, (ViewGroup) null);
+            this.g = this.a.findViewById(R.id.obfuscated_res_0x7f091bf0);
+            this.i = new os5(getPageContext());
+            NoScrollGridView noScrollGridView = (NoScrollGridView) this.a.findViewById(R.id.obfuscated_res_0x7f0901e1);
+            this.f = noScrollGridView;
             noScrollGridView.setOnItemClickListener(new b(this));
-            this.mGridView.setAdapter((ListAdapter) this.mGameEntryAdapter);
-            if (ListUtils.isEmpty(this.mAlaSquareTabInfos)) {
-                this.mCustomScrollView.setVisibility(8);
-                this.mRootView.addView(this.mNoDataRootView, 1);
+            this.f.setAdapter((ListAdapter) this.i);
+            if (ListUtils.isEmpty(this.k)) {
+                this.g.setVisibility(8);
+                this.a.addView(this.h, 1);
             } else {
-                this.mRootView.removeView(this.mNoDataRootView);
-                this.mCustomScrollView.setVisibility(0);
-                this.mGameEntryAdapter.b(this.mAlaSquareTabInfos);
+                this.a.removeView(this.h);
+                this.g.setVisibility(0);
+                this.i.b(this.k);
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            setContentView(this.mRootView);
+            setContentView(this.a);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-            SkinManager.setImageResource(this.mSearchIcon, R.drawable.icon_search);
-            SkinManager.setViewTextColor(this.mTextSearchHint, (int) R.color.enter_forum_search_text_color);
-            SkinManager.setBackgroundResource(this.mSearchRoot, R.drawable.all_game_search_frame);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.b.onChangeSkinType(getPageContext(), i);
+            SkinManager.setImageResource(this.e, R.drawable.icon_search);
+            SkinManager.setViewTextColor(this.d, (int) R.color.enter_forum_search_text_color);
+            SkinManager.setBackgroundResource(this.c, R.drawable.all_game_search_frame);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            dealWithIntent();
+            s0();
             initView();
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(AlaCmdConfigCustom.CMD_ALA_SQUARE_TAB_CONTROLLER, IAlaSquareTabController.class);
             if (runTask == null || runTask.getData() == null) {
                 return;
             }
-            this.mSquareTabController = (IAlaSquareTabController) runTask.getData();
+            this.l = (IAlaSquareTabController) runTask.getData();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            this.mSquareTabController = null;
+            this.l = null;
         }
+    }
+
+    public final void s0() {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (intent = getIntent()) == null) {
+            return;
+        }
+        this.j = intent.getIntExtra(AlaAllGameLiveEntryActivityConfig.ALA_ALL_GAME_ENTRY_HAS_SEARCH, 0);
+        this.k = intent.getParcelableArrayListExtra(AlaAllGameLiveEntryActivityConfig.ALA_ALL_GAME_ENTRY_DATA);
     }
 }

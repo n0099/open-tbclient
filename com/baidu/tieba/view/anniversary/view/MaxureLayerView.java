@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.uq4;
+import com.repackage.dr4;
 import java.util.Arrays;
 /* loaded from: classes4.dex */
 public class MaxureLayerView extends View {
@@ -200,7 +200,7 @@ public class MaxureLayerView extends View {
         this.l.reset();
         this.m.right = getWidth();
         this.m.bottom = getHeight();
-        this.l.addRoundRect(this.m, uq4.y(this.j), Path.Direction.CW);
+        this.l.addRoundRect(this.m, dr4.y(this.j), Path.Direction.CW);
         canvas.clipPath(this.l);
         float f = 1.0f - ((100 - i) / 100.0f);
         canvas.drawRect(0.0f, f * getHeight(), getWidth(), (getHeight() * f) + r, this.e);

@@ -1,9 +1,9 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.searchbox.http.request.HttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,38 +11,35 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import com.baidubce.http.Headers;
+import java.io.IOException;
+import java.io.InterruptedIOException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.UUID;
-import org.json.JSONArray;
+import kotlinx.coroutines.DebugKt;
+import okhttp3.HttpUrl;
+import okhttp3.Interceptor;
+import okhttp3.Request;
+import okhttp3.Response;
 /* loaded from: classes6.dex */
-public class kr2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
-    public static final kr2 f;
+public class kr2 implements Interceptor {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = true;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<mr2> a;
-    public final Map<String, mr2> b;
-    public boolean c;
-    public jr2 d;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755549338, "Lcom/repackage/kr2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755549338, "Lcom/repackage/kr2;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755549338, "Lcom/repackage/kr2;")) == null) {
+            return;
         }
-        e = rf1.a;
-        f = new kr2();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755549338, "Lcom/repackage/kr2;");
+        }
     }
 
     public kr2() {
@@ -55,144 +52,130 @@ public class kr2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList();
-        this.b = new HashMap();
-        this.c = false;
     }
 
-    public static kr2 f() {
-        InterceptResult invokeV;
+    public static Map<String, String> a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f : (kr2) invokeV.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            HashMap hashMap = new HashMap();
+            if (a) {
+                if (str == null) {
+                    str = "";
+                }
+                if (str2 == null) {
+                    str2 = "";
+                }
+                hashMap.put("___check_redirect___", DebugKt.DEBUG_PROPERTY_VALUE_ON);
+                hashMap.put("___request_type___", str);
+                hashMap.put("___plugin_id___", str2);
+                return hashMap;
+            }
+            return hashMap;
+        }
+        return (Map) invokeLL.objValue;
     }
 
-    public void a(HybridUbcFlow hybridUbcFlow) {
+    public static HttpRequest e(HttpRequest httpRequest, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, hybridUbcFlow) == null) || hybridUbcFlow == null) {
-            return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, httpRequest, str, str2)) == null) {
+            if (a && httpRequest != null) {
+                if (str == null) {
+                    str = "";
+                }
+                if (str2 == null) {
+                    str2 = "";
+                }
+                return httpRequest.newBuilder().addHeader("___check_redirect___", DebugKt.DEBUG_PROPERTY_VALUE_ON).addHeader("___request_type___", str).addHeader("___plugin_id___", str2).build();
+            }
+            return httpRequest;
         }
-        JSONArray e2 = e();
-        if (e2 != null && e2.length() > 0) {
-            hybridUbcFlow.D("ma_update_recorder", e2.toString());
-        }
-        c();
+        return (HttpRequest) invokeLLL.objValue;
     }
 
-    public String b(String str) {
+    public static Request f(Request request, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, request, str, str2)) == null) {
+            if (a && request != null) {
+                if (str == null) {
+                    str = "";
+                }
+                if (str2 == null) {
+                    str2 = "";
+                }
+                return request.newBuilder().addHeader("___check_redirect___", DebugKt.DEBUG_PROPERTY_VALUE_ON).addHeader("___request_type___", str).addHeader("___plugin_id___", str2).build();
+            }
+            return request;
+        }
+        return (Request) invokeLLL.objValue;
+    }
+
+    public final boolean b(Response response) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.c) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, response)) == null) {
+            if (response == null) {
+                return false;
             }
-            if (e) {
-                Log.d("MaUpdateRecorder", "begin update scope id - " + str);
+            int code = response.code();
+            if (TextUtils.isEmpty(response.header(Headers.LOCATION))) {
+                return false;
             }
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            String str2 = Thread.currentThread().getName() + "-" + UUID.randomUUID().toString();
-            mr2 mr2Var = new mr2(str);
-            mr2Var.a(currentTimeMillis);
-            synchronized (this.a) {
-                this.b.put(str2, mr2Var);
-            }
-            if (e) {
-                Log.d("MaUpdateRecorder", "begin update uni tag - " + str2);
-                Log.d("MaUpdateRecorder", "begin update ts - " + currentTimeMillis);
-            }
-            return str2;
+            return (307 <= code && code <= 308) || (300 <= code && code <= 303);
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void c() {
+    public final boolean c(Request request) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c = true;
-            synchronized (this.a) {
-                this.a.clear();
-                this.b.clear();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request)) == null) {
+            if (request == null) {
+                return false;
             }
-            if (e) {
-                Log.d("MaUpdateRecorder", "done");
-            }
+            return TextUtils.equals(request.headers().get("___check_redirect___"), DebugKt.DEBUG_PROPERTY_VALUE_ON);
         }
+        return invokeL.booleanValue;
     }
 
-    public void d(String str) {
+    public final Request d(Request request) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || this.c) {
-            return;
-        }
-        if (e) {
-            Log.d("MaUpdateRecorder", "end update uni tag - " + str);
-        }
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        synchronized (this.a) {
-            mr2 mr2Var = this.b.get(str);
-            if (mr2Var != null) {
-                mr2Var.c(currentTimeMillis);
-                this.a.add(mr2Var);
-                this.b.remove(str);
-            }
-        }
-        if (e) {
-            Log.d("MaUpdateRecorder", "end update ts - " + currentTimeMillis);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, request)) == null) ? request == null ? request : request.newBuilder().removeHeader("___check_redirect___").removeHeader("___request_type___").removeHeader("___plugin_id___").build() : (Request) invokeL.objValue;
     }
 
-    public final JSONArray e() {
-        InterceptResult invokeV;
+    @Override // okhttp3.Interceptor
+    public Response intercept(Interceptor.Chain chain) throws IOException {
+        InterceptResult invokeL;
+        HttpUrl resolve;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            synchronized (this.a) {
-                try {
-                    for (mr2 mr2Var : this.a) {
-                        if (mr2Var != null && (this.d == null || this.d.a(mr2Var))) {
-                            jSONArray.put(mr2Var.d());
-                        }
-                    }
-                } catch (Exception e2) {
-                    if (e) {
-                        e2.printStackTrace();
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, chain)) == null) {
+            Request request = chain.request();
+            if (!a) {
+                return chain.proceed(request);
+            }
+            if (!c(request)) {
+                return chain.proceed(request);
+            }
+            okhttp3.Headers headers = request.headers();
+            String str = headers.get("___request_type___");
+            String str2 = headers.get("___plugin_id___");
+            Response proceed = chain.proceed(d(request));
+            if (b(proceed)) {
+                String header = proceed.header(Headers.LOCATION);
+                if (TextUtils.isEmpty(header) || (resolve = proceed.request().url().resolve(header)) == null || j03.c(str, resolve.toString(), str2) == 0) {
+                    return proceed;
                 }
+                String str3 = "redirect error:" + resolve.toString() + " scheme illegal or not in domain list";
+                sw1.o("SafeRedirectCheck", str3);
+                throw new InterruptedIOException(str3);
             }
-            if (e) {
-                Log.d("MaUpdateRecorder", jSONArray.toString());
-            }
-            return jSONArray;
+            return proceed;
         }
-        return (JSONArray) invokeV.objValue;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.c = false;
-            synchronized (this.a) {
-                this.a.clear();
-                this.b.clear();
-            }
-            if (e) {
-                Log.d("MaUpdateRecorder", "reset");
-            }
-        }
-    }
-
-    public void h(jr2 jr2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, jr2Var) == null) {
-            this.d = jr2Var;
-        }
+        return (Response) invokeL.objValue;
     }
 }

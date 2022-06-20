@@ -19,12 +19,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hn5;
-import com.repackage.ji;
-import com.repackage.jn;
-import com.repackage.li;
+import com.repackage.fo5;
+import com.repackage.lp5;
+import com.repackage.ni;
+import com.repackage.nn;
 import com.repackage.no5;
-import com.repackage.pn5;
+import com.repackage.pi;
 import com.yy.hiidostatis.inner.FlushManager;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -36,7 +36,7 @@ public class AlaLiveTabRecomModel extends BdBaseModel {
     public boolean c;
     public boolean d;
     public BdUniqueId e;
-    public no5 f;
+    public lp5 f;
     public long g;
     public int h;
     public b i;
@@ -75,36 +75,36 @@ public class AlaLiveTabRecomModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021141 && (httpResponsedMessage instanceof AlaTabLiveResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.a.e) {
                 AlaTabLiveResponsedMessage alaTabLiveResponsedMessage = (AlaTabLiveResponsedMessage) httpResponsedMessage;
-                hn5 hn5Var = new hn5();
+                fo5 fo5Var = new fo5();
                 if (alaTabLiveResponsedMessage.getError() != 0 || !alaTabLiveResponsedMessage.isSuccess()) {
                     if (this.a.i != null) {
                         this.a.i.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.d);
                     }
-                    hn5Var.a = false;
+                    fo5Var.a = false;
                     httpResponsedMessage.getError();
                     httpResponsedMessage.getErrorString();
                 } else {
-                    pn5 pn5Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
+                    no5 no5Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
                     if (this.a.d) {
-                        this.a.f.a(pn5Var);
-                        AlaLiveTabRecomModel.E(this.a);
+                        this.a.f.a(no5Var);
+                        AlaLiveTabRecomModel.F(this.a);
                     } else {
                         AlaLiveTabFragment.i++;
                         if (this.a.f != null) {
                             this.a.f.b();
                         }
-                        this.a.f = new no5(alaTabLiveResponsedMessage);
+                        this.a.f = new lp5(alaTabLiveResponsedMessage);
                     }
                     AlaLiveTabRecomModel alaLiveTabRecomModel = this.a;
                     alaLiveTabRecomModel.c = alaLiveTabRecomModel.f.h();
                     if (this.a.i != null) {
                         this.a.i.a(this.a.c, this.a.f.d());
                     }
-                    hn5Var.a = true;
+                    fo5Var.a = true;
                 }
-                hn5Var.b = this.a.d;
-                hn5Var.c = alaTabLiveResponsedMessage.superEntranceInfo;
-                this.a.I(hn5Var);
+                fo5Var.b = this.a.d;
+                fo5Var.c = alaTabLiveResponsedMessage.superEntranceInfo;
+                this.a.J(fo5Var);
                 this.a.d = false;
             }
         }
@@ -112,7 +112,7 @@ public class AlaLiveTabRecomModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(boolean z, List<jn> list);
+        void a(boolean z, List<nn> list);
 
         void b(int i, String str, boolean z);
     }
@@ -139,38 +139,38 @@ public class AlaLiveTabRecomModel extends BdBaseModel {
         this.h = i;
     }
 
-    public static /* synthetic */ int E(AlaLiveTabRecomModel alaLiveTabRecomModel) {
+    public static /* synthetic */ int F(AlaLiveTabRecomModel alaLiveTabRecomModel) {
         int i = alaLiveTabRecomModel.b;
         alaLiveTabRecomModel.b = i + 1;
         return i;
     }
 
-    public final void I(hn5 hn5Var) {
+    public final void J(fo5 fo5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hn5Var) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(AlaCmdConfigCustom.CMD_ALA_LIVE_TAB_RESPONSE, hn5Var));
+        if (interceptable == null || interceptable.invokeL(1048576, this, fo5Var) == null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(AlaCmdConfigCustom.CMD_ALA_LIVE_TAB_RESPONSE, fo5Var));
         }
     }
 
-    public final void J(int i, int i2, int i3) {
+    public final void K(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3) == null) {
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO);
             httpMessage.addParam("tab_id", this.h);
             String str = "N";
-            if (ji.z()) {
-                if (ji.H()) {
+            if (ni.z()) {
+                if (ni.H()) {
                     str = "1_0";
-                } else if (ji.v()) {
+                } else if (ni.v()) {
                     str = "0_13";
-                } else if (ji.u()) {
+                } else if (ni.u()) {
                     str = "0_3";
-                } else if (ji.t()) {
+                } else if (ni.t()) {
                     str = "0_2";
                 }
             }
             httpMessage.addParam("network", str);
-            httpMessage.addParam("ua_str", li.k(this.a.getPageActivity()) + "_" + li.i(this.a.getPageActivity()) + "_android_" + TbConfig.getVersion());
+            httpMessage.addParam("ua_str", pi.k(this.a.getPageActivity()) + "_" + pi.i(this.a.getPageActivity()) + "_android_" + TbConfig.getVersion());
             httpMessage.addParam("session_id", this.g);
             httpMessage.addParam("refresh_type", i2);
             httpMessage.addParam("big_refresh_count", i3);
@@ -179,11 +179,23 @@ public class AlaLiveTabRecomModel extends BdBaseModel {
         }
     }
 
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.c && !this.d) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (currentTimeMillis - this.g >= FlushManager.ReportTimer.DEFAULT_INTERVAL) {
+                this.g = currentTimeMillis;
+            }
+            this.d = true;
+            K(this.b + 1, 1, AlaLiveTabFragment.i - 1);
+        }
+    }
+
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -191,7 +203,7 @@ public class AlaLiveTabRecomModel extends BdBaseModel {
 
     public void init() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             MessageManager.getInstance().registerListener(this.j);
         }
     }
@@ -200,22 +212,10 @@ public class AlaLiveTabRecomModel extends BdBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
-    }
-
-    public void loadMore() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.c && !this.d) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.g >= FlushManager.ReportTimer.DEFAULT_INTERVAL) {
-                this.g = currentTimeMillis;
-            }
-            this.d = true;
-            J(this.b + 1, 1, AlaLiveTabFragment.i - 1);
-        }
     }
 
     public void onDestroy() {
@@ -231,7 +231,7 @@ public class AlaLiveTabRecomModel extends BdBaseModel {
             this.g = System.currentTimeMillis();
             this.d = false;
             this.b = 1;
-            J(1, 0, AlaLiveTabFragment.i);
+            K(1, 0, AlaLiveTabFragment.i);
         }
     }
 }

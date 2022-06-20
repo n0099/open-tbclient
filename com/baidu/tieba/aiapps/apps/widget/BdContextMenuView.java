@@ -18,10 +18,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rf1;
-import com.repackage.ry2;
+import com.repackage.cg1;
+import com.repackage.cz2;
 /* loaded from: classes3.dex */
-public class BdContextMenuView extends FrameLayout implements ry2.g {
+public class BdContextMenuView extends FrameLayout implements cz2.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
@@ -82,7 +82,7 @@ public class BdContextMenuView extends FrameLayout implements ry2.g {
                 return;
             }
         }
-        boolean z = rf1.a;
+        boolean z = cg1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -113,7 +113,7 @@ public class BdContextMenuView extends FrameLayout implements ry2.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
-            setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080137));
+            setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080136));
             ListView listView = new ListView(this.b);
             this.c = listView;
             listView.setCacheColorHint(0);

@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d9;
-import com.repackage.x8;
+import com.repackage.f9;
+import com.repackage.z8;
 import java.util.Calendar;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
@@ -175,7 +175,7 @@ public class BdBaseApplication extends Application {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            Resources resources = d9.a().getResources();
+            Resources resources = f9.a().getResources();
             return (resources == null || !this.mIsPluginResourceOpen) ? super.getResources() : resources;
         }
         return (Resources) invokeV.objValue;
@@ -208,7 +208,7 @@ public class BdBaseApplication extends Application {
     public void onAppMemoryLow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            x8.g().q();
+            z8.g().q();
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - this.lastGcTime > 30000) {
                 this.lastGcTime = currentTimeMillis;

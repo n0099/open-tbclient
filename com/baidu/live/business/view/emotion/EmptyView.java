@@ -14,9 +14,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.repackage.o80;
-import com.repackage.v80;
-import com.repackage.va0;
+import com.repackage.s80;
+import com.repackage.z80;
+import com.repackage.za0;
 /* loaded from: classes2.dex */
 public class EmptyView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -49,16 +49,16 @@ public class EmptyView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.a.getLayoutParams();
-            layoutParams.width = o80.a(getContext(), v80.a().i);
-            layoutParams.height = o80.a(getContext(), v80.a().j);
+            layoutParams.width = s80.a(getContext(), z80.a().i);
+            layoutParams.height = s80.a(getContext(), z80.a().j);
             this.a.setLayoutParams(layoutParams);
-            setImageResource(va0.e().b(z));
+            setImageResource(za0.e().b(z));
             if ("quanmin".equals(LiveFeedPageSdk.f().e())) {
-                this.b.setText(R.string.obfuscated_res_0x7f0f0a01);
+                this.b.setText(R.string.obfuscated_res_0x7f0f0a05);
             } else {
-                this.b.setText(R.string.obfuscated_res_0x7f0f0a00);
+                this.b.setText(R.string.obfuscated_res_0x7f0f0a04);
             }
-            this.b.setTextColor(va0.e().a(getContext(), z, "color_8585852"));
+            this.b.setTextColor(za0.e().a(getContext(), z, "color_8585852"));
         }
     }
 
@@ -134,10 +134,10 @@ public class EmptyView extends LinearLayout {
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04f5, this);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04f1, this);
         setOrientation(1);
         setGravity(17);
-        this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f0908a4);
-        this.b = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f0908a6);
+        this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f09088f);
+        this.b = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f090891);
     }
 }

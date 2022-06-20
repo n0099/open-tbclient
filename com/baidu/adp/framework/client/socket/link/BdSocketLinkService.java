@@ -26,20 +26,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.aa;
-import com.repackage.ba;
-import com.repackage.fj;
-import com.repackage.ga;
-import com.repackage.gb;
-import com.repackage.ha;
+import com.repackage.da;
+import com.repackage.ea;
 import com.repackage.ja;
-import com.repackage.kj;
-import com.repackage.li;
-import com.repackage.mj;
-import com.repackage.ng;
-import com.repackage.nj;
+import com.repackage.jb;
+import com.repackage.jj;
+import com.repackage.ka;
+import com.repackage.ma;
+import com.repackage.oj;
+import com.repackage.pi;
+import com.repackage.qj;
 import com.repackage.rg;
-import com.repackage.u9;
+import com.repackage.rj;
+import com.repackage.vg;
+import com.repackage.x9;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class BdSocketLinkService extends BdBaseService {
@@ -54,13 +54,13 @@ public class BdSocketLinkService extends BdBaseService {
     public static final int START_SERVICE_ERROR;
     public static final int STOP_RECONN;
     public static final int TIMEOUT_EVENT = 1;
-    public static mj connCallback;
-    public static ga connStateCallBack;
+    public static qj connCallback;
+    public static ja connStateCallBack;
     public static boolean hasAbsoluteClose;
     public static boolean isAvailable;
-    public static ha mCanOpenWebSocket;
+    public static ka mCanOpenWebSocket;
     public static final Handler mHandler;
-    public static ja reConnStra;
+    public static ma reConnStra;
     public transient /* synthetic */ FieldHolder $fh;
     public ServiceConnection conn;
     public ScreenOnBroadcastReciver mScreenOnBroadcastReciver;
@@ -92,7 +92,7 @@ public class BdSocketLinkService extends BdBaseService {
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            u9 q;
+            x9 q;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null || !"android.intent.action.SCREEN_ON".equals(intent.getAction()) || (q = MessageManager.getInstance().getSocketClient().q()) == null) {
                 return;
@@ -138,7 +138,7 @@ public class BdSocketLinkService extends BdBaseService {
     }
 
     /* loaded from: classes.dex */
-    public static class b extends mj {
+    public static class b extends qj {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -156,7 +156,7 @@ public class BdSocketLinkService extends BdBaseService {
             }
         }
 
-        @Override // com.repackage.jj
+        @Override // com.repackage.nj
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || BdSocketLinkService.connStateCallBack == null) {
@@ -165,47 +165,47 @@ public class BdSocketLinkService extends BdBaseService {
             BdSocketLinkService.connStateCallBack.a(str);
         }
 
-        @Override // com.repackage.mj, com.repackage.jj
+        @Override // com.repackage.qj, com.repackage.nj
         public void b(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                ba.a(BdSocketLinkService.MODULE_NAME, 0, 0, "onClose", i, str);
+                ea.a(BdSocketLinkService.MODULE_NAME, 0, 0, "onClose", i, str);
                 if (i == 6 || i == 5 || i == 2 || i == 3 || i == 4) {
-                    ba.d();
+                    ea.d();
                 }
                 BdSocketLinkService.mHandler.removeMessages(1);
-                if ((BdSocketLinkService.connStateCallBack != null ? BdSocketLinkService.connStateCallBack.b(i, null) : false) || i == 1 || !li.D()) {
+                if ((BdSocketLinkService.connStateCallBack != null ? BdSocketLinkService.connStateCallBack.b(i, null) : false) || i == 1 || !pi.D()) {
                     return;
                 }
-                ja jaVar = BdSocketLinkService.reConnStra;
-                jaVar.e("onClose:" + i + ":" + str);
+                ma maVar = BdSocketLinkService.reConnStra;
+                maVar.e("onClose:" + i + ":" + str);
             }
         }
 
-        @Override // com.repackage.jj
-        public void c(fj fjVar) {
+        @Override // com.repackage.nj
+        public void c(jj jjVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fjVar) == null) || BdSocketLinkService.connStateCallBack == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jjVar) == null) || BdSocketLinkService.connStateCallBack == null) {
                 return;
             }
-            BdSocketLinkService.connStateCallBack.c(fjVar);
+            BdSocketLinkService.connStateCallBack.c(jjVar);
         }
 
-        @Override // com.repackage.jj
-        public void f(nj njVar) {
+        @Override // com.repackage.nj
+        public void f(rj rjVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, njVar) == null) || BdSocketLinkService.connStateCallBack == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, rjVar) == null) || BdSocketLinkService.connStateCallBack == null) {
                 return;
             }
-            BdSocketLinkService.connStateCallBack.d(njVar);
+            BdSocketLinkService.connStateCallBack.d(rjVar);
         }
 
-        @Override // com.repackage.jj
+        @Override // com.repackage.nj
         public void onOpen(Map<String, String> map) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
-                ba.a(BdSocketLinkService.MODULE_NAME, 0, 0, "onOpen", 0, "LinkService:onOpen");
-                ba.d();
+                ea.a(BdSocketLinkService.MODULE_NAME, 0, 0, "onOpen", 0, "LinkService:onOpen");
+                ea.d();
                 BdSocketLinkService.mHandler.removeMessages(1);
                 if (BdSocketLinkService.connStateCallBack != null) {
                     BdSocketLinkService.connStateCallBack.g(map);
@@ -295,7 +295,7 @@ public class BdSocketLinkService extends BdBaseService {
         START_SERVICE_ERROR = (-100001000) - 3;
         ALLREADY = (-100001000) - 4;
         STOP_RECONN = (-100001000) - 5;
-        reConnStra = new ja();
+        reConnStra = new ma();
         isAvailable = true;
         hasAbsoluteClose = false;
         mHandler = new a(Looper.getMainLooper());
@@ -335,8 +335,8 @@ public class BdSocketLinkService extends BdBaseService {
     public static void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            kj.j().r(aa.d(), aa.a(), null, aa.b());
-            kj.j().c(connCallback);
+            oj.j().r(da.d(), da.a(), null, da.b());
+            oj.j().c(connCallback);
         }
     }
 
@@ -349,25 +349,25 @@ public class BdSocketLinkService extends BdBaseService {
     public static boolean isClose() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? (kj.j().l() || kj.j().s()) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? (oj.j().l() || oj.j().s()) ? false : true : invokeV.booleanValue;
     }
 
     public static boolean isOpen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? kj.j().l() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? oj.j().l() : invokeV.booleanValue;
     }
 
     private boolean open(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, str)) == null) {
-            ba.a(MODULE_NAME, 0, 0, "open", 0, str);
+            ea.a(MODULE_NAME, 0, 0, "open", 0, str);
             BdLog.w("启动连接");
             mHandler.removeMessages(1);
-            mHandler.sendEmptyMessageDelayed(1, gb.c().b().b());
+            mHandler.sendEmptyMessageDelayed(1, jb.c().b().b());
             try {
-                return kj.j().u();
+                return oj.j().u();
             } catch (Throwable th) {
                 connCallback.b(-1001, "open error");
                 BdLog.e(th.getMessage());
@@ -391,12 +391,12 @@ public class BdSocketLinkService extends BdBaseService {
         }
     }
 
-    public static boolean sendMessage(fj fjVar) {
+    public static boolean sendMessage(jj jjVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, fjVar)) == null) {
-            if (fjVar != null && kj.j().l() && kj.j().k()) {
-                return kj.j().v(fjVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, jjVar)) == null) {
+            if (jjVar != null && oj.j().l() && oj.j().k()) {
+                return oj.j().v(jjVar);
             }
             return false;
         }
@@ -410,17 +410,17 @@ public class BdSocketLinkService extends BdBaseService {
         }
     }
 
-    public static void setCanOpenWebSocket(ha haVar) {
+    public static void setCanOpenWebSocket(ka kaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, haVar) == null) {
-            mCanOpenWebSocket = haVar;
+        if (interceptable == null || interceptable.invokeL(65552, null, kaVar) == null) {
+            mCanOpenWebSocket = kaVar;
         }
     }
 
-    public static void setConnStateCallBack(ga gaVar) {
+    public static void setConnStateCallBack(ja jaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65553, null, gaVar) == null) {
-            connStateCallBack = gaVar;
+        if (interceptable == null || interceptable.invokeL(65553, null, jaVar) == null) {
+            connStateCallBack = jaVar;
         }
     }
 
@@ -448,18 +448,18 @@ public class BdSocketLinkService extends BdBaseService {
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 connCallback.b(-1000, "startService error");
-                ba.a(MODULE_NAME, 0, 0, "startService_exception", START_SERVICE_ERROR, e.getMessage());
+                ea.a(MODULE_NAME, 0, 0, "startService_exception", START_SERVICE_ERROR, e.getMessage());
             }
         }
     }
 
     public static void stopReConnStrategy(String str) {
-        ja jaVar;
+        ma maVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65556, null, str) == null) || (jaVar = reConnStra) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65556, null, str) == null) || (maVar = reConnStra) == null) {
             return;
         }
-        jaVar.f(str);
+        maVar.f(str);
     }
 
     private void unRegisterScreenOnBroadcastReciver() {
@@ -478,14 +478,14 @@ public class BdSocketLinkService extends BdBaseService {
     public void bindServiceInternal() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ng.bindService(this, new Intent(this, BdSocketDaemonService.class), this.conn, 1);
+            rg.bindService(this, new Intent(this, BdSocketDaemonService.class), this.conn, 1);
         }
     }
 
     public boolean isIdle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? kj.j().k() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? oj.j().k() : invokeV.booleanValue;
     }
 
     @Override // android.app.Service
@@ -504,7 +504,7 @@ public class BdSocketLinkService extends BdBaseService {
                 try {
                     startForeground(2147483646, new Notification());
                 } catch (Exception unused) {
-                    rg statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+                    vg statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                     statsItem.b("loc", BdSocketLinkService.class.getName() + "-onCreate-startForeground");
                     BdStatisticsManager.getInstance().debug("PARCEL_NULLPOINT", statsItem);
                 }
@@ -529,8 +529,8 @@ public class BdSocketLinkService extends BdBaseService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, intent, i) == null) {
             super.onStart(intent, i);
-            ha haVar = mCanOpenWebSocket;
-            if (haVar != null && !haVar.canOpenWebSocket()) {
+            ka kaVar = mCanOpenWebSocket;
+            if (kaVar != null && !kaVar.canOpenWebSocket()) {
                 close("exit app");
             } else if (intent != null) {
                 String stringExtra = intent.getStringExtra("reason");
@@ -541,7 +541,7 @@ public class BdSocketLinkService extends BdBaseService {
                     BdLog.w("进行重连" + stringExtra);
                     close(stringExtra);
                     open(stringExtra);
-                } else if (kj.j().l() || kj.j().s()) {
+                } else if (oj.j().l() || oj.j().s()) {
                 } else {
                     BdLog.w("进行连接" + stringExtra);
                     close(stringExtra);
@@ -563,9 +563,9 @@ public class BdSocketLinkService extends BdBaseService {
         if (!(interceptable == null || interceptable.invokeIL(65541, null, i, str) == null) || isClose()) {
             return;
         }
-        ba.a(MODULE_NAME, 0, 0, "close", i, str);
-        ba.d();
+        ea.a(MODULE_NAME, 0, 0, "close", i, str);
+        ea.d();
         mHandler.removeMessages(1);
-        kj.j().f(i, str);
+        oj.j().f(i, str);
     }
 }

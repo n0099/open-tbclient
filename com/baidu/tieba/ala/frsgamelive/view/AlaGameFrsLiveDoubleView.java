@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kr5;
-import com.repackage.mm5;
-import com.repackage.nv5;
-import com.repackage.qr5;
+import com.repackage.jn5;
+import com.repackage.js5;
+import com.repackage.mw5;
+import com.repackage.ps5;
 /* loaded from: classes3.dex */
-public class AlaGameFrsLiveDoubleView extends nv5<qr5> {
+public class AlaGameFrsLiveDoubleView extends mw5<ps5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kr5 i;
-    public kr5 j;
+    public js5 i;
+    public js5 j;
 
     /* loaded from: classes3.dex */
     public static class AlaGameFrsLiveDoubleViewHolder extends TypeAdapter.ViewHolder {
@@ -31,7 +31,7 @@ public class AlaGameFrsLiveDoubleView extends nv5<qr5> {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public AlaGameFrsLiveDoubleViewHolder(AlaGameFrsLiveDoubleView alaGameFrsLiveDoubleView) {
-            super(alaGameFrsLiveDoubleView.k());
+            super(alaGameFrsLiveDoubleView.h());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -69,18 +69,18 @@ public class AlaGameFrsLiveDoubleView extends nv5<qr5> {
                 return;
             }
         }
-        s();
+        r();
     }
 
-    @Override // com.repackage.nv5
+    @Override // com.repackage.mw5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d010a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0109 : invokeV.intValue;
     }
 
-    @Override // com.repackage.nv5
-    public void m(TbPageContext<?> tbPageContext, int i) {
+    @Override // com.repackage.mw5
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
             this.i.e(tbPageContext, i);
@@ -95,32 +95,32 @@ public class AlaGameFrsLiveDoubleView extends nv5<qr5> {
         }
     }
 
-    public final void s() {
+    public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.i = new kr5(j());
-            this.j = new kr5(j());
-            ViewGroup viewGroup = (ViewGroup) k();
+            this.i = new js5(g());
+            this.j = new js5(g());
+            ViewGroup viewGroup = (ViewGroup) h();
             View view2 = new View(getContext());
             viewGroup.addView(this.i.c());
-            viewGroup.addView(view2, new LinearLayout.LayoutParams(j().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be), -1));
+            viewGroup.addView(view2, new LinearLayout.LayoutParams(g().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be), -1));
             viewGroup.addView(this.j.c());
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.nv5
-    /* renamed from: t */
-    public void l(qr5 qr5Var) {
+    @Override // com.repackage.mw5
+    /* renamed from: s */
+    public void i(ps5 ps5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, qr5Var) == null) || qr5Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, ps5Var) == null) || ps5Var == null) {
             return;
         }
-        this.i.d(qr5Var.a);
-        this.j.d(qr5Var.b);
+        this.i.d(ps5Var.a);
+        this.j.d(ps5Var.b);
     }
 
-    public void u(String str) {
+    public void t(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             this.i.f(str);
@@ -128,11 +128,11 @@ public class AlaGameFrsLiveDoubleView extends nv5<qr5> {
         }
     }
 
-    public void v(mm5 mm5Var) {
+    public void u(jn5 jn5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, mm5Var) == null) {
-            this.i.g(mm5Var);
-            this.j.g(mm5Var);
+        if (interceptable == null || interceptable.invokeL(1048583, this, jn5Var) == null) {
+            this.i.g(jn5Var);
+            this.j.g(jn5Var);
         }
     }
 }

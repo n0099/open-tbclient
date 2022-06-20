@@ -366,6 +366,7 @@ public abstract class TbEnum {
         public static final String EVENT_ID_APPLY_SUC = "002";
         public static final String EVENT_ID_APPLY_VERIFY = "001";
         public static final String EVENT_ID_COMMON = "110";
+        public static final String EVENT_ID_CYBER_VIOLENCE = "416";
         public static final String EVENT_ID_DELETE_FRIEND = "405";
         public static final String EVENT_ID_DISMISS_GROUP = "107";
         public static final String EVENT_ID_FAKE = "-10001";

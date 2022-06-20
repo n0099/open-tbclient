@@ -27,9 +27,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jg;
-import com.repackage.lo4;
-import com.repackage.om4;
+import com.repackage.ng;
+import com.repackage.vo4;
+import com.repackage.ym4;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -48,7 +48,7 @@ import tbclient.User;
 import tbclient.VideoInfo;
 import tbclient.Voice;
 /* loaded from: classes3.dex */
-public class CardPersonDynamicThreadData extends om4 {
+public class CardPersonDynamicThreadData extends ym4 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId I;
     public transient /* synthetic */ FieldHolder $fh;
@@ -592,7 +592,7 @@ public class CardPersonDynamicThreadData extends om4 {
                     }
                 }
             }
-            CardPersonDynamicThreadData.m(this.labelList, this.showExpressionViewIndex);
+            CardPersonDynamicThreadData.l(this.labelList, this.showExpressionViewIndex);
         }
     }
 
@@ -638,7 +638,7 @@ public class CardPersonDynamicThreadData extends om4 {
         this.F = true;
     }
 
-    public static int e(int i, int i2, int i3) {
+    public static int c(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIII = interceptable.invokeIII(65538, null, i, i2, i3)) == null) {
@@ -652,7 +652,7 @@ public class CardPersonDynamicThreadData extends om4 {
         return invokeIII.intValue;
     }
 
-    public static int g(int i, int i2) {
+    public static int f(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
@@ -662,7 +662,7 @@ public class CardPersonDynamicThreadData extends om4 {
         return invokeII.intValue;
     }
 
-    public static void m(LabelInfo[] labelInfoArr, ArrayList<Integer> arrayList) {
+    public static void l(LabelInfo[] labelInfoArr, ArrayList<Integer> arrayList) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, labelInfoArr, arrayList) == null) || labelInfoArr == null) {
             return;
@@ -672,46 +672,46 @@ public class CardPersonDynamicThreadData extends om4 {
         int i2 = -1;
         for (int i3 = 0; i3 < length && i3 < 3; i3++) {
             if (labelInfoArr[i3] != null) {
-                int g = g(3, -1);
-                if (g == i || g == i2) {
-                    g = e(length, i, i2);
+                int f = f(3, -1);
+                if (f == i || f == i2) {
+                    f = c(length, i, i2);
                 }
                 if (i3 == 0) {
-                    i = g;
+                    i = f;
                 }
                 if (i3 == 1) {
-                    i2 = g;
+                    i2 = f;
                 }
-                arrayList.add(Integer.valueOf(g));
+                arrayList.add(Integer.valueOf(f));
             }
         }
     }
 
-    @Override // com.repackage.om4
-    public lo4 getNegFeedBackData() {
+    @Override // com.repackage.ym4
+    public vo4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return null;
         }
-        return (lo4) invokeV.objValue;
+        return (vo4) invokeV.objValue;
     }
 
-    @Override // com.repackage.om4
+    @Override // com.repackage.ym4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.p : (ThreadData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.jn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.nn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? I : (BdUniqueId) invokeV.objValue;
     }
 
-    public void i(User user, @Nullable MetaData metaData, PostInfoList postInfoList, int i) {
+    public void h(User user, @Nullable MetaData metaData, PostInfoList postInfoList, int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLLI(1048579, this, user, metaData, postInfoList, i) == null) || postInfoList == null) {
             return;
@@ -792,10 +792,10 @@ public class CardPersonDynamicThreadData extends om4 {
                 multipleForum.parseProtobuf(postInfoList.multiple_forum_list.get(i5));
                 this.B[i5] = multipleForum;
             }
-        } else if (!TextUtils.isEmpty(this.h) && jg.g(this.a, -1L) != -1) {
+        } else if (!TextUtils.isEmpty(this.h) && ng.g(this.a, -1L) != -1) {
             this.B = new MultipleForum[1];
             MultipleForum multipleForum2 = new MultipleForum();
-            multipleForum2.forum_id = jg.g(this.a, 0L);
+            multipleForum2.forum_id = ng.g(this.a, 0L);
             multipleForum2.forum_name = this.h;
             this.B[0] = multipleForum2;
         }
@@ -928,7 +928,7 @@ public class CardPersonDynamicThreadData extends om4 {
         this.p.processExtensionInfoForPersonCenter();
     }
 
-    public void k(User user, ThreadInfo threadInfo, int i, long j) {
+    public void j(User user, ThreadInfo threadInfo, int i, long j) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{user, threadInfo, Integer.valueOf(i), Long.valueOf(j)}) == null) || threadInfo == null) {
             return;

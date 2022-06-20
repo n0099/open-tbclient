@@ -11,33 +11,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fb6;
-import com.repackage.gp4;
-import com.repackage.hp4;
-import com.repackage.sb6;
-import com.repackage.vo6;
-import com.repackage.wc6;
+import com.repackage.fc6;
+import com.repackage.qp4;
+import com.repackage.rp4;
+import com.repackage.sc6;
+import com.repackage.wd6;
+import com.repackage.yp6;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class FrsSchoolRecommendAdapter extends fb6<gp4, FrsSchoolRecommendViewHolder> {
+public class FrsSchoolRecommendAdapter extends fc6<qp4, FrsSchoolRecommendViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vo6 t;
+    public yp6 t;
 
     /* loaded from: classes3.dex */
     public class FrsSchoolRecommendViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public vo6 a;
+        public yp6 a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public FrsSchoolRecommendViewHolder(FrsSchoolRecommendAdapter frsSchoolRecommendAdapter, vo6 vo6Var) {
-            super(vo6Var.k());
+        public FrsSchoolRecommendViewHolder(FrsSchoolRecommendAdapter frsSchoolRecommendAdapter, yp6 yp6Var) {
+            super(yp6Var.h());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {frsSchoolRecommendAdapter, vo6Var};
+                Object[] objArr = {frsSchoolRecommendAdapter, yp6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,7 +48,7 @@ public class FrsSchoolRecommendAdapter extends fb6<gp4, FrsSchoolRecommendViewHo
                     return;
                 }
             }
-            this.a = vo6Var;
+            this.a = yp6Var;
         }
     }
 
@@ -74,48 +74,48 @@ public class FrsSchoolRecommendAdapter extends fb6<gp4, FrsSchoolRecommendViewHo
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.wm
+    @Override // com.repackage.an
     /* renamed from: l0 */
     public FrsSchoolRecommendViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.t = new vo6(this.k, this.e);
+            this.t = new yp6(this.k, this.e);
             return new FrsSchoolRecommendViewHolder(this, this.t);
         }
         return (FrsSchoolRecommendViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fb6, com.repackage.wm
+    @Override // com.repackage.fc6, com.repackage.an
     /* renamed from: m0 */
-    public View S(int i, View view2, ViewGroup viewGroup, gp4 gp4Var, FrsSchoolRecommendViewHolder frsSchoolRecommendViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, qp4 qp4Var, FrsSchoolRecommendViewHolder frsSchoolRecommendViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, gp4Var, frsSchoolRecommendViewHolder})) == null) {
-            super.S(i, view2, viewGroup, gp4Var, frsSchoolRecommendViewHolder);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qp4Var, frsSchoolRecommendViewHolder})) == null) {
+            super.S(i, view2, viewGroup, qp4Var, frsSchoolRecommendViewHolder);
             this.t = frsSchoolRecommendViewHolder.a;
-            ArrayList<hp4> e = gp4Var.e();
-            if (e.size() <= 0) {
+            ArrayList<rp4> c = qp4Var.c();
+            if (c.size() <= 0) {
                 return null;
             }
-            sb6 sb6Var = new sb6();
-            sb6Var.showTopDivider = true;
-            sb6Var.mGroupTitle = gp4Var.getTitle();
-            for (int i2 = 0; i2 != e.size(); i2++) {
-                hp4 hp4Var = e.get(i2);
-                if (hp4Var != null) {
-                    wc6 wc6Var = new wc6();
-                    wc6Var.a.setUserId(hp4Var.d());
-                    wc6Var.a.setUserName(hp4Var.e());
-                    wc6Var.a.setPortrait(hp4Var.c());
-                    wc6Var.a.getGodUserData().setIsLike(hp4Var.b() == 1);
-                    wc6Var.a.getGodUserData().setIntro(hp4Var.a());
-                    sb6Var.e(wc6Var);
+            sc6 sc6Var = new sc6();
+            sc6Var.showTopDivider = true;
+            sc6Var.mGroupTitle = qp4Var.getTitle();
+            for (int i2 = 0; i2 != c.size(); i2++) {
+                rp4 rp4Var = c.get(i2);
+                if (rp4Var != null) {
+                    wd6 wd6Var = new wd6();
+                    wd6Var.a.setUserId(rp4Var.d());
+                    wd6Var.a.setUserName(rp4Var.e());
+                    wd6Var.a.setPortrait(rp4Var.c());
+                    wd6Var.a.getGodUserData().setIsLike(rp4Var.b() == 1);
+                    wd6Var.a.getGodUserData().setIntro(rp4Var.a());
+                    sc6Var.c(wd6Var);
                 }
             }
-            this.t.m(this.k, this.n);
-            frsSchoolRecommendViewHolder.a.u(sb6Var);
+            this.t.j(this.k, this.n);
+            frsSchoolRecommendViewHolder.a.t(sc6Var);
             return frsSchoolRecommendViewHolder.b();
         }
         return (View) invokeCommon.objValue;

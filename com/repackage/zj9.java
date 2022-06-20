@@ -1,15 +1,7 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
+import com.weibo.ssosdk.WeiboSsoSdk;
 /* loaded from: classes7.dex */
 public interface zj9 {
-    void a(int i, String str, String str2);
-
-    void a(String str);
-
-    void a(String str, Bitmap bitmap);
-
-    void a(String str, String str2, String str3, long j, String str4, String str5);
-
-    void b(String str);
+    void handler(WeiboSsoSdk.d dVar);
 }

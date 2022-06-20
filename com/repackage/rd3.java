@@ -1,190 +1,304 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.AtomicFile;
-import android.util.SparseArray;
-import androidx.annotation.NonNull;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
+import androidx.annotation.AnyThread;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.pms.model.PMSException;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.channels.FileChannel;
-import java.nio.channels.FileLock;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class rd3 {
+public class rd3 implements le3<Exception> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public final Handler b;
+    public Runnable c;
+    public volatile boolean d;
 
-    /* JADX WARN: Removed duplicated region for block: B:101:0x015e A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:106:0x0158 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x0149  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean a(@NonNull JSONArray jSONArray, @NonNull File file, int i) {
-        InterceptResult invokeLLI;
-        FileOutputStream fileOutputStream;
-        FileChannel fileChannel;
-        FileLock fileLock;
-        AtomicFile atomicFile;
-        JSONArray optJSONArray;
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rd3 a;
+
+        /* renamed from: com.repackage.rd3$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class RunnableC0515a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public RunnableC0515a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    if (rd3.e) {
+                        Log.d("SwanH2HeartBeatManager", "do updateCore, isStop=" + this.a.a.d);
+                    }
+                    if (this.a.a.d) {
+                        return;
+                    }
+                    this.a.a.j();
+                }
+            }
+        }
+
+        public a(rd3 rd3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rd3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rd3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (ProcessUtils.isMainProcess()) {
+                    this.a.d = false;
+                    synchronized (rd3.class) {
+                        this.a.a = System.currentTimeMillis();
+                        if (this.a.c != null) {
+                            this.a.b.removeCallbacks(this.a.c);
+                        }
+                        this.a.c = new RunnableC0515a(this);
+                        long a = wb4.a(300) * 1000;
+                        this.a.b.postDelayed(this.a.c, a);
+                        if (rd3.e) {
+                            Log.d("SwanH2HeartBeatManager", "wait next heart beat: " + a);
+                        }
+                    }
+                    return;
+                }
+                fw2.c(c.class, null);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rd3 a;
+
+        public b(rd3 rd3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rd3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rd3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                a74.l(new xa4(0), new v22(this.a, true));
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c extends ProviderDelegation {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+        public Bundle execCall(Bundle bundle) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+                rd3.k().m();
+                return null;
+            }
+            return (Bundle) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public static final rd3 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-45955184, "Lcom/repackage/rd3$d;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-45955184, "Lcom/repackage/rd3$d;");
+                    return;
+                }
+            }
+            a = new rd3(null);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755354224, "Lcom/repackage/rd3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755354224, "Lcom/repackage/rd3;");
+                return;
+            }
+        }
+        e = cg1.a;
+    }
+
+    public /* synthetic */ rd3(a aVar) {
+        this();
+    }
+
+    public static rd3 k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLI = interceptable.invokeLLI(65536, null, jSONArray, file, i)) != null) {
-            return invokeLLI.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? d.a : (rd3) invokeV.objValue;
+    }
+
+    @AnyThread
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            mc3.l(new b(this), "SwanH2HeartBeatManager");
         }
-        StringBuilder sb = new StringBuilder();
-        AtomicFile atomicFile2 = null;
-        r1 = null;
-        FileLock fileLock2 = null;
-        FileChannel fileChannel2 = null;
-        try {
-            try {
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
-                SparseArray sparseArray = new SparseArray(i);
-                ArrayList arrayList = new ArrayList();
-                for (int i2 = 0; i2 < i; i2++) {
-                    arrayList.add(bufferedReader.readLine());
-                }
-                for (int i3 = 0; i3 < i; i3++) {
-                    String str = (String) arrayList.get(i3);
-                    if (TextUtils.isEmpty(str) || (optJSONArray = new JSONObject(str).optJSONArray("descriptions")) == null) {
-                        return false;
-                    }
-                    HashMap hashMap = new HashMap();
-                    for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
-                        JSONObject jSONObject = (JSONObject) optJSONArray.get(i4);
-                        hashMap.put(jSONObject.optString("name"), jSONObject);
-                    }
-                    sparseArray.put(i3, hashMap);
-                }
-                for (int i5 = 0; i5 < jSONArray.length(); i5++) {
-                    JSONObject jSONObject2 = (JSONObject) jSONArray.get(i5);
-                    String optString = jSONObject2.optString("name");
-                    int i6 = 0;
-                    while (true) {
-                        if (i6 >= i) {
-                            break;
-                        } else if (((Map) sparseArray.get(i6)).containsKey(optString)) {
-                            ((Map) sparseArray.get(i6)).put(optString, jSONObject2);
-                            break;
-                        } else {
-                            if (i6 == i - 1) {
-                                ((Map) sparseArray.get(i6)).put(optString, jSONObject2);
-                            }
-                            i6++;
-                        }
-                    }
-                }
-                for (int i7 = 0; i7 < i; i7++) {
-                    JSONObject jSONObject3 = new JSONObject((String) arrayList.get(i7));
-                    JSONArray jSONArray2 = new JSONArray();
-                    jSONObject3.optJSONArray("descriptions");
-                    for (Map.Entry entry : ((Map) sparseArray.get(i7)).entrySet()) {
-                        jSONArray2.put(entry.getValue());
-                    }
-                    jSONObject3.put("descriptions", jSONArray2);
-                    if (i7 != i - 1) {
-                        sb.append(jSONObject3.toString());
-                        sb.append("\n");
-                    } else {
-                        sb.append(jSONObject3.toString());
-                    }
-                }
-                bufferedReader.close();
-                atomicFile = new AtomicFile(file);
-                try {
-                    atomicFile.startWrite();
-                    fileOutputStream = atomicFile.startWrite();
-                    try {
-                        fileChannel = fileOutputStream.getChannel();
-                    } catch (IOException | JSONException unused) {
-                        fileChannel = null;
-                        fileLock = fileChannel;
-                        atomicFile2 = atomicFile;
-                        if (atomicFile2 != null) {
-                            if (fileLock != null) {
-                                try {
-                                    fileLock.release();
-                                } catch (IOException unused2) {
-                                }
-                            }
-                            atomicFile2.failWrite(fileOutputStream);
-                        }
-                        if (fileChannel != null) {
-                            try {
-                                fileChannel.close();
-                            } catch (IOException unused3) {
-                            }
-                        }
-                        return false;
-                    }
-                } catch (IOException | JSONException unused4) {
-                    fileOutputStream = null;
-                    fileChannel = null;
-                }
-            } catch (Throwable th) {
-                th = th;
-                if (fileChannel2 != null) {
-                    try {
-                        fileChannel2.close();
-                    } catch (IOException unused5) {
-                    }
-                }
-                throw th;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.le3
+    /* renamed from: l */
+    public void a(Exception exc) {
+        k84 pmsError;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
+            this.c = null;
+            if (e) {
+                Log.w("SwanH2HeartBeatManager", "onCallback", exc);
             }
-            try {
-                try {
-                    fileLock = fileChannel.lock();
-                } catch (IOException | JSONException unused6) {
-                    fileLock = fileLock2;
+            if (exc != null) {
+                Throwable cause = exc.getCause();
+                if ((cause instanceof PMSException) && (pmsError = ((PMSException) cause).getPmsError()) != null && pmsError.f >= 500) {
+                    n();
+                    wb4.a = false;
+                    sw1.k("SwanH2HeartBeatManager", "update core heartBeat exception: code=" + pmsError.f);
+                    return;
                 }
-                try {
-                    fileOutputStream.write(sb.toString().getBytes());
-                    if (fileLock != null) {
-                        fileLock.release();
-                    } else {
-                        fileLock2 = fileLock;
-                    }
-                    atomicFile.finishWrite(fileOutputStream);
-                    if (fileChannel != null) {
-                        try {
-                            fileChannel.close();
-                            return true;
-                        } catch (IOException unused7) {
-                            return true;
-                        }
-                    }
-                    return true;
-                } catch (IOException | JSONException unused8) {
-                    atomicFile2 = atomicFile;
-                    if (atomicFile2 != null) {
-                    }
-                    if (fileChannel != null) {
-                    }
-                    return false;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                fileChannel2 = fileChannel;
-                if (fileChannel2 != null) {
-                }
-                throw th;
+                m();
             }
-        } catch (IOException | JSONException unused9) {
-            fileOutputStream = null;
-            fileChannel = null;
-            fileLock = null;
         }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && wb4.a) {
+            if (e) {
+                Log.d("SwanH2HeartBeatManager", "startHeartBeat");
+            }
+            mc3.l(new a(this), "SwanH2HeartBeatManager");
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && wb4.a) {
+            if (e) {
+                Log.d("SwanH2HeartBeatManager", "stopHeartBeat");
+            }
+            this.d = true;
+            Runnable runnable = this.c;
+            if (runnable != null) {
+                this.b.removeCallbacks(runnable);
+            }
+            this.c = null;
+        }
+    }
+
+    public rd3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.d = false;
+        this.b = new Handler(Looper.getMainLooper());
     }
 }

@@ -7,8 +7,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d85;
-import com.repackage.x17;
+import com.repackage.g37;
+import com.repackage.q85;
 /* loaded from: classes2.dex */
 public class InitIMTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -32,8 +32,8 @@ public class InitIMTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            x17.a();
-            d85.b().p(System.currentTimeMillis() - currentTimeMillis);
+            g37.a();
+            q85.b().p(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
@@ -49,7 +49,7 @@ public class InitIMTask extends LaunchTask {
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "AppCreate_InitIM" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "Ignore_InitIM" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask

@@ -12,7 +12,7 @@ public class o extends com.baidu.ar.ability.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: io  reason: collision with root package name */
-    public byte[] f983io;
+    public byte[] f1023io;
     public int mHeight;
     public int mWidth;
 
@@ -33,14 +33,14 @@ public class o extends com.baidu.ar.ability.c {
     public void a(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bArr) == null) {
-            this.f983io = bArr;
+            this.f1023io = bArr;
         }
     }
 
     public byte[] bZ() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f983io : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1023io : (byte[]) invokeV.objValue;
     }
 
     public int getHeight() {

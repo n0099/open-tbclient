@@ -1,19 +1,14 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.SwanAppActivity;
+import android.app.Activity;
+import android.content.Context;
+import android.net.Uri;
+import com.repackage.e13;
 /* loaded from: classes5.dex */
 public interface ek1 {
-    void a(String str);
+    boolean a(Activity activity, String str, e13.b bVar);
 
-    void b();
+    boolean b(Context context, String str);
 
-    void c(String str);
-
-    void d(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable ek2 ek2Var);
-
-    void e(String str);
-
-    void f(String str);
+    boolean c(Activity activity, Uri uri, String str);
 }

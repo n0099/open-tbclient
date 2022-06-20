@@ -1,5 +1,6 @@
 package com.baidu.swan.apps.inlinewidget.rtcroom.model;
 
+import androidx.media2.session.SessionCommand;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.mapapi.SDKInitializer;
@@ -80,11 +81,11 @@ public final class RtcStatus {
         LOGIN_TIMEOUT = new RtcStatus("LOGIN_TIMEOUT", 12, ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT, "login fail : timeout");
         ROOM_ALREADY_EXIST = new RtcStatus("ROOM_ALREADY_EXIST", 13, 20002, "ROOM_ALREADY_EXIST");
         DEVICE_IS_NOT_SUPPORTED = new RtcStatus("DEVICE_IS_NOT_SUPPORTED", 14, 20003, "DEVICE_IS_NOT_SUPPORTED");
-        ROOM_CONNECTION_LOST = new RtcStatus("ROOM_CONNECTION_LOST", 15, 30001, "ROOM_CONNECTION_LOST");
+        ROOM_CONNECTION_LOST = new RtcStatus("ROOM_CONNECTION_LOST", 15, SessionCommand.COMMAND_CODE_VOLUME_ADJUST_VOLUME, "ROOM_CONNECTION_LOST");
         MEDIA_CONNECTION_LOST = new RtcStatus("MEDIA_CONNECTION_LOST", 16, 30002, "MEDIA_CONNECTION_LOST");
-        INIT_CAPTURE_FAIL = new RtcStatus("INIT_CAPTURE_FAIL", 17, 40001, "OPEN_CAMERA_FAIL");
-        SET_REMOTE_SURFACE_ERROR = new RtcStatus("SET_REMOTE_SURFACE_ERROR", 18, 40002, "REMOTE_ITEM_ALREADY_PLAYING");
-        PUBLISH_FAILED = new RtcStatus("PUBLISH_FAILED", 19, 40003, "PUBLISH_FAIL");
+        INIT_CAPTURE_FAIL = new RtcStatus("INIT_CAPTURE_FAIL", 17, SessionCommand.COMMAND_CODE_SESSION_REWIND, "OPEN_CAMERA_FAIL");
+        SET_REMOTE_SURFACE_ERROR = new RtcStatus("SET_REMOTE_SURFACE_ERROR", 18, SessionCommand.COMMAND_CODE_SESSION_SKIP_FORWARD, "REMOTE_ITEM_ALREADY_PLAYING");
+        PUBLISH_FAILED = new RtcStatus("PUBLISH_FAILED", 19, SessionCommand.COMMAND_CODE_SESSION_SKIP_BACKWARD, "PUBLISH_FAIL");
         AUTHORIZE_ERR_INTERNAL_ERROR = new RtcStatus("AUTHORIZE_ERR_INTERNAL_ERROR", 20, 10001, "internal error");
         AUTHORIZE_ERR_NETWORK_ERROR = new RtcStatus("AUTHORIZE_ERR_NETWORK_ERROR", 21, 10002, SDKInitializer.SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR);
         AUTHORIZE_ERR_USER_DENY = new RtcStatus("AUTHORIZE_ERR_USER_DENY", 22, 10003, "user deny");

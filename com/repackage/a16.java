@@ -1,70 +1,77 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class a16 extends BaseCardInfo {
+public final class a16 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadData a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755909589, "Lcom/repackage/a16;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static final <T extends yz5> T a(zz5 zz5Var, Class<T> type, o0 entity, rz5 item) {
+        InterceptResult invokeLLLL;
+        T t;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, zz5Var, type, entity, item)) == null) {
+            Intrinsics.checkNotNullParameter(zz5Var, "<this>");
+            Intrinsics.checkNotNullParameter(type, "type");
+            Intrinsics.checkNotNullParameter(entity, "entity");
+            Intrinsics.checkNotNullParameter(item, "item");
+            n0 f = zz5Var.f();
+            if (f == null || (t = (T) f.h(type)) == null) {
+                return null;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755909589, "Lcom/repackage/a16;");
-                return;
+            entity.a(t);
+            t.b(item);
+            return t;
+        }
+        return (T) invokeLLLL.objValue;
+    }
+
+    public static final long b(zz5 zz5Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, zz5Var)) == null) {
+            Intrinsics.checkNotNullParameter(zz5Var, "<this>");
+            return d(zz5Var).a();
+        }
+        return invokeL.longValue;
+    }
+
+    public static final r16 c(zz5 zz5Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, zz5Var)) == null) {
+            Intrinsics.checkNotNullParameter(zz5Var, "<this>");
+            return zz5Var.i().d();
+        }
+        return (r16) invokeL.objValue;
+    }
+
+    public static final u16 d(zz5 zz5Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, zz5Var)) == null) {
+            Intrinsics.checkNotNullParameter(zz5Var, "<this>");
+            return zz5Var.i().f();
+        }
+        return (u16) invokeL.objValue;
+    }
+
+    public static final boolean e(zz5 zz5Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, zz5Var)) == null) {
+            Intrinsics.checkNotNullParameter(zz5Var, "<this>");
+            n0 f = zz5Var.f();
+            xz5 xz5Var = f instanceof xz5 ? (xz5) f : null;
+            if (xz5Var == null) {
+                return true;
             }
+            return xz5Var.x();
         }
-        b = BdUniqueId.gen();
-    }
-
-    public a16() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public void e(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
-            this.a = threadData;
-        }
-    }
-
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (ThreadData) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.jn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

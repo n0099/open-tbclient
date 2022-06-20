@@ -14,7 +14,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.rz8;
+import com.repackage.zz8;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -68,26 +68,26 @@ public class TNWebViewClient extends WebViewClient {
             }
             if (webResourceRequest.getMethod().equals("GET") && !this.a.f()) {
                 Log.d("tn_TNWebViewClient", "Intercept request and send " + webResourceRequest.getUrl().toString());
-                rz8 rz8Var = new rz8(new URL(webResourceRequest.getUrl().toString()), this.a);
-                rz8Var.setRequestMethod(webResourceRequest.getMethod());
+                zz8 zz8Var = new zz8(new URL(webResourceRequest.getUrl().toString()), this.a);
+                zz8Var.setRequestMethod(webResourceRequest.getMethod());
                 Map<String, String> requestHeaders = webResourceRequest.getRequestHeaders();
                 if (requestHeaders != null) {
                     for (Map.Entry<String, String> entry : requestHeaders.entrySet()) {
-                        rz8Var.setRequestProperty(entry.getKey(), entry.getValue());
+                        zz8Var.setRequestProperty(entry.getKey(), entry.getValue());
                     }
                 }
                 CookieManager cookieManager = CookieManager.getInstance();
                 String cookie = cookieManager.getCookie(webResourceRequest.getUrl().toString());
                 if (!TextUtils.isEmpty(cookie)) {
-                    rz8Var.setRequestProperty("Cookie", cookie);
+                    zz8Var.setRequestProperty("Cookie", cookie);
                 }
-                int responseCode = rz8Var.getResponseCode();
+                int responseCode = zz8Var.getResponseCode();
                 if (responseCode >= 100 && responseCode <= 599 && (responseCode <= 299 || responseCode >= 400)) {
-                    String headerField = rz8Var.getHeaderField("Set-Cookie");
+                    String headerField = zz8Var.getHeaderField("Set-Cookie");
                     if (!TextUtils.isEmpty(headerField)) {
-                        cookieManager.setCookie(rz8Var.getURL().toString(), headerField);
+                        cookieManager.setCookie(zz8Var.getURL().toString(), headerField);
                     }
-                    String headerField2 = rz8Var.getHeaderField("Content-Type");
+                    String headerField2 = zz8Var.getHeaderField("Content-Type");
                     String str3 = "UTF-8";
                     if (headerField2 == null || (length = (split = headerField2.split(ParamableElem.DIVIDE_PARAM)).length) <= 0) {
                         str = "UTF-8";
@@ -103,7 +103,7 @@ public class TNWebViewClient extends WebViewClient {
                         str = str3;
                         str2 = str4;
                     }
-                    Map<String, List<String>> headerFields = rz8Var.getHeaderFields();
+                    Map<String, List<String>> headerFields = zz8Var.getHeaderFields();
                     if (headerFields != null) {
                         HashMap hashMap = new HashMap();
                         for (Map.Entry<String, List<String>> entry2 : headerFields.entrySet()) {
@@ -117,10 +117,10 @@ public class TNWebViewClient extends WebViewClient {
                             }
                             hashMap.put(entry2.getKey(), sb.toString());
                         }
-                        if (!TextUtils.isEmpty(rz8Var.getResponseMessage())) {
-                            return new WebResourceResponse(str2, str, rz8Var.getResponseCode(), rz8Var.getResponseMessage(), hashMap, rz8Var.getInputStream());
+                        if (!TextUtils.isEmpty(zz8Var.getResponseMessage())) {
+                            return new WebResourceResponse(str2, str, zz8Var.getResponseCode(), zz8Var.getResponseMessage(), hashMap, zz8Var.getInputStream());
                         }
-                        return new WebResourceResponse(str2, str, rz8Var.getInputStream());
+                        return new WebResourceResponse(str2, str, zz8Var.getInputStream());
                     }
                     return null;
                 }

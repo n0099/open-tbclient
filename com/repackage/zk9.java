@@ -1,29 +1,26 @@
 package com.repackage;
 
-import android.app.ActivityManager;
-import android.content.Context;
-import android.os.Build;
-import android.os.Looper;
-import android.os.Process;
-import android.text.TextUtils;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 /* loaded from: classes7.dex */
-public class zk9 implements Runnable {
+public final class zk9 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ Context a;
+    public final /* synthetic */ byte[] a;
+    public final /* synthetic */ String b;
 
-    public zk9(cl9 cl9Var, Context context) {
+    public zk9(byte[] bArr, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cl9Var, context};
+            Object[] objArr = {bArr, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,49 +30,67 @@ public class zk9 implements Runnable {
                 return;
             }
         }
-        this.a = context;
+        this.a = bArr;
+        this.b = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        String str;
-        String userAgentString;
+        FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Context context = this.a;
+            byte[] bArr = this.a;
+            String str = this.b;
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+            File file = new File(str);
+            String substring = str.substring(0, str.lastIndexOf("/"));
+            if (!file.exists()) {
+                new File(substring).mkdir();
+            }
+            FileOutputStream fileOutputStream2 = null;
             try {
-                if (Build.VERSION.SDK_INT >= 28) {
+                try {
                     try {
-                        Process.myPid();
-                        if (context != null) {
-                            try {
-                                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
-                                    if (runningAppProcessInfo.pid == Process.myPid()) {
-                                        str = runningAppProcessInfo.processName;
-                                        break;
-                                    }
-                                }
-                            } catch (Exception unused) {
-                            }
-                        }
-                        str = null;
-                        if (!TextUtils.equals(context.getPackageName(), str)) {
-                            WebView.setDataDirectorySuffix(str);
-                        }
-                    } catch (Exception unused2) {
+                        fileOutputStream = new FileOutputStream(file);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        return;
+                    }
+                } catch (Exception e2) {
+                    e = e2;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                byte[] bArr2 = new byte[1024];
+                while (true) {
+                    int read = byteArrayInputStream.read(bArr2);
+                    if (read == -1) {
+                        break;
+                    }
+                    fileOutputStream.write(bArr2, 0, read);
+                }
+                fileOutputStream.flush();
+                fileOutputStream.close();
+            } catch (Exception e3) {
+                e = e3;
+                fileOutputStream2 = fileOutputStream;
+                e.printStackTrace();
+                if (fileOutputStream2 != null) {
+                    fileOutputStream2.close();
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream2 = fileOutputStream;
+                if (fileOutputStream2 != null) {
+                    try {
+                        fileOutputStream2.close();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
                     }
                 }
-                sn9.a = System.getProperty("http.agent");
-                if (Build.VERSION.SDK_INT >= 17) {
-                    userAgentString = WebSettings.getDefaultUserAgent(context);
-                } else if (Looper.myLooper() != Looper.getMainLooper()) {
-                    ln9.a.post(new on9(context));
-                    return;
-                } else {
-                    userAgentString = new WebView(context).getSettings().getUserAgentString();
-                }
-                sn9.a = userAgentString;
-            } catch (Exception unused3) {
+                throw th;
             }
         }
     }

@@ -1,9 +1,17 @@
 package com.repackage;
 
-import com.baidu.swan.game.ad.entity.AdElementInfo;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
 /* loaded from: classes7.dex */
 public interface sn3 {
-    void a(String str);
+    void a(int i);
 
-    void c(AdElementInfo adElementInfo);
+    void b();
+
+    void c(DownloadState downloadState, int i);
+
+    void d(String str);
+
+    String e();
+
+    void f(boolean z);
 }

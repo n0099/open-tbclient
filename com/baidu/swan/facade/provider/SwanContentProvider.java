@@ -20,21 +20,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mj3;
-import com.repackage.ml3;
-import com.repackage.rf1;
-import com.repackage.sl3;
+import com.repackage.cg1;
+import com.repackage.dm3;
+import com.repackage.xj3;
+import com.repackage.xl3;
 import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes2.dex */
 public class SwanContentProvider extends ContentProvider {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String AUTHORITY;
-    public static final boolean DEBUG;
-    public static final int PER_USER_RANGE = 100000;
-    public static final String TAG = "SwanContentProvider";
-    public static HashSet<String> sAccreditedSet;
-    public static UriMatcher sUriMatcher;
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final String b;
+    public static UriMatcher c;
+    public static HashSet<String> d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -51,13 +49,13 @@ public class SwanContentProvider extends ContentProvider {
                 return;
             }
         }
-        DEBUG = rf1.a;
-        AUTHORITY = AppRuntime.getAppContext().getPackageName() + ".provider";
-        sUriMatcher = new UriMatcher(-1);
-        sAccreditedSet = new HashSet<>();
+        a = cg1.a;
+        b = AppRuntime.getAppContext().getPackageName() + ".provider";
+        c = new UriMatcher(-1);
+        d = new HashSet<>();
         for (ProcessorInfo processorInfo : ProcessorInfo.values()) {
             if (processorInfo != null) {
-                sUriMatcher.addURI(AUTHORITY, processorInfo.getPath(), processorInfo.getMatcherCode());
+                c.addURI(b, processorInfo.getPath(), processorInfo.getMatcherCode());
             }
         }
     }
@@ -76,51 +74,57 @@ public class SwanContentProvider extends ContentProvider {
         }
     }
 
-    private boolean checkPermission() {
+    public static boolean e(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) ? i % 100000 == i2 % 100000 : invokeII.booleanValue;
+    }
+
+    public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             boolean z = true;
-            if (isSameApp(Process.myUid(), Binder.getCallingUid())) {
+            if (e(Process.myUid(), Binder.getCallingUid())) {
                 return true;
             }
             String callingPackage = getCallingPackage();
-            if (sAccreditedSet.contains(callingPackage)) {
+            if (d.contains(callingPackage)) {
                 return true;
             }
-            String a = sl3.a(callingPackage);
-            Set<String> a2 = mj3.e().a();
-            z = (a2 == null || !a2.contains(a)) ? false : false;
+            String a2 = dm3.a(callingPackage);
+            Set<String> a3 = xj3.e().a();
+            z = (a3 == null || !a3.contains(a2)) ? false : false;
             if (z) {
-                sAccreditedSet.add(callingPackage);
+                d.add(callingPackage);
             }
             return z;
         }
         return invokeV.booleanValue;
     }
 
-    private boolean checkReadPermission() {
+    public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? checkPermission() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a() : invokeV.booleanValue;
     }
 
-    private boolean checkWritePermission() {
+    public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? checkPermission() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a() : invokeV.booleanValue;
     }
 
-    private ml3 getProcessor(int i) {
+    public final xl3 d(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i)) == null) {
-            Class<? extends ml3> processorClass = ProcessorInfo.getProcessorClass(i);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            Class<? extends xl3> processorClass = ProcessorInfo.getProcessorClass(i);
             if (processorClass != null) {
                 try {
                     return processorClass.newInstance();
                 } catch (IllegalAccessException | InstantiationException e) {
-                    if (DEBUG) {
+                    if (a) {
                         e.printStackTrace();
                         return null;
                     }
@@ -129,25 +133,19 @@ public class SwanContentProvider extends ContentProvider {
             }
             return null;
         }
-        return (ml3) invokeI.objValue;
-    }
-
-    public static boolean isSameApp(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i, i2)) == null) ? i % 100000 == i2 % 100000 : invokeII.booleanValue;
+        return (xl3) invokeI.objValue;
     }
 
     @Override // android.content.ContentProvider
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
         InterceptResult invokeLLL;
-        ml3 processor;
+        xl3 d2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, uri, str, strArr)) == null) {
-            if (!checkWritePermission() || (processor = getProcessor(sUriMatcher.match(uri))) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, uri, str, strArr)) == null) {
+            if (!c() || (d2 = d(c.match(uri))) == null) {
                 return 0;
             }
-            return processor.delete(uri, str, strArr);
+            return d2.delete(uri, str, strArr);
         }
         return invokeLLL.intValue;
     }
@@ -157,7 +155,7 @@ public class SwanContentProvider extends ContentProvider {
     public String getType(@NonNull Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, uri)) == null) {
             return null;
         }
         return (String) invokeL.objValue;
@@ -167,13 +165,13 @@ public class SwanContentProvider extends ContentProvider {
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
         InterceptResult invokeLL;
-        ml3 processor;
+        xl3 d2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, uri, contentValues)) == null) {
-            if (!checkWritePermission() || (processor = getProcessor(sUriMatcher.match(uri))) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, uri, contentValues)) == null) {
+            if (!c() || (d2 = d(c.match(uri))) == null) {
                 return null;
             }
-            return processor.insert(uri, contentValues);
+            return d2.insert(uri, contentValues);
         }
         return (Uri) invokeLL.objValue;
     }
@@ -182,7 +180,7 @@ public class SwanContentProvider extends ContentProvider {
     public boolean onCreate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
@@ -192,13 +190,13 @@ public class SwanContentProvider extends ContentProvider {
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
         InterceptResult invokeLLLLL;
-        ml3 processor;
+        xl3 d2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048580, this, uri, strArr, str, strArr2, str2)) == null) {
-            if (!checkReadPermission() || (processor = getProcessor(sUriMatcher.match(uri))) == null) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, uri, strArr, str, strArr2, str2)) == null) {
+            if (!b() || (d2 = d(c.match(uri))) == null) {
                 return null;
             }
-            return processor.query(uri, strArr, str, strArr2, str2);
+            return d2.query(uri, strArr, str, strArr2, str2);
         }
         return (Cursor) invokeLLLLL.objValue;
     }
@@ -206,13 +204,13 @@ public class SwanContentProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
         InterceptResult invokeLLLL;
-        ml3 processor;
+        xl3 d2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, uri, contentValues, str, strArr)) == null) {
-            if (!checkWritePermission() || (processor = getProcessor(sUriMatcher.match(uri))) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048585, this, uri, contentValues, str, strArr)) == null) {
+            if (!c() || (d2 = d(c.match(uri))) == null) {
                 return 0;
             }
-            return processor.update(uri, contentValues, str, strArr);
+            return d2.update(uri, contentValues, str, strArr);
         }
         return invokeLLLL.intValue;
     }

@@ -1,72 +1,64 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
-import com.baidu.tieba.R;
-import com.baidu.tieba.sharesdk.bean.ShareEntity;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetMoreMsg.DataRes;
+import tbclient.GetMoreMsg.MsgContent;
 /* loaded from: classes7.dex */
-public class ya8 extends va8 {
+public class ya8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public ArrayList<xa8> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ya8(Context context) {
-        super(context);
+    public ya8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = true;
+        this.b = null;
     }
 
-    @Override // com.repackage.bb8
-    public void a(ShareEntity shareEntity, cb8 cb8Var) {
-        String str;
+    public ArrayList<xa8> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, shareEntity, cb8Var) == null) {
-            if (shareEntity != null && !TextUtils.isEmpty(shareEntity.getContent())) {
-                if (TextUtils.isEmpty(shareEntity.getContent())) {
-                    str = shareEntity.getTitle() + shareEntity.getLinkUrl();
-                } else {
-                    str = shareEntity.getContent() + shareEntity.getLinkUrl();
-                }
-                Intent intent = new Intent();
-                intent.setAction("android.intent.action.SEND");
-                intent.putExtra("android.intent.extra.TEXT", str);
-                intent.setType("text/plain");
-                Context context = this.b;
-                if (db8.startActivity(context, Intent.createChooser(intent, context.getString(R.string.obfuscated_res_0x7f0f1172)))) {
-                    if (cb8Var != null) {
-                        cb8Var.onShare(0, 1);
-                        return;
-                    }
-                    return;
-                } else if (cb8Var != null) {
-                    cb8Var.onShare(0, 2);
-                    return;
-                } else {
-                    return;
-                }
-            }
-            li.N(d(), R.string.obfuscated_res_0x7f0f1145);
-            if (cb8Var != null) {
-                cb8Var.onShare(0, 2);
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (ArrayList) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.booleanValue;
+    }
+
+    public void c(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) == null) || dataRes == null) {
+            return;
+        }
+        this.a = dataRes.has_more.intValue() == 1;
+        List<MsgContent> list = dataRes.msg_content;
+        if (list == null || list.size() <= 0) {
+            return;
+        }
+        this.b = new ArrayList<>();
+        for (MsgContent msgContent : dataRes.msg_content) {
+            this.b.add(new xa8(msgContent));
         }
     }
 }

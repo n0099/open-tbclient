@@ -1,15 +1,9 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Rect;
-import android.os.Bundle;
-import android.os.Vibrator;
-import android.view.MotionEvent;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.util.SparseIntArray;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tbadkCore.imgView.DragLayer;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,209 +12,107 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class kh8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int[] c;
+    public static final int[] d;
+    public static final int[] e;
+    public static final int[] f;
     public transient /* synthetic */ FieldHolder $fh;
-    public DragLayer a;
-    public Context b;
-    public Vibrator c;
-    public nh8 d;
-    public mh8 e;
-    public boolean f;
-    public float g;
-    public float h;
-    public lh8 i;
-    public Rect j;
-    public Rect k;
-    public int l;
-    public int m;
+    public SparseIntArray a;
+    public final int[] b;
 
-    public kh8(Context context) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755558762, "Lcom/repackage/kh8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755558762, "Lcom/repackage/kh8;");
+                return;
+            }
+        }
+        c = new int[]{3, 8, 13};
+        d = new int[]{2, 12};
+        e = new int[]{20};
+        f = new int[]{3, 13, 23};
+    }
+
+    public kh8(String str, int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str, iArr};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.j = new Rect();
-        this.b = context;
-        this.c = (Vibrator) context.getSystemService("vibrator");
-        this.h = this.b.getResources().getDisplayMetrics().density * 20.0f;
+        this.b = iArr;
+        this.a = new SparseIntArray();
     }
 
-    public void a() {
+    public void a(int i, int i2) {
+        SparseIntArray sparseIntArray;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f) {
-            this.f = false;
-            this.i = null;
-            this.d.c();
-            this.d.e();
-            this.a.a();
-            this.a.invalidate();
-        }
-    }
-
-    public final void b(lh8 lh8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lh8Var) == null) {
-            lh8Var.f = false;
-            lh8Var.g = false;
-            Rect rect = lh8Var.a;
-            int width = rect.width();
-            int width2 = this.a.getWidth();
-            int i = this.l;
-            int i2 = (width2 - i) - this.m;
-            if (rect.left < i) {
-                rect.left = i;
-                rect.right = i + width;
-            }
-            int i3 = rect.right;
-            int i4 = this.l;
-            if (i3 > i4 + i2) {
-                int i5 = i4 + i2;
-                rect.right = i5;
-                rect.left = i5 - width;
-            }
-            if (rect.left < this.l + this.h) {
-                lh8Var.f = true;
-                lh8Var.g = false;
-            }
-            if (rect.right > (this.l + i2) - this.h) {
-                lh8Var.f = false;
-                lh8Var.g = true;
-            }
-        }
-    }
-
-    public boolean c(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            int action = motionEvent.getAction() & 255;
-            if (action == 0) {
-                this.g = motionEvent.getX(0);
-            } else if (action == 1 || action == 3 || action == 4 || action == 6) {
-                a();
-            }
-            return this.f;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x0041, code lost:
-        if (r0 != 6) goto L21;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean d(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
-            if (this.f) {
-                if (this.k == null) {
-                    Rect rect = new Rect();
-                    this.k = rect;
-                    this.a.getDrawingRect(rect);
-                    Rect rect2 = this.k;
-                    float f = this.h;
-                    rect2.top = (int) (rect2.top - f);
-                    rect2.bottom = (int) (rect2.bottom + f);
-                }
-                int action = motionEvent.getAction() & 255;
-                if (action != 0) {
-                    if (action != 1) {
-                        if (action == 2) {
-                            float x = motionEvent.getX(0);
-                            this.g = x;
-                            this.i.a.offset((int) (x - this.g), 0);
-                            b(this.i);
-                            i();
-                        } else if (action != 3) {
-                            if (action != 4) {
-                            }
-                        }
-                    }
-                    a();
-                } else {
-                    this.g = motionEvent.getX(0);
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void e(DragLayer dragLayer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, dragLayer) == null) {
-            this.a = dragLayer;
-            dragLayer.setDragController(this);
-            this.l = this.a.getPaddingLeft();
-            this.m = this.a.getPaddingRight();
-        }
-    }
-
-    public void f(mh8 mh8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, mh8Var) == null) {
-            this.e = mh8Var;
-            mh8Var.setDragController(this);
-        }
-    }
-
-    public void g(nh8 nh8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, nh8Var) == null) {
-            this.d = nh8Var;
-        }
-    }
-
-    public void h(View view2, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048583, this, view2, bundle) == null) || this.a == null || view2 == null || view2.getDrawingCache() == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) || i < 0 || i2 < 0 || (sparseIntArray = this.a) == null) {
             return;
         }
-        this.f = true;
-        this.i = new lh8(this.b);
-        Rect rect = new Rect();
-        view2.getDrawingRect(rect);
-        this.a.offsetDescendantRectToMyCoords(view2, rect);
-        view2.setDrawingCacheEnabled(true);
-        view2.buildDrawingCache();
-        this.i.b = Bitmap.createBitmap(view2.getDrawingCache());
-        view2.destroyDrawingCache();
-        view2.setDrawingCacheEnabled(false);
-        lh8 lh8Var = this.i;
-        lh8Var.a = rect;
-        lh8Var.e = bundle;
-        view2.setVisibility(4);
-        b(this.i);
-        this.a.setDragObject(this.i);
-        this.c.vibrate(300L);
+        sparseIntArray.append(i2, i);
     }
 
-    public void i() {
+    public int b(int i) {
+        InterceptResult invokeI;
+        SparseIntArray sparseIntArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.j.set(this.i.a);
-            this.a.offsetRectIntoDescendantCoords((View) this.d, this.j);
-            this.d.a(this.j);
-            this.a.invalidate();
-            lh8 lh8Var = this.i;
-            if (lh8Var.f) {
-                this.d.b();
-            } else if (lh8Var.g) {
-                this.d.d();
-            } else {
-                this.d.c();
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i >= 0 && (sparseIntArray = this.a) != null) {
+                return sparseIntArray.get(i, -1);
+            }
+            return -1;
+        }
+        return invokeI.intValue;
+    }
+
+    public void c(int i) {
+        SparseIntArray sparseIntArray;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (sparseIntArray = this.a) == null) {
+            return;
+        }
+        sparseIntArray.delete(i);
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            e(0);
+        }
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            if (i < 0) {
+                i = 0;
+            }
+            SparseIntArray sparseIntArray = this.a;
+            if (sparseIntArray != null) {
+                sparseIntArray.clear();
+                int[] iArr = this.b;
+                if (iArr != null) {
+                    for (int i2 : iArr) {
+                        if (i2 >= 0) {
+                            this.a.append(i2 + i, i2);
+                        }
+                    }
+                }
             }
         }
     }

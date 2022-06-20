@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
-import com.repackage.q66;
+import com.repackage.pi;
+import com.repackage.q76;
 /* loaded from: classes3.dex */
 public class SearchEmotionModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
@@ -69,7 +69,7 @@ public class SearchEmotionModel extends BdBaseModel {
                     return;
                 }
                 if (!TextUtils.isEmpty(searchEmotionResponseMessage.getErrorString())) {
-                    li.O(TbadkCoreApplication.getInst(), searchEmotionResponseMessage.getErrorString());
+                    pi.O(TbadkCoreApplication.getInst(), searchEmotionResponseMessage.getErrorString());
                 }
                 this.a.a.onFail(searchEmotionResponseMessage.getError(), searchEmotionResponseMessage.getErrorString());
             }
@@ -78,7 +78,7 @@ public class SearchEmotionModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(String str, q66 q66Var);
+        void a(String str, q76 q76Var);
 
         void onFail(int i, String str);
     }
@@ -104,11 +104,25 @@ public class SearchEmotionModel extends BdBaseModel {
         registerListener(this.b);
     }
 
+    public void A(String str, int i, int i2, b bVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), bVar}) == null) || bVar == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        this.a = bVar;
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SEARCH_PB_EMOTION);
+        httpMessage.addParam(TiebaStatic.Params.H5_FORUM_NAME, str);
+        httpMessage.addParam(Config.PACKAGE_NAME, i);
+        httpMessage.addParam("rn", i2);
+        httpMessage.setExtra(str);
+        sendMessage(httpMessage);
+    }
+
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             MessageManager.getInstance().unRegisterListener(getUniqueId());
             this.a = null;
             return true;
@@ -120,7 +134,7 @@ public class SearchEmotionModel extends BdBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -128,24 +142,10 @@ public class SearchEmotionModel extends BdBaseModel {
 
     public final void registerTask() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SEARCH_PB_EMOTION, TbConfig.SERVER_ADDRESS + "c/e/meme/search");
             tbHttpMessageTask.setResponsedClass(SearchEmotionResponseMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
-    }
-
-    public void z(String str, int i, int i2, b bVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), bVar}) == null) || bVar == null || TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.a = bVar;
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SEARCH_PB_EMOTION);
-        httpMessage.addParam(TiebaStatic.Params.H5_FORUM_NAME, str);
-        httpMessage.addParam(Config.PACKAGE_NAME, i);
-        httpMessage.addParam("rn", i2);
-        httpMessage.setExtra(str);
-        sendMessage(httpMessage);
     }
 }

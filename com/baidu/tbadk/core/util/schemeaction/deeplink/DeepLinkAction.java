@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cf8;
+import com.repackage.vf8;
 /* loaded from: classes3.dex */
 public class DeepLinkAction {
     public static /* synthetic */ Interceptable $ic = null;
@@ -114,7 +114,7 @@ public class DeepLinkAction {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, context, str, bundle)) == null) {
             String[] strArr = {str};
             UrlManager urlManager = UrlManager.getInstance();
-            if (urlManager == null || (a = cf8.a(context)) == null) {
+            if (urlManager == null || (a = vf8.a(context)) == null) {
                 return false;
             }
             if (urlManager.UrlValidated(str)) {
@@ -194,7 +194,7 @@ public class DeepLinkAction {
                 deepLinkResponse.onFailed(DeepLinkCode.OpenAppSource.OPEN_SOURCE_INNER, -1);
                 return false;
             }
-            TbPageContext<?> a = cf8.a(context);
+            TbPageContext<?> a = vf8.a(context);
             if (a != null) {
                 int dealOneLinkWithOutJumpWebView = UrlManager.getInstance().dealOneLinkWithOutJumpWebView(a, new String[]{str});
                 SchemeActionHelper.printLog("inner tryOpenInnerLink-->" + str + ",retType=" + dealOneLinkWithOutJumpWebView);

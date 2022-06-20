@@ -59,19 +59,19 @@ public class FrsTabItemCustomeView extends RelativeLayout {
             this.b.getLayoutParams().width = c(this.d.dark.pic_width.intValue(), this.d.dark.pic_height.intValue());
             TbImageView tbImageView2 = this.b;
             TabPicDesc tabPicDesc = this.d.dark;
-            tbImageView2.H(tabPicDesc.unselected_pic_url, 45, c(tabPicDesc.pic_width.intValue(), this.d.dark.pic_height.intValue()), this.c, false);
+            tbImageView2.G(tabPicDesc.unselected_pic_url, 45, c(tabPicDesc.pic_width.intValue(), this.d.dark.pic_height.intValue()), this.c, false);
             TbImageView tbImageView3 = this.a;
             TabPicDesc tabPicDesc2 = this.d.dark;
-            tbImageView3.H(tabPicDesc2.selected_pic_url, 45, c(tabPicDesc2.pic_width.intValue(), this.d.dark.pic_height.intValue()), this.c, false);
+            tbImageView3.G(tabPicDesc2.selected_pic_url, 45, c(tabPicDesc2.pic_width.intValue(), this.d.dark.pic_height.intValue()), this.c, false);
         } else if (this.d.normal != null) {
             this.a.getLayoutParams().width = c(this.d.normal.pic_width.intValue(), this.d.normal.pic_height.intValue());
             this.b.getLayoutParams().width = c(this.d.normal.pic_width.intValue(), this.d.normal.pic_height.intValue());
             TbImageView tbImageView4 = this.b;
             TabPicDesc tabPicDesc3 = this.d.normal;
-            tbImageView4.H(tabPicDesc3.unselected_pic_url, 45, c(tabPicDesc3.pic_width.intValue(), this.d.normal.pic_height.intValue()), this.c, false);
+            tbImageView4.G(tabPicDesc3.unselected_pic_url, 45, c(tabPicDesc3.pic_width.intValue(), this.d.normal.pic_height.intValue()), this.c, false);
             TbImageView tbImageView5 = this.a;
             TabPicDesc tabPicDesc4 = this.d.normal;
-            tbImageView5.H(tabPicDesc4.selected_pic_url, 45, c(tabPicDesc4.pic_width.intValue(), this.d.normal.pic_height.intValue()), this.c, false);
+            tbImageView5.G(tabPicDesc4.selected_pic_url, 45, c(tabPicDesc4.pic_width.intValue(), this.d.normal.pic_height.intValue()), this.c, false);
         }
     }
 

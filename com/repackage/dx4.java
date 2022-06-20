@@ -1,399 +1,121 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
-import com.baidu.tbadk.data.NewsNotifyMessage;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.MemoryChangedMessage;
-import com.baidu.tieba.im.message.MemoryInitCompleteMessage;
-import com.baidu.tieba.im.message.RequestMemoryListMessage;
-import com.baidu.tieba.im.message.ResponsedMemoryListMessage;
-import com.baidu.tieba.im.settingcache.GroupSettingItemData;
-import com.baidu.tieba.im.settingcache.OfficialSettingItemData;
-import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class dx4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile dx4 k;
+    public static final Map<ShareDialogConfig.From, Integer> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedList<ImMessageCenterPojo> a;
+    public int a;
     public int b;
-    public int c;
+    public String c;
     public int d;
-    public int e;
-    public int f;
-    public boolean g;
-    public int h;
-    public boolean i;
-    public final CustomMessageListener j;
+    public List<Integer> e;
 
-    /* loaded from: classes5.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dx4 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(dx4 dx4Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755752047, "Lcom/repackage/dx4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dx4Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = dx4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755752047, "Lcom/repackage/dx4;");
                 return;
             }
-            if (customResponsedMessage.getCmd() == 2001120) {
-                this.a.p(customResponsedMessage);
-            } else if (customResponsedMessage.getCmd() == 2016002) {
-                this.a.o(customResponsedMessage);
-            } else if (customResponsedMessage.getCmd() == 2016004) {
-                this.a.m(customResponsedMessage);
-            } else if (customResponsedMessage.getCmd() == 2016007) {
-                this.a.q(customResponsedMessage);
-            } else if (customResponsedMessage.getCmd() == 2016001) {
-                this.a.n(customResponsedMessage);
-            } else if (customResponsedMessage.getCmd() == 2016010) {
-                this.a.s();
-            } else if (customResponsedMessage.getCmd() == 2016011) {
-                this.a.r();
-            }
         }
+        HashMap hashMap = new HashMap();
+        f = hashMap;
+        hashMap.put(ShareDialogConfig.From.Recommend, 1);
+        f.put(ShareDialogConfig.From.Concern, 2);
+        f.put(ShareDialogConfig.From.PB, 3);
+        f.put(ShareDialogConfig.From.FRS, 4);
+        f.put(ShareDialogConfig.From.PersonPolymeric, 5);
+        f.put(ShareDialogConfig.From.VideoMiddlePageHorizontal, 6);
+        f.put(ShareDialogConfig.From.VideoMiddlePageVertical, 7);
+        f.put(ShareDialogConfig.From.HomeVideoTab, 8);
+        f.put(ShareDialogConfig.From.HomeGameTab, 9);
     }
 
     public dx4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = new LinkedList<>();
-        this.b = 0;
-        this.c = 0;
-        this.d = 0;
-        this.e = 0;
-        this.f = 0;
-        this.g = false;
-        this.h = 0;
-        this.i = false;
-        this.j = new a(this, 0);
     }
 
-    public static dx4 k() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (k == null) {
-                synchronized (dx4.class) {
-                    if (k == null) {
-                        k = new dx4();
-                    }
-                }
-            }
-            return k;
-        }
-        return (dx4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.intValue;
     }
 
-    public final void h(List<ImMessageCenterPojo> list) {
-        int unread_count;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || list == null) {
-            return;
-        }
-        int i = 0;
-        boolean z = false;
-        for (int i2 = 0; i2 < list.size(); i2++) {
-            ImMessageCenterPojo imMessageCenterPojo = list.get(i2);
-            if (imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getLast_content()) && imMessageCenterPojo.getUnread_count() > 0) {
-                if (imMessageCenterPojo.getCustomGroupType() != -4 && imMessageCenterPojo.getCustomGroupType() != -7) {
-                    if (imMessageCenterPojo.getCustomGroupType() == 1) {
-                        if (ex4.d().r()) {
-                            GroupSettingItemData a2 = o57.k().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-                            if (a2 != null) {
-                                if (a2.isAcceptNotify()) {
-                                    unread_count = imMessageCenterPojo.getUnread_count();
-                                }
-                            } else {
-                                unread_count = imMessageCenterPojo.getUnread_count();
-                            }
-                            i += unread_count;
-                        }
-                    } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
-                        if (ex4.d().t()) {
-                            PersonalSettingItemData a3 = r57.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-                            if (a3 != null) {
-                                if (a3.isAcceptNotify()) {
-                                    unread_count = imMessageCenterPojo.getUnread_count();
-                                }
-                            } else {
-                                unread_count = imMessageCenterPojo.getUnread_count();
-                            }
-                            i += unread_count;
-                        }
-                    } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
-                        if (imMessageCenterPojo.getUserType() == 4) {
-                            if (ex4.d().t()) {
-                                OfficialSettingItemData a4 = q57.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-                                if (a4 != null) {
-                                    if (a4.isAcceptNotify()) {
-                                        unread_count = imMessageCenterPojo.getUnread_count();
-                                    }
-                                } else {
-                                    unread_count = imMessageCenterPojo.getUnread_count();
-                                }
-                                i += unread_count;
-                            }
-                        }
-                    } else if (imMessageCenterPojo.getCustomGroupType() != -8) {
-                    }
-                }
-                z = true;
-            }
-        }
-        if (ex4.d().f() == 0) {
-            i = 0;
-        }
-        boolean z2 = i > 0 ? z : false;
-        this.h = i;
-        this.i = z2;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
-    public final void i(int i, int i2, int i3, int i4) {
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
-            boolean z = i > 0 || i2 > 0 || i3 > 0 || i4 > 0;
-            int i5 = i > 0 ? i + 0 : 0;
-            if (i2 > 0) {
-                i5 += i2;
-            }
-            if (i3 > 0) {
-                i5 += i3;
-            }
-            if (i4 > 0) {
-                i5 += i4;
-            }
-            if (ex4.d().f() == 0) {
-                i5 = 0;
-            }
-            this.g = i5 > 0 ? z : false;
-            this.f = i5;
-            this.b = i;
-            this.c = i2;
-            this.d = i3;
-            this.e = i4;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? System.currentTimeMillis() / 1000 >= ((long) this.a) && System.currentTimeMillis() / 1000 <= ((long) this.b) : invokeV.booleanValue;
     }
 
-    public final boolean j(ImMessageCenterPojo imMessageCenterPojo) {
+    public boolean d(ShareDialogConfig.From from) {
         InterceptResult invokeL;
+        Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, imMessageCenterPojo)) == null) {
-            if (imMessageCenterPojo != null && imMessageCenterPojo.getIs_hidden() != 1 && ((!TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) || !TextUtils.isEmpty(imMessageCenterPojo.getNameShow())) && imMessageCenterPojo.getLast_content_time() != 0)) {
-                if (imMessageCenterPojo.getCustomGroupType() == 1) {
-                    return !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name());
-                } else if (imMessageCenterPojo.getCustomGroupType() == -4) {
-                    return true;
-                } else {
-                    if ((imMessageCenterPojo.getCustomGroupType() == 4 && imMessageCenterPojo.getUserType() == 4) || imMessageCenterPojo.getCustomGroupType() == -8 || imMessageCenterPojo.getCustomGroupType() == -7) {
-                        return true;
-                    }
-                    if (imMessageCenterPojo.getCustomGroupType() == 2 && (imMessageCenterPojo.getIsFriend() == 1 || imMessageCenterPojo.getIsFriend() == 2 || 1 == imMessageCenterPojo.getShowOutOfStranger())) {
-                        return (TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && TextUtils.isEmpty(imMessageCenterPojo.getNameShow())) ? false : true;
-                    }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, from)) == null) ? (this.e == null || (num = f.get(from)) == null || !this.e.contains(num)) ? false : true : invokeL.booleanValue;
+    }
+
+    public void e(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optInt("begin_time");
+        this.b = jSONObject.optInt("end_time");
+        this.c = jSONObject.optString("text");
+        this.d = jSONObject.optInt("icon_exp");
+        f(jSONObject.optString("page_list"));
+    }
+
+    public final void f(String str) {
+        String[] split;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || oi.isEmpty(str) || (split = str.split(",")) == null) {
+            return;
+        }
+        for (String str2 : split) {
+            int e = ng.e(str2, -1);
+            if (e != -1) {
+                if (this.e == null) {
+                    this.e = new ArrayList();
                 }
+                this.e.add(Integer.valueOf(e));
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            u();
-            MessageManager.getInstance().registerStickyMode(2921002);
-            MessageManager.getInstance().registerListener(2001120, this.j);
-            MessageManager.getInstance().registerListener(2016002, this.j);
-            MessageManager.getInstance().registerListener(2016004, this.j);
-            MessageManager.getInstance().registerListener(2016001, this.j);
-            MessageManager.getInstance().registerListener(2016007, this.j);
-            MessageManager.getInstance().registerListener(2016011, this.j);
-            MessageManager.getInstance().registerListener(2016010, this.j);
-        }
-    }
-
-    public final void m(CustomResponsedMessage<?> customResponsedMessage) {
-        MemoryChangedMessage memoryChangedMessage;
-        ImMessageCenterPojo data;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, customResponsedMessage) == null) || !(customResponsedMessage instanceof MemoryChangedMessage) || (data = (memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage).getData()) == null || TextUtils.isEmpty(data.getGid())) {
-            return;
-        }
-        if (memoryChangedMessage.getType() == 1) {
-            t(this.a, data);
-            if (j(data)) {
-                this.a.add(data);
-            }
-        } else if (memoryChangedMessage.getType() == 2) {
-            t(this.a, data);
-        }
-        h(this.a);
-        v();
-    }
-
-    public final void n(CustomResponsedMessage<?> customResponsedMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, customResponsedMessage) == null) {
-            this.a.clear();
-            h(this.a);
-            v();
-        }
-    }
-
-    public final void o(CustomResponsedMessage<?> customResponsedMessage) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, customResponsedMessage) == null) && (customResponsedMessage instanceof MemoryInitCompleteMessage) && ((MemoryInitCompleteMessage) customResponsedMessage).getData().booleanValue()) {
-            MessageManager.getInstance().sendMessage(new RequestMemoryListMessage(1));
-        }
-    }
-
-    public final void p(ResponsedMessage<?> responsedMessage) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, responsedMessage) == null) || responsedMessage == null) {
-            return;
-        }
-        if (!(responsedMessage instanceof NewsNotifyMessage)) {
-            BdLog.e("transform error");
-            return;
-        }
-        NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) responsedMessage;
-        i(newsNotifyMessage.getMsgAgree(), newsNotifyMessage.getMsgAtme(), newsNotifyMessage.getMsgReplyme(), newsNotifyMessage.getMsgFans());
-        v();
-    }
-
-    public final void q(CustomResponsedMessage<?> customResponsedMessage) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, customResponsedMessage) == null) && (customResponsedMessage instanceof ResponsedMemoryListMessage)) {
-            ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
-            List<ImMessageCenterPojo> data = responsedMemoryListMessage.getData();
-            if (responsedMemoryListMessage.getType() != 1 || data == null) {
-                return;
-            }
-            this.a.clear();
-            for (ImMessageCenterPojo imMessageCenterPojo : data) {
-                if (imMessageCenterPojo != null && j(imMessageCenterPojo)) {
-                    this.a.add(imMessageCenterPojo);
-                }
-            }
-            h(this.a);
-            v();
-        }
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            i(this.b, this.c, this.d, this.e);
-            h(this.a);
-            v();
-        }
-    }
-
-    public final void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            i(this.b, this.c, this.d, this.e);
-            h(this.a);
-            v();
-        }
-    }
-
-    public final void t(LinkedList<ImMessageCenterPojo> linkedList, ImMessageCenterPojo imMessageCenterPojo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048587, this, linkedList, imMessageCenterPojo) == null) || linkedList == null || linkedList.size() <= 0 || imMessageCenterPojo == null) {
-            return;
-        }
-        Iterator<ImMessageCenterPojo> it = linkedList.iterator();
-        while (it.hasNext()) {
-            ImMessageCenterPojo next = it.next();
-            if (next != null && next.getGid() == imMessageCenterPojo.getGid()) {
-                it.remove();
-            }
-        }
-    }
-
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.a.clear();
-            this.b = 0;
-            this.c = 0;
-            this.d = 0;
-            this.e = 0;
-            this.f = 0;
-            this.g = false;
-            this.h = 0;
-            this.i = false;
-            this.h = 0;
-            this.i = false;
-        }
-    }
-
-    public final void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            NewsRemindMessage newsRemindMessage = new NewsRemindMessage();
-            newsRemindMessage.setMsgAgreeCount(this.b);
-            newsRemindMessage.setMsgAtCount(this.c);
-            newsRemindMessage.setMsgReplyCount(this.d);
-            newsRemindMessage.setMsgFansCount(this.e);
-            newsRemindMessage.setMsgCount(this.f);
-            newsRemindMessage.setHasMsgRemind(this.g);
-            newsRemindMessage.setChatCount(this.h);
-            newsRemindMessage.setHasChatRemind(this.i);
-            MessageManager.getInstance().dispatchResponsedMessage(newsRemindMessage);
         }
     }
 }

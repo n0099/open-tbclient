@@ -1,360 +1,120 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.TBAlertConfig;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class sq4 {
+public class sq4 extends rq4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int a;
     public transient /* synthetic */ FieldHolder $fh;
+    public TextView l;
+    public TextView m;
+    public View.OnClickListener n;
+    public int o;
+    public int p;
 
-    /* loaded from: classes7.dex */
-    public static class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TBAlertConfig.a a;
-        public final /* synthetic */ View.OnClickListener b;
-
-        public a(TBAlertConfig.a aVar, View.OnClickListener onClickListener) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, onClickListener};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aVar;
-            this.b = onClickListener;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                View.OnClickListener onClickListener = this.a.c;
-                if (onClickListener != null) {
-                    onClickListener.onClick(view2);
-                }
-                View.OnClickListener onClickListener2 = this.b;
-                if (onClickListener2 != null) {
-                    onClickListener2.onClick(view2);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public static final /* synthetic */ int[] b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-5290531, "Lcom/repackage/sq4$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-5290531, "Lcom/repackage/sq4$b;");
-                    return;
-                }
-            }
-            int[] iArr = new int[TBAlertConfig.OperateBtnStyle.values().length];
-            b = iArr;
-            try {
-                iArr[TBAlertConfig.OperateBtnStyle.MAIN.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                b[TBAlertConfig.OperateBtnStyle.ALERT.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                b[TBAlertConfig.OperateBtnStyle.FORCE.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                b[TBAlertConfig.OperateBtnStyle.SECONDARY.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            int[] iArr2 = new int[TBAlertConfig.OperateType.values().length];
-            a = iArr2;
-            try {
-                iArr2[TBAlertConfig.OperateType.ONE.ordinal()] = 1;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                a[TBAlertConfig.OperateType.TWO.ordinal()] = 2;
-            } catch (NoSuchFieldError unused6) {
-            }
-            try {
-                a[TBAlertConfig.OperateType.THREE.ordinal()] = 3;
-            } catch (NoSuchFieldError unused7) {
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755311909, "Lcom/repackage/sq4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755311909, "Lcom/repackage/sq4;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sq4(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds96);
+        this.o = R.color.CAM_X0304;
+        this.p = R.color.CAM_X0107;
+        this.l = (TextView) e().findViewById(R.id.obfuscated_res_0x7f092037);
+        this.m = (TextView) e().findViewById(R.id.obfuscated_res_0x7f092026);
+        i(true);
     }
 
-    public static TextView a(@NonNull Context context) {
-        InterceptResult invokeL;
+    @Override // com.repackage.rq4
+    public void b(d9<?> d9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            TextView textView = new TextView(context);
-            wq4 d = wq4.d(textView);
-            d.z(R.dimen.T_X07);
-            d.x(R.color.CAM_X0301);
-            d.A(R.string.F_X01);
-            d.l(R.dimen.L_X02);
-            d.k(R.color.CAM_X0301);
-            d.n(R.string.J_X07);
-            d.h(17170445);
-            textView.setMaxLines(1);
-            textView.setSingleLine();
-            textView.setGravity(17);
-            return textView;
+        if (interceptable == null || interceptable.invokeL(1048576, this, d9Var) == null) {
+            super.b(d9Var);
+            o();
         }
-        return (TextView) invokeL.objValue;
     }
 
-    public static TextView b(Activity activity, boolean z) {
-        InterceptResult invokeLZ;
+    @Override // com.repackage.rq4
+    public void f() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, activity, z)) == null) ? z ? c(activity) : d(activity) : (TextView) invokeLZ.objValue;
-    }
-
-    public static TextView c(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            EMTextView eMTextView = new EMTextView(context);
-            wq4 d = wq4.d(eMTextView);
-            d.z(R.dimen.T_X07);
-            d.w(R.dimen.M_T_X002);
-            d.v(R.color.CAM_X0107);
-            d.A(R.string.F_X01);
-            return eMTextView;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
-        return (TextView) invokeL.objValue;
     }
 
-    public static TextView d(@NonNull Context context) {
-        InterceptResult invokeL;
+    @Override // com.repackage.rq4
+    public void h(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            EMTextView eMTextView = new EMTextView(context);
-            wq4 d = wq4.d(eMTextView);
-            d.z(R.dimen.T_X07);
-            d.w(R.dimen.M_T_X002);
-            d.v(R.color.CAM_X0108);
-            d.A(R.string.F_X01);
-            return eMTextView;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            j(i);
         }
-        return (TextView) invokeL.objValue;
     }
 
-    public static TextView e(@NonNull Context context) {
-        InterceptResult invokeL;
+    public final void o() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            TextView textView = new TextView(context);
-            wq4 d = wq4.d(textView);
-            d.z(R.dimen.T_X07);
-            d.x(R.color.CAM_X0101);
-            d.A(R.string.F_X01);
-            d.n(R.string.J_X07);
-            d.h(R.color.CAM_X0303);
-            textView.setMaxLines(1);
-            textView.setSingleLine();
-            textView.setGravity(17);
-            return textView;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            fr4.d(this.l).x(this.o);
+            fr4.d(this.m).x(this.p);
         }
-        return (TextView) invokeL.objValue;
     }
 
-    public static TextView f(@NonNull Context context) {
-        InterceptResult invokeL;
+    public sq4 p(int i, View.OnClickListener onClickListener) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            TextView textView = new TextView(context);
-            wq4 d = wq4.d(textView);
-            d.z(R.dimen.T_X07);
-            d.x(R.color.CAM_X0304);
-            d.A(R.string.F_X01);
-            d.l(R.dimen.L_X02);
-            d.k(R.color.CAM_X0304);
-            d.j(R.string.A_X07);
-            d.n(R.string.J_X07);
-            d.h(17170445);
-            textView.setMaxLines(1);
-            textView.setSingleLine();
-            textView.setGravity(17);
-            return textView;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, onClickListener)) == null) {
+            this.m.setText(i);
+            this.m.setOnClickListener(onClickListener);
+            this.m.setVisibility(0);
+            return this;
         }
-        return (TextView) invokeL.objValue;
+        return (sq4) invokeIL.objValue;
     }
 
-    public static View g(@NonNull Context context, @NonNull TBAlertConfig.a aVar, @Nullable View.OnClickListener onClickListener) {
-        InterceptResult invokeLLL;
+    public sq4 q(int i, View.OnClickListener onClickListener) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, context, aVar, onClickListener)) == null) ? h(context, aVar, onClickListener, false) : (View) invokeLLL.objValue;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, onClickListener)) == null) {
+            this.l.setText(i);
+            this.l.setOnClickListener(onClickListener);
+            this.l.setVisibility(0);
+            this.n = onClickListener;
+            return this;
+        }
+        return (sq4) invokeIL.objValue;
     }
 
-    public static View h(@NonNull Context context, @NonNull TBAlertConfig.a aVar, @Nullable View.OnClickListener onClickListener, boolean z) {
-        InterceptResult invokeCommon;
-        TextView f;
+    public void r(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{context, aVar, onClickListener, Boolean.valueOf(z)})) == null) {
-            int i = b.b[aVar.b.ordinal()];
-            if (i == 1) {
-                f = f(context);
-            } else if (i == 2) {
-                f = a(context);
-            } else if (i != 3) {
-                f = i != 4 ? null : j(context);
-            } else {
-                f = e(context);
-            }
-            f.setText(aVar.a);
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             if (z) {
-                wq4.d(f).z(R.dimen.T_X08);
+                this.o = R.color.CAM_X0304;
+                this.l.setEnabled(true);
+                this.l.setOnClickListener(this.n);
+            } else {
+                this.o = R.color.CAM_X0110;
+                this.l.setEnabled(false);
+                this.l.setOnClickListener(null);
             }
-            f.setOnClickListener(new a(aVar, onClickListener));
-            return f;
+            o();
         }
-        return (View) invokeCommon.objValue;
-    }
-
-    public static View i(@NonNull Context context, @NonNull TBAlertConfig.b bVar, @Nullable View.OnClickListener onClickListener) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, context, bVar, onClickListener)) == null) {
-            LinearLayout linearLayout = new LinearLayout(context);
-            linearLayout.setPadding(0, li.f(context, R.dimen.M_H_X008), 0, li.f(context, R.dimen.M_H_X008));
-            linearLayout.setGravity(17);
-            int i = b.a[bVar.a.ordinal()];
-            boolean z = true;
-            if (i == 1) {
-                linearLayout.setOrientation(0);
-                linearLayout.setWeightSum(837.0f);
-                View g = g(context, bVar.b, onClickListener);
-                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, a);
-                layoutParams.weight = 494.0f;
-                linearLayout.addView(g, layoutParams);
-            } else if (i == 2) {
-                linearLayout.setOrientation(0);
-                if (bVar.b.a.length() <= 6 && bVar.c.a.length() <= 6) {
-                    z = false;
-                }
-                View h = h(context, bVar.b, onClickListener, z);
-                LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(0, a);
-                layoutParams2.setMargins(li.f(context, R.dimen.M_W_X012), 0, li.f(context, R.dimen.M_W_X006) / 2, 0);
-                layoutParams2.weight = 1.0f;
-                linearLayout.addView(h, layoutParams2);
-                View h2 = h(context, bVar.c, onClickListener, z);
-                LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(0, a);
-                layoutParams3.setMargins(li.f(context, R.dimen.M_W_X006) / 2, 0, li.f(context, R.dimen.M_W_X012), 0);
-                layoutParams3.weight = 1.0f;
-                linearLayout.addView(h2, layoutParams3);
-            } else if (i == 3) {
-                linearLayout.setOrientation(1);
-                View g2 = g(context, bVar.b, onClickListener);
-                LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(-1, a);
-                layoutParams4.setMargins(li.f(context, R.dimen.M_W_X012), 0, li.f(context, R.dimen.M_W_X012), li.f(context, R.dimen.M_H_X005));
-                linearLayout.addView(g2, layoutParams4);
-                View g3 = g(context, bVar.c, onClickListener);
-                LinearLayout.LayoutParams layoutParams5 = new LinearLayout.LayoutParams(-1, a);
-                layoutParams5.setMargins(li.f(context, R.dimen.M_W_X012), 0, li.f(context, R.dimen.M_W_X012), li.f(context, R.dimen.M_H_X005));
-                linearLayout.addView(g3, layoutParams5);
-                View g4 = g(context, bVar.d, onClickListener);
-                LinearLayout.LayoutParams layoutParams6 = new LinearLayout.LayoutParams(-1, a);
-                layoutParams6.setMargins(li.f(context, R.dimen.M_W_X012), 0, li.f(context, R.dimen.M_W_X012), 0);
-                linearLayout.addView(g4, layoutParams6);
-            }
-            linearLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            return linearLayout;
-        }
-        return (View) invokeLLL.objValue;
-    }
-
-    public static TextView j(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            TextView textView = new TextView(context);
-            wq4 d = wq4.d(textView);
-            d.z(R.dimen.T_X07);
-            d.x(R.color.CAM_X0105);
-            d.A(R.string.F_X01);
-            d.l(R.dimen.L_X02);
-            d.k(R.color.CAM_X0902);
-            d.n(R.string.J_X07);
-            d.h(17170445);
-            textView.setMaxLines(1);
-            textView.setSingleLine();
-            textView.setGravity(17);
-            return textView;
-        }
-        return (TextView) invokeL.objValue;
-    }
-
-    public static TextView k(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            EMTextView eMTextView = new EMTextView(context);
-            wq4 d = wq4.d(eMTextView);
-            d.z(R.dimen.T_X05);
-            d.v(R.color.CAM_X0105);
-            d.A(R.string.F_X02);
-            eMTextView.setMaxLines(1);
-            eMTextView.setSingleLine();
-            eMTextView.setGravity(17);
-            return eMTextView;
-        }
-        return (TextView) invokeL.objValue;
     }
 }

@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b9;
+import com.repackage.d9;
 /* loaded from: classes3.dex */
 public class BarInformationModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
@@ -64,14 +64,14 @@ public class BarInformationModel extends BdBaseModel {
                 if (bVar == null || (bazhuInfoResponseMessage = (BazhuInfoResponseMessage) httpResponsedMessage) == null) {
                     return;
                 }
-                bVar.success(bazhuInfoResponseMessage.data);
+                bVar.D(bazhuInfoResponseMessage.data);
             }
         }
     }
 
     /* loaded from: classes3.dex */
     public interface b {
-        void success(BazhuInfoData bazhuInfoData);
+        void D(BazhuInfoData bazhuInfoData);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -86,7 +86,7 @@ public class BarInformationModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((b9) newInitContext.callArgs[0]);
+                super((d9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -129,7 +129,7 @@ public class BarInformationModel extends BdBaseModel {
         }
     }
 
-    public void y(b bVar) {
+    public void z(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_BAR_ZHU_INFORMATION);

@@ -3979,7 +3979,7 @@ public class SapiWebView extends WebView {
             this.this$0 = sapiWebView;
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:32:0x0179, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:32:0x0178, code lost:
             if ((r5.getHost() + r5.getPath()).contains(r4.getHost() + r4.getPath()) != false) goto L44;
          */
         @Override // android.webkit.WebViewClient
@@ -4137,7 +4137,7 @@ public class SapiWebView extends WebView {
                                         SapiAccountManager.getInstance().getAccountService().getUserInfo(new GetUserInfoCallback(this, cookieBduss, cookiePtoken) { // from class: com.baidu.sapi2.SapiWebView.2.2.1
                                             public static /* synthetic */ Interceptable $ic;
                                             public transient /* synthetic */ FieldHolder $fh;
-                                            public final /* synthetic */ RunnableC01242 this$2;
+                                            public final /* synthetic */ RunnableC01272 this$2;
                                             public final /* synthetic */ String val$bduss;
                                             public final /* synthetic */ String val$ptoken;
 

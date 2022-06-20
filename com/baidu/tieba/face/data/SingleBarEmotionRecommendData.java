@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.r66;
+import com.repackage.r76;
 import java.io.Serializable;
 /* loaded from: classes3.dex */
-public class SingleBarEmotionRecommendData implements Serializable, r66 {
+public class SingleBarEmotionRecommendData implements Serializable, r76 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,14 +31,14 @@ public class SingleBarEmotionRecommendData implements Serializable, r66 {
         }
     }
 
-    @Override // com.repackage.r66
+    @Override // com.repackage.r76
     public boolean IsValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.cover) : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.r66
+    @Override // com.repackage.r76
     public String getGroupId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

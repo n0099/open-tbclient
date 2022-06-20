@@ -29,23 +29,23 @@ public class e extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
     }
 
     private void d() {
-        findViewById(R.id.obfuscated_res_0x7f090fe4).setVisibility(0);
-        findViewById(R.id.obfuscated_res_0x7f090fe3).setVisibility(8);
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091058);
-        ((TextView) findViewById(R.id.obfuscated_res_0x7f091056)).setText(com.kwad.sdk.core.response.a.a.s(((com.kwad.sdk.feed.widget.base.a) this).c));
+        findViewById(R.id.obfuscated_res_0x7f090fd4).setVisibility(0);
+        findViewById(R.id.obfuscated_res_0x7f090fd3).setVisibility(8);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091048);
+        ((TextView) findViewById(R.id.obfuscated_res_0x7f091046)).setText(com.kwad.sdk.core.response.a.a.s(((com.kwad.sdk.feed.widget.base.a) this).c));
         textView.setText(com.kwad.sdk.core.response.a.a.A(((com.kwad.sdk.feed.widget.base.a) this).c));
-        findViewById(R.id.obfuscated_res_0x7f091059).setOnClickListener(this);
+        findViewById(R.id.obfuscated_res_0x7f091049).setOnClickListener(this);
         textView.setOnClickListener(this);
     }
 
     private void g() {
-        findViewById(R.id.obfuscated_res_0x7f090fe3).setVisibility(0);
-        findViewById(R.id.obfuscated_res_0x7f090fe4).setVisibility(8);
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091001);
-        ((TextView) findViewById(R.id.obfuscated_res_0x7f091005)).setText(com.kwad.sdk.core.response.a.a.t(((com.kwad.sdk.feed.widget.base.a) this).c));
-        imageView.setImageResource(R.drawable.obfuscated_res_0x7f080bcb);
+        findViewById(R.id.obfuscated_res_0x7f090fd3).setVisibility(0);
+        findViewById(R.id.obfuscated_res_0x7f090fd4).setVisibility(8);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ff1);
+        ((TextView) findViewById(R.id.obfuscated_res_0x7f090ff5)).setText(com.kwad.sdk.core.response.a.a.t(((com.kwad.sdk.feed.widget.base.a) this).c));
+        imageView.setImageResource(R.drawable.obfuscated_res_0x7f080bb6);
         KSImageLoader.loadAppIcon(imageView, com.kwad.sdk.core.response.a.a.au(((com.kwad.sdk.feed.widget.base.a) this).c), ((com.kwad.sdk.feed.widget.base.a) this).b, 8);
-        ((TextView) findViewById(R.id.obfuscated_res_0x7f090ffc)).setText(com.kwad.sdk.core.response.a.a.s(((com.kwad.sdk.feed.widget.base.a) this).c));
+        ((TextView) findViewById(R.id.obfuscated_res_0x7f090fec)).setText(com.kwad.sdk.core.response.a.a.s(((com.kwad.sdk.feed.widget.base.a) this).c));
         this.j.a(((com.kwad.sdk.feed.widget.base.a) this).b);
         this.j.setOnClickListener(this);
         com.kwad.sdk.core.download.a.b bVar = new com.kwad.sdk.core.download.a.b(((com.kwad.sdk.feed.widget.base.a) this).b, null, this.j.getAppDownloadListener());
@@ -77,17 +77,17 @@ public class e extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
 
     @Override // com.kwad.sdk.feed.widget.base.a
     public void c() {
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090fdf);
-        ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f09105a)).setRatio(0.56f);
-        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fe5);
-        this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fe1);
-        this.i = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f090fe2);
-        this.j = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f090ffe);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090fcf);
+        ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f09104a)).setRatio(0.56f);
+        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fd5);
+        this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fd1);
+        this.i = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f090fd2);
+        this.j = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f090fee);
     }
 
     @Override // com.kwad.sdk.feed.widget.base.a
     public int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d041f;
+        return R.layout.obfuscated_res_0x7f0d0419;
     }
 
     @Override // android.view.View.OnClickListener
@@ -95,7 +95,7 @@ public class e extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
         if (view2 == this.g) {
             m();
         } else {
-            com.kwad.sdk.core.download.a.a.a(new a.C0296a(bb.a(this)).a(((com.kwad.sdk.feed.widget.base.a) this).b).a(this.h).a(view2 == this.j ? 1 : 2).a(view2 == this.j).a(new a.b() { // from class: com.kwad.sdk.feed.widget.e.1
+            com.kwad.sdk.core.download.a.a.a(new a.C0304a(bb.a(this)).a(((com.kwad.sdk.feed.widget.base.a) this).b).a(this.h).a(view2 == this.j ? 1 : 2).a(view2 == this.j).a(new a.b() { // from class: com.kwad.sdk.feed.widget.e.1
                 @Override // com.kwad.sdk.core.download.a.a.b
                 public void a() {
                     e.this.k();

@@ -20,16 +20,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi2;
-import com.repackage.ry2;
-import com.repackage.sy2;
-import com.repackage.v43;
+import com.repackage.cz2;
+import com.repackage.dz2;
+import com.repackage.g53;
+import com.repackage.zi2;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
-public class CommonOverflowMenuView extends LinearLayout implements ry2.g {
+public class CommonOverflowMenuView extends LinearLayout implements cz2.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -37,14 +37,14 @@ public class CommonOverflowMenuView extends LinearLayout implements ry2.g {
     public ColorStateList c;
     public List<ImageView> d;
     public List<TextView> e;
-    public HashMap<sy2, ImageView> f;
+    public HashMap<dz2, ImageView> f;
     public View g;
     public LinearLayout h;
     public SwanAppScrollView i;
     public Object j;
 
     /* loaded from: classes2.dex */
-    public class a implements v43 {
+    public class a implements g53 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CommonOverflowMenuView a;
@@ -86,7 +86,7 @@ public class CommonOverflowMenuView extends LinearLayout implements ry2.g {
                 return;
             }
         }
-        this.a = R.drawable.obfuscated_res_0x7f08014c;
+        this.a = R.drawable.obfuscated_res_0x7f08014b;
         this.b = R.color.obfuscated_res_0x7f0603b1;
         this.d = new ArrayList();
         this.e = new ArrayList();
@@ -99,10 +99,10 @@ public class CommonOverflowMenuView extends LinearLayout implements ry2.g {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00ba, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00b9, (ViewGroup) this, true);
             this.g = inflate;
-            this.h = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0913bf);
-            this.i = (SwanAppScrollView) this.g.findViewById(R.id.obfuscated_res_0x7f0913c2);
+            this.h = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0913b7);
+            this.i = (SwanAppScrollView) this.g.findViewById(R.id.obfuscated_res_0x7f0913ba);
             setFocusable(true);
             setFocusableInTouchMode(true);
             b();
@@ -113,14 +113,14 @@ public class CommonOverflowMenuView extends LinearLayout implements ry2.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.c = AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f060394);
-            setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08014b));
+            setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08014a));
             for (ImageView imageView : this.d) {
                 imageView.setBackgroundColor(getResources().getColor(this.b));
             }
             for (TextView textView : this.e) {
                 textView.setTextColor(this.c);
             }
-            for (Map.Entry<sy2, ImageView> entry : this.f.entrySet()) {
+            for (Map.Entry<dz2, ImageView> entry : this.f.entrySet()) {
                 entry.getValue().setImageDrawable(entry.getKey().b());
             }
         }
@@ -149,7 +149,7 @@ public class CommonOverflowMenuView extends LinearLayout implements ry2.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onAttachedToWindow();
-            oi2.M().f(this.j, new a(this));
+            zi2.M().f(this.j, new a(this));
             b();
         }
     }
@@ -159,7 +159,7 @@ public class CommonOverflowMenuView extends LinearLayout implements ry2.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDetachedFromWindow();
-            oi2.M().g(this.j);
+            zi2.M().g(this.j);
         }
     }
 
@@ -217,7 +217,7 @@ public class CommonOverflowMenuView extends LinearLayout implements ry2.g {
                 return;
             }
         }
-        this.a = R.drawable.obfuscated_res_0x7f08014c;
+        this.a = R.drawable.obfuscated_res_0x7f08014b;
         this.b = R.color.obfuscated_res_0x7f0603b1;
         this.d = new ArrayList();
         this.e = new ArrayList();

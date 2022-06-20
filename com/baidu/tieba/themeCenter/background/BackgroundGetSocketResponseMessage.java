@@ -1,5 +1,6 @@
 package com.baidu.tieba.themeCenter.background;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -36,39 +37,43 @@ public class BackgroundGetSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            GetBackgroundResIdl getBackgroundResIdl = (GetBackgroundResIdl) new Wire(new Class[0]).parseFrom(bArr, GetBackgroundResIdl.class);
+            if (getBackgroundResIdl == null) {
+                return null;
+            }
+            Error error = getBackgroundResIdl.error;
+            if (error != null) {
+                setError(error.errorno.intValue());
+                setErrorString(getBackgroundResIdl.error.usermsg);
+            }
+            DataRes dataRes = getBackgroundResIdl.data;
+            if (dataRes != null && !StringUtils.isNull(dataRes.title)) {
+                DressItemData dressItemData = new DressItemData();
+                this.mBgItem = dressItemData;
+                dressItemData.setTitle(getBackgroundResIdl.data.title);
+                this.mBgItem.setDescription(getBackgroundResIdl.data.description);
+                this.mBgItem.setExampleImgUrl(getBackgroundResIdl.data.pic_url);
+                this.mBgItem.setFreeUserLevel(getBackgroundResIdl.data.free_user_level.intValue());
+                this.mBgItem.setPermissionImgUrl(getBackgroundResIdl.data.permission);
+                this.mBgItem.setPropsStateImg(getBackgroundResIdl.data.props_state_img);
+                this.mBgItem.setActivityFinish(getBackgroundResIdl.data.is_finished.intValue());
+                this.mBgItem.setActivityUrl(getBackgroundResIdl.data.activity_url);
+                this.mBgItem.setDailyPrevilegeStatus(getBackgroundResIdl.data.daily_privilege_status.intValue());
+            }
+            return getBackgroundResIdl;
+        }
+        return invokeIL.objValue;
+    }
+
     public DressItemData getBgItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mBgItem : (DressItemData) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        GetBackgroundResIdl getBackgroundResIdl;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getBackgroundResIdl = (GetBackgroundResIdl) new Wire(new Class[0]).parseFrom(bArr, GetBackgroundResIdl.class)) == null) {
-            return;
-        }
-        Error error = getBackgroundResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(getBackgroundResIdl.error.usermsg);
-        }
-        DataRes dataRes = getBackgroundResIdl.data;
-        if (dataRes == null || StringUtils.isNull(dataRes.title)) {
-            return;
-        }
-        DressItemData dressItemData = new DressItemData();
-        this.mBgItem = dressItemData;
-        dressItemData.setTitle(getBackgroundResIdl.data.title);
-        this.mBgItem.setDescription(getBackgroundResIdl.data.description);
-        this.mBgItem.setExampleImgUrl(getBackgroundResIdl.data.pic_url);
-        this.mBgItem.setFreeUserLevel(getBackgroundResIdl.data.free_user_level.intValue());
-        this.mBgItem.setPermissionImgUrl(getBackgroundResIdl.data.permission);
-        this.mBgItem.setPropsStateImg(getBackgroundResIdl.data.props_state_img);
-        this.mBgItem.setActivityFinish(getBackgroundResIdl.data.is_finished.intValue());
-        this.mBgItem.setActivityUrl(getBackgroundResIdl.data.activity_url);
-        this.mBgItem.setDailyPrevilegeStatus(getBackgroundResIdl.data.daily_privilege_status.intValue());
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mBgItem : (DressItemData) invokeV.objValue;
     }
 }

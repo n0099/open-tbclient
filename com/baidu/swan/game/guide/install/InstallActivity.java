@@ -16,28 +16,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bq3;
-import com.repackage.cq3;
-import com.repackage.hc3;
-import com.repackage.sp3;
-import com.repackage.yp3;
+import com.repackage.dq3;
+import com.repackage.jq3;
+import com.repackage.mq3;
+import com.repackage.nq3;
+import com.repackage.sc3;
+import com.sina.weibo.sdk.share.BaseActivity;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.json.JSONObject;
-@SuppressLint({"BaseActivity"})
+@SuppressLint({BaseActivity.TAG})
 /* loaded from: classes2.dex */
 public class InstallActivity extends Activity {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String TAG = "InstallActivity";
-    public static ExecutorService sExecutorService;
+    public static /* synthetic */ Interceptable $ic;
+    public static ExecutorService g;
     public transient /* synthetic */ FieldHolder $fh;
-    public String downloadPackageName;
-    public String downloadUrl;
-    public String mDownloadParams;
-    public boolean mFallbackFinish;
-    public int mResumeCount;
-    public JSONObject mUbcParams;
+    public int a;
+    public boolean b;
+    public String c;
+    public String d;
+    public JSONObject e;
+    public String f;
 
     /* loaded from: classes2.dex */
     public static /* synthetic */ class a {
@@ -64,9 +64,9 @@ public class InstallActivity extends Activity {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.b)) {
                 return;
             }
-            boolean handleInstallApp = InstallActivity.handleInstallApp(this.d, this.a, this.b, this.c);
+            boolean b = InstallActivity.b(this.d, this.a, this.b, this.c);
             Activity activity = this.d.get();
-            if (handleInstallApp || activity == null || activity.isDestroyed() || activity.isFinishing()) {
+            if (b || activity == null || activity.isDestroyed() || activity.isFinishing()) {
                 return;
             }
             activity.finish();
@@ -107,7 +107,7 @@ public class InstallActivity extends Activity {
                 return;
             }
         }
-        sExecutorService = Executors.newSingleThreadExecutor();
+        g = Executors.newSingleThreadExecutor();
     }
 
     public InstallActivity() {
@@ -123,14 +123,14 @@ public class InstallActivity extends Activity {
                 return;
             }
         }
-        this.mResumeCount = 0;
-        this.mFallbackFinish = true;
+        this.a = 0;
+        this.b = true;
     }
 
-    public static boolean handleInstallApp(WeakReference<Activity> weakReference, String str, String str2, String str3) {
+    public static boolean b(WeakReference<Activity> weakReference, String str, String str2, String str3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, weakReference, str, str2, str3)) == null) ? sp3.t().u(weakReference.get(), str, str2, str3) : invokeLLLL.booleanValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, weakReference, str, str2, str3)) == null) ? dq3.t().u(weakReference.get(), str, str2, str3) : invokeLLLL.booleanValue;
     }
 
     @Override // android.app.Activity
@@ -139,14 +139,14 @@ public class InstallActivity extends Activity {
         if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
             if (i == 1345431) {
-                if (i2 != -1 || TextUtils.isEmpty(this.downloadPackageName)) {
+                if (i2 != -1 || TextUtils.isEmpty(this.d)) {
                     if (i2 == 0) {
-                        cq3.n().h("installCancel", new bq3(this.mUbcParams), this.downloadPackageName, this.mDownloadParams, this.downloadUrl);
+                        nq3.n().h("installCancel", new mq3(this.e), this.d, this.f, this.c);
                     } else if (i2 == 1 && intent != null) {
-                        cq3.n().g("installFailed", new bq3(this.mUbcParams), this.downloadPackageName, this.mDownloadParams, intent.getIntExtra("android.intent.extra.INSTALL_RESULT", 31022), this.downloadUrl);
+                        nq3.n().g("installFailed", new mq3(this.e), this.d, this.f, intent.getIntExtra("android.intent.extra.INSTALL_RESULT", 31022), this.c);
                     }
-                } else if (yp3.g(AppRuntime.getAppContext(), this.downloadPackageName) && yp3.k(AppRuntime.getAppContext(), this.downloadPackageName)) {
-                    cq3.n().h("openAtOnce", new bq3(this.mUbcParams), this.downloadPackageName, this.mDownloadParams, this.downloadUrl);
+                } else if (jq3.g(AppRuntime.getAppContext(), this.d) && jq3.k(AppRuntime.getAppContext(), this.d)) {
+                    nq3.n().h("openAtOnce", new mq3(this.e), this.d, this.f, this.c);
                 }
             }
             finish();
@@ -160,12 +160,12 @@ public class InstallActivity extends Activity {
             super.onCreate(bundle);
             Bundle extras = getIntent().getExtras();
             if (extras != null) {
-                this.downloadUrl = extras.getString("key_download_url");
-                this.downloadPackageName = extras.getString("key_download_package_name");
-                this.mUbcParams = hc3.d(extras.getString("ubc_params", ""));
-                this.mDownloadParams = extras.getString("download_params");
+                this.c = extras.getString("key_download_url");
+                this.d = extras.getString("key_download_package_name");
+                this.e = sc3.d(extras.getString("ubc_params", ""));
+                this.f = extras.getString("download_params");
             }
-            sExecutorService.execute(new b(this, this.downloadUrl, this.downloadPackageName, this.mDownloadParams, null));
+            g.execute(new b(this, this.c, this.d, this.f, null));
             LogUtil.logActivity(this, "onCreate");
         }
     }
@@ -175,12 +175,12 @@ public class InstallActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onResume();
-            if (this.mFallbackFinish) {
-                int i = this.mResumeCount + 1;
-                this.mResumeCount = i;
+            if (this.b) {
+                int i = this.a + 1;
+                this.a = i;
                 if (i > 1) {
-                    if (!yp3.g(AppRuntime.getAppContext(), this.downloadPackageName)) {
-                        cq3.n().h("installCancel", new bq3(this.mUbcParams), this.downloadPackageName, this.mDownloadParams, this.downloadUrl);
+                    if (!jq3.g(AppRuntime.getAppContext(), this.d)) {
+                        nq3.n().h("installCancel", new mq3(this.e), this.d, this.f, this.c);
                     }
                     finish();
                 }

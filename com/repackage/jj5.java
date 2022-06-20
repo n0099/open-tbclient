@@ -1,58 +1,49 @@
 package com.repackage;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.coreExtra.relationship.GetContactListRequestMessage;
-import com.baidu.tbadk.coreExtra.relationship.GetContactListResponsedMessage;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.launch.LaunchStatsUtils;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
+import com.facebook.common.util.UriUtil;
+import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jj5 implements CustomMessageTask.CustomRunnable<String> {
+public class jj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public jj5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
+    public static List<AdvertAppInfo> a(@NonNull String str) {
         InterceptResult invokeL;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage == null || !(customMessage instanceof GetContactListRequestMessage)) {
-                return null;
-            }
-            List<px4> e = mj5.f().e();
-            if (e != null) {
-                Iterator<px4> it = e.iterator();
-                while (it.hasNext()) {
-                    px4 next = it.next();
-                    if ((ki.isEmpty(next.e()) && ki.isEmpty(next.f())) || next.h() == 1) {
-                        it.remove();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            try {
+                JSONObject optJSONObject2 = new JSONObject(str).optJSONObject(UriUtil.LOCAL_RESOURCE_SCHEME);
+                if (optJSONObject2 == null) {
+                    return null;
+                }
+                JSONArray optJSONArray = optJSONObject2.optJSONArray(LaunchStatsUtils.AD);
+                ArrayList arrayList = new ArrayList();
+                if (optJSONArray == null) {
+                    return null;
+                }
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject optJSONObject3 = optJSONArray.optJSONObject(i);
+                    if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject("adInfo")) != null) {
+                        arrayList.add(AdvertAppInfo.t(optJSONObject));
                     }
                 }
+                return arrayList;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
             }
-            GetContactListResponsedMessage getContactListResponsedMessage = new GetContactListResponsedMessage();
-            getContactListResponsedMessage.setContacts(e);
-            return getContactListResponsedMessage;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (List) invokeL.objValue;
     }
 }

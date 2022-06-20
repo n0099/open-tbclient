@@ -61,7 +61,7 @@ public class b extends Presenter {
     public void a() {
         super.a();
         this.d = ((e) p()).c;
-        NestedScrollWebView nestedScrollWebView = (NestedScrollWebView) m().findViewById(R.id.obfuscated_res_0x7f091152);
+        NestedScrollWebView nestedScrollWebView = (NestedScrollWebView) m().findViewById(R.id.obfuscated_res_0x7f091142);
         this.c = nestedScrollWebView;
         nestedScrollWebView.setTemplateData(this.d);
         this.c.setNestedScrollingEnabled(true);

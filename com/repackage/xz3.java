@@ -1,107 +1,163 @@
 package com.repackage;
 
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.tz3;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class xz3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile xz3 c;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public volatile ArrayList<wz3> b;
+    public ArrayList<tz3> a;
+    public String b;
+    public String c;
+    public int d;
 
-    public xz3() {
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vz3 a;
+        public final /* synthetic */ xz3 b;
+
+        public a(xz3 xz3Var, vz3 vz3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xz3Var, vz3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = xz3Var;
+            this.a = vz3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ArrayList<long[]> e = this.b.e();
+                wz3 wz3Var = new wz3();
+                wz3Var.a = this.b.b;
+                wz3Var.b = e;
+                wz3Var.c = this.b.c;
+                iw3.i().b(wz3Var, this.a);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755154336, "Lcom/repackage/xz3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755154336, "Lcom/repackage/xz3;");
+                return;
+            }
+        }
+        e = cg1.a;
+    }
+
+    public xz3(ArrayList<uz3> arrayList, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {arrayList, str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = new ArrayList<>(20);
+        if (e) {
+            Log.d("ClipVideoTask", "videoPath=" + str + "clipList=" + arrayList);
+        }
+        ArrayList<tz3> d = d(arrayList);
+        this.a = d;
+        this.b = str;
+        this.c = str2;
+        this.d = d.size();
     }
 
-    public static xz3 c() {
-        InterceptResult invokeV;
+    public void c(vz3 vz3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (xz3.class) {
-                    if (c == null) {
-                        c = new xz3();
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, vz3Var) == null) || vz3Var == null) {
+            return;
+        }
+        mc3.l(new a(this, vz3Var), "clipVideo");
+    }
+
+    public final ArrayList<tz3> d(ArrayList<uz3> arrayList) {
+        InterceptResult invokeL;
+        tz3 a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList)) == null) {
+            ArrayList<tz3> arrayList2 = new ArrayList<>();
+            if (arrayList != null && arrayList.size() != 0) {
+                Iterator<uz3> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    uz3 next = it.next();
+                    if (next != null && (a2 = next.a()) != null) {
+                        arrayList2.add(a2);
                     }
                 }
             }
-            return c;
+            return arrayList2;
         }
-        return (xz3) invokeV.objValue;
+        return (ArrayList) invokeL.objValue;
     }
 
-    public synchronized void a(wz3 wz3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, wz3Var) == null) {
-            synchronized (this) {
-                if (wz3Var == null) {
-                    return;
-                }
-                if (this.b.size() < 20) {
-                    this.b.add(wz3Var);
-                } else {
-                    this.a++;
-                }
-            }
-        }
-    }
-
-    public synchronized void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                this.b.clear();
-                this.a = 0;
-            }
-        }
-    }
-
-    public synchronized JSONObject d() {
+    public ArrayList<long[]> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                int size = this.b.size();
-                if (size == 0) {
-                    return null;
-                }
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("dropcnt", this.a);
-                    jSONObject.put("errorcnt", size);
-                    JSONArray jSONArray = new JSONArray();
-                    jSONObject.put("errors", jSONArray);
-                    Iterator<wz3> it = this.b.iterator();
-                    while (it.hasNext()) {
-                        jSONArray.put(it.next().a());
-                    }
-                } catch (JSONException unused) {
-                }
-                this.b.clear();
-                return jSONObject;
+            ArrayList<long[]> arrayList = new ArrayList<>();
+            if (this.d == 0) {
+                return arrayList;
             }
+            if (e) {
+                Log.d("ClipVideoTask", "mergeRange mRangeList = " + this.a);
+            }
+            Collections.sort(this.a, new tz3.a());
+            tz3 tz3Var = this.a.get(0);
+            for (int i = 1; i < this.d; i++) {
+                tz3 tz3Var2 = this.a.get(i);
+                if (!tz3Var.b(tz3Var2)) {
+                    arrayList.add(tz3.a(tz3Var));
+                    tz3Var = tz3Var2;
+                }
+            }
+            arrayList.add(tz3.a(tz3Var));
+            if (e) {
+                Log.d("ClipVideoTask", "mergeRange mergeList = " + arrayList);
+            }
+            return arrayList;
         }
-        return (JSONObject) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 }

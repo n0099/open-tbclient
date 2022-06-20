@@ -1,38 +1,59 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.tieba.im.chat.officialBar.MenuKeyboardView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class x27 extends e05 {
+public class x27 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<an> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x27(Context context) {
-        super(context, (String) null, 21);
+    public x27(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+        fc6 fc6Var;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.o = false;
-        this.n = 1;
-        this.m = new MenuKeyboardView(getContext());
-        this.p = new int[]{1};
+        this.a = new ArrayList();
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921336, fc6.class, tbPageContext);
+        if (runTask != null && (fc6Var = (fc6) runTask.getData()) != null) {
+            this.a.add(fc6Var);
+        }
+        this.a.add(new y27(tbPageContext, ThreadData.TYPE_FRS_HOTTOPIC));
+        this.a.add(new w27(tbPageContext, ThreadData.TYPE_FRS_HOTTOPIC_VIDEO));
+        bdTypeRecyclerView.a(this.a);
+    }
+
+    public void a(TbPageTag tbPageTag) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, tbPageTag) == null) || ListUtils.isEmpty(this.a)) {
+            return;
+        }
+        for (an anVar : this.a) {
+            if (anVar instanceof fc6) {
+                ((fc6) anVar).j0(tbPageTag);
+            }
+        }
     }
 }

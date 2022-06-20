@@ -16,18 +16,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fg8;
-import com.repackage.gg8;
-import com.repackage.hl6;
-import com.repackage.il6;
-import com.repackage.jl6;
-import com.repackage.li;
+import com.repackage.km6;
+import com.repackage.lm6;
+import com.repackage.mm6;
+import com.repackage.pi;
+import com.repackage.yg8;
+import com.repackage.zg8;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class ServiceAreaView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public il6 a;
+    public lm6 a;
     public int b;
     public boolean c;
 
@@ -59,53 +59,53 @@ public class ServiceAreaView extends FrameLayout {
     }
 
     public void b(int i) {
-        il6 il6Var;
+        lm6 lm6Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (il6Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (lm6Var = this.a) == null) {
             return;
         }
-        il6Var.onChangeSkinType(i);
+        lm6Var.onChangeSkinType(i);
     }
 
-    public void setData(fg8 fg8Var, FrsViewData frsViewData) {
-        gg8 gg8Var;
+    public void setData(yg8 yg8Var, FrsViewData frsViewData) {
+        zg8 zg8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, fg8Var, frsViewData) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, yg8Var, frsViewData) == null) {
             if (this.c) {
-                if (fg8Var == null) {
-                    fg8Var = new fg8();
-                    fg8Var.b = new ArrayList();
+                if (yg8Var == null) {
+                    yg8Var = new yg8();
+                    yg8Var.b = new ArrayList();
                 }
-                if (!ListUtils.isEmpty(fg8Var.b) && (gg8Var = fg8Var.b.get(0)) != null && getResources().getString(R.string.obfuscated_res_0x7f0f0894).equals(gg8Var.c) && getResources().getString(R.string.obfuscated_res_0x7f0f0894).equals(gg8Var.b)) {
-                    fg8Var.a--;
-                    fg8Var.b.remove(0);
+                if (!ListUtils.isEmpty(yg8Var.b) && (zg8Var = yg8Var.b.get(0)) != null && getResources().getString(R.string.obfuscated_res_0x7f0f0891).equals(zg8Var.c) && getResources().getString(R.string.obfuscated_res_0x7f0f0891).equals(zg8Var.b)) {
+                    yg8Var.a--;
+                    yg8Var.b.remove(0);
                 }
-                fg8Var.a++;
-                gg8 gg8Var2 = new gg8();
-                gg8Var2.c = getResources().getString(R.string.obfuscated_res_0x7f0f0894);
-                gg8Var2.b = getResources().getString(R.string.obfuscated_res_0x7f0f0894);
-                fg8Var.b.add(0, gg8Var2);
+                yg8Var.a++;
+                zg8 zg8Var2 = new zg8();
+                zg8Var2.c = getResources().getString(R.string.obfuscated_res_0x7f0f0891);
+                zg8Var2.b = getResources().getString(R.string.obfuscated_res_0x7f0f0891);
+                yg8Var.b.add(0, zg8Var2);
             }
-            if (fg8Var == null) {
+            if (yg8Var == null) {
                 return;
             }
-            int f = li.f(getContext(), R.dimen.M_H_X001);
-            int f2 = li.f(getContext(), R.dimen.M_H_X001);
-            int i = fg8Var.a;
+            int f = pi.f(getContext(), R.dimen.M_H_X001);
+            int f2 = pi.f(getContext(), R.dimen.M_H_X001);
+            int i = yg8Var.a;
             if (i >= 2) {
                 this.a = new MultiServiceViewController(getContext());
             } else if (i == 1) {
-                this.a = new jl6(getContext());
-                f2 = li.f(getContext(), R.dimen.tbds12);
-                f = li.f(getContext(), R.dimen.tbds5);
+                this.a = new mm6(getContext());
+                f2 = pi.f(getContext(), R.dimen.tbds12);
+                f = pi.f(getContext(), R.dimen.tbds5);
             }
             setPadding(0, f, 0, f2);
             removeAllViews();
             addView(this.a.getView(), -1, -2);
-            this.a.a(fg8Var, frsViewData);
-            il6 il6Var = this.a;
-            if (il6Var instanceof hl6) {
-                ((hl6) il6Var).b(this.b);
+            this.a.a(yg8Var, frsViewData);
+            lm6 lm6Var = this.a;
+            if (lm6Var instanceof km6) {
+                ((km6) lm6Var).b(this.b);
             }
             b(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -122,9 +122,9 @@ public class ServiceAreaView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             this.b = i;
-            il6 il6Var = this.a;
-            if (il6Var instanceof hl6) {
-                ((hl6) il6Var).b(i);
+            lm6 lm6Var = this.a;
+            if (lm6Var instanceof km6) {
+                ((km6) lm6Var).b(i);
             }
         }
     }

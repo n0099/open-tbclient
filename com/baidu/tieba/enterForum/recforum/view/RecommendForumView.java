@@ -29,14 +29,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.Gson;
-import com.repackage.c46;
-import com.repackage.e46;
-import com.repackage.eb7;
-import com.repackage.f46;
-import com.repackage.j46;
-import com.repackage.jg;
-import com.repackage.li;
-import com.repackage.wq4;
+import com.repackage.c56;
+import com.repackage.e56;
+import com.repackage.f56;
+import com.repackage.fr4;
+import com.repackage.j56;
+import com.repackage.ng;
+import com.repackage.pc7;
+import com.repackage.pi;
 import java.util.ArrayList;
 import tbclient.ThemeColorInfo;
 import tbclient.ThemeElement;
@@ -47,13 +47,13 @@ public class RecommendForumView extends LinearLayout {
     public LinearLayout a;
     public RecommendForumInfoView b;
     public BdTypeRecyclerView c;
-    public e46 d;
+    public e56 d;
     public TbPageContext e;
-    public c46 f;
-    public j46 g;
+    public c56 f;
+    public j56 g;
 
     /* loaded from: classes3.dex */
-    public class a implements j46.a {
+    public class a implements j56.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RecommendForumView a;
@@ -76,7 +76,7 @@ public class RecommendForumView extends LinearLayout {
             this.a = recommendForumView;
         }
 
-        @Override // com.repackage.j46.a
+        @Override // com.repackage.j56.a
         public void a(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
@@ -85,14 +85,14 @@ public class RecommendForumView extends LinearLayout {
             }
         }
 
-        @Override // com.repackage.j46.a
+        @Override // com.repackage.j56.a
         public void b(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
             }
         }
 
-        @Override // com.repackage.j46.a
+        @Override // com.repackage.j56.a
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
@@ -133,7 +133,7 @@ public class RecommendForumView extends LinearLayout {
                 return;
             }
             this.a.m(null);
-            TiebaStatic.log(new StatisticItem("c14585").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", this.a.d.k()).param("obj_locate", 1));
+            TiebaStatic.log(new StatisticItem("c14585").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", this.a.d.j()).param("obj_locate", 1));
         }
     }
 
@@ -167,20 +167,20 @@ public class RecommendForumView extends LinearLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.b.d()) {
                     if (this.a.d != null) {
-                        String m = this.a.d.m();
-                        String k = this.a.d.k();
-                        if (!TextUtils.isEmpty(m) && !TextUtils.isEmpty(k)) {
-                            this.a.g.f(m, k);
+                        String l = this.a.d.l();
+                        String j = this.a.d.j();
+                        if (!TextUtils.isEmpty(l) && !TextUtils.isEmpty(j)) {
+                            this.a.g.f(l, j);
                         }
                     }
                 } else if (this.a.d != null) {
-                    String m2 = this.a.d.m();
-                    String k2 = this.a.d.k();
-                    if (!TextUtils.isEmpty(m2) && !TextUtils.isEmpty(k2)) {
-                        this.a.g.e(m2, k2);
+                    String l2 = this.a.d.l();
+                    String j2 = this.a.d.j();
+                    if (!TextUtils.isEmpty(l2) && !TextUtils.isEmpty(j2)) {
+                        this.a.g.e(l2, j2);
                     }
                 }
-                TiebaStatic.log(new StatisticItem("c14586").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", this.a.d != null ? this.a.d.k() : "").param("obj_param1", this.a.b.d() ? 2 : 1));
+                TiebaStatic.log(new StatisticItem("c14586").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", this.a.d != null ? this.a.d.j() : "").param("obj_param1", this.a.b.d() ? 2 : 1));
             }
         }
     }
@@ -261,7 +261,7 @@ public class RecommendForumView extends LinearLayout {
                 RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
                 int childLayoutPosition = recyclerView.getChildLayoutPosition(view2);
                 if (childLayoutPosition != -1 && (layoutManager instanceof LinearLayoutManager)) {
-                    int f = li.f(this.a, R.dimen.M_W_X004);
+                    int f = pi.f(this.a, R.dimen.M_W_X004);
                     if (childLayoutPosition == state.getItemCount() - 1) {
                         rect.set(f, 0, f, 0);
                     } else {
@@ -273,7 +273,7 @@ public class RecommendForumView extends LinearLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class f implements c46.b {
+    public class f implements c56.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RecommendForumView a;
@@ -296,13 +296,13 @@ public class RecommendForumView extends LinearLayout {
             this.a = recommendForumView;
         }
 
-        @Override // com.repackage.c46.b
-        public void a(f46 f46Var) {
+        @Override // com.repackage.c56.b
+        public void a(f56 f56Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, f46Var) == null) || f46Var == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, f56Var) == null) || f56Var == null) {
                 return;
             }
-            this.a.m(f46Var.e());
+            this.a.m(f56Var.c());
         }
     }
 
@@ -338,26 +338,26 @@ public class RecommendForumView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, themeElement, themeElement2, themeElement3)) == null) {
             if (themeElement == null) {
-                b2 = eb7.b("#2BB8FF");
-                b3 = eb7.b("#2BB8FF");
+                b2 = pc7.b("#2BB8FF");
+                b3 = pc7.b("#2BB8FF");
             } else {
-                b2 = eb7.b(themeElement.common_color);
-                b3 = eb7.b(themeElement.common_color);
+                b2 = pc7.b(themeElement.common_color);
+                b3 = pc7.b(themeElement.common_color);
             }
             if (themeElement2 == null) {
-                i = eb7.b("#249BD6");
-                b4 = eb7.b("#246CD6");
+                i = pc7.b("#249BD6");
+                b4 = pc7.b("#246CD6");
             } else {
-                int b6 = eb7.b(themeElement2.common_color);
-                b4 = eb7.b(themeElement2.common_color);
+                int b6 = pc7.b(themeElement2.common_color);
+                b4 = pc7.b(themeElement2.common_color);
                 i = b6;
             }
             if (themeElement3 == null) {
-                i2 = eb7.b("#249BD6");
-                b5 = eb7.b("#246CD6");
+                i2 = pc7.b("#249BD6");
+                b5 = pc7.b("#246CD6");
             } else {
-                int b7 = eb7.b(themeElement3.common_color);
-                b5 = eb7.b(themeElement3.common_color);
+                int b7 = pc7.b(themeElement3.common_color);
+                b5 = pc7.b(themeElement3.common_color);
                 i2 = b7;
             }
             ArrayList<Integer> arrayList = new ArrayList<>();
@@ -399,9 +399,9 @@ public class RecommendForumView extends LinearLayout {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            j46 j46Var = new j46();
-            this.g = j46Var;
-            j46Var.h(this.e);
+            j56 j56Var = new j56();
+            this.g = j56Var;
+            j56Var.h(this.e);
             this.g.g(new a(this));
         }
     }
@@ -413,9 +413,9 @@ public class RecommendForumView extends LinearLayout {
             linearLayoutManager.setOrientation(0);
             this.c.setLayoutManager(linearLayoutManager);
             this.c.addItemDecoration(new e(this, context));
-            c46 c46Var = new c46(context);
-            this.f = c46Var;
-            c46Var.d(new f(this));
+            c56 c56Var = new c56(context);
+            this.f = c56Var;
+            c56Var.d(new f(this));
             this.c.a(this.f.b());
         }
     }
@@ -423,7 +423,7 @@ public class RecommendForumView extends LinearLayout {
     public final void k(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d070c, this);
+            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d070b, this);
             setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             setOrientation(1);
         }
@@ -432,26 +432,26 @@ public class RecommendForumView extends LinearLayout {
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906b0);
-            this.b = (RecommendForumInfoView) findViewById(R.id.obfuscated_res_0x7f0919fa);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09069b);
+            this.b = (RecommendForumInfoView) findViewById(R.id.obfuscated_res_0x7f0919f1);
             this.c = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f091fb0);
         }
     }
 
     public final void m(String str) {
-        e46 e46Var;
+        e56 e56Var;
         ThemeColorInfo themeColorInfo;
         Rect forumNameVisibleRect;
         Rect barVisibleRect;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (e46Var = this.d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (e56Var = this.d) == null) {
             return;
         }
-        String m = e46Var.m();
-        if (TextUtils.isEmpty(m)) {
+        String l = e56Var.l();
+        if (TextUtils.isEmpty(l)) {
             return;
         }
-        FrsActivityConfig createNormalCfg = new FrsActivityConfig(getContext()).createNormalCfg(m, "");
+        FrsActivityConfig createNormalCfg = new FrsActivityConfig(getContext()).createNormalCfg(l, "");
         if (UbsABTestHelper.isEnterFrsNoAnmi()) {
             createNormalCfg.getIntent().putExtra("transition_type", 0);
         } else {
@@ -464,11 +464,11 @@ public class RecommendForumView extends LinearLayout {
             if (recommendForumInfoView2 != null && (forumNameVisibleRect = recommendForumInfoView2.getForumNameVisibleRect()) != null) {
                 createNormalCfg.getIntent().putExtra("info_forum_name_rect", forumNameVisibleRect);
             }
-            if (!TextUtils.isEmpty(this.d.i())) {
-                createNormalCfg.getIntent().putExtra("info_forum_image_url", this.d.i());
+            if (!TextUtils.isEmpty(this.d.h())) {
+                createNormalCfg.getIntent().putExtra("info_forum_image_url", this.d.h());
             }
-            if (!TextUtils.isEmpty(this.d.m())) {
-                createNormalCfg.getIntent().putExtra("info_forum_name_text", this.d.m());
+            if (!TextUtils.isEmpty(this.d.l())) {
+                createNormalCfg.getIntent().putExtra("info_forum_name_text", this.d.l());
             }
             if (this.d.s() != null) {
                 String a2 = this.d.s().a();
@@ -478,7 +478,7 @@ public class RecommendForumView extends LinearLayout {
             }
         }
         if (!TextUtils.isEmpty(str)) {
-            long g = jg.g(str, 0L);
+            long g = ng.g(str, 0L);
             if (g > 0) {
                 createNormalCfg.setFakeThreadId(g);
             }
@@ -489,24 +489,24 @@ public class RecommendForumView extends LinearLayout {
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            wq4.d(this.a).f(R.color.CAM_X0201);
+            fr4.d(this.a).f(R.color.CAM_X0201);
             this.b.e();
         }
     }
 
-    public void setData(e46 e46Var) {
+    public void setData(e56 e56Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, e46Var) == null) || e46Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, e56Var) == null) || e56Var == null) {
             return;
         }
-        this.d = e46Var;
-        this.b.setData(e46Var.i(), e46Var.m(), jg.e(e46Var.q(), 0), jg.e(e46Var.y(), 0), e46Var.z());
-        if (!ListUtils.isEmpty(e46Var.v())) {
-            this.c.setData(e46Var.v());
+        this.d = e56Var;
+        this.b.setData(e56Var.h(), e56Var.l(), ng.e(e56Var.n(), 0), ng.e(e56Var.w(), 0), e56Var.z());
+        if (!ListUtils.isEmpty(e56Var.t())) {
+            this.c.setData(e56Var.t());
             if (this.c.getLayoutManager() instanceof LinearLayoutManager) {
                 LinearLayoutManager linearLayoutManager = (LinearLayoutManager) this.c.getLayoutManager();
-                if (e46Var.getPosition() != Integer.MIN_VALUE && e46Var.r() != Integer.MIN_VALUE) {
-                    linearLayoutManager.scrollToPositionWithOffset(e46Var.getPosition(), e46Var.r());
+                if (e56Var.getPosition() != Integer.MIN_VALUE && e56Var.r() != Integer.MIN_VALUE) {
+                    linearLayoutManager.scrollToPositionWithOffset(e56Var.getPosition(), e56Var.r());
                 } else {
                     linearLayoutManager.scrollToPosition(0);
                 }

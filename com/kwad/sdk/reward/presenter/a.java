@@ -51,7 +51,7 @@ public class a extends com.kwad.sdk.reward.g {
     }
 
     public int e() {
-        return R.id.obfuscated_res_0x7f091011;
+        return R.id.obfuscated_res_0x7f091001;
     }
 
     public int i() {

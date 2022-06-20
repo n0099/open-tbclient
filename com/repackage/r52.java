@@ -1,24 +1,55 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.di2;
-import com.repackage.ek2;
-import java.io.File;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+/* loaded from: classes7.dex */
 public class r52 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static Boolean b;
-    public static int c;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public n52 a;
+    public HashMap<String, o52> b;
+
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final r52 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-89390524, "Lcom/repackage/r52$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-89390524, "Lcom/repackage/r52$b;");
+                    return;
+                }
+            }
+            a = new r52(null);
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -33,129 +64,77 @@ public class r52 {
                 return;
             }
         }
-        a = rf1.a;
-        oi2.g0().getSwitch("swan_naview_slave_preload_type", 0);
-        c = 0;
+        c = cg1.a;
     }
 
-    public static boolean a() {
+    public /* synthetic */ r52(a aVar) {
+        this();
+    }
+
+    public static r52 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (!b62.U().r0()) {
-                Log.w("NASlaveConfig", "v8 is not enabled");
-                return false;
-            } else if (oi2.F0().j(1)) {
-                String c0 = b62.U().c0();
-                if (TextUtils.isEmpty(c0)) {
-                    Log.w("NASlaveConfig", "base path is not exists");
-                    return false;
-                } else if (!new File(c0, "slave-talos/index.js").isFile()) {
-                    Log.w("NASlaveConfig", "talos-js file is not exists");
-                    return false;
-                } else if (a && gv2.Y()) {
-                    return true;
-                } else {
-                    boolean z = c != 0;
-                    if (a) {
-                        Log.d("NASlaveConfig", "isNARenderEnabled canUseNA: " + z);
-                    }
-                    return z;
-                }
-            } else {
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static int b(@Nullable wz2 wz2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, wz2Var)) == null) {
-            if (wz2Var == null || !d()) {
-                return 0;
-            }
-            return "na".equals(wz2Var.r) ? 1 : 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str == null) {
-                return 0;
-            }
-            if (str.contains("?")) {
-                str = str.substring(0, str.indexOf("?"));
-            }
-            int b2 = b(uk2.U().f(str));
-            if (a) {
-                Log.d("NASlaveConfig", "getSlaveType pageUrl: " + str + " slaveType:" + b2);
-            }
-            return b2;
-        }
-        return invokeL.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (r52) invokeV.objValue;
     }
 
     public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            Boolean bool = b;
-            if (bool != null) {
-                return bool.booleanValue();
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("sp_swan_sdcard_preset", false) : invokeV.booleanValue;
+    }
+
+    public final n52 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (c && d()) {
+                return new q52();
             }
-            Boolean valueOf = Boolean.valueOf(a());
-            b = valueOf;
-            return valueOf.booleanValue();
+            return new m52();
         }
-        return invokeV.booleanValue;
+        return (n52) invokeV.objValue;
     }
 
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? c == 2 : invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? c == 1 : invokeV.booleanValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? c == 3 : invokeV.booleanValue;
-    }
-
-    public static boolean h(hz2 hz2Var) {
+    @Nullable
+    public o52 c(String str) {
         InterceptResult invokeL;
-        ek2.a V;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, hz2Var)) == null) {
-            if (hz2Var == null || !hz2Var.D()) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            HashMap<String, o52> hashMap = this.b;
+            if (hashMap != null) {
+                return hashMap.get(str);
             }
-            if (gv2.B(hz2Var.V())) {
-                str = di2.b.g().getPath() + File.separator;
-            } else {
-                str = di2.e.i(V.H(), V.v1()).getPath() + File.separator;
-            }
-            if (a) {
-                Log.d("NASlaveConfig", "手动解析的basePath: " + str);
-            }
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            uk2.U().K(str);
-            return true;
+            return null;
         }
-        return invokeL.booleanValue;
+        return (o52) invokeL.objValue;
+    }
+
+    public void e(o52 o52Var, p52 p52Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, o52Var, p52Var) == null) {
+            this.a.k(o52Var, p52Var);
+        }
+    }
+
+    public r52() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        n52 a2 = a();
+        this.a = a2;
+        this.b = a2.h();
+        if (c) {
+            Log.d("SwanAppPresetManager", "构造PresetMap耗时：" + (System.currentTimeMillis() - currentTimeMillis));
+        }
     }
 }

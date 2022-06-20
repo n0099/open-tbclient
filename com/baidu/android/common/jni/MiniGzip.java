@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.util.LogUtil;
-import com.repackage.v8;
+import com.repackage.x8;
 import java.io.File;
 /* loaded from: classes.dex */
 public final class MiniGzip {
@@ -57,7 +57,7 @@ public final class MiniGzip {
             } else if (!new File(str).exists()) {
                 String str4 = a;
                 LogUtil.logD(str4, str + "  not exists.");
-            } else if (new v8(new File(str)).a()) {
+            } else if (new x8(new File(str)).a()) {
                 uncompressFile(str, str2);
                 String str5 = a;
                 LogUtil.logD(str5, "native ungzip use time : " + (SystemClock.elapsedRealtime() - elapsedRealtime));

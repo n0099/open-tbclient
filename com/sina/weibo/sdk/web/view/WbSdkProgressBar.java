@@ -17,7 +17,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.InstallActivity;
 /* loaded from: classes7.dex */
 public class WbSdkProgressBar extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -78,10 +77,10 @@ public class WbSdkProgressBar extends View {
                 }
                 float cos = (((float) Math.cos(((this.growTime / this.growTimeMax) + 1.0d) * 3.141592653589793d)) / 2.0f) + 0.5f;
                 if (!this.addStart) {
-                    this.length = cos * ((float) InstallActivity.BOX_SIZE_DP);
+                    this.length = cos * 280;
                     return;
                 }
-                float f = ((float) InstallActivity.BOX_SIZE_DP) * (1.0f - cos);
+                float f = 280 * (1.0f - cos);
                 this.progress += this.length - f;
                 this.length = f;
                 return;

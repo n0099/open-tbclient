@@ -54,7 +54,7 @@ public class e {
             Intent intent = new Intent();
             intent.putExtra("public_msg", publicMsg);
             intent.putExtra("pushService_package_name", context.getPackageName());
-            intent.putExtra("service_name", m.m() ? "com.baidu.pushservice.PushService" : "com.baidu.android.pushservice.PushService");
+            intent.putExtra("service_name", m.w(context) ? "com.baidu.pushservice.PushService" : "com.baidu.android.pushservice.PushService");
             intent.putExtra("notify_type", PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE);
             intent.putExtra("message_id", str);
             intent.putExtra("app_id", str2);

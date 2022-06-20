@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.w0;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RecordVideoActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ENTRANCE_FLAG = "entrance_flag";
@@ -44,7 +44,7 @@ public class RecordVideoActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra("forum_write_data", forumWriteData);
+        getIntent().putExtra(FORUM_WRITE_DATA, forumWriteData);
         getIntent().putExtra(WRITE_IMAGE_INFO, writeImagesInfo);
         getIntent().putExtra("video_title", str);
         getIntent().putExtra(ENTRANCE_FLAG, i);

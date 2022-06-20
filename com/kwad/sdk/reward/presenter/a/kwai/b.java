@@ -56,8 +56,8 @@ public class b extends g {
             });
             aVar2.a(((g) this).a.h);
             aVar2.a();
-            aVar2.a(new a.InterfaceC0325a() { // from class: com.kwad.sdk.reward.presenter.a.kwai.b.3
-                @Override // com.kwad.sdk.i.a.InterfaceC0325a
+            aVar2.a(new a.InterfaceC0333a() { // from class: com.kwad.sdk.reward.presenter.a.kwai.b.3
+                @Override // com.kwad.sdk.i.a.InterfaceC0333a
                 public void a() {
                     if (((g) b.this).a.b != null) {
                         long p = com.kwad.sdk.core.response.a.a.p(com.kwad.sdk.core.response.a.d.j(((g) b.this).a.g));
@@ -86,6 +86,6 @@ public class b extends g {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.b = (FrameLayout) a(R.id.obfuscated_res_0x7f09107d);
+        this.b = (FrameLayout) a(R.id.obfuscated_res_0x7f09106d);
     }
 }

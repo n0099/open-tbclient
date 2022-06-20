@@ -34,7 +34,7 @@ public final class FunctionType {
                 return;
             }
         }
-        NONE = new FunctionType("NONE", 0, "none");
+        NONE = new FunctionType(HlsPlaylistParser.METHOD_NONE, 0, "none");
         VIDEO = new FunctionType(HlsPlaylistParser.TYPE_VIDEO, 1, "video");
         FunctionType functionType = new FunctionType("IMU", 2, ARPScriptEnvironment.KEY_DATA_PIP_IMU);
         IMU = functionType;

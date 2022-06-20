@@ -1,179 +1,42 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8Engine;
-import com.baidu.searchbox.v8engine.V8ExceptionInfo;
+import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
+import com.baidu.searchbox.v8engine.JSExceptionType;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.JsSerializeValue;
 import com.baidu.searchbox.v8engine.event.EventTarget;
 import com.baidu.searchbox.v8engine.event.JSEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class c72 implements V8Engine.JavaScriptExceptionDelegate {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public p62 a;
-    public String b;
+public interface c72 extends JSRuntime, qy1, TypedCallbackHandler {
+    l72 A();
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final boolean d;
-        public transient /* synthetic */ FieldHolder $fh;
-        public JSEvent a;
-        public String b;
-        public String c;
+    JsSerializeValue D(byte[] bArr, boolean z);
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-516980778, "Lcom/repackage/c72$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-516980778, "Lcom/repackage/c72$a;");
-                    return;
-                }
-            }
-            d = rf1.a;
-        }
+    byte[] O(JsSerializeValue jsSerializeValue, boolean z);
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.a = new JSEvent("error");
-        }
+    void Z(String str, String str2);
 
-        public JSEvent a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("message", this.b);
-                    jSONObject.put("stack", this.c);
-                } catch (JSONException e) {
-                    if (d) {
-                        Log.e("V8Exception", Log.getStackTraceString(e));
-                    }
-                }
-                if (jSONObject.length() > 0) {
-                    this.a.data = jSONObject;
-                }
-                return this.a;
-            }
-            return (JSEvent) invokeV.objValue;
-        }
+    boolean dispatchEvent(JSEvent jSEvent);
 
-        public a b(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.b = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
+    p72 g0();
 
-        public a c(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.c = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-    }
+    String getInitBasePath();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755844365, "Lcom/repackage/c72;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755844365, "Lcom/repackage/c72;");
-                return;
-            }
-        }
-        boolean z = rf1.a;
-    }
+    int getInvokeSourceType();
 
-    public c72(p62 p62Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {p62Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = "";
-        this.a = p62Var;
-    }
+    EventTarget p();
 
-    public final void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || this.a.p() == null) {
-            return;
-        }
-        EventTarget p = this.a.p();
-        a aVar = new a();
-        aVar.b(str + "\n" + str2);
-        aVar.c("");
-        p.dispatchEvent(aVar.a());
-    }
+    boolean post(Runnable runnable);
 
-    @Override // com.baidu.searchbox.v8engine.V8Engine.JavaScriptExceptionDelegate
-    @SuppressLint({"SwanDebugLog"})
-    public void onV8ExceptionCallBack(V8ExceptionInfo v8ExceptionInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v8ExceptionInfo) == null) || v8ExceptionInfo == null) {
-            return;
-        }
-        String str = TextUtils.isEmpty(v8ExceptionInfo.exceptionMsg) ? "" : v8ExceptionInfo.exceptionMsg;
-        String str2 = TextUtils.isEmpty(v8ExceptionInfo.exceptionTrace) ? "" : v8ExceptionInfo.exceptionTrace;
-        Log.e("V8Exception", this.a.o0() + "msg: " + str + " ,stack: " + str2);
-        this.a.A().a(str);
-        if ((TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) || this.b.equals(str)) {
-            return;
-        }
-        this.b = str;
-        a(str, str2);
-        sg1 j = pi2.j();
-        j.e(str + ParamableElem.DIVIDE_PARAM + str2);
-        b63.b(v8ExceptionInfo);
-        pi2.i().s(v8ExceptionInfo);
-    }
+    @Override // com.baidu.searchbox.v8engine.JSRuntime
+    void postOnJSThread(Runnable runnable);
+
+    @Override // com.baidu.searchbox.v8engine.JSRuntime
+    void runOnJSThread(Runnable runnable);
+
+    void setPreferredFramesPerSecond(short s);
+
+    void throwJSException(JSExceptionType jSExceptionType, String str);
+
+    EventTarget z();
 }

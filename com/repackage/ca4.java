@@ -1,15 +1,17 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import com.repackage.z84;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ca4 {
+public class ca4 extends z94 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<f84> a;
 
     public ca4() {
         Interceptable interceptable = $ic;
@@ -22,6 +24,22 @@ public class ca4 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @Override // com.repackage.z84
+    public void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, z84.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
+            ba4.b(str, map, map2, jSONObject, new a94(aVar));
+        }
+    }
+
+    @Override // com.repackage.z84
+    public void k(String str, Map<String, String> map, Map<String, String> map2, z84.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, map2, aVar) == null) {
+            ba4.a(str, map, map2, new a94(aVar));
         }
     }
 }

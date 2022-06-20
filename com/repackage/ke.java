@@ -1,284 +1,295 @@
 package com.repackage;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.adp.lib.cache.BdCacheService;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.je;
-import java.util.HashMap;
+import com.repackage.me;
 import java.util.LinkedList;
-import java.util.Map;
 /* loaded from: classes6.dex */
-public class ke {
+public abstract class ke<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final j9 a;
+    public String b;
+    public me.b c;
+    public me.a d;
+    public int e;
+    public LinkedList<String> f;
+    public Object g;
 
     /* loaded from: classes6.dex */
-    public static class a implements je.a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final int a;
-        public LinkedList<le<?>> b;
+        public final /* synthetic */ ke a;
 
-        public a(int i) {
+        public a(ke keVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-        }
-
-        @Override // com.repackage.je
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.repackage.je.a
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.b.clear();
-                this.b = null;
-            }
-        }
-
-        @Override // com.repackage.je.a
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.b = new LinkedList<>();
-            }
-        }
-
-        @Override // com.repackage.je
-        public int getMaxSize() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.intValue;
-        }
-
-        @Override // com.repackage.je.a
-        public String h(le<?> leVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, leVar)) == null) {
-                if (leVar.f < System.currentTimeMillis()) {
-                    return leVar.a;
-                }
-                this.b.add(leVar);
-                String str = null;
-                if (this.b.size() > getMaxSize()) {
-                    long j = 0;
-                    int i = -1;
-                    for (int i2 = 0; i2 < this.b.size(); i2++) {
-                        le<?> leVar2 = this.b.get(i2);
-                        if (i == -1 || leVar2.e < j) {
-                            str = leVar2.a;
-                            j = leVar2.e;
-                            i = i2;
-                        }
-                    }
-                    this.b.remove(i);
-                }
-                return str;
-            }
-            return (String) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements je.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final int a;
-        public HashMap<String, Long> b;
-
-        public b(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = new HashMap<>();
-            this.a = i;
-        }
-
-        @Override // com.repackage.je
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.repackage.je.b
-        public String d(le<?> leVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, leVar)) == null) {
-                String i = i(leVar.a);
-                synchronized (this) {
-                    this.b.put(leVar.a, Long.valueOf(leVar.e));
-                }
-                return i;
-            }
-            return (String) invokeL.objValue;
-        }
-
-        @Override // com.repackage.je.b
-        public void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            }
-        }
-
-        @Override // com.repackage.je.b
-        public void f() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            }
-        }
-
-        @Override // com.repackage.je.b
-        public String g(le<?> leVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, leVar)) == null) {
-                if (leVar.f < System.currentTimeMillis()) {
-                    return leVar.a;
-                }
-                return d(leVar);
-            }
-            return (String) invokeL.objValue;
-        }
-
-        @Override // com.repackage.je
-        public int getMaxSize() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : invokeV.intValue;
-        }
-
-        public String i(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                String str2 = null;
-                if (!this.b.containsKey(str) && this.b.size() >= this.a) {
-                    synchronized (this) {
-                        long j = -1;
-                        for (Map.Entry<String, Long> entry : this.b.entrySet()) {
-                            long longValue = entry.getValue().longValue();
-                            if (j == -1 || j > longValue) {
-                                str2 = entry.getKey();
-                                j = longValue;
-                            }
-                        }
-                        if (str2 != null) {
-                            this.b.remove(str2);
-                        }
-                    }
-                    return str2;
-                }
-                return null;
-            }
-            return (String) invokeL.objValue;
-        }
-
-        @Override // com.repackage.je.b
-        public void release() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                synchronized (this) {
-                    this.b.clear();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c implements je {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
+                Object[] objArr = {keVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = keVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.m();
+            }
+        }
+    }
+
+    public ke(j9 j9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {j9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f = new LinkedList<>();
+        this.g = new Object();
+        this.a = j9Var;
+    }
+
+    public synchronized void a(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
+            synchronized (this) {
+                synchronized (this.g) {
+                    if (this.f.contains(str)) {
+                        return;
+                    }
+                    this.f.addLast(str);
+                    if (z) {
+                        j();
+                    }
                 }
             }
         }
-
-        @Override // com.repackage.je
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.repackage.je
-        public int getMaxSize() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return 1;
-            }
-            return invokeV.intValue;
-        }
     }
 
-    public static je a(int i, boolean z) {
-        InterceptResult invokeCommon;
+    public void b(oe<T> oeVar) {
+        String d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (z) {
-                return new b(i);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oeVar) == null) {
+            try {
+                synchronized (this.g) {
+                    this.f.remove(oeVar.a);
+                }
+                ContentValues p = p(oeVar);
+                SQLiteDatabase f = this.a.f();
+                if (f.update(this.b, p, "m_key = ?", new String[]{oeVar.a}) == 0) {
+                    f.insert(this.b, null, p);
+                    if (this.d != null) {
+                        j();
+                    }
+                }
+                if (this.c == null || (d = this.c.d(oeVar)) == null) {
+                    return;
+                }
+                e(d);
+            } catch (Throwable th) {
+                this.a.i(th, "addOrUpdateTextCacheItem");
             }
-            return new a(i);
         }
-        return (je) invokeCommon.objValue;
     }
 
-    public static je b() {
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.e = 0;
+            synchronized (this.g) {
+                this.f.clear();
+            }
+            if (d(str)) {
+                BdCacheService.k().f().delete(str);
+            }
+        }
+    }
+
+    public abstract boolean d(String str);
+
+    public int e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            try {
+                return this.a.f().delete(this.b, "m_key = ?", new String[]{str});
+            } catch (Throwable th) {
+                this.a.i(th, "deleteCacheItem");
+                return 0;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public oe<T> f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            try {
+                return i(this.a.f(), str);
+            } catch (Throwable th) {
+                this.a.i(th, SharedPreferenceManager.OPERATION_GET_PERFIX);
+                return null;
+            }
+        }
+        return (oe) invokeL.objValue;
+    }
+
+    public abstract int g();
+
+    public j9 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new c() : (je) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (j9) invokeV.objValue;
+    }
+
+    public abstract oe<T> i(SQLiteDatabase sQLiteDatabase, String str) throws Throwable;
+
+    public void j() {
+        me.a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (aVar = this.d) == null) {
+            return;
+        }
+        this.e++;
+        if (this.e >= ((int) Math.min(aVar.getMaxSize() * 0.2d, 5.0d))) {
+            this.e = 0;
+            tg.a().b(new a(this));
+        }
+    }
+
+    public abstract void k(String str, String str2, int i, int i2);
+
+    public abstract String l(String str);
+
+    public void m() {
+        String removeFirst;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.f.isEmpty()) {
+            return;
+        }
+        SQLiteDatabase f = this.a.f();
+        f.beginTransaction();
+        while (true) {
+            try {
+                synchronized (this.g) {
+                    if (this.f.isEmpty()) {
+                        break;
+                    }
+                    removeFirst = this.f.removeFirst();
+                }
+                f.delete(this.b, "m_key = ?", new String[]{String.valueOf(removeFirst)});
+            } finally {
+                try {
+                } finally {
+                }
+            }
+        }
+        f.setTransactionSuccessful();
+        this.e = 0;
+    }
+
+    public void n(String str) {
+        me.a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, str) == null) || (aVar = this.d) == null) {
+            return;
+        }
+        Cursor cursor = null;
+        try {
+            aVar.c();
+            cursor = q(this.a.f(), str);
+            while (cursor.moveToNext()) {
+                oe<?> oeVar = new oe<>();
+                oeVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
+                oeVar.d = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                oeVar.e = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
+                oeVar.f = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                String h = this.d.h(oeVar);
+                if (h != null) {
+                    a(h, false);
+                }
+            }
+            m();
+        } finally {
+            try {
+            } finally {
+            }
+        }
+    }
+
+    public void o(String str) {
+        me.b bVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, str) == null) || (bVar = this.c) == null) {
+            return;
+        }
+        Cursor cursor = null;
+        try {
+            bVar.e();
+            cursor = q(this.a.f(), str);
+            while (cursor.moveToNext()) {
+                oe<?> oeVar = new oe<>();
+                oeVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
+                oeVar.d = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                oeVar.e = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
+                oeVar.f = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                String g = this.c.g(oeVar);
+                if (g != null) {
+                    a(g, false);
+                }
+            }
+            m();
+        } finally {
+            try {
+            } finally {
+            }
+        }
+    }
+
+    public abstract ContentValues p(oe<T> oeVar);
+
+    public abstract Cursor q(SQLiteDatabase sQLiteDatabase, String str);
+
+    public void r(me meVar, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048593, this, meVar, str) == null) {
+            this.b = str;
+            if (meVar instanceof me.b) {
+                this.c = (me.b) meVar;
+            }
+            if (meVar instanceof me.a) {
+                this.d = (me.a) meVar;
+            }
+        }
     }
 }

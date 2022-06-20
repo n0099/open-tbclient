@@ -1,15 +1,19 @@
 package com.repackage;
+
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Point;
+import android.graphics.Rect;
+import android.net.Uri;
 /* loaded from: classes5.dex */
 public interface ao2 {
-    void a(nj2 nj2Var);
+    Point a(Context context, Bitmap bitmap) throws Exception;
 
-    void b(nj2 nj2Var);
+    Bitmap decodeRegion(Rect rect, int i);
 
-    void c(nj2 nj2Var);
+    Point init(Context context, Uri uri) throws Exception;
 
-    void d(nj2 nj2Var);
+    boolean isReady();
 
-    void e(nj2 nj2Var);
-
-    boolean f(nj2 nj2Var, int i, int i2);
+    void recycle();
 }

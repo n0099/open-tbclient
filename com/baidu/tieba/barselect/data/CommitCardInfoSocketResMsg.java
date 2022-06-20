@@ -1,9 +1,10 @@
 package com.baidu.tieba.barselect.data;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.Nullable;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
@@ -31,15 +32,19 @@ public class CommitCardInfoSocketResMsg extends TbSocketReponsedMessage {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.message.websockt.TbSocketReponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        CommitCardInfoResIdl commitCardInfoResIdl;
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (commitCardInfoResIdl = (CommitCardInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, CommitCardInfoResIdl.class)) == null) {
-            return;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            CommitCardInfoResIdl commitCardInfoResIdl = (CommitCardInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, CommitCardInfoResIdl.class);
+            if (commitCardInfoResIdl != null) {
+                setError(commitCardInfoResIdl.error.errorno.intValue());
+                setErrorString(commitCardInfoResIdl.error.usermsg);
+            }
+            return commitCardInfoResIdl;
         }
-        setError(commitCardInfoResIdl.error.errorno.intValue());
-        setErrorString(commitCardInfoResIdl.error.usermsg);
+        return invokeIL.objValue;
     }
 }

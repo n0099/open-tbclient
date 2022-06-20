@@ -2,6 +2,7 @@ package com.xiaomi.mipush.sdk;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
@@ -45,6 +46,7 @@ public final class NotificationClickedActivity extends Activity {
         try {
             Intent intent2 = (Intent) intent.getParcelableExtra("mipush_serviceIntent");
             if (intent2 != null) {
+                intent2.setComponent(new ComponentName(getPackageName(), "com.xiaomi.mipush.sdk.PushMessageHandler"));
                 intent2.putExtra("is_clicked_activity_call", true);
                 com.xiaomi.channel.commonutils.logger.b.b("clicked activity start service.");
                 startService(intent2);
@@ -67,16 +69,15 @@ public final class NotificationClickedActivity extends Activity {
             window.setAttributes(attributes);
             Handler handler = new Handler();
             this.f38a = handler;
-            handler.postDelayed(new ab(this), 3000L);
+            handler.postDelayed(new ac(this), 3000L);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("action_clicked_activity_finish");
-            ac acVar = new ac(this);
-            this.a = acVar;
+            ad adVar = new ad(this);
+            this.a = adVar;
             try {
-                registerReceiver(acVar, intentFilter, d.a(this), null);
+                registerReceiver(adVar, intentFilter, d.a(this), null);
             } catch (Exception unused) {
             }
-            a(getIntent());
             LogUtil.logActivity(this, "onCreate");
         }
     }
@@ -99,7 +100,7 @@ public final class NotificationClickedActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, intent) == null) {
             super.onNewIntent(intent);
-            a(intent);
+            setIntent(intent);
         }
     }
 
@@ -108,6 +109,7 @@ public final class NotificationClickedActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onResume();
+            a(getIntent());
         }
     }
 }

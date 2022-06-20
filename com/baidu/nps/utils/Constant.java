@@ -12,6 +12,7 @@ public class Constant {
     public static final int ALLOW_SILENCE_CODE = 1;
     public static final int ALLOW_SILENCE_UPDATE_CODE = 1;
     public static final int ALLOW_WIFIONLY_CODE = 1;
+    public static final int MAX_PATCH_TRY_COUNT = 5;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -147,11 +148,15 @@ public class Constant {
     public static class CODE {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int RET_AMBIGUOUS_PKG_NAME = 9;
+        public static final int RET_AUTH_ILLEGAL = 56;
         public static final int RET_BUNDLE_CHECK_ERROR = 22;
+        public static final int RET_CANCEL = 54;
         public static final int RET_CLASS_INIT_ERROR = 16;
         public static final int RET_CLASS_LOAD_ERROR = 18;
         public static final int RET_COPY_ERROR = 11;
         public static final int RET_DOWNLOAD_BUNDLE_GROUP_NULL_ERROR = 26;
+        public static final int RET_DOWNLOAD_CPU_ERROR = 53;
+        public static final int RET_DOWNLOAD_HAS_PRESET = 55;
         public static final int RET_DOWNLOAD_NETWOKR_ERROR = 51;
         public static final int RET_DOWNLOAD_NO_DATA = 3;
         public static final int RET_DOWNLOAD_RETBUNDLE_NULL_ERROR = 31;
@@ -176,6 +181,7 @@ public class Constant {
         public static final int RET_INVOKE_SUCCESS = 14;
         public static final int RET_NO_THIS_PKG = 15;
         public static final int RET_OTHER_ERROR = 19;
+        public static final int RET_PATCH_ERROR = 52;
         public static final int RET_PKGINFO_LOAD_ERROR = 8;
         public static final int RET_PREPARE_BUNDLE_GROUP_NULL_ERROR = 25;
         public static final int RET_PREPARE_DOWNLOAD_BUNDLE_NULL_ERROR = 23;
@@ -205,6 +211,9 @@ public class Constant {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DOWNLOAD_NORMAL = 48;
         public static final int DOWNLOAD_SILENCE = 49;
+        public static final int DOWNLOAD_TYPE_FULL = 1;
+        public static final int DOWNLOAD_TYPE_PATCH = 2;
+        public static final int DOWNLOAD_USER_INTERACTIVE = 50;
         public transient /* synthetic */ FieldHolder $fh;
 
         public DOWNLOAD() {
@@ -231,6 +240,7 @@ public class Constant {
         public static class ID {
             public static /* synthetic */ Interceptable $ic = null;
             public static final int LOAD_COMPONENT_CLASS = 2;
+            public static final int PKG_MGR_MODULE_INIT = 3;
             public static final int PKG_MGR_UBI_PARSE_TIMESTAMP = 1;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -273,6 +283,7 @@ public class Constant {
         public static class SUFFIX {
             public static /* synthetic */ Interceptable $ic = null;
             public static final String APK_LIB_SUFFIX = ".so";
+            public static final String APK_PATCH_SUFFIX = ".patch";
             public static final String BUNDLE_SUFFIX = ".apk";
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -310,6 +321,8 @@ public class Constant {
     public static class FLAG {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FORCE_UPDATE_ALERT = 16;
+        public static final int INSTALL_LOADING = 4;
+        public static final int INSTALL_SHOW_DIALOG = 2;
         public static final int SILENT_DOWNLOAD_ALERT = 1;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -440,6 +453,27 @@ public class Constant {
         public transient /* synthetic */ FieldHolder $fh;
 
         public TAG() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public static class VERSION {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final int INVALID_VERSION = -1;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public VERSION() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();

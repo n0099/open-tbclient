@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.zc8;
-/* loaded from: classes3.dex */
+import com.repackage.ge8;
+/* loaded from: classes4.dex */
 public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ForumSquareDelegate mDelegate;
+    public ForumSquareDelegate a;
 
     public ForumSquareActivity() {
         Interceptable interceptable = $ic;
@@ -29,17 +29,17 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.repackage.f75
+    public ForumSquareDelegate A1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ForumSquareDelegate) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.repackage.t75
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "a073" : (String) invokeV.objValue;
-    }
-
-    public ForumSquareDelegate getDelegate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDelegate : (ForumSquareDelegate) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "a073" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -47,9 +47,9 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            zc8 zc8Var = this.mDelegate.mForumSquareView;
-            if (zc8Var != null) {
-                zc8Var.a(i);
+            ge8 ge8Var = this.a.mForumSquareView;
+            if (ge8Var != null) {
+                ge8Var.a(i);
             }
         }
     }
@@ -60,10 +60,10 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             ForumSquareDelegate forumSquareDelegate = new ForumSquareDelegate(this, getPageContext());
-            this.mDelegate = forumSquareDelegate;
+            this.a = forumSquareDelegate;
             forumSquareDelegate.parserIntent(getIntent());
-            setContentView(this.mDelegate.mForumSquareView.d());
-            this.mDelegate.startLoadData();
+            setContentView(this.a.mForumSquareView.d());
+            this.a.startLoadData();
         }
     }
 

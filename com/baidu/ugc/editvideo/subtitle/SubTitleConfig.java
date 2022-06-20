@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.TextWordsEntity;
-import com.repackage.s39;
-import com.repackage.t79;
+import com.repackage.a49;
+import com.repackage.b89;
 import com.tachikoma.core.component.anim.AnimationProperty;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -197,7 +197,7 @@ public class SubTitleConfig {
                     try {
                         int i = typefaceConfig.mInputType;
                         if (i == 1) {
-                            typeface = Typeface.createFromAsset(s39.c().getContext().getAssets(), typefaceConfig.mSource);
+                            typeface = Typeface.createFromAsset(a49.c().getContext().getAssets(), typefaceConfig.mSource);
                         } else if (i == 2) {
                             typeface = Typeface.createFromFile(typefaceConfig.mSource);
                         }
@@ -376,35 +376,35 @@ public class SubTitleConfig {
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("chinese_shadow_config");
                 if (optJSONObject2 != null) {
                     ShadowConfig shadowConfig = new ShadowConfig();
-                    shadowConfig.shadowRadius = t79.a(optJSONObject2.optString(AnimationProperty.SHADOW_RADIUS), 2.0f);
-                    shadowConfig.shadowDx = t79.a(optJSONObject2.optString("shadowDx"), 0.0f);
-                    shadowConfig.shadowDy = t79.a(optJSONObject2.optString("shadowDy"), 2.0f);
+                    shadowConfig.shadowRadius = b89.a(optJSONObject2.optString(AnimationProperty.SHADOW_RADIUS), 2.0f);
+                    shadowConfig.shadowDx = b89.a(optJSONObject2.optString("shadowDx"), 0.0f);
+                    shadowConfig.shadowDy = b89.a(optJSONObject2.optString("shadowDy"), 2.0f);
                     subTitleConfig.chineseShadowConfig = shadowConfig;
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("eng_shadow_config");
                 if (optJSONObject3 != null) {
                     ShadowConfig shadowConfig2 = new ShadowConfig();
-                    shadowConfig2.shadowRadius = t79.a(optJSONObject3.optString(AnimationProperty.SHADOW_RADIUS), 2.0f);
-                    shadowConfig2.shadowDx = t79.a(optJSONObject3.optString("shadowDx"), 0.0f);
-                    shadowConfig2.shadowDy = t79.a(optJSONObject3.optString("shadowDy"), 2.0f);
+                    shadowConfig2.shadowRadius = b89.a(optJSONObject3.optString(AnimationProperty.SHADOW_RADIUS), 2.0f);
+                    shadowConfig2.shadowDx = b89.a(optJSONObject3.optString("shadowDx"), 0.0f);
+                    shadowConfig2.shadowDy = b89.a(optJSONObject3.optString("shadowDy"), 2.0f);
                     subTitleConfig.engShadowConfig = shadowConfig2;
                 }
                 JSONObject optJSONObject4 = jSONObject.optJSONObject("chineseStrokeConfig");
                 if (optJSONObject4 != null) {
                     StrokeConfig strokeConfig = new StrokeConfig();
-                    strokeConfig.strokeWidth = t79.a(optJSONObject4.optString("strokeWidth"), 0.0f);
+                    strokeConfig.strokeWidth = b89.a(optJSONObject4.optString("strokeWidth"), 0.0f);
                     strokeConfig.strokeColor = optJSONObject4.optInt("strokeColor");
                     subTitleConfig.chineseStrokeConfig = strokeConfig;
                 }
                 JSONObject optJSONObject5 = jSONObject.optJSONObject("engStrokeConfig");
                 if (optJSONObject5 != null) {
                     StrokeConfig strokeConfig2 = new StrokeConfig();
-                    strokeConfig2.strokeWidth = t79.a(optJSONObject5.optString("strokeWidth"), 0.0f);
+                    strokeConfig2.strokeWidth = b89.a(optJSONObject5.optString("strokeWidth"), 0.0f);
                     strokeConfig2.strokeColor = optJSONObject5.optInt("strokeColor");
                     subTitleConfig.engStrokeConfig = strokeConfig2;
                 }
                 subTitleConfig.isHorizontal = jSONObject.optBoolean("isHorizontal", false);
-                subTitleConfig.mScale = t79.a(jSONObject.optString("mScale"), 1.0f);
+                subTitleConfig.mScale = b89.a(jSONObject.optString("mScale"), 1.0f);
                 String optString = jSONObject.optString("chineseTypefaceConfig");
                 if (!TextUtils.isEmpty(optString)) {
                     TypefaceConfig parseJson = TypefaceConfig.parseJson(optString);
@@ -417,8 +417,8 @@ public class SubTitleConfig {
                     subTitleConfig.engTypefaceConfig = parseJson2;
                     subTitleConfig.engTypeface = TypefaceConfig.toTypeFace(parseJson2);
                 }
-                float a = t79.a(jSONObject.optString("centerPointerX"), -2.1474836E9f);
-                float a2 = t79.a(jSONObject.optString("centerPointerY"), -2.1474836E9f);
+                float a = b89.a(jSONObject.optString("centerPointerX"), -2.1474836E9f);
+                float a2 = b89.a(jSONObject.optString("centerPointerY"), -2.1474836E9f);
                 if (a != -2.1474836E9f && a2 != -2.1474836E9f) {
                     subTitleConfig.mCenterPoint = new PointF(a, a2);
                 }

@@ -8,23 +8,30 @@ import com.baidu.tieba.homepage.topic.topictab.message.RequestGetTopicListMessag
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.ji;
-import com.repackage.tz6;
-import com.repackage.wa;
+import com.repackage.c17;
+import com.repackage.ni;
+import com.repackage.za;
 /* loaded from: classes3.dex */
 public class TopicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tz6 a;
-    public wa b;
-    public wa c;
+    public c17 a;
+    public za b;
+    public za c;
     public boolean d;
+
+    public void A(c17 c17Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, c17Var) == null) {
+            this.a = c17Var;
+        }
+    }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             cancelMessage();
             return false;
         }
@@ -35,7 +42,7 @@ public class TopicModel extends BdBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
@@ -43,7 +50,7 @@ public class TopicModel extends BdBaseModel {
 
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.b);
             MessageManager.getInstance().unRegisterListener(this.c);
             this.d = false;
@@ -53,7 +60,7 @@ public class TopicModel extends BdBaseModel {
     @Override // com.baidu.adp.base.BdBaseModel
     public void setUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
             super.setUniqueId(bdUniqueId);
             this.b.setTag(bdUniqueId);
             registerListener(this.b);
@@ -62,13 +69,13 @@ public class TopicModel extends BdBaseModel {
         }
     }
 
-    public void y() {
+    public void z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (!ji.A()) {
-                tz6 tz6Var = this.a;
-                if (tz6Var != null) {
-                    tz6Var.netCallback(-1, null);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (!ni.A()) {
+                c17 c17Var = this.a;
+                if (c17Var != null) {
+                    c17Var.j(-1, null);
                 }
             } else if (this.d) {
             } else {
@@ -80,13 +87,6 @@ public class TopicModel extends BdBaseModel {
                     this.d = true;
                 }
             }
-        }
-    }
-
-    public void z(tz6 tz6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, tz6Var) == null) {
-            this.a = tz6Var;
         }
     }
 }

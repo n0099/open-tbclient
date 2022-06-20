@@ -4,9 +4,9 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
+import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.b.a.c;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
-import com.repackage.ni9;
 import java.io.File;
 import java.util.LinkedHashMap;
 /* loaded from: classes5.dex */
@@ -72,7 +72,7 @@ public class a {
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
         linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
-        ni9.d("PushAPI", "register post map " + linkedHashMap2);
+        DebugLogger.i("PushAPI", "register post map " + linkedHashMap2);
         return com.meizu.cloud.pushsdk.b.a.b(this.b).a(linkedHashMap2).a().a();
     }
 
@@ -85,7 +85,7 @@ public class a {
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
         linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
-        ni9.d("PushAPI", this.f + " switchPush post map " + linkedHashMap2);
+        DebugLogger.i("PushAPI", this.f + " switchPush post map " + linkedHashMap2);
         return com.meizu.cloud.pushsdk.b.a.b(this.f).a(linkedHashMap2).a().a();
     }
 
@@ -99,7 +99,7 @@ public class a {
         if (!TextUtils.isEmpty(str3)) {
             linkedHashMap2.put("errorMsg", str3);
         }
-        ni9.d("PushAPI", "uploadLogFile post map " + linkedHashMap2);
+        DebugLogger.i("PushAPI", "uploadLogFile post map " + linkedHashMap2);
         return com.meizu.cloud.pushsdk.b.a.c(this.o).a(linkedHashMap2).a(ZeusCrashHandler.LOG_FILE_NAME, file).a().a();
     }
 
@@ -111,7 +111,7 @@ public class a {
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
         linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
-        ni9.d("PushAPI", "subScribeTags post map " + linkedHashMap2);
+        DebugLogger.i("PushAPI", "subScribeTags post map " + linkedHashMap2);
         return com.meizu.cloud.pushsdk.b.a.b(this.h).a(linkedHashMap2).a().a();
     }
 
@@ -123,7 +123,7 @@ public class a {
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
         linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
-        ni9.d("PushAPI", this.g + " switchPush post map " + linkedHashMap2);
+        DebugLogger.i("PushAPI", this.g + " switchPush post map " + linkedHashMap2);
         return com.meizu.cloud.pushsdk.b.a.b(this.g).a(linkedHashMap2).a().a();
     }
 
@@ -134,7 +134,7 @@ public class a {
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
         linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
-        ni9.d("PushAPI", "unregister post map " + linkedHashMap2);
+        DebugLogger.i("PushAPI", "unregister post map " + linkedHashMap2);
         return com.meizu.cloud.pushsdk.b.a.a(this.c).a(linkedHashMap2).a().a();
     }
 
@@ -146,7 +146,7 @@ public class a {
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
         linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
-        ni9.d("PushAPI", "subScribeTags post map " + linkedHashMap2);
+        DebugLogger.i("PushAPI", "subScribeTags post map " + linkedHashMap2);
         return com.meizu.cloud.pushsdk.b.a.b(this.i).a(linkedHashMap2).a().a();
     }
 
@@ -157,7 +157,7 @@ public class a {
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
         linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
-        ni9.d("PushAPI", "checkPush post map " + linkedHashMap2);
+        DebugLogger.i("PushAPI", "checkPush post map " + linkedHashMap2);
         return com.meizu.cloud.pushsdk.b.a.a(this.e).a(linkedHashMap2).a().a();
     }
 
@@ -170,7 +170,7 @@ public class a {
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
         linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
-        ni9.d("PushAPI", "subScribeTags post map " + linkedHashMap2);
+        DebugLogger.i("PushAPI", "subScribeTags post map " + linkedHashMap2);
         return com.meizu.cloud.pushsdk.b.a.b(this.l).a(linkedHashMap2).a().a();
     }
 
@@ -181,7 +181,7 @@ public class a {
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
         linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
-        ni9.d("PushAPI", "subScribeAllTags post map " + linkedHashMap2);
+        DebugLogger.i("PushAPI", "subScribeAllTags post map " + linkedHashMap2);
         return com.meizu.cloud.pushsdk.b.a.b(this.j).a(linkedHashMap2).a().a();
     }
 
@@ -193,7 +193,7 @@ public class a {
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
         linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
-        ni9.d("PushAPI", "subScribeTags post map " + linkedHashMap2);
+        DebugLogger.i("PushAPI", "subScribeTags post map " + linkedHashMap2);
         return com.meizu.cloud.pushsdk.b.a.b(this.m).a(linkedHashMap2).a().a();
     }
 
@@ -204,7 +204,7 @@ public class a {
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
         linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
-        ni9.d("PushAPI", "checkPush post map " + linkedHashMap2);
+        DebugLogger.i("PushAPI", "checkPush post map " + linkedHashMap2);
         return com.meizu.cloud.pushsdk.b.a.a(this.k).a(linkedHashMap2).a().a();
     }
 }

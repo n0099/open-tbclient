@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vo4;
+import com.repackage.fp4;
 /* loaded from: classes3.dex */
 public class ResponsePersonFriendByUidLocalMessage extends CustomResponsedMessage<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vo4 mData;
+    public fp4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponsePersonFriendByUidLocalMessage() {
@@ -32,16 +32,16 @@ public class ResponsePersonFriendByUidLocalMessage extends CustomResponsedMessag
         }
     }
 
-    public vo4 getPersonFriendData() {
+    public fp4 getPersonFriendData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (vo4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (fp4) invokeV.objValue;
     }
 
-    public void setPersonFriendData(vo4 vo4Var) {
+    public void setPersonFriendData(fp4 fp4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, vo4Var) == null) {
-            this.mData = vo4Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, fp4Var) == null) {
+            this.mData = fp4Var;
         }
     }
 
@@ -72,8 +72,8 @@ public class ResponsePersonFriendByUidLocalMessage extends CustomResponsedMessag
         if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) || str == null) {
             return;
         }
-        vo4 vo4Var = new vo4();
-        this.mData = vo4Var;
-        vo4Var.a(str);
+        fp4 fp4Var = new fp4();
+        this.mData = fp4Var;
+        fp4Var.a(str);
     }
 }

@@ -25,24 +25,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.am4;
 import com.repackage.cg;
-import com.repackage.dg;
-import com.repackage.fg;
 import com.repackage.gg;
-import com.repackage.ig;
-import com.repackage.ji;
-import com.repackage.ki;
-import com.repackage.li;
-import com.repackage.rb;
-import com.repackage.u25;
-import com.repackage.um;
-import com.repackage.vb;
-import com.repackage.xb5;
-import com.repackage.yf;
+import com.repackage.hg;
+import com.repackage.j35;
+import com.repackage.jg;
+import com.repackage.kc5;
+import com.repackage.kg;
+import com.repackage.km4;
+import com.repackage.mg;
+import com.repackage.ni;
+import com.repackage.oi;
+import com.repackage.pi;
+import com.repackage.ub;
+import com.repackage.yb;
+import com.repackage.ym;
 import java.io.InputStream;
 /* loaded from: classes3.dex */
-public abstract class AbstractImageLoaderProc implements gg<um> {
+public abstract class AbstractImageLoaderProc implements kg<ym> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -67,46 +67,46 @@ public abstract class AbstractImageLoaderProc implements gg<um> {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            vb vbVar = new vb("images", TbMd5.getNameMd5FromUrl(fg.h().g(str, i)), DiskFileOperate.Action.INFO);
-            vbVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
-            vbVar.setSubFolder(true);
-            vbVar.setIsFormatData(false);
-            vbVar.setSdCard(false);
-            vbVar.setSavedCache(true);
-            return vbVar.call();
+            yb ybVar = new yb("images", TbMd5.getNameMd5FromUrl(jg.h().g(str, i)), DiskFileOperate.Action.INFO);
+            ybVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
+            ybVar.setSubFolder(true);
+            ybVar.setIsFormatData(false);
+            ybVar.setSdCard(false);
+            ybVar.setSavedCache(true);
+            return ybVar.call();
         }
         return invokeLI.booleanValue;
     }
 
-    public static um loadBdImageFromLocal(String str, int i) {
+    public static ym loadBdImageFromLocal(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            String g = fg.h().g(str, i);
+            String g = jg.h().g(str, i);
             String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(g);
             if (i == 38) {
                 return ImageLoaderProc.readGifFromDisk(nameMd5FromUrl, null, str, "AbstractImageLoaderProc.loadBdImageFromLocal", 0, 0);
             }
-            vb vbVar = new vb("images", nameMd5FromUrl, DiskFileOperate.Action.READ);
-            vbVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
-            vbVar.setSubFolder(true);
-            vbVar.setIsFormatData(false);
-            vbVar.setSavedCache(true);
-            vbVar.setSdCard(false);
-            if (rb.f().call(vbVar) && vbVar.isSuccess()) {
-                vbVar.formatData(vbVar.getData());
-                Bitmap bitmap = vbVar.getBitmap();
+            yb ybVar = new yb("images", nameMd5FromUrl, DiskFileOperate.Action.READ);
+            ybVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
+            ybVar.setSubFolder(true);
+            ybVar.setIsFormatData(false);
+            ybVar.setSavedCache(true);
+            ybVar.setSdCard(false);
+            if (ub.f().call(ybVar) && ybVar.isSuccess()) {
+                ybVar.formatData(ybVar.getData());
+                Bitmap bitmap = ybVar.getBitmap();
                 if (bitmap != null) {
-                    return new um(bitmap, vbVar.isGif(), g);
+                    return new ym(bitmap, ybVar.isGif(), g);
                 }
                 return null;
             }
             return null;
         }
-        return (um) invokeLI.objValue;
+        return (ym) invokeLI.objValue;
     }
 
     public Bitmap checkBitmapSize(Bitmap bitmap, int i, int i2) {
@@ -121,49 +121,49 @@ public abstract class AbstractImageLoaderProc implements gg<um> {
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap)) == null) ? bitmap != null : invokeL.booleanValue;
     }
 
-    public vb createDiskPicOperate(String str) {
+    public yb createDiskPicOperate(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? new vb("images", str, DiskFileOperate.Action.READ) : (vb) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? new yb("images", str, DiskFileOperate.Action.READ) : (yb) invokeL.objValue;
     }
 
-    public um createImageFromDiskPicOperate(vb vbVar, String str, int i, int i2) {
+    public ym createImageFromDiskPicOperate(yb ybVar, String str, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048579, this, vbVar, str, i, i2)) == null) {
-            if (vbVar == null) {
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048579, this, ybVar, str, i, i2)) == null) {
+            if (ybVar == null) {
                 return null;
             }
-            vbVar.b(vbVar.getData(), i, i2);
-            Bitmap checkBitmapSize = checkBitmapSize(vbVar.getBitmap(), i, i2);
+            ybVar.b(ybVar.getData(), i, i2);
+            Bitmap checkBitmapSize = checkBitmapSize(ybVar.getBitmap(), i, i2);
             if (checkBitmapSize != null) {
-                return new um(checkBitmapSize, vbVar.isGif(), str);
+                return new ym(checkBitmapSize, ybVar.isGif(), str);
             }
             return null;
         }
-        return (um) invokeLLII.objValue;
+        return (ym) invokeLLII.objValue;
     }
 
-    public um decodeToResourceWithWH(byte[] bArr, int i, int i2) {
+    public ym decodeToResourceWithWH(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, bArr, i, i2)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             Bitmap decodeByteArray = BitmapHelper.decodeByteArray(bArr, i, i2);
-            cg.c(decodeByteArray != null, System.currentTimeMillis() - currentTimeMillis);
-            return new um(decodeByteArray);
+            gg.c(decodeByteArray != null, System.currentTimeMillis() - currentTimeMillis);
+            return new ym(decodeByteArray);
         }
-        return (um) invokeLII.objValue;
+        return (ym) invokeLII.objValue;
     }
 
-    @Override // com.repackage.gg
+    @Override // com.repackage.kg
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? ImageLoadSpeedRecorder.sharedInstance().getAsyncTaskParallel() : (BdAsyncTaskParallel) invokeV.objValue;
     }
 
-    @Override // com.repackage.gg
+    @Override // com.repackage.kg
     public int getAsyncTaskPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -189,7 +189,7 @@ public abstract class AbstractImageLoaderProc implements gg<um> {
             }
             sb.append(TbConfig.IMAGE_ADDRESS);
             sb.append("src=");
-            sb.append(ki.getUrlEncode(str));
+            sb.append(oi.getUrlEncode(str));
             sb.append("&width=");
             sb.append(String.valueOf(i));
             sb.append("&height=");
@@ -204,11 +204,11 @@ public abstract class AbstractImageLoaderProc implements gg<um> {
 
     public abstract boolean isFromCDN();
 
-    @Override // com.repackage.gg
+    @Override // com.repackage.kg
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? am4.c().g() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? km4.c().g() : invokeV.booleanValue;
     }
 
     public Bitmap resizeBitmapSize(Bitmap bitmap, int i, int i2) {
@@ -219,7 +219,7 @@ public abstract class AbstractImageLoaderProc implements gg<um> {
                 return null;
             }
             if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
-                u25.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
+                j35.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
                 return BitmapHelper.resizeBitmap(bitmap, i, i2, true);
             }
             return bitmap;
@@ -238,55 +238,55 @@ public abstract class AbstractImageLoaderProc implements gg<um> {
             return;
         }
         boolean booleanValue3 = ((Boolean) objArr[2]).booleanValue();
-        vb vbVar = new vb("images", TbMd5.getNameMd5FromUrl(str), DiskFileOperate.Action.WRITE);
-        vbVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
-        vbVar.setSubFolder(true);
-        vbVar.setData(bArr);
-        vbVar.setSdCard(false);
-        vbVar.setSavedCache(true);
-        vbVar.setGif(booleanValue3);
-        rb.f().a(vbVar);
-        dg dgVar = (dg) objArr[3];
-        if (dgVar != null) {
+        yb ybVar = new yb("images", TbMd5.getNameMd5FromUrl(str), DiskFileOperate.Action.WRITE);
+        ybVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
+        ybVar.setSubFolder(true);
+        ybVar.setData(bArr);
+        ybVar.setSdCard(false);
+        ybVar.setSavedCache(true);
+        ybVar.setGif(booleanValue3);
+        ub.f().a(ybVar);
+        hg hgVar = (hg) objArr[3];
+        if (hgVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
-            diskCancelWorker.setOperate(vbVar);
-            dgVar.a = diskCancelWorker;
+            diskCancelWorker.setOperate(ybVar);
+            hgVar.a = diskCancelWorker;
         }
     }
 
-    @Override // com.repackage.gg
+    @Override // com.repackage.kg
     public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && (obj instanceof um)) {
-            um umVar = (um) obj;
-            if (umVar.u()) {
+        if ((interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && (obj instanceof ym)) {
+            ym ymVar = (ym) obj;
+            if (ymVar.u()) {
                 long currentTimeMillis = System.currentTimeMillis();
-                umVar.A(i);
-                umVar.z(i2);
-                u25.k().d(str, umVar);
-                cg.l(true, System.currentTimeMillis() - currentTimeMillis);
+                ymVar.A(i);
+                ymVar.z(i2);
+                j35.k().d(str, ymVar);
+                gg.l(true, System.currentTimeMillis() - currentTimeMillis);
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: decodeToResource */
-    public um m41decodeToResource(byte[] bArr, Object... objArr) {
+    public ym m41decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, bArr, objArr)) == null) ? decodeToResourceWithWH(bArr, li.k(TbadkCoreApplication.getInst()), li.i(TbadkCoreApplication.getInst())) : (um) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, bArr, objArr)) == null) ? decodeToResourceWithWH(bArr, pi.k(TbadkCoreApplication.getInst()), pi.i(TbadkCoreApplication.getInst())) : (ym) invokeLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.repackage.gg
-    public um getFromLocal(String str, String str2, int i, int i2, dg dgVar, Object... objArr) {
+    @Override // com.repackage.kg
+    public ym getFromLocal(String str, String str2, int i, int i2, hg hgVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), dgVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), hgVar, objArr})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             byte[] bArr = new byte[0];
-            vb createDiskPicOperate = createDiskPicOperate(TbMd5.getNameMd5FromUrl(str2));
+            yb createDiskPicOperate = createDiskPicOperate(TbMd5.getNameMd5FromUrl(str2));
             if (createDiskPicOperate == null) {
                 return null;
             }
@@ -296,16 +296,16 @@ public abstract class AbstractImageLoaderProc implements gg<um> {
             createDiskPicOperate.setSavedCache(true);
             createDiskPicOperate.setIsFormatData(false);
             createDiskPicOperate.setLock(bArr);
-            if (dgVar != null) {
+            if (hgVar != null) {
                 DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                 diskCancelWorker.setOperate(createDiskPicOperate);
-                dgVar.a = diskCancelWorker;
+                hgVar.a = diskCancelWorker;
             }
-            if (!rb.f().a(createDiskPicOperate)) {
-                cg.f(false, 0L);
+            if (!ub.f().a(createDiskPicOperate)) {
+                gg.f(false, 0L);
                 return null;
             }
-            int i3 = ji.H() ? 300 : 2000;
+            int i3 = ni.H() ? 300 : 2000;
             synchronized (bArr) {
                 try {
                     bArr.wait(i3);
@@ -319,44 +319,44 @@ public abstract class AbstractImageLoaderProc implements gg<um> {
                 i2 = getSuggestHeight();
             }
             if (i == 0) {
-                i = li.d(TbadkCoreApplication.getInst().getApp(), 105.0f);
+                i = pi.d(TbadkCoreApplication.getInst().getApp(), 105.0f);
             }
             if (i2 == 0) {
-                i2 = li.d(TbadkCoreApplication.getInst().getApp(), 105.0f);
+                i2 = pi.d(TbadkCoreApplication.getInst().getApp(), 105.0f);
             }
-            um createImageFromDiskPicOperate = createDiskPicOperate.isSuccess() ? createImageFromDiskPicOperate(createDiskPicOperate, str2, i, i2) : null;
-            cg.f(createImageFromDiskPicOperate != null, System.currentTimeMillis() - currentTimeMillis);
+            ym createImageFromDiskPicOperate = createDiskPicOperate.isSuccess() ? createImageFromDiskPicOperate(createDiskPicOperate, str2, i, i2) : null;
+            gg.f(createImageFromDiskPicOperate != null, System.currentTimeMillis() - currentTimeMillis);
             return createImageFromDiskPicOperate;
         }
-        return (um) invokeCommon.objValue;
+        return (ym) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.repackage.gg
-    public um getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    @Override // com.repackage.kg
+    public ym getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            um m = u25.k().m(str);
+            ym m = j35.k().m(str);
             if (z) {
-                cg.i(m != null, System.currentTimeMillis() - currentTimeMillis);
+                gg.i(m != null, System.currentTimeMillis() - currentTimeMillis);
             }
             return m;
         }
-        return (um) invokeCommon.objValue;
+        return (ym) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     /* JADX WARN: Removed duplicated region for block: B:56:0x0138 A[Catch: all -> 0x0167, TryCatch #0 {all -> 0x0167, blocks: (B:47:0x0106, B:49:0x0128, B:54:0x0132, B:56:0x0138, B:58:0x0163), top: B:123:0x0106 }] */
     /* JADX WARN: Removed duplicated region for block: B:57:0x0162  */
-    @Override // com.repackage.gg
+    @Override // com.repackage.kg
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public um getFromRemote(String str, String str2, int i, int i2, dg dgVar, Object... objArr) {
+    public ym getFromRemote(String str, String str2, int i, int i2, hg hgVar, Object... objArr) {
         InterceptResult invokeCommon;
         String str3;
         boolean z;
@@ -377,9 +377,9 @@ public abstract class AbstractImageLoaderProc implements gg<um> {
         boolean z6;
         WebClient webClient2;
         boolean z7;
-        um umVar;
+        ym ymVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), dgVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), hgVar, objArr})) == null) {
             if (StringUtils.isNull(str)) {
                 return null;
             }
@@ -387,17 +387,17 @@ public abstract class AbstractImageLoaderProc implements gg<um> {
             int suggestWidth = i == 0 ? getSuggestWidth() : i;
             int suggestHeight = i2 == 0 ? getSuggestHeight() : i2;
             if (suggestWidth == 0) {
-                suggestWidth = li.d(TbadkCoreApplication.getInst().getApp(), 105.0f);
+                suggestWidth = pi.d(TbadkCoreApplication.getInst().getApp(), 105.0f);
             }
             int i7 = suggestWidth;
             if (suggestHeight == 0) {
-                suggestHeight = li.d(TbadkCoreApplication.getInst().getApp(), 105.0f);
+                suggestHeight = pi.d(TbadkCoreApplication.getInst().getApp(), 105.0f);
             }
             int i8 = suggestHeight;
             boolean isFromCDN = isFromCDN();
             String urlbyClientServerAddr = isFromCDN ? str : getUrlbyClientServerAddr(str, i7, i8);
-            xb5.e(isFromCDN, urlbyClientServerAddr, str);
-            Pair<Boolean, String> d = xb5.d(urlbyClientServerAddr);
+            kc5.e(isFromCDN, urlbyClientServerAddr, str);
+            Pair<Boolean, String> d = kc5.d(urlbyClientServerAddr);
             if (((Boolean) d.first).booleanValue()) {
                 str3 = (String) d.second;
                 z = true;
@@ -406,8 +406,8 @@ public abstract class AbstractImageLoaderProc implements gg<um> {
                 z = false;
             }
             WebClient webClient3 = new WebClient();
-            if (dgVar != null) {
-                dgVar.a = webClient3;
+            if (hgVar != null) {
+                hgVar.a = webClient3;
             }
             byte[] downloadImageBytes = webClient3.downloadImageBytes(str3, !isFromCDN);
             boolean needCache = webClient3.needCache();
@@ -417,7 +417,7 @@ public abstract class AbstractImageLoaderProc implements gg<um> {
                 i3 = 1;
                 z2 = needCache;
             } else if (webClient3.responseCode == 302 && (17 == getProcType() || 18 == getProcType() || 13 == getProcType() || 14 == getProcType())) {
-                cg.j(false, str3, webClient3.mStat, 0L, 0L);
+                gg.j(false, str3, webClient3.mStat, 0L, 0L);
                 if (webClient3.mStat != null) {
                     webClient2 = webClient3;
                     z6 = needCache;
@@ -427,28 +427,28 @@ public abstract class AbstractImageLoaderProc implements gg<um> {
                     webClient2 = webClient3;
                 }
                 try {
-                    InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.obfuscated_res_0x7f080ba7, new TypedValue());
-                    byte[] d2 = yf.d(openRawResource);
+                    InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.obfuscated_res_0x7f080b92, new TypedValue());
+                    byte[] d2 = cg.d(openRawResource);
                     Bitmap Bytes2NineBitmap = BitmapHelper.Bytes2NineBitmap(d2, rect);
                     WebClient webClient4 = webClient2;
-                    if (!webClient4.isGif && !li.B(d2)) {
+                    if (!webClient4.isGif && !pi.B(d2)) {
                         z7 = false;
                         if (checkBitmapValid(Bytes2NineBitmap)) {
-                            umVar = null;
+                            ymVar = null;
                         } else {
-                            umVar = new um(Bytes2NineBitmap, z7, str, rect);
+                            ymVar = new ym(Bytes2NineBitmap, z7, str, rect);
                             boolean z8 = z6;
-                            umVar.y(z8);
-                            storeLocal(str2, d2, Boolean.valueOf(z8), Boolean.valueOf(webClient4.isCrackPic), Boolean.valueOf(z7), dgVar, Bytes2NineBitmap);
+                            ymVar.y(z8);
+                            storeLocal(str2, d2, Boolean.valueOf(z8), Boolean.valueOf(webClient4.isCrackPic), Boolean.valueOf(z7), hgVar, Bytes2NineBitmap);
                         }
-                        ig.c(openRawResource);
-                        return umVar;
+                        mg.c(openRawResource);
+                        return ymVar;
                     }
                     z7 = true;
                     if (checkBitmapValid(Bytes2NineBitmap)) {
                     }
-                    ig.c(openRawResource);
-                    return umVar;
+                    mg.c(openRawResource);
+                    return ymVar;
                 } catch (Throwable th) {
                     BdLog.e(th);
                     return null;
@@ -458,7 +458,7 @@ public abstract class AbstractImageLoaderProc implements gg<um> {
                 i3 = 1;
                 z2 = needCache;
                 if (!webClient.getResponse().a) {
-                    cg.j(false, str3, webClient.mStat, 0L, 0L);
+                    gg.j(false, str3, webClient.mStat, 0L, 0L);
                     ImageLogger.imagePerfNetLog(str, false, str3, Boolean.valueOf(z), webClient.mStat, "NetworkError", System.currentTimeMillis() - currentTimeMillis, webClient.isMobileProxy(), getProcType());
                     return null;
                 }
@@ -467,13 +467,13 @@ public abstract class AbstractImageLoaderProc implements gg<um> {
                 if (webClient.getResponse().a) {
                     return null;
                 }
-                cg.j(false, str3, webClient.mStat, 0L, 0L);
+                gg.j(false, str3, webClient.mStat, 0L, 0L);
                 ImageLogger.imagePerfNetLog(str, false, str3, Boolean.valueOf(z), webClient.mStat, "ByteIsNull", System.currentTimeMillis() - currentTimeMillis, webClient.isMobileProxy(), getProcType());
                 return null;
             }
             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
             String str6 = urlbyClientServerAddr;
-            cg.j(downloadImageBytes.length > i3, str3, webClient.mStat, currentTimeMillis2, downloadImageBytes.length);
+            gg.j(downloadImageBytes.length > i3, str3, webClient.mStat, currentTimeMillis2, downloadImageBytes.length);
             if (downloadImageBytes.length > 1) {
                 ImageLoadSpeedRecorder.sharedInstance().addSpeedRecordItem(downloadImageBytes.length, currentTimeMillis2);
                 z3 = z2;
@@ -493,7 +493,7 @@ public abstract class AbstractImageLoaderProc implements gg<um> {
                 ImageLogger.imagePerfNetLog(str, false, str4, Boolean.valueOf(z), webClient.mStat, "bytes<1", currentTimeMillis2, webClient.isMobileProxy(), getProcType());
             }
             byte[] bArr3 = bArr;
-            u25.k().i(TbConfig.getPbImageSize() + bArr3.length);
+            j35.k().i(TbConfig.getPbImageSize() + bArr3.length);
             if (getProcType() == 19) {
                 i6 = 1;
                 p = m41decodeToResource(bArr3, rect).p();
@@ -504,7 +504,7 @@ public abstract class AbstractImageLoaderProc implements gg<um> {
                 p = decodeToResourceWithWH(bArr3, i5, i4).p();
             }
             if (z && p == null) {
-                xb5.b(str4);
+                kc5.b(str4);
                 byte[] downloadImageBytes2 = webClient.downloadImageBytes(str5, !z4);
                 boolean needCache2 = webClient.needCache();
                 if (downloadImageBytes2 != null && webClient.IsRequestSuccess()) {
@@ -525,22 +525,22 @@ public abstract class AbstractImageLoaderProc implements gg<um> {
             if (bArr2 == null || p == null) {
                 return null;
             }
-            boolean z9 = webClient.isGif || li.B(bArr2);
+            boolean z9 = webClient.isGif || pi.B(bArr2);
             Bitmap resizeBitmapSize = resizeBitmapSize(p, i5, i4);
             if (resizeBitmapSize != null && checkBitmapValid(resizeBitmapSize)) {
-                um umVar2 = new um(resizeBitmapSize, z9, str, rect);
-                umVar2.y(z5);
+                ym ymVar2 = new ym(resizeBitmapSize, z9, str, rect);
+                ymVar2.y(z5);
                 Object[] objArr3 = new Object[5];
                 objArr3[0] = Boolean.valueOf(z5);
                 objArr3[i6] = Boolean.valueOf(webClient.isCrackPic);
                 objArr3[2] = Boolean.valueOf(z9);
-                objArr3[3] = dgVar;
+                objArr3[3] = hgVar;
                 objArr3[4] = resizeBitmapSize;
                 storeLocal(str2, bArr2, objArr3);
-                return umVar2;
+                return ymVar2;
             }
             return null;
         }
-        return (um) invokeCommon.objValue;
+        return (ym) invokeCommon.objValue;
     }
 }

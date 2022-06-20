@@ -1,191 +1,230 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.net.SSLCertificateSocketFactory;
+import android.net.SSLSessionCache;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.lcp.sdk.pb.LcmPb$Common;
-import com.baidu.lcp.sdk.pb.LcmPb$LcmNotify;
-import com.baidu.lcp.sdk.pb.LcmPb$LcmRequest;
-import com.baidu.lcp.sdk.pb.LcmPb$RpcData;
-import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcMeta;
-import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcRequestMeta;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayOutputStream;
-import java.nio.ByteBuffer;
-import java.util.zip.GZIPOutputStream;
+import java.io.DataInputStream;
+import java.io.EOFException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.lang.reflect.InvocationTargetException;
+import java.net.Inet4Address;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.net.UnknownHostException;
+import java.security.KeyManagementException;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
+import java.util.concurrent.TimeoutException;
+import javax.net.ssl.SSLHandshakeException;
+import javax.net.ssl.SSLSocket;
 /* loaded from: classes5.dex */
-public class c70 {
+public class c70 extends z60 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Socket c;
+    public InputStream d;
+    public OutputStream e;
+    public String f;
 
-    public c70() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c70(Context context, String str) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.f = str;
+    }
+
+    @Override // com.repackage.z60
+    public InputStream b() throws EOFException, IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new DataInputStream(this.d) : (InputStream) invokeV.objValue;
+    }
+
+    @Override // com.repackage.z60
+    public void c(a70 a70Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a70Var) == null) {
+            this.b = a70Var;
+            if (a70Var != null) {
+                this.d = a70Var.d;
+                this.e = a70Var.e;
+                return;
+            }
+            this.d = null;
+            this.e = null;
         }
     }
 
-    public final byte[] a(byte[] bArr, int i) {
+    @Override // com.repackage.z60
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? k(this.b) : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.z60
+    public a70 e(String str, int i) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, AssertionError {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) ? i == 1 ? g(bArr) : bArr : (byte[]) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i)) == null) ? g(str, i) : (a70) invokeLI.objValue;
     }
 
-    public u60 b(u60 u60Var, boolean z) {
-        InterceptResult invokeLZ;
+    @Override // com.repackage.z60
+    public void f(y60 y60Var) throws IOException {
+        OutputStream outputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u60Var, z)) == null) {
-            u60Var.o = z;
-            h(u60Var, f(u60Var.h, u60Var.i, u60Var.n, d(false)), a(u60Var.a, d(false)));
-            return u60Var;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, y60Var) == null) || this.c == null || (outputStream = this.e) == null) {
+            return;
         }
-        return (u60) invokeLZ.objValue;
+        outputStream.write(y60Var.a);
+        this.e.flush();
     }
 
-    public u60 c(Context context, long j) {
-        InterceptResult invokeLJ;
+    public final a70 g(String str, int i) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, AssertionError {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, context, j)) == null) {
-            long random = (long) ((Math.random() * 1000000.0d) + 10000.0d);
-            u60 u60Var = new u60();
-            u60Var.n = random;
-            u60Var.o = true;
-            u60Var.h = 1L;
-            u60Var.i = j;
-            u60Var.l = j == 1;
-            u60Var.k = j == 3;
-            h(u60Var, f(1L, j, random, d(false)), a(e(context, random, j), d(false)));
-            return u60Var;
-        }
-        return (u60) invokeLJ.objValue;
-    }
-
-    public final int d(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) ? z ? 1 : 0 : invokeZ.intValue;
-    }
-
-    public final byte[] e(Context context, long j, long j2) {
-        InterceptResult invokeCommon;
-        LcmPb$LcmRequest build;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{context, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            if (j2 == 4) {
-                LcmPb$LcmNotify.b newBuilder = LcmPb$LcmNotify.newBuilder();
-                newBuilder.w(j);
-                newBuilder.v(2);
-                LcmPb$LcmNotify build2 = newBuilder.build();
-                LcmPb$RpcData.b newBuilder2 = LcmPb$RpcData.newBuilder();
-                newBuilder2.D(build2);
-                return newBuilder2.build().toByteArray();
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
+            s70.d("TcpMessageHandler", "---------------ip:" + str + "  port:" + i + "-----------------");
+            this.c = h(str, i);
+            a70 a70Var = new a70();
+            Socket socket = this.c;
+            if (socket == null) {
+                return a70Var;
             }
-            if (j2 == 1) {
+            a70Var.c = socket;
+            a70Var.d = socket.getInputStream();
+            a70Var.e = this.c.getOutputStream();
+            Boolean bool = Boolean.TRUE;
+            a70Var.a = bool;
+            a70Var.b = bool;
+            return a70Var;
+        }
+        return (a70) invokeLI.objValue;
+    }
+
+    public final Socket h(String str, int i) throws UnknownHostException, IOException, KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, AssertionError {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, str, i)) == null) {
+            if (this.f.equals("tcp")) {
+                return j(str, i);
+            }
+            return i(str, i);
+        }
+        return (Socket) invokeLI.objValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x003c, code lost:
+        r9 = r6.getHostAddress();
+     */
+    @SuppressLint({"NewApi"})
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final Socket i(String str, int i) throws UnknownHostException, IOException, CertificateException, KeyStoreException, NoSuchAlgorithmException, NoSuchMethodException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, KeyManagementException, TimeoutException, SSLHandshakeException, AssertionError {
+        InterceptResult invokeLI;
+        SSLCertificateSocketFactory sSLCertificateSocketFactory;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, str, i)) == null) {
+            SSLSessionCache sSLSessionCache = new SSLSessionCache(this.a);
+            if (str.contains("baidu.com")) {
+                s70.a("TcpMessageHandler", "localdns begin...,domain:" + str);
                 try {
-                    LcmPb$Common lcmPb$Common = (LcmPb$Common) l70.c(context, false);
-                    LcmPb$LcmRequest.b newBuilder3 = LcmPb$LcmRequest.newBuilder();
-                    newBuilder3.z(j);
-                    newBuilder3.x(lcmPb$Common);
-                    newBuilder3.C(p70.j(context));
-                    newBuilder3.B(System.currentTimeMillis());
-                    newBuilder3.A(m60.c(context));
-                    newBuilder3.y(p70.d(context));
-                    build = newBuilder3.build();
-                    o70.a("PbProcessor", "cuid :" + lcmPb$Common.getCuid() + ", device :" + lcmPb$Common.getDeviceType() + ", os:" + lcmPb$Common.getOsVersion() + ", man :" + lcmPb$Common.getManufacture() + ", model :" + lcmPb$Common.getModelType() + ", appId :" + lcmPb$Common.getAppId() + ", app :" + lcmPb$Common.getAppVersion() + ", sdk :" + lcmPb$Common.getSdkVersion() + ", token :" + build.getToken() + ", net :" + lcmPb$Common.getNetwork() + ", rom :" + lcmPb$Common.getRomVersion() + ", start :" + build.getStartType() + "，connType :" + build.getConnType());
-                } catch (Exception unused) {
-                    LcmPb$LcmRequest.b newBuilder4 = LcmPb$LcmRequest.newBuilder();
-                    newBuilder4.z(j);
-                    newBuilder4.C(p70.j(context));
-                    newBuilder4.B(System.currentTimeMillis());
-                    newBuilder4.A(m60.c(context));
-                    newBuilder4.y(p70.d(context));
-                    build = newBuilder4.build();
+                    InetAddress[] allByName = InetAddress.getAllByName(str);
+                    if (allByName != null && allByName.length > 0) {
+                        int length = allByName.length;
+                        int i2 = 0;
+                        while (true) {
+                            if (i2 >= length) {
+                                break;
+                            }
+                            InetAddress inetAddress = allByName[i2];
+                            if (inetAddress instanceof Inet4Address) {
+                                break;
+                            }
+                            i2++;
+                        }
+                    }
+                } catch (Exception e) {
+                    s70.c("TcpMessageHandler", "createSocketOnLine", e);
                 }
-            } else if (j2 == 2) {
-                LcmPb$LcmRequest.b newBuilder5 = LcmPb$LcmRequest.newBuilder();
-                newBuilder5.z(j);
-                newBuilder5.B(System.currentTimeMillis());
-                build = newBuilder5.build();
-            } else {
-                LcmPb$LcmRequest.b newBuilder6 = LcmPb$LcmRequest.newBuilder();
-                newBuilder6.z(j);
-                newBuilder6.B(System.currentTimeMillis());
-                build = newBuilder6.build();
             }
-            o70.f("PbProcessor", "logId :" + j + ", requestTime :" + build.getTimestamp() + "，methodId :" + j2);
-            LcmPb$RpcData.b newBuilder7 = LcmPb$RpcData.newBuilder();
-            newBuilder7.E(build);
-            return newBuilder7.build().toByteArray();
+            if (str.contains("baidu.com")) {
+                sSLCertificateSocketFactory = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getDefault(10000, sSLSessionCache);
+            } else {
+                sSLCertificateSocketFactory = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getInsecure(10000, sSLSessionCache);
+            }
+            if (sSLCertificateSocketFactory != null) {
+                SSLSocket sSLSocket = (SSLSocket) sSLCertificateSocketFactory.createSocket(str, i);
+                sSLSocket.setEnabledCipherSuites(sSLSocket.getEnabledCipherSuites());
+                sSLSocket.setEnabledProtocols(sSLSocket.getEnabledProtocols());
+                sSLCertificateSocketFactory.setUseSessionTickets(sSLSocket, true);
+                sSLSocket.startHandshake();
+                return sSLSocket;
+            }
+            return null;
         }
-        return (byte[]) invokeCommon.objValue;
+        return (Socket) invokeLI.objValue;
     }
 
-    public final byte[] f(long j, long j2, long j3, int i) {
-        InterceptResult invokeCommon;
+    public final Socket j(String str, int i) throws UnknownHostException, IOException {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i)})) == null) {
-            RpcMetaPb$RpcRequestMeta.b newBuilder = RpcMetaPb$RpcRequestMeta.newBuilder();
-            newBuilder.u(j3);
-            newBuilder.x(j);
-            newBuilder.v(j2);
-            newBuilder.w(1);
-            RpcMetaPb$RpcRequestMeta build = newBuilder.build();
-            RpcMetaPb$RpcMeta.b newBuilder2 = RpcMetaPb$RpcMeta.newBuilder();
-            newBuilder2.F(build);
-            newBuilder2.E(j3);
-            newBuilder2.D(i);
-            newBuilder2.A(1);
-            return newBuilder2.build().toByteArray();
-        }
-        return (byte[]) invokeCommon.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i)) == null) ? new Socket(str, i) : (Socket) invokeLI.objValue;
     }
 
-    public final byte[] g(byte[] bArr) {
+    public boolean k(a70 a70Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            try {
-                GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
-                gZIPOutputStream.write(bArr);
-                gZIPOutputStream.close();
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, a70Var)) == null) {
+            if (a70Var != null && a70Var.a.booleanValue()) {
+                try {
+                    if (a70Var.c != null) {
+                        a70Var.c.close();
+                        a70Var.c = null;
+                    }
+                    if (a70Var.d != null) {
+                        a70Var.d.close();
+                        a70Var.d = null;
+                    }
+                    if (a70Var.e != null) {
+                        a70Var.e.close();
+                        a70Var.e = null;
+                        return true;
+                    }
+                    return true;
+                } catch (IOException e) {
+                    s70.c("TcpMessageHandler", "destroy:", e);
+                    return false;
+                }
             }
-            return byteArrayOutputStream.toByteArray();
+            return true;
         }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public final u60 h(u60 u60Var, byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, u60Var, bArr, bArr2)) == null) {
-            try {
-                ByteBuffer allocate = ByteBuffer.allocate(bArr.length + 12 + bArr2.length);
-                allocate.put((byte) 108);
-                allocate.put((byte) 99);
-                allocate.put((byte) 112);
-                allocate.put((byte) 1);
-                allocate.putInt(bArr.length + bArr2.length);
-                allocate.putInt(bArr.length);
-                allocate.put(bArr);
-                allocate.put(bArr2);
-                u60Var.a = allocate.array();
-            } catch (Exception unused) {
-            }
-            return u60Var;
-        }
-        return (u60) invokeLLL.objValue;
+        return invokeL.booleanValue;
     }
 }

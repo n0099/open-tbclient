@@ -6,9 +6,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public abstract class kj4 implements nj4 {
+public class kj4 extends jj4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,22 +26,28 @@ public abstract class kj4 implements nj4 {
         }
     }
 
-    @Override // com.repackage.nj4
-    public void a(Object obj, HashMap<String, String> hashMap, String str, a9 a9Var) {
+    @Override // com.repackage.ij4
+    public String a(String[] strArr, Map<String, String> map) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, obj, hashMap, str, a9Var) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, strArr, map)) == null) {
+            if (strArr == null || strArr.length == 0) {
+                return null;
+            }
+            String substring = strArr[0].substring(1);
+            StringBuilder sb = new StringBuilder("com.baidu.tieba://unidispatch/pb");
+            sb.append("?ori_ugc_tid=");
+            sb.append(substring);
+            c(strArr, sb, map, 1);
+            return sb.toString();
         }
+        return (String) invokeLL.objValue;
     }
 
-    @Override // com.repackage.nj4
-    public pj4 b(Object obj, HashMap<String, String> hashMap, String str) {
-        InterceptResult invokeLLL;
+    @Override // com.repackage.ij4
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, hashMap, str)) == null) {
-            return null;
-        }
-        return (pj4) invokeLLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "d" : (String) invokeV.objValue;
     }
-
-    public abstract String c();
 }

@@ -11,23 +11,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c90;
-import com.repackage.ca0;
-import com.repackage.da0;
-import com.repackage.u70;
-import com.repackage.z70;
-/* loaded from: classes.dex */
+import com.repackage.d80;
+import com.repackage.g90;
+import com.repackage.ga0;
+import com.repackage.ha0;
+import com.repackage.y70;
+/* loaded from: classes2.dex */
 public class LiveFeedPageActivity extends AppCompatActivity {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String SCHEME_NEXT = "scheme_next";
-    public static final String SOURCE = "source";
-    public static final String TAB_EXTEND_SCOLL_TO_TAB = "tab_extend_scroll_to_tab";
-    public static final String TAB_EXTEND_SUBTYPE = "tab_extend_subtype";
-    public static final String TAB_EXTEND_THIRDTYPE = "tab_extend_thirdtype";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int bdUniqueId;
-    public Handler handler;
-    public u70 mBaiduLiveTabContainer;
+    public y70 a;
+    public final int b;
+    public Handler c;
 
     public LiveFeedPageActivity() {
         Interceptable interceptable = $ic;
@@ -42,7 +37,7 @@ public class LiveFeedPageActivity extends AppCompatActivity {
                 return;
             }
         }
-        this.bdUniqueId = ca0.a().b();
+        this.b = ga0.a().b();
     }
 
     @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
@@ -54,14 +49,14 @@ public class LiveFeedPageActivity extends AppCompatActivity {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            da0.e(this);
+            ha0.e(this);
             super.onCreate(bundle);
             if (getIntent() != null) {
                 String stringExtra = getIntent().getStringExtra("source");
-                str = getIntent().getStringExtra(SCHEME_NEXT);
-                String stringExtra2 = getIntent().getStringExtra(TAB_EXTEND_SUBTYPE);
-                String stringExtra3 = getIntent().getStringExtra(TAB_EXTEND_THIRDTYPE);
-                z = getIntent().getBooleanExtra(TAB_EXTEND_SCOLL_TO_TAB, false);
+                str = getIntent().getStringExtra("scheme_next");
+                String stringExtra2 = getIntent().getStringExtra("tab_extend_subtype");
+                String stringExtra3 = getIntent().getStringExtra("tab_extend_thirdtype");
+                z = getIntent().getBooleanExtra("tab_extend_scroll_to_tab", false);
                 str4 = stringExtra;
                 str2 = stringExtra2;
                 str3 = stringExtra3;
@@ -72,16 +67,16 @@ public class LiveFeedPageActivity extends AppCompatActivity {
                 str4 = str3;
                 z = false;
             }
-            u70 u70Var = new u70(this, this.bdUniqueId, getSupportFragmentManager(), "immersion", str4, false, str2, str3, z);
-            this.mBaiduLiveTabContainer = u70Var;
-            setContentView(u70Var.z());
-            this.mBaiduLiveTabContainer.K();
-            z70.s(this, str4, "chenjinshi");
+            y70 y70Var = new y70(this, this.b, getSupportFragmentManager(), "immersion", str4, false, str2, str3, z);
+            this.a = y70Var;
+            setContentView(y70Var.z());
+            this.a.K();
+            d80.s(this, str4, "chenjinshi");
             if (!TextUtils.isEmpty(str)) {
-                if (this.handler == null) {
-                    this.handler = new Handler();
+                if (this.c == null) {
+                    this.c = new Handler();
                 }
-                this.handler.postDelayed(new Runnable(this, str) { // from class: com.baidu.live.LiveFeedPageActivity.1
+                this.c.postDelayed(new Runnable(this, str) { // from class: com.baidu.live.LiveFeedPageActivity.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ String a;
@@ -108,7 +103,7 @@ public class LiveFeedPageActivity extends AppCompatActivity {
 
                     @Override // java.lang.Runnable
                     public void run() {
-                        c90 g;
+                        g90 g;
                         Interceptable interceptable2 = $ic;
                         if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (g = LiveFeedPageSdk.f().g()) == null) {
                             return;
@@ -126,13 +121,13 @@ public class LiveFeedPageActivity extends AppCompatActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDestroy();
-            Handler handler = this.handler;
+            Handler handler = this.c;
             if (handler != null) {
                 handler.removeCallbacksAndMessages(null);
             }
-            u70 u70Var = this.mBaiduLiveTabContainer;
-            if (u70Var != null) {
-                u70Var.P();
+            y70 y70Var = this.a;
+            if (y70Var != null) {
+                y70Var.P();
             }
         }
     }
@@ -142,10 +137,10 @@ public class LiveFeedPageActivity extends AppCompatActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onPause();
-            u70 u70Var = this.mBaiduLiveTabContainer;
-            if (u70Var != null) {
-                u70Var.T();
-                this.mBaiduLiveTabContainer.V(false);
+            y70 y70Var = this.a;
+            if (y70Var != null) {
+                y70Var.T();
+                this.a.V(false);
             }
         }
     }
@@ -155,10 +150,10 @@ public class LiveFeedPageActivity extends AppCompatActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onResume();
-            u70 u70Var = this.mBaiduLiveTabContainer;
-            if (u70Var != null) {
-                u70Var.U();
-                this.mBaiduLiveTabContainer.V(true);
+            y70 y70Var = this.a;
+            if (y70Var != null) {
+                y70Var.U();
+                this.a.V(true);
             }
         }
     }

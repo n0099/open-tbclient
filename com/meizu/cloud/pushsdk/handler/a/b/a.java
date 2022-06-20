@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.handler.a.b;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.tieba.setting.model.friendAndStrangerSwitch.FriendAndStrangerReqMsg;
-import com.repackage.ni9;
+import com.meizu.cloud.pushinternal.DebugLogger;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
@@ -56,7 +56,7 @@ public class a implements Parcelable {
             return aVar;
         }
         str = "no control message can parse ";
-        ni9.b("ctl", str);
+        DebugLogger.e("ctl", str);
         return aVar;
     }
 

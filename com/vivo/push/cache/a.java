@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.push.util.aa;
 import com.vivo.push.util.f;
 import com.vivo.push.util.p;
+import com.vivo.push.util.z;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a extends c<com.vivo.push.model.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -120,7 +120,7 @@ public final class a extends c<com.vivo.push.model.a> {
             if (i != -1) {
                 return (i & 1) != 0;
             }
-            return aa.b("persist.sys.log.ctrl", "no").equals("yes");
+            return z.b("persist.sys.log.ctrl", "no").equals("yes");
         }
         return invokeI.booleanValue;
     }

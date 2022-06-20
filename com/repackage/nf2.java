@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes6.dex */
-public class nf2 extends bd2<sf2> {
+public class nf2 extends md2<dg2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,25 +27,25 @@ public class nf2 extends bd2<sf2> {
         }
     }
 
-    @Override // com.repackage.bd2
+    @Override // com.repackage.md2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setVideoHeight" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setBeautyWhite" : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.bd2
+    @Override // com.repackage.md2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull sf2 sf2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull dg2 dg2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, sf2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, dg2Var) == null) {
             String str = command.what;
-            d(sf2Var, str, "" + command.obj, true);
+            d(dg2Var, str, "" + command.obj, true);
             Object obj = command.obj;
             if (obj instanceof Integer) {
-                sf2Var.D(((Integer) obj).intValue());
+                dg2Var.I(((Integer) obj).intValue());
             }
         }
     }

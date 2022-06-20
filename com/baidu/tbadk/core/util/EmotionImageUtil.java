@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
+import com.repackage.pi;
 /* loaded from: classes3.dex */
 public class EmotionImageUtil {
     public static /* synthetic */ Interceptable $ic;
@@ -57,10 +57,10 @@ public class EmotionImageUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) {
             if (context == null) {
-                return li.f(TbadkCoreApplication.getInst(), R.dimen.tbds200);
+                return pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds200);
             }
             if (topMargin <= 0) {
-                topMargin = (int) (li.i(context) * 0.11d);
+                topMargin = (int) (pi.i(context) * 0.11d);
             }
             return topMargin;
         }

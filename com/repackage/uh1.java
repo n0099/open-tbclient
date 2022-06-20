@@ -1,14 +1,14 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes7.dex */
-public class uh1 implements zj1 {
+public class uh1 implements xj1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,31 +26,10 @@ public class uh1 implements zj1 {
         }
     }
 
-    @Override // com.repackage.zj1
-    public void a() {
+    @Override // com.repackage.xj1
+    public InputStream a(InputStream inputStream) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.zj1
-    public void b(String str, xn1 xn1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, xn1Var) == null) {
-        }
-    }
-
-    @Override // com.repackage.zj1
-    public void c(SwanAppActivity swanAppActivity, String str, xn1 xn1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, swanAppActivity, str, xn1Var) == null) {
-        }
-    }
-
-    @Override // com.repackage.zj1
-    public void d(String str, String str2, JSONObject jSONObject, xn1 xn1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048579, this, str, str2, jSONObject, xn1Var) == null) {
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) ? new qr9(inputStream) : (InputStream) invokeL.objValue;
     }
 }

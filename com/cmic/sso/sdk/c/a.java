@@ -13,6 +13,7 @@ import com.cmic.sso.sdk.c.b.d;
 import com.cmic.sso.sdk.c.b.g;
 import com.cmic.sso.sdk.c.c.c;
 import com.cmic.sso.sdk.e.q;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes4.dex */
@@ -60,7 +61,7 @@ public class a {
                     } else if ("3".equals(b2)) {
                         q.a(aVar, "getTelecomMobile");
                     } else {
-                        q.a(aVar, "NONE");
+                        q.a(aVar, HlsPlaylistParser.METHOD_NONE);
                     }
                 }
             }
@@ -82,7 +83,7 @@ public class a {
             } else if ("3".equals(b)) {
                 q.a(aVar, "getNewTelecomPhoneNumberNotify");
             } else {
-                q.a(aVar, "NONE");
+                q.a(aVar, HlsPlaylistParser.METHOD_NONE);
             }
             q.b(aVar, String.valueOf(bVar.a()));
             d dVar = new d(cVar.k().a(), "1.0", bVar.c());

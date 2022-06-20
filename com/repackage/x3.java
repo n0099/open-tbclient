@@ -1,6 +1,8 @@
 package com.repackage;
 
+import androidx.core.view.InputDeviceCompat;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.ParticleEmitter;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,150 +10,176 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import com.repackage.a7;
+import com.tachikoma.core.utility.FileUtil;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 /* loaded from: classes7.dex */
-public class x3 extends x1<w3, a> {
+public class x3 implements h7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a b;
-    public com.badlogic.gdx.math.a c;
+    public final a7<ParticleEmitter> a;
+    public boolean b;
 
-    /* loaded from: classes7.dex */
-    public static class a extends h1<w3> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String b;
-        public int c;
-        public String[] d;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = "i ";
-            this.c = 1024;
-            this.d = new String[]{"png", "PNG", "jpeg", "JPEG", "jpg", "JPG", "cim", "CIM", "etc1", "ETC1", "ktx", "KTX", "zktx", "ZKTX"};
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x3(o1 o1Var) {
-        super(o1Var);
+    public x3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {o1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((o1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new a();
-        this.c = new com.badlogic.gdx.math.a();
+        this.a = new a7<>(8);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.k1
-    /* renamed from: d */
-    public y6<f1> a(String str, h3 h3Var, a aVar) {
-        InterceptResult invokeLLL;
-        String str2;
-        String[] strArr;
+    public void a(j3 j3Var, j3 j3Var2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, h3Var, aVar)) == null) {
-            if (aVar == null) {
-                aVar = this.b;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, j3Var, j3Var2) == null) {
+            i(j3Var);
+            g(j3Var2);
+        }
+    }
+
+    @Override // com.repackage.h7
+    public void dispose() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b) {
+            int i = this.a.b;
+            for (int i2 = 0; i2 < i; i2++) {
+                a7.b<a4> it = this.a.get(i2).g().iterator();
+                while (it.hasNext()) {
+                    it.next().f().dispose();
+                }
             }
+        }
+    }
+
+    public void f(j3 j3Var, b4 b4Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, j3Var, b4Var, str) == null) {
+            i(j3Var);
+            h(b4Var, str);
+        }
+    }
+
+    public void g(j3 j3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, j3Var) == null) {
+            this.b = true;
+            w7 w7Var = new w7(this.a.b);
+            int i = this.a.b;
+            for (int i2 = 0; i2 < i; i2++) {
+                ParticleEmitter particleEmitter = this.a.get(i2);
+                if (particleEmitter.f().b != 0) {
+                    a7<a4> a7Var = new a7<>();
+                    a7.b<String> it = particleEmitter.f().iterator();
+                    while (it.hasNext()) {
+                        String name = new File(it.next().replace(FileUtil.WINDOWS_SEPARATOR, WebvttCueParser.CHAR_SLASH)).getName();
+                        a4 a4Var = (a4) w7Var.c(name);
+                        if (a4Var == null) {
+                            a4Var = new a4(j(j3Var.a(name)));
+                            w7Var.i(name, a4Var);
+                        }
+                        a7Var.a(a4Var);
+                    }
+                    particleEmitter.u(a7Var);
+                }
+            }
+        }
+    }
+
+    public void h(b4 b4Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, b4Var, str) == null) {
+            int i = this.a.b;
+            for (int i2 = 0; i2 < i; i2++) {
+                ParticleEmitter particleEmitter = this.a.get(i2);
+                if (particleEmitter.f().b != 0) {
+                    a7<a4> a7Var = new a7<>();
+                    a7.b<String> it = particleEmitter.f().iterator();
+                    while (it.hasNext()) {
+                        String name = new File(it.next().replace(FileUtil.WINDOWS_SEPARATOR, WebvttCueParser.CHAR_SLASH)).getName();
+                        int lastIndexOf = name.lastIndexOf(46);
+                        if (lastIndexOf != -1) {
+                            name = name.substring(0, lastIndexOf);
+                        }
+                        if (str != null) {
+                            name = str + name;
+                        }
+                        a4 a = b4Var.a(name);
+                        if (a != null) {
+                            a7Var.a(a);
+                        } else {
+                            throw new IllegalArgumentException("SpriteSheet missing image: " + name);
+                        }
+                    }
+                    particleEmitter.u(a7Var);
+                }
+            }
+        }
+    }
+
+    public void i(j3 j3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeL(1048581, this, j3Var) != null) {
+            return;
+        }
+        InputStream m = j3Var.m();
+        this.a.clear();
+        BufferedReader bufferedReader = null;
+        try {
             try {
-                BufferedReader q = h3Var.q(aVar.c);
-                while (true) {
-                    String readLine = q.readLine();
-                    if (readLine != null) {
-                        if (readLine.startsWith(aVar.b)) {
-                            str2 = readLine.substring(aVar.b.length());
-                            break;
-                        }
-                    } else {
-                        str2 = null;
-                        break;
-                    }
-                }
-                q.close();
-                if (str2 == null && (strArr = aVar.d) != null) {
-                    for (String str3 : strArr) {
-                        h3 s = h3Var.s(h3Var.h().concat("." + str3));
-                        if (s.c()) {
-                            str2 = s.g();
-                        }
-                    }
-                }
-                if (str2 != null) {
-                    y6<f1> y6Var = new y6<>(1);
-                    y6Var.a(new f1(h3Var.s(str2), Texture.class));
-                    return y6Var;
-                }
-                return null;
-            } catch (IOException e) {
-                throw new GdxRuntimeException("Error reading " + str, e);
-            }
-        }
-        return (y6) invokeLLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.x1
-    /* renamed from: e */
-    public w3 c(j1 j1Var, String str, h3 h3Var, a aVar) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, j1Var, str, h3Var, aVar)) == null) ? f(new a4((Texture) j1Var.i(j1Var.n(str).f())), h3Var) : (w3) invokeLLLL.objValue;
-    }
-
-    public w3 f(a4 a4Var, h3 h3Var) {
-        InterceptResult invokeLL;
-        String readLine;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, a4Var, h3Var)) == null) {
-            BufferedReader q = h3Var.q(256);
-            do {
-                try {
+                BufferedReader bufferedReader2 = new BufferedReader(new InputStreamReader(m), 512);
+                do {
                     try {
-                        readLine = q.readLine();
-                        if (readLine == null) {
-                            g8.a(q);
-                            throw new GdxRuntimeException("Polygon shape not found: " + h3Var);
-                        }
+                        this.a.a(k(bufferedReader2));
                     } catch (IOException e) {
-                        throw new GdxRuntimeException("Error reading polygon shape file: " + h3Var, e);
+                        e = e;
+                        throw new GdxRuntimeException("Error loading effect: " + j3Var, e);
+                    } catch (Throwable th) {
+                        th = th;
+                        bufferedReader = bufferedReader2;
+                        i8.a(bufferedReader);
+                        throw th;
                     }
-                } finally {
-                    g8.a(q);
-                }
-            } while (!readLine.startsWith("s"));
-            String[] split = readLine.substring(1).trim().split(",");
-            int length = split.length;
-            float[] fArr = new float[length];
-            for (int i = 0; i < length; i++) {
-                fArr[i] = Float.parseFloat(split[i]);
+                } while (bufferedReader2.readLine() != null);
+                i8.a(bufferedReader2);
+            } catch (Throwable th2) {
+                th = th2;
             }
-            return new w3(a4Var, fArr, this.c.c(fArr).f());
+        } catch (IOException e2) {
+            e = e2;
         }
-        return (w3) invokeLL.objValue;
+    }
+
+    public Texture j(j3 j3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, j3Var)) == null) ? new Texture(j3Var, false) : (Texture) invokeL.objValue;
+    }
+
+    public ParticleEmitter k(BufferedReader bufferedReader) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bufferedReader)) == null) ? new ParticleEmitter(bufferedReader) : (ParticleEmitter) invokeL.objValue;
+    }
+
+    public void update(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) {
+            int i = this.a.b;
+            for (int i2 = 0; i2 < i; i2++) {
+                this.a.get(i2).update(f);
+            }
+        }
     }
 }

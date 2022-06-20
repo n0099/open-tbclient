@@ -2,29 +2,31 @@ package com.repackage;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.frs.gamerecommend.FrsGameRecommendFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bi6 extends y35 {
+public class bi6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsGameRecommendFragment c;
+    public Context a;
+    public View b;
+    public EMTextView c;
 
-    public bi6(String str, String str2) {
+    public bi6(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,44 +36,53 @@ public class bi6 extends y35 {
                 return;
             }
         }
-        this.c = FrsGameRecommendFragment.I0(str, str2);
-        b().a = this.c;
+        this.a = context;
+        b(context);
     }
 
-    @Override // com.repackage.y35
-    public z35 a() {
-        InterceptResult invokeV;
+    public void a(BdTypeRecyclerView bdTypeRecyclerView) {
+        View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            z35 z35Var = new z35();
-            z35Var.e = 11;
-            z35Var.b = R.string.obfuscated_res_0x7f0f06ed;
-            z35Var.i = z35.k;
-            return z35Var;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, bdTypeRecyclerView) == null) || bdTypeRecyclerView == null || (view2 = this.b) == null) {
+            return;
         }
-        return (z35) invokeV.objValue;
+        view2.setVisibility(0);
+        bdTypeRecyclerView.s(this.b);
     }
 
-    @Override // com.repackage.y35
-    public TbFragmentTabIndicator c(Context context) {
-        InterceptResult invokeL;
+    public final void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ea, (ViewGroup) null);
-            this.b = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.b;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) && this.b == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02b9, (ViewGroup) null);
+            this.b = inflate;
+            this.c = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a57);
+            c(TbadkCoreApplication.getInst().getSkinType());
         }
-        return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // com.repackage.y35
-    public boolean d() {
-        InterceptResult invokeV;
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            fr4 d = fr4.d(this.c);
+            d.A(R.string.F_X02);
+            d.v(R.color.CAM_X0105);
         }
-        return invokeV.booleanValue;
+    }
+
+    public void d(BdTypeRecyclerView bdTypeRecyclerView) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, bdTypeRecyclerView) == null) || bdTypeRecyclerView == null || (view2 = this.b) == null) {
+            return;
+        }
+        view2.setVisibility(8);
+        bdTypeRecyclerView.removeHeaderView(this.b);
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.c.setText(str);
+        }
     }
 }

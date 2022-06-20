@@ -1,188 +1,33 @@
 package com.xiaomi.push;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import android.system.Os;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.io.File;
 /* loaded from: classes8.dex */
 public class cp {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
-    /* renamed from: a  reason: collision with other field name */
-    public final ArrayList<co> f176a;
-
-    public cp() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f176a = new ArrayList<>();
-    }
-
-    public cp(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.f176a = new ArrayList<>();
-        if (TextUtils.isEmpty(str)) {
-            throw new IllegalArgumentException("the host is empty");
-        }
-        this.a = str;
-    }
-
-    public synchronized co a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                for (int size = this.f176a.size() - 1; size >= 0; size--) {
-                    co coVar = this.f176a.get(size);
-                    if (coVar.m260a()) {
-                        cs.a().m270a(coVar.a());
-                        return coVar;
-                    }
-                }
-                return null;
-            }
-        }
-        return (co) invokeV.objValue;
-    }
-
-    public synchronized cp a(JSONObject jSONObject) {
+    public static long a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            synchronized (this) {
-                this.a = jSONObject.getString("host");
-                JSONArray jSONArray = jSONObject.getJSONArray("fbs");
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    this.f176a.add(new co(this.a).a(jSONArray.getJSONObject(i)));
-                }
-            }
-            return this;
-        }
-        return (cp) invokeL.objValue;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public String m261a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public ArrayList<co> m262a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f176a : (ArrayList) invokeV.objValue;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public synchronized JSONObject m263a() {
-        InterceptResult invokeV;
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                jSONObject = new JSONObject();
-                jSONObject.put("host", this.a);
-                JSONArray jSONArray = new JSONArray();
-                Iterator<co> it = this.f176a.iterator();
-                while (it.hasNext()) {
-                    jSONArray.put(it.next().m258a());
-                }
-                jSONObject.put("fbs", jSONArray);
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public synchronized void a(co coVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, coVar) == null) {
-            synchronized (this) {
-                int i = 0;
-                while (true) {
-                    if (i >= this.f176a.size()) {
-                        break;
-                    } else if (this.f176a.get(i).a(coVar)) {
-                        this.f176a.set(i, coVar);
-                        break;
-                    } else {
-                        i++;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                try {
+                    if (new File(str).exists()) {
+                        return Os.stat(str).st_size;
                     }
-                }
-                if (i >= this.f176a.size()) {
-                    this.f176a.add(coVar);
-                }
-            }
-        }
-    }
-
-    public synchronized void a(boolean z) {
-        ArrayList<co> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            synchronized (this) {
-                for (int size = this.f176a.size() - 1; size >= 0; size--) {
-                    co coVar = this.f176a.get(size);
-                    if (z) {
-                        if (coVar.c()) {
-                            arrayList = this.f176a;
-                            arrayList.remove(size);
-                        }
-                    } else if (!coVar.b()) {
-                        arrayList = this.f176a;
-                        arrayList.remove(size);
-                    }
+                    return 0L;
+                } catch (Exception e) {
+                    com.xiaomi.channel.commonutils.logger.b.a(e);
+                    return 0L;
                 }
             }
+            return 0L;
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(this.a);
-            sb.append("\n");
-            Iterator<co> it = this.f176a.iterator();
-            while (it.hasNext()) {
-                sb.append(it.next());
-            }
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
+        return invokeL.longValue;
     }
 }

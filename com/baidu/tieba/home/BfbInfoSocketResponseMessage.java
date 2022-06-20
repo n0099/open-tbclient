@@ -1,5 +1,6 @@
 package com.baidu.tieba.home;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,28 +37,33 @@ public class BfbInfoSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            GetUserBfbInfoResIdl getUserBfbInfoResIdl = (GetUserBfbInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetUserBfbInfoResIdl.class);
+            if (getUserBfbInfoResIdl == null) {
+                return null;
+            }
+            Error error = getUserBfbInfoResIdl.error;
+            if (error != null) {
+                setError(error.errorno.intValue());
+                setErrorString(getUserBfbInfoResIdl.error.usermsg);
+            }
+            DataRes dataRes = getUserBfbInfoResIdl.data;
+            if (dataRes != null) {
+                this.bfbInfo = dataRes.bfb;
+            }
+            return getUserBfbInfoResIdl;
+        }
+        return invokeIL.objValue;
+    }
+
     public UserBfbInfo getBfbInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.bfbInfo : (UserBfbInfo) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        GetUserBfbInfoResIdl getUserBfbInfoResIdl;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getUserBfbInfoResIdl = (GetUserBfbInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetUserBfbInfoResIdl.class)) == null) {
-            return;
-        }
-        Error error = getUserBfbInfoResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(getUserBfbInfoResIdl.error.usermsg);
-        }
-        DataRes dataRes = getUserBfbInfoResIdl.data;
-        if (dataRes != null) {
-            this.bfbInfo = dataRes.bfb;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.bfbInfo : (UserBfbInfo) invokeV.objValue;
     }
 }

@@ -33,23 +33,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a55;
-import com.repackage.aa;
-import com.repackage.h10;
-import com.repackage.hh;
-import com.repackage.kh;
-import com.repackage.kj;
-import com.repackage.lb5;
-import com.repackage.li;
-import com.repackage.nb;
-import com.repackage.rb5;
-import com.repackage.sa1;
-import com.repackage.u45;
-import com.repackage.x09;
-import com.repackage.xf;
-import com.repackage.yg0;
-import com.repackage.ys4;
-import com.repackage.zo8;
+import com.repackage.bg;
+import com.repackage.ch0;
+import com.repackage.da;
+import com.repackage.db1;
+import com.repackage.ec5;
+import com.repackage.f19;
+import com.repackage.hp8;
+import com.repackage.ht4;
+import com.repackage.j55;
+import com.repackage.l10;
+import com.repackage.lh;
+import com.repackage.oh;
+import com.repackage.oj;
+import com.repackage.p55;
+import com.repackage.pi;
+import com.repackage.qb;
+import com.repackage.yb5;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes3.dex */
@@ -58,7 +58,7 @@ public class PermissionUtil {
     public static boolean isAgreePrivacyPolicy;
     public static boolean isSdkInited;
     public static String localMacAddress;
-    public static u45 mAgreePrivacyPolicyEventListener;
+    public static j55 mAgreePrivacyPolicyEventListener;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -74,7 +74,7 @@ public class PermissionUtil {
                 return;
             }
         }
-        mAgreePrivacyPolicyEventListener = new u45<PrivacyPolicyEvent>() { // from class: com.baidu.tbadk.core.util.PermissionUtil.1
+        mAgreePrivacyPolicyEventListener = new j55<PrivacyPolicyEvent>() { // from class: com.baidu.tbadk.core.util.PermissionUtil.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -93,7 +93,7 @@ public class PermissionUtil {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.u45
+            @Override // com.repackage.j55
             public boolean onEvent(PrivacyPolicyEvent privacyPolicyEvent) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
@@ -114,26 +114,26 @@ public class PermissionUtil {
                         return true;
                     }
                     boolean unused2 = PermissionUtil.isSdkInited = PermissionUtil.isAgreePrivacyPolicy;
-                    xf.p(TbadkCoreApplication.getInst().getCuidGalaxy2());
-                    xf.q(TbadkCoreApplication.getInst().getCuidGalaxy3());
+                    bg.p(TbadkCoreApplication.getInst().getCuidGalaxy2());
+                    bg.q(TbadkCoreApplication.getInst().getCuidGalaxy3());
                     PermissionUtil.initUBC();
                     BdStatisticsManager.getInstance().setCommonDataMac(PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst()));
                     BdStatisticsManager.getInstance().setOaid(PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst()));
                     BdStatisticsManager.getInstance().setAndroidId(TbadkCoreApplication.getInst().getAndroidId());
                     BdStatisticsManager.getInstance().setCuid(TbadkCoreApplication.getInst().getCuid());
                     BdStatisticsManager.getInstance().setCuidGalaxy2(TbadkCoreApplication.getInst().getCuidGalaxy2());
-                    kh.m().o(TbadkCoreApplication.getInst().getCuid());
-                    kh.m().p(TbadkCoreApplication.getInst().getCuidGalaxy2());
-                    hh.o().p();
+                    oh.m().o(TbadkCoreApplication.getInst().getCuid());
+                    oh.m().p(TbadkCoreApplication.getInst().getCuidGalaxy2());
+                    lh.o().p();
                     FH.setAgreePolicy(TbadkCoreApplication.getInst(), PermissionUtil.isAgreePrivacyPolicy);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921554));
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921438, TbadkCoreApplication.getInst().getApp()));
                     if (SapiAccountManager.getInstance() != null) {
                         SapiAccountManager.getInstance().setAgreeDangerousProtocol(true);
                     }
-                    zo8.c().b();
+                    hp8.c().b();
                     if (TbadkCoreApplication.getInst().isMainProcess(false) || TbadkCoreApplication.getInst().isRemoteProcess()) {
-                        yg0.c();
+                        ch0.c();
                     }
                     return true;
                 }
@@ -375,7 +375,7 @@ public class PermissionUtil {
             }
             try {
                 if (ApiUtil.shouldCheckPermission() && ContextCompat.checkPermissionDenied(providerContext, "android.permission.RECORD_AUDIO")) {
-                    li.N(providerContext, R.string.obfuscated_res_0x7f0f0f8f);
+                    pi.N(providerContext, R.string.obfuscated_res_0x7f0f0f9a);
                     return true;
                 }
                 return false;
@@ -432,7 +432,7 @@ public class PermissionUtil {
             }
             try {
                 if (ApiUtil.shouldCheckPermission() && ContextCompat.checkPermissionDenied(providerContext, "android.permission.WRITE_EXTERNAL_STORAGE")) {
-                    li.N(providerContext, R.string.obfuscated_res_0x7f0f15c8);
+                    pi.N(providerContext, R.string.obfuscated_res_0x7f0f15d1);
                     return true;
                 }
                 return false;
@@ -450,13 +450,13 @@ public class PermissionUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, context)) == null) {
             if (isAgreePrivacyPolicy()) {
                 if (!LaunchUpSpeedSwitch.getIsOn()) {
-                    return h10.e(context).f();
+                    return l10.e(context).f();
                 }
-                String q = ys4.k().q("key_last_cached_oid", "");
+                String q = ht4.k().q("key_last_cached_oid", "");
                 try {
                     if (TextUtils.isEmpty(q)) {
-                        q = h10.e(context).f();
-                        ys4.k().y("key_last_cached_oid", q);
+                        q = l10.e(context).f();
+                        ht4.k().y("key_last_cached_oid", q);
                         return q;
                     }
                     return q;
@@ -476,7 +476,7 @@ public class PermissionUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, context)) == null) {
             if (isAgreePrivacyPolicy()) {
                 if (localMacAddress == null) {
-                    localMacAddress = lb5.d().e(context);
+                    localMacAddress = yb5.d().e(context);
                 }
                 return localMacAddress;
             }
@@ -489,8 +489,8 @@ public class PermissionUtil {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65559, null) == null) && isAgreePrivacyPolicy()) {
             AppIdentityManager.getInstance().setAppName("tieba");
-            if (sa1.g()) {
-                x09.a();
+            if (db1.g()) {
+                f19.a();
                 CloudControlManager.getInstance().requestCloudControl("0");
             }
         }
@@ -504,7 +504,7 @@ public class PermissionUtil {
             if (isAgreePrivacyPolicy) {
                 return true;
             }
-            if (!ys4.k().h("key_secret_is_show", false) && !ys4.k().h("key_secret_is_show_new", false)) {
+            if (!ht4.k().h("key_secret_is_show", false) && !ht4.k().h("key_secret_is_show_new", false)) {
                 z = false;
             }
             isAgreePrivacyPolicy = z;
@@ -522,7 +522,7 @@ public class PermissionUtil {
     public static void registerMutiProcessPrivacyPolicy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65562, null) == null) {
-            a55.f().l(PrivacyPolicyEvent.class, mAgreePrivacyPolicyEventListener);
+            p55.f().l(PrivacyPolicyEvent.class, mAgreePrivacyPolicyEventListener);
         }
     }
 
@@ -675,7 +675,7 @@ public class PermissionUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65574, null, z) == null) {
             isAgreePrivacyPolicy = z;
-            ys4.k().u("key_secret_is_show_new", z);
+            ht4.k().u("key_secret_is_show_new", z);
             if (TbadkCoreApplication.getIntent() != null) {
                 String dataString = TbadkCoreApplication.getIntent().getDataString();
                 if (!TextUtils.isEmpty(dataString)) {
@@ -684,18 +684,18 @@ public class PermissionUtil {
                 }
             }
             GrowthStatsUtil.statisticActivity();
-            a55.i(new PrivacyPolicyEvent(Boolean.valueOf(z)));
+            p55.i(new PrivacyPolicyEvent(Boolean.valueOf(z)));
             FH.setAgreePolicy(TbadkCoreApplication.getInst(), isAgreePrivacyPolicy);
             CloudControlManager.getInstance().requestCloudControl("0");
             ArrayList arrayList = new ArrayList();
             arrayList.add(new BasicNameValuePair("Content-Type", "application/octet-stream"));
             arrayList.add(new BasicNameValuePair("cuid", TbadkCoreApplication.getUniqueIdentifier()));
-            aa.f(arrayList);
-            kj.j().w(arrayList);
+            da.f(arrayList);
+            oj.j().w(arrayList);
             BdSocketLinkService.setHasAbsoluteClose(false);
             BdSocketLinkService.setAvailable(true);
             BdSocketLinkService.startService(true, "privacy agree");
-            nb.b().a("permissionAgree", new Runnable() { // from class: com.baidu.tbadk.core.util.PermissionUtil.2
+            qb.b().a("permissionAgree", new Runnable() { // from class: com.baidu.tbadk.core.util.PermissionUtil.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -721,16 +721,16 @@ public class PermissionUtil {
                     }
                 }
             });
-            rb5.g().q();
+            ec5.g().q();
         }
     }
 
     public static void syncAgreeStatus(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(65575, null, z) == null) && z && ys4.k().h("key_secret_is_show", false)) {
+        if ((interceptable == null || interceptable.invokeZ(65575, null, z) == null) && z && ht4.k().h("key_secret_is_show", false)) {
             isAgreePrivacyPolicy = true;
-            ys4.k().u("key_secret_is_show_new", true);
-            ys4.k().D("key_secret_is_show");
+            ht4.k().u("key_secret_is_show_new", true);
+            ht4.k().D("key_secret_is_show");
         }
     }
 

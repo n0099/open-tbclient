@@ -20,11 +20,11 @@ public class b {
     public static Map<String, WeakReference<ExecutorService>> b = new ConcurrentHashMap();
 
     /* loaded from: classes5.dex */
-    public static class a implements InterfaceC0301b {
+    public static class a implements InterfaceC0309b {
         public a() {
         }
 
-        @Override // com.kwad.sdk.core.i.b.InterfaceC0301b
+        @Override // com.kwad.sdk.core.i.b.InterfaceC0309b
         @NonNull
         public ExecutorService a() {
             return Executors.newSingleThreadExecutor();
@@ -33,17 +33,17 @@ public class b {
 
     /* renamed from: com.kwad.sdk.core.i.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0301b {
+    public interface InterfaceC0309b {
         @NonNull
         ExecutorService a();
     }
 
     /* loaded from: classes5.dex */
-    public static class c implements InterfaceC0301b {
+    public static class c implements InterfaceC0309b {
         public c() {
         }
 
-        @Override // com.kwad.sdk.core.i.b.InterfaceC0301b
+        @Override // com.kwad.sdk.core.i.b.InterfaceC0309b
         @NonNull
         public ExecutorService a() {
             return new ThreadPoolExecutor(2, 5, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new d(5, "diskAndHttp"));
@@ -76,11 +76,11 @@ public class b {
     }
 
     /* loaded from: classes5.dex */
-    public static class e implements InterfaceC0301b {
+    public static class e implements InterfaceC0309b {
         public e() {
         }
 
-        @Override // com.kwad.sdk.core.i.b.InterfaceC0301b
+        @Override // com.kwad.sdk.core.i.b.InterfaceC0309b
         @NonNull
         public ExecutorService a() {
             return new ThreadPoolExecutor(1, 3, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new d(3, "uil-pool-"));
@@ -88,11 +88,11 @@ public class b {
     }
 
     /* loaded from: classes5.dex */
-    public static class f implements InterfaceC0301b {
+    public static class f implements InterfaceC0309b {
         public f() {
         }
 
-        @Override // com.kwad.sdk.core.i.b.InterfaceC0301b
+        @Override // com.kwad.sdk.core.i.b.InterfaceC0309b
         @NonNull
         public ExecutorService a() {
             return new ThreadPoolExecutor(0, 1, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new d(5, "lruDiskCache"));
@@ -112,11 +112,11 @@ public class b {
     }
 
     /* loaded from: classes5.dex */
-    public static class h implements InterfaceC0301b {
+    public static class h implements InterfaceC0309b {
         public h() {
         }
 
-        @Override // com.kwad.sdk.core.i.b.InterfaceC0301b
+        @Override // com.kwad.sdk.core.i.b.InterfaceC0309b
         @NonNull
         public ExecutorService a() {
             return Executors.newSingleThreadExecutor(new d(3, "report-"));
@@ -124,11 +124,11 @@ public class b {
     }
 
     /* loaded from: classes5.dex */
-    public static class i implements InterfaceC0301b {
+    public static class i implements InterfaceC0309b {
         public i() {
         }
 
-        @Override // com.kwad.sdk.core.i.b.InterfaceC0301b
+        @Override // com.kwad.sdk.core.i.b.InterfaceC0309b
         @NonNull
         public ExecutorService a() {
             return new ThreadPoolExecutor(3, 5, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new d(5, g.h));
@@ -141,13 +141,13 @@ public class b {
     }
 
     @NonNull
-    public static ExecutorService a(String str, @NonNull InterfaceC0301b interfaceC0301b) {
+    public static ExecutorService a(String str, @NonNull InterfaceC0309b interfaceC0309b) {
         if (str == null) {
-            return interfaceC0301b.a();
+            return interfaceC0309b.a();
         }
         WeakReference<ExecutorService> weakReference = b.get(str);
         if (weakReference == null || weakReference.get() == null) {
-            ExecutorService a2 = interfaceC0301b.a();
+            ExecutorService a2 = interfaceC0309b.a();
             b.put(str, new WeakReference<>(a2));
             return a2;
         }
@@ -238,8 +238,8 @@ public class b {
 
     public static ExecutorService n() {
         com.kwad.sdk.core.d.a.a(a, "forAsync");
-        return a(g.f, new InterfaceC0301b() { // from class: com.kwad.sdk.core.i.b.2
-            @Override // com.kwad.sdk.core.i.b.InterfaceC0301b
+        return a(g.f, new InterfaceC0309b() { // from class: com.kwad.sdk.core.i.b.2
+            @Override // com.kwad.sdk.core.i.b.InterfaceC0309b
             @NonNull
             public ExecutorService a() {
                 return new ThreadPoolExecutor(0, 3, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new d(5, g.f));
@@ -249,8 +249,8 @@ public class b {
 
     public static ScheduledExecutorService o() {
         com.kwad.sdk.core.d.a.a(a, "forAsyncSchedule");
-        ExecutorService a2 = a(g.g, new InterfaceC0301b() { // from class: com.kwad.sdk.core.i.b.3
-            @Override // com.kwad.sdk.core.i.b.InterfaceC0301b
+        ExecutorService a2 = a(g.g, new InterfaceC0309b() { // from class: com.kwad.sdk.core.i.b.3
+            @Override // com.kwad.sdk.core.i.b.InterfaceC0309b
             @NonNull
             public ExecutorService a() {
                 return new ScheduledThreadPoolExecutor(1, new d(5, g.g));

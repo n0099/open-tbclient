@@ -1,162 +1,53 @@
 package com.xiaomi.push;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.push.PushClientConstants;
-import java.io.InputStream;
-import java.io.PrintStream;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.Vector;
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserFactory;
+import java.nio.ByteBuffer;
 /* loaded from: classes8.dex */
-public final class fr {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 5000;
-
-    /* renamed from: a  reason: collision with other field name */
-    public static Vector<String> f391a = null;
-    public static int b = 330000;
-    public static int c = 600000;
-    public static int d = 330000;
+public final class fr extends fl {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-56374540, "Lcom/xiaomi/push/fr;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-56374540, "Lcom/xiaomi/push/fr;");
-                return;
-            }
-        }
-        f391a = new Vector<>();
-        try {
-            for (ClassLoader classLoader : m370a()) {
-                Enumeration<URL> resources = classLoader.getResources("META-INF/smack-config.xml");
-                while (resources.hasMoreElements()) {
-                    InputStream inputStream = null;
-                    try {
-                        inputStream = resources.nextElement().openStream();
-                        XmlPullParser newPullParser = XmlPullParserFactory.newInstance().newPullParser();
-                        newPullParser.setFeature("http://xmlpull.org/v1/doc/features.html#process-namespaces", true);
-                        newPullParser.setInput(inputStream, "UTF-8");
-                        int eventType = newPullParser.getEventType();
-                        do {
-                            if (eventType == 2) {
-                                if (newPullParser.getName().equals(PushClientConstants.TAG_CLASS_NAME)) {
-                                    a(newPullParser);
-                                } else if (newPullParser.getName().equals("packetReplyTimeout")) {
-                                    a = a(newPullParser, a);
-                                } else if (newPullParser.getName().equals("keepAliveInterval")) {
-                                    b = a(newPullParser, b);
-                                } else if (newPullParser.getName().equals("mechName")) {
-                                    f391a.add(newPullParser.nextText());
-                                }
-                            }
-                            eventType = newPullParser.next();
-                        } while (eventType != 1);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    try {
-                        inputStream.close();
-                    } catch (Exception unused) {
-                    }
-                }
-            }
-        } catch (Exception e2) {
-            e2.printStackTrace();
-        }
-    }
 
     public fr() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        a("PING", (String) null);
+        a("0");
+        a(0);
     }
 
-    public static int a() {
+    @Override // com.xiaomi.push.fl
+    /* renamed from: a */
+    public ByteBuffer mo331a(ByteBuffer byteBuffer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, byteBuffer)) == null) ? m334a().length == 0 ? byteBuffer : super.mo331a(byteBuffer) : (ByteBuffer) invokeL.objValue;
+    }
+
+    @Override // com.xiaomi.push.fl
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : invokeV.intValue;
-    }
-
-    public static int a(XmlPullParser xmlPullParser, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, xmlPullParser, i)) == null) {
-            try {
-                return Integer.parseInt(xmlPullParser.nextText());
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
-                return i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (m334a().length == 0) {
+                return 0;
             }
+            return super.c();
         }
-        return invokeLI.intValue;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public static String m369a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? "3.1.0" : (String) invokeV.objValue;
-    }
-
-    public static void a(XmlPullParser xmlPullParser) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, xmlPullParser) == null) {
-            String nextText = xmlPullParser.nextText();
-            try {
-                Class.forName(nextText);
-            } catch (ClassNotFoundException unused) {
-                PrintStream printStream = System.err;
-                printStream.println("Error! A startup class specified in smack-config.xml could not be loaded: " + nextText);
-            }
-        }
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public static ClassLoader[] m370a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            ClassLoader[] classLoaderArr = {fr.class.getClassLoader(), Thread.currentThread().getContextClassLoader()};
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < 2; i++) {
-                ClassLoader classLoader = classLoaderArr[i];
-                if (classLoader != null) {
-                    arrayList.add(classLoader);
-                }
-            }
-            return (ClassLoader[]) arrayList.toArray(new ClassLoader[arrayList.size()]);
-        }
-        return (ClassLoader[]) invokeV.objValue;
-    }
-
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? c : invokeV.intValue;
+        return invokeV.intValue;
     }
 }

@@ -13,27 +13,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Method;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static final String b;
+    public static final boolean b;
     public static final boolean c;
     public static final boolean d;
-    public static final boolean e;
-    public static final boolean f;
-    public static final boolean g;
-    public static final boolean h;
-    public static Method i;
-    public static String j;
-    public static String k;
-    public static String l;
-    public static String m;
+    public static Method e;
+    public static String f;
+    public static String g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
-        String b2;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(744178418, "Lcom/vivo/push/util/j;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -45,23 +38,12 @@ public final class j {
                 return;
             }
         }
-        a = aa.b("ro.vivo.product.overseas", "no").equals("yes");
-        if (Build.VERSION.SDK_INT >= 26) {
-            b2 = aa.b("ro.product.country.region", "N");
-        } else {
-            b2 = aa.b("ro.product.customize.bbk", "N");
-        }
-        b = b2;
-        c = "RU".equals(b2);
-        d = "IN".equals(b);
-        e = b("rom_1.0");
-        f = b("rom_2.0");
-        g = b("rom_2.5");
-        h = b("rom_3.0");
-        j = null;
-        k = null;
-        l = "";
-        m = "";
+        a = b("rom_1.0");
+        b = b("rom_2.0");
+        c = b("rom_2.5");
+        d = b("rom_3.0");
+        f = null;
+        g = null;
     }
 
     public static String a(String str, String str2) {
@@ -84,8 +66,8 @@ public final class j {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            String b2 = aa.b("ro.vivo.rom", "");
-            String b3 = aa.b("ro.vivo.rom.version", "");
+            String b2 = z.b("ro.vivo.rom", "");
+            String b3 = z.b("ro.vivo.rom.version", "");
             p.d("Device", "ro.vivo.rom = " + b2 + " ; ro.vivo.rom.version = " + b3);
             if (b2 == null || !b2.contains(str)) {
                 return b3 != null && b3.contains(str);
@@ -100,21 +82,21 @@ public final class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (j.class) {
-                if (j == null && k == null) {
+                if (f == null && g == null) {
                     try {
                         Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class, String.class);
-                        i = declaredMethod;
+                        e = declaredMethod;
                         declaredMethod.setAccessible(true);
-                        j = (String) i.invoke(null, "ro.vivo.rom", "@><@");
-                        k = (String) i.invoke(null, "ro.vivo.rom.version", "@><@");
+                        f = (String) e.invoke(null, "ro.vivo.rom", "@><@");
+                        g = (String) e.invoke(null, "ro.vivo.rom.version", "@><@");
                     } catch (Exception unused) {
                         p.b("Device", "getRomCode error");
                     }
                 }
-                p.d("Device", "sRomProperty1 : " + j + " ; sRomProperty2 : " + k);
-                String a2 = a(j);
+                p.d("Device", "sRomProperty1 : " + f + " ; sRomProperty2 : " + g);
+                String a2 = a(f);
                 if (TextUtils.isEmpty(a2)) {
-                    String a3 = a(k);
+                    String a3 = a(g);
                     if (TextUtils.isEmpty(a3)) {
                         return null;
                     }

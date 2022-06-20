@@ -6,11 +6,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.px4;
+import com.repackage.cy4;
 import java.io.Serializable;
 import java.util.Comparator;
 /* loaded from: classes3.dex */
-public class ContactComparator implements Comparator<px4>, Serializable {
+public class ContactComparator implements Comparator<cy4>, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LAST_KEY = "#";
     public static final long serialVersionUID = 5856247139420779621L;
@@ -32,18 +32,18 @@ public class ContactComparator implements Comparator<px4>, Serializable {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Comparator
-    public int compare(px4 px4Var, px4 px4Var2) {
+    public int compare(cy4 cy4Var, cy4 cy4Var2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, px4Var, px4Var2)) == null) {
-            if (px4Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cy4Var, cy4Var2)) == null) {
+            if (cy4Var == null) {
                 return -1;
             }
-            if (px4Var2 == null) {
+            if (cy4Var2 == null) {
                 return 1;
             }
-            String a = px4Var.a();
-            String a2 = px4Var2.a();
+            String a = cy4Var.a();
+            String a2 = cy4Var2.a();
             if (!TextUtils.isEmpty(a) && !TextUtils.isEmpty(a2) && !a.equals(a2)) {
                 if ("#".equals(a)) {
                     return 1;
@@ -53,16 +53,16 @@ public class ContactComparator implements Comparator<px4>, Serializable {
                 }
                 return a.compareToIgnoreCase(a2);
             }
-            String e = px4Var.e();
-            String e2 = px4Var2.e();
+            String e = cy4Var.e();
+            String e2 = cy4Var2.e();
             if (TextUtils.isEmpty(e)) {
                 return -1;
             }
             if (TextUtils.isEmpty(e2)) {
                 return 1;
             }
-            String c = px4Var.c();
-            String c2 = px4Var2.c();
+            String c = cy4Var.c();
+            String c2 = cy4Var2.c();
             if (TextUtils.isEmpty(c) || TextUtils.isEmpty(c2)) {
                 return 0;
             }

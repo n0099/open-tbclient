@@ -155,7 +155,7 @@ public class g extends c {
                                 new b.c(this.a).a(Log.getStackTraceString(e2)).a();
                             }
                         }
-                        if (kVar.a() < 1 || !m.q(this.a)) {
+                        if (kVar.a() < 1 || !m.C(this.a)) {
                             i = m.a(this.a, intent, str, a2);
                             String str2 = ">>> Deliver message to client: " + a2 + " msg: " + a3.mDescription + " result: " + i;
                         } else {

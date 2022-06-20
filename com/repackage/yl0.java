@@ -1,18 +1,13 @@
 package com.repackage;
 
-import com.baidu.nadcore.max.event.NestedEvent;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.widget.FrameLayout;
 /* loaded from: classes7.dex */
-public final /* synthetic */ class yl0 {
-    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface yl0 extends ah0 {
+    int getVideoHeight();
 
-    static {
-        int[] iArr = new int[NestedEvent.values().length];
-        $EnumSwitchMapping$0 = iArr;
-        iArr[NestedEvent.UP_SHOW_VIDEO.ordinal()] = 1;
-        $EnumSwitchMapping$0[NestedEvent.UP_SHOW_WEB.ordinal()] = 2;
-    }
+    FrameLayout h();
+
+    boolean k();
+
+    int l();
 }

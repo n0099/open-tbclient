@@ -1,64 +1,28 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ye;
 /* loaded from: classes7.dex */
-public abstract class xe {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int DEF_CRASHTIME_LIMIT = 10;
-    public static final int OFF_TYPE = 0;
-    public static final int ON_TYPE = 1;
+public class xe {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int mDefaultType;
-    public String[] mKey;
-    public int mMaxCrashTimes;
-    public String mName;
-    public int mOffType;
-    public ye.a mSwitchListener;
+    public final j9 a;
 
-    /* loaded from: classes7.dex */
-    public class a implements ye.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xe a;
-
-        public a(xe xeVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xeVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xeVar;
-        }
-
-        @Override // com.repackage.ye.a
-        public void a(String str, int i, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-                this.a.changeSettingByType(i);
-            }
-        }
-    }
-
-    public xe() {
+    public xe(Context context, j9 j9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, j9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -68,53 +32,81 @@ public abstract class xe {
                 return;
             }
         }
-        this.mDefaultType = 0;
-        this.mOffType = 1;
-        this.mMaxCrashTimes = 10;
-        this.mSwitchListener = new a(this);
-        initData();
-        addToManager();
+        this.a = j9Var;
     }
 
-    public void addToManager() {
+    public void a(pe peVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ye yeVar = new ye(this.mName, this.mDefaultType, this.mSwitchListener);
-            yeVar.i(this.mMaxCrashTimes, this.mKey, this.mOffType);
-            yeVar.k(getSwitchLibs());
-            SwitchManager.getInstance().addSwitchData(yeVar);
+        if (interceptable == null || interceptable.invokeL(1048576, this, peVar) == null) {
+            try {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("nameSpace", peVar.a);
+                contentValues.put("tableName", peVar.b);
+                contentValues.put("maxSize", Integer.valueOf(peVar.c));
+                contentValues.put("cacheVersion", Integer.valueOf(peVar.e));
+                contentValues.put("cacheType", peVar.d);
+                contentValues.put("lastActiveTime", Long.valueOf(peVar.f));
+                SQLiteDatabase f = this.a.f();
+                if (f == null || f.update("cache_meta_info", contentValues, "nameSpace = ?", new String[]{peVar.a}) != 0) {
+                    return;
+                }
+                f.insert("cache_meta_info", null, contentValues);
+            } catch (Throwable th) {
+                this.a.i(th, "addOrUpdate");
+            }
         }
     }
 
-    public abstract void changeSettingByType(int i);
-
-    public abstract String[] getCrashKeys();
-
-    public abstract int getDefaultType();
-
-    public abstract int getMaxCrashTimes();
-
-    public abstract String getName();
-
-    public abstract int getOffType();
-
-    public String[] getSwitchLibs() {
-        InterceptResult invokeV;
+    public pe b(String str) {
+        InterceptResult invokeL;
+        Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            try {
+                cursor = this.a.f().rawQuery("SELECT nameSpace, tableName, maxSize, cacheType, cacheVersion, lastActiveTime FROM cache_meta_info where nameSpace = ?", new String[]{str});
+            } catch (Throwable th) {
+                th = th;
+                cursor = null;
+            }
+            try {
+                if (cursor.moveToNext()) {
+                    pe peVar = new pe();
+                    peVar.a = cursor.getString(0);
+                    peVar.b = cursor.getString(1);
+                    peVar.c = cursor.getInt(2);
+                    peVar.d = cursor.getString(3);
+                    peVar.e = cursor.getInt(4);
+                    peVar.f = cursor.getLong(5);
+                    return peVar;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                try {
+                    this.a.i(th, SharedPreferenceManager.OPERATION_GET_PERFIX);
+                    return null;
+                } finally {
+                    mg.a(cursor);
+                }
+            }
             return null;
         }
-        return (String[]) invokeV.objValue;
+        return (pe) invokeL.objValue;
     }
 
-    public void initData() {
+    public int delete(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.mName = getName();
-            this.mKey = getCrashKeys();
-            this.mDefaultType = getDefaultType();
-            this.mOffType = getOffType();
-            this.mMaxCrashTimes = getMaxCrashTimes();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            try {
+                if (b(str) == null) {
+                    return 0;
+                }
+                return this.a.f().delete("cache_meta_info", "nameSpace = ?", new String[]{str});
+            } catch (Throwable th) {
+                this.a.i(th, "delete");
+                return 0;
+            }
         }
+        return invokeL.intValue;
     }
 }

@@ -18,19 +18,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e2a;
-import com.repackage.j2a;
-import com.repackage.p2a;
+import com.repackage.b2a;
+import com.repackage.l2a;
 import com.repackage.q2a;
-import com.repackage.u1a;
+import com.repackage.w2a;
+import com.repackage.x2a;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagItemInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
 import java.util.ArrayList;
 import java.util.List;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
-/* loaded from: classes8.dex */
-public class YYPayGiftView extends LinearLayout implements p2a {
+/* loaded from: classes9.dex */
+public class YYPayGiftView extends LinearLayout implements w2a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -39,13 +39,13 @@ public class YYPayGiftView extends LinearLayout implements p2a {
     public GridView d;
     public View e;
     public TextView f;
-    public p2a.a g;
+    public w2a.a g;
     public GiftBagsInfo h;
     public PayUIKitConfig i;
     public List<GiftBagItemInfo> j;
-    public q2a k;
+    public x2a k;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,22 +102,22 @@ public class YYPayGiftView extends LinearLayout implements p2a {
         this.b = i2;
         this.i = payUIKitConfig;
         b(context);
-        u1a.d(this.a, this.b, "17", "", "", "");
+        b2a.d(this.a, this.b, "17", "", "", "");
     }
 
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(new ContextThemeWrapper(context, j2a.a.a(this.i))).inflate(R.layout.obfuscated_res_0x7f0d0650, (ViewGroup) this, true);
-            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f090417);
+            LayoutInflater.from(new ContextThemeWrapper(context, q2a.a.a(this.i))).inflate(R.layout.obfuscated_res_0x7f0d064d, (ViewGroup) this, true);
+            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f090412);
             this.c = button;
             button.setOnClickListener(new a(this));
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0921ff);
-            this.e = findViewById(R.id.obfuscated_res_0x7f091ab5);
-            this.d = (GridView) findViewById(R.id.obfuscated_res_0x7f090ca4);
-            q2a q2aVar = new q2a(context, this.j, this.i);
-            this.k = q2aVar;
-            this.d.setAdapter((ListAdapter) q2aVar);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0921fb);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091aad);
+            this.d = (GridView) findViewById(R.id.obfuscated_res_0x7f090c94);
+            x2a x2aVar = new x2a(context, this.j, this.i);
+            this.k = x2aVar;
+            this.d.setAdapter((ListAdapter) x2aVar);
         }
     }
 
@@ -137,14 +137,14 @@ public class YYPayGiftView extends LinearLayout implements p2a {
         this.f.setText(this.h.successTitle);
     }
 
-    @Override // com.repackage.m2a
+    @Override // com.repackage.t2a
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.m2a
+    @Override // com.repackage.t2a
     public void refreshView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -159,7 +159,7 @@ public class YYPayGiftView extends LinearLayout implements p2a {
                 this.j.clear();
                 this.j.addAll(this.h.giftbag);
                 this.k.notifyDataSetChanged();
-                e2a.a(this.j.size(), this.e, this.d);
+                l2a.a(this.j.size(), this.e, this.d);
                 d();
                 c();
                 return;
@@ -168,15 +168,15 @@ public class YYPayGiftView extends LinearLayout implements p2a {
         }
     }
 
-    @Override // com.repackage.p2a
-    public void setCallback(p2a.a aVar) {
+    @Override // com.repackage.w2a
+    public void setCallback(w2a.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             this.g = aVar;
         }
     }
 
-    @Override // com.repackage.p2a
+    @Override // com.repackage.w2a
     public void setGiftBagsInfo(GiftBagsInfo giftBagsInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, giftBagsInfo) == null) {

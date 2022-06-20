@@ -24,8 +24,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bq7;
-import com.repackage.li;
+import com.repackage.ir7;
+import com.repackage.pi;
 /* loaded from: classes3.dex */
 public class SubPbView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -78,10 +78,10 @@ public class SubPbView extends LinearLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 this.a.k = ((Integer) valueAnimator.getAnimatedValue()).intValue();
                 SubPbView subPbView = this.a;
-                subPbView.p = 1.0f - (subPbView.k / li.i(this.a.getContext()));
+                subPbView.p = 1.0f - (subPbView.k / pi.i(this.a.getContext()));
                 if (this.a.k == 0) {
                     this.a.p = 1.0f;
-                } else if (this.a.k == li.i(this.a.getContext())) {
+                } else if (this.a.k == pi.i(this.a.getContext())) {
                     this.a.p = 0.0f;
                     if (this.a.i && (this.a.getContext() instanceof Activity)) {
                         ((Activity) this.a.getContext()).finish();
@@ -136,9 +136,9 @@ public class SubPbView extends LinearLayout {
                         if (action == 2) {
                             float rawY = motionEvent.getRawY();
                             this.g = rawY;
-                            this.p = 1.0f - ((rawY - this.f) / li.i(getContext()));
+                            this.p = 1.0f - ((rawY - this.f) / pi.i(getContext()));
                             if ((this.m || this.n) && this.b.getTop() == 0 && this.d.getFirstVisiblePosition() == 0 && !this.i) {
-                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new bq7(this.g, this.f, this.k, this.p, this.i)));
+                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new ir7(this.g, this.f, this.k, this.p, this.i)));
                             }
                         }
                     }
@@ -148,9 +148,9 @@ public class SubPbView extends LinearLayout {
                     this.i = z2;
                     if (z2) {
                         if (this.m || this.n) {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new bq7(this.g, this.f, this.k, this.p, this.i)));
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new ir7(this.g, this.f, this.k, this.p, this.i)));
                         }
-                        this.j.setIntValues((int) (this.g - this.f), li.i(getContext()));
+                        this.j.setIntValues((int) (this.g - this.f), pi.i(getContext()));
                         this.j.setDuration(300L);
                         this.j.start();
                     } else {
@@ -158,7 +158,7 @@ public class SubPbView extends LinearLayout {
                         this.f = 0.0f;
                         this.g = 0.0f;
                         if (this.m || this.n) {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new bq7(this.g, this.f, this.k, this.p, this.i)));
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new ir7(this.g, this.f, this.k, this.p, this.i)));
                         }
                         requestLayout();
                     }
@@ -212,9 +212,9 @@ public class SubPbView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.i = true;
             if (this.m || this.n) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new bq7(this.g, this.f, this.k, this.p, this.i)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new ir7(this.g, this.f, this.k, this.p, this.i)));
             }
-            this.j.setIntValues(0, li.i(getContext()));
+            this.j.setIntValues(0, pi.i(getContext()));
             this.j.setDuration(300L);
             this.j.start();
         }
@@ -327,21 +327,21 @@ public class SubPbView extends LinearLayout {
         }
     }
 
-    public void setSubPbViewData(bq7 bq7Var) {
+    public void setSubPbViewData(ir7 ir7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, bq7Var) == null) || bq7Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, ir7Var) == null) || ir7Var == null) {
             return;
         }
-        this.p = bq7Var.d;
-        float f = bq7Var.b;
+        this.p = ir7Var.d;
+        float f = ir7Var.b;
         this.f = f;
-        float f2 = bq7Var.a;
+        float f2 = ir7Var.a;
         this.g = f2;
-        this.k = bq7Var.c;
-        this.i = bq7Var.e;
+        this.k = ir7Var.c;
+        this.i = ir7Var.e;
         boolean z = f2 > f;
         if (this.i) {
-            this.j.setIntValues((int) (this.g - this.f), li.i(getContext()));
+            this.j.setIntValues((int) (this.g - this.f), pi.i(getContext()));
             this.j.setDuration(0L);
             this.j.start();
         }
@@ -405,12 +405,12 @@ public class SubPbView extends LinearLayout {
         this.n = false;
         this.p = 0.0f;
         if (0 != 0) {
-            this.o = li.i(context) / 10;
+            this.o = pi.i(context) / 10;
         } else {
-            this.o = (li.i(context) / 3) - li.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070256);
+            this.o = (pi.i(context) / 3) - pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070256);
         }
-        this.k = li.i(context);
-        ValueAnimator ofInt = ValueAnimator.ofInt(li.i(context), 0);
+        this.k = pi.i(context);
+        ValueAnimator ofInt = ValueAnimator.ofInt(pi.i(context), 0);
         this.j = ofInt;
         ofInt.setDuration(this.l);
         this.j.setInterpolator(new LinearInterpolator());

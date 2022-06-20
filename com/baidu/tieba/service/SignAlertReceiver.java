@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cx4;
+import com.repackage.px4;
 /* loaded from: classes3.dex */
 public class SignAlertReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
@@ -51,9 +51,9 @@ public class SignAlertReceiver extends BroadcastReceiver {
                 intent2.putExtra("locate_type", 1);
                 intent2.setFlags(603979776);
                 PendingIntent service = PendingIntent.getService(context, 0, intent2, 134217728);
-                String string = context.getString(R.string.obfuscated_res_0x7f0f1193);
+                String string = context.getString(R.string.obfuscated_res_0x7f0f119e);
                 String string2 = context.getString(R.string.obfuscated_res_0x7f0f029e);
-                cx4.f0().i(cx4.f0().B(12), 12);
+                px4.f0().i(px4.f0().B(12), 12);
                 NotificationHelper.showNotification(context, 12, string2, string, string, service, false);
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_PUSH_SHOW);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());

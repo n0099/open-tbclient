@@ -1,48 +1,146 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.framework.utils.DebugTrace;
 import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
+import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes5.dex */
-public final class fr {
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public final class fr implements kr {
     public static /* synthetic */ Interceptable $ic;
+    public static final b c;
     public transient /* synthetic */ FieldHolder $fh;
-    public zq a;
-    public cr b;
-    public byte[] c;
+    public final Integer a;
+    public final byte[] b;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public fr() {
-        this(null, null, null, 7, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((zq) objArr[0], (cr) objArr[1], (byte[]) objArr[2], ((Integer) objArr[3]).intValue(), (DefaultConstructorMarker) objArr[4]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Integer a;
+        public byte[] b;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
+        }
+
+        public final a a(Integer num) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, num)) == null) {
+                this.a = num;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public final a b(byte[] bArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
+                this.b = bArr;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public final fr c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new fr(this.a, ft.c(this.b)) : (fr) invokeV.objValue;
         }
     }
 
-    public fr(zq zqVar, cr crVar, byte[] bArr) {
+    /* loaded from: classes6.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @JvmStatic
+        public final a a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a() : (a) invokeV.objValue;
+        }
+
+        public final fr b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    return new fr(Integer.valueOf(jSONObject.optInt("GMTUnixTime")), ft.b(jSONObject.optString("RandomBytes")));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    DebugTrace debugTrace = DebugTrace.a;
+                    debugTrace.a("parse random fail:" + e.getMessage());
+                    return null;
+                }
+            }
+            return (fr) invokeL.objValue;
+        }
+
+        public /* synthetic */ b(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964040007, "Lcom/repackage/fr;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1964040007, "Lcom/repackage/fr;");
+                return;
+            }
+        }
+        c = new b(null);
+    }
+
+    public fr(Integer num, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zqVar, crVar, bArr};
+            Object[] objArr = {num, bArr};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -52,16 +150,28 @@ public final class fr {
                 return;
             }
         }
-        this.a = zqVar;
-        this.b = crVar;
-        this.c = bArr;
+        this.a = num;
+        this.b = bArr;
     }
 
-    public final void a(cr crVar) {
+    @JvmStatic
+    public static final a a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, crVar) == null) {
-            this.b = crVar;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.a() : (a) invokeV.objValue;
+    }
+
+    @Override // com.repackage.kr
+    public JSONObject c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.putOpt("GMTUnixTime", this.a);
+            jSONObject.putOpt("RandomBytes", ft.a(this.b));
+            return jSONObject;
         }
+        return (JSONObject) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -71,7 +181,7 @@ public final class fr {
             if (this != obj) {
                 if (obj instanceof fr) {
                     fr frVar = (fr) obj;
-                    return Intrinsics.areEqual(this.a, frVar.a) && Intrinsics.areEqual(this.b, frVar.b) && Intrinsics.areEqual(this.c, frVar.c);
+                    return Intrinsics.areEqual(this.a, frVar.a) && Intrinsics.areEqual(this.b, frVar.b);
                 }
                 return false;
             }
@@ -84,12 +194,10 @@ public final class fr {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            zq zqVar = this.a;
-            int hashCode = (zqVar != null ? zqVar.hashCode() : 0) * 31;
-            cr crVar = this.b;
-            int hashCode2 = (hashCode + (crVar != null ? crVar.hashCode() : 0)) * 31;
-            byte[] bArr = this.c;
-            return hashCode2 + (bArr != null ? Arrays.hashCode(bArr) : 0);
+            Integer num = this.a;
+            int hashCode = (num != null ? num.hashCode() : 0) * 31;
+            byte[] bArr = this.b;
+            return hashCode + (bArr != null ? Arrays.hashCode(bArr) : 0);
         }
         return invokeV.intValue;
     }
@@ -98,12 +206,8 @@ public final class fr {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "HandshakeParams(clientHello=" + this.a + ", serverHello=" + this.b + ", encodeDHPublicKey=" + Arrays.toString(this.c) + SmallTailInfo.EMOTION_SUFFIX;
+            return "Random(GMTUnixTime=" + this.a + ", randomBytes=" + Arrays.toString(this.b) + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
-    }
-
-    public /* synthetic */ fr(zq zqVar, cr crVar, byte[] bArr, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i & 1) != 0 ? null : zqVar, (i & 2) != 0 ? null : crVar, (i & 4) != 0 ? null : bArr);
     }
 }

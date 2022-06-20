@@ -17,9 +17,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b9;
-import com.repackage.l37;
-import com.repackage.m37;
+import com.repackage.d9;
+import com.repackage.v47;
+import com.repackage.w47;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class IceBreakEmotionModel extends BdBaseModel<IceBreakEmotionModel> {
@@ -29,7 +29,7 @@ public class IceBreakEmotionModel extends BdBaseModel<IceBreakEmotionModel> {
 
     /* loaded from: classes3.dex */
     public interface IceBreakRequestCallback {
-        void onSuccess(List<m37> list);
+        void onSuccess(List<w47> list);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -44,7 +44,7 @@ public class IceBreakEmotionModel extends BdBaseModel<IceBreakEmotionModel> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((b9) newInitContext.callArgs[0]);
+                super((d9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -86,10 +86,10 @@ public class IceBreakEmotionModel extends BdBaseModel<IceBreakEmotionModel> {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                    l37 l37Var;
+                    v47 v47Var;
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof IceBreakHttpResponsedMessage) && httpResponsedMessage.getError() == 0 && (l37Var = ((IceBreakHttpResponsedMessage) httpResponsedMessage).data) != null) {
-                        List<m37> a = l37Var.a();
+                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof IceBreakHttpResponsedMessage) && httpResponsedMessage.getError() == 0 && (v47Var = ((IceBreakHttpResponsedMessage) httpResponsedMessage).data) != null) {
+                        List<w47> a = v47Var.a();
                         if (ListUtils.isEmpty(a) || this.this$0.mCallback == null) {
                             return;
                         }

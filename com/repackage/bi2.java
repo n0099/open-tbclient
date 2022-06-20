@@ -1,5 +1,11 @@
 package com.repackage;
+
+import com.baidu.swan.apps.performance.HybridUbcFlow;
 /* loaded from: classes5.dex */
 public interface bi2 {
-    void a(int i, ai2 ai2Var);
+    void a(String str, String str2);
+
+    void b(boolean z, HybridUbcFlow hybridUbcFlow);
+
+    void c();
 }

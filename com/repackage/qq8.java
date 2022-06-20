@@ -1,26 +1,32 @@
 package com.repackage;
 
-import android.hardware.Camera;
-import com.faceunity.encoder.TextureMovieEncoder;
-/* loaded from: classes6.dex */
-public interface qq8 {
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public class qq8 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public final String b;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(boolean z, String str);
+    public qq8(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = i;
+        this.b = str;
     }
-
-    void a(Camera camera);
-
-    void b(Camera camera);
-
-    void c(a aVar);
-
-    void d(Camera camera);
-
-    void e(Camera camera);
-
-    void setOnEncoderStatusUpdateListener(TextureMovieEncoder.OnEncoderStatusUpdateListener onEncoderStatusUpdateListener);
-
-    void setPreviewSize(int i, int i2);
 }

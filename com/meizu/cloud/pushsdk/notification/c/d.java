@@ -2,7 +2,7 @@ package com.meizu.cloud.pushsdk.notification.c;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-import com.repackage.ni9;
+import com.meizu.cloud.pushinternal.DebugLogger;
 /* loaded from: classes5.dex */
 public class d {
     public static d b;
@@ -26,7 +26,7 @@ public class d {
     }
 
     public int a(String str, String str2) {
-        ni9.d("ResourceReader", "Get resource type " + str2 + " " + str);
+        DebugLogger.i("ResourceReader", "Get resource type " + str2 + " " + str);
         return this.a.getResources().getIdentifier(str, str2, this.a.getApplicationInfo().packageName);
     }
 }

@@ -1,15 +1,14 @@
 package com.repackage;
 
-import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.framework.task.MessageTask;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.FrameHelper;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.InvalidParameterException;
 /* loaded from: classes6.dex */
-public abstract class qa<T extends Message<?>, M extends MessageTask> extends sa<T> {
+public abstract class qa extends ua<HttpResponsedMessage> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,13 +30,8 @@ public abstract class qa<T extends Message<?>, M extends MessageTask> extends sa
                 return;
             }
         }
-    }
-
-    public abstract T process(T t, M m);
-
-    public T rule(T t, M m) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t, m)) == null) ? t != null ? (getCmd() == 0 || getCmd() == t.getCmd()) ? process(t, m) : t : t : (T) invokeLL.objValue;
+        if (i != 0 && FrameHelper.e(i) != FrameHelper.TYPE.HTTP) {
+            throw new InvalidParameterException("cmd invalid");
+        }
     }
 }

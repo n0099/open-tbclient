@@ -17,15 +17,15 @@ public class d extends com.kwad.sdk.h.b {
 
     private void a() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle(R.string.obfuscated_res_0x7f0f09b9);
-        builder.setMessage(R.string.obfuscated_res_0x7f0f09b6);
-        builder.setNegativeButton(R.string.obfuscated_res_0x7f0f09b7, new DialogInterface.OnClickListener() { // from class: com.kwad.sdk.core.page.d.1
+        builder.setTitle(R.string.obfuscated_res_0x7f0f09be);
+        builder.setMessage(R.string.obfuscated_res_0x7f0f09bb);
+        builder.setNegativeButton(R.string.obfuscated_res_0x7f0f09bc, new DialogInterface.OnClickListener() { // from class: com.kwad.sdk.core.page.d.1
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 d.this.finish();
             }
         });
-        builder.setPositiveButton(R.string.obfuscated_res_0x7f0f09b8, new DialogInterface.OnClickListener() { // from class: com.kwad.sdk.core.page.d.2
+        builder.setPositiveButton(R.string.obfuscated_res_0x7f0f09bd, new DialogInterface.OnClickListener() { // from class: com.kwad.sdk.core.page.d.2
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 d.this.b();

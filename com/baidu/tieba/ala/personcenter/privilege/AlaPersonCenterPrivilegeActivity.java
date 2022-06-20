@@ -24,8 +24,8 @@ import java.util.LinkedList;
 public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlaPrivilegeFragmentAdapter mFragmentAdapter;
-    public LinkedList<AbsFragment> mFragmentList;
+    public LinkedList<AbsFragment> a;
+    public AlaPrivilegeFragmentAdapter b;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -73,14 +73,14 @@ public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
                 return;
             }
         }
-        this.mFragmentList = new LinkedList<>();
+        this.a = new LinkedList<>();
     }
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity
     public AbsTabPagerAdapter getAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mFragmentAdapter : (AbsTabPagerAdapter) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (AbsTabPagerAdapter) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -88,10 +88,10 @@ public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
-            if (ListUtils.isEmpty(this.mFragmentList)) {
+            if (ListUtils.isEmpty(this.a)) {
                 return;
             }
-            Iterator<AbsFragment> it = this.mFragmentList.iterator();
+            Iterator<AbsFragment> it = this.a.iterator();
             while (it.hasNext()) {
                 AbsFragment next = it.next();
                 if (next != null) {
@@ -114,12 +114,12 @@ public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onPreInit();
-            if (!ListUtils.isEmpty(this.mFragmentList)) {
-                this.mFragmentList.clear();
+            if (!ListUtils.isEmpty(this.a)) {
+                this.a.clear();
             }
-            this.mFragmentList.add(new AlaAchievementMarkFragment());
-            this.mFragmentList.add(new AlaEnterEffectFragment());
-            this.mFragmentAdapter = new AlaPrivilegeFragmentAdapter(getSupportFragmentManager(), this.mFragmentList);
+            this.a.add(new AlaAchievementMarkFragment());
+            this.a.add(new AlaEnterEffectFragment());
+            this.b = new AlaPrivilegeFragmentAdapter(getSupportFragmentManager(), this.a);
         }
     }
 

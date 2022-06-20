@@ -1,13 +1,15 @@
 package com.repackage;
 
-import com.baidu.adp.framework.listener.MessageListener;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.FrameHelper;
+import com.baidu.adp.framework.message.SocketMessage;
+import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.InvalidParameterException;
 /* loaded from: classes7.dex */
-public abstract class ya extends MessageListener<SocketResponsedMessage> {
+public abstract class ya extends ta<SocketMessage, SocketMessageTask> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,26 +31,8 @@ public abstract class ya extends MessageListener<SocketResponsedMessage> {
                 return;
             }
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ya(int i, boolean z) {
-        super(i, z);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (i != 0 && FrameHelper.e(i) != FrameHelper.TYPE.SOCKET) {
+            throw new InvalidParameterException("cmd invalid");
         }
     }
 }

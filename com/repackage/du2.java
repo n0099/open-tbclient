@@ -1,23 +1,15 @@
 package com.repackage;
 
-import androidx.annotation.AnyThread;
-import androidx.annotation.NonNull;
-import androidx.annotation.UiThread;
+import android.view.View;
 /* loaded from: classes5.dex */
-public interface du2 {
-    @UiThread
-    void a(String str);
+public interface du2 extends et2 {
+    void a(long j);
 
-    @UiThread
-    void b();
+    void e(long j);
 
-    void c(@NonNull Runnable runnable, @NonNull String str);
+    void f(long j);
 
-    @UiThread
-    void d(boolean z);
+    void g(long j);
 
-    @AnyThread
-    void e(String str);
-
-    String getName();
+    void h(View view2);
 }

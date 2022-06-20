@@ -1,66 +1,85 @@
 package com.xiaomi.push;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Date;
+import com.xiaomi.push.dx;
+import com.xiaomi.push.service.bg;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
-public class fk implements fo {
+public class fk {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ fj a;
 
-    public fk(fj fjVar) {
+    public static void a(bg.b bVar, String str, fw fwVar) {
+        String a;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fjVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, bVar, str, fwVar) == null) {
+            dx.c cVar = new dx.c();
+            if (!TextUtils.isEmpty(bVar.c)) {
+                cVar.a(bVar.c);
             }
+            if (!TextUtils.isEmpty(bVar.e)) {
+                cVar.d(bVar.e);
+            }
+            if (!TextUtils.isEmpty(bVar.f)) {
+                cVar.e(bVar.f);
+            }
+            cVar.b(bVar.f928a ? "1" : "0");
+            if (TextUtils.isEmpty(bVar.d)) {
+                cVar.c("XIAOMI-SASL");
+            } else {
+                cVar.c(bVar.d);
+            }
+            fl flVar = new fl();
+            flVar.c(bVar.f929b);
+            flVar.a(Integer.parseInt(bVar.g));
+            flVar.b(bVar.f926a);
+            flVar.a("BIND", (String) null);
+            flVar.a(flVar.e());
+            com.xiaomi.channel.commonutils.logger.b.m84a("[Slim]: bind id=" + flVar.e());
+            HashMap hashMap = new HashMap();
+            hashMap.put("challenge", str);
+            hashMap.put("token", bVar.c);
+            hashMap.put("chid", bVar.g);
+            hashMap.put("from", bVar.f929b);
+            hashMap.put("id", flVar.e());
+            hashMap.put("to", "xiaomi.com");
+            if (bVar.f928a) {
+                hashMap.put("kick", "1");
+            } else {
+                hashMap.put("kick", "0");
+            }
+            if (TextUtils.isEmpty(bVar.e)) {
+                hashMap.put("client_attrs", "");
+            } else {
+                hashMap.put("client_attrs", bVar.e);
+            }
+            if (TextUtils.isEmpty(bVar.f)) {
+                hashMap.put("cloud_attrs", "");
+            } else {
+                hashMap.put("cloud_attrs", bVar.f);
+            }
+            if (bVar.d.equals("XIAOMI-PASS") || bVar.d.equals("XMPUSH-PASS")) {
+                a = bn.a(bVar.d, null, hashMap, bVar.h);
+            } else {
+                bVar.d.equals("XIAOMI-SASL");
+                a = null;
+            }
+            cVar.f(a);
+            flVar.a(cVar.m298a(), (String) null);
+            fwVar.b(flVar);
         }
-        this.a = fjVar;
     }
 
-    @Override // com.xiaomi.push.fo
-    public void a(fl flVar) {
+    public static void a(String str, String str2, fw fwVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, flVar) == null) {
-            com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.a.f369a.format(new Date()) + " Connection started (" + this.a.f366a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
-        }
-    }
-
-    @Override // com.xiaomi.push.fo
-    public void a(fl flVar, int i, Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, flVar, i, exc) == null) {
-            com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.a.f369a.format(new Date()) + " Connection closed (" + this.a.f366a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
-        }
-    }
-
-    @Override // com.xiaomi.push.fo
-    public void a(fl flVar, Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, flVar, exc) == null) {
-            com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.a.f369a.format(new Date()) + " Reconnection failed due to an exception (" + this.a.f366a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
-            exc.printStackTrace();
-        }
-    }
-
-    @Override // com.xiaomi.push.fo
-    public void b(fl flVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, flVar) == null) {
-            com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.a.f369a.format(new Date()) + " Connection reconnected (" + this.a.f366a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
+        if (interceptable == null || interceptable.invokeLLL(65537, null, str, str2, fwVar) == null) {
+            fl flVar = new fl();
+            flVar.c(str2);
+            flVar.a(Integer.parseInt(str));
+            flVar.a("UBND", (String) null);
+            fwVar.b(flVar);
         }
     }
 }

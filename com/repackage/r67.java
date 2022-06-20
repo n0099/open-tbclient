@@ -3,14 +3,16 @@ package com.repackage;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.im.message.RequestSearchGroupsLocalMessage;
-import com.baidu.tieba.im.message.ResponseSearchGroupLocalMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.squareup.wire.Wire;
+import tbclient.Bigvip.BigvipResIdl;
+import tbclient.Bigvip.UserInfoBigVip;
+/* loaded from: classes7.dex */
 public class r67 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,19 +36,26 @@ public class r67 implements CustomMessageTask.CustomRunnable<Object> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage == null || !(customMessage instanceof RequestSearchGroupsLocalMessage)) {
-                return null;
+            UserInfoBigVip userInfoBigVip = null;
+            if (customMessage != null && (customMessage.getData() instanceof Long)) {
+                long longValue = ((Long) customMessage.getData()).longValue();
+                mq4.f();
+                te<byte[]> d = mq4.d("tb.im_recommend_detail");
+                if (d == null) {
+                    return new CustomResponsedMessage<>(2001306, null);
+                }
+                byte[] bArr = d.get(longValue + "");
+                if (bArr == null) {
+                    return new CustomResponsedMessage<>(2001306, null);
+                }
+                try {
+                    userInfoBigVip = ((BigvipResIdl) new Wire(new Class[0]).parseFrom(bArr, BigvipResIdl.class)).data.user_info;
+                } catch (Exception e) {
+                    BdLog.e(e);
+                }
+                return new CustomResponsedMessage<>(2001306, userInfoBigVip);
             }
-            long groupId = ((RequestSearchGroupsLocalMessage) customMessage).getGroupId();
-            ResponseSearchGroupLocalMessage responseSearchGroupLocalMessage = new ResponseSearchGroupLocalMessage(2001207);
-            responseSearchGroupLocalMessage.setOrginalMessage(customMessage);
-            responseSearchGroupLocalMessage.setError(0);
-            responseSearchGroupLocalMessage.setGid(groupId);
-            String str = groupId + "";
-            cq4.f();
-            qe<String> g = cq4.g("tb.im_group_search_history");
-            g.g(str, g.get(str));
-            return responseSearchGroupLocalMessage;
+            return new CustomResponsedMessage<>(2001306, null);
         }
         return (CustomResponsedMessage) invokeL.objValue;
     }

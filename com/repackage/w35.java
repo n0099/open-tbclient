@@ -1,101 +1,92 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.graphics.Bitmap;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.img.effect.ImageOperation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tachikoma.core.component.anim.AnimationProperty;
 /* loaded from: classes7.dex */
-public class w35 extends m35 {
+public class w35 extends t35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageView a;
-    public EMTextView b;
-    public EMTextView c;
-    public TBSpecificationBtn d;
+    public int a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w35(Context context) {
-        super(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d050f, (ViewGroup) null));
+    public w35() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a(context);
+        this.a = 0;
     }
 
-    public final void a(Context context) {
-        View view2;
+    public static ImageOperation e(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || (view2 = this.attachedView) == null) {
-            return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            ImageOperation imageOperation = new ImageOperation();
+            imageOperation.actionName = AnimationProperty.ROTATE;
+            imageOperation.actionParam = String.valueOf(i);
+            return imageOperation;
         }
-        this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0912f8);
-        EMTextView eMTextView = (EMTextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f0912f9);
-        this.b = eMTextView;
-        eMTextView.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0a56));
-        EMTextView eMTextView2 = (EMTextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f0912f7);
-        this.c = eMTextView2;
-        eMTextView2.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0a55));
-        TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.attachedView.findViewById(R.id.obfuscated_res_0x7f0912ee);
-        this.d = tBSpecificationBtn;
-        tBSpecificationBtn.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f096e));
-        this.d.setTextSize(R.dimen.T_X05);
-        this.d.setConfig(new nt4());
+        return (ImageOperation) invokeI.objValue;
     }
 
-    public void b(View.OnClickListener onClickListener) {
-        TBSpecificationBtn tBSpecificationBtn;
+    @Override // com.repackage.t35
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) || (tBSpecificationBtn = this.d) == null) {
-            return;
-        }
-        tBSpecificationBtn.setOnClickListener(onClickListener);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? AnimationProperty.ROTATE : (String) invokeV.objValue;
     }
 
-    public void onChangeSkinType() {
+    @Override // com.repackage.t35
+    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            wq4 d = wq4.d(this.b);
-            d.z(R.dimen.T_X06);
-            d.v(R.color.CAM_X0107);
-            wq4 d2 = wq4.d(this.c);
-            d2.z(R.dimen.T_X09);
-            d2.v(R.color.CAM_X0108);
-            WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f080e60, null);
-            TBSpecificationBtn tBSpecificationBtn = this.d;
-            if (tBSpecificationBtn != null) {
-                tBSpecificationBtn.k();
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) {
+            if (bitmap == null) {
+                return null;
             }
+            j35.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
+            int i = this.a;
+            if (i == 0 || i == 1) {
+                return BitmapHelper.rotateBitmap(bitmap, this.a);
+            }
+            return (i == 2 || i == 3) ? BitmapHelper.reversalBitmap(bitmap, this.a) : bitmap;
         }
+        return (Bitmap) invokeLZ.objValue;
     }
 
-    @Override // com.repackage.m35
-    public void onViewAttached() {
+    @Override // com.repackage.t35
+    public Bitmap c(String str) throws Exception {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onViewAttached();
-            onChangeSkinType();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            int max = Math.max(pi.k(TbadkCoreApplication.getInst().getApp()), pi.i(TbadkCoreApplication.getInst().getApp()));
+            return b(BitmapHelper.loadResizedBitmap(str, max, max), true);
         }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    @Override // com.repackage.t35
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || str == null) {
+            return;
+        }
+        this.a = Integer.parseInt(str);
     }
 }

@@ -64,9 +64,9 @@ public class f extends com.kwad.sdk.reward.g {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.b = (ViewGroup) a(R.id.obfuscated_res_0x7f09108a);
-        this.c = (ViewGroup) a(R.id.obfuscated_res_0x7f09108b);
-        this.d = (ViewGroup) a(R.id.obfuscated_res_0x7f091075);
-        this.e = (ImageView) a(R.id.obfuscated_res_0x7f091010);
+        this.b = (ViewGroup) a(R.id.obfuscated_res_0x7f09107a);
+        this.c = (ViewGroup) a(R.id.obfuscated_res_0x7f09107b);
+        this.d = (ViewGroup) a(R.id.obfuscated_res_0x7f091065);
+        this.e = (ImageView) a(R.id.obfuscated_res_0x7f091000);
     }
 }

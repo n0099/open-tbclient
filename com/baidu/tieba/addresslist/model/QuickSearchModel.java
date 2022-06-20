@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b9;
-import com.repackage.bj5;
-import com.repackage.px4;
+import com.repackage.cy4;
+import com.repackage.d9;
+import com.repackage.yj5;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bj5 a;
+    public yj5 a;
     public byte[] b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -34,14 +34,14 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((b9) newInitContext.callArgs[0]);
+                super((d9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.b = new byte[0];
-        this.a = bj5.d();
+        this.a = yj5.d();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -65,7 +65,7 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
     }
 
     @SuppressLint({"DefaultLocale"})
-    public List<px4> y(String str) {
+    public List<cy4> z(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
@@ -74,27 +74,27 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
                 if (TextUtils.isEmpty(str)) {
                     return arrayList;
                 }
-                List<px4> c = this.a.c();
+                List<cy4> c = this.a.c();
                 if (c == null) {
                     return arrayList;
                 }
-                for (px4 px4Var : c) {
-                    String e = px4Var.e();
-                    String c2 = px4Var.c();
+                for (cy4 cy4Var : c) {
+                    String e = cy4Var.e();
+                    String c2 = cy4Var.c();
                     if (!TextUtils.isEmpty(e) && e.toLowerCase().startsWith(str.toLowerCase())) {
-                        arrayList.add(px4Var);
+                        arrayList.add(cy4Var);
                     } else if (!TextUtils.isEmpty(c2) && c2.toLowerCase().startsWith(str.toLowerCase())) {
-                        arrayList.add(px4Var);
+                        arrayList.add(cy4Var);
                     }
                 }
-                for (px4 px4Var2 : c) {
-                    String e2 = px4Var2.e();
-                    String c3 = px4Var2.c();
-                    if (!arrayList.contains(px4Var2)) {
+                for (cy4 cy4Var2 : c) {
+                    String e2 = cy4Var2.e();
+                    String c3 = cy4Var2.c();
+                    if (!arrayList.contains(cy4Var2)) {
                         if (!TextUtils.isEmpty(e2) && e2.toLowerCase().contains(str.toLowerCase())) {
-                            arrayList.add(px4Var2);
+                            arrayList.add(cy4Var2);
                         } else if (!TextUtils.isEmpty(c3) && c3.toLowerCase().contains(str.toLowerCase())) {
-                            arrayList.add(px4Var2);
+                            arrayList.add(cy4Var2);
                         }
                     }
                 }

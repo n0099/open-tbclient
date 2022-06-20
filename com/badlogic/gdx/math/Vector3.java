@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.r7;
+import com.repackage.t7;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class Vector3 implements Serializable, e<Vector3> {
@@ -116,7 +116,7 @@ public class Vector3 implements Serializable, e<Vector3> {
             }
             if (obj != null && Vector3.class == obj.getClass()) {
                 Vector3 vector3 = (Vector3) obj;
-                return r7.a(this.x) == r7.a(vector3.x) && r7.a(this.y) == r7.a(vector3.y) && r7.a(this.z) == r7.a(vector3.z);
+                return t7.a(this.x) == t7.a(vector3.x) && t7.a(this.y) == t7.a(vector3.y) && t7.a(this.z) == t7.a(vector3.z);
             }
             return false;
         }
@@ -144,7 +144,7 @@ public class Vector3 implements Serializable, e<Vector3> {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? ((((r7.a(this.x) + 31) * 31) + r7.a(this.y)) * 31) + r7.a(this.z) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? ((((t7.a(this.x) + 31) * 31) + t7.a(this.y)) * 31) + t7.a(this.z) : invokeV.intValue;
     }
 
     public boolean idt(Vector3 vector3) {

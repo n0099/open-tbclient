@@ -59,11 +59,11 @@ public class AcceleratorNetModel extends BdBaseModel {
                     this.a.b = false;
                 } else if (httpResponsedMessage.getError() == 0 || this.a.a == null) {
                     if (this.a.a != null) {
-                        this.a.a.b(((GetAcceleratorInfoRespondedMessage) httpResponsedMessage).getAcceleratorData());
+                        this.a.a.a(((GetAcceleratorInfoRespondedMessage) httpResponsedMessage).getAcceleratorData());
                     }
                     this.a.b = false;
                 } else {
-                    this.a.a.a();
+                    this.a.a.b();
                     this.a.b = false;
                 }
             }
@@ -72,9 +72,9 @@ public class AcceleratorNetModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a();
+        void a(AcceleratorData acceleratorData);
 
-        void b(AcceleratorData acceleratorData);
+        void b();
     }
 
     public AcceleratorNetModel() {
@@ -96,7 +96,7 @@ public class AcceleratorNetModel extends BdBaseModel {
         registerListener();
     }
 
-    public void A(int i) {
+    public void B(int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || this.b) {
             return;
@@ -107,7 +107,7 @@ public class AcceleratorNetModel extends BdBaseModel {
         this.b = true;
     }
 
-    public void B(b bVar) {
+    public void C(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.a = bVar;

@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.us5;
+import com.repackage.tt5;
 /* loaded from: classes3.dex */
 public class AlaPersonCenterActivity extends BaseActivity<AlaPersonCenterActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext mContext;
-    public us5 mPersonCenterController;
+    public TbPageContext a;
+    public tt5 b;
 
     public AlaPersonCenterActivity() {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class AlaPersonCenterActivity extends BaseActivity<AlaPersonCenterActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.changeSkinType(i);
-            this.mPersonCenterController.m(i);
+            this.b.m(i);
         }
     }
 
@@ -46,7 +46,7 @@ public class AlaPersonCenterActivity extends BaseActivity<AlaPersonCenterActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            this.mPersonCenterController.m(i);
+            this.b.m(i);
         }
     }
 
@@ -56,15 +56,15 @@ public class AlaPersonCenterActivity extends BaseActivity<AlaPersonCenterActivit
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             TbPageContext<AlaPersonCenterActivity> pageContext = getPageContext();
-            this.mContext = pageContext;
-            us5 us5Var = new us5(pageContext, false);
-            this.mPersonCenterController = us5Var;
-            setContentView(us5Var.i());
+            this.a = pageContext;
+            tt5 tt5Var = new tt5(pageContext, false);
+            this.b = tt5Var;
+            setContentView(tt5Var.i());
             Intent intent = getIntent();
             if (intent != null) {
-                this.mPersonCenterController.k(intent.getStringExtra("user_id"), intent.getStringExtra("user_name"), intent.getStringExtra(AlaPersonCenterActivityConfig.PORTRAIT_URL), intent.getBooleanExtra(AlaPersonCenterActivityConfig.IS_SELF, false));
+                this.b.k(intent.getStringExtra("user_id"), intent.getStringExtra("user_name"), intent.getStringExtra(AlaPersonCenterActivityConfig.PORTRAIT_URL), intent.getBooleanExtra(AlaPersonCenterActivityConfig.IS_SELF, false));
             }
-            this.mPersonCenterController.l();
+            this.b.l();
         }
     }
 
@@ -72,7 +72,7 @@ public class AlaPersonCenterActivity extends BaseActivity<AlaPersonCenterActivit
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.mPersonCenterController.o();
+            this.b.o();
             super.onDestroy();
         }
     }
@@ -83,9 +83,9 @@ public class AlaPersonCenterActivity extends BaseActivity<AlaPersonCenterActivit
         if (interceptable == null || interceptable.invokeL(1048580, this, intent) == null) {
             super.onNewIntent(intent);
             if (intent != null) {
-                this.mPersonCenterController.k(intent.getStringExtra("user_id"), intent.getStringExtra("user_name"), intent.getStringExtra(AlaPersonCenterActivityConfig.PORTRAIT_URL), intent.getBooleanExtra(AlaPersonCenterActivityConfig.IS_SELF, false));
+                this.b.k(intent.getStringExtra("user_id"), intent.getStringExtra("user_name"), intent.getStringExtra(AlaPersonCenterActivityConfig.PORTRAIT_URL), intent.getBooleanExtra(AlaPersonCenterActivityConfig.IS_SELF, false));
             }
-            this.mPersonCenterController.l();
+            this.b.l();
         }
     }
 
@@ -102,9 +102,9 @@ public class AlaPersonCenterActivity extends BaseActivity<AlaPersonCenterActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onResume();
-            us5 us5Var = this.mPersonCenterController;
-            if (us5Var != null) {
-                us5Var.p();
+            tt5 tt5Var = this.b;
+            if (tt5Var != null) {
+                tt5Var.p();
             }
         }
     }

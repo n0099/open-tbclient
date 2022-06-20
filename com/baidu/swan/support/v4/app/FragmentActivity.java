@@ -32,38 +32,32 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.repackage.ad4;
-import com.repackage.bd4;
-import com.repackage.fd4;
-import com.repackage.id4;
-import com.repackage.pc4;
-import com.repackage.rc4;
-import com.repackage.sc4;
-import com.repackage.sd4;
-import com.repackage.wc4;
-import com.repackage.zc4;
+import com.repackage.cd4;
+import com.repackage.ce4;
+import com.repackage.dd4;
+import com.repackage.hd4;
+import com.repackage.kd4;
+import com.repackage.ld4;
+import com.repackage.md4;
+import com.repackage.qd4;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import org.aspectj.runtime.reflect.SignatureImpl;
 /* loaded from: classes2.dex */
-public class FragmentActivity extends wc4 implements pc4.b, rc4.a {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String FRAGMENTS_TAG = "android:support:fragments";
-    public static final int HONEYCOMB = 11;
-    public static final int MSG_REALLY_STOPPED = 1;
-    public static final int MSG_RESUME_PENDING = 2;
-    public static final String TAG = "FragmentActivity";
+public class FragmentActivity extends hd4 implements ad4.b, cd4.a {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean mCreated;
-    public final zc4 mFragments;
-    public final Handler mHandler;
-    public boolean mOptionsMenuInvalidated;
-    public boolean mReallyStopped;
-    public boolean mRequestedPermissionsFromFragment;
-    public boolean mResumed;
-    public boolean mRetaining;
-    public boolean mStopped;
+    public final Handler a;
+    public final kd4 b;
+    public boolean c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
 
     /* loaded from: classes2.dex */
     public class a extends Handler {
@@ -96,21 +90,21 @@ public class FragmentActivity extends wc4 implements pc4.b, rc4.a {
                 int i = message.what;
                 if (i == 1) {
                     FragmentActivity fragmentActivity = this.a;
-                    if (fragmentActivity.mStopped) {
-                        fragmentActivity.doReallyStop(false);
+                    if (fragmentActivity.e) {
+                        fragmentActivity.j(false);
                     }
                 } else if (i != 2) {
                     super.handleMessage(message);
                 } else {
-                    this.a.onResumeFragments();
-                    this.a.mFragments.v();
+                    this.a.p();
+                    this.a.b.v();
                 }
             }
         }
     }
 
     /* loaded from: classes2.dex */
-    public class b extends ad4<FragmentActivity> {
+    public class b extends ld4<FragmentActivity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FragmentActivity j;
@@ -136,7 +130,7 @@ public class FragmentActivity extends wc4 implements pc4.b, rc4.a {
             this.j = fragmentActivity;
         }
 
-        @Override // com.repackage.ad4, com.repackage.yc4
+        @Override // com.repackage.ld4, com.repackage.jd4
         @Nullable
         public View a(int i) {
             InterceptResult invokeI;
@@ -144,7 +138,7 @@ public class FragmentActivity extends wc4 implements pc4.b, rc4.a {
             return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.j.findViewById(i) : (View) invokeI.objValue;
         }
 
-        @Override // com.repackage.ad4, com.repackage.yc4
+        @Override // com.repackage.ld4, com.repackage.jd4
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -155,31 +149,31 @@ public class FragmentActivity extends wc4 implements pc4.b, rc4.a {
             return invokeV.booleanValue;
         }
 
-        @Override // com.repackage.ad4
-        public void l(Fragment fragment) {
+        @Override // com.repackage.ld4
+        public void k(Fragment fragment) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fragment) == null) {
-                this.j.onAttachFragment(fragment);
+                this.j.m(fragment);
             }
         }
 
-        @Override // com.repackage.ad4
-        public void m(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+        @Override // com.repackage.ld4
+        public void l(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLLL(1048579, this, str, fileDescriptor, printWriter, strArr) == null) {
                 this.j.dump(str, fileDescriptor, printWriter, strArr);
             }
         }
 
-        @Override // com.repackage.ad4
-        public LayoutInflater n() {
+        @Override // com.repackage.ld4
+        public LayoutInflater m() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.j.getLayoutInflater().cloneInContext(this.j) : (LayoutInflater) invokeV.objValue;
         }
 
-        @Override // com.repackage.ad4
-        public int o() {
+        @Override // com.repackage.ld4
+        public int n() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -192,41 +186,41 @@ public class FragmentActivity extends wc4 implements pc4.b, rc4.a {
             return invokeV.intValue;
         }
 
-        @Override // com.repackage.ad4
-        public boolean p() {
+        @Override // com.repackage.ld4
+        public boolean o() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.j.getWindow() != null : invokeV.booleanValue;
         }
 
-        @Override // com.repackage.ad4
-        public void q(@NonNull Fragment fragment, @NonNull String[] strArr, int i) {
+        @Override // com.repackage.ld4
+        public void p(@NonNull Fragment fragment, @NonNull String[] strArr, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048583, this, fragment, strArr, i) == null) {
-                this.j.requestPermissionsFromFragment(fragment, strArr, i);
+                this.j.r(fragment, strArr, i);
             }
         }
 
-        @Override // com.repackage.ad4
-        public boolean r(Fragment fragment) {
+        @Override // com.repackage.ld4
+        public boolean q(Fragment fragment) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fragment)) == null) ? !this.j.isFinishing() : invokeL.booleanValue;
         }
 
-        @Override // com.repackage.ad4
-        public void s(Fragment fragment, Intent intent, int i) {
+        @Override // com.repackage.ld4
+        public void r(Fragment fragment, Intent intent, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048585, this, fragment, intent, i) == null) {
-                this.j.startActivityFromFragment(fragment, intent, i);
+                this.j.s(fragment, intent, i);
             }
         }
 
-        @Override // com.repackage.ad4
-        public void t() {
+        @Override // com.repackage.ld4
+        public void s() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-                this.j.supportInvalidateOptionsMenu();
+                this.j.u();
             }
         }
     }
@@ -237,7 +231,7 @@ public class FragmentActivity extends wc4 implements pc4.b, rc4.a {
         public transient /* synthetic */ FieldHolder $fh;
         public Object a;
         public List<Fragment> b;
-        public sd4<String, fd4> c;
+        public ce4<String, qd4> c;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -267,50 +261,15 @@ public class FragmentActivity extends wc4 implements pc4.b, rc4.a {
                 return;
             }
         }
-        this.mHandler = new a(this);
-        this.mFragments = zc4.b(new b(this));
+        this.a = new a(this);
+        this.b = kd4.b(new b(this));
     }
 
-    private void dumpViewHierarchy(String str, PrintWriter printWriter, View view2) {
-        ViewGroup viewGroup;
-        int childCount;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, this, str, printWriter, view2) == null) {
-            printWriter.print(str);
-            if (view2 == null) {
-                printWriter.println(StringUtil.NULL_STRING);
-                return;
-            }
-            printWriter.println(viewToString(view2));
-            if ((view2 instanceof ViewGroup) && (childCount = (viewGroup = (ViewGroup) view2).getChildCount()) > 0) {
-                String str2 = str + GlideException.IndentedAppendable.INDENT;
-                for (int i = 0; i < childCount; i++) {
-                    dumpViewHierarchy(str2, printWriter, viewGroup.getChildAt(i));
-                }
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void requestPermissionsFromFragment(Fragment fragment, String[] strArr, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65539, this, fragment, strArr, i) == null) {
-            if (i == -1) {
-                pc4.requestPermissions(this, strArr, i);
-            } else if ((i & (-256)) == 0) {
-                this.mRequestedPermissionsFromFragment = true;
-                pc4.requestPermissions(this, strArr, ((fragment.f + 1) << 8) + (i & 255));
-            } else {
-                throw new IllegalArgumentException("Can only use lower 8 bits for requestCode");
-            }
-        }
-    }
-
-    public static String viewToString(View view2) {
+    public static String v(View view2) {
         InterceptResult invokeL;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
             StringBuilder sb = new StringBuilder(128);
             sb.append(view2.getClass().getName());
             sb.append('{');
@@ -382,28 +341,10 @@ public class FragmentActivity extends wc4 implements pc4.b, rc4.a {
         return (String) invokeL.objValue;
     }
 
-    @Override // com.repackage.vc4
-    public final View dispatchFragmentsOnCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, view2, str, context, attributeSet)) == null) ? this.mFragments.B(view2, str, context, attributeSet) : (View) invokeLLLL.objValue;
-    }
-
-    public void doReallyStop(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || this.mReallyStopped) {
-            return;
-        }
-        this.mReallyStopped = true;
-        this.mRetaining = z;
-        this.mHandler.removeMessages(1);
-        onReallyStop();
-    }
-
     @Override // android.app.Activity
     public void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, fileDescriptor, printWriter, strArr) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, fileDescriptor, printWriter, strArr) == null) {
             printWriter.print(str);
             printWriter.print("Local FragmentActivity ");
             printWriter.print(Integer.toHexString(System.identityHashCode(this)));
@@ -411,109 +352,142 @@ public class FragmentActivity extends wc4 implements pc4.b, rc4.a {
             String str2 = str + GlideException.IndentedAppendable.INDENT;
             printWriter.print(str2);
             printWriter.print("mCreated=");
-            printWriter.print(this.mCreated);
+            printWriter.print(this.c);
             printWriter.print("mResumed=");
-            printWriter.print(this.mResumed);
+            printWriter.print(this.d);
             printWriter.print(" mStopped=");
-            printWriter.print(this.mStopped);
+            printWriter.print(this.e);
             printWriter.print(" mReallyStopped=");
-            printWriter.println(this.mReallyStopped);
-            this.mFragments.u(str2, fileDescriptor, printWriter, strArr);
-            this.mFragments.y().b(str, fileDescriptor, printWriter, strArr);
+            printWriter.println(this.f);
+            this.b.u(str2, fileDescriptor, printWriter, strArr);
+            this.b.y().b(str, fileDescriptor, printWriter, strArr);
             printWriter.print(str);
             printWriter.println("View Hierarchy:");
-            dumpViewHierarchy(str + GlideException.IndentedAppendable.INDENT, printWriter, getWindow().getDecorView());
+            k(str + GlideException.IndentedAppendable.INDENT, printWriter, getWindow().getDecorView());
         }
     }
 
-    public Object getLastCustomNonConfigurationInstance() {
-        InterceptResult invokeV;
+    @Override // com.repackage.gd4
+    public final View h(View view2, String str, Context context, AttributeSet attributeSet) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            c cVar = (c) getLastNonConfigurationInstance();
-            if (cVar != null) {
-                return cVar.a;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, str, context, attributeSet)) == null) ? this.b.A(view2, str, context, attributeSet) : (View) invokeLLLL.objValue;
+    }
+
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || this.f) {
+            return;
+        }
+        this.f = true;
+        this.g = z;
+        this.a.removeMessages(1);
+        o();
+    }
+
+    public final void k(String str, PrintWriter printWriter, View view2) {
+        ViewGroup viewGroup;
+        int childCount;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, printWriter, view2) == null) {
+            printWriter.print(str);
+            if (view2 == null) {
+                printWriter.println(StringUtil.NULL_STRING);
+                return;
             }
-            return null;
+            printWriter.println(v(view2));
+            if ((view2 instanceof ViewGroup) && (childCount = (viewGroup = (ViewGroup) view2).getChildCount()) > 0) {
+                String str2 = str + GlideException.IndentedAppendable.INDENT;
+                for (int i = 0; i < childCount; i++) {
+                    k(str2, printWriter, viewGroup.getChildAt(i));
+                }
+            }
         }
-        return invokeV.objValue;
     }
 
-    public bd4 getSupportFragmentManager() {
+    public md4 l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mFragments.y() : (bd4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b.y() : (md4) invokeV.objValue;
     }
 
-    public fd4 getSupportLoaderManager() {
-        InterceptResult invokeV;
+    public void m(Fragment fragment) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mFragments.z() : (fd4) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048581, this, fragment) == null) {
+        }
+    }
+
+    public boolean n(View view2, Menu menu) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, view2, menu)) == null) ? super.onPreparePanel(0, view2, menu) : invokeLL.booleanValue;
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.b.t(this.g);
+            this.b.n();
+        }
     }
 
     @Override // android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048582, this, i, i2, intent) == null) {
-            this.mFragments.A();
+        if (interceptable == null || interceptable.invokeIIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, intent) == null) {
+            this.b.z();
             int i3 = i >> 16;
             if (i3 != 0) {
                 int i4 = i3 - 1;
-                int x = this.mFragments.x();
+                int x = this.b.x();
                 if (x != 0 && i4 >= 0 && i4 < x) {
-                    Fragment fragment = this.mFragments.w(new ArrayList(x)).get(i4);
+                    Fragment fragment = this.b.w(new ArrayList(x)).get(i4);
                     if (fragment == null) {
-                        Log.w("FragmentActivity", "Activity result no fragment exists for index: 0x" + Integer.toHexString(i));
+                        Log.w(androidx.fragment.app.FragmentActivity.TAG, "Activity result no fragment exists for index: 0x" + Integer.toHexString(i));
                         return;
                     }
-                    fragment.r0(i & 65535, i2, intent);
+                    fragment.q0(i & 65535, i2, intent);
                     return;
                 }
-                Log.w("FragmentActivity", "Activity result fragment index out of range: 0x" + Integer.toHexString(i));
+                Log.w(androidx.fragment.app.FragmentActivity.TAG, "Activity result fragment index out of range: 0x" + Integer.toHexString(i));
                 return;
             }
             super.onActivityResult(i, i2, intent);
         }
     }
 
-    public void onAttachFragment(Fragment fragment) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, fragment) == null) {
-        }
-    }
-
     @Override // android.app.Activity
     public void onBackPressed() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.mFragments.y().f()) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.b.y().f()) {
             return;
         }
-        supportFinishAfterTransition();
+        t();
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, configuration) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
-            this.mFragments.d(configuration);
+            this.b.d(configuration);
         }
     }
 
-    @Override // com.repackage.vc4, android.app.Activity
+    @Override // com.repackage.gd4, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
-            this.mFragments.a(null);
+        if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
+            this.b.a(null);
             super.onCreate(bundle);
             c cVar = (c) getLastNonConfigurationInstance();
             if (cVar != null) {
-                this.mFragments.E(cVar.c);
+                this.b.D(cVar.c);
             }
             if (bundle != null) {
-                this.mFragments.D(bundle.getParcelable("android:support:fragments"), cVar != null ? cVar.b : null);
+                this.b.C(bundle.getParcelable(androidx.fragment.app.FragmentActivity.FRAGMENTS_TAG), cVar != null ? cVar.b : null);
             }
-            this.mFragments.f();
+            this.b.f();
         }
     }
 
@@ -521,9 +495,9 @@ public class FragmentActivity extends wc4 implements pc4.b, rc4.a {
     public boolean onCreatePanelMenu(int i, Menu menu) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048587, this, i, menu)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048588, this, i, menu)) == null) {
             if (i == 0) {
-                boolean onCreatePanelMenu = super.onCreatePanelMenu(i, menu) | this.mFragments.g(menu, getMenuInflater());
+                boolean onCreatePanelMenu = super.onCreatePanelMenu(i, menu) | this.b.g(menu, getMenuInflater());
                 if (Build.VERSION.SDK_INT >= 11) {
                     return onCreatePanelMenu;
                 }
@@ -534,19 +508,14 @@ public class FragmentActivity extends wc4 implements pc4.b, rc4.a {
         return invokeIL.booleanValue;
     }
 
-    @Override // com.repackage.wc4, android.app.Activity, android.view.LayoutInflater.Factory2
-    public /* bridge */ /* synthetic */ View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
-        return super.onCreateView(view2, str, context, attributeSet);
-    }
-
     @Override // android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onDestroy();
-            doReallyStop(false);
-            this.mFragments.h();
-            this.mFragments.r();
+            j(false);
+            this.b.h();
+            this.b.r();
         }
     }
 
@@ -554,7 +523,7 @@ public class FragmentActivity extends wc4 implements pc4.b, rc4.a {
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048591, this, i, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048590, this, i, keyEvent)) == null) {
             if (Build.VERSION.SDK_INT < 5 && i == 4 && keyEvent.getRepeatCount() == 0) {
                 onBackPressed();
                 return true;
@@ -567,9 +536,9 @@ public class FragmentActivity extends wc4 implements pc4.b, rc4.a {
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onLowMemory() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.onLowMemory();
-            this.mFragments.i();
+            this.b.i();
         }
     }
 
@@ -577,7 +546,7 @@ public class FragmentActivity extends wc4 implements pc4.b, rc4.a {
     public boolean onMenuItemSelected(int i, MenuItem menuItem) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048593, this, i, menuItem)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048592, this, i, menuItem)) == null) {
             if (super.onMenuItemSelected(i, menuItem)) {
                 return true;
             }
@@ -585,9 +554,9 @@ public class FragmentActivity extends wc4 implements pc4.b, rc4.a {
                 if (i != 6) {
                     return false;
                 }
-                return this.mFragments.e(menuItem);
+                return this.b.e(menuItem);
             }
-            return this.mFragments.j(menuItem);
+            return this.b.j(menuItem);
         }
         return invokeIL.booleanValue;
     }
@@ -595,18 +564,18 @@ public class FragmentActivity extends wc4 implements pc4.b, rc4.a {
     @Override // android.app.Activity
     public void onNewIntent(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, intent) == null) {
             super.onNewIntent(intent);
-            this.mFragments.A();
+            this.b.z();
         }
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onPanelClosed(int i, Menu menu) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048595, this, i, menu) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048594, this, i, menu) == null) {
             if (i == 0) {
-                this.mFragments.k(menu);
+                this.b.k(menu);
             }
             super.onPanelClosed(i, menu);
         }
@@ -615,126 +584,96 @@ public class FragmentActivity extends wc4 implements pc4.b, rc4.a {
     @Override // android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             super.onPause();
-            this.mResumed = false;
-            if (this.mHandler.hasMessages(2)) {
-                this.mHandler.removeMessages(2);
-                onResumeFragments();
+            this.d = false;
+            if (this.a.hasMessages(2)) {
+                this.a.removeMessages(2);
+                p();
             }
-            this.mFragments.l();
+            this.b.l();
         }
     }
 
     @Override // android.app.Activity
     public void onPostResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             super.onPostResume();
-            this.mHandler.removeMessages(2);
-            onResumeFragments();
-            this.mFragments.v();
+            this.a.removeMessages(2);
+            p();
+            this.b.v();
         }
-    }
-
-    public boolean onPrepareOptionsPanel(View view2, Menu menu) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, view2, menu)) == null) ? super.onPreparePanel(0, view2, menu) : invokeLL.booleanValue;
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean onPreparePanel(int i, View view2, Menu menu) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048599, this, i, view2, menu)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048597, this, i, view2, menu)) == null) {
             if (i == 0 && menu != null) {
-                if (this.mOptionsMenuInvalidated) {
-                    this.mOptionsMenuInvalidated = false;
+                if (this.h) {
+                    this.h = false;
                     menu.clear();
                     onCreatePanelMenu(i, menu);
                 }
-                return onPrepareOptionsPanel(view2, menu) | this.mFragments.m(menu);
+                return n(view2, menu) | this.b.m(menu);
             }
             return super.onPreparePanel(i, view2, menu);
         }
         return invokeILL.booleanValue;
     }
 
-    public void onReallyStop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            this.mFragments.t(this.mRetaining);
-            this.mFragments.n();
-        }
-    }
-
-    @Override // android.app.Activity, com.repackage.pc4.b
+    @Override // android.app.Activity, com.repackage.ad4.b
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeILL(1048601, this, i, strArr, iArr) == null) || (i2 = (i >> 8) & 255) == 0) {
+        if (!(interceptable == null || interceptable.invokeILL(1048598, this, i, strArr, iArr) == null) || (i2 = (i >> 8) & 255) == 0) {
             return;
         }
         int i3 = i2 - 1;
-        int x = this.mFragments.x();
+        int x = this.b.x();
         if (x != 0 && i3 >= 0 && i3 < x) {
-            Fragment fragment = this.mFragments.w(new ArrayList(x)).get(i3);
+            Fragment fragment = this.b.w(new ArrayList(x)).get(i3);
             if (fragment == null) {
-                Log.w("FragmentActivity", "Activity result no fragment exists for index: 0x" + Integer.toHexString(i));
+                Log.w(androidx.fragment.app.FragmentActivity.TAG, "Activity result no fragment exists for index: 0x" + Integer.toHexString(i));
                 return;
             }
-            fragment.J0(i & 255, strArr, iArr);
+            fragment.I0(i & 255, strArr, iArr);
             return;
         }
-        Log.w("FragmentActivity", "Activity result fragment index out of range: 0x" + Integer.toHexString(i));
+        Log.w(androidx.fragment.app.FragmentActivity.TAG, "Activity result fragment index out of range: 0x" + Integer.toHexString(i));
     }
 
     @Override // android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             super.onResume();
-            this.mHandler.sendEmptyMessage(2);
-            this.mResumed = true;
-            this.mFragments.v();
+            this.a.sendEmptyMessage(2);
+            this.d = true;
+            this.b.v();
         }
-    }
-
-    public void onResumeFragments() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            this.mFragments.o();
-        }
-    }
-
-    public Object onRetainCustomNonConfigurationInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            return null;
-        }
-        return invokeV.objValue;
     }
 
     @Override // android.app.Activity
     public final Object onRetainNonConfigurationInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            if (this.mStopped) {
-                doReallyStop(true);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            if (this.e) {
+                j(true);
             }
-            Object onRetainCustomNonConfigurationInstance = onRetainCustomNonConfigurationInstance();
-            List<Fragment> G = this.mFragments.G();
-            sd4<String, fd4> F = this.mFragments.F();
-            if (G == null && F == null && onRetainCustomNonConfigurationInstance == null) {
+            Object q = q();
+            List<Fragment> F = this.b.F();
+            ce4<String, qd4> E = this.b.E();
+            if (F == null && E == null && q == null) {
                 return null;
             }
             c cVar = new c();
-            cVar.a = onRetainCustomNonConfigurationInstance;
-            cVar.b = G;
-            cVar.c = F;
+            cVar.a = q;
+            cVar.b = F;
+            cVar.c = E;
             return cVar;
         }
         return invokeV.objValue;
@@ -743,11 +682,11 @@ public class FragmentActivity extends wc4 implements pc4.b, rc4.a {
     @Override // android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048601, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
-            Parcelable H = this.mFragments.H();
-            if (H != null) {
-                bundle.putParcelable("android:support:fragments", H);
+            Parcelable G = this.b.G();
+            if (G != null) {
+                bundle.putParcelable(androidx.fragment.app.FragmentActivity.FRAGMENTS_TAG, G);
             }
         }
     }
@@ -755,70 +694,75 @@ public class FragmentActivity extends wc4 implements pc4.b, rc4.a {
     @Override // android.app.Activity
     public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
             super.onStart();
-            this.mStopped = false;
-            this.mReallyStopped = false;
-            this.mHandler.removeMessages(1);
-            if (!this.mCreated) {
-                this.mCreated = true;
-                this.mFragments.c();
+            this.e = false;
+            this.f = false;
+            this.a.removeMessages(1);
+            if (!this.c) {
+                this.c = true;
+                this.b.c();
             }
-            this.mFragments.A();
-            this.mFragments.v();
-            this.mFragments.s();
-            this.mFragments.p();
-            this.mFragments.C();
+            this.b.z();
+            this.b.v();
+            this.b.s();
+            this.b.p();
+            this.b.B();
         }
     }
 
     @Override // android.app.Activity
     public void onStateNotSaved() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
-            this.mFragments.A();
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+            this.b.z();
         }
     }
 
     @Override // android.app.Activity
     public void onStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
             super.onStop();
-            this.mStopped = true;
-            this.mHandler.sendEmptyMessage(1);
-            this.mFragments.q();
+            this.e = true;
+            this.a.sendEmptyMessage(1);
+            this.b.q();
         }
     }
 
-    public void setEnterSharedElementCallback(id4 id4Var) {
+    public void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, id4Var) == null) {
-            pc4.h(this, id4Var);
+        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+            this.b.o();
         }
     }
 
-    public void setExitSharedElementCallback(id4 id4Var) {
+    public Object q() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, id4Var) == null) {
-            pc4.i(this, id4Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            return null;
         }
+        return invokeV.objValue;
     }
 
-    @Override // android.app.Activity
-    public void startActivityForResult(Intent intent, int i) {
+    public final void r(Fragment fragment, String[] strArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048612, this, intent, i) == null) {
-            if (i != -1 && ((-65536) & i) != 0) {
-                throw new IllegalArgumentException("Can only use lower 16 bits for requestCode");
+        if (interceptable == null || interceptable.invokeLLI(1048607, this, fragment, strArr, i) == null) {
+            if (i == -1) {
+                ad4.requestPermissions(this, strArr, i);
+            } else if ((i & (-256)) == 0) {
+                this.i = true;
+                ad4.requestPermissions(this, strArr, ((fragment.f + 1) << 8) + (i & 255));
+            } else {
+                throw new IllegalArgumentException("Can only use lower 8 bits for requestCode");
             }
-            super.startActivityForResult(intent, i);
         }
     }
 
-    public void startActivityFromFragment(Fragment fragment, Intent intent, int i) {
+    public void s(Fragment fragment, Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048613, this, fragment, intent, i) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048608, this, fragment, intent, i) == null) {
             if (i == -1) {
                 super.startActivityForResult(intent, -1);
             } else if (((-65536) & i) == 0) {
@@ -829,52 +773,44 @@ public class FragmentActivity extends wc4 implements pc4.b, rc4.a {
         }
     }
 
-    public void supportFinishAfterTransition() {
+    @Override // android.app.Activity
+    public void startActivityForResult(Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
-            pc4.f(this);
+        if (interceptable == null || interceptable.invokeLI(1048609, this, intent, i) == null) {
+            if (i != -1 && ((-65536) & i) != 0) {
+                throw new IllegalArgumentException("Can only use lower 16 bits for requestCode");
+            }
+            super.startActivityForResult(intent, i);
         }
     }
 
-    public void supportInvalidateOptionsMenu() {
+    public void t() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
+            ad4.e(this);
+        }
+    }
+
+    public void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
             if (Build.VERSION.SDK_INT >= 11) {
-                sc4.a(this);
+                dd4.a(this);
             } else {
-                this.mOptionsMenuInvalidated = true;
+                this.h = true;
             }
         }
     }
 
-    public void supportPostponeEnterTransition() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
-            pc4.g(this);
-        }
-    }
-
-    public void supportStartPostponedEnterTransition() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
-            pc4.k(this);
-        }
-    }
-
-    @Override // com.repackage.rc4.a
+    @Override // com.repackage.cd4.a
     public final void validateRequestPermissionsRequestCode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048618, this, i) == null) {
-            if (this.mRequestedPermissionsFromFragment) {
-                this.mRequestedPermissionsFromFragment = false;
+        if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
+            if (this.i) {
+                this.i = false;
             } else if ((i & (-256)) != 0) {
                 throw new IllegalArgumentException("Can only use lower 8 bits for requestCode");
             }
         }
-    }
-
-    @Override // com.repackage.vc4, android.app.Activity, android.view.LayoutInflater.Factory
-    public /* bridge */ /* synthetic */ View onCreateView(String str, Context context, AttributeSet attributeSet) {
-        return super.onCreateView(str, context, attributeSet);
     }
 }

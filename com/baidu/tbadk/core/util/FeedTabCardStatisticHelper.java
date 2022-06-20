@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lo4;
-import com.repackage.tc5;
+import com.repackage.id5;
+import com.repackage.vo4;
 /* loaded from: classes3.dex */
 public class FeedTabCardStatisticHelper {
     public static /* synthetic */ Interceptable $ic = null;
@@ -62,7 +62,7 @@ public class FeedTabCardStatisticHelper {
                 baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM4, threadData.getBaijiahaoData().oriUgcNid);
             }
             baseThreadStatisticLog.param(TiebaStatic.Params.IS_FULL, threadData.isShowFullThread() ? 1 : 0);
-            baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_TO, tc5.c() ? 1 : 2);
+            baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_TO, id5.c() ? 1 : 2);
             return baseThreadStatisticLog;
         }
         return (StatisticItem) invokeLL.objValue;
@@ -98,15 +98,15 @@ public class FeedTabCardStatisticHelper {
         return (StatisticItem) invokeLL.objValue;
     }
 
-    public static StatisticItem clickThreadNEGFeedbackStatisticLog(lo4 lo4Var, String str) {
+    public static StatisticItem clickThreadNEGFeedbackStatisticLog(vo4 vo4Var, String str) {
         InterceptResult invokeLL;
         StatisticItem statisticItem;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, lo4Var, str)) == null) {
-            if (lo4Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, vo4Var, str)) == null) {
+            if (vo4Var == null) {
                 return null;
             }
-            int i = lo4Var.o;
+            int i = vo4Var.o;
             if (i != 2 && i != 6 && i != 8) {
                 statisticItem = new StatisticItem(KEY_TAB_FEED_PICTURE_TEXT_THREAD_NEG_FEEDBACK_CLICK);
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, 1);
@@ -115,8 +115,8 @@ public class FeedTabCardStatisticHelper {
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, 2);
             }
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("tid", lo4Var.f());
-            statisticItem.param("fid", lo4Var.c());
+            statisticItem.param("tid", vo4Var.f());
+            statisticItem.param("fid", vo4Var.c());
             statisticItem.param(TiebaStatic.Params.RESOURCE_ID, str);
             return statisticItem;
         }

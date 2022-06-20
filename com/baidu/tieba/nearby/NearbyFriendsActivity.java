@@ -11,18 +11,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jk7;
-import com.repackage.kk7;
-import com.repackage.y05;
-import com.repackage.z05;
+import com.repackage.n15;
+import com.repackage.o15;
+import com.repackage.ul7;
+import com.repackage.vl7;
 /* loaded from: classes3.dex */
 public class NearbyFriendsActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CustomMessageListener mCompleteInfoListener;
-    public CustomMessageListener mLocalInputListener;
-    public NearbyFriendsModel mModel;
-    public jk7 mView;
+    public ul7 a;
+    public NearbyFriendsModel b;
+    public CustomMessageListener c;
+    public CustomMessageListener d;
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -55,8 +55,8 @@ public class NearbyFriendsActivity extends BaseFragmentActivity {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue() && this.a.mView != null) {
-                this.a.mView.i();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue() && this.a.a != null) {
+                this.a.a.k();
             }
         }
     }
@@ -95,12 +95,12 @@ public class NearbyFriendsActivity extends BaseFragmentActivity {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null) {
                 return;
             }
-            z05 z05Var = customResponsedMessage.getData() instanceof z05 ? (z05) customResponsedMessage.getData() : null;
-            if (z05Var == null || z05Var.b() != 1) {
+            o15 o15Var = customResponsedMessage.getData() instanceof o15 ? (o15) customResponsedMessage.getData() : null;
+            if (o15Var == null || o15Var.b() != 1) {
                 return;
             }
             NearbyFriendsActivity nearbyFriendsActivity = this.a;
-            new y05(nearbyFriendsActivity, nearbyFriendsActivity.findViewById(R.id.obfuscated_res_0x7f09150a), z05Var).m();
+            new n15(nearbyFriendsActivity, nearbyFriendsActivity.findViewById(R.id.obfuscated_res_0x7f0914fc), o15Var).m();
         }
     }
 
@@ -118,23 +118,11 @@ public class NearbyFriendsActivity extends BaseFragmentActivity {
         }
     }
 
-    private void initListeners() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            a aVar = new a(this, 2921651);
-            this.mCompleteInfoListener = aVar;
-            registerListener(aVar);
-            b bVar = new b(this, 2921654);
-            this.mLocalInputListener = bVar;
-            registerListener(bVar);
-        }
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.mView.h(i);
+            this.a.j(i);
         }
     }
 
@@ -144,14 +132,14 @@ public class NearbyFriendsActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0043);
-            initListeners();
-            kk7 kk7Var = new kk7(this);
-            this.mView = kk7Var;
-            NearbyFriendsModel nearbyFriendsModel = new NearbyFriendsModel(kk7Var, getUniqueId());
-            this.mModel = nearbyFriendsModel;
-            nearbyFriendsModel.G(getIntent());
-            this.mView.l(this.mModel);
-            this.mView.onCreate();
+            r0();
+            vl7 vl7Var = new vl7(this);
+            this.a = vl7Var;
+            NearbyFriendsModel nearbyFriendsModel = new NearbyFriendsModel(vl7Var, getUniqueId());
+            this.b = nearbyFriendsModel;
+            nearbyFriendsModel.H(getIntent());
+            this.a.o(this.b);
+            this.a.onCreate();
         }
     }
 
@@ -160,8 +148,8 @@ public class NearbyFriendsActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            this.mView.onDestroy();
-            this.mModel.onDestroy();
+            this.a.onDestroy();
+            this.b.onDestroy();
         }
     }
 
@@ -169,7 +157,19 @@ public class NearbyFriendsActivity extends BaseFragmentActivity {
     public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.mView.d();
+            this.a.d();
+        }
+    }
+
+    public final void r0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            a aVar = new a(this, 2921651);
+            this.c = aVar;
+            registerListener(aVar);
+            b bVar = new b(this, 2921654);
+            this.d = bVar;
+            registerListener(bVar);
         }
     }
 }

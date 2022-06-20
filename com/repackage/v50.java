@@ -1,31 +1,31 @@
 package com.repackage;
 
 import android.content.Context;
-import android.os.Build;
 import android.text.TextUtils;
-import android.util.DisplayMetrics;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader;
-import com.baidu.searchbox.logsystem.basic.upload.identity.NetworkParam;
+import com.baidu.searchbox.logsystem.basic.upload.ContentUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import com.repackage.w50;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class v50 implements t50, u50 {
+public class v50 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile v50 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
+    public int a;
+    public String b;
+    public Context c;
+    public boolean d;
 
-    public v50(Context context) {
+    public v50() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,104 +35,104 @@ public final class v50 implements t50, u50 {
                 return;
             }
         }
-        this.a = context;
+        this.b = "";
     }
 
-    @Override // com.repackage.t50
-    public final String a() {
+    public static v50 d() {
         InterceptResult invokeV;
-        Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = r50.d().c() != y50.a ? "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox" : "https://tcbox.baidu.com/ztbox";
-            StringBuilder sb = new StringBuilder();
-            sb.append(str);
-            sb.append("?");
-            StringBuilder sb2 = new StringBuilder();
-            sb2.append("action=zubc");
-            sb2.append("&appname=imsdk");
-            sb2.append("&uid=");
-            sb2.append(r50.d().a());
-            sb2.append("&ua=");
-            Context context = this.a;
-            DisplayMetrics a = d60.a(context);
-            int i = a != null ? a.widthPixels : 0;
-            DisplayMetrics a2 = d60.a(context);
-            int i2 = a2 != null ? a2.heightPixels : 0;
-            DisplayMetrics a3 = d60.a(context);
-            int i3 = a3 != null ? a3.densityDpi : 0;
-            sb2.append(i + "_" + i2 + "_android_" + d60.b(context) + "_" + i3);
-            sb2.append("&ut=");
-            String str2 = Build.MODEL;
-            String replace = TextUtils.isEmpty(str2) ? "NUL" : str2.replace("_", "-");
-            String str3 = Build.VERSION.RELEASE;
-            String replace2 = TextUtils.isEmpty(str3) ? "0.0" : str3.replace("_", "-");
-            int i4 = Build.VERSION.SDK_INT;
-            String str4 = Build.MANUFACTURER;
-            sb2.append(replace + "_" + replace2 + "_" + i4 + "_" + (TextUtils.isEmpty(str4) ? "NUL" : str4.replace("_", "-")));
-            sb2.append("&network=");
-            b60 b60Var = new b60(this.a);
-            boolean isEmpty = TextUtils.isEmpty(b60Var.a);
-            String str5 = NetworkParam.NET_TYPE_ID_DISCONNECT;
-            if (!isEmpty && (num = b60.c.get(b60Var.a)) != null) {
-                str5 = num + "_" + b60Var.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (e == null) {
+                synchronized (v50.class) {
+                    if (e == null) {
+                        e = new v50();
+                    }
+                }
             }
-            if (str5 == null) {
-                str5 = "unknown";
+            return e;
+        }
+        return (v50) invokeV.objValue;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.booleanValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public void e(Context context, String str, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            this.b = str;
+            if (context != null) {
+                this.c = context.getApplicationContext();
             }
-            sb2.append(str5);
-            sb2.append("&appversion=");
-            sb2.append(d60.b(this.a));
-            if (r50.d().c() != y50.a) {
-                sb2.append("&debug=1");
+            this.a = i;
+            this.d = z;
+        }
+    }
+
+    public void f(JSONArray jSONArray, boolean z, boolean z2, boolean z3) {
+        byte[] a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{jSONArray, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+            if (TextUtils.isEmpty(this.b) || this.c == null || jSONArray == null || jSONArray.length() == 0) {
+                e60.a("IMLiteUBC", "cuid is empty or context null or upload json is null");
+                return;
             }
-            sb.append(sb2.toString());
-            return sb.toString();
+            Context context = this.c;
+            if (jSONArray == null || jSONArray.length() == 0) {
+                e60.a("UBCUploader", "upload json is null");
+                return;
+            }
+            e60.a("UBCUploader", "uploadjson:" + jSONArray.toString() + ", isReal:" + z + ", isSave:" + z2);
+            if (z2) {
+                e60.a("UBCUploader", "save ubcdata");
+                return;
+            }
+            JSONObject a2 = new b60(z, jSONArray).a();
+            if (a2 == null) {
+                e60.a("UBCUploader", "uploadJsonData is null");
+                return;
+            }
+            String jSONObject = a2.toString();
+            if (TextUtils.isEmpty(jSONObject)) {
+                a = null;
+            } else {
+                a = d60.a(jSONObject.getBytes());
+                if (a != null && a.length > 2) {
+                    a[0] = ContentUtil.GZIP_HEAD_1;
+                    a[1] = ContentUtil.GZIP_HEAD_2;
+                }
+            }
+            byte[] bArr = a;
+            if (bArr == null || bArr.length < 3) {
+                e60.a("UBCUploader", "uploadGzip is null or uploadGzip length<3");
+                return;
+            }
+            e60.a("UBCUploader", "gzip success, length:" + bArr.length);
+            e60.a("UBCUploader", "start execute http upload data");
+            z50 z50Var = new z50(context);
+            w50 a3 = w50.a(context);
+            if (context == null || TextUtils.isEmpty(z50Var.a())) {
+                z50Var.b(w50.d, Constants.ERROR_MSG_PARAMETER_ERROR.getBytes());
+            } else if (z3) {
+                a60.a().b(new w50.a(a3, z50Var, bArr, z50Var));
+            } else {
+                a3.e(z50Var.b(), z50Var.a(), bArr, z50Var.d(), z50Var.c(), z50Var);
+            }
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.u50
-    public final void a(int i, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
-            String str = new String(bArr);
-            a60.a("UBCRequest", "ubc upload errorcode:" + i + ", resultContent:" + str);
-        }
-    }
-
-    @Override // com.repackage.t50
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "POST" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.u50
-    public final void b(int i, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
-            String str = new String(bArr);
-            a60.a("UBCRequest", "ubc upload errorcode:" + i + ", resultContent:" + str);
-        }
-    }
-
-    @Override // com.repackage.t50
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "application/octet-stream" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.t50
-    public final Map<String, String> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put(BaseContentUploader.NB, "1");
-            return hashMap;
-        }
-        return (Map) invokeV.objValue;
     }
 }

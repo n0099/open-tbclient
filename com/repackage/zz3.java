@@ -1,27 +1,48 @@
 package com.repackage;
 
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class zz3 {
+public class zz3 extends yz3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile yz3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized yz3 a() {
-        InterceptResult invokeV;
-        yz3 yz3Var;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zz3(p03 p03Var) {
+        super(p03Var, "/swanAPI/hideShareMenu", "hideShareMenu");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (zz3.class) {
-                if (a == null) {
-                    a = new yz3();
-                }
-                yz3Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {p03Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((p03) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return yz3Var;
         }
-        return (yz3) invokeV.objValue;
+    }
+
+    @Override // com.repackage.yz3
+    public boolean k(@NonNull b04 b04Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, b04Var, unitedSchemeEntity, callbackHandler)) == null) {
+            b04Var.a();
+            j(unitedSchemeEntity, callbackHandler);
+            return true;
+        }
+        return invokeLLL.booleanValue;
     }
 }

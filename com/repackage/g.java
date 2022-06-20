@@ -8,15 +8,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public i00 a;
-    public h00 b;
+    public m00 a;
+    public l00 b;
 
-    public g(i00 i00Var, g00 g00Var) {
+    public g(m00 m00Var, k00 k00Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {i00Var, g00Var};
+            Object[] objArr = {m00Var, k00Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,9 +26,9 @@ public class g {
                 return;
             }
         }
-        this.a = i00Var;
-        h00 h00Var = new h00();
-        this.b = h00Var;
-        h00Var.k(g00Var);
+        this.a = m00Var;
+        l00 l00Var = new l00();
+        this.b = l00Var;
+        l00Var.k(k00Var);
     }
 }

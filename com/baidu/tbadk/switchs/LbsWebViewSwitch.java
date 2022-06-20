@@ -6,9 +6,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xe;
+import com.repackage.af;
 /* loaded from: classes3.dex */
-public class LbsWebViewSwitch extends xe {
+public class LbsWebViewSwitch extends af {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LBS_WEBVIEW_SWITCH_KEY = "android_lbs_webview_open";
     public static final int TYPE_OFF = 0;
@@ -29,14 +29,14 @@ public class LbsWebViewSwitch extends xe {
         }
     }
 
-    @Override // com.repackage.xe
+    @Override // com.repackage.af
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    @Override // com.repackage.xe
+    @Override // com.repackage.af
     public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public class LbsWebViewSwitch extends xe {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.repackage.xe
+    @Override // com.repackage.af
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public class LbsWebViewSwitch extends xe {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.xe
+    @Override // com.repackage.af
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -66,14 +66,14 @@ public class LbsWebViewSwitch extends xe {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.xe
+    @Override // com.repackage.af
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? LBS_WEBVIEW_SWITCH_KEY : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.xe
+    @Override // com.repackage.af
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

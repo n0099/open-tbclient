@@ -1,21 +1,19 @@
 package com.repackage;
 
-import androidx.annotation.AnyThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.swan.apps.api.module.subscription.SubscribeHelper;
-import java.util.List;
-import java.util.Set;
+import com.baidu.swan.apps.SwanAppActivity;
 /* loaded from: classes6.dex */
 public interface pk1 {
-    String a();
+    void a(String str);
 
-    @AnyThread
-    void b(@NonNull String str, @NonNull Set<String> set, @NonNull SubscribeHelper.i iVar);
+    void b();
 
-    void c(@NonNull String str, bc2 bc2Var);
+    void c(String str);
 
-    void d(@NonNull String str, @NonNull List<String> list, @Nullable String str2, boolean z, bc2 bc2Var);
+    void d(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable pk2 pk2Var);
 
-    void e(String str, ds2 ds2Var);
+    void e(String str);
+
+    void f(String str);
 }

@@ -25,8 +25,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
-/* loaded from: classes3.dex */
+import com.repackage.pi;
+/* loaded from: classes4.dex */
 public class ShareDialogItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int g;
@@ -55,10 +55,10 @@ public class ShareDialogItemView extends LinearLayout {
                 return;
             }
         }
-        g = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds104);
-        h = li.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
-        i = li.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
-        j = li.f(TbadkCoreApplication.getInst(), R.dimen.T_X09);
+        g = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+        h = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
+        i = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
+        j = pi.f(TbadkCoreApplication.getInst(), R.dimen.T_X09);
         k = 1;
     }
 
@@ -223,7 +223,7 @@ public class ShareDialogItemView extends LinearLayout {
             setTag(Integer.valueOf(i2));
             this.b.setScaleType(ImageView.ScaleType.FIT_XY);
             TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0207).into(this.c);
-            this.b.K(str, 12, false);
+            this.b.J(str, 12, false);
             this.b.setIsRound(true);
             if (metaData.getItemType() == k) {
                 UtilHelper.showHeadImageViewBigVForStranger(this.b, metaData);

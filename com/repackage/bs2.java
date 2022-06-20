@@ -1,37 +1,46 @@
 package com.repackage;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
+import android.content.Context;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.page.model.SwanAppPageInfo;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Timer;
-import java.util.TimerTask;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bs2 extends vy1 {
+public class bs2 implements xk1, wk1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile bs2 b;
+    public static final String c;
+    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Timer M0;
+    public le3<SwanAppPageInfo> a;
 
     /* loaded from: classes5.dex */
-    public class a extends s02 {
+    public class a implements ne3<String, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bs2 c;
+        public final /* synthetic */ JSONObject a;
 
-        public a(bs2 bs2Var) {
+        public a(bs2 bs2Var, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bs2Var};
+                Object[] objArr = {bs2Var, jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,82 +50,31 @@ public class bs2 extends vy1 {
                     return;
                 }
             }
-            this.c = bs2Var;
+            this.a = jSONObject;
         }
 
-        @Override // com.repackage.s02, com.repackage.v02
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                hw1.k("SwanAppWxPayFragment", "onReceivedSslError:  statusCode = " + i);
-            }
-        }
-
-        @Override // com.repackage.s02, com.repackage.v02
-        public boolean b(String str) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ne3
+        /* renamed from: b */
+        public Boolean a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                if (str != null && str.startsWith("weixin://wap/pay")) {
-                    hw1.i("SwanAppWxPayFragment", " weixin  url:   " + str);
-                    a63.K("wechatH5Action", "intoPayment", 0);
-                    this.c.M0.cancel();
-                    this.c.M0 = null;
-                    vy1.X2();
-                    return false;
-                }
-                return super.b(str);
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // com.repackage.s02, com.repackage.v02
-        public void c(int i, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, str2) == null) {
-                String str3 = "onReceivedError:  failingUrl = " + str2 + " errorCode = " + i + " description = " + str;
-                hw1.k("SwanAppWxPayFragment", str3);
-                a63.H(false, "wechatH5Action", a63.m(str2, str3));
-            }
-        }
-
-        @Override // com.repackage.s02, com.repackage.v02
-        public void d(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                hw1.k("SwanAppWxPayFragment", "title: " + str);
-            }
-        }
-
-        @Override // com.repackage.s02, com.repackage.v02
-        public void e(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                hw1.k("SwanAppWxPayFragment", "url: " + str);
-            }
-        }
-
-        @Override // com.repackage.s02, com.repackage.v02
-        public void goBack() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                hw1.k("SwanAppWxPayFragment", "goBack: ");
-            }
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? Boolean.valueOf(TextUtils.isEmpty(this.a.optString(str))) : (Boolean) invokeL.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b extends TimerTask {
+    public class b implements ne3<String, T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bs2 a;
+        public final /* synthetic */ Object a;
 
-        public b(bs2 bs2Var) {
+        public b(bs2 bs2Var, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bs2Var};
+                Object[] objArr = {bs2Var, obj};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -126,87 +84,249 @@ public class bs2 extends vy1 {
                     return;
                 }
             }
-            this.a = bs2Var;
+            this.a = obj;
         }
 
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Type inference failed for: r1v0, types: [T, java.lang.Object] */
+        /* JADX WARN: Type inference failed for: r5v1, types: [T, java.lang.Object] */
+        @Override // com.repackage.ne3
+        /* renamed from: b */
+        public T a(String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                hw1.k("SwanAppWxPayFragment", " WeChat H5 pay redirect time out : ");
-                a63.K("wechatH5Action", "outOfTime", 0);
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.a : invokeL.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755816496, "Lcom/repackage/bs2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755816496, "Lcom/repackage/bs2;");
+                return;
             }
         }
+        boolean z = cg1.a;
+        c = zi2.n().a();
+        d = c + "_";
     }
 
     public bs2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.repackage.vy1, com.repackage.ny1
-    public void T1(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            super.T1(view2);
-            this.l0.setTitle(getResources().getString(R.string.obfuscated_res_0x7f0f01e5));
-            w2(false);
-        }
-    }
-
-    @Override // com.repackage.vy1
-    public void V2(FrameLayout frameLayout) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frameLayout) == null) {
-            frameLayout.addView((RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00dd, (ViewGroup) null), new RelativeLayout.LayoutParams(-1, -1));
-        }
-    }
-
-    @Override // com.repackage.vy1
-    public v02 Y2() {
+    public static bs2 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new a(this) : (v02) invokeV.objValue;
-    }
-
-    public Timer h3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            hw1.k("SwanAppWxPayFragment", " start WeChat H5 redirect timer start : ");
-            Timer timer = new Timer();
-            try {
-                timer.schedule(new b(this), 10000L);
-            } catch (Exception e) {
-                if (vy1.L0) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (bs2.class) {
+                    if (b == null) {
+                        b = new bs2();
+                    }
                 }
-                hw1.k("SwanAppWxPayFragment", e.getMessage());
             }
-            return timer;
+            return b;
         }
-        return (Timer) invokeV.objValue;
+        return (bs2) invokeV.objValue;
     }
 
-    @Override // com.repackage.vy1
-    public ql1 m() {
+    @Override // com.repackage.wk1
+    public void a(String str, tp2 tp2Var, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, tp2Var, context) == null) {
+            if (tp2Var != null && rz2.K().E()) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("type", "history");
+                    jSONObject.put("url", tp2Var.i());
+                    jSONObject.put("pageId", str);
+                    c(jSONObject, tp2Var);
+                    return;
+                } catch (JSONException e) {
+                    sw1.o("SwanAppPageInfoHelper", "onFragmentOpened: ret by catch:" + e + " trace:\n" + Log.getStackTraceString(e));
+                    return;
+                }
+            }
+            sw1.o("SwanAppPageInfoHelper", "onFragmentOpened: ret by pageParam is null or !hasAppOccupied");
+        }
+    }
+
+    @Override // com.repackage.xk1
+    public void b(sz2 sz2Var, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sz2Var, jSONObject) == null) {
+            c(jSONObject, null);
+        }
+    }
+
+    public final void c(@NonNull JSONObject jSONObject, @Nullable tp2 tp2Var) {
+        String i;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, tp2Var) == null) {
+            String optString = jSONObject.optString("type");
+            if (!d(optString)) {
+                sw1.o("SwanAppPageInfoHelper", "addPageHistory: ret by check type:" + optString);
+                return;
+            }
+            az1 g = g();
+            if (g == null) {
+                sw1.o("SwanAppPageInfoHelper", "addPageHistory: ret by null fragment");
+                return;
+            }
+            tp2 N1 = g.N1();
+            if (N1 == null) {
+                sw1.o("SwanAppPageInfoHelper", "addPageHistory: ret by null param");
+                return;
+            }
+            if (tp2Var == null) {
+                tp2Var = N1;
+            }
+            try {
+                i = tp2Var.i();
+                str = "";
+                if (TextUtils.isEmpty(i)) {
+                    i = "";
+                }
+                l(jSONObject, "url", i);
+                String optString2 = jSONObject.optString("url");
+                if (!TextUtils.isEmpty(optString2)) {
+                    str = optString2;
+                }
+            } catch (JSONException e) {
+                sw1.o("SwanAppPageInfoHelper", "addPageHistory: ret by catch:" + e + " trace:\n" + Log.getStackTraceString(e));
+            }
+            if (!str.startsWith(i)) {
+                sw1.o("SwanAppPageInfoHelper", "addPageHistory: ret by isNotSamePage\n    fragmentUrl = " + i + "\n        dataUrl = " + str);
+                return;
+            }
+            if (optString.startsWith(d)) {
+                optString = optString.substring(d.length());
+            }
+            jSONObject.put("type", optString);
+            l(jSONObject, "pageId", g.h0);
+            l(jSONObject, "scheme", c + "://swan/" + rz2.K().getAppId() + "/" + str);
+            pk2 f = f();
+            if (f != null) {
+                l(jSONObject, "appName", f.K());
+                l(jSONObject, "iconUrl", f.Q());
+                l(jSONObject, "appDesc", f.e1());
+            }
+            h(jSONObject);
+        }
+    }
+
+    public final boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? !TextUtils.isEmpty(str) && ("history".equals(str) || str.startsWith(d)) : invokeL.booleanValue;
+    }
+
+    public final pk2 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.M0 == null) {
-                this.M0 = h3();
+            sz2 b0 = sz2.b0();
+            if (b0 == null || b0.W() == null) {
+                return null;
             }
-            return b62.U().f0().i(getContext());
+            return b0.W();
         }
-        return (ql1) invokeV.objValue;
+        return (pk2) invokeV.objValue;
+    }
+
+    public final az1 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            bz1 V = fl2.U().V();
+            if (V == null) {
+                return null;
+            }
+            return V.o();
+        }
+        return (az1) invokeV.objValue;
+    }
+
+    public void h(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) {
+            if (!SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
+                i(new SwanAppPageInfo(jSONObject));
+                return;
+            }
+            m();
+            Bundle bundle = new Bundle();
+            bundle.putString("page_info", jSONObject.toString());
+            iw2.e().h(new kw2(24, bundle));
+        }
+    }
+
+    public void i(SwanAppPageInfo swanAppPageInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, swanAppPageInfo) == null) {
+            sw1.i("SwanAppPageInfoHelper", "notifyCallBackLocally: data = " + swanAppPageInfo);
+            le3<SwanAppPageInfo> le3Var = this.a;
+            if (le3Var != null) {
+                le3Var.a(swanAppPageInfo);
+            }
+        }
+    }
+
+    public final <T> JSONObject j(JSONObject jSONObject, String str, ne3<String, T> ne3Var, ne3<String, Boolean> ne3Var2) throws JSONException {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject, str, ne3Var, ne3Var2)) == null) {
+            if (ne3Var2.a(str).booleanValue()) {
+                jSONObject.put(str, ne3Var.a(str));
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeLLLL.objValue;
+    }
+
+    public final <T> JSONObject k(JSONObject jSONObject, String str, T t, ne3<String, Boolean> ne3Var) throws JSONException {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048585, this, jSONObject, str, t, ne3Var)) == null) {
+            j(jSONObject, str, new b(this, t), ne3Var);
+            return jSONObject;
+        }
+        return (JSONObject) invokeLLLL.objValue;
+    }
+
+    public final JSONObject l(JSONObject jSONObject, String str, String str2) throws JSONException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, jSONObject, str, str2)) == null) {
+            k(jSONObject, str, str2, new a(this, jSONObject));
+            return jSONObject;
+        }
+        return (JSONObject) invokeLLL.objValue;
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.a == null) {
+            return;
+        }
+        this.a = null;
     }
 }

@@ -1,171 +1,238 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.ContentUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
-import java.io.UnsupportedEncodingException;
-import org.apache.commons.codec.binary4util.BaseNCodec;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.SecureRandom;
+import java.security.spec.AlgorithmParameterSpec;
+import java.security.spec.MGF1ParameterSpec;
+import java.util.Locale;
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.spec.OAEPParameterSpec;
+import javax.crypto.spec.PSource;
 /* loaded from: classes7.dex */
 public final class xz {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[] a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public a00 c;
+    public byte[] d;
+    public int e;
+    public yz f;
+    public String g;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964022461, "Lcom/repackage/xz;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1964022461, "Lcom/repackage/xz;");
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1964022461, "Lcom/repackage/xz;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1964022461, "Lcom/repackage/xz;");
+        }
+    }
+
+    public xz() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        a = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, Cea608Decoder.CTRL_END_OF_CAPTION};
+        this.g = "SHA-1";
+        this.b = "PKCS1Padding";
     }
 
-    public static String a(byte[] bArr, String str) throws UnsupportedEncodingException {
-        InterceptResult invokeLL;
+    public void a(int i, yz yzVar, SecureRandom secureRandom) throws InvalidKeyException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, str)) == null) {
-            int length = (bArr.length * 4) / 3;
-            byte[] bArr2 = new byte[length + (length / 76) + 3];
-            int length2 = bArr.length - (bArr.length % 3);
-            int i = 0;
-            int i2 = 0;
-            for (int i3 = 0; i3 < length2; i3 += 3) {
-                int i4 = i + 1;
-                byte[] bArr3 = a;
-                bArr2[i] = bArr3[(bArr[i3] & 255) >> 2];
-                int i5 = i4 + 1;
-                int i6 = i3 + 1;
-                bArr2[i4] = bArr3[((bArr[i3] & 3) << 4) | ((bArr[i6] & 255) >> 4)];
-                int i7 = i5 + 1;
-                int i8 = i3 + 2;
-                bArr2[i5] = bArr3[((bArr[i6] & 15) << 2) | ((bArr[i8] & 255) >> 6)];
-                i = i7 + 1;
-                bArr2[i7] = bArr3[bArr[i8] & 63];
-                if ((i - i2) % 76 == 0 && i != 0) {
-                    bArr2[i] = 10;
-                    i2++;
-                    i++;
-                }
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i, yzVar, secureRandom) == null) {
+            try {
+                b(i, yzVar, secureRandom, null);
+            } catch (InvalidAlgorithmParameterException e) {
+                InvalidKeyException invalidKeyException = new InvalidKeyException("Wrong parameters");
+                invalidKeyException.initCause(e);
+                throw invalidKeyException;
             }
-            int length3 = bArr.length % 3;
-            if (length3 == 1) {
-                int i9 = i + 1;
-                byte[] bArr4 = a;
-                bArr2[i] = bArr4[(bArr[length2] & 255) >> 2];
-                int i10 = i9 + 1;
-                bArr2[i9] = bArr4[(bArr[length2] & 3) << 4];
-                int i11 = i10 + 1;
-                bArr2[i10] = BaseNCodec.PAD_DEFAULT;
-                i = i11 + 1;
-                bArr2[i11] = BaseNCodec.PAD_DEFAULT;
-            } else if (length3 == 2) {
-                int i12 = i + 1;
-                byte[] bArr5 = a;
-                bArr2[i] = bArr5[(bArr[length2] & 255) >> 2];
-                int i13 = i12 + 1;
-                int i14 = length2 + 1;
-                bArr2[i12] = bArr5[((bArr[i14] & 255) >> 4) | ((bArr[length2] & 3) << 4)];
-                int i15 = i13 + 1;
-                bArr2[i13] = bArr5[(bArr[i14] & 15) << 2];
-                i = i15 + 1;
-                bArr2[i15] = BaseNCodec.PAD_DEFAULT;
-            }
-            return new String(bArr2, 0, i, str);
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static byte[] b(byte[] bArr) {
-        InterceptResult invokeL;
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0030  */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x00c8  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void b(int i, yz yzVar, SecureRandom secureRandom, AlgorithmParameterSpec algorithmParameterSpec) throws InvalidKeyException, InvalidAlgorithmParameterException {
+        boolean z;
+        OAEPParameterSpec oAEPParameterSpec;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? c(bArr, bArr.length) : (byte[]) invokeL.objValue;
-    }
-
-    public static byte[] c(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        byte b;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, bArr, i)) == null) {
-            int i3 = (i / 4) * 3;
-            if (i3 == 0) {
-                return new byte[0];
-            }
-            byte[] bArr2 = new byte[i3];
-            int i4 = i;
-            int i5 = 0;
-            while (true) {
-                byte b2 = bArr[i4 - 1];
-                b = 10;
-                if (b2 != 10 && b2 != 13 && b2 != 32 && b2 != 9) {
-                    if (b2 != 61) {
-                        break;
+        if (interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), yzVar, secureRandom, algorithmParameterSpec}) != null) {
+            return;
+        }
+        if (i != 1) {
+            if (i != 2) {
+                if (i != 3) {
+                    if (i != 4) {
+                        throw new InvalidKeyException("Unknown mode: " + i);
                     }
-                    i5++;
                 }
-                i4--;
             }
-            int i6 = 0;
-            int i7 = 0;
-            int i8 = 0;
-            int i9 = 0;
-            while (i6 < i4) {
-                byte b3 = bArr[i6];
-                if (b3 != b && b3 != 13 && b3 != 32 && b3 != 9) {
-                    if (b3 >= 65 && b3 <= 90) {
-                        i2 = b3 - 65;
-                    } else if (b3 >= 97 && b3 <= 122) {
-                        i2 = b3 - 71;
-                    } else if (b3 >= 48 && b3 <= 57) {
-                        i2 = b3 + 4;
-                    } else if (b3 == 43) {
-                        i2 = 62;
-                    } else if (b3 != 47) {
-                        return null;
-                    } else {
-                        i2 = 63;
-                    }
-                    i8 = ((byte) i2) | (i8 << 6);
-                    if (i9 % 4 == 3) {
-                        int i10 = i7 + 1;
-                        bArr2[i7] = (byte) ((16711680 & i8) >> 16);
-                        int i11 = i10 + 1;
-                        bArr2[i10] = (byte) ((65280 & i8) >> 8);
-                        bArr2[i11] = (byte) (i8 & 255);
-                        i7 = i11 + 1;
-                    }
-                    i9++;
+            z = false;
+            if (yzVar instanceof yz) {
+                throw new InvalidKeyException("only support helios key");
+            }
+            this.a = z ? 1 : 4;
+            this.f = yzVar;
+            int a = wz.a(yzVar.a());
+            this.e = 0;
+            String str = this.b;
+            if (str == "NoPadding") {
+                if (algorithmParameterSpec != null) {
+                    throw new InvalidAlgorithmParameterException("Parameters not supported");
                 }
-                i6++;
-                b = 10;
-            }
-            if (i5 > 0) {
-                int i12 = i8 << (i5 * 6);
-                int i13 = i7 + 1;
-                bArr2[i7] = (byte) ((i12 & 16711680) >> 16);
-                if (i5 == 1) {
-                    i7 = i13 + 1;
-                    bArr2[i13] = (byte) ((i12 & 65280) >> 8);
+                this.c = a00.b(3, a, secureRandom);
+                this.d = new byte[a];
+                return;
+            } else if (str == "PKCS1Padding") {
+                if (algorithmParameterSpec != null) {
+                    throw new InvalidAlgorithmParameterException("Parameters not supported");
+                }
+                a00 b = a00.b(this.a > 2 ? 1 : 2, a, secureRandom);
+                this.c = b;
+                if (z) {
+                    this.d = new byte[b.a()];
+                    return;
                 } else {
-                    i7 = i13;
+                    this.d = new byte[a];
+                    return;
+                }
+            } else {
+                int i2 = this.a;
+                if (i2 == 3 || i2 == 4) {
+                    throw new InvalidKeyException("OAEP cannot be used to sign or verify signatures");
+                }
+                if (algorithmParameterSpec == null) {
+                    oAEPParameterSpec = new OAEPParameterSpec(this.g, "MGF1", MGF1ParameterSpec.SHA1, PSource.PSpecified.DEFAULT);
+                } else if (!(algorithmParameterSpec instanceof OAEPParameterSpec)) {
+                    throw new InvalidAlgorithmParameterException("Wrong Parameters for OAEP Padding");
+                } else {
+                    oAEPParameterSpec = (OAEPParameterSpec) algorithmParameterSpec;
+                }
+                a00 c = a00.c(4, a, secureRandom, oAEPParameterSpec);
+                this.c = c;
+                if (z) {
+                    this.d = new byte[c.a()];
+                    return;
+                } else {
+                    this.d = new byte[a];
+                    return;
                 }
             }
-            byte[] bArr3 = new byte[i7];
-            System.arraycopy(bArr2, 0, bArr3, 0, i7);
-            return bArr3;
         }
-        return (byte[]) invokeLI.objValue;
+        z = true;
+        if (yzVar instanceof yz) {
+        }
+    }
+
+    public final byte[] c() throws BadPaddingException, IllegalBlockSizeException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int i = this.e;
+            byte[] bArr = this.d;
+            if (i > bArr.length) {
+                throw new IllegalBlockSizeException("Data must not be longer than " + this.d.length + " bytes");
+            }
+            try {
+                int i2 = this.a;
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        if (i2 != 3) {
+                            if (i2 == 4) {
+                                return this.c.j(wz.e(wz.d(bArr, 0, i), this.f));
+                            }
+                            throw new AssertionError("Internal error");
+                        }
+                        throw new UnsupportedOperationException("only verify supported");
+                    }
+                    throw new UnsupportedOperationException("only verify supported");
+                }
+                return wz.e(this.c.g(bArr, 0, i), this.f);
+            } finally {
+                this.e = 0;
+            }
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    public byte[] d(byte[] bArr, int i, int i2) throws BadPaddingException, IllegalBlockSizeException {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i, i2)) == null) {
+            f(bArr, i, i2);
+            return c();
+        }
+        return (byte[]) invokeLII.objValue;
+    }
+
+    public void e(String str) throws NoSuchPaddingException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            String str2 = "NoPadding";
+            if (!str.equalsIgnoreCase("NoPadding")) {
+                str2 = "PKCS1Padding";
+                if (!str.equalsIgnoreCase("PKCS1Padding")) {
+                    String lowerCase = str.toLowerCase(Locale.ENGLISH);
+                    if (lowerCase.equals("oaeppadding")) {
+                        this.b = "OAEP";
+                        return;
+                    } else if (!lowerCase.startsWith("oaepwith") || !lowerCase.endsWith("andmgf1padding")) {
+                        throw new NoSuchPaddingException("Padding " + str + " not supported");
+                    } else {
+                        this.b = "OAEP";
+                        this.g = str.substring(8, str.length() - 14);
+                        throw new NoSuchPaddingException("MessageDigest not available for " + str);
+                    }
+                }
+            }
+            this.b = str2;
+        }
+    }
+
+    public final void f(byte[] bArr, int i, int i2) {
+        int i3;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLII(1048581, this, bArr, i, i2) == null) || i2 == 0 || bArr == null) {
+            return;
+        }
+        int i4 = this.e;
+        int i5 = i4 + i2;
+        byte[] bArr2 = this.d;
+        if (i5 > bArr2.length) {
+            i3 = bArr2.length + 1;
+        } else {
+            System.arraycopy(bArr, i, bArr2, i4, i2);
+            i3 = this.e + i2;
+        }
+        this.e = i3;
     }
 }

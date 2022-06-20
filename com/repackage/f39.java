@@ -1,49 +1,91 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.x29;
-import java.util.LinkedHashMap;
+import java.lang.ref.WeakReference;
+import java.util.Stack;
 /* loaded from: classes5.dex */
 public final class f39 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedHashMap<String, Long> a;
+    public Stack<WeakReference<Activity>> a;
 
     /* loaded from: classes5.dex */
-    public class a extends j39 {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final f39 a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ com.baidu.ubs.analytics.a.l a;
 
-        public a(f39 f39Var, com.baidu.ubs.analytics.a.l lVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f39Var, lVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-434578872, "Lcom/repackage/f39$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-434578872, "Lcom/repackage/f39$a;");
                     return;
                 }
             }
-            this.a = lVar;
+            a = new f39((byte) 0);
         }
+    }
 
-        @Override // com.repackage.j39
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                new p29().c(this.a);
+    public /* synthetic */ f39(byte b) {
+        this();
+    }
+
+    public final Stack<WeakReference<Activity>> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (Stack) invokeV.objValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < this.a.size(); i++) {
+                Activity activity = this.a.get(i).get();
+                if (activity != null) {
+                    sb.append(activity.getClass().getSimpleName());
+                    sb.append("->");
+                }
             }
+            return sb.length() > 0 ? sb.substring(0, sb.length() - 2) : "没有路径了";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void c(WeakReference<Activity> weakReference) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, weakReference) == null) {
+            this.a.add(weakReference);
+        }
+    }
+
+    public final void d(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            if (this.a != null) {
+                for (int i = 0; i < this.a.size(); i++) {
+                    if (this.a.get(i).get() == activity) {
+                        Stack<WeakReference<Activity>> stack = this.a;
+                        stack.remove(stack.get(i));
+                    }
+                }
+            }
+            b();
         }
     }
 
@@ -60,44 +102,6 @@ public final class f39 {
                 return;
             }
         }
-        this.a = new LinkedHashMap<>();
-    }
-
-    public final void a(String str) {
-        x29 x29Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
-        synchronized (this.a) {
-            Long remove = this.a.remove(str);
-            if (remove == null) {
-                return;
-            }
-            try {
-                lVar.setStartTime(String.valueOf(remove));
-                lVar.t(str);
-                lVar.z(String.valueOf(System.currentTimeMillis()));
-                x29Var = x29.a.a;
-                lVar.setPath(x29Var.b());
-                lVar.x(g39.f().I());
-            } catch (Exception e) {
-                p39.a(e.toString());
-                h39.b(e.toString());
-            }
-            i39.c(new a(this, lVar));
-        }
-    }
-
-    public final void b(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        synchronized (this.a) {
-            this.a.put(str, Long.valueOf(System.currentTimeMillis()));
-            String.valueOf(System.currentTimeMillis());
-        }
+        this.a = new Stack<>();
     }
 }

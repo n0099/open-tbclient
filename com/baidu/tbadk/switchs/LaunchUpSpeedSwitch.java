@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ys4;
+import com.repackage.ht4;
 /* loaded from: classes3.dex */
 public class LaunchUpSpeedSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic = null;
@@ -58,7 +58,7 @@ public class LaunchUpSpeedSwitch extends BaseNormalSwitch {
                 if (UbsABTestHelper.isLaunchUpA()) {
                     type = 0;
                 } else {
-                    type = ys4.k().l("key_launch_up_speed", 1);
+                    type = ht4.k().l("key_launch_up_speed", 1);
                 }
             }
             return type == 1;
@@ -66,7 +66,7 @@ public class LaunchUpSpeedSwitch extends BaseNormalSwitch {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.repackage.xe
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.repackage.af
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

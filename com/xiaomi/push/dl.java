@@ -1,63 +1,118 @@
 package com.xiaomi.push;
 
+import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
-import android.os.Build;
+import android.os.Bundle;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class dl {
+public class dl implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    public static void a(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, bArr) == null) || bArr.length < 2) {
-            return;
-        }
-        bArr[0] = 99;
-        bArr[1] = 100;
-    }
+    /* renamed from: a  reason: collision with other field name */
+    public String f220a;
+    public String b;
 
-    public static boolean a(Context context, String str, long j) {
-        InterceptResult invokeCommon;
+    public dl(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, str, Long.valueOf(j)})) == null) {
-            if (com.xiaomi.push.service.aq.a(context).a(hk.aY.a(), false)) {
-                return (Build.VERSION.SDK_INT < 29 || context.getApplicationInfo().targetSdkVersion < 29) && !ag.a(context, str, j);
-            }
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static byte[] a(String str, byte[] bArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, bArr)) == null) {
-            byte[] m218a = bj.m218a(str);
-            try {
-                a(m218a);
-                return h.a(m218a, bArr);
-            } catch (Exception unused) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (byte[]) invokeLL.objValue;
+        this.f220a = "";
+        this.a = context;
+        this.f220a = str;
     }
 
-    public static byte[] b(String str, byte[] bArr) {
-        InterceptResult invokeLL;
+    private void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, bArr)) == null) {
-            byte[] m218a = bj.m218a(str);
-            try {
-                a(m218a);
-                return h.b(m218a, bArr);
-            } catch (Exception unused) {
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeL(65537, this, str) == null) {
+            hr hrVar = new hr();
+            hrVar.a(str);
+            hrVar.a(System.currentTimeMillis());
+            hrVar.a(hl.s);
+            dt.a(this.a, hrVar);
         }
-        return (byte[]) invokeLL.objValue;
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityCreated(Activity activity, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityDestroyed(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityPaused(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            String localClassName = activity.getLocalClassName();
+            if (TextUtils.isEmpty(this.f220a) || TextUtils.isEmpty(localClassName)) {
+                return;
+            }
+            this.b = "";
+            if (!TextUtils.isEmpty("") && !TextUtils.equals(this.b, localClassName)) {
+                this.f220a = "";
+                return;
+            }
+            a(this.a.getPackageName() + "|" + localClassName + ":" + this.f220a + "," + String.valueOf(System.currentTimeMillis() / 1000));
+            this.f220a = "";
+            this.b = "";
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityResumed(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            if (TextUtils.isEmpty(this.b)) {
+                this.b = activity.getLocalClassName();
+            }
+            this.f220a = String.valueOf(System.currentTimeMillis() / 1000);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStarted(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStopped(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+        }
     }
 }

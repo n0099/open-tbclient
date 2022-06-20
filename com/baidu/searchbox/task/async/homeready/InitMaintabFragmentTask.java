@@ -34,8 +34,6 @@ public class InitMaintabFragmentTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             MessageManager.getInstance().registerStickyMode(2921616);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921616));
-            MessageManager.getInstance().registerStickyMode(2921617);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921617));
         }
     }
 

@@ -1,40 +1,123 @@
 package com.repackage;
 
-import android.graphics.Rect;
-import androidx.core.view.InputDeviceCompat;
-import androidx.lifecycle.MutableLiveData;
+import android.content.Context;
+import android.content.DialogInterface;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.R;
+import com.baidu.tieba.pb.pb.report.UEGReportResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
 /* loaded from: classes7.dex */
-public class rw7 {
+public class rw7 implements yn8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kp7 a;
-    public kp7 b;
-    public boolean c;
-    public MutableLiveData<ThreadData> d;
-    public Rect e;
-    public boolean f;
-    public String g;
-    public LinkedList<kp7> h;
-    public MutableLiveData<ThreadData> i;
-    public MutableLiveData<ThreadData> j;
-    public MutableLiveData<Boolean> k;
-    public MutableLiveData<Boolean> l;
-    public MutableLiveData<Boolean> m;
-    public MutableLiveData<Integer> n;
+    public Context a;
+    public BdUniqueId b;
+    public sw7 c;
+    public jt4 d;
+    public lt4 e;
+    public HttpMessageListener f;
 
-    public rw7() {
+    /* loaded from: classes7.dex */
+    public class a implements DialogInterface.OnCancelListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rw7 a;
+
+        public a(rw7 rw7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rw7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rw7Var;
+        }
+
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                MessageManager.getInstance().removeMessage(this.a.b);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rw7 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(rw7 rw7Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rw7Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rw7Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof UEGReportResponsedMessage)) {
+                if (this.a.d != null) {
+                    this.a.d.h(false);
+                }
+                UEGReportResponsedMessage uEGReportResponsedMessage = (UEGReportResponsedMessage) httpResponsedMessage;
+                String url = uEGReportResponsedMessage.getUrl();
+                if (!StringUtils.isNull(url)) {
+                    this.a.i(url);
+                    return;
+                }
+                String errorString = uEGReportResponsedMessage.getErrorString();
+                if (StringUtils.isNull(errorString)) {
+                    errorString = this.a.a.getString(R.string.obfuscated_res_0x7f0f0c37);
+                }
+                this.a.e.b(errorString);
+            }
+        }
+    }
+
+    public rw7(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,185 +127,65 @@ public class rw7 {
                 return;
             }
         }
-        this.d = new MutableLiveData<>();
-        this.h = new LinkedList<>();
-        this.i = new MutableLiveData<>();
-        this.j = new MutableLiveData<>();
-        this.k = new MutableLiveData<>();
-        this.l = new MutableLiveData<>();
-        new MutableLiveData();
-        this.m = new MutableLiveData<>();
-        this.n = new MutableLiveData<>();
+        this.f = new b(this, CmdConfigHttp.CMD_UEG_REPORT);
+        this.a = context;
+        this.c = new sw7();
+        lt4 lt4Var = new lt4();
+        this.e = lt4Var;
+        lt4Var.a = 1000L;
     }
 
-    public MutableLiveData<Integer> a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.yn8
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.n : (MutableLiveData) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            j();
+            this.c.a(str);
+        }
     }
 
-    public kp7 b() {
-        InterceptResult invokeV;
+    @Override // com.repackage.yn8
+    public void b(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (kp7) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdUniqueId) == null) {
+            this.b = bdUniqueId;
+            this.c.c(bdUniqueId);
+            this.f.setTag(bdUniqueId);
+            this.f.setSelfListener(true);
+            MessageManager.getInstance().registerListener(this.f);
+        }
     }
 
-    public kp7 c() {
-        InterceptResult invokeV;
+    @Override // com.repackage.yn8
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (kp7) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            j();
+            this.c.b(str);
+        }
     }
 
-    public MutableLiveData<Boolean> d() {
-        InterceptResult invokeV;
+    public final void i(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.k : (MutableLiveData) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.a, this.a.getString(R.string.obfuscated_res_0x7f0f0dfb), str, true)));
+        }
     }
 
-    public MutableLiveData<Boolean> e() {
-        InterceptResult invokeV;
+    public final void j() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.l : (MutableLiveData) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.g : (String) invokeV.objValue;
-    }
-
-    public MutableLiveData<ThreadData> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.j : (MutableLiveData) invokeV.objValue;
-    }
-
-    public Rect h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.e : (Rect) invokeV.objValue;
-    }
-
-    public MutableLiveData<ThreadData> i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.i : (MutableLiveData) invokeV.objValue;
-    }
-
-    public MutableLiveData<ThreadData> j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.d : (MutableLiveData) invokeV.objValue;
-    }
-
-    public LinkedList<kp7> k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.h : (LinkedList) invokeV.objValue;
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f : invokeV.booleanValue;
-    }
-
-    public MutableLiveData<Boolean> n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.m : (MutableLiveData) invokeV.objValue;
-    }
-
-    public void o(kp7 kp7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, kp7Var) == null) {
-            this.b = kp7Var;
-            if (kp7Var != null) {
-                this.d.setValue(kp7Var.O());
-                if (ListUtils.isEmpty(kp7Var.f())) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.d == null) {
+                d9<?> a2 = h9.a(this.a);
+                TbPageContext tbPageContext = a2 instanceof TbPageContext ? (TbPageContext) a2 : null;
+                if (tbPageContext == null) {
                     return;
                 }
-                w(kp7Var.f().get(0));
+                jt4 jt4Var = new jt4(tbPageContext);
+                this.d = jt4Var;
+                jt4Var.e(new a(this));
             }
-        }
-    }
-
-    public void p(kp7 kp7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, kp7Var) == null) {
-            this.a = kp7Var;
-            o(kp7Var);
-            this.i.setValue(null);
-            this.d.setValue(kp7Var.O());
-        }
-    }
-
-    public void q(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public void r(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            this.k.setValue(Boolean.valueOf(z));
-        }
-    }
-
-    public void s(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            this.m.setValue(Boolean.valueOf(z));
-        }
-    }
-
-    public void t(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.l.postValue(Boolean.valueOf(z));
-        }
-    }
-
-    public void u(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            this.f = z;
-        }
-    }
-
-    public void v(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
-            this.g = str;
-        }
-    }
-
-    public void w(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, threadData) == null) {
-            this.j.setValue(threadData);
-        }
-    }
-
-    public void x(Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, rect) == null) {
-            this.e = rect;
-        }
-    }
-
-    public void y(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, threadData) == null) {
-            this.i.setValue(threadData);
+            this.d.h(true);
         }
     }
 }

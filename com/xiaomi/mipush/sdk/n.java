@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.xiaomi.push.bh;
+import com.xiaomi.push.bk;
 /* loaded from: classes8.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic = null;
@@ -32,17 +32,17 @@ public class n {
         }
     }
 
-    public static af a(Context context) {
+    public static ag a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
-                return (context.getPackageManager().getServiceInfo(new ComponentName("com.huawei.hwid", "com.huawei.hms.core.service.HMSCoreService"), 128) == null || !a()) ? af.f : af.a;
+                return (context.getPackageManager().getServiceInfo(new ComponentName("com.huawei.hwid", "com.huawei.hms.core.service.HMSCoreService"), 128) == null || !a()) ? ag.f : ag.a;
             } catch (Exception unused) {
-                return af.f;
+                return ag.f;
             }
         }
-        return (af) invokeL.objValue;
+        return (ag) invokeL.objValue;
     }
 
     public static boolean a() {
@@ -50,7 +50,7 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             try {
-                String str = (String) bh.a("android.os.SystemProperties", SharedPreferenceManager.OPERATION_GET_PERFIX, "ro.build.hw_emui_api_level", "");
+                String str = (String) bk.a("android.os.SystemProperties", SharedPreferenceManager.OPERATION_GET_PERFIX, "ro.build.hw_emui_api_level", "");
                 if (!TextUtils.isEmpty(str)) {
                     if (Integer.parseInt(str) >= 9) {
                         return true;
@@ -65,12 +65,12 @@ public class n {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m174a(Context context) {
+    public static boolean m154a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            Object a2 = bh.a(bh.a("com.google.android.gms.common.GoogleApiAvailability", "getInstance", new Object[0]), "isGooglePlayServicesAvailable", context);
-            Object a3 = bh.a("com.google.android.gms.common.ConnectionResult", "SUCCESS");
+            Object a2 = bk.a(bk.a("com.google.android.gms.common.GoogleApiAvailability", "getInstance", new Object[0]), "isGooglePlayServicesAvailable", context);
+            Object a3 = bk.a("com.google.android.gms.common.ConnectionResult", "SUCCESS");
             if (a3 == null || !(a3 instanceof Integer)) {
                 com.xiaomi.channel.commonutils.logger.b.c("google service is not avaliable");
                 a = 0;
@@ -99,7 +99,7 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             boolean z = false;
-            Object a2 = bh.a("com.xiaomi.assemble.control.COSPushManager", "isSupportPush", context);
+            Object a2 = bk.a("com.xiaomi.assemble.control.COSPushManager", "isSupportPush", context);
             if (a2 != null && (a2 instanceof Boolean)) {
                 z = ((Boolean) Boolean.class.cast(a2)).booleanValue();
             }
@@ -114,7 +114,7 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             boolean z = false;
-            Object a2 = bh.a("com.xiaomi.assemble.control.FTOSPushManager", "isSupportPush", context);
+            Object a2 = bk.a("com.xiaomi.assemble.control.FTOSPushManager", "isSupportPush", context);
             if (a2 != null && (a2 instanceof Boolean)) {
                 z = ((Boolean) Boolean.class.cast(a2)).booleanValue();
             }

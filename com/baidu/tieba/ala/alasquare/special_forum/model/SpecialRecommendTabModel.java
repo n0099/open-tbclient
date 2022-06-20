@@ -21,12 +21,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hq5;
-import com.repackage.ji;
-import com.repackage.jn;
-import com.repackage.li;
-import com.repackage.op5;
-import com.repackage.pm5;
+import com.repackage.gr5;
+import com.repackage.ni;
+import com.repackage.nn;
+import com.repackage.nn5;
+import com.repackage.nq5;
+import com.repackage.pi;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -38,7 +38,7 @@ public class SpecialRecommendTabModel extends BdBaseModel {
     public int a;
     public TbPageContext b;
     public b c;
-    public List<jn> d;
+    public List<nn> d;
     public List<ThreadData> e;
     public long f;
     public int g;
@@ -74,7 +74,7 @@ public class SpecialRecommendTabModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            op5 op5Var;
+            nq5 nq5Var;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021095 && (httpResponsedMessage instanceof AlaSpecialRecommendResponse)) {
                 AlaSpecialRecommendResponse alaSpecialRecommendResponse = (AlaSpecialRecommendResponse) httpResponsedMessage;
@@ -86,14 +86,14 @@ public class SpecialRecommendTabModel extends BdBaseModel {
                     }
                     boolean z = alaSpecialRecommendResponse.hasMore;
                     if (ListUtils.getCount(alaSpecialRecommendResponse.livesList) > 0) {
-                        this.a.I(alaSpecialRecommendResponse.livesList);
+                        this.a.J(alaSpecialRecommendResponse.livesList);
                     }
                     SpecialRecommendTabModel specialRecommendTabModel = this.a;
-                    specialRecommendTabModel.F(specialRecommendTabModel.e);
-                    if (this.a.a == 0 && (op5Var = alaSpecialRecommendResponse.mSpecialActivityListData) != null) {
-                        this.a.G(op5Var);
+                    specialRecommendTabModel.G(specialRecommendTabModel.e);
+                    if (this.a.a == 0 && (nq5Var = alaSpecialRecommendResponse.mSpecialActivityListData) != null) {
+                        this.a.H(nq5Var);
                     }
-                    SpecialRecommendTabModel.z(this.a);
+                    SpecialRecommendTabModel.A(this.a);
                     if (this.a.c != null) {
                         this.a.c.b(this.a.d, z);
                     }
@@ -108,7 +108,7 @@ public class SpecialRecommendTabModel extends BdBaseModel {
     public interface b {
         void a(int i, String str);
 
-        void b(List<jn> list, boolean z);
+        void b(List<nn> list, boolean z);
     }
 
     public SpecialRecommendTabModel(TbPageContext tbPageContext) {
@@ -135,13 +135,13 @@ public class SpecialRecommendTabModel extends BdBaseModel {
         MessageManager.getInstance().registerListener(this.h);
     }
 
-    public static /* synthetic */ int z(SpecialRecommendTabModel specialRecommendTabModel) {
+    public static /* synthetic */ int A(SpecialRecommendTabModel specialRecommendTabModel) {
         int i = specialRecommendTabModel.a;
         specialRecommendTabModel.a = i + 1;
         return i;
     }
 
-    public void F(List<ThreadData> list) {
+    public void G(List<ThreadData> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
@@ -149,52 +149,52 @@ public class SpecialRecommendTabModel extends BdBaseModel {
         this.d = new LinkedList();
         int size = list.size();
         for (int i = 0; i < size; i += 2) {
-            hq5 hq5Var = new hq5();
-            pm5 pm5Var = new pm5();
-            pm5Var.d = list.get(i);
-            hq5Var.a = pm5Var;
+            gr5 gr5Var = new gr5();
+            nn5 nn5Var = new nn5();
+            nn5Var.d = list.get(i);
+            gr5Var.a = nn5Var;
             int i2 = i + 1;
             if (i2 < size) {
-                pm5 pm5Var2 = new pm5();
-                pm5Var2.d = list.get(i2);
-                hq5Var.b = pm5Var2;
+                nn5 nn5Var2 = new nn5();
+                nn5Var2.d = list.get(i2);
+                gr5Var.b = nn5Var2;
             }
-            this.d.add(hq5Var);
+            this.d.add(gr5Var);
         }
     }
 
-    public final void G(op5 op5Var) {
+    public final void H(nq5 nq5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, op5Var) == null) || op5Var == null || ListUtils.isEmpty(op5Var.a)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nq5Var) == null) || nq5Var == null || ListUtils.isEmpty(nq5Var.a)) {
             return;
         }
         if (ListUtils.getCount(this.d) > 2) {
-            this.d.add(2, op5Var);
+            this.d.add(2, nq5Var);
         } else {
-            this.d.add(op5Var);
+            this.d.add(nq5Var);
         }
     }
 
-    public final void H(int i, int i2, int i3) {
+    public final void I(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3) == null) {
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_SPECIAL_RECOMMEND_TAB);
             httpMessage.addParam(Config.PACKAGE_NAME, i);
             httpMessage.addParam("tab_id", 1);
             String str = "N";
-            if (ji.z()) {
-                if (ji.H()) {
+            if (ni.z()) {
+                if (ni.H()) {
                     str = "1_0";
-                } else if (ji.v()) {
+                } else if (ni.v()) {
                     str = "0_13";
-                } else if (ji.u()) {
+                } else if (ni.u()) {
                     str = "0_3";
-                } else if (ji.t()) {
+                } else if (ni.t()) {
                     str = "0_2";
                 }
             }
             httpMessage.addParam("network", str);
-            httpMessage.addParam("ua_str", li.k(this.b.getPageActivity()) + "_" + li.i(this.b.getPageActivity()) + "_android_" + TbConfig.getVersion());
+            httpMessage.addParam("ua_str", pi.k(this.b.getPageActivity()) + "_" + pi.i(this.b.getPageActivity()) + "_android_" + TbConfig.getVersion());
             httpMessage.addParam("refresh_type", i2);
             httpMessage.addParam("session_id", this.f);
             httpMessage.addParam("big_refresh_count", i3);
@@ -202,7 +202,7 @@ public class SpecialRecommendTabModel extends BdBaseModel {
         }
     }
 
-    public final void I(List<ThreadData> list) {
+    public final void J(List<ThreadData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             for (ThreadData threadData : list) {
@@ -228,27 +228,27 @@ public class SpecialRecommendTabModel extends BdBaseModel {
         }
     }
 
-    public void J() {
+    public void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - this.f >= this.g * 30 * 1000) {
                 this.f = currentTimeMillis;
             }
-            H(this.a, 1, SpecialLiveFragment.U - 1);
+            I(this.a, 1, SpecialLiveFragment.U - 1);
         }
     }
 
-    public void K() {
+    public void L() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.a = 0;
             this.f = System.currentTimeMillis();
-            H(0, 0, SpecialLiveFragment.U);
+            I(0, 0, SpecialLiveFragment.U);
         }
     }
 
-    public void L(b bVar) {
+    public void M(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
             this.c = bVar;

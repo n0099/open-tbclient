@@ -316,7 +316,7 @@ public class Slide extends Visibility {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, transitionValues) == null) {
             int[] iArr = new int[2];
-            transitionValues.f980view.getLocationOnScreen(iArr);
+            transitionValues.f1020view.getLocationOnScreen(iArr);
             transitionValues.values.put(PROPNAME_SCREEN_POSITION, iArr);
         }
     }

@@ -1,29 +1,31 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.badlogic.gdx.utils.reflect.ReflectionException;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Field;
+import java.lang.reflect.GenericArrayType;
+import java.lang.reflect.Modifier;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 /* loaded from: classes7.dex */
-public class v8 {
+public final class v8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public final Field a;
 
-    public v8(File file) {
+    public v8(Field field) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {file};
+            Object[] objArr = {field};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,111 +35,120 @@ public class v8 {
                 return;
             }
         }
-        this.a = null;
-        this.a = file.getAbsolutePath();
+        this.a = field;
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public Object a(Object obj) throws ReflectionException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b() : invokeV.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            try {
+                return this.a.get(obj);
+            } catch (IllegalAccessException e) {
+                throw new ReflectionException("Illegal access to field: " + d(), e);
+            } catch (IllegalArgumentException e2) {
+                throw new ReflectionException("Object is not an instance of " + b(), e2);
+            }
+        }
+        return invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:54:0x0088 A[Catch: Exception -> 0x0084, TRY_LEAVE, TryCatch #6 {Exception -> 0x0084, blocks: (B:50:0x0080, B:54:0x0088), top: B:68:0x0080 }] */
-    /* JADX WARN: Removed duplicated region for block: B:68:0x0080 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final boolean b() {
+    public Class b() {
         InterceptResult invokeV;
-        FileInputStream fileInputStream;
-        Exception e;
-        ZipInputStream zipInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
-            return invokeV.booleanValue;
-        }
-        if (TextUtils.isEmpty(this.a)) {
-            return false;
-        }
-        ZipInputStream zipInputStream2 = null;
-        try {
-            fileInputStream = new FileInputStream(new File(this.a));
-        } catch (Exception e2) {
-            fileInputStream = null;
-            e = e2;
-            zipInputStream = null;
-        } catch (Throwable th) {
-            th = th;
-            fileInputStream = null;
-        }
-        try {
-            zipInputStream = new ZipInputStream(new BufferedInputStream(fileInputStream));
-            while (true) {
-                try {
-                    try {
-                        ZipEntry nextEntry = zipInputStream.getNextEntry();
-                        if (nextEntry == null) {
-                            try {
-                                zipInputStream.close();
-                                fileInputStream.close();
-                            } catch (Exception e3) {
-                                e3.printStackTrace();
-                            }
-                            return true;
-                        } else if (!nextEntry.isDirectory() && nextEntry.getName().contains("../")) {
-                            try {
-                                zipInputStream.close();
-                                fileInputStream.close();
-                            } catch (Exception e4) {
-                                e4.printStackTrace();
-                            }
-                            return false;
-                        }
-                    } catch (Exception e5) {
-                        e = e5;
-                        e.printStackTrace();
-                        if (zipInputStream != null) {
-                            try {
-                                zipInputStream.close();
-                            } catch (Exception e6) {
-                                e6.printStackTrace();
-                                return false;
-                            }
-                        }
-                        if (fileInputStream != null) {
-                            fileInputStream.close();
-                            return false;
-                        }
-                        return false;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.getDeclaringClass() : (Class) invokeV.objValue;
+    }
+
+    public Class c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            Type genericType = this.a.getGenericType();
+            if (genericType instanceof ParameterizedType) {
+                Type[] actualTypeArguments = ((ParameterizedType) genericType).getActualTypeArguments();
+                if (actualTypeArguments.length - 1 >= i) {
+                    Type type = actualTypeArguments[i];
+                    if (type instanceof Class) {
+                        return (Class) type;
                     }
-                } catch (Throwable th2) {
-                    th = th2;
-                    zipInputStream2 = zipInputStream;
-                    if (zipInputStream2 != null) {
-                        try {
-                            zipInputStream2.close();
-                        } catch (Exception e7) {
-                            e7.printStackTrace();
-                            throw th;
+                    if (type instanceof ParameterizedType) {
+                        return (Class) ((ParameterizedType) type).getRawType();
+                    }
+                    if (type instanceof GenericArrayType) {
+                        Type genericComponentType = ((GenericArrayType) type).getGenericComponentType();
+                        if (genericComponentType instanceof Class) {
+                            return s8.a((Class) genericComponentType, 0).getClass();
                         }
+                        return null;
                     }
-                    if (fileInputStream != null) {
-                        fileInputStream.close();
-                    }
-                    throw th;
+                    return null;
                 }
+                return null;
             }
-        } catch (Exception e8) {
-            e = e8;
-            zipInputStream = null;
-        } catch (Throwable th3) {
-            th = th3;
-            if (zipInputStream2 != null) {
+            return null;
+        }
+        return (Class) invokeI.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.getName() : (String) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.isAccessible() : invokeV.booleanValue;
+    }
+
+    public boolean f(Class<? extends Annotation> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cls)) == null) ? this.a.isAnnotationPresent(cls) : invokeL.booleanValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? Modifier.isStatic(this.a.getModifiers()) : invokeV.booleanValue;
+    }
+
+    public Class getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a.getType() : (Class) invokeV.objValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a.isSynthetic() : invokeV.booleanValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? Modifier.isTransient(this.a.getModifiers()) : invokeV.booleanValue;
+    }
+
+    public void j(Object obj, Object obj2) throws ReflectionException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, obj, obj2) == null) {
+            try {
+                this.a.set(obj, obj2);
+            } catch (IllegalAccessException e) {
+                throw new ReflectionException("Illegal access to field: " + d(), e);
+            } catch (IllegalArgumentException e2) {
+                throw new ReflectionException("Argument not valid for field: " + d(), e2);
             }
-            if (fileInputStream != null) {
-            }
-            throw th;
+        }
+    }
+
+    public void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.a.setAccessible(z);
         }
     }
 }

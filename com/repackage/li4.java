@@ -1,91 +1,193 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.activeConfig.ActiveCenterData;
-import com.baidu.tbadk.core.data.NewUserRedPackageData;
+import android.app.Activity;
+import android.text.TextUtils;
+import android.view.MotionEvent;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.BdToken.completeTask.CompleteTaskToastData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import tbclient.ActiveConfig.DataRes;
-import tbclient.FloatStrategy;
-import tbclient.MissionInfo;
 /* loaded from: classes6.dex */
 public class li4 {
     public static /* synthetic */ Interceptable $ic;
+    public static View.OnClickListener a;
     public transient /* synthetic */ FieldHolder $fh;
-    public DataRes a;
-    public boolean b;
-    public String c;
-    public final ArrayList<lh4> d;
-    public final ArrayList<FloatStrategy> e;
-    public NewUserRedPackageData f;
-    public ActiveCenterData g;
 
-    public li4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            TbPageContext<?> d;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                Object tag = view2.getTag();
+                if (tag instanceof CompleteTaskToastData) {
+                    CompleteTaskToastData completeTaskToastData = (CompleteTaskToastData) tag;
+                    if (TextUtils.isEmpty(completeTaskToastData.url) || (d = li4.d()) == null) {
+                        return;
+                    }
+                    UrlManager.getInstance().dealOneLink(d, new String[]{completeTaskToastData.url});
+                    bj4.b(completeTaskToastData.activityId, completeTaskToastData.missionId);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755528134, "Lcom/repackage/li4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755528134, "Lcom/repackage/li4;");
                 return;
             }
         }
-        this.b = false;
-        this.c = "";
-        this.d = new ArrayList<>();
-        this.e = new ArrayList<>();
+        a = new a();
     }
 
-    public ArrayList<FloatStrategy> a() {
+    public static void a(MotionEvent motionEvent, int i, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{motionEvent, Integer.valueOf(i), Long.valueOf(j)}) == null) && motionEvent != null && motionEvent.getAction() == 0) {
+            g(i, j);
+        }
+    }
+
+    public static void b(int i, int i2, long j, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str}) == null) {
+            MissionEvent missionEvent = new MissionEvent();
+            missionEvent.tid = j;
+            missionEvent.pageId = i2;
+            missionEvent.pageType = i;
+            missionEvent.actionType = str;
+            p55.i(missionEvent);
+        }
+    }
+
+    public static void c(int i, long j, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Long.valueOf(j), str}) == null) {
+            MissionEvent missionEvent = new MissionEvent();
+            missionEvent.tid = j;
+            missionEvent.pageId = i;
+            missionEvent.actionType = str;
+            p55.i(missionEvent);
+        }
+    }
+
+    public static TbPageContext d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (ArrayList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (currentActivity instanceof BaseActivity) {
+                return ((BaseActivity) currentActivity).getPageContext();
+            }
+            if (currentActivity instanceof BaseFragmentActivity) {
+                return ((BaseFragmentActivity) currentActivity).getPageContext();
+            }
+            return null;
+        }
+        return (TbPageContext) invokeV.objValue;
     }
 
-    public ArrayList<lh4> b() {
+    public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? TbadkCoreApplication.getInst().isMainProcess(true) : invokeV.booleanValue;
     }
 
-    public void c(DataRes dataRes) {
+    public static void f(int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) == null) {
-            this.a = dataRes;
-            this.d.clear();
-            this.e.clear();
-            if (dataRes == null) {
-                return;
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (e()) {
+                wh4.w().E();
+            } else {
+                c(i, j, MissionEvent.MESSAGE_PAUSE);
             }
-            this.b = dataRes.is_new_user.intValue() == 1;
-            this.c = dataRes.active_url;
-            this.e.addAll(dataRes.float_list);
-            for (MissionInfo missionInfo : this.a.mission_list) {
-                if (missionInfo != null) {
-                    lh4 lh4Var = new lh4(missionInfo);
-                    if (missionInfo.tasktype.intValue() == 5) {
-                        ws4.e().g(missionInfo);
-                    } else if (missionInfo.tasktype.intValue() == 9) {
-                        zh4.c().f(lh4Var);
-                    } else if (lh4Var.K()) {
-                        this.d.add(lh4Var);
-                    }
-                }
+        }
+    }
+
+    public static void g(int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (e()) {
+                wh4.w().F();
+            } else {
+                c(i, j, MissionEvent.MESSAGE_TOUCH);
             }
-            NewUserRedPackageData newUserRedPackageData = new NewUserRedPackageData();
-            this.f = newUserRedPackageData;
-            newUserRedPackageData.parseProto(dataRes);
-            if (dataRes.active_center != null) {
-                ActiveCenterData activeCenterData = new ActiveCenterData();
-                this.g = activeCenterData;
-                activeCenterData.parseProto(dataRes);
+        }
+    }
+
+    public static void h(int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (e()) {
+                wh4.w().K(i, j);
+            } else {
+                c(i, j, MissionEvent.MESSAGE_ACTIVITY);
+            }
+        }
+    }
+
+    public static tq4 i(CompleteTaskToastData completeTaskToastData) {
+        InterceptResult invokeL;
+        TbPageContext d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, completeTaskToastData)) == null) {
+            if (completeTaskToastData == null || (d = d()) == null || d.getUniqueId() == null || completeTaskToastData.pageId != d.getUniqueId().getId()) {
+                return null;
+            }
+            tq4 f = tq4.f(d.getPageActivity(), completeTaskToastData.message);
+            f.g(completeTaskToastData.duration);
+            f.h(a);
+            f.i(completeTaskToastData);
+            f.j();
+            return f;
+        }
+        return (tq4) invokeL.objValue;
+    }
+
+    public static void j(int i, int i2, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+            if (e()) {
+                wh4.w().P(i, j);
+            } else {
+                b(i, i2, j, "onResume");
             }
         }
     }

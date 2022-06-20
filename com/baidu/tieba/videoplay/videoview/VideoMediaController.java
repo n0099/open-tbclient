@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
+import com.repackage.pi;
 /* loaded from: classes4.dex */
 public class VideoMediaController extends OperableVideoMediaControllerView {
     public static /* synthetic */ Interceptable $ic;
@@ -47,7 +47,7 @@ public class VideoMediaController extends OperableVideoMediaControllerView {
     public View f(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? View.inflate(context, R.layout.obfuscated_res_0x7f0d0864, null) : (View) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? View.inflate(context, R.layout.obfuscated_res_0x7f0d0863, null) : (View) invokeL.objValue;
     }
 
     @Override // com.baidu.tieba.play.VideoControllerView
@@ -84,22 +84,22 @@ public class VideoMediaController extends OperableVideoMediaControllerView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) getLayoutParams();
-            int f = li.f(getContext(), R.dimen.tbds126);
+            int f = pi.f(getContext(), R.dimen.tbds126);
             if (z2 && z) {
-                f = li.f(getContext(), R.dimen.tbds210);
+                f = pi.f(getContext(), R.dimen.tbds210);
             }
             layoutParams.height = f;
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
             RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.d.getLayoutParams();
-            layoutParams2.leftMargin = li.f(getContext(), (!z2 || z) ? R.dimen.tbds44 : R.dimen.tbds78);
-            layoutParams3.rightMargin = li.f(getContext(), (!z2 || z) ? R.dimen.tbds150 : R.dimen.tbds184);
+            layoutParams2.leftMargin = pi.f(getContext(), (!z2 || z) ? R.dimen.tbds44 : R.dimen.tbds78);
+            layoutParams3.rightMargin = pi.f(getContext(), (!z2 || z) ? R.dimen.tbds150 : R.dimen.tbds184);
         }
     }
 
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.o = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091666);
+            this.o = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091659);
         }
     }
 

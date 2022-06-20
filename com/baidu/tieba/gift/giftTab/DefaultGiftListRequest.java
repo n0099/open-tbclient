@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dc5;
+import com.repackage.qc5;
 import tbclient.GetGiftList.DataReq;
 import tbclient.GetGiftList.GetGiftListReqIdl;
 /* loaded from: classes3.dex */
@@ -47,7 +47,7 @@ public class DefaultGiftListRequest extends NetMessage {
             builder.scene_from = this.from;
             builder.benefit_userid = Long.valueOf(this.toUserId);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                dc5.a(builder, true);
+                qc5.a(builder, true);
             }
             GetGiftListReqIdl.Builder builder2 = new GetGiftListReqIdl.Builder();
             builder2.data = builder.build(false);

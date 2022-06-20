@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b45;
+import com.repackage.q45;
 /* loaded from: classes2.dex */
 public class InitAdCardViewTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -48,21 +48,21 @@ public class InitAdCardViewTask extends LaunchTask {
             try {
                 AdCardSinglePicView adCardSinglePicView = new AdCardSinglePicView(pageContext);
                 adCardSinglePicView.X();
-                b45.e().a(1101, adCardSinglePicView);
+                q45.e().a(1101, adCardSinglePicView);
             } catch (Exception e) {
                 BdLog.e(e);
             }
             try {
                 AdCardMultiPicView adCardMultiPicView = new AdCardMultiPicView(pageContext);
                 adCardMultiPicView.X();
-                b45.e().a(1102, adCardMultiPicView);
+                q45.e().a(1102, adCardMultiPicView);
             } catch (Exception e2) {
                 BdLog.e(e2);
             }
             try {
-                AdCardVideoView adCardVideoView = new AdCardVideoView(pageContext, 0);
+                AdCardVideoView adCardVideoView = new AdCardVideoView(pageContext, 2);
                 adCardVideoView.X();
-                b45.e().a(PackageInfo.CODE_HOST_VERSION, adCardVideoView);
+                q45.e().a(PackageInfo.CODE_HOST_VERSION, adCardVideoView);
             } catch (Exception e3) {
                 BdLog.e(e3);
             }

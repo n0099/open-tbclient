@@ -11,8 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jl1;
-import com.repackage.pz2;
+import com.repackage.a03;
+import com.repackage.ul1;
 /* loaded from: classes2.dex */
 public interface ISwanApkFetcher {
 
@@ -97,7 +97,7 @@ public interface ISwanApkFetcher {
     }
 
     /* loaded from: classes2.dex */
-    public static class b extends pz2 implements ISwanApkFetcher {
+    public static class b extends a03 implements ISwanApkFetcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -116,7 +116,7 @@ public interface ISwanApkFetcher {
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public boolean C() {
+        public boolean D() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -126,51 +126,51 @@ public interface ISwanApkFetcher {
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void E(@NonNull String str, @Nullable a aVar) {
+        public void F(@NonNull String str, @Nullable a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, aVar) == null) {
             }
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void c(@NonNull String str, @NonNull jl1 jl1Var) {
+        public void d(@NonNull String str, @NonNull ul1 ul1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jl1Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, ul1Var) == null) {
             }
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void d(@NonNull String str, @NonNull jl1 jl1Var) {
+        public void e(@NonNull String str, @NonNull ul1 ul1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, str, jl1Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048579, this, str, ul1Var) == null) {
             }
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void e(@NonNull String str, @NonNull jl1 jl1Var) {
+        public void f(@NonNull String str, @NonNull ul1 ul1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, str, jl1Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048580, this, str, ul1Var) == null) {
             }
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void f(@NonNull String str, @Nullable a aVar) {
+        public void g(@NonNull String str, @Nullable a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048581, this, str, aVar) == null) {
             }
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void g(@NonNull String str, @NonNull jl1 jl1Var) {
+        public void h(@NonNull String str, @NonNull ul1 ul1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048582, this, str, jl1Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048582, this, str, ul1Var) == null) {
             }
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void i(@NonNull String str, @NonNull jl1 jl1Var) {
+        public void j(@NonNull String str, @NonNull ul1 ul1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048583, this, str, jl1Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048583, this, str, ul1Var) == null) {
             }
         }
 
@@ -182,21 +182,21 @@ public interface ISwanApkFetcher {
         }
     }
 
-    boolean C();
+    boolean D();
 
-    void E(@NonNull String str, @Nullable a aVar);
+    void F(@NonNull String str, @Nullable a aVar);
 
-    void c(@NonNull String str, @NonNull jl1 jl1Var);
+    void d(@NonNull String str, @NonNull ul1 ul1Var);
 
-    void d(@NonNull String str, @NonNull jl1 jl1Var);
+    void e(@NonNull String str, @NonNull ul1 ul1Var);
 
-    void e(@NonNull String str, @NonNull jl1 jl1Var);
+    void f(@NonNull String str, @NonNull ul1 ul1Var);
 
-    void f(@NonNull String str, @Nullable a aVar);
+    void g(@NonNull String str, @Nullable a aVar);
 
-    void g(@NonNull String str, @NonNull jl1 jl1Var);
+    void h(@NonNull String str, @NonNull ul1 ul1Var);
 
-    void i(@NonNull String str, @NonNull jl1 jl1Var);
+    void j(@NonNull String str, @NonNull ul1 ul1Var);
 
     void release();
 }

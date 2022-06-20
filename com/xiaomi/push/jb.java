@@ -1,118 +1,583 @@
 package com.xiaomi.push;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 /* loaded from: classes8.dex */
-public abstract class jb {
+public class jb extends jf {
     public static /* synthetic */ Interceptable $ic;
+    public static final jk a;
     public transient /* synthetic */ FieldHolder $fh;
-    public jl a;
 
-    public jb(jl jlVar) {
+    /* renamed from: a  reason: collision with other field name */
+    public int f795a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public boolean f796a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public byte[] f797a;
+    public boolean b;
+
+    /* renamed from: b  reason: collision with other field name */
+    public byte[] f798b;
+    public boolean c;
+
+    /* renamed from: c  reason: collision with other field name */
+    public byte[] f799c;
+    public byte[] d;
+    public byte[] e;
+    public byte[] f;
+    public byte[] g;
+    public byte[] h;
+
+    /* loaded from: classes8.dex */
+    public static class a implements jh {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public boolean f800a;
+        public boolean b;
+
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+        public a() {
+            this(false, true);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr = newInitContext.callArgs;
+                    this(((Boolean) objArr[0]).booleanValue(), ((Boolean) objArr[1]).booleanValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+        public a(boolean z, boolean z2) {
+            this(z, z2, 0);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    this(((Boolean) objArr2[0]).booleanValue(), ((Boolean) objArr2[1]).booleanValue(), ((Integer) objArr2[2]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        public a(boolean z, boolean z2, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+            this.f800a = false;
+            this.b = true;
+            this.f800a = z;
+            this.b = z2;
+            this.a = i;
+        }
+
+        @Override // com.xiaomi.push.jh
+        public jf a(jp jpVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jpVar)) == null) {
+                jb jbVar = new jb(jpVar, this.f800a, this.b);
+                int i = this.a;
+                if (i != 0) {
+                    jbVar.b(i);
+                }
+                return jbVar;
+            }
+            return (jf) invokeL.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-56371192, "Lcom/xiaomi/push/jb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-56371192, "Lcom/xiaomi/push/jb;");
+                return;
+            }
+        }
+        a = new jk();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jb(jp jpVar, boolean z, boolean z2) {
+        super(jpVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jlVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {jpVar, Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((jp) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = jlVar;
+        this.f796a = false;
+        this.b = true;
+        this.c = false;
+        this.f797a = new byte[1];
+        this.f798b = new byte[2];
+        this.f799c = new byte[4];
+        this.d = new byte[8];
+        this.e = new byte[1];
+        this.f = new byte[2];
+        this.g = new byte[4];
+        this.h = new byte[8];
+        this.f796a = z;
+        this.b = z2;
     }
 
-    public abstract byte a();
+    private int a(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, this, bArr, i, i2)) == null) {
+            c(i2);
+            return ((jf) this).a.b(bArr, i, i2);
+        }
+        return invokeLII.intValue;
+    }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract double m555a();
+    @Override // com.xiaomi.push.jf
+    public byte a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (((jf) this).a.b() < 1) {
+                a(this.e, 0, 1);
+                return this.e[0];
+            }
+            byte b = ((jf) this).a.m551a()[((jf) this).a.a()];
+            ((jf) this).a.a(1);
+            return b;
+        }
+        return invokeV.byteValue;
+    }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract int m556a();
+    @Override // com.xiaomi.push.jf
+    public double a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Double.longBitsToDouble(a()) : invokeV.doubleValue;
+    }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract long m557a();
+    @Override // com.xiaomi.push.jf
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            byte[] bArr = this.g;
+            int i = 0;
+            if (((jf) this).a.b() >= 4) {
+                bArr = ((jf) this).a.m551a();
+                i = ((jf) this).a.a();
+                ((jf) this).a.a(4);
+            } else {
+                a(this.g, 0, 4);
+            }
+            return (bArr[i + 3] & 255) | ((bArr[i] & 255) << 24) | ((bArr[i + 1] & 255) << 16) | ((bArr[i + 2] & 255) << 8);
+        }
+        return invokeV.intValue;
+    }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract iy m558a();
+    @Override // com.xiaomi.push.jf
+    public long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            byte[] bArr = this.h;
+            int i = 0;
+            if (((jf) this).a.b() >= 8) {
+                bArr = ((jf) this).a.m551a();
+                i = ((jf) this).a.a();
+                ((jf) this).a.a(8);
+            } else {
+                a(this.h, 0, 8);
+            }
+            return (bArr[i + 7] & 255) | ((bArr[i] & 255) << 56) | ((bArr[i + 1] & 255) << 48) | ((bArr[i + 2] & 255) << 40) | ((bArr[i + 3] & 255) << 32) | ((bArr[i + 4] & 255) << 24) | ((bArr[i + 5] & 255) << 16) | ((bArr[i + 6] & 255) << 8);
+        }
+        return invokeV.longValue;
+    }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract iz m559a();
+    @Override // com.xiaomi.push.jf
+    public jc a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            byte a2 = a();
+            return new jc("", a2, a2 == 0 ? (short) 0 : a());
+        }
+        return (jc) invokeV.objValue;
+    }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract ja m560a();
+    @Override // com.xiaomi.push.jf
+    public jd a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new jd(a(), a()) : (jd) invokeV.objValue;
+    }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract jf m561a();
+    @Override // com.xiaomi.push.jf
+    public je a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new je(a(), a(), a()) : (je) invokeV.objValue;
+    }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract jg m562a();
+    @Override // com.xiaomi.push.jf
+    public jj a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? new jj(a(), a()) : (jj) invokeV.objValue;
+    }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract String m563a();
+    @Override // com.xiaomi.push.jf
+    public jk a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? a : (jk) invokeV.objValue;
+    }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract ByteBuffer m564a();
+    @Override // com.xiaomi.push.jf
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            int a2 = a();
+            if (((jf) this).a.b() >= a2) {
+                try {
+                    String str = new String(((jf) this).a.m551a(), ((jf) this).a.a(), a2, "UTF-8");
+                    ((jf) this).a.a(a2);
+                    return str;
+                } catch (UnsupportedEncodingException unused) {
+                    throw new iz("JVM DOES NOT SUPPORT UTF-8");
+                }
+            }
+            return a(a2);
+        }
+        return (String) invokeV.objValue;
+    }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract short m565a();
+    @Override // com.xiaomi.push.jf
+    public String a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            try {
+                c(i);
+                byte[] bArr = new byte[i];
+                ((jf) this).a.b(bArr, 0, i);
+                return new String(bArr, "UTF-8");
+            } catch (UnsupportedEncodingException unused) {
+                throw new iz("JVM DOES NOT SUPPORT UTF-8");
+            }
+        }
+        return (String) invokeI.objValue;
+    }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract void m566a();
+    @Override // com.xiaomi.push.jf
+    public ByteBuffer a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            int a2 = a();
+            c(a2);
+            if (((jf) this).a.b() >= a2) {
+                ByteBuffer wrap = ByteBuffer.wrap(((jf) this).a.m551a(), ((jf) this).a.a(), a2);
+                ((jf) this).a.a(a2);
+                return wrap;
+            }
+            byte[] bArr = new byte[a2];
+            ((jf) this).a.b(bArr, 0, a2);
+            return ByteBuffer.wrap(bArr);
+        }
+        return (ByteBuffer) invokeV.objValue;
+    }
 
-    public abstract void a(byte b);
+    @Override // com.xiaomi.push.jf
+    public short a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            byte[] bArr = this.f;
+            int i = 0;
+            if (((jf) this).a.b() >= 2) {
+                bArr = ((jf) this).a.m551a();
+                i = ((jf) this).a.a();
+                ((jf) this).a.a(2);
+            } else {
+                a(this.f, 0, 2);
+            }
+            return (short) ((bArr[i + 1] & 255) | ((bArr[i] & 255) << 8));
+        }
+        return invokeV.shortValue;
+    }
 
-    public abstract void a(int i);
+    @Override // com.xiaomi.push.jf
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        }
+    }
 
-    public abstract void a(long j);
+    @Override // com.xiaomi.push.jf
+    public void a(byte b) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeB(1048590, this, b) == null) {
+            byte[] bArr = this.f797a;
+            bArr[0] = b;
+            ((jf) this).a.m550a(bArr, 0, 1);
+        }
+    }
 
-    public abstract void a(iy iyVar);
+    @Override // com.xiaomi.push.jf
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            byte[] bArr = this.f799c;
+            bArr[0] = (byte) ((i >> 24) & 255);
+            bArr[1] = (byte) ((i >> 16) & 255);
+            bArr[2] = (byte) ((i >> 8) & 255);
+            bArr[3] = (byte) (i & 255);
+            ((jf) this).a.m550a(bArr, 0, 4);
+        }
+    }
 
-    public abstract void a(iz izVar);
+    @Override // com.xiaomi.push.jf
+    public void a(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
+            byte[] bArr = this.d;
+            bArr[0] = (byte) ((j >> 56) & 255);
+            bArr[1] = (byte) ((j >> 48) & 255);
+            bArr[2] = (byte) ((j >> 40) & 255);
+            bArr[3] = (byte) ((j >> 32) & 255);
+            bArr[4] = (byte) ((j >> 24) & 255);
+            bArr[5] = (byte) ((j >> 16) & 255);
+            bArr[6] = (byte) ((j >> 8) & 255);
+            bArr[7] = (byte) (j & 255);
+            ((jf) this).a.m550a(bArr, 0, 8);
+        }
+    }
 
-    public abstract void a(ja jaVar);
+    @Override // com.xiaomi.push.jf
+    public void a(jc jcVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, jcVar) == null) {
+            a(jcVar.a);
+            a(jcVar.f802a);
+        }
+    }
 
-    public abstract void a(jg jgVar);
+    @Override // com.xiaomi.push.jf
+    public void a(jd jdVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, jdVar) == null) {
+            a(jdVar.a);
+            a(jdVar.f803a);
+        }
+    }
 
-    public abstract void a(String str);
+    @Override // com.xiaomi.push.jf
+    public void a(je jeVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, jeVar) == null) {
+            a(jeVar.a);
+            a(jeVar.b);
+            a(jeVar.f804a);
+        }
+    }
 
-    public abstract void a(ByteBuffer byteBuffer);
+    @Override // com.xiaomi.push.jf
+    public void a(jk jkVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, jkVar) == null) {
+        }
+    }
 
-    public abstract void a(short s);
+    @Override // com.xiaomi.push.jf
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+            try {
+                byte[] bytes = str.getBytes("UTF-8");
+                a(bytes.length);
+                ((jf) this).a.m550a(bytes, 0, bytes.length);
+            } catch (UnsupportedEncodingException unused) {
+                throw new iz("JVM DOES NOT SUPPORT UTF-8");
+            }
+        }
+    }
 
-    public abstract void a(boolean z);
+    @Override // com.xiaomi.push.jf
+    public void a(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, byteBuffer) == null) {
+            int limit = (byteBuffer.limit() - byteBuffer.position()) - byteBuffer.arrayOffset();
+            a(limit);
+            ((jf) this).a.m550a(byteBuffer.array(), byteBuffer.position() + byteBuffer.arrayOffset(), limit);
+        }
+    }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract boolean m567a();
+    @Override // com.xiaomi.push.jf
+    public void a(short s) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Short.valueOf(s)}) == null) {
+            byte[] bArr = this.f798b;
+            bArr[0] = (byte) ((s >> 8) & 255);
+            bArr[1] = (byte) (s & 255);
+            ((jf) this).a.m550a(bArr, 0, 2);
+        }
+    }
 
-    public abstract void b();
+    @Override // com.xiaomi.push.jf
+    public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
+            a(z ? (byte) 1 : (byte) 0);
+        }
+    }
 
-    public abstract void c();
+    @Override // com.xiaomi.push.jf
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? a() == 1 : invokeV.booleanValue;
+    }
 
-    public abstract void d();
+    @Override // com.xiaomi.push.jf
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+        }
+    }
 
-    public abstract void e();
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
+            this.f795a = i;
+            this.c = true;
+        }
+    }
 
-    public abstract void f();
+    @Override // com.xiaomi.push.jf
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+            a((byte) 0);
+        }
+    }
 
-    public abstract void g();
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+            if (i < 0) {
+                throw new iz("Negative length: " + i);
+            } else if (this.c) {
+                int i2 = this.f795a - i;
+                this.f795a = i2;
+                if (i2 >= 0) {
+                    return;
+                }
+                throw new iz("Message length exceeded: " + i);
+            }
+        }
+    }
 
-    public abstract void h();
+    @Override // com.xiaomi.push.jf
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
+        }
+    }
 
-    public abstract void i();
+    @Override // com.xiaomi.push.jf
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
+        }
+    }
 
-    public abstract void j();
+    @Override // com.xiaomi.push.jf
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
+        }
+    }
 
-    public void k() {
+    @Override // com.xiaomi.push.jf
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
+        }
+    }
+
+    @Override // com.xiaomi.push.jf
+    public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
+        }
+    }
+
+    @Override // com.xiaomi.push.jf
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
+        }
+    }
+
+    @Override // com.xiaomi.push.jf
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
         }
     }
 }

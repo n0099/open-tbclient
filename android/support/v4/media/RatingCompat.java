@@ -1,5 +1,6 @@
 package android.support.v4.media;
 
+import android.annotation.SuppressLint;
 import android.media.Rating;
 import android.os.Build;
 import android.os.Parcel;
@@ -17,6 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+@SuppressLint({"BanParcelableUsage"})
 /* loaded from: classes.dex */
 public final class RatingCompat implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
@@ -36,13 +38,13 @@ public final class RatingCompat implements Parcelable {
     public final float mRatingValue;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public @interface StarStyle {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface Style {
     }

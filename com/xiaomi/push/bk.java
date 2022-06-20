@@ -1,67 +1,331 @@
 package com.xiaomi.push;
 
-import android.net.Uri;
-import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.UnsupportedEncodingException;
-import java.security.InvalidParameterException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 /* loaded from: classes8.dex */
 public class bk {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<Class<?>, Class<?>> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            try {
-                return String.valueOf(bj.a(MessageDigest.getInstance("SHA1").digest(str.getBytes("UTF-8"))));
-            } catch (UnsupportedEncodingException | NoSuchAlgorithmException | Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.a("CloudCoder.hash4SHA1 ", e);
-                throw new IllegalStateException("failed to SHA1");
-            }
-        }
-        return (String) invokeL.objValue;
+    /* loaded from: classes8.dex */
+    public static class a<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Class<? extends T> a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public final T f134a;
     }
 
-    public static String a(String str, String str2, Map<String, String> map, String str3) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, str, str2, map, str3)) == null) {
-            if (TextUtils.isEmpty(str3)) {
-                throw new InvalidParameterException("security is not nullable");
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-56378601, "Lcom/xiaomi/push/bk;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            ArrayList<String> arrayList = new ArrayList();
-            if (str != null) {
-                arrayList.add(str.toUpperCase());
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-56378601, "Lcom/xiaomi/push/bk;");
+                return;
             }
-            if (str2 != null) {
-                arrayList.add(Uri.parse(str2).getEncodedPath());
-            }
-            boolean z = true;
-            if (map != null && !map.isEmpty()) {
-                for (Map.Entry entry : new TreeMap(map).entrySet()) {
-                    arrayList.add(String.format("%s=%s", entry.getKey(), entry.getValue()));
-                }
-            }
-            arrayList.add(str3);
-            StringBuilder sb = new StringBuilder();
-            for (String str4 : arrayList) {
-                if (!z) {
-                    sb.append('&');
-                }
-                sb.append(str4);
-                z = false;
-            }
-            return a(sb.toString());
         }
-        return (String) invokeLLLL.objValue;
+        HashMap hashMap = new HashMap();
+        a = hashMap;
+        hashMap.put(Boolean.class, Boolean.TYPE);
+        a.put(Byte.class, Byte.TYPE);
+        a.put(Character.class, Character.TYPE);
+        a.put(Short.class, Short.TYPE);
+        a.put(Integer.class, Integer.TYPE);
+        a.put(Float.class, Float.TYPE);
+        a.put(Long.class, Long.TYPE);
+        a.put(Double.class, Double.TYPE);
+        Map<Class<?>, Class<?>> map = a;
+        Class<?> cls = Boolean.TYPE;
+        map.put(cls, cls);
+        Map<Class<?>, Class<?>> map2 = a;
+        Class<?> cls2 = Byte.TYPE;
+        map2.put(cls2, cls2);
+        Map<Class<?>, Class<?>> map3 = a;
+        Class<?> cls3 = Character.TYPE;
+        map3.put(cls3, cls3);
+        Map<Class<?>, Class<?>> map4 = a;
+        Class<?> cls4 = Short.TYPE;
+        map4.put(cls4, cls4);
+        Map<Class<?>, Class<?>> map5 = a;
+        Class<?> cls5 = Integer.TYPE;
+        map5.put(cls5, cls5);
+        Map<Class<?>, Class<?>> map6 = a;
+        Class<?> cls6 = Float.TYPE;
+        map6.put(cls6, cls6);
+        Map<Class<?>, Class<?>> map7 = a;
+        Class<?> cls7 = Long.TYPE;
+        map7.put(cls7, cls7);
+        Map<Class<?>, Class<?>> map8 = a;
+        Class<?> cls8 = Double.TYPE;
+        map8.put(cls8, cls8);
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:10:0x0014 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0014 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r4v0, types: [java.lang.Class<? extends java.lang.Object>, java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r4v1, types: [java.lang.Class] */
+    /* JADX WARN: Type inference failed for: r4v3, types: [java.lang.Class] */
+    /* JADX WARN: Type inference failed for: r4v4 */
+    public static <T> T a(Class<? extends Object> cls, Object obj, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, cls, obj, str)) == null) {
+            Field field = null;
+            while (field == null) {
+                try {
+                    field = cls.getDeclaredField(str);
+                    field.setAccessible(true);
+                    continue;
+                } catch (NoSuchFieldException unused) {
+                    cls = cls.getSuperclass();
+                    continue;
+                }
+                if (cls == 0) {
+                    throw new NoSuchFieldException();
+                }
+            }
+            field.setAccessible(true);
+            return (T) field.get(obj);
+        }
+        return (T) invokeLLL.objValue;
+    }
+
+    public static <T> T a(Class<? extends Object> cls, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, str)) == null) {
+            try {
+                return (T) a(cls, (Object) null, str);
+            } catch (Exception e) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("Meet exception when call getStaticField '");
+                sb.append(str);
+                sb.append("' in ");
+                sb.append(cls != null ? cls.getSimpleName() : "");
+                sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                sb.append(e);
+                Log.w("JavaCalls", sb.toString());
+                return null;
+            }
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    public static <T> T a(Class<?> cls, String str, Object... objArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, cls, str, objArr)) == null) ? (T) a(cls, str, a(objArr)).invoke(null, m193a(objArr)) : (T) invokeLLL.objValue;
+    }
+
+    public static <T> T a(Object obj, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, str)) == null) {
+            try {
+                return (T) a((Class<? extends Object>) obj.getClass(), obj, str);
+            } catch (Exception e) {
+                Log.w("JavaCalls", "Meet exception when call getField '" + str + "' in " + obj + StringUtil.ARRAY_ELEMENT_SEPARATOR + e);
+                return null;
+            }
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    public static <T> T a(Object obj, String str, Object... objArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, obj, str, objArr)) == null) {
+            try {
+                return (T) b(obj, str, objArr);
+            } catch (Exception e) {
+                Log.w("JavaCalls", "Meet exception when call Method '" + str + "' in " + obj + StringUtil.ARRAY_ELEMENT_SEPARATOR + e);
+                return null;
+            }
+        }
+        return (T) invokeLLL.objValue;
+    }
+
+    public static <T> T a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
+            try {
+                return (T) a((Class<? extends Object>) v.a(null, str), (Object) null, str2);
+            } catch (Exception e) {
+                Log.w("JavaCalls", "Meet exception when call getStaticField '" + str2 + "' in " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + e);
+                return null;
+            }
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    public static <T> T a(String str, String str2, Object... objArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, str, str2, objArr)) == null) {
+            try {
+                return (T) a(v.a(null, str), str2, objArr);
+            } catch (Exception e) {
+                Log.w("JavaCalls", "Meet exception when call Method '" + str2 + "' in " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + e);
+                return null;
+            }
+        }
+        return (T) invokeLLL.objValue;
+    }
+
+    public static Method a(Class<?> cls, String str, Class<?>... clsArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, cls, str, clsArr)) == null) {
+            Method a2 = a(cls.getDeclaredMethods(), str, clsArr);
+            if (a2 != null) {
+                a2.setAccessible(true);
+                return a2;
+            } else if (cls.getSuperclass() != null) {
+                return a((Class<?>) cls.getSuperclass(), str, clsArr);
+            } else {
+                throw new NoSuchMethodException();
+            }
+        }
+        return (Method) invokeLLL.objValue;
+    }
+
+    public static Method a(Method[] methodArr, String str, Class<?>[] clsArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, methodArr, str, clsArr)) == null) {
+            if (str != null) {
+                for (Method method : methodArr) {
+                    if (method.getName().equals(str) && a(method.getParameterTypes(), clsArr)) {
+                        return method;
+                    }
+                }
+                return null;
+            }
+            throw new NullPointerException("Method name must not be null.");
+        }
+        return (Method) invokeLLL.objValue;
+    }
+
+    public static void a(Object obj, String str, Object obj2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65546, null, obj, str, obj2) == null) {
+            try {
+                b(obj, str, obj2);
+            } catch (Exception e) {
+                Log.w("JavaCalls", "Meet exception when call setField '" + str + "' in " + obj + StringUtil.ARRAY_ELEMENT_SEPARATOR + e);
+            }
+        }
+    }
+
+    public static boolean a(Class<?>[] clsArr, Class<?>[] clsArr2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, clsArr, clsArr2)) == null) {
+            if (clsArr == null) {
+                return clsArr2 == null || clsArr2.length == 0;
+            } else if (clsArr2 == null) {
+                return clsArr.length == 0;
+            } else if (clsArr.length != clsArr2.length) {
+                return false;
+            } else {
+                for (int i = 0; i < clsArr.length; i++) {
+                    if (clsArr2[i] != null && !clsArr[i].isAssignableFrom(clsArr2[i]) && (!a.containsKey(clsArr[i]) || !a.get(clsArr[i]).equals(a.get(clsArr2[i])))) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static Class<?>[] a(Object... objArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, objArr)) == null) {
+            if (objArr == null || objArr.length <= 0) {
+                return null;
+            }
+            Class<?>[] clsArr = new Class[objArr.length];
+            for (int i = 0; i < objArr.length; i++) {
+                Object obj = objArr[i];
+                if (obj == null || !(obj instanceof a)) {
+                    clsArr[i] = obj == null ? null : obj.getClass();
+                } else {
+                    clsArr[i] = ((a) obj).a;
+                }
+            }
+            return clsArr;
+        }
+        return (Class[]) invokeL.objValue;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static Object[] m193a(Object... objArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, objArr)) == null) {
+            if (objArr == null || objArr.length <= 0) {
+                return null;
+            }
+            Object[] objArr2 = new Object[objArr.length];
+            for (int i = 0; i < objArr.length; i++) {
+                Object obj = objArr[i];
+                if (obj == null || !(obj instanceof a)) {
+                    objArr2[i] = obj;
+                } else {
+                    objArr2[i] = ((a) obj).f134a;
+                }
+            }
+            return objArr2;
+        }
+        return (Object[]) invokeL.objValue;
+    }
+
+    public static <T> T b(Object obj, String str, Object... objArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65550, null, obj, str, objArr)) == null) ? (T) a(obj.getClass(), str, a(objArr)).invoke(obj, m193a(objArr)) : (T) invokeLLL.objValue;
+    }
+
+    public static void b(Object obj, String str, Object obj2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65551, null, obj, str, obj2) == null) {
+            Class<?> cls = obj.getClass();
+            Field field = null;
+            while (field == null) {
+                try {
+                    field = cls.getDeclaredField(str);
+                    continue;
+                } catch (NoSuchFieldException unused) {
+                    cls = cls.getSuperclass();
+                    continue;
+                }
+                if (cls == null) {
+                    throw new NoSuchFieldException();
+                }
+            }
+            field.setAccessible(true);
+            field.set(obj, obj2);
+        }
     }
 }

@@ -82,13 +82,13 @@ public class FaceGroupMakeTitleBar extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d027f, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0921ff);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0921e6);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f8f);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d027c, (ViewGroup) this, true);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0921fb);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0921e2);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f7e);
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.b, (int) R.color.common_color_10140);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f08060f, R.color.CAM_X0105, null);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f08060d, R.color.CAM_X0105, null);
             this.c.setOnClickListener(new a(this));
         }
     }

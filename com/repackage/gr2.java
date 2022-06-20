@@ -1,13 +1,15 @@
 package com.repackage;
 
+import android.os.Bundle;
 import androidx.annotation.NonNull;
+import com.baidu.searchbox.http.NetworkQuality;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class gr2 {
+public class gr2 extends sv2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,12 +27,16 @@ public abstract class gr2 {
         }
     }
 
-    @NonNull
-    public abstract String a();
-
-    public abstract void b();
-
-    public abstract void c();
-
-    public abstract void d(String str, JSONObject jSONObject, String str2);
+    @Override // com.repackage.sv2
+    public void b(@NonNull Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            if (SwanAppNetworkUtils.h()) {
+                this.d.putInt("net_quality", NetworkQuality.getNetworkQuality());
+            } else {
+                this.d.putInt("net_quality", 3);
+            }
+            c();
+        }
+    }
 }

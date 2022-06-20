@@ -1,18 +1,19 @@
 package com.repackage;
 
+import androidx.core.app.NotificationCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class zu0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public boolean c;
-    public int d;
 
     public zu0() {
         Interceptable interceptable = $ic;
@@ -24,18 +25,45 @@ public class zu0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = -1;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static zu0 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "VideoPrepareModel{videoUrl='" + this.a + "', interactUrl='" + this.b + "', isNeedPrepare=" + this.c + ", playerStageType=" + this.d + '}';
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject != null) {
+                zu0 zu0Var = new zu0();
+                jSONObject.optString("type_text");
+                jSONObject.optString("text");
+                jSONObject.optString(NotificationCompat.CarExtender.KEY_AUTHOR);
+                jSONObject.optString("cmd");
+                return zu0Var;
+            }
+            return null;
         }
-        return (String) invokeV.objValue;
+        return (zu0) invokeL.objValue;
+    }
+
+    public static List<zu0> b(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        zu0 a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONArray)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (jSONArray == null || jSONArray.length() == 0) {
+                return null;
+            }
+            int length = jSONArray.length();
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                if (optJSONObject != null && (a = a(optJSONObject)) != null) {
+                    arrayList.add(a);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
     }
 }

@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kk;
+import com.repackage.ok;
 /* loaded from: classes3.dex */
 public class BarImageView extends TbClipImageView {
     public static /* synthetic */ Interceptable $ic;
@@ -117,8 +117,8 @@ public class BarImageView extends TbClipImageView {
         float f4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
-            kk kkVar = this.e;
-            if (kkVar != null && kkVar.c != null) {
+            ok okVar = this.e;
+            if (okVar != null && okVar.c != null) {
                 if (!this.C0) {
                     super.onDraw(canvas);
                     return;
@@ -240,7 +240,7 @@ public class BarImageView extends TbClipImageView {
         }
     }
 
-    public final void w() {
+    public final void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             setDrawerType(0);
@@ -302,6 +302,6 @@ public class BarImageView extends TbClipImageView {
         this.E0 = true;
         this.K0 = new PorterDuffXfermode(PorterDuff.Mode.SRC_IN);
         this.L0 = new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT);
-        w();
+        v();
     }
 }

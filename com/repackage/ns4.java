@@ -1,35 +1,69 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.net.MalformedURLException;
+import java.net.URL;
 /* loaded from: classes6.dex */
 public class ns4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, long j, int i, String str2, int i2, String str3, Object... objArr) {
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Long.valueOf(j), Integer.valueOf(i), str2, Integer.valueOf(i2), str3, objArr}) == null) {
-            rg rgVar = new rg();
-            rgVar.c("cmd", Integer.valueOf(i));
-            if (!TextUtils.isEmpty(str2)) {
-                rgVar.b("action", str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return true;
             }
-            rgVar.b("errNo", String.valueOf(i2));
-            if (!TextUtils.isEmpty(str3) && i2 != 0) {
-                rgVar.b(StatConstants.KEY_EXT_ERR_MSG, str3);
-            }
-            if (objArr != null && objArr.length > 0) {
-                rgVar.c(objArr);
-            }
-            if (i2 == 0) {
-                BdStatisticsManager.getInstance().debug(str, j, null, rgVar);
-            } else {
-                BdStatisticsManager.getInstance().error(str, j, (String) null, rgVar);
+            try {
+                URL url = new URL(str);
+                String protocol = url.getProtocol();
+                if ("file".equals(protocol)) {
+                    return true;
+                }
+                if (!"http".equals(protocol) && !"https".equals(protocol)) {
+                    return false;
+                }
+                if (url.getHost().endsWith(".baidu.com")) {
+                    if (str.contains("tieba_hybrid_enabled=1")) {
+                        return true;
+                    }
+                    if (str.contains("tieba_hybrid_enabled%3D1")) {
+                        return true;
+                    }
+                }
+                return false;
+            } catch (MalformedURLException unused) {
+                return false;
             }
         }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return true;
+            }
+            try {
+                URL url = new URL(str);
+                String protocol = url.getProtocol();
+                if ("file".equals(protocol)) {
+                    return true;
+                }
+                if (!"http".equals(protocol) && !"https".equals(protocol)) {
+                    return false;
+                }
+                return url.getHost().endsWith(".baidu.com");
+            } catch (MalformedURLException unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -105,6 +105,17 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_FROM_VIDEO_ROLLBACK = "c14471";
     public static final String KEY_FRS_AD_LIST_ITEM_CLICK = "c13194";
     public static final String KEY_FRS_REQUEST_PAGE = "c14587";
+    public static final String KEY_GAME_PLAY_PUSH_ATTENTION_ACCEPT_CLICK = "c14734";
+    public static final String KEY_GAME_PLAY_PUSH_ATTENTION_SHOW = "c14733";
+    public static final String KEY_GAME_PLAY_PUSH_ORDER_ACCEPT_CLICK = "c14725";
+    public static final String KEY_GAME_PLAY_PUSH_ORDER_REJECT_CLICK = "c14726";
+    public static final String KEY_GAME_PLAY_PUSH_ORDER_SHOW = "c14724";
+    public static final String KEY_GAME_PLAY_PUSH_PLAYER_ACCEPT_CLICK = "c14731";
+    public static final String KEY_GAME_PLAY_PUSH_PLAYER_REJECT_CLICK = "c14732";
+    public static final String KEY_GAME_PLAY_PUSH_PLAYER_SHOW = "c14730";
+    public static final String KEY_GAME_PLAY_PUSH_SYSTEM_GROUP_ACCEPT_CLICK = "c14728";
+    public static final String KEY_GAME_PLAY_PUSH_SYSTEM_GROUP_REJECT_CLICK = "c14729";
+    public static final String KEY_GAME_PLAY_PUSH_SYSTEM_GROUP_SHOW = "c14727";
     public static final String KEY_H5_OFFLINE_PACKAGE_DOWNLOAD = "c13435";
     public static final String KEY_HOME_LIVE_ICON_CLICK = "c14695";
     public static final String KEY_HOME_LIVE_ICON_SHOW = "c14694";
@@ -113,6 +124,9 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_IMAGE_VIEWER_DOWNLOAD_DIALOG_SUCCESS = "c14047";
     public static final String KEY_ITEM_THROUGH_CLICK = "c14073";
     public static final String KEY_ITEM_THROUGH_EXPOSURE = "c14072";
+    public static final String KEY_LIVE_REMIND_FLOAT_VIEW_CLICK = "c14699";
+    public static final String KEY_LIVE_REMIND_FLOAT_VIEW_HIDE = "c14700";
+    public static final String KEY_LIVE_REMIND_FLOAT_VIEW_SHOW = "c14698";
     public static final String KEY_MANAGE_ITEM_CLICK = "c12713";
     public static final String KEY_MESSAGE_AGGREGATION_PV = "view_msg";
     public static final String KEY_MORE_HISTORY_RECORD_CLICK = "c13437";
@@ -164,6 +178,8 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_SPLASH_GOTO_MAIN_TAB = "c14375";
     public static final String KEY_START_VOICE_ROOM = "c14464";
     public static final String KEY_TASK_ENTRANCE = "c13422";
+    public static final String KEY_TB_MOUNT_CARD_LINK_CLICK = "c14737";
+    public static final String KEY_TB_MOUNT_CARD_LINK_SHOW = "c14736";
     public static final String KEY_THREAD_ACHIEVEMENT_SHARE = "c10898";
     public static final String KEY_THREAD_FIRE_CLICK = "c14266";
     public static final String KEY_TIEBA_UID_SHARE_DIALOG_CLICK = "c14148";

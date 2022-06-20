@@ -52,17 +52,17 @@ public class BasicTaskItemView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03da, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03d7, this);
             this.b = inflate;
-            this.h = inflate.findViewById(R.id.obfuscated_res_0x7f09132d);
-            this.c = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091edf);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092226);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09221f);
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092225);
+            this.h = inflate.findViewById(R.id.obfuscated_res_0x7f091324);
+            this.c = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091ed5);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092222);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09221b);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092221);
             this.f = textView;
             textView.setOnClickListener(this.i);
             this.h.setOnClickListener(this.i);
-            this.g = this.b.findViewById(R.id.obfuscated_res_0x7f0907d8);
+            this.g = this.b.findViewById(R.id.obfuscated_res_0x7f0907c3);
         }
     }
 

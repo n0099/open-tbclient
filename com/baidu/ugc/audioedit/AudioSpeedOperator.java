@@ -6,10 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c49;
+import com.repackage.k49;
 import org.vinuxproject.sonic.Sonic;
 /* loaded from: classes4.dex */
-public class AudioSpeedOperator implements c49 {
+public class AudioSpeedOperator implements k49 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Sonic mSonic;
@@ -28,7 +28,7 @@ public class AudioSpeedOperator implements c49 {
         }
     }
 
-    @Override // com.repackage.c49
+    @Override // com.repackage.k49
     public int availableBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class AudioSpeedOperator implements c49 {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.c49
+    @Override // com.repackage.k49
     public void close() {
         Sonic sonic;
         Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class AudioSpeedOperator implements c49 {
         sonic.b();
     }
 
-    @Override // com.repackage.c49
+    @Override // com.repackage.k49
     public void flush() {
         Sonic sonic;
         Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class AudioSpeedOperator implements c49 {
         sonic.c();
     }
 
-    @Override // com.repackage.c49
+    @Override // com.repackage.k49
     public byte[] getOutPutBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -75,7 +75,7 @@ public class AudioSpeedOperator implements c49 {
         return (byte[]) invokeV.objValue;
     }
 
-    @Override // com.repackage.c49
+    @Override // com.repackage.k49
     public void init(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
@@ -83,7 +83,7 @@ public class AudioSpeedOperator implements c49 {
         }
     }
 
-    @Override // com.repackage.c49
+    @Override // com.repackage.k49
     public boolean putBytes(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -98,7 +98,7 @@ public class AudioSpeedOperator implements c49 {
         return invokeLI.booleanValue;
     }
 
-    @Override // com.repackage.c49
+    @Override // com.repackage.k49
     public int receiveBytes(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -112,7 +112,7 @@ public class AudioSpeedOperator implements c49 {
         return invokeLI.intValue;
     }
 
-    @Override // com.repackage.c49
+    @Override // com.repackage.k49
     public void setSpeed(float f) {
         Sonic sonic;
         Interceptable interceptable = $ic;

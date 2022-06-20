@@ -51,12 +51,12 @@ public class WriteLocationView extends LocationInfoView {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof ResponsedSelectLocation)) {
                 ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
                 if (responsedSelectLocation.isShowLocation()) {
-                    this.a.d.P(false);
-                    this.a.d.O(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                    this.a.d.Q(false);
+                    this.a.d.P(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
                     this.a.e(2, true, responsedSelectLocation.getName());
                     return;
                 }
-                this.a.d.P(true);
+                this.a.d.Q(true);
                 this.a.e(0, true, null);
             }
         }

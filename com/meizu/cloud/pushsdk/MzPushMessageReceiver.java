@@ -2,6 +2,7 @@ package com.meizu.cloud.pushsdk;
 
 import android.content.Context;
 import android.content.Intent;
+import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.base.IntentReceiver;
 import com.meizu.cloud.pushsdk.handler.MzPushMessage;
 import com.meizu.cloud.pushsdk.notification.PushNotificationBuilder;
@@ -11,7 +12,6 @@ import com.meizu.cloud.pushsdk.platform.message.SubAliasStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubTagsStatus;
 import com.meizu.cloud.pushsdk.platform.message.UnRegisterStatus;
 import com.meizu.cloud.pushsdk.util.d;
-import com.repackage.ni9;
 /* loaded from: classes5.dex */
 public abstract class MzPushMessageReceiver extends IntentReceiver {
     public static final String TAG = "MzPushMessageReceiver";
@@ -21,61 +21,61 @@ public abstract class MzPushMessageReceiver extends IntentReceiver {
         a.a(context).a(TAG, new com.meizu.cloud.pushsdk.handler.a() { // from class: com.meizu.cloud.pushsdk.MzPushMessageReceiver.1
             @Override // com.meizu.cloud.pushsdk.handler.a
             public void a(Context context2, Intent intent2) {
-                ni9.d(MzPushMessageReceiver.TAG, "onMessage Flyme3 " + intent2);
+                DebugLogger.i(MzPushMessageReceiver.TAG, "onMessage Flyme3 " + intent2);
                 MzPushMessageReceiver.this.onMessage(context2, intent2);
             }
 
             @Override // com.meizu.cloud.pushsdk.handler.b
             public void a(Context context2, MzPushMessage mzPushMessage) {
-                ni9.d(MzPushMessageReceiver.TAG, "onNotificationClicked title " + mzPushMessage.getTitle() + "content " + mzPushMessage.getContent() + " selfDefineContentString " + mzPushMessage.getSelfDefineContentString());
+                DebugLogger.i(MzPushMessageReceiver.TAG, "onNotificationClicked title " + mzPushMessage.getTitle() + "content " + mzPushMessage.getContent() + " selfDefineContentString " + mzPushMessage.getSelfDefineContentString());
                 MzPushMessageReceiver.this.onNotificationClicked(context2, mzPushMessage);
             }
 
             @Override // com.meizu.cloud.pushsdk.handler.b
             public void a(Context context2, PushSwitchStatus pushSwitchStatus) {
-                ni9.d(MzPushMessageReceiver.TAG, "onPushStatus " + pushSwitchStatus);
+                DebugLogger.i(MzPushMessageReceiver.TAG, "onPushStatus " + pushSwitchStatus);
                 MzPushMessageReceiver.this.onPushStatus(context2, pushSwitchStatus);
             }
 
             @Override // com.meizu.cloud.pushsdk.handler.b
             public void a(Context context2, RegisterStatus registerStatus) {
-                ni9.d(MzPushMessageReceiver.TAG, "onRegisterStatus " + registerStatus);
+                DebugLogger.i(MzPushMessageReceiver.TAG, "onRegisterStatus " + registerStatus);
                 MzPushMessageReceiver.this.onRegisterStatus(context2, registerStatus);
             }
 
             @Override // com.meizu.cloud.pushsdk.handler.b
             public void a(Context context2, SubAliasStatus subAliasStatus) {
-                ni9.d(MzPushMessageReceiver.TAG, "onSubAliasStatus " + subAliasStatus);
+                DebugLogger.i(MzPushMessageReceiver.TAG, "onSubAliasStatus " + subAliasStatus);
                 MzPushMessageReceiver.this.onSubAliasStatus(context2, subAliasStatus);
             }
 
             @Override // com.meizu.cloud.pushsdk.handler.b
             public void a(Context context2, SubTagsStatus subTagsStatus) {
-                ni9.d(MzPushMessageReceiver.TAG, "onSubTagsStatus " + subTagsStatus);
+                DebugLogger.i(MzPushMessageReceiver.TAG, "onSubTagsStatus " + subTagsStatus);
                 MzPushMessageReceiver.this.onSubTagsStatus(context2, subTagsStatus);
             }
 
             @Override // com.meizu.cloud.pushsdk.handler.b
             public void a(Context context2, UnRegisterStatus unRegisterStatus) {
-                ni9.d(MzPushMessageReceiver.TAG, "onUnRegisterStatus " + unRegisterStatus);
+                DebugLogger.i(MzPushMessageReceiver.TAG, "onUnRegisterStatus " + unRegisterStatus);
                 MzPushMessageReceiver.this.onUnRegisterStatus(context2, unRegisterStatus);
             }
 
             @Override // com.meizu.cloud.pushsdk.handler.b
             public void a(Context context2, String str) {
-                ni9.d(MzPushMessageReceiver.TAG, "onRegister " + str);
+                DebugLogger.i(MzPushMessageReceiver.TAG, "onRegister " + str);
                 MzPushMessageReceiver.this.onRegister(context2, str);
             }
 
             @Override // com.meizu.cloud.pushsdk.handler.b
             public void a(Context context2, String str, String str2) {
                 MzPushMessageReceiver.this.onMessage(context2, str, str2);
-                ni9.d(MzPushMessageReceiver.TAG, "receive message " + str + " platformExtra " + str2);
+                DebugLogger.i(MzPushMessageReceiver.TAG, "receive message " + str + " platformExtra " + str2);
             }
 
             @Override // com.meizu.cloud.pushsdk.handler.b
             public void a(Context context2, boolean z) {
-                ni9.d(MzPushMessageReceiver.TAG, "onUnRegister " + z);
+                DebugLogger.i(MzPushMessageReceiver.TAG, "onUnRegister " + z);
                 MzPushMessageReceiver.this.onUnRegister(context2, z);
             }
 
@@ -86,25 +86,25 @@ public abstract class MzPushMessageReceiver extends IntentReceiver {
 
             @Override // com.meizu.cloud.pushsdk.handler.b
             public void b(Context context2, MzPushMessage mzPushMessage) {
-                ni9.d(MzPushMessageReceiver.TAG, "onNotificationArrived title " + mzPushMessage.getTitle() + "content " + mzPushMessage.getContent() + " selfDefineContentString " + mzPushMessage.getSelfDefineContentString());
+                DebugLogger.i(MzPushMessageReceiver.TAG, "onNotificationArrived title " + mzPushMessage.getTitle() + "content " + mzPushMessage.getContent() + " selfDefineContentString " + mzPushMessage.getSelfDefineContentString());
                 MzPushMessageReceiver.this.onNotificationArrived(context2, mzPushMessage);
             }
 
             @Override // com.meizu.cloud.pushsdk.handler.b
             public void b(Context context2, String str) {
                 MzPushMessageReceiver.this.onMessage(context2, str);
-                ni9.d(MzPushMessageReceiver.TAG, "receive message " + str);
+                DebugLogger.i(MzPushMessageReceiver.TAG, "receive message " + str);
             }
 
             @Override // com.meizu.cloud.pushsdk.handler.b
             public void c(Context context2, MzPushMessage mzPushMessage) {
-                ni9.d(MzPushMessageReceiver.TAG, "onNotificationDeleted title " + mzPushMessage.getTitle() + "content " + mzPushMessage.getContent() + " selfDefineContentString " + mzPushMessage.getSelfDefineContentString());
+                DebugLogger.i(MzPushMessageReceiver.TAG, "onNotificationDeleted title " + mzPushMessage.getTitle() + "content " + mzPushMessage.getContent() + " selfDefineContentString " + mzPushMessage.getSelfDefineContentString());
                 MzPushMessageReceiver.this.onNotificationDeleted(context2, mzPushMessage);
             }
 
             @Override // com.meizu.cloud.pushsdk.handler.b
             public void c(Context context2, String str) {
-                ni9.d(MzPushMessageReceiver.TAG, "onNotifyMessageArrived " + str);
+                DebugLogger.i(MzPushMessageReceiver.TAG, "onNotifyMessageArrived " + str);
                 MzPushMessageReceiver.this.onNotifyMessageArrived(context2, str);
             }
         }).a(intent);
@@ -138,7 +138,7 @@ public abstract class MzPushMessageReceiver extends IntentReceiver {
         try {
             super.onReceive(context, intent);
         } catch (Exception e) {
-            ni9.b(TAG, "Event core error " + e.getMessage());
+            DebugLogger.e(TAG, "Event core error " + e.getMessage());
             String packageName = context.getPackageName();
             d.a(context, packageName, null, null, PushManager.TAG, "MzPushMessageReceiver " + e.getMessage(), 3000);
         }

@@ -14,6 +14,7 @@ import com.baidu.ar.ihttp.IHttpRequest;
 import com.baidu.ar.ihttp.IHttpResponse;
 import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.ar.statistic.StatisticConstants;
+import com.baidu.sofire.core.ForHostApp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -100,8 +101,8 @@ public class e extends com.baidu.ar.e.a<String, String> {
             iError.onError(1, "资源不存在", null);
         } else if (TextUtils.isEmpty(aN.xL)) {
             iError.onError(1, "资源id不存在", null);
-        } else if ("local".equals(aN.xL)) {
-            iCallbackWith.run("local");
+        } else if (ForHostApp.KEY_NAME_LOCAL.equals(aN.xL)) {
+            iCallbackWith.run(ForHostApp.KEY_NAME_LOCAL);
         } else if (TextUtils.isEmpty(aN.xM)) {
             iError.onError(1, "编码不正确", null);
         } else {

@@ -60,8 +60,6 @@ public class CommonStatisticKey {
     public static final String KEY_DOWNLOAD_MANAGER_SHOW = "c14359";
     public static final String KEY_ENTER_FORUM_SUG_SHOW = "c13371";
     public static final String KEY_ENTRANCE_CLICKED = "c12611";
-    public static final String KEY_EYE_SPLASH_BEAR_CLICK = "c14314";
-    public static final String KEY_EYE_SPLASH_BEAR_SHOW = "c14313";
     public static final String KEY_FLOATING_VIEW_CLICK = "c12913";
     public static final String KEY_FORUM_INSIDE_LIVE_CLICK = "c14137";
     public static final String KEY_FORUM_INSIDE_LIVE_SHOW = "c14136";

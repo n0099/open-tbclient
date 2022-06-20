@@ -20,7 +20,7 @@ import com.baidu.webkit.sdk.LoadErrorCode;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
-import com.repackage.jw;
+import com.repackage.nw;
 import java.io.File;
 /* loaded from: classes.dex */
 public final class BdZeusDownloadHelper {
@@ -145,7 +145,7 @@ public final class BdZeusDownloadHelper {
                     bdZeusDownloadHelper2.e(bdZeusDownloadHelper2.b, this.this$0.d);
                 } else {
                     Log.i(EngineManager.LOG_TAG, " begine check md5");
-                    String a = jw.a(BdZeusDownloadHelper.i);
+                    String a = nw.a(BdZeusDownloadHelper.i);
                     if (a == null || !a.equalsIgnoreCase(this.this$0.d)) {
                         WebKitFactory.getLoadErrorCode().addDownloadInfo(1011);
                         Log.i(EngineManager.LOG_TAG, " check md5 failed ");

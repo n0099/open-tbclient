@@ -1,70 +1,154 @@
 package com.repackage;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ss6;
-import com.squareup.wire.Message;
+import java.util.List;
+import tbclient.AdMixFloor;
+import tbclient.FrsTabInfo;
 /* loaded from: classes7.dex */
-public class uq6 implements cc7 {
+public class uq6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ss6.d a;
+    public int a;
 
-    public uq6(ss6.d dVar) {
+    public uq6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static uq6 a(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, null, z)) == null) {
+            if (z && d()) {
+                return new uq6();
+            }
+            return null;
+        }
+        return (uq6) invokeZ.objValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? UbsABTestHelper.isFrsFunAdSdkTest() : invokeV.booleanValue;
+    }
+
+    public static boolean e(FrsTabInfo frsTabInfo, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, frsTabInfo, i)) == null) {
+            if (TbadkCoreApplication.getCurrentAccountInfo() != null && TbadkCoreApplication.getCurrentAccountInfo().getMemberCloseAdVipClose() == 1) {
+                return false;
+            }
+            if (frsTabInfo != null && 505 == frsTabInfo.tab_id.intValue() && 91 == frsTabInfo.tab_type.intValue()) {
+                return false;
+            }
+            return ((frsTabInfo != null && 502 == frsTabInfo.tab_id.intValue() && 91 == frsTabInfo.tab_type.intValue()) || i == 2) ? false : true;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return TbadkCoreApplication.getCurrentAccountInfo() != null && TbadkCoreApplication.getCurrentAccountInfo().getMemberCloseAdVipClose() == 1;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void b(List<nn> list, boolean z, String str) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{list, Boolean.valueOf(z), str}) == null) {
+            int h = nq6.m().h();
+            if (z) {
+                i = nq6.m().i() - 1;
+                for (nn nnVar : list) {
+                    if (nnVar instanceof ThreadData) {
+                        if (((ThreadData) nnVar).getIs_top() != 1) {
+                            break;
+                        }
+                        i++;
+                    }
+                }
+            } else {
+                i = this.a;
+            }
+            this.a = c(i, h, list, str);
+        }
+    }
+
+    public final int c(int i, int i2, List<nn> list, String str) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), list, str})) == null) {
+            if (list == null || list.size() == 0 || i > list.size() - 1) {
+                return 0;
+            }
+            for (int i3 = 0; i3 < list.size(); i3++) {
+                ThreadData threadData = new ThreadData();
+                rh8 rh8Var = new rh8();
+                rh8Var.k(true);
+                threadData.funAdData = rh8Var;
+                rh8Var.j(str);
+                list.add(i, threadData);
+                i = i + i2 + 1;
+                if (i > list.size() - 1) {
+                    return (i - (list.size() - 1)) - 1;
+                }
+            }
+            return 0;
+        }
+        return invokeCommon.intValue;
+    }
+
+    public void g(List<nn> list, List<AdMixFloor> list2, boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{list, list2, Boolean.valueOf(z), str}) == null) {
+            if (((AdMixFloor) ListUtils.getItem(list2, 0)) == null) {
                 return;
             }
-        }
-        this.a = dVar;
-    }
-
-    @Override // com.repackage.cc7
-    public void a(boolean z, Message message, boolean z2, long j, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), message, Boolean.valueOf(z2), Long.valueOf(j), str, Integer.valueOf(i)}) == null) {
-            vq6 vq6Var = new vq6();
-            vb7 vb7Var = new vb7();
-            vb7Var.a = j;
-            vb7Var.b = str;
-            rb7 a = ac7.d().a(vb7Var);
-            if (a != null) {
-                a.c(z, message, z2, i);
+            int i = 0;
+            for (int i2 = 0; z && i2 < list.size(); i2++) {
+                nn nnVar = list.get(i2);
+                if (nnVar instanceof ThreadData) {
+                    if (((ThreadData) nnVar).getIs_top() != 1) {
+                        break;
+                    }
+                    i++;
+                }
             }
-            vq6Var.b(a);
-            ss6.d dVar = this.a;
-            if (dVar != null) {
-                dVar.e(z, vq6Var, z2, "", str, true);
+            for (int i3 = 0; i3 < list2.size(); i3++) {
+                AdMixFloor adMixFloor = list2.get(i3);
+                if (adMixFloor.ad_type.intValue() != 1) {
+                    ThreadData threadData = new ThreadData();
+                    rh8 rh8Var = new rh8();
+                    rh8Var.k(true);
+                    threadData.funAdData = rh8Var;
+                    rh8Var.j(str);
+                    ListUtils.add(list, (adMixFloor.floor_num.intValue() + i) - 1, threadData);
+                }
             }
-        }
-    }
-
-    @Override // com.repackage.cc7
-    public void b(long j, String str, String str2, int i) {
-        ss6.d dVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i)}) == null) || (dVar = this.a) == null) {
-            return;
-        }
-        dVar.c(str, str2, i, true, 1);
-    }
-
-    @Override // com.repackage.cc7
-    public void c(long j, String str, Message message, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, message, Boolean.valueOf(z)}) == null) {
         }
     }
 }

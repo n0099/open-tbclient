@@ -1,179 +1,122 @@
 package com.repackage;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.player.event.ControlEvent;
-import com.baidu.searchbox.player.event.PlayerEvent;
-import com.baidu.searchbox.player.event.StatisticsEvent;
+import com.baidu.mobstat.Config;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
-/* loaded from: classes6.dex */
-public class qs0 implements zr0 {
+import java.util.Map;
+/* loaded from: classes7.dex */
+public abstract class qs0 implements as0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public zt0 a;
 
-    public qs0() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755369693, "Lcom/repackage/qs0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755369693, "Lcom/repackage/qs0;");
+                return;
+            }
+        }
+        no0.f();
+    }
+
+    public qs0(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {map};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.b = 0;
+        j(map);
     }
 
-    @Override // com.repackage.zr0
-    public void a(su0 su0Var) {
-        int i;
+    @Override // com.repackage.bs0
+    public final void c(ir0 ir0Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, su0Var) == null) || su0Var == null || TextUtils.isEmpty(su0Var.g)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, ir0Var) == null) || ir0Var == null || this.a == null) {
             return;
         }
-        ClogBuilder clogBuilder = new ClogBuilder();
-        if (!TextUtils.isEmpty(su0Var.f)) {
-            clogBuilder.t(su0Var.f);
-        }
-        clogBuilder.n(su0Var.g);
-        String c = su0Var.a.c();
-        char c2 = 65535;
-        switch (c.hashCode()) {
-            case -1530009462:
-                if (c.equals(ControlEvent.ACTION_SYNC_PROGRESS)) {
-                    c2 = 5;
-                    break;
-                }
-                break;
-            case 154871702:
-                if (c.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
-                    c2 = 4;
-                    break;
-                }
-                break;
-            case 720027695:
-                if (c.equals(ControlEvent.ACTION_PAUSE)) {
-                    c2 = 1;
-                    break;
-                }
-                break;
-            case 723345051:
-                if (c.equals(ControlEvent.ACTION_START)) {
-                    c2 = 0;
-                    break;
-                }
-                break;
-            case 906917140:
-                if (c.equals(ControlEvent.ACTION_RESUME)) {
-                    c2 = 2;
-                    break;
-                }
-                break;
-            case 2145795460:
-                if (c.equals(StatisticsEvent.ACTION_PLAYER_STOP)) {
-                    c2 = 3;
-                    break;
-                }
-                break;
-        }
-        if (c2 == 0) {
-            clogBuilder.w(ClogBuilder.LogType.VIDEO_START).i(su0Var.b).k(su0Var.d);
-            this.b = 0;
-            this.a++;
-            rx0.c(clogBuilder);
-        } else if (c2 == 1) {
-            boolean d = su0Var.a.d(7);
-            clogBuilder.j(su0Var.c).k(su0Var.d).l(su0Var.e);
-            if (d) {
-                clogBuilder.w(ClogBuilder.LogType.VIDEO_PAUSE);
-            } else {
-                clogBuilder.w(ClogBuilder.LogType.VIDEO_COMPLETED).m("1");
-            }
-            rx0.c(clogBuilder);
-        } else if (c2 == 2) {
-            clogBuilder.w(ClogBuilder.LogType.VIDEO_RESUME).i(su0Var.b).k(su0Var.d);
-            rx0.c(clogBuilder);
-        } else if (c2 == 3 || c2 == 4) {
-            if (this.a < 1) {
-                return;
-            }
-            try {
-                if (this.b > Integer.parseInt(su0Var.c)) {
-                    clogBuilder.j(su0Var.d);
-                } else {
-                    clogBuilder.j(su0Var.c);
-                }
-            } catch (NumberFormatException unused) {
-                clogBuilder.j(su0Var.c);
-            }
-            clogBuilder.w(ClogBuilder.LogType.VIDEO_COMPLETED).k(su0Var.d).l(su0Var.e).m("0");
-            this.a--;
-            rx0.c(clogBuilder);
-        } else if (c2 != 5) {
+        int type = ir0Var.getType();
+        if (type == 1) {
+            i(ir0Var);
+        } else if (type == 2) {
+            f(ir0Var);
+        } else if (type == 3) {
+            g(ir0Var);
+        } else if (type != 4) {
         } else {
-            int g = su0Var.a.g(1);
-            int g2 = su0Var.a.g(2);
-            if (g == 0 && g2 != 0 && (i = this.b) != 0 && i >= g2 - 2) {
-                clogBuilder.w(ClogBuilder.LogType.VIDEO_COMPLETED).j(String.valueOf(g2)).k(String.valueOf(g2)).l(su0Var.e);
-                rx0.c(clogBuilder);
-                ClogBuilder n = new ClogBuilder().w(ClogBuilder.LogType.VIDEO_START).i(su0Var.b).k(su0Var.d).n(su0Var.g);
-                if (!TextUtils.isEmpty(su0Var.f)) {
-                    n.t(su0Var.f);
-                }
-                rx0.c(n);
-            }
-            this.b = g;
+            h(ir0Var);
         }
     }
 
-    @Override // com.repackage.zr0
-    public void b(su0 su0Var) {
+    @Override // com.repackage.as0
+    public final <T extends vt0> void d(T t) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, su0Var) == null) || su0Var == null || su0Var.a == null || TextUtils.isEmpty(su0Var.g)) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            this.a = (zt0) t;
+        }
+    }
+
+    public abstract void f(ir0 ir0Var);
+
+    public abstract void g(ir0 ir0Var);
+
+    public abstract void h(ir0 ir0Var);
+
+    public abstract void i(ir0 ir0Var);
+
+    public void j(Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, map) == null) || map == null || map.size() <= 0) {
             return;
         }
-        String c = su0Var.a.c();
-        char c2 = 65535;
-        int hashCode = c.hashCode();
-        if (hashCode != 154871702) {
-            if (hashCode != 1370689931) {
-                if (hashCode == 2145795460 && c.equals(StatisticsEvent.ACTION_PLAYER_STOP)) {
-                    c2 = 1;
-                }
-            } else if (c.equals(PlayerEvent.ACTION_ON_INFO)) {
-                c2 = 0;
-            }
-        } else if (c.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
-            c2 = 2;
+        if (map.containsKey(WriteActivityConfig.VIDEO_INFO)) {
+            String str = (String) mx0.b(map, WriteActivityConfig.VIDEO_INFO);
         }
-        if (c2 != 0) {
-            if (c2 == 1 || c2 == 2) {
-                tu0.b.b();
-                return;
-            }
-            return;
+        if (map.containsKey("channel_id")) {
+            String str2 = (String) mx0.b(map, "channel_id");
         }
-        yu0 a = tu0.b.a();
-        if (a != null) {
-            a.c(su0Var.g);
-            a.e(su0Var.b);
-            a.d(su0Var.h);
-            a.b(su0Var.d);
-            tu0.b.c(a);
+        if (map.containsKey("channel_title")) {
+            String str3 = (String) mx0.b(map, "channel_title");
+        }
+        if (map.containsKey("type")) {
+            String str4 = (String) mx0.b(map, "type");
+        }
+        if (map.containsKey("source")) {
+            String str5 = (String) mx0.b(map, "source");
+        }
+        if (map.containsKey("from")) {
+            String str6 = (String) mx0.b(map, "from");
+        }
+        if (map.containsKey(Config.EVENT_PAGE_MAPPING)) {
+            String str7 = (String) mx0.b(map, Config.EVENT_PAGE_MAPPING);
+        }
+        if (map.containsKey("tpl")) {
+            String str8 = (String) mx0.b(map, "tpl");
+        }
+        if (map.containsKey("ext_request")) {
+            String str9 = (String) mx0.b(map, "ext_request");
         }
     }
 }

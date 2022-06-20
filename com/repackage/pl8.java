@@ -2,9 +2,7 @@ package com.repackage;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.KuangFloatingViewController;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,46 +13,17 @@ public class pl8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-
-    /* loaded from: classes6.dex */
-    public class a implements vl4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(pl8 pl8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pl8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.vl4
-        public void onPermissionResult(boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {
-                KuangFloatingViewController.getInstance().showFloatingView();
-                TiebaStatic.log(new StatisticItem("c12264").param("obj_type", 3));
-            }
-        }
-    }
+    public final dk8 b;
+    public final qk8 c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pl8(MainTabActivity mainTabActivity, uj8 uj8Var) {
-        super(2921380);
+    public pl8(MainTabActivity mainTabActivity, dk8 dk8Var) {
+        super(2921538);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, uj8Var};
+            Object[] objArr = {mainTabActivity, dk8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -66,19 +35,23 @@ public class pl8 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
+        this.b = dk8Var;
+        this.c = mainTabActivity.f;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        dk8 dk8Var;
+        qk8 qk8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof String) || ki.isEmpty((String) customResponsedMessage.getData())) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || (dk8Var = this.b) == null || dk8Var.z() == null || this.b.z().getCurrentTabType() == 8 || (qk8Var = this.c) == null || qk8Var.a() == null) {
             return;
         }
-        String str = (String) customResponsedMessage.getData();
-        if (KuangFloatingViewController.getInstance().init()) {
-            KuangFloatingViewController.getInstance().setInfo(str);
-            this.a.getPageContext().getOrignalPage().grantWindowPermission(new a(this), false);
+        if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
+            this.c.a().g = true;
+        } else {
+            this.c.a().f();
         }
     }
 }

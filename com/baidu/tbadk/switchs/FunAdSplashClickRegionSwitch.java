@@ -8,11 +8,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xe;
-import com.repackage.ys4;
+import com.repackage.af;
+import com.repackage.ht4;
 @ModifyClass
 /* loaded from: classes3.dex */
-public class FunAdSplashClickRegionSwitch extends xe {
+public class FunAdSplashClickRegionSwitch extends af {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_SWITCH = "bear_screen_is_display";
     public static final int TYPE_OFF = 0;
@@ -37,17 +37,17 @@ public class FunAdSplashClickRegionSwitch extends xe {
     public static boolean isOpen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? ys4.k().l("pref_key_fun_ad_splash_click_enable", 0) == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? ht4.k().l("pref_key_fun_ad_splash_click_enable", 0) == 1 : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.xe
+    @Override // com.repackage.af
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    @Override // com.repackage.xe
+    @Override // com.repackage.af
     public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class FunAdSplashClickRegionSwitch extends xe {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.repackage.xe
+    @Override // com.repackage.af
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public class FunAdSplashClickRegionSwitch extends xe {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.xe
+    @Override // com.repackage.af
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -77,14 +77,14 @@ public class FunAdSplashClickRegionSwitch extends xe {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.xe
+    @Override // com.repackage.af
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? KEY_SWITCH : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.xe
+    @Override // com.repackage.af
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -1,52 +1,134 @@
 package com.repackage;
 
-import android.content.Context;
+import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.log.bean.FetchLog;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.tieba.R;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m52;
-import com.repackage.w23;
-import java.util.UUID;
-@Deprecated
+import com.repackage.vn1;
+import java.util.Collections;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class y23 extends e13 {
+public class y23 extends rq1 {
     public static /* synthetic */ Interceptable $ic;
+    public static y62 f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements w23.e {
+    public class a implements vn1.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ uk2 b;
-        public final /* synthetic */ hp2 c;
-        public final /* synthetic */ UnitedSchemeEntity d;
-        public final /* synthetic */ CallbackHandler e;
-        public final /* synthetic */ hz2 f;
-        public final /* synthetic */ String g;
-        public final /* synthetic */ qy1 h;
-        public final /* synthetic */ Context i;
-        public final /* synthetic */ y23 j;
+        public final /* synthetic */ y23 a;
 
-        public a(y23 y23Var, String str, uk2 uk2Var, hp2 hp2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hz2 hz2Var, String str2, qy1 qy1Var, Context context) {
+        /* renamed from: com.repackage.y23$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class RunnableC0572a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ JSONObject a;
+            public final /* synthetic */ String b;
+            public final /* synthetic */ String c;
+            public final /* synthetic */ a d;
+
+            /* renamed from: com.repackage.y23$a$a$a  reason: collision with other inner class name */
+            /* loaded from: classes7.dex */
+            public class C0573a implements f74 {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ String a;
+                public final /* synthetic */ RunnableC0572a b;
+
+                public C0573a(RunnableC0572a runnableC0572a, String str) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {runnableC0572a, str};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.b = runnableC0572a;
+                    this.a = str;
+                }
+
+                @Override // com.repackage.f74
+                public void a(@Nullable Map<String, String> map) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+                        if (map == null) {
+                            sw1.c("PreloadPackageApi", "preloadPackage keyMap null");
+                            return;
+                        }
+                        RunnableC0572a runnableC0572a = this.b;
+                        runnableC0572a.d.a.z(map.get(this.b.b), this.a, runnableC0572a.c);
+                    }
+                }
+
+                @Override // com.repackage.f74
+                public void onFail(Exception exc) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                        sw1.c("PreloadPackageApi", "preloadPackage transform openBundleId fail");
+                    }
+                }
+            }
+
+            public RunnableC0572a(a aVar, JSONObject jSONObject, String str, String str2) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, jSONObject, str, str2};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.d = aVar;
+                this.a = jSONObject;
+                this.b = str;
+                this.c = str2;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    boolean g = fc4.e().g(!md3.G());
+                    String optString = this.a.optString(PrefetchEvent.EVENT_KEY_PAGE_URL);
+                    if (!g) {
+                        this.d.a.z(this.b, optString, this.c);
+                    } else {
+                        a74.e(Collections.singletonList(this.b), y23.f.c(), new C0573a(this, optString));
+                    }
+                }
+            }
+        }
+
+        public a(y23 y23Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {y23Var, str, uk2Var, hp2Var, unitedSchemeEntity, callbackHandler, hz2Var, str2, qy1Var, context};
+                Object[] objArr = {y23Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -56,108 +138,79 @@ public class y23 extends e13 {
                     return;
                 }
             }
-            this.j = y23Var;
-            this.a = str;
-            this.b = uk2Var;
-            this.c = hp2Var;
-            this.d = unitedSchemeEntity;
-            this.e = callbackHandler;
-            this.f = hz2Var;
-            this.g = str2;
-            this.h = qy1Var;
-            this.i = context;
+            this.a = y23Var;
         }
 
-        @Override // com.repackage.w23.e
-        public void b(String str) {
+        @Override // com.repackage.vn1.a
+        public sr1 a(sz2 sz2Var, JSONObject jSONObject, @Nullable String str) {
+            InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                ns2.d(this.a);
-                hw1.i("redirect", "check pages success");
-                this.b.o();
-                m52.e f = m52.f(this.b.getActivity(), r52.c(this.c.a));
-                q23.l(this.d, this.e, this.f, f.a.c(), this.c.a, null, this.g);
-                this.j.n(f, this.c, this.h, this.a);
-            }
-        }
-
-        @Override // com.repackage.w23.e
-        public void c(int i, ab3 ab3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, ab3Var) == null) {
-                hw1.c("redirect", "check pages failed");
-                this.b.o();
-                if (e13.b) {
-                    Context context = this.i;
-                    zy2.g(context, this.i.getString(R.string.obfuscated_res_0x7f0f01a1) + i).G();
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, sz2Var, jSONObject, str)) == null) {
+                String optString = jSONObject.optString("appKey");
+                if (!TextUtils.isEmpty(optString)) {
+                    if (!y23.f.a(1)) {
+                        return new sr1(402, "over single max limit");
+                    }
+                    mc3.h().execute(new RunnableC0572a(this, jSONObject, optString, str), "PreloadPackageApi");
+                    return sr1.f();
                 }
-                q23.j(this.d, this.e, this.g);
-                v53.j(this.c, ab3Var);
+                return new sr1(202, "appKey must not empty");
             }
+            return (sr1) invokeLLL.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements m52.f {
+    public static class b extends ProviderDelegation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m52.e a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ hp2 c;
-        public final /* synthetic */ qy1 d;
 
-        public b(y23 y23Var, m52.e eVar, String str, hp2 hp2Var, qy1 qy1Var) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y23Var, eVar, str, hp2Var, qy1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = eVar;
-            this.b = str;
-            this.c = hp2Var;
-            this.d = qy1Var;
         }
 
-        @Override // com.repackage.m52.f
-        public void onReady() {
+        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+        public Bundle execCall(Bundle bundle) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (e13.b) {
-                    Log.d("redirectTo", "tryToExecutePageRoute onReady start.");
-                }
-                ns2.e(this.a, this.b);
-                q23.e(this.a.a, this.c, this.b);
-                bp1.A(this.d, this.c, this.b, false);
-                if (e13.b) {
-                    Log.d("redirectTo", "tryToExecutePageRoute onReady end.");
-                }
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+                String string = bundle.getString("appKey");
+                String e1 = qk2.e1(string, bundle.getString(PrefetchEvent.EVENT_KEY_PAGE_URL), 0, null);
+                PrefetchEvent.b bVar = new PrefetchEvent.b();
+                bVar.e("show");
+                bVar.d(e1);
+                bVar.c("10");
+                bVar.a(string);
+                r32.g().f(bVar.b());
+                return null;
             }
+            return (Bundle) invokeL.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y23(e03 e03Var) {
-        super(e03Var, "/swanAPI/redirectTo");
+    public y23(@NonNull tn1 tn1Var) {
+        super(tn1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {e03Var};
+            Object[] objArr = {tn1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((tn1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -165,88 +218,44 @@ public class y23 extends e13 {
         }
     }
 
-    @Override // com.repackage.e13
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hz2 hz2Var) {
-        InterceptResult invokeLLLL;
+    public sr1 A(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, hz2Var)) == null) {
-            if (e13.b) {
-                Log.d("redirectTo", "handle entity: " + unitedSchemeEntity.toString());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            q("#preloadPackage", false);
+            String a2 = ur1.a(rz2.K().getAppId());
+            if (TextUtils.isEmpty(a2)) {
+                return new sr1(101, "runtime parameter error");
             }
-            String uuid = UUID.randomUUID().toString();
-            ns2.b(uuid);
-            String o = q23.o(unitedSchemeEntity, "params");
-            if (TextUtils.isEmpty(o)) {
-                hw1.c("redirect", "url is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
+            y62 y62Var = f;
+            if (y62Var == null || !y62Var.d(a2)) {
+                f = new y62(a2, cc4.b(a2));
             }
-            uk2 U = uk2.U();
-            qy1 V = U.V();
-            if (V == null) {
-                hw1.c("redirect", "manager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
+            if (f.e()) {
+                return new sr1(402, "over max limit");
             }
-            hp2 d = hp2.d(o, U.z());
-            d.e = "2";
-            d.f = uuid;
-            v53.g(d);
-            if (!bd3.b(U.s(), d, false)) {
-                hw1.c("redirect", "page params error : path=" + d.a + " ; routePath=" + d.d);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                v53.i(d);
-                return false;
+            if (!f.b()) {
+                return new sr1(402, "over time interval limit");
             }
-            String str = unitedSchemeEntity.getParams().get("initData");
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(d.d) && hz2.L() != null) {
-                hz2.L().K0(str, d.d);
-            }
-            String n = q23.n(unitedSchemeEntity, "params", FetchLog.START_TIME);
-            if (!TextUtils.isEmpty(n)) {
-                HybridUbcFlow q = ms2.q("route", uuid);
-                UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("fe_route_start");
-                ubcFlowEvent.h(Long.valueOf(n).longValue());
-                q.F(ubcFlowEvent);
-            }
-            if (e13.b) {
-                Log.d("redirectTo", "PreloadSlaveManager start.");
-            }
-            String optString = hc3.d(unitedSchemeEntity.getParam("params")).optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                hw1.c("redirect", "cb is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                v53.i(d);
-                return false;
-            } else if (u13.b().a(d)) {
-                u13.b().i("redirectTo", d);
-                hw1.c("redirectTo", "access to this page is prohibited");
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1003, "access to this page is prohibited"));
-                return false;
-            } else {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                U.a();
-                w23.g(hz2Var, d, "", new a(this, uuid, U, d, unitedSchemeEntity, callbackHandler, hz2Var, optString, V, context), uuid);
-                return true;
-            }
+            return l(str, false, new a(this));
         }
-        return invokeLLLL.booleanValue;
+        return (sr1) invokeL.objValue;
     }
 
-    public final void n(m52.e eVar, hp2 hp2Var, qy1 qy1Var, String str) {
+    @Override // com.repackage.vn1
+    public String j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, hp2Var, qy1Var, str) == null) {
-            boolean z = eVar != null && eVar.b;
-            HybridUbcFlow q = ms2.q("route", str);
-            q.F(new UbcFlowEvent("na_pre_load_slave_check"));
-            q.D("preload", z ? "1" : "0");
-            if (e13.b) {
-                Log.d("redirectTo", "tryToExecutePageRoute start. isReady : " + z);
-            }
-            m52.q(eVar, new b(this, eVar, str, hp2Var, qy1Var));
-            if (e13.b) {
-                Log.d("redirectTo", "tryToExecutePageRoute end.");
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "PreloadPackageApi" : (String) invokeV.objValue;
+    }
+
+    public final void z(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("appKey", str);
+            bundle.putString(PrefetchEvent.EVENT_KEY_PAGE_URL, str2);
+            fw2.b(b.class, bundle);
         }
     }
 }

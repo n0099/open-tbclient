@@ -479,7 +479,7 @@ public class BaseActivity extends TitleActivity {
                 SapiAccountManager.getGlobalCallback().onLoginStatusChange();
             }
             try {
-                ((RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091adb)).removeView(this.sapiWebView);
+                ((RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091ad3)).removeView(this.sapiWebView);
                 this.sapiWebView.removeAllViews();
                 this.sapiWebView.destroy();
                 this.sapiWebView = null;
@@ -636,14 +636,14 @@ public class BaseActivity extends TitleActivity {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.configuration.isNewLogin) {
             try {
-                ((RelativeLayout.LayoutParams) findViewById(R.id.obfuscated_res_0x7f091bd4).getLayoutParams()).addRule(3, 0);
+                ((RelativeLayout.LayoutParams) findViewById(R.id.obfuscated_res_0x7f091bcc).getLayoutParams()).addRule(3, 0);
             } catch (Exception unused) {
                 Log.e(k, "子activity重写了webview布局");
             }
             this.sapiWebView.setHadMakeBarHide(true);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091adb);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091ad3);
             if (this.mTitleLayout == null) {
-                this.mTitleLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091bd3);
+                this.mTitleLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091bcb);
             }
             ImageView imageView = null;
             RelativeLayout relativeLayout2 = this.mTitleLayout;
@@ -728,14 +728,14 @@ public class BaseActivity extends TitleActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.setupViews();
-            SapiWebView sapiWebView = (SapiWebView) findViewById(R.id.obfuscated_res_0x7f091bd4);
+            SapiWebView sapiWebView = (SapiWebView) findViewById(R.id.obfuscated_res_0x7f091bcc);
             this.sapiWebView = sapiWebView;
             if (sapiWebView == null) {
                 return;
             }
             SapiConfiguration sapiConfiguration = this.configuration;
             if (sapiConfiguration != null && sapiConfiguration.isDarkMode) {
-                sapiWebView.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609bc));
+                sapiWebView.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609ba));
             }
             if (getWebDTO() != null && getWebDTO().loadingView != null) {
                 b.a(this, this.sapiWebView, getWebDTO().loadingView);
@@ -769,8 +769,8 @@ public class BaseActivity extends TitleActivity {
                 public void onTitleChange(String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
-                        String string = this.a.getString(R.string.obfuscated_res_0x7f0f1031);
-                        String string2 = this.a.getString(R.string.obfuscated_res_0x7f0f1030);
+                        String string = this.a.getString(R.string.obfuscated_res_0x7f0f103c);
+                        String string2 = this.a.getString(R.string.obfuscated_res_0x7f0f103b);
                         if (string.equals(str)) {
                             str = string2;
                         }
@@ -1344,7 +1344,7 @@ public class BaseActivity extends TitleActivity {
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                         try {
                             if (!"mounted".equals(Environment.getExternalStorageState())) {
-                                Toast.makeText(this.a, (int) R.string.obfuscated_res_0x7f0f108b, 0).show();
+                                Toast.makeText(this.a, (int) R.string.obfuscated_res_0x7f0f1096, 0).show();
                                 return;
                             }
                             File file = new File(this.a.getExternalCacheDir(), "camera_temp_image.jpg");

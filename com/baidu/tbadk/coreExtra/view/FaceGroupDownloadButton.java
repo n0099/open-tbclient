@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
+import com.repackage.pi;
 @RequiresApi(api = 21)
 /* loaded from: classes3.dex */
 public class FaceGroupDownloadButton extends View {
@@ -166,8 +166,8 @@ public class FaceGroupDownloadButton extends View {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             Paint paint = new Paint(1);
             this.e = paint;
-            paint.setTextSize(li.f(getContext(), R.dimen.T_X08));
-            this.g = li.f(getContext(), R.dimen.L_X02);
+            paint.setTextSize(pi.f(getContext(), R.dimen.T_X08));
+            this.g = pi.f(getContext(), R.dimen.L_X02);
             e();
         }
     }

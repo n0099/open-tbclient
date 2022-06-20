@@ -1,5 +1,6 @@
 package com.baidu.tieba.memberCenter.index;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -9,9 +10,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.SevenZipUtils;
-import com.repackage.cq4;
-import com.repackage.qe;
-import com.repackage.zg7;
+import com.repackage.ki7;
+import com.repackage.mq4;
+import com.repackage.te;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetVipInfo.DataRes;
@@ -20,7 +21,7 @@ import tbclient.GetVipInfo.GetVipInfoResIdl;
 public class MembercenterSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zg7 mMembercenter;
+    public ki7 mMembercenter;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MembercenterSocketResponseMessage() {
@@ -40,37 +41,41 @@ public class MembercenterSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
-    public zg7 getMembercenterData() {
-        InterceptResult invokeV;
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mMembercenter : (zg7) invokeV.objValue;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            GetVipInfoResIdl getVipInfoResIdl = (GetVipInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetVipInfoResIdl.class);
+            if (getVipInfoResIdl == null) {
+                return null;
+            }
+            Error error = getVipInfoResIdl.error;
+            if (error != null) {
+                setError(error.errorno.intValue());
+                setErrorString(getVipInfoResIdl.error.usermsg);
+            }
+            DataRes dataRes = getVipInfoResIdl.data;
+            if (dataRes != null) {
+                this.mMembercenter = new ki7(dataRes);
+            }
+            if (getError() == 0) {
+                String currentAccount = TbadkCoreApplication.isLogin() ? TbadkCoreApplication.getCurrentAccount() : SevenZipUtils.FILE_NAME_TEMP;
+                mq4.f();
+                te<byte[]> e = mq4.e("tb_member_center", currentAccount);
+                if (e != null && bArr != null) {
+                    e.g("member_center_cache_key", bArr);
+                }
+            }
+            return getVipInfoResIdl;
+        }
+        return invokeIL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        GetVipInfoResIdl getVipInfoResIdl;
+    public ki7 getMembercenterData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getVipInfoResIdl = (GetVipInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetVipInfoResIdl.class)) == null) {
-            return;
-        }
-        Error error = getVipInfoResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(getVipInfoResIdl.error.usermsg);
-        }
-        DataRes dataRes = getVipInfoResIdl.data;
-        if (dataRes != null) {
-            this.mMembercenter = new zg7(dataRes);
-        }
-        if (getError() == 0) {
-            String currentAccount = TbadkCoreApplication.isLogin() ? TbadkCoreApplication.getCurrentAccount() : SevenZipUtils.FILE_NAME_TEMP;
-            cq4.f();
-            qe<byte[]> e = cq4.e("tb_member_center", currentAccount);
-            if (e == null || bArr == null) {
-                return;
-            }
-            e.g("member_center_cache_key", bArr);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mMembercenter : (ki7) invokeV.objValue;
     }
 }

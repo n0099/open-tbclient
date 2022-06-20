@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.as;
-import com.repackage.pq;
-import com.repackage.ut;
-import com.repackage.vt;
+import com.repackage.es;
+import com.repackage.tq;
+import com.repackage.yt;
+import com.repackage.zt;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
@@ -56,20 +56,20 @@ public final class DoubleBtnDialog$initExtraView$2 extends Lambda implements Fun
     @Override // kotlin.jvm.functions.Function0
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final void invoke2() {
-        ut v;
-        as b;
-        vt d;
+        yt v;
+        es b;
+        zt d;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ut v2 = BDPTask.m.v();
+            yt v2 = BDPTask.m.v();
             if (v2 != null && (d = v2.d()) != null) {
-                d.b(this.$data.getTaskInfoSingleKey(), pq.c.a());
+                d.b(this.$data.getTaskInfoSingleKey(), tq.c.a());
             }
             if (!TextUtils.isEmpty(this.$data.getCancelBtnSchema()) && (v = BDPTask.m.v()) != null && (b = v.b()) != null) {
                 b.a(this.$data.getCancelBtnSchema(), 1);
             }
-            this.this$0.g();
-            this.this$0.b();
+            this.this$0.i();
+            this.this$0.d();
         }
     }
 }

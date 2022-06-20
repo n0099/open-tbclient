@@ -1,94 +1,225 @@
 package com.repackage;
 
-import android.content.res.Resources;
-import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IResourcesFetcher;
-import com.baidu.nps.interfa.IResourcesFetcher_ResourcesFetcherManager_Provider;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nps.main.manager.NPSManager;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import dalvik.system.PathClassLoader;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.net.URL;
+import java.util.Enumeration;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes7.dex */
-public class y41 {
+public class y41 extends PathClassLoader {
     public static /* synthetic */ Interceptable $ic;
-    public static y41 b;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject
-    public qa1<IResourcesFetcher> a;
+    public final ClassLoader a;
+    public Method b;
+    public Method c;
+    public Method d;
+    public Method e;
+    public Set<String> f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755191877, "Lcom/repackage/y41;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755191877, "Lcom/repackage/y41;");
-                return;
-            }
-        }
-        b = new y41();
-    }
-
-    public y41() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y41(ClassLoader classLoader, ClassLoader classLoader2) {
+        super("", "", classLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {classLoader, classLoader2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (ClassLoader) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        e();
+        this.f = new HashSet();
+        this.a = classLoader2;
+        b(classLoader2);
+        c(classLoader2);
+        this.f.add("android.widget.ViewStub");
+        this.f.add("android.widget.View");
+        this.f.add("android.webkit.ViewStub");
+        this.f.add("android.webkit.View");
+        this.f.add("android.app.ViewStub");
+        this.f.add("android.app.View");
+        this.f.add("com.google.android.gms.net.PlayServicesCronetProvider");
+        this.f.add("com.google.android.gms.net.GmsCoreCronetProvider");
+        this.f.add("org.chromium.net.impl.JavaCronetProvider");
     }
 
-    public static y41 c() {
-        InterceptResult invokeV;
+    public final void a(String str, ClassLoader classLoader) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (y41) invokeV.objValue;
-    }
-
-    public Resources a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (r51.a()) {
-                Log.i("NPS-ResourcesFetcher", "resourcesFetcherHolder class=" + this.a.getClass());
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, classLoader) == null) {
+            try {
+                Field b = i61.b(classLoader.getClass(), str);
+                i61.h(b);
+                i61.l(b, this, i61.g(b, classLoader));
+            } catch (IllegalAccessException unused) {
             }
-            return this.a.get().getBaseContextResources();
         }
-        return (Resources) invokeV.objValue;
     }
 
-    public Resources b() {
+    public final void b(ClassLoader classLoader) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, classLoader) == null) {
+            a("pathList", classLoader);
+        }
+    }
+
+    public final void c(ClassLoader classLoader) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, classLoader) == null) {
+            Class<?> cls = classLoader.getClass();
+            Method c = i61.c(cls, "findResource", String.class);
+            this.b = c;
+            c.setAccessible(true);
+            Method c2 = i61.c(cls, "findResources", String.class);
+            this.c = c2;
+            c2.setAccessible(true);
+            Method c3 = i61.c(cls, "findLibrary", String.class);
+            this.d = c3;
+            c3.setAccessible(true);
+            Method c4 = i61.c(cls, "getPackage", String.class);
+            this.e = c4;
+            c4.setAccessible(true);
+        }
+    }
+
+    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
+    public Class<?> findClass(String str) throws ClassNotFoundException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? super.findClass(str) : (Class) invokeL.objValue;
+    }
+
+    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
+    public String findLibrary(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            try {
+                return (String) this.d.invoke(this.a, str);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+                return super.findLibrary(str);
+            } catch (IllegalArgumentException e2) {
+                e2.printStackTrace();
+                return super.findLibrary(str);
+            } catch (InvocationTargetException e3) {
+                e3.printStackTrace();
+                return super.findLibrary(str);
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
+    public URL findResource(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            try {
+                return (URL) this.b.invoke(this.a, str);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+                return super.findResource(str);
+            } catch (IllegalArgumentException e2) {
+                e2.printStackTrace();
+                return super.findResource(str);
+            } catch (InvocationTargetException e3) {
+                e3.printStackTrace();
+                return super.findResource(str);
+            }
+        }
+        return (URL) invokeL.objValue;
+    }
+
+    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
+    public Enumeration<URL> findResources(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            try {
+                return (Enumeration) this.c.invoke(this.a, str);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+                return super.findResources(str);
+            } catch (IllegalArgumentException e2) {
+                e2.printStackTrace();
+                return super.findResources(str);
+            } catch (InvocationTargetException e3) {
+                e3.printStackTrace();
+                return super.findResources(str);
+            }
+        }
+        return (Enumeration) invokeL.objValue;
+    }
+
+    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
+    public Package getPackage(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            Package r0 = null;
+            if (str != null && !str.isEmpty()) {
+                try {
+                    r0 = (Package) this.e.invoke(this.a, str);
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (IllegalArgumentException e2) {
+                    e2.printStackTrace();
+                } catch (InvocationTargetException e3) {
+                    e3.printStackTrace();
+                }
+                if (r0 == null) {
+                    r0 = super.getPackage(str);
+                }
+                if (r0 == null) {
+                    return definePackage(str, "Unknown", "0.0", "Unknown", "Unknown", "0.0", "Unknown", null);
+                }
+            }
+            return r0;
+        }
+        return (Package) invokeL.objValue;
+    }
+
+    @Override // java.lang.ClassLoader
+    public Class<?> loadClass(String str, boolean z) throws ClassNotFoundException {
+        Class<?> loadComponentClass;
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, z)) == null) {
+            try {
+                return this.a.loadClass(str);
+            } catch (ClassNotFoundException unused) {
+                return (this.f.contains(str) || (loadComponentClass = NPSManager.getInstance().loadComponentClass(str)) == null) ? super.loadClass(str, z) : loadComponentClass;
+            }
+        }
+        return (Class) invokeLZ.objValue;
+    }
+
+    @Override // dalvik.system.BaseDexClassLoader
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.get().getGlobalResources() : (Resources) invokeV.objValue;
-    }
-
-    public Resources[] d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.get().getWrapperResources() : (Resources[]) invokeV.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            oa1 b2 = oa1.b();
-            this.a = b2;
-            b2.a(new IResourcesFetcher_ResourcesFetcherManager_Provider());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return y41.class.getName() + "[mBase=" + this.a.toString() + PreferencesUtil.RIGHT_MOUNT;
         }
+        return (String) invokeV.objValue;
     }
 }

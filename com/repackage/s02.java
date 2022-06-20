@@ -1,9 +1,12 @@
 package com.repackage;
 
-import android.net.Uri;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.account.contants.LoginConstants;
+import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
+import com.baidu.swan.apps.core.launchtips.monitor.request.RequestStatus;
+import com.baidu.swan.apps.core.launchtips.scene.SceneType;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,15 +14,71 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.input.InputType;
-import java.util.HashSet;
-import java.util.Set;
+import com.repackage.a02;
+import java.util.Locale;
 /* loaded from: classes7.dex */
-public class s02 implements v02 {
+public class s02 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final Set<String> b;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public final a02 a;
+    public final j02 b;
+    public final xz1 c;
+    public SceneType d;
+
+    /* loaded from: classes7.dex */
+    public class a implements a02.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ l02 a;
+        public final /* synthetic */ zz1 b;
+        public final /* synthetic */ s02 c;
+
+        public a(s02 s02Var, l02 l02Var, zz1 zz1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s02Var, l02Var, zz1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = s02Var;
+            this.a = l02Var;
+            this.b = zz1Var;
+        }
+
+        @Override // com.repackage.a02.b
+        public void a(NetworkStatus networkStatus) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
+                tz1.e(this.c.d.getType(), networkStatus.getStatus(), this.a.e().getStatus(), this.a.g(), this.a.b(), this.a.f(), this.a.a());
+                boolean m0 = m62.U().m0();
+                long n = zi2.g0().n();
+                if (n >= 6000 || m0) {
+                    this.c.f(networkStatus, this.b, this.a);
+                }
+                StringBuilder sb = new StringBuilder();
+                sb.append(this.c.d.getScene());
+                sb.append(String.format(Locale.getDefault(), "%d秒截屏；", Long.valueOf(n / 1000)));
+                sb.append(m0 ? "框架预加载：已完成；" : "框架预加载：未完成；");
+                sb.append(this.b.a());
+                sb.append(this.a.d());
+                sb.append(networkStatus.getDesc());
+                sb.append(this.a.c());
+                if (s02.e) {
+                    Log.d("SceneWhiteScreenTips", ">> " + sb.toString());
+                }
+                uz1.g(sb.toString());
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -34,13 +93,7 @@ public class s02 implements v02 {
                 return;
             }
         }
-        a = rf1.a;
-        HashSet hashSet = new HashSet();
-        b = hashSet;
-        hashSet.add("https");
-        b.add("http");
-        b.add(LoginConstants.SMS_LOGIN);
-        b.add(InputType.TEL);
+        e = cg1.a;
     }
 
     public s02() {
@@ -53,63 +106,64 @@ public class s02 implements v02 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.d = SceneType.SCENE_WHITE_SCREEN_L1;
+        this.c = xz1.d();
+        this.a = new a02();
+        this.b = j02.d();
     }
 
-    @Override // com.repackage.v02
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-        }
-    }
-
-    @Override // com.repackage.v02
-    public boolean b(String str) {
-        InterceptResult invokeL;
-        Uri parse;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (str == null || (parse = Uri.parse(str)) == null) {
-                return true;
-            }
-            boolean contains = b.contains(parse.getScheme());
-            if (a) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(contains ? "legal schemes : " : "illegal schemes : ");
-                sb.append(parse.getScheme());
-                Log.d("WebViewWidgetListener", sb.toString());
-            }
-            return !contains;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.v02
-    public void c(int i, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, str2) == null) {
-        }
-    }
-
-    @Override // com.repackage.v02
     public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (h02.b().c()) {
+                if (e) {
+                    Log.d("SceneWhiteScreenTips", ">> start to recheck white screen.");
+                }
+                h02.b().h(f02.b(str, 3000L));
+                h02.b().f();
+                return;
+            }
+            if (e) {
+                Log.d("SceneWhiteScreenTips", ">> no need to recheck white screen.");
+            }
+            if (e) {
+                Log.d("SceneWhiteScreenTips", ">> start handle white screen tips.");
+            }
+            j02.d().j();
+            xz1.d().j();
+            h02.b().j(true);
+            zz1 f = this.c.f();
+            this.a.a(new a(this, this.b.f(), f));
         }
     }
 
-    @Override // com.repackage.v02
-    public void e(String str) {
+    public void e(SceneType sceneType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sceneType) == null) {
+            this.d = sceneType;
         }
     }
 
-    @Override // com.repackage.v02
-    public void goBack() {
+    public final void f(@NonNull NetworkStatus networkStatus, @NonNull zz1 zz1Var, @NonNull l02 l02Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, networkStatus, zz1Var, l02Var) == null) {
+            boolean b = zz1Var.b();
+            int i = R.string.obfuscated_res_0x7f0f1326;
+            if (b) {
+                i = R.string.obfuscated_res_0x7f0f132b;
+            } else if (l02Var.e() == RequestStatus.STATUS_SERVER_FAILED) {
+                i = R.string.obfuscated_res_0x7f0f1329;
+            } else if (l02Var.e() != RequestStatus.STATUS_FAILED) {
+                if (l02Var.e() == RequestStatus.STATUS_SLOW) {
+                    i = (networkStatus == NetworkStatus.NETWORK_BAD || networkStatus == NetworkStatus.NETWORK_OFFLINE) ? R.string.obfuscated_res_0x7f0f132a : R.string.obfuscated_res_0x7f0f1327;
+                } else if (l02Var.e() != RequestStatus.STATUS_CORE_FAILED) {
+                    i = R.string.obfuscated_res_0x7f0f1328;
+                }
+            }
+            sz1.f(i);
         }
     }
 }

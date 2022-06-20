@@ -1,913 +1,963 @@
 package com.repackage;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.sofire.utility.LocalConstant;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
+import com.google.android.exoplayer2.C;
+import com.google.android.material.slider.BasicLabelFormatter;
+import java.io.IOException;
+import java.util.Arrays;
+import org.aspectj.runtime.reflect.SignatureImpl;
 /* loaded from: classes6.dex */
-public class j8<T> {
+public class j8 implements Appendable, CharSequence {
     public static /* synthetic */ Interceptable $ic;
+    public static final char[] c;
     public transient /* synthetic */ FieldHolder $fh;
-    public T[] a;
-    public Comparator<? super T> b;
-    public int c;
-    public T[] d;
-    public int e;
-    public int f;
-    public final int[] g;
-    public final int[] h;
+    public char[] a;
+    public int b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964037961, "Lcom/repackage/j8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1964037961, "Lcom/repackage/j8;");
+                return;
+            }
+        }
+        c = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+    }
 
     public j8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = 7;
-        this.f = 0;
-        this.d = (T[]) new Object[256];
-        this.g = new int[40];
-        this.h = new int[40];
+        this.a = new char[16];
     }
 
-    /* JADX DEBUG: Duplicate block to fix multi-entry loop: BACK_EDGE: B:21:0x003d -> B:5:0x0006 */
-    public static <T> void a(T[] tArr, int i, int i2, int i3, Comparator<? super T> comparator) {
+    public static int E(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{tArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), comparator}) == null) {
-            if (i3 == i) {
-                i3++;
+        if (interceptable != null && (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2)) != null) {
+            return invokeII.intValue;
+        }
+        int i3 = i < 0 ? 2 : 1;
+        while (true) {
+            i /= i2;
+            if (i == 0) {
+                return i3;
             }
-            while (i3 < i2) {
-                T t = tArr[i3];
-                int i4 = i;
-                int i5 = i3;
-                while (i4 < i5) {
-                    int i6 = (i4 + i5) >>> 1;
-                    if (comparator.compare(t, tArr[i6]) < 0) {
-                        i5 = i6;
-                    } else {
-                        i4 = i6 + 1;
-                    }
-                }
-                int i7 = i3 - i4;
-                if (i7 != 1) {
-                    if (i7 != 2) {
-                        System.arraycopy(tArr, i4, tArr, i4 + 1, i7);
-                        tArr[i4] = t;
-                        i3++;
-                    } else {
-                        tArr[i4 + 2] = tArr[i4 + 1];
-                    }
-                }
-                tArr[i4 + 1] = tArr[i4];
-                tArr[i4] = t;
-                i3++;
-            }
+            i3++;
         }
     }
 
-    public static <T> int b(T[] tArr, int i, int i2, Comparator<? super T> comparator) {
+    public static int F(long j, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{tArr, Integer.valueOf(i), Integer.valueOf(i2), comparator})) == null) {
-            int i3 = i + 1;
-            if (i3 == i2) {
-                return 1;
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) != null) {
+            return invokeCommon.intValue;
+        }
+        int i2 = j < 0 ? 2 : 1;
+        while (true) {
+            j /= i;
+            if (j == 0) {
+                return i2;
             }
+            i2++;
+        }
+    }
+
+    public final void A(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+            if (i >= 0 && i <= this.b) {
+                if (str == null) {
+                    str = StringUtil.NULL_STRING;
+                }
+                int length = str.length();
+                if (length != 0) {
+                    D(length, i);
+                    str.getChars(0, length, this.a, i);
+                    this.b += length;
+                    return;
+                }
+                return;
+            }
+            throw new StringIndexOutOfBoundsException(i);
+        }
+    }
+
+    public final void B(int i, char[] cArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, cArr) == null) {
+            if (i >= 0 && i <= this.b) {
+                if (cArr.length != 0) {
+                    D(cArr.length, i);
+                    System.arraycopy(cArr, 0, cArr, i, cArr.length);
+                    this.b += cArr.length;
+                    return;
+                }
+                return;
+            }
+            throw new StringIndexOutOfBoundsException(i);
+        }
+    }
+
+    public final void C(int i, char[] cArr, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), cArr, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            if (i >= 0 && i <= i3) {
+                if (i2 >= 0 && i3 >= 0 && i3 <= cArr.length - i2) {
+                    if (i3 != 0) {
+                        D(i3, i);
+                        System.arraycopy(cArr, i2, this.a, i, i3);
+                        this.b += i3;
+                        return;
+                    }
+                    return;
+                }
+                throw new StringIndexOutOfBoundsException("offset " + i2 + ", length " + i3 + ", char[].length " + cArr.length);
+            }
+            throw new StringIndexOutOfBoundsException(i);
+        }
+    }
+
+    public final void D(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            char[] cArr = this.a;
+            int length = cArr.length;
+            int i3 = this.b;
+            if (length - i3 >= i) {
+                System.arraycopy(cArr, i2, cArr, i + i2, i3 - i2);
+                return;
+            }
+            int i4 = i3 + i;
+            int length2 = (cArr.length << 1) + 2;
+            if (i4 <= length2) {
+                i4 = length2;
+            }
+            char[] cArr2 = new char[i4];
+            System.arraycopy(this.a, 0, cArr2, 0, i2);
+            System.arraycopy(this.a, i2, cArr2, i + i2, this.b - i2);
+            this.a = cArr2;
+        }
+    }
+
+    public j8 G(char c2, String str) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Character.valueOf(c2), str})) == null) {
+            int length = str.length();
+            int i = 0;
+            while (i != this.b) {
+                if (this.a[i] == c2) {
+                    H(i, i + 1, str);
+                    i += length;
+                } else {
+                    i++;
+                }
+            }
+            return this;
+        }
+        return (j8) invokeCommon.objValue;
+    }
+
+    public final void H(int i, int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, str) == null) {
+            if (i >= 0) {
+                int i3 = this.b;
+                if (i2 > i3) {
+                    i2 = i3;
+                }
+                if (i2 > i) {
+                    int length = str.length();
+                    int i4 = (i2 - i) - length;
+                    if (i4 > 0) {
+                        char[] cArr = this.a;
+                        System.arraycopy(cArr, i2, cArr, i + length, this.b - i2);
+                    } else if (i4 < 0) {
+                        D(-i4, i2);
+                    }
+                    str.getChars(0, length, this.a, i);
+                    this.b -= i4;
+                    return;
+                } else if (i == i2) {
+                    if (str != null) {
+                        A(i, str);
+                        return;
+                    }
+                    throw null;
+                }
+            }
+            throw new StringIndexOutOfBoundsException();
+        }
+    }
+
+    public void I(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            if (i >= 0) {
+                char[] cArr = this.a;
+                if (i > cArr.length) {
+                    x(i);
+                } else {
+                    int i2 = this.b;
+                    if (i2 < i) {
+                        Arrays.fill(cArr, i2, i, (char) 0);
+                    }
+                }
+                this.b = i;
+                return;
+            }
+            throw new StringIndexOutOfBoundsException(i);
+        }
+    }
+
+    public String J(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048583, this, i, i2)) == null) {
+            if (i < 0 || i > i2 || i2 > this.b) {
+                throw new StringIndexOutOfBoundsException();
+            }
+            return i == i2 ? "" : new String(this.a, i, i2 - i);
+        }
+        return (String) invokeII.objValue;
+    }
+
+    public j8 a(char c2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Character.valueOf(c2)})) == null) {
+            q(c2);
+            return this;
+        }
+        return (j8) invokeCommon.objValue;
+    }
+
+    @Override // java.lang.Appendable
+    public /* bridge */ /* synthetic */ Appendable append(char c2) throws IOException {
+        a(c2);
+        return this;
+    }
+
+    public j8 b(double d) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Double.valueOf(d)})) == null) {
+            s(Double.toString(d));
+            return this;
+        }
+        return (j8) invokeCommon.objValue;
+    }
+
+    public j8 c(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048589, this, f)) == null) {
+            s(Float.toString(f));
+            return this;
+        }
+        return (j8) invokeF.objValue;
+    }
+
+    @Override // java.lang.CharSequence
+    public char charAt(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
+            if (i >= 0 && i < this.b) {
+                return this.a[i];
+            }
+            throw new StringIndexOutOfBoundsException(i);
+        }
+        return invokeI.charValue;
+    }
+
+    public j8 d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
+            e(i, 0);
+            return this;
+        }
+        return (j8) invokeI.objValue;
+    }
+
+    public j8 delete(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048592, this, i, i2)) == null) {
+            w(i, i2);
+            return this;
+        }
+        return (j8) invokeII.objValue;
+    }
+
+    public j8 e(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048593, this, i, i2)) == null) {
+            f(i, i2, '0');
+            return this;
+        }
+        return (j8) invokeII.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj != null && j8.class == obj.getClass()) {
+                j8 j8Var = (j8) obj;
+                int i = this.b;
+                if (i != j8Var.b) {
+                    return false;
+                }
+                char[] cArr = this.a;
+                char[] cArr2 = j8Var.a;
+                for (int i2 = 0; i2 < i; i2++) {
+                    if (cArr[i2] != cArr2[i2]) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public j8 f(int i, int i2, char c2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Character.valueOf(c2)})) == null) {
+            if (i == Integer.MIN_VALUE) {
+                s("-2147483648");
+                return this;
+            }
+            if (i < 0) {
+                q(SignatureImpl.SEP);
+                i = -i;
+            }
+            if (i2 > 1) {
+                for (int E = i2 - E(i, 10); E > 0; E--) {
+                    a(c2);
+                }
+            }
+            if (i >= 10000) {
+                if (i >= 1000000000) {
+                    q(c[(int) ((i % 10000000000L) / C.NANOS_PER_SECOND)]);
+                }
+                if (i >= 100000000) {
+                    q(c[(i % 1000000000) / 100000000]);
+                }
+                if (i >= 10000000) {
+                    q(c[(i % 100000000) / LocalConstant.NEXTSUFFIX]);
+                }
+                if (i >= 1000000) {
+                    q(c[(i % LocalConstant.NEXTSUFFIX) / 1000000]);
+                }
+                if (i >= 100000) {
+                    q(c[(i % 1000000) / 100000]);
+                }
+                q(c[(i % 100000) / 10000]);
+            }
+            if (i >= 1000) {
+                q(c[(i % 10000) / 1000]);
+            }
+            if (i >= 100) {
+                q(c[(i % 1000) / 100]);
+            }
+            if (i >= 10) {
+                q(c[(i % 100) / 10]);
+            }
+            q(c[i % 10]);
+            return this;
+        }
+        return (j8) invokeCommon.objValue;
+    }
+
+    public j8 g(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048596, this, j)) == null) {
+            h(j, 0);
+            return this;
+        }
+        return (j8) invokeJ.objValue;
+    }
+
+    public j8 h(long j, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
+            i(j, i, '0');
+            return this;
+        }
+        return (j8) invokeCommon.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            int i = this.b + 31;
+            for (int i2 = 0; i2 < this.b; i2++) {
+                i = (i * 31) + this.a[i2];
+            }
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    public j8 i(long j, int i, char c2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Character.valueOf(c2)})) == null) {
+            if (j == Long.MIN_VALUE) {
+                s("-9223372036854775808");
+                return this;
+            }
+            if (j < 0) {
+                q(SignatureImpl.SEP);
+                j = -j;
+            }
+            if (i > 1) {
+                for (int F = i - F(j, 10); F > 0; F--) {
+                    a(c2);
+                }
+            }
+            if (j >= 10000) {
+                if (j >= 1000000000000000000L) {
+                    q(c[(int) ((j % 1.0E19d) / 1.0E18d)]);
+                }
+                if (j >= 100000000000000000L) {
+                    q(c[(int) ((j % 1000000000000000000L) / 100000000000000000L)]);
+                }
+                if (j >= 10000000000000000L) {
+                    q(c[(int) ((j % 100000000000000000L) / 10000000000000000L)]);
+                }
+                if (j >= 1000000000000000L) {
+                    q(c[(int) ((j % 10000000000000000L) / 1000000000000000L)]);
+                }
+                if (j >= 100000000000000L) {
+                    q(c[(int) ((j % 1000000000000000L) / 100000000000000L)]);
+                }
+                if (j >= 10000000000000L) {
+                    q(c[(int) ((j % 100000000000000L) / 10000000000000L)]);
+                }
+                if (j >= BasicLabelFormatter.TRILLION) {
+                    q(c[(int) ((j % 10000000000000L) / BasicLabelFormatter.TRILLION)]);
+                }
+                if (j >= 100000000000L) {
+                    q(c[(int) ((j % BasicLabelFormatter.TRILLION) / 100000000000L)]);
+                }
+                if (j >= 10000000000L) {
+                    q(c[(int) ((j % 100000000000L) / 10000000000L)]);
+                }
+                if (j >= C.NANOS_PER_SECOND) {
+                    q(c[(int) ((j % 10000000000L) / C.NANOS_PER_SECOND)]);
+                }
+                if (j >= 100000000) {
+                    q(c[(int) ((j % C.NANOS_PER_SECOND) / 100000000)]);
+                }
+                if (j >= 10000000) {
+                    q(c[(int) ((j % 100000000) / 10000000)]);
+                }
+                if (j >= 1000000) {
+                    q(c[(int) ((j % 10000000) / 1000000)]);
+                }
+                if (j >= 100000) {
+                    q(c[(int) ((j % 1000000) / 100000)]);
+                }
+                q(c[(int) ((j % 100000) / 10000)]);
+            }
+            if (j >= 1000) {
+                q(c[(int) ((j % 10000) / 1000)]);
+            }
+            if (j >= 100) {
+                q(c[(int) ((j % 1000) / 100)]);
+            }
+            if (j >= 10) {
+                q(c[(int) ((j % 100) / 10)]);
+            }
+            q(c[(int) (j % 10)]);
+            return this;
+        }
+        return (j8) invokeCommon.objValue;
+    }
+
+    public j8 insert(int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048609, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            A(i, z ? "true" : "false");
+            return this;
+        }
+        return (j8) invokeCommon.objValue;
+    }
+
+    public j8 j(j8 j8Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, j8Var)) == null) {
+            if (j8Var == null) {
+                v();
+            } else {
+                u(j8Var.a, 0, j8Var.b);
+            }
+            return this;
+        }
+        return (j8) invokeL.objValue;
+    }
+
+    public j8 k(CharSequence charSequence) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, charSequence)) == null) {
+            if (charSequence == null) {
+                v();
+            } else if (charSequence instanceof j8) {
+                j8 j8Var = (j8) charSequence;
+                u(j8Var.a, 0, j8Var.b);
+            } else {
+                s(charSequence.toString());
+            }
+            return this;
+        }
+        return (j8) invokeL.objValue;
+    }
+
+    public j8 l(CharSequence charSequence, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048614, this, charSequence, i, i2)) == null) {
+            r(charSequence, i, i2);
+            return this;
+        }
+        return (j8) invokeLII.objValue;
+    }
+
+    @Override // java.lang.CharSequence
+    public int length() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public j8 m(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, obj)) == null) {
+            if (obj == null) {
+                v();
+            } else {
+                s(obj.toString());
+            }
+            return this;
+        }
+        return (j8) invokeL.objValue;
+    }
+
+    public j8 n(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048617, this, str)) == null) {
+            s(str);
+            return this;
+        }
+        return (j8) invokeL.objValue;
+    }
+
+    public j8 o(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048618, this, z)) == null) {
+            s(z ? "true" : "false");
+            return this;
+        }
+        return (j8) invokeZ.objValue;
+    }
+
+    public j8 p(char[] cArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048619, this, cArr)) == null) {
+            t(cArr);
+            return this;
+        }
+        return (j8) invokeL.objValue;
+    }
+
+    public final void q(char c2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048620, this, new Object[]{Character.valueOf(c2)}) == null) {
+            int i = this.b;
+            if (i == this.a.length) {
+                x(i + 1);
+            }
+            char[] cArr = this.a;
+            int i2 = this.b;
+            this.b = i2 + 1;
+            cArr[i2] = c2;
+        }
+    }
+
+    public final void r(CharSequence charSequence, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048621, this, charSequence, i, i2) == null) {
+            if (charSequence == null) {
+                charSequence = StringUtil.NULL_STRING;
+            }
+            if (i >= 0 && i2 >= 0 && i <= i2 && i2 <= charSequence.length()) {
+                s(charSequence.subSequence(i, i2).toString());
+                return;
+            }
+            throw new IndexOutOfBoundsException();
+        }
+    }
+
+    public final void s(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048622, this, str) == null) {
+            if (str == null) {
+                v();
+                return;
+            }
+            int length = str.length();
+            int i = this.b + length;
+            if (i > this.a.length) {
+                x(i);
+            }
+            str.getChars(0, length, this.a, this.b);
+            this.b = i;
+        }
+    }
+
+    @Override // java.lang.CharSequence
+    public CharSequence subSequence(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeII = interceptable.invokeII(1048623, this, i, i2)) == null) ? J(i, i2) : (CharSequence) invokeII.objValue;
+    }
+
+    public final void t(char[] cArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048624, this, cArr) == null) {
+            int length = this.b + cArr.length;
+            if (length > this.a.length) {
+                x(length);
+            }
+            System.arraycopy(cArr, 0, this.a, this.b, cArr.length);
+            this.b = length;
+        }
+    }
+
+    @Override // java.lang.CharSequence
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.b == 0 ? "" : new String(this.a, 0, this.b) : (String) invokeV.objValue;
+    }
+
+    public final void u(char[] cArr, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048626, this, cArr, i, i2) == null) {
+            if (i <= cArr.length && i >= 0) {
+                if (i2 >= 0 && cArr.length - i >= i2) {
+                    int i3 = this.b + i2;
+                    if (i3 > this.a.length) {
+                        x(i3);
+                    }
+                    System.arraycopy(cArr, i, this.a, this.b, i2);
+                    this.b = i3;
+                    return;
+                }
+                throw new ArrayIndexOutOfBoundsException("Length out of bounds: " + i2);
+            }
+            throw new ArrayIndexOutOfBoundsException("Offset out of bounds: " + i);
+        }
+    }
+
+    public final void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048627, this) == null) {
+            int i = this.b + 4;
+            if (i > this.a.length) {
+                x(i);
+            }
+            char[] cArr = this.a;
+            int i2 = this.b;
+            int i3 = i2 + 1;
+            this.b = i3;
+            cArr[i2] = 'n';
             int i4 = i3 + 1;
-            if (comparator.compare(tArr[i3], tArr[i]) < 0) {
-                while (i4 < i2 && comparator.compare(tArr[i4], tArr[i4 - 1]) < 0) {
-                    i4++;
-                }
-                o(tArr, i, i4);
-            } else {
-                while (i4 < i2 && comparator.compare(tArr[i4], tArr[i4 - 1]) >= 0) {
-                    i4++;
-                }
-            }
-            return i4 - i;
+            this.b = i4;
+            cArr[i3] = 'u';
+            int i5 = i4 + 1;
+            this.b = i5;
+            cArr[i4] = 'l';
+            this.b = i5 + 1;
+            cArr[i5] = 'l';
         }
-        return invokeCommon.intValue;
     }
 
-    public static <T> int e(T t, T[] tArr, int i, int i2, int i3, Comparator<? super T> comparator) {
+    public final void w(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048628, this, i, i2) == null) {
+            if (i >= 0) {
+                int i3 = this.b;
+                if (i2 > i3) {
+                    i2 = i3;
+                }
+                if (i2 == i) {
+                    return;
+                }
+                if (i2 > i) {
+                    int i4 = this.b - i2;
+                    if (i4 >= 0) {
+                        char[] cArr = this.a;
+                        System.arraycopy(cArr, i2, cArr, i, i4);
+                    }
+                    this.b -= i2 - i;
+                    return;
+                }
+            }
+            throw new StringIndexOutOfBoundsException();
+        }
+    }
+
+    public final void x(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048629, this, i) == null) {
+            char[] cArr = this.a;
+            int length = (cArr.length >> 1) + cArr.length + 2;
+            if (i <= length) {
+                i = length;
+            }
+            char[] cArr2 = new char[i];
+            System.arraycopy(this.a, 0, cArr2, 0, this.b);
+            this.a = cArr2;
+        }
+    }
+
+    public final void y(int i, char c2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048630, this, new Object[]{Integer.valueOf(i), Character.valueOf(c2)}) == null) {
+            if (i >= 0 && i <= this.b) {
+                D(1, i);
+                this.a[i] = c2;
+                this.b++;
+                return;
+            }
+            throw new ArrayIndexOutOfBoundsException(i);
+        }
+    }
+
+    public final void z(int i, CharSequence charSequence, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048631, this, new Object[]{Integer.valueOf(i), charSequence, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            if (charSequence == null) {
+                charSequence = StringUtil.NULL_STRING;
+            }
+            if (i >= 0 && i <= this.b && i2 >= 0 && i3 >= 0 && i2 <= i3 && i3 <= charSequence.length()) {
+                A(i, charSequence.subSequence(i2, i3).toString());
+                return;
+            }
+            throw new IndexOutOfBoundsException();
+        }
+    }
+
+    @Override // java.lang.Appendable
+    public /* bridge */ /* synthetic */ Appendable append(CharSequence charSequence) throws IOException {
+        k(charSequence);
+        return this;
+    }
+
+    public j8 insert(int i, char c2) {
         InterceptResult invokeCommon;
-        int i4;
-        int i5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{t, tArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), comparator})) == null) {
-            int i6 = i + i3;
-            if (comparator.compare(t, tArr[i6]) > 0) {
-                int i7 = i2 - i3;
-                int i8 = 0;
-                int i9 = 1;
-                while (i9 < i7 && comparator.compare(t, tArr[i6 + i9]) > 0) {
-                    int i10 = (i9 << 1) + 1;
-                    if (i10 <= 0) {
-                        i8 = i9;
-                        i9 = i7;
-                    } else {
-                        int i11 = i9;
-                        i9 = i10;
-                        i8 = i11;
-                    }
-                }
-                if (i9 <= i7) {
-                    i7 = i9;
-                }
-                i4 = i8 + i3;
-                i5 = i7 + i3;
-            } else {
-                int i12 = i3 + 1;
-                int i13 = 0;
-                int i14 = 1;
-                while (i14 < i12 && comparator.compare(t, tArr[i6 - i14]) <= 0) {
-                    int i15 = (i14 << 1) + 1;
-                    if (i15 <= 0) {
-                        i13 = i14;
-                        i14 = i12;
-                    } else {
-                        int i16 = i14;
-                        i14 = i15;
-                        i13 = i16;
-                    }
-                }
-                if (i14 <= i12) {
-                    i12 = i14;
-                }
-                int i17 = i3 - i12;
-                int i18 = i3 - i13;
-                i4 = i17;
-                i5 = i18;
-            }
-            int i19 = i4 + 1;
-            while (i19 < i5) {
-                int i20 = ((i5 - i19) >>> 1) + i19;
-                if (comparator.compare(t, tArr[i + i20]) > 0) {
-                    i19 = i20 + 1;
-                } else {
-                    i5 = i20;
-                }
-            }
-            return i5;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{Integer.valueOf(i), Character.valueOf(c2)})) == null) {
+            y(i, c2);
+            return this;
         }
-        return invokeCommon.intValue;
+        return (j8) invokeCommon.objValue;
     }
 
-    public static <T> int f(T t, T[] tArr, int i, int i2, int i3, Comparator<? super T> comparator) {
-        InterceptResult invokeCommon;
-        int i4;
-        int i5;
+    public j8(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{t, tArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), comparator})) == null) {
-            int i6 = i + i3;
-            if (comparator.compare(t, tArr[i6]) < 0) {
-                int i7 = i3 + 1;
-                int i8 = 0;
-                int i9 = 1;
-                while (i9 < i7 && comparator.compare(t, tArr[i6 - i9]) < 0) {
-                    int i10 = (i9 << 1) + 1;
-                    if (i10 <= 0) {
-                        i8 = i9;
-                        i9 = i7;
-                    } else {
-                        int i11 = i9;
-                        i9 = i10;
-                        i8 = i11;
-                    }
-                }
-                if (i9 <= i7) {
-                    i7 = i9;
-                }
-                i5 = i3 - i7;
-                i4 = i3 - i8;
-            } else {
-                int i12 = i2 - i3;
-                int i13 = 0;
-                int i14 = 1;
-                while (i14 < i12 && comparator.compare(t, tArr[i6 + i14]) >= 0) {
-                    int i15 = (i14 << 1) + 1;
-                    if (i15 <= 0) {
-                        i13 = i14;
-                        i14 = i12;
-                    } else {
-                        int i16 = i14;
-                        i14 = i15;
-                        i13 = i16;
-                    }
-                }
-                if (i14 <= i12) {
-                    i12 = i14;
-                }
-                int i17 = i13 + i3;
-                i4 = i3 + i12;
-                i5 = i17;
-            }
-            int i18 = i5 + 1;
-            while (i18 < i4) {
-                int i19 = ((i4 - i18) >>> 1) + i18;
-                if (comparator.compare(t, tArr[i + i19]) < 0) {
-                    i4 = i19;
-                } else {
-                    i18 = i19 + 1;
-                }
-            }
-            return i4;
-        }
-        return invokeCommon.intValue;
-    }
-
-    public static int l(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
-            int i2 = 0;
-            while (i >= 32) {
-                i2 |= i & 1;
-                i >>= 1;
-            }
-            return i + i2;
-        }
-        return invokeI.intValue;
-    }
-
-    public static void n(int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(65542, null, i, i2, i3) == null) {
-            if (i2 <= i3) {
-                if (i2 < 0) {
-                    throw new ArrayIndexOutOfBoundsException(i2);
-                }
-                if (i3 > i) {
-                    throw new ArrayIndexOutOfBoundsException(i3);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
-            throw new IllegalArgumentException("fromIndex(" + i2 + ") > toIndex(" + i3 + SmallTailInfo.EMOTION_SUFFIX);
         }
-    }
-
-    public static void o(Object[] objArr, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65543, null, objArr, i, i2) == null) {
-            int i3 = i2 - 1;
-            while (i < i3) {
-                Object obj = objArr[i];
-                objArr[i] = objArr[i3];
-                objArr[i3] = obj;
-                i3--;
-                i++;
-            }
-        }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: java.util.Comparator<T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public void c(T[] tArr, Comparator<T> comparator, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(1048576, this, tArr, comparator, i, i2) == null) {
-            this.f = 0;
-            n(tArr.length, i, i2);
-            int i3 = i2 - i;
-            if (i3 < 2) {
-                return;
-            }
-            if (i3 < 32) {
-                a(tArr, i, i2, b(tArr, i, i2, comparator) + i, comparator);
-                return;
-            }
-            this.a = tArr;
-            this.b = comparator;
-            this.e = 0;
-            int l = l(i3);
-            do {
-                int b = b(tArr, i, i2, comparator);
-                if (b < l) {
-                    int i4 = i3 <= l ? i3 : l;
-                    a(tArr, i, i + i4, b + i, comparator);
-                    b = i4;
-                }
-                m(i, b);
-                h();
-                i += b;
-                i3 -= b;
-            } while (i3 != 0);
-            i();
-            this.a = null;
-            this.b = null;
-            T[] tArr2 = this.d;
-            int i5 = this.e;
-            for (int i6 = 0; i6 < i5; i6++) {
-                tArr2[i6] = null;
-            }
-        }
-    }
-
-    public final T[] d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            this.e = Math.max(this.e, i);
-            if (this.d.length < i) {
-                int i2 = (i >> 1) | i;
-                int i3 = i2 | (i2 >> 2);
-                int i4 = i3 | (i3 >> 4);
-                int i5 = i4 | (i4 >> 8);
-                int i6 = (i5 | (i5 >> 16)) + 1;
-                if (i6 >= 0) {
-                    i = Math.min(i6, this.a.length >>> 1);
-                }
-                this.d = (T[]) new Object[i];
-            }
-            return this.d;
-        }
-        return (T[]) ((Object[]) invokeI.objValue);
-    }
-
-    public final void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            int[] iArr = this.g;
-            int i2 = iArr[i];
-            int[] iArr2 = this.h;
-            int i3 = iArr2[i];
-            int i4 = i + 1;
-            int i5 = iArr[i4];
-            int i6 = iArr2[i4];
-            iArr2[i] = i3 + i6;
-            if (i == this.f - 3) {
-                int i7 = i + 2;
-                iArr[i4] = iArr[i7];
-                iArr2[i4] = iArr2[i7];
-            }
-            this.f--;
-            T[] tArr = this.a;
-            int f = f(tArr[i5], tArr, i2, i3, 0, this.b);
-            int i8 = i2 + f;
-            int i9 = i3 - f;
-            if (i9 == 0) {
-                return;
-            }
-            T[] tArr2 = this.a;
-            int e = e(tArr2[(i8 + i9) - 1], tArr2, i5, i6, i6 - 1, this.b);
-            if (e == 0) {
-                return;
-            }
-            if (i9 <= e) {
-                k(i8, i9, i5, e);
-            } else {
-                j(i8, i9, i5, e);
-            }
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x002c, code lost:
-        if (r1[r0 - 2] <= (r1[r0] + r1[r0 - 1])) goto L14;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x002e, code lost:
-        r1 = r5.h;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x0038, code lost:
-        if (r1[r0 - 1] >= r1[r0 + 1]) goto L19;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x003a, code lost:
-        r0 = r0 - 1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:9:0x001a, code lost:
-        if (r1[r0 - 1] > (r1[r0] + r1[r0 + 1])) goto L20;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048579, this) != null) {
+        if (i >= 0) {
+            this.a = new char[i];
             return;
         }
-        while (true) {
-            int i = this.f;
-            if (i <= 1) {
-                return;
-            }
-            int i2 = i - 2;
-            if (i2 >= 1) {
-                int[] iArr = this.h;
-            }
-            if (i2 >= 2) {
-                int[] iArr2 = this.h;
-            }
-            int[] iArr3 = this.h;
-            if (iArr3[i2] > iArr3[i2 + 1]) {
-                return;
-            }
-            g(i2);
-        }
+        throw new NegativeArraySizeException();
     }
 
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048580, this) != null) {
-            return;
-        }
-        while (true) {
-            int i = this.f;
-            if (i <= 1) {
-                return;
-            }
-            int i2 = i - 2;
-            if (i2 > 0) {
-                int[] iArr = this.h;
-                if (iArr[i2 - 1] < iArr[i2 + 1]) {
-                    i2--;
-                }
-            }
-            g(i2);
-        }
+    @Override // java.lang.Appendable
+    public /* bridge */ /* synthetic */ Appendable append(CharSequence charSequence, int i, int i2) throws IOException {
+        l(charSequence, i, i2);
+        return this;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x0078, code lost:
-        r12 = r1;
-        r13 = r2;
-        r14 = r3;
-        r15 = r4;
-        r16 = r5;
-        r17 = r6;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x0080, code lost:
-        r6 = r12 - f(r8[r15], r7, r21, r12, r12 - 1, r11);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x008f, code lost:
-        if (r6 == 0) goto L40;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x0091, code lost:
-        r1 = r16 - r6;
-        r2 = r17 - r6;
-        r3 = r12 - r6;
-        java.lang.System.arraycopy(r7, r2 + 1, r7, r1 + 1, r6);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x009e, code lost:
-        if (r3 != 0) goto L26;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x00a0, code lost:
-        r12 = r1;
-        r6 = r2;
-        r1 = r3;
-        r2 = r13;
-        r3 = r14;
-        r4 = r15;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x00a8, code lost:
-        r16 = r1;
-        r17 = r2;
-        r12 = r3;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x00ad, code lost:
-        r18 = r16 - 1;
-        r19 = r15 - 1;
-        r7[r16] = r8[r15];
-        r13 = r13 - 1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x00b7, code lost:
-        if (r13 != 1) goto L42;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x00b9, code lost:
-        r1 = r12;
-        r2 = r13;
-        r3 = r14;
-        r6 = r17;
-        r12 = r18;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x00c3, code lost:
-        r1 = r13 - e(r7[r17], r8, 0, r13, r13 - 1, r11);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:37:0x00d2, code lost:
-        if (r1 == 0) goto L49;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x00d4, code lost:
-        r2 = r18 - r1;
-        r4 = r19 - r1;
-        r3 = r13 - r1;
-        java.lang.System.arraycopy(r8, r4 + 1, r7, r2 + 1, r1);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x00e1, code lost:
-        if (r3 > 1) goto L46;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:40:0x00e3, code lost:
-        r1 = r12;
-        r6 = r17;
-        r12 = r2;
-        r2 = r3;
-        r3 = r14;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x00ea, code lost:
-        r18 = r2;
-        r13 = r3;
-        r19 = r4;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:42:0x00ef, code lost:
-        r16 = r18 - 1;
-        r2 = r17 - 1;
-        r7[r18] = r7[r17];
-        r12 = r12 - 1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:43:0x00f9, code lost:
-        if (r12 != 0) goto L51;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:44:0x00fb, code lost:
-        r6 = r2;
-        r1 = r12;
-        r2 = r13;
-        r3 = r14;
-        r12 = r16;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:55:0x0127, code lost:
-        r14 = r14 - 1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:56:0x012a, code lost:
-        if (r6 < 7) goto L66;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:57:0x012c, code lost:
-        r4 = true;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:58:0x012e, code lost:
-        r4 = false;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:59:0x012f, code lost:
-        if (r1 < 7) goto L65;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:60:0x0131, code lost:
-        r1 = true;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:61:0x0133, code lost:
-        r1 = false;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:63:0x0135, code lost:
-        if ((r1 | r4) != false) goto L58;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:64:0x0137, code lost:
-        if (r14 >= 0) goto L64;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:65:0x0139, code lost:
-        r14 = 0;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:67:0x0145, code lost:
-        r17 = r2;
-        r15 = r19;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:79:0x0078 A[EDGE_INSN: B:79:0x0078->B:25:0x0078 ?: BREAK  , SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void j(int i, int i2, int i3, int i4) {
-        int i5;
-        int i6;
-        int i7;
-        int i8;
-        int i9;
-        int i10;
-        int i11;
+    public j8 insert(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048581, this, i, i2, i3, i4) == null) {
-            int i12 = i4;
-            T[] tArr = this.a;
-            T[] d = d(i12);
-            System.arraycopy(tArr, i3, d, 0, i12);
-            int i13 = (i + i2) - 1;
-            int i14 = i12 - 1;
-            int i15 = (i3 + i12) - 1;
-            int i16 = i15 - 1;
-            int i17 = i13 - 1;
-            tArr[i15] = tArr[i13];
-            int i18 = i2 - 1;
-            if (i18 == 0) {
-                System.arraycopy(d, 0, tArr, i16 - i14, i12);
-            } else if (i12 == 1) {
-                int i19 = i16 - i18;
-                System.arraycopy(tArr, (i17 - i18) + 1, tArr, i19 + 1, i18);
-                tArr[i19] = d[i14];
-            } else {
-                Comparator<? super T> comparator = this.b;
-                int i20 = this.c;
-                loop0: while (true) {
-                    int i21 = 0;
-                    int i22 = 0;
-                    while (true) {
-                        if (comparator.compare(d[i14], tArr[i17]) < 0) {
-                            i5 = i16 - 1;
-                            int i23 = i17 - 1;
-                            tArr[i16] = tArr[i17];
-                            i22++;
-                            i18--;
-                            if (i18 != 0) {
-                                i16 = i5;
-                                i17 = i23;
-                                i21 = 0;
-                                if ((i22 | i21) >= i20) {
-                                    break;
-                                }
-                            } else {
-                                i17 = i23;
-                                break loop0;
-                            }
-                        } else {
-                            int i24 = i16 - 1;
-                            int i25 = i14 - 1;
-                            tArr[i16] = d[i14];
-                            i21++;
-                            i12--;
-                            if (i12 == 1) {
-                                i5 = i24;
-                                i14 = i25;
-                                break loop0;
-                            }
-                            i16 = i24;
-                            i14 = i25;
-                            i22 = 0;
-                            if ((i22 | i21) >= i20) {
-                            }
-                        }
-                    }
-                    i20 = i8 + 2;
-                    i17 = i11;
-                    i18 = i6;
-                    i12 = i7;
-                    i16 = i9;
-                    i14 = i10;
-                }
-                i14 = i10;
-                if (i20 < 1) {
-                    i20 = 1;
-                }
-                this.c = i20;
-                if (i12 == 1) {
-                    int i26 = i5 - i18;
-                    System.arraycopy(tArr, (i17 - i18) + 1, tArr, i26 + 1, i18);
-                    tArr[i26] = d[i14];
-                } else if (i12 != 0) {
-                    System.arraycopy(d, 0, tArr, i5 - (i12 - 1), i12);
-                } else {
-                    throw new IllegalArgumentException("Comparison method violates its general contract!");
-                }
-            }
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048603, this, i, i2)) == null) {
+            A(i, Integer.toString(i2));
+            return this;
         }
+        return (j8) invokeII.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0063, code lost:
-        r9 = 1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x006d, code lost:
-        r12 = r1;
-        r13 = r2;
-        r14 = r3;
-        r15 = r4;
-        r16 = r5;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x0073, code lost:
-        r9 = r6;
-        r6 = f(r7[r15], r8, r6, r13, 0, r11);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x007f, code lost:
-        if (r6 == 0) goto L42;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x0081, code lost:
-        java.lang.System.arraycopy(r8, r9, r7, r14, r6);
-        r1 = r14 + r6;
-        r2 = r9 + r6;
-        r3 = r13 - r6;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x008a, code lost:
-        if (r3 > r10) goto L28;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x008c, code lost:
-        r6 = r2;
-        r2 = r3;
-        r4 = r15;
-        r5 = r16;
-        r9 = 1;
-        r17 = r12;
-        r12 = r1;
-        r1 = r17;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x0099, code lost:
-        r14 = r1;
-        r9 = r2;
-        r13 = r3;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x009c, code lost:
-        r5 = r14 + 1;
-        r4 = r15 + 1;
-        r7[r14] = r7[r15];
-        r12 = r12 - 1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x00a6, code lost:
-        if (r12 != 0) goto L44;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x00a8, code lost:
-        r6 = r9;
-        r1 = r12;
-        r2 = r13;
-        r9 = 1;
-        r12 = r5;
-        r5 = r16;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:37:0x00b0, code lost:
-        r15 = r4;
-        r1 = e(r8[r9], r7, r4, r12, 0, r11);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x00bf, code lost:
-        if (r1 == 0) goto L72;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x00c1, code lost:
-        java.lang.System.arraycopy(r7, r15, r7, r5, r1);
-        r2 = r5 + r1;
-        r4 = r15 + r1;
-        r3 = r12 - r1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:40:0x00ca, code lost:
-        if (r3 != 0) goto L48;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x00cc, code lost:
-        r12 = r2;
-        r1 = r3;
-        r6 = r9;
-        r2 = r13;
-        r5 = r16;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:42:0x00d3, code lost:
-        r5 = r2;
-        r12 = r3;
-        r15 = r4;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:43:0x00d7, code lost:
-        r5 = r5;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:44:0x00d8, code lost:
-        r2 = r5 + 1;
-        r6 = r9 + 1;
-        r7[r5] = r8[r9];
-        r13 = r13 - 1;
-        r9 = 1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:45:0x00e3, code lost:
-        if (r13 != 1) goto L51;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:46:0x00e5, code lost:
-        r1 = r12;
-        r4 = r15;
-        r5 = r16;
-        r12 = r2;
-        r2 = r13;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:57:0x0109, code lost:
-        r16 = r16 - 1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:58:0x010c, code lost:
-        if (r6 < 7) goto L66;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:59:0x010e, code lost:
-        r4 = true;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:60:0x0110, code lost:
-        r4 = false;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:61:0x0111, code lost:
-        if (r1 < 7) goto L65;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:62:0x0113, code lost:
-        r1 = true;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:63:0x0115, code lost:
-        r1 = false;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:65:0x0117, code lost:
-        if ((r1 | r4) != false) goto L58;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:66:0x0119, code lost:
-        if (r16 >= 0) goto L64;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:67:0x011b, code lost:
-        r16 = 0;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:69:0x0127, code lost:
-        r14 = r2;
-        r10 = 1;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x012c A[LOOP:1: B:14:0x0037->B:70:0x012c, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:82:0x006d A[EDGE_INSN: B:82:0x006d->B:27:0x006d ?: BREAK  , SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void k(int i, int i2, int i3, int i4) {
-        int i5;
-        int i6;
-        int i7;
-        int i8;
-        int i9;
-        int i10;
-        int i11;
+    public j8 insert(int i, long j) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048582, this, i, i2, i3, i4) == null) {
-            int i12 = i2;
-            T[] tArr = this.a;
-            T[] d = d(i12);
-            System.arraycopy(tArr, i, d, 0, i12);
-            int i13 = i + 1;
-            int i14 = i3 + 1;
-            tArr[i] = tArr[i3];
-            int i15 = i4 - 1;
-            if (i15 == 0) {
-                System.arraycopy(d, 0, tArr, i13, i12);
-                return;
-            }
-            int i16 = 1;
-            if (i12 == 1) {
-                System.arraycopy(tArr, i14, tArr, i13, i15);
-                tArr[i13 + i15] = d[0];
-                return;
-            }
-            Comparator<? super T> comparator = this.b;
-            int i17 = this.c;
-            int i18 = 0;
-            loop0: while (true) {
-                int i19 = 0;
-                int i20 = 0;
-                while (true) {
-                    if (comparator.compare(tArr[i14], d[i18]) < 0) {
-                        i5 = i13 + 1;
-                        int i21 = i14 + 1;
-                        tArr[i13] = tArr[i14];
-                        i20 += i16;
-                        i15--;
-                        if (i15 == 0) {
-                            i14 = i21;
-                            break loop0;
-                        }
-                        i13 = i5;
-                        i14 = i21;
-                        i19 = 0;
-                        if ((i19 | i20) < i17) {
-                            break;
-                        }
-                    } else {
-                        int i22 = i13 + 1;
-                        int i23 = i18 + 1;
-                        tArr[i13] = d[i18];
-                        i19 += i16;
-                        i12--;
-                        if (i12 == i16) {
-                            i5 = i22;
-                            i18 = i23;
-                            break loop0;
-                        }
-                        i13 = i22;
-                        i18 = i23;
-                        i20 = 0;
-                        if ((i19 | i20) < i17) {
-                        }
-                    }
-                }
-                i17 = i10 + 2;
-                i13 = i11;
-                i15 = i7;
-                i12 = i8;
-                i14 = i9;
-                i16 = 1;
-            }
-            if (i17 < i6) {
-                i17 = 1;
-            }
-            this.c = i17;
-            if (i12 == i6) {
-                System.arraycopy(tArr, i14, tArr, i5, i15);
-                tArr[i5 + i15] = d[i18];
-            } else if (i12 != 0) {
-                System.arraycopy(d, i18, tArr, i5, i12);
-            } else {
-                throw new IllegalArgumentException("Comparison method violates its general contract!");
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048604, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            A(i, Long.toString(j));
+            return this;
         }
+        return (j8) invokeCommon.objValue;
     }
 
-    public final void m(int i, int i2) {
+    public j8 insert(int i, float f) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
-            int[] iArr = this.g;
-            int i3 = this.f;
-            iArr[i3] = i;
-            this.h[i3] = i2;
-            this.f = i3 + 1;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
+            A(i, Float.toString(f));
+            return this;
         }
+        return (j8) invokeCommon.objValue;
+    }
+
+    public j8(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        int length = str.length();
+        this.b = length;
+        char[] cArr = new char[length + 16];
+        this.a = cArr;
+        str.getChars(0, length, cArr, 0);
+    }
+
+    public j8 insert(int i, double d) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{Integer.valueOf(i), Double.valueOf(d)})) == null) {
+            A(i, Double.toString(d));
+            return this;
+        }
+        return (j8) invokeCommon.objValue;
+    }
+
+    public j8 insert(int i, Object obj) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048607, this, i, obj)) == null) {
+            A(i, obj == null ? StringUtil.NULL_STRING : obj.toString());
+            return this;
+        }
+        return (j8) invokeIL.objValue;
+    }
+
+    public j8 insert(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048608, this, i, str)) == null) {
+            A(i, str);
+            return this;
+        }
+        return (j8) invokeIL.objValue;
+    }
+
+    public j8 insert(int i, char[] cArr) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048610, this, i, cArr)) == null) {
+            B(i, cArr);
+            return this;
+        }
+        return (j8) invokeIL.objValue;
+    }
+
+    public j8 insert(int i, char[] cArr, int i2, int i3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048611, this, new Object[]{Integer.valueOf(i), cArr, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            C(i, cArr, i2, i3);
+            return this;
+        }
+        return (j8) invokeCommon.objValue;
+    }
+
+    public j8 insert(int i, CharSequence charSequence) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048605, this, i, charSequence)) == null) {
+            A(i, charSequence == null ? StringUtil.NULL_STRING : charSequence.toString());
+            return this;
+        }
+        return (j8) invokeIL.objValue;
+    }
+
+    public j8 insert(int i, CharSequence charSequence, int i2, int i3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048606, this, new Object[]{Integer.valueOf(i), charSequence, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            z(i, charSequence, i2, i3);
+            return this;
+        }
+        return (j8) invokeCommon.objValue;
     }
 }

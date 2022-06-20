@@ -1,102 +1,62 @@
 package com.repackage;
 
-import android.app.Activity;
 import android.content.Context;
+import android.net.Uri;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.retrieve.RetrieveTaskManager;
-import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.launched.LaunchedTaskSpeedStats;
+import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.apps.env.launch.SwanLauncher;
+import com.baidu.swan.pms.PMSConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m43;
+import com.baidu.webkit.sdk.WebChromeClient;
+import com.repackage.qk2;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import org.json.JSONException;
 import org.json.JSONObject;
+@Service
 /* loaded from: classes7.dex */
-public class t33 extends e13 {
+public class t33 extends UnitedSchemeBaseInterceptor {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final Set<String> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements ae3<k43<m43.e>> {
+    public class a implements f74 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ Activity c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ String e;
-        public final /* synthetic */ t33 f;
-
-        public a(t33 t33Var, CallbackHandler callbackHandler, String str, Activity activity, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t33Var, callbackHandler, str, activity, str2, str3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = t33Var;
-            this.a = callbackHandler;
-            this.b = str;
-            this.c = activity;
-            this.d = str2;
-            this.e = str3;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ae3
-        /* renamed from: a */
-        public void onCallback(k43<m43.e> k43Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, k43Var) == null) {
-                if (f43.h(k43Var)) {
-                    if (e13.b) {
-                        Log.i("SwanAppAction", "onCallback: has permission scope_mobile_api");
-                    }
-                    this.f.m(this.a, this.b, this.c, this.d, this.e, false);
-                    return;
-                }
-                hw1.k("SwanAppAction", "onCallback: no permission scope_mobile_api");
-                a63.U(this.e, com.baidu.pass.biometrics.face.liveness.b.a.g0, "onCallback: no permission ");
-                this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(402).toString());
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements ae3<t43> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ boolean b;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ Uri b;
         public final /* synthetic */ String c;
-        public final /* synthetic */ CallbackHandler d;
-        public final /* synthetic */ String e;
-        public final /* synthetic */ String f;
-        public final /* synthetic */ boolean g;
-        public final /* synthetic */ t33 h;
+        public final /* synthetic */ UnitedSchemeEntity d;
+        public final /* synthetic */ t33 e;
 
-        public b(t33 t33Var, Activity activity, boolean z, String str, CallbackHandler callbackHandler, String str2, String str3, boolean z2) {
+        public a(t33 t33Var, String str, Uri uri, String str2, UnitedSchemeEntity unitedSchemeEntity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t33Var, activity, Boolean.valueOf(z), str, callbackHandler, str2, str3, Boolean.valueOf(z2)};
+                Object[] objArr = {t33Var, str, uri, str2, unitedSchemeEntity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -106,133 +66,272 @@ public class t33 extends e13 {
                     return;
                 }
             }
-            this.h = t33Var;
-            this.a = activity;
-            this.b = z;
-            this.c = str;
-            this.d = callbackHandler;
-            this.e = str2;
-            this.f = str3;
-            this.g = z2;
+            this.e = t33Var;
+            this.a = str;
+            this.b = uri;
+            this.c = str2;
+            this.d = unitedSchemeEntity;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ae3
-        /* renamed from: a */
-        public void onCallback(t43 t43Var) {
+        @Override // com.repackage.f74
+        public void a(@Nullable Map<String, String> map) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, t43Var) == null) {
-                hw1.b("OpenData", "onOpenDataCallback:: ", t43Var);
-                hz2 c = this.h.c();
-                if (!t43Var.D()) {
-                    if (c != null && !c.M().e(this.a) && !this.b) {
-                        a63.S(com.baidu.pass.biometrics.face.liveness.b.a.g0, 2, this.c);
-                    }
-                    if (e13.b) {
-                        Log.i("SwanAppAction", "onCallback: no open datamobile");
-                    }
-                    f43.n(t43Var, this.d, this.e);
-                    a63.U(this.f, com.baidu.pass.biometrics.face.liveness.b.a.g0, "onCallback: no open data");
-                    if (this.g) {
-                        a63.s("click", "telLogin", com.baidu.pass.biometrics.face.liveness.b.a.g0);
-                        return;
-                    }
-                    return;
-                }
-                hw1.k("SwanAppAction", "onCallback: got open datamobile");
-                if (c != null && c.M().e(this.a) && !this.b) {
-                    a63.S("success", 2, this.c);
-                }
-                a63.T(this.f, "success");
-                if (this.g) {
-                    a63.s("click", "telLogin", "succ_agree");
-                }
-                this.d.handleSchemeDispatchCallback(this.e, UnitedSchemeUtility.wrapCallbackParams(t43Var.g, 0).toString());
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, map) == null) || map == null) {
+                return;
+            }
+            this.e.e(this.b, map.get(this.a), this.c, this.d);
+        }
+
+        @Override // com.repackage.f74
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) && t33.a) {
+                Log.e("SwanLaunchInterceptor", "getOpenBundleId", exc);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t33(e03 e03Var) {
-        super(e03Var, "/swanAPI/getPhoneNumber");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {e03Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755341731, "Lcom/repackage/t33;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755341731, "Lcom/repackage/t33;");
                 return;
             }
         }
+        a = cg1.a;
+        HashSet hashSet = new HashSet();
+        b = hashSet;
+        hashSet.add("_baiduboxapp");
+        b.add(WebChromeClient.KEY_ARG_CALLBACK);
+        b.add("upgrade");
+        b.add("_naExtParams");
     }
 
-    @Override // com.repackage.e13
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hz2 hz2Var) {
-        InterceptResult invokeLLLL;
+    public t33() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, hz2Var)) == null) {
-            if (hz2Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
-                return false;
+        }
+    }
+
+    public final String c(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) {
+            if (uri == null) {
+                return "";
             }
-            String optString = optParamsAsJo.optString("invokeFrom");
-            String str = optString.equals(NativeConstants.COMPONENT) ? "getPhoneNumberButton" : "getPhoneNumberApi";
-            a63.T(str, "create");
-            String optString2 = optParamsAsJo.optString("cb");
-            if (TextUtils.isEmpty(optString2)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
-                a63.U(str, com.baidu.pass.biometrics.face.liveness.b.a.g0, "empty cb");
-                return false;
+            HashSet hashSet = new HashSet();
+            hashSet.add("_naExtParams");
+            return kd3.m(uri, hashSet);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String d(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) ? kd3.i(uri.getEncodedQuery(), b) : (String) invokeL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:62:0x023f  */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x024d  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void e(Uri uri, String str, String str2, UnitedSchemeEntity unitedSchemeEntity) {
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, uri, str, str2, unitedSchemeEntity) == null) {
+            String d = d(uri);
+            if (a) {
+                Log.d("SwanLaunchInterceptor", "query: " + d);
             }
-            SwanAppActivity x = gz2.J().x();
-            if (x == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
-                a63.U(str, com.baidu.pass.biometrics.face.liveness.b.a.g0, "the context is not an activity");
-                return false;
+            String n = kd3.n(str, uri, true);
+            if (a) {
+                Log.d("SwanLaunchInterceptor", "pagePath: " + n);
             }
-            if (!hz2Var.M().e(context)) {
-                a63.S("show", 2, optString);
+            String h = SwanLauncher.h();
+            rz2.K().r().W().J0(h);
+            String uri2 = uri.toString();
+            String queryParameter = uri.getQueryParameter("_naExtParams");
+            if (!TextUtils.isEmpty(queryParameter)) {
+                uri2 = c(uri);
             }
-            if (optParamsAsJo.optString("invokeFrom").equals(RetrieveTaskManager.KEY)) {
-                n(callbackHandler, optString2, x, optString, str);
+            qk2.a aVar = (qk2.a) ((qk2.a) ((qk2.a) new qk2.a().v0(str)).K0(uri2)).J0(h);
+            if (!TextUtils.isEmpty(n) && !TextUtils.isEmpty(d)) {
+                aVar.R0(n + "?" + d);
+            } else if (!TextUtils.isEmpty(n)) {
+                aVar.R0(n);
+            }
+            if (TextUtils.isEmpty(str2)) {
+                str3 = "_naExtParams";
             } else {
-                m(callbackHandler, optString2, x, optString, str, TextUtils.equals("login", optParamsAsJo.optString("from")));
+                try {
+                    JSONObject jSONObject = new JSONObject(str2);
+                    long nanoTime = a ? System.nanoTime() : 0L;
+                    q53.h(jSONObject, str);
+                    if (a) {
+                        Log.d("SwanLaunchInterceptor", "SwanAppStabilityConfig#parseConfig 耗时(ns): " + (System.nanoTime() - nanoTime));
+                    }
+                    aVar.I0(jSONObject.optString("from"));
+                    aVar.P0(jSONObject.optString("notinhis"));
+                    aVar.X0(jSONObject.optString("subscribeWithoutClick"));
+                    JSONObject optJSONObject = jSONObject.optJSONObject("ext");
+                    aVar.r0("srcAppId", jSONObject.optString("srcAppId"));
+                    if (sz2.b0() != null) {
+                        String O = sz2.b0().O();
+                        aVar.r0("srcAppKey", O);
+                        int type = sz2.b0().W().getType();
+                        str3 = "_naExtParams";
+                        try {
+                            aVar.q0("srcPkgType", type);
+                            if (a) {
+                                Log.d("SwanLaunchInterceptor", "srcAppKey = " + O + "  ,srcPkgType = " + type);
+                            }
+                        } catch (JSONException e) {
+                            e = e;
+                            if (a) {
+                                Log.d("SwanLaunchInterceptor", "getLaunchFrom failed: " + Log.getStackTraceString(e));
+                            }
+                            aVar.z("tool_ip", unitedSchemeEntity.getParam("tip"));
+                            aVar.z("tool_port", unitedSchemeEntity.getParam("tport"));
+                            aVar.z("projectId", unitedSchemeEntity.getParam("projectId"));
+                            aVar.z("fromHost", unitedSchemeEntity.getParam("fromHost"));
+                            aVar.z("spuId", unitedSchemeEntity.getParam("spuId"));
+                            aVar.z("contentId", unitedSchemeEntity.getParam("contentId"));
+                            Bundle bundle = null;
+                            if (!TextUtils.isEmpty(queryParameter)) {
+                            }
+                            if (a) {
+                            }
+                            SwanLauncher.j().n(aVar, bundle);
+                        }
+                    } else {
+                        str3 = "_naExtParams";
+                    }
+                    if (!jSONObject.isNull(PrefetchEvent.EVENT_DATA_EXTRA_DATA)) {
+                        aVar.r0(PrefetchEvent.EVENT_DATA_EXTRA_DATA, jSONObject.optString(PrefetchEvent.EVENT_DATA_EXTRA_DATA));
+                    }
+                    aVar.r0("srcAppPage", jSONObject.optString("srcAppPage"));
+                    JSONObject b2 = tf4.b(aVar.T(), jSONObject.optJSONObject(UBCCloudControlProcessor.UBC_KEY));
+                    if (b2 != null) {
+                        aVar.r0(UBCCloudControlProcessor.UBC_KEY, b2.toString());
+                    }
+                    if (optJSONObject != null) {
+                        aVar.y0(optJSONObject.optString("clkid"));
+                        aVar.r0("aiapp_abtest_info", optJSONObject.optString("aiapp_abtest_info"));
+                        aVar.r0(TableDefine.PaSubscribeColumns.COLUMN_THIRD_EXT, optJSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_THIRD_EXT));
+                        aVar.q0("click_time", optJSONObject.optLong("click", -1L));
+                    }
+                    String optString = jSONObject.optString("veloce");
+                    if (!TextUtils.isEmpty(optString)) {
+                        long optLong = new JSONObject(optString).optLong(LaunchedTaskSpeedStats.KEY_START_TIME);
+                        if (optLong > 0) {
+                            aVar.x("veloce_start_time", optLong);
+                        }
+                    }
+                } catch (JSONException e2) {
+                    e = e2;
+                    str3 = "_naExtParams";
+                }
             }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            aVar.z("tool_ip", unitedSchemeEntity.getParam("tip"));
+            aVar.z("tool_port", unitedSchemeEntity.getParam("tport"));
+            aVar.z("projectId", unitedSchemeEntity.getParam("projectId"));
+            aVar.z("fromHost", unitedSchemeEntity.getParam("fromHost"));
+            aVar.z("spuId", unitedSchemeEntity.getParam("spuId"));
+            aVar.z("contentId", unitedSchemeEntity.getParam("contentId"));
+            Bundle bundle2 = null;
+            if (!TextUtils.isEmpty(queryParameter)) {
+                bundle2 = new Bundle();
+                bundle2.putString(str3, queryParameter);
+            }
+            if (a) {
+                Log.d("SwanLaunchInterceptor", "launchParams: " + aVar + " \n_naExtParmas: " + queryParameter);
+            }
+            SwanLauncher.j().n(aVar, bundle2);
+        }
+    }
+
+    @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor
+    public String getInterceptorName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "aiapps_launch_interceptor" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor, com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeAbsInterceptor
+    public boolean shouldInterceptDispatch(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, context, unitedSchemeEntity, callbackHandler)) == null) {
+            Uri uri = unitedSchemeEntity.getUri();
+            if (uri == null || !TextUtils.equals(uri.getHost(), "swan")) {
+                return false;
+            }
+            if (unitedSchemeEntity.isOnlyVerify()) {
+                return true;
+            }
+            String j = kd3.j(uri);
+            if (a) {
+                Log.d("SwanLaunchInterceptor", "mAppId: " + j);
+            }
+            if (TextUtils.isEmpty(j)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                lb3 lb3Var = new lb3();
+                lb3Var.k(1L);
+                lb3Var.i(1L);
+                lb3Var.f("appId is empty");
+                pb3.a().f(lb3Var);
+                t63 t63Var = new t63();
+                t63Var.q(l63.n(0));
+                t63Var.p(lb3Var);
+                t63Var.l("scheme", uri.toString());
+                l63.R(t63Var);
+                xs2.k(lb3Var);
+                return true;
+            }
+            ff4.f().b(5000);
+            String uri2 = uri.toString();
+            sw1.i("SwanLaunchInterceptor", "launch scheme = " + uri2);
+            String param = unitedSchemeEntity.getParam("_baiduboxapp");
+            String str = null;
+            if (!TextUtils.isEmpty(param)) {
+                try {
+                    str = new JSONObject(param).optString("navi");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            String str2 = str;
+            if (fc4.e().g(!md3.G()) && TextUtils.equals(str2, "naviTo")) {
+                if (!PMSConstants.a(b74.b())) {
+                    sw1.c("SwanLaunchInterceptor", "STOP :: Not Support BDTLS");
+                    return false;
+                }
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(j);
+                a74.e(arrayList, rz2.K().r().O(), new a(this, j, uri, param, unitedSchemeEntity));
+            } else {
+                e(uri, j, param, unitedSchemeEntity);
+            }
+            ik2.n(str2, j, callbackHandler, unitedSchemeEntity, unitedSchemeEntity.getParam("cb"));
             return true;
         }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final void m(CallbackHandler callbackHandler, String str, Activity activity, String str2, String str3, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{callbackHandler, str, activity, str2, str3, Boolean.valueOf(z)}) == null) {
-            boolean e = gz2.J().r().M().e(activity);
-            a63.T(str3, "checkScope");
-            if (z) {
-                a63.s("show", "telLogin", null);
-            }
-            t43.B(activity, "mobile", null, false, str3, new b(this, activity, e, str2, callbackHandler, str, str3, z));
-        }
-    }
-
-    public final void n(CallbackHandler callbackHandler, String str, Activity activity, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, callbackHandler, str, activity, str2, str3) == null) {
-            a63.T(str3, "checkScope");
-            gz2.J().r().d0().g(c(), "scope_mobile_api", new a(this, callbackHandler, str, activity, str2, str3));
-        }
+        return invokeLLL.booleanValue;
     }
 }

@@ -3,9 +3,9 @@ package com.meizu.cloud.pushsdk.handler.a.d;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.platform.message.RegisterStatus;
-import com.repackage.ni9;
 /* loaded from: classes5.dex */
 public class c extends com.meizu.cloud.pushsdk.handler.a.a<RegisterStatus> {
     public c(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
@@ -28,7 +28,7 @@ public class c extends com.meizu.cloud.pushsdk.handler.a.a<RegisterStatus> {
 
     @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
-        ni9.d("AbstractMessageHandler", "start RegisterStatusHandler match");
+        DebugLogger.i("AbstractMessageHandler", "start RegisterStatusHandler match");
         return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_REGISTER_STATUS.equals(i(intent));
     }
 

@@ -17,7 +17,6 @@ public class InterestedForumStyleAMoreViewHolder extends TypeAdapter.ViewHolder 
     public LinearLayout b;
     public TextView c;
     public View d;
-    public View e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public InterestedForumStyleAMoreViewHolder(View view2) {
@@ -37,10 +36,9 @@ public class InterestedForumStyleAMoreViewHolder extends TypeAdapter.ViewHolder 
                 return;
             }
         }
-        this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f00);
-        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f03);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f01);
-        this.d = view2.findViewById(R.id.obfuscated_res_0x7f090eff);
-        this.e = view2.findViewById(R.id.obfuscated_res_0x7f090f02);
+        this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090ef0);
+        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090ef2);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ef1);
+        this.d = view2.findViewById(R.id.obfuscated_res_0x7f090eef);
     }
 }

@@ -16,6 +16,7 @@ import com.baidu.ar.d.j;
 import com.baidu.ar.d.k;
 import com.baidu.ar.imu.i;
 import com.baidu.ar.lua.LuaMsgListener;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -365,7 +366,7 @@ public abstract class c implements c.a {
             return;
         }
         boolean z = false;
-        if ("sync".equals(str)) {
+        if (NativeConstants.COMPONENT_SYNC_TEXT_VIEW.equals(str)) {
             z = true;
         } else {
             "async".equals(str);
@@ -657,7 +658,7 @@ public abstract class c implements c.a {
             return;
         }
         String str = (String) hashMap.get("detect_sync");
-        if (!TextUtils.isEmpty(str) && "sync".equals(str)) {
+        if (!TextUtils.isEmpty(str) && NativeConstants.COMPONENT_SYNC_TEXT_VIEW.equals(str)) {
             this.P = true;
         }
         if (v()) {

@@ -12,13 +12,13 @@ import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class a extends com.kwad.sdk.reward.b.a {
     public c b = new c();
-    public C0328a c = new C0328a();
+    public C0336a c = new C0336a();
     public final b d = new b(com.kwad.sdk.core.config.b.az());
 
     /* renamed from: com.kwad.sdk.reward.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0328a extends com.kwad.sdk.reward.b.a {
-        public C0328a() {
+    public static class C0336a extends com.kwad.sdk.reward.b.a {
+        public C0336a() {
             this.a = "安装应用";
         }
     }

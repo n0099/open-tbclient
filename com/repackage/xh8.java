@@ -1,112 +1,214 @@
 package com.repackage;
 
-import android.net.Uri;
-import androidx.core.view.InputDeviceCompat;
+import android.os.Build;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.ar.constants.HttpConstants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebChromeClient;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class xh8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        String[] split;
-        String[] split2;
-        String[] split3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (ki.isEmpty(str) || (split = str.split("\\?")) == null || split.length == 0 || (split2 = split[0].split("\\/\\/")) == null || split2.length < 2 || (split3 = split2[1].split("\\/")) == null || split2.length < 2) {
-                return null;
-            }
-            return split3[split3.length - 1];
-        }
-        return (String) invokeL.objValue;
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Uri parse;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (ki.isEmpty(str) || (parse = Uri.parse(str)) == null) {
-                return null;
-            }
-            return parse.getQueryParameter(WebChromeClient.KEY_ARG_CALLBACK);
-        }
-        return (String) invokeL.objValue;
-    }
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final String b;
+        public final String c;
+        public final String d;
+        public final String e;
+        public final boolean f;
+        public final StatisticItem g;
 
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Uri parse;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (ki.isEmpty(str) || (parse = Uri.parse(str)) == null) {
-                return null;
-            }
-            return parse.getQueryParameter("upgrade");
+        public /* synthetic */ b(String str, String str2, String str3, String str4, String str5, a aVar) {
+            this(str, str2, str3, str4, str5);
         }
-        return (String) invokeL.objValue;
-    }
 
-    public static String d(String str) {
-        InterceptResult invokeL;
-        String[] split;
-        String[] split2;
-        String str2;
-        String[] split3;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            try {
-                if (!ki.isEmpty(str) && (split = str.split("\\?")) != null && split.length != 0 && (split2 = split[0].split("\\/\\/")) != null && split2.length >= 2 && (split3 = (str2 = split2[1]).split("\\/")) != null && split2.length >= 2 && (str3 = split3[split3.length - 1]) != null && str3.length() != 0) {
-                    return str2.substring(0, (str2.length() - str3.length()) - 1);
+        public final StatisticItem b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                StatisticItem statisticItem = new StatisticItem(this.a);
+                if (!StringUtils.isNull(this.b)) {
+                    statisticItem = statisticItem.param("line", this.b);
                 }
-                return null;
-            } catch (Exception e) {
-                BdLog.e(e);
-                return null;
+                if (!StringUtils.isNull(this.c)) {
+                    statisticItem = statisticItem.param("page", this.c);
+                }
+                if (!StringUtils.isNull(this.d)) {
+                    statisticItem = statisticItem.param("locate", this.d);
+                }
+                return !StringUtils.isNull(this.e) ? statisticItem.param("task", this.e) : statisticItem;
+            }
+            return (StatisticItem) invokeV.objValue;
+        }
+
+        public final StatisticItem c(String str, String str2, String str3, String str4, String str5) {
+            InterceptResult invokeLLLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4, str5)) == null) {
+                if (!StringUtils.isNull(str)) {
+                    this.g.param("action_type", str);
+                }
+                if (!StringUtils.isNull(str2)) {
+                    this.g.param("obj_id", str2);
+                }
+                if (!StringUtils.isNull(str3)) {
+                    this.g.param("fid", str3);
+                }
+                if (!StringUtils.isNull(str4)) {
+                    this.g.param("fname", str4);
+                }
+                if (!StringUtils.isNull(str5)) {
+                    this.g.param("tid", str5);
+                }
+                this.g.param("obj_cpid", 0).param("obj_good_id", 0).param("obj_throw_type", "BY_POST").param("client_type", "MOBILE_APP").param("user_timestamp", String.valueOf(System.currentTimeMillis())).param("os", "android").param(HttpConstants.OS_VERSION, Build.VERSION.RELEASE).param("log_ver", "1.1");
+                return this.g;
+            }
+            return (StatisticItem) invokeLLLLL.objValue;
+        }
+
+        public b d(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+                if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
+                    this.g.param(str, str2);
+                }
+                return this;
+            }
+            return (b) invokeLL.objValue;
+        }
+
+        public void delete(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+                this.g.delete(str);
             }
         }
-        return (String) invokeL.objValue;
+
+        public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                TiebaStatic.log(this.g);
+                if (this.f) {
+                    return;
+                }
+                if (!TbadkCoreApplication.getInst().isDebugMode()) {
+                    BdLog.e("Invalid parameter.");
+                    return;
+                }
+                throw new IllegalArgumentException();
+            }
+        }
+
+        public b(String str, String str2, String str3, String str4, String str5) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2, str3, str4, str5};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = str2;
+            this.c = str3;
+            this.d = str4;
+            this.e = str5;
+            this.f = !(StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5));
+            this.g = b();
+        }
     }
 
-    public static String e(String str) {
-        InterceptResult invokeL;
-        Uri parse;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (ki.isEmpty(str) || (parse = Uri.parse(str)) == null) {
-                return null;
+    /* loaded from: classes7.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return parse.getQueryParameter("notificationName");
         }
-        return (String) invokeL.objValue;
     }
 
-    public static JSONObject f(String str) throws JSONException {
-        InterceptResult invokeL;
+    public static b a(String str, String str2, String str3, String str4, String str5, String str6) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (ki.isEmpty(str)) {
-                return new JSONObject();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
+            b bVar = new b("ad_tpoint", "PT", str, str2, "tpoint", null);
+            bVar.c(null, null, str3, str4, str5);
+            if (!oi.isEmpty(str6)) {
+                bVar.d("obj_ref", str6);
             }
-            Uri parse = Uri.parse(str);
-            if (parse == null) {
-                return new JSONObject();
-            }
-            String queryParameter = parse.getQueryParameter("params");
-            if (ki.isEmpty(queryParameter)) {
-                return new JSONObject();
-            }
-            return new JSONObject(queryParameter);
+            return bVar;
         }
-        return (JSONObject) invokeL.objValue;
+        return (b) invokeCommon.objValue;
+    }
+
+    public static b b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9, str10})) == null) {
+            b bVar = new b(str, str2, str3, str4, str5, null);
+            bVar.c(str6, str7, str8, str9, str10);
+            return bVar;
+        }
+        return (b) invokeCommon.objValue;
+    }
+
+    @Deprecated
+    public static void c(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, str3, str4, str5, str6, str7}) == null) {
+            b bVar = new b("ad_tpoint", "PT", str, "c0122", "ad_plat", null);
+            bVar.c(str2, str7, str3, str4, str5);
+            bVar.d(TiebaStatic.Params.OBJ_URL, str6);
+            bVar.e();
+        }
+    }
+
+    @Deprecated
+    public static void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || oi.isEmpty(str)) {
+            return;
+        }
+        StatisticItem statisticItem = new StatisticItem(str);
+        if (str2 != null) {
+            statisticItem = statisticItem.param("obj_type", str2);
+        }
+        TiebaStatic.log(statisticItem);
     }
 }

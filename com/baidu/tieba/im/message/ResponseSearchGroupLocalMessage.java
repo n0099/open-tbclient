@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qe;
+import com.repackage.te;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -19,7 +19,7 @@ import protobuf.SearchGroup.SearchGroupResIdl;
 public class ResponseSearchGroupLocalMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<qe.b<String>> cacheList;
+    public List<te.b<String>> cacheList;
     public long gid;
     public List<BaseGroupData> searchResult;
 
@@ -80,7 +80,7 @@ public class ResponseSearchGroupLocalMessage extends CustomResponsedMessage<Obje
         }
     }
 
-    public List<qe.b<String>> getCacheList() {
+    public List<te.b<String>> getCacheList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.cacheList : (List) invokeV.objValue;
@@ -98,7 +98,7 @@ public class ResponseSearchGroupLocalMessage extends CustomResponsedMessage<Obje
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.searchResult : (List) invokeV.objValue;
     }
 
-    public void setCacheList(List<qe.b<String>> list) {
+    public void setCacheList(List<te.b<String>> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             this.cacheList = list;

@@ -9,6 +9,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sofire.mutiprocess.SubProcessManager;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.diskCache.ImagesInvalidService;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -141,7 +142,7 @@ public class ClearTempService extends BdBaseService {
                             deleteCache(file2, false);
                         } else if (length > 0 && i < length) {
                             file2.delete();
-                        } else if (time - listFiles[i].lastModified() > 259200000) {
+                        } else if (time - listFiles[i].lastModified() > ImagesInvalidService.FILE_VALID_TIME) {
                             file2.delete();
                         }
                     }
@@ -165,7 +166,7 @@ public class ClearTempService extends BdBaseService {
                 long time = new Date().getTime();
                 if (listFiles != null) {
                     for (int i = 0; i < listFiles.length && !this.interrupted; i++) {
-                        if (time - listFiles[i].lastModified() > 259200000) {
+                        if (time - listFiles[i].lastModified() > ImagesInvalidService.FILE_VALID_TIME) {
                             listFiles[i].delete();
                         }
                     }

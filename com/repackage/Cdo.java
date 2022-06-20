@@ -1,12 +1,19 @@
 package com.repackage;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-@Target({ElementType.TYPE})
-@Retention(RetentionPolicy.RUNTIME)
+import android.graphics.Canvas;
+import android.view.MotionEvent;
 /* renamed from: com.repackage.do  reason: invalid class name */
 /* loaded from: classes5.dex */
-public @interface Cdo {
+public interface Cdo {
+    boolean a(MotionEvent motionEvent);
+
+    void b(int i, int i2);
+
+    void c(int i);
+
+    boolean dispatchTouchEvent(MotionEvent motionEvent);
+
+    void draw(Canvas canvas);
+
+    boolean e(MotionEvent motionEvent);
 }

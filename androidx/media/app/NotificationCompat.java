@@ -64,7 +64,7 @@ public class NotificationCompat {
         }
 
         @Override // androidx.media.app.NotificationCompat.MediaStyle, androidx.core.app.NotificationCompat.Style
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+        @RestrictTo({RestrictTo.Scope.LIBRARY})
         public void apply(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, notificationBuilderWithBuilderAccessor) == null) {
@@ -80,18 +80,30 @@ public class NotificationCompat {
         public int getBigContentViewLayoutResource(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? i <= 3 ? R$layout.notification_template_big_media_narrow_custom : R$layout.notification_template_big_media_custom : invokeI.intValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                if (i <= 3) {
+                    return R$layout.notification_template_big_media_narrow_custom;
+                }
+                return R$layout.notification_template_big_media_custom;
+            }
+            return invokeI.intValue;
         }
 
         @Override // androidx.media.app.NotificationCompat.MediaStyle
         public int getContentViewLayoutResource() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mBuilder.getContentView() != null ? R$layout.notification_template_media_custom : super.getContentViewLayoutResource() : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                if (this.mBuilder.getContentView() != null) {
+                    return R$layout.notification_template_media_custom;
+                }
+                return super.getContentViewLayoutResource();
+            }
+            return invokeV.intValue;
         }
 
         @Override // androidx.media.app.NotificationCompat.MediaStyle, androidx.core.app.NotificationCompat.Style
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+        @RestrictTo({RestrictTo.Scope.LIBRARY})
         public RemoteViews makeBigContentView(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
             InterceptResult invokeL;
             RemoteViews contentView;
@@ -119,7 +131,7 @@ public class NotificationCompat {
         }
 
         @Override // androidx.media.app.NotificationCompat.MediaStyle, androidx.core.app.NotificationCompat.Style
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+        @RestrictTo({RestrictTo.Scope.LIBRARY})
         public RemoteViews makeContentView(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -154,7 +166,7 @@ public class NotificationCompat {
         }
 
         @Override // androidx.core.app.NotificationCompat.Style
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+        @RestrictTo({RestrictTo.Scope.LIBRARY})
         public RemoteViews makeHeadsUpContentView(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
             InterceptResult invokeL;
             RemoteViews contentView;
@@ -271,7 +283,7 @@ public class NotificationCompat {
         }
 
         @Override // androidx.core.app.NotificationCompat.Style
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+        @RestrictTo({RestrictTo.Scope.LIBRARY})
         public void apply(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, notificationBuilderWithBuilderAccessor) == null) {
@@ -360,7 +372,13 @@ public class NotificationCompat {
         public int getBigContentViewLayoutResource(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i <= 3 ? R$layout.notification_template_big_media_narrow : R$layout.notification_template_big_media : invokeI.intValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                if (i <= 3) {
+                    return R$layout.notification_template_big_media_narrow;
+                }
+                return R$layout.notification_template_big_media;
+            }
+            return invokeI.intValue;
         }
 
         public int getContentViewLayoutResource() {
@@ -370,7 +388,7 @@ public class NotificationCompat {
         }
 
         @Override // androidx.core.app.NotificationCompat.Style
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+        @RestrictTo({RestrictTo.Scope.LIBRARY})
         public RemoteViews makeBigContentView(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -384,7 +402,7 @@ public class NotificationCompat {
         }
 
         @Override // androidx.core.app.NotificationCompat.Style
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+        @RestrictTo({RestrictTo.Scope.LIBRARY})
         public RemoteViews makeContentView(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;

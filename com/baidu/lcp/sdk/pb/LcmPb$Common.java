@@ -20,11 +20,11 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.MessageLiteOrBuilder;
 import com.google.protobuf.Parser;
-import com.repackage.a70;
+import com.repackage.e70;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class LcmPb$Common extends GeneratedMessageLite implements MessageLiteOrBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int APP_ID_FIELD_NUMBER = 6;
@@ -55,7 +55,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
     public Object romVersion_;
     public Object sdkVersion_;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class a extends AbstractParser<LcmPb$Common> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +84,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static final class b extends GeneratedMessageLite.Builder<LcmPb$Common, b> implements Object {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -239,7 +239,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-                LcmPb$Common lcmPb$Common = new LcmPb$Common(this, (a70) null);
+                LcmPb$Common lcmPb$Common = new LcmPb$Common(this, (e70) null);
                 int i = this.a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 lcmPb$Common.cuid_ = this.b;
@@ -562,7 +562,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
         lcmPb$Common.initFields();
     }
 
-    public /* synthetic */ LcmPb$Common(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, a70 a70Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ LcmPb$Common(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, e70 e70Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -1106,7 +1106,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
         }
     }
 
-    public /* synthetic */ LcmPb$Common(GeneratedMessageLite.Builder builder, a70 a70Var) {
+    public /* synthetic */ LcmPb$Common(GeneratedMessageLite.Builder builder, e70 e70Var) {
         this(builder);
     }
 

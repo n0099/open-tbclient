@@ -21,10 +21,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e67;
-import com.repackage.f67;
-import com.repackage.g67;
-import com.repackage.z17;
+import com.repackage.i37;
+import com.repackage.o77;
+import com.repackage.p77;
+import com.repackage.q77;
 /* loaded from: classes2.dex */
 public class TbLaunchStatic {
     public static /* synthetic */ Interceptable $ic = null;
@@ -73,17 +73,17 @@ public class TbLaunchStatic {
     public static void initRegisterTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            z17.b(202004, ResponseDelSystemMessage.class, false);
-            z17.b(103112, ResponseRemoveMembersMessage.class, false);
-            z17.b(202001, ResponseCommitGroupMessage.class, false);
-            z17.b(103111, ResponseAddGroupUserMessage.class, false);
-            z17.b(103105, ResponseUpgradeMemberGroupMessage.class, false);
-            z17.b(103008, ResponseUserPermissionMessage.class, false).f(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
-            z17.b(103102, ResponseUpdateGroupMessage.class, false).f(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
-            z17.b(103104, ResponseDismissGroupMessage.class, false);
-            z17.a(2001142, e67.class);
-            z17.a(2001145, g67.class);
-            z17.a(2001148, f67.class);
+            i37.b(202004, ResponseDelSystemMessage.class, false);
+            i37.b(103112, ResponseRemoveMembersMessage.class, false);
+            i37.b(202001, ResponseCommitGroupMessage.class, false);
+            i37.b(103111, ResponseAddGroupUserMessage.class, false);
+            i37.b(103105, ResponseUpgradeMemberGroupMessage.class, false);
+            i37.b(103008, ResponseUserPermissionMessage.class, false).f(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
+            i37.b(103102, ResponseUpdateGroupMessage.class, false).f(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
+            i37.b(103104, ResponseDismissGroupMessage.class, false);
+            i37.a(2001142, o77.class);
+            i37.a(2001145, q77.class);
+            i37.a(2001148, p77.class);
         }
     }
 }

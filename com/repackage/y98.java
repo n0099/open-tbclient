@@ -2,15 +2,18 @@ package com.repackage;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class y98 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
+    public int a;
+    public int b;
+    public int c;
+    public long d;
 
     public y98() {
         Interceptable interceptable = $ic;
@@ -24,5 +27,22 @@ public class y98 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public static y98 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            y98 y98Var = new y98();
+            y98Var.a = jSONObject.optInt("agree_num", -1);
+            y98Var.b = jSONObject.optInt("share_num", -1);
+            y98Var.c = jSONObject.optInt("reply_num", -1);
+            y98Var.d = jSONObject.optLong("time", System.currentTimeMillis());
+            return y98Var;
+        }
+        return (y98) invokeL.objValue;
     }
 }

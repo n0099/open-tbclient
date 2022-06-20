@@ -1,6 +1,5 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,10 +10,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class bb0 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile int b;
     public transient /* synthetic */ FieldHolder $fh;
-    public db0 a;
-    public hb0 b;
-    public ob0 c;
+    public int a;
 
     static {
         InterceptResult invokeClinit;
@@ -31,12 +29,10 @@ public class bb0 {
         }
     }
 
-    public bb0(ob0 ob0Var) {
+    public bb0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ob0Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,98 +42,30 @@ public class bb0 {
                 return;
             }
         }
-        this.c = ob0Var;
-        this.a = new db0(ob0Var.f(), 1);
-        d();
+        this.a = 0;
     }
 
-    public final void a(hb0 hb0Var) {
+    public static synchronized bb0 a() {
+        InterceptResult invokeV;
+        bb0 bb0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hb0Var) == null) {
-            if (hb0Var == null) {
-                this.b = new gb0();
-            } else {
-                this.b = hb0Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (bb0.class) {
+                if (b < 1000000) {
+                    b = 1000000;
+                }
+                bb0Var = new bb0();
+                bb0Var.a = b;
+                b++;
             }
-            this.b.b(this.c.j(), this.c.i());
+            return bb0Var;
         }
+        return (bb0) invokeV.objValue;
     }
 
-    public void b(long j) {
-        ob0 ob0Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || this.b == null || (ob0Var = this.c) == null) {
-            return;
-        }
-        if (ob0Var.l()) {
-            d();
-        }
-        if (j != 0) {
-            this.c.h().h(j);
-        }
-        this.b.a(this.c.e(), this.c.h());
-    }
-
-    public db0 c() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (db0) invokeV.objValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            float[] b = this.c.h().b();
-            qb0.b(b);
-            mb0 c = this.c.c();
-            qb0.e(b, c.g(), c.h());
-            qb0.a(b, c.d());
-            qb0.c(b, c.b());
-            if ((c.f() + 360) % 180 == 0) {
-                qb0.d(b, this.c.j(), this.c.i(), c.e(), c.c());
-                return;
-            }
-            kb0 clone = this.c.i().clone();
-            clone.e(this.c.i().b());
-            clone.d(this.c.i().c());
-            qb0.d(b, this.c.j(), clone, c.e(), c.c());
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            hb0 hb0Var = this.b;
-            if (hb0Var != null) {
-                hb0Var.release();
-                this.b = null;
-            }
-            db0 db0Var = this.a;
-            if (db0Var != null) {
-                db0Var.f();
-                this.a = null;
-            }
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            hb0 g = this.c.g();
-            this.b = g;
-            a(g);
-        }
-    }
-
-    public void g(hb0 hb0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, hb0Var) == null) {
-            ob0 ob0Var = this.c;
-            if (ob0Var != null) {
-                ob0Var.o(hb0Var);
-            }
-            this.b.release();
-            a(hb0Var);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 }

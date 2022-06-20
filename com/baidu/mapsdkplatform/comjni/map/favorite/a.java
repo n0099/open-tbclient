@@ -19,7 +19,7 @@ public class a {
 
     /* renamed from: com.baidu.mapsdkplatform.comjni.map.favorite.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0110a {
+    public static class C0112a {
         public static /* synthetic */ Interceptable $ic;
         public static boolean a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,7 +105,7 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            C0110a.b();
+            C0112a.b();
             return this.b.Add(this.a, str, str2);
         }
         return invokeLL.booleanValue;
@@ -140,7 +140,7 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
-            C0110a.b();
+            C0112a.b();
             return this.b.Update(this.a, str, str2);
         }
         return invokeLL.booleanValue;

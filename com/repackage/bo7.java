@@ -1,172 +1,188 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.relogin.ReloginManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bm4;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class bo7 extends bm4 {
+public class bo7 {
     public static /* synthetic */ Interceptable $ic;
-    public static bo7 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final bm4.a b;
+    public BdTypeRecyclerView a;
+    public final List<an> b;
+    public List<nn> c;
+    public ao7 d;
+    public yn7 e;
+    public zn7 f;
+    public po7 g;
 
-    /* loaded from: classes5.dex */
-    public class a implements bm4.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(bo7 bo7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bo7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.bm4.a
-        public void a(String str, int i, String str2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) && i == 1) {
-                ReloginManager.g().f(null);
-            }
-        }
-
-        @Override // com.repackage.bm4.a
-        public void b(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            }
-        }
-
-        @Override // com.repackage.bm4.a
-        public void c(AccountData accountData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921613));
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755820185, "Lcom/repackage/bo7;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755820185, "Lcom/repackage/bo7;");
-        }
-    }
-
-    public bo7() {
+    public bo7(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdTypeRecyclerView};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new a(this);
+        this.b = new ArrayList();
+        d(context, bdTypeRecyclerView);
     }
 
-    public static bo7 e() {
+    public void a(int i, go7 go7Var, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), go7Var, Integer.valueOf(i2)}) == null) {
+            new lo7().a(i, go7Var, i2, this.c, this.a);
+        }
+    }
+
+    public void b(boolean z) {
+        List<nn> list;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (list = this.c) == null || list.size() <= 0) {
+            return;
+        }
+        for (nn nnVar : this.c) {
+            if (nnVar != null && (nnVar instanceof ho7)) {
+                ho7 ho7Var = (ho7) nnVar;
+                ho7Var.t(z);
+                h(ho7Var);
+            }
+        }
+        this.a.getAdapter().notifyDataSetChanged();
+    }
+
+    public List<nn> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                c = new bo7();
-            }
-            return c;
-        }
-        return (bo7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.bm4
-    public BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, bm4.a aVar) {
-        InterceptResult invokeLLLLL;
+    public final void d(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, str, str2, str3, str4, aVar)) == null) ? xi7.a(str, str2, str3, str4, aVar) : (BdAsyncTask) invokeLLLLL.objValue;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, bdTypeRecyclerView) == null) {
+            this.d = new ao7(context, jo7.c);
+            this.e = new yn7(context, ho7.i);
+            this.f = new zn7(context, io7.d);
+            this.b.add(this.d);
+            this.b.add(this.e);
+            this.b.add(this.f);
+            this.a = bdTypeRecyclerView;
+            bdTypeRecyclerView.a(this.b);
+        }
     }
 
-    @Override // com.repackage.bm4
-    public bm4.b c(String str) {
-        InterceptResult invokeL;
+    public boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) != null) {
-            return (bm4.b) invokeL.objValue;
-        }
-        bm4.b bVar = null;
-        if (str == null) {
-            return null;
-        }
-        try {
-            String[] split = str.split("[|]");
-            if (split == null || split.length < 1) {
-                return null;
-            }
-            bm4.b bVar2 = new bm4.b();
-            try {
-                bVar2.a = split[0];
-                if (split.length >= 2) {
-                    bVar2.b = split[1];
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            List<nn> list = this.c;
+            if (list != null && list.size() > 0) {
+                for (nn nnVar : this.c) {
+                    if (nnVar != null && (nnVar instanceof ho7) && ((ho7) nnVar).k()) {
+                        return true;
+                    }
                 }
-                return bVar2;
-            } catch (Exception e) {
-                e = e;
-                bVar = bVar2;
-                BdLog.e(e.getMessage());
-                return bVar;
             }
-        } catch (Exception e2) {
-            e = e2;
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            List<nn> list = this.c;
+            if (list == null || list.size() <= 0) {
+                return false;
+            }
+            for (nn nnVar : this.c) {
+                if (nnVar != null && (nnVar instanceof ho7) && !((ho7) nnVar).k()) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            ao7 ao7Var = this.d;
+            if (ao7Var != null) {
+                ao7Var.G();
+            }
+            yn7 yn7Var = this.e;
+            if (yn7Var != null) {
+                yn7Var.G();
+            }
+            zn7 zn7Var = this.f;
+            if (zn7Var != null) {
+                zn7Var.G();
+            }
         }
     }
 
-    @Override // com.repackage.bm4
-    public void d() {
+    public final void h(ho7 ho7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && ji.z()) {
-            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-            if (currentAccountObj != null) {
-                bm4.b c2 = c(currentAccountObj.getBDUSS());
-                if (c2 != null) {
-                    xi7.a(currentAccountObj.getAccount(), c2.a, c2.b, currentAccountObj.getStoken(), this.b);
-                    return;
-                }
-                return;
-            }
-            ns4.a(DI.ACCOUNT, -1L, 0, "main_tab_has_no_cache_account", 0, "", new Object[0]);
+        if (interceptable == null || interceptable.invokeL(1048583, this, ho7Var) == null) {
+            StatisticItem statisticItem = new StatisticItem("c13682");
+            statisticItem.param("obj_type", 2);
+            statisticItem.param("obj_locate", 3);
+            statisticItem.param("fid", ho7Var.c());
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public void i(oo7 oo7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, oo7Var) == null) {
+            this.f.e0(oo7Var);
+        }
+    }
+
+    public void j(List<eo7> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, list) == null) || this.a == null) {
+            return;
+        }
+        List<nn> b = new lo7().b(list);
+        if (ListUtils.isEmpty(this.c)) {
+            this.c = b;
+        } else {
+            this.c.addAll(b);
+        }
+        if (ListUtils.isEmpty(this.c)) {
+            return;
+        }
+        this.a.setData(this.c);
+        this.g.a();
+    }
+
+    public void k(po7 po7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, po7Var) == null) {
+            this.g = po7Var;
+            this.e.g0(po7Var);
+            this.f.f0(po7Var);
         }
     }
 }

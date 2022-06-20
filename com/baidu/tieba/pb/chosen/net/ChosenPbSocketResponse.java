@@ -1,17 +1,17 @@
 package com.baidu.tieba.pb.chosen.net;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pb.chosen.PbChosenActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cq4;
-import com.repackage.qe;
-import com.repackage.wo7;
+import com.repackage.dq7;
+import com.repackage.mq4;
+import com.repackage.te;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
@@ -23,7 +23,7 @@ import tbclient.ExcPbPage.UserInfo;
 import tbclient.Post;
 import tbclient.User;
 /* loaded from: classes3.dex */
-public class ChosenPbSocketResponse extends SocketResponsedMessage implements wo7 {
+public class ChosenPbSocketResponse extends SocketResponsedMessage implements dq7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<Post> postList;
@@ -49,54 +49,82 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements wo
         }
     }
 
-    @Override // com.repackage.wo7
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bArr)) == null) {
+            ExcPbPageResIdl excPbPageResIdl = (ExcPbPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcPbPageResIdl.class);
+            if (excPbPageResIdl == null) {
+                return null;
+            }
+            Error error = excPbPageResIdl.error;
+            if (error != null) {
+                setError(error.errorno.intValue());
+                setErrorString(excPbPageResIdl.error.usermsg);
+            }
+            DataRes dataRes = excPbPageResIdl.data;
+            if (dataRes == null) {
+                return excPbPageResIdl;
+            }
+            this.userInfo = dataRes.user_info;
+            this.threadInfo = dataRes.thread_info;
+            this.postList = dataRes.post_list;
+            this.userList = dataRes.user_list;
+            return excPbPageResIdl;
+        }
+        return invokeIL.objValue;
+    }
+
+    @Override // com.repackage.dq7
     public int getErroCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? getError() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? getError() : invokeV.intValue;
     }
 
-    @Override // com.repackage.wo7
+    @Override // com.repackage.dq7
     public String getErrorText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? getErrorString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? getErrorString() : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.wo7
+    @Override // com.repackage.dq7
     public List<Post> getPostList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.postList : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.postList : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.wo7
+    @Override // com.repackage.dq7
     public ExcellentPbThreadInfo getThreadInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.threadInfo : (ExcellentPbThreadInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.threadInfo : (ExcellentPbThreadInfo) invokeV.objValue;
     }
 
-    @Override // com.repackage.wo7
+    @Override // com.repackage.dq7
     public UserInfo getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.userInfo : (UserInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.userInfo : (UserInfo) invokeV.objValue;
     }
 
-    @Override // com.repackage.wo7
+    @Override // com.repackage.dq7
     public List<User> getUserList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.userList : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.userList : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.wo7
+    @Override // com.repackage.dq7
     public boolean isEmpty() {
         InterceptResult invokeV;
         List<ExcContent> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             ExcellentPbThreadInfo excellentPbThreadInfo = this.threadInfo;
             return excellentPbThreadInfo == null || (list = excellentPbThreadInfo.content) == null || list.size() <= 0;
         }
@@ -112,33 +140,10 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements wo
             if (bArr == null || bArr.length <= 0) {
                 return;
             }
-            cq4.f();
-            qe<byte[]> d = cq4.d("tb.pb_normal");
-            d.remove(PbChosenActivity.CHOSEN_PB_TABLE_NAME);
-            d.g(PbChosenActivity.CHOSEN_PB_TABLE_NAME, bArr);
+            mq4.f();
+            te<byte[]> d = mq4.d("tb.pb_normal");
+            d.remove("chosen_pb_page_cache");
+            d.g("chosen_pb_page_cache", bArr);
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        ExcPbPageResIdl excPbPageResIdl;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) || (excPbPageResIdl = (ExcPbPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcPbPageResIdl.class)) == null) {
-            return;
-        }
-        Error error = excPbPageResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(excPbPageResIdl.error.usermsg);
-        }
-        DataRes dataRes = excPbPageResIdl.data;
-        if (dataRes == null) {
-            return;
-        }
-        this.userInfo = dataRes.user_info;
-        this.threadInfo = dataRes.thread_info;
-        this.postList = dataRes.post_list;
-        this.userList = dataRes.user_list;
     }
 }

@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g25;
+import com.repackage.v25;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class CommonTabHorizonScrollView extends HorizontalScrollView {
@@ -26,7 +26,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
     public transient /* synthetic */ FieldHolder $fh;
     public DeskLinearLayout a;
     public int b;
-    public List<g25> c;
+    public List<v25> c;
     public CommonTabWidgetView.b d;
     public LinearLayout.LayoutParams e;
     public int f;
@@ -102,7 +102,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
         d();
     }
 
-    public void b(g25.b bVar) {
+    public void b(v25.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             c(bVar);
@@ -110,7 +110,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
         }
     }
 
-    public final TbImageView c(g25.b bVar) {
+    public final TbImageView c(v25.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) {
@@ -178,9 +178,9 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
                     TbImageView tbImageView = (TbImageView) ((LinearLayout) childAt).getChildAt(0);
                     if (tbImageView != null) {
                         if (i2 == this.b) {
-                            SkinManager.setImageResource(tbImageView, this.c.get(i2).h().a, i);
+                            SkinManager.setImageResource(tbImageView, this.c.get(i2).f().a, i);
                         } else {
-                            SkinManager.setImageResource(tbImageView, this.c.get(i2).h().b, i);
+                            SkinManager.setImageResource(tbImageView, this.c.get(i2).f().b, i);
                         }
                     }
                 }
@@ -208,7 +208,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
                 return;
             }
             linearLayout.setSelected(false);
-            ((TbImageView) linearLayout.getChildAt(0)).setImageResource(this.c.get(this.b).h().b);
+            ((TbImageView) linearLayout.getChildAt(0)).setImageResource(this.c.get(this.b).f().b);
         }
         this.b = i;
         LinearLayout linearLayout2 = (LinearLayout) this.a.getChildAt(i);
@@ -216,10 +216,10 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
             return;
         }
         linearLayout2.setSelected(true);
-        SkinManager.setImageResource((TbImageView) linearLayout2.getChildAt(0), this.c.get(this.b).h().a);
+        SkinManager.setImageResource((TbImageView) linearLayout2.getChildAt(0), this.c.get(this.b).f().a);
     }
 
-    public void setDatas(List<g25> list) {
+    public void setDatas(List<v25> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             this.c = list;

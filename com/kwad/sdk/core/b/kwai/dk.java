@@ -2,6 +2,7 @@ package com.kwad.sdk.core.b.kwai;
 
 import com.baidu.bdtask.model.response.TaskResponseData;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
+import com.baidu.tbadk.core.atomData.CameraActivityConfig;
 import com.kwad.sdk.core.report.ReportAction;
 import com.kwad.sdk.core.scene.URLPackage;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
@@ -26,7 +27,7 @@ public class dk implements com.kwad.sdk.core.d<ReportAction> {
         reportAction.k = jSONObject.optJSONObject("extra");
         reportAction.l = jSONObject.optJSONObject("impAdExtra");
         reportAction.m = jSONObject.optLong("posId");
-        reportAction.n = jSONObject.optInt("contentType");
+        reportAction.n = jSONObject.optInt(CameraActivityConfig.KEY_CONTENT_TYPE);
         reportAction.o = jSONObject.optInt("realShowType");
         reportAction.p = jSONObject.optLong("photoId");
         reportAction.q = jSONObject.optLong("position");
@@ -267,7 +268,7 @@ public class dk implements com.kwad.sdk.core.d<ReportAction> {
         com.kwad.sdk.utils.t.a(jSONObject, "extra", reportAction.k);
         com.kwad.sdk.utils.t.a(jSONObject, "impAdExtra", reportAction.l);
         com.kwad.sdk.utils.t.a(jSONObject, "posId", reportAction.m);
-        com.kwad.sdk.utils.t.a(jSONObject, "contentType", reportAction.n);
+        com.kwad.sdk.utils.t.a(jSONObject, CameraActivityConfig.KEY_CONTENT_TYPE, reportAction.n);
         com.kwad.sdk.utils.t.a(jSONObject, "realShowType", reportAction.o);
         com.kwad.sdk.utils.t.a(jSONObject, "photoId", reportAction.p);
         com.kwad.sdk.utils.t.a(jSONObject, "position", reportAction.q);

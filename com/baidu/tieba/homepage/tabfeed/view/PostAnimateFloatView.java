@@ -25,12 +25,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cx;
-import com.repackage.mg;
-import com.repackage.vx6;
-import com.repackage.wq4;
+import com.repackage.ez6;
+import com.repackage.fr4;
+import com.repackage.gx;
+import com.repackage.qg;
 /* loaded from: classes3.dex */
-public class PostAnimateFloatView extends FrameLayout implements cx {
+public class PostAnimateFloatView extends FrameLayout implements gx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
@@ -104,7 +104,7 @@ public class PostAnimateFloatView extends FrameLayout implements cx {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                vx6.f();
+                ez6.f();
                 new LocalChannelTopicListActivityConfig(this.a.getContext()).start();
             }
         }
@@ -280,7 +280,7 @@ public class PostAnimateFloatView extends FrameLayout implements cx {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) && this.a.d) {
                 this.a.e = false;
-                mg.a().postDelayed(this.a.i, 5000L);
+                qg.a().postDelayed(this.a.i, 5000L);
             }
         }
 
@@ -356,19 +356,19 @@ public class PostAnimateFloatView extends FrameLayout implements cx {
                 valueAnimator2.removeAllUpdateListeners();
                 this.g.removeAllListeners();
             }
-            mg.a().removeCallbacks(this.i);
+            qg.a().removeCallbacks(this.i);
         }
     }
 
     public final void i(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d049a, (ViewGroup) this, true);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ac5);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0918b5);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0918cc);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0498, (ViewGroup) this, true);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091abd);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0918ac);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0918c3);
             this.c = textView;
-            this.f = textView.getPaint().measureText(getContext().getString(R.string.obfuscated_res_0x7f0f0ec1));
+            this.f = textView.getPaint().measureText(getContext().getString(R.string.obfuscated_res_0x7f0f0ecc));
             j();
             this.a.setOnClickListener(new b(this));
         }
@@ -412,13 +412,13 @@ public class PostAnimateFloatView extends FrameLayout implements cx {
         }
     }
 
-    @Override // com.repackage.cx
+    @Override // com.repackage.gx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i) == null) {
             ImageView imageView = this.b;
             if (imageView != null) {
-                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f08093d, R.color.CAM_X0101, null);
+                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f080925, R.color.CAM_X0101, null);
             }
             TextView textView = this.c;
             if (textView != null) {
@@ -426,7 +426,7 @@ public class PostAnimateFloatView extends FrameLayout implements cx {
             }
             LinearLayout linearLayout = this.a;
             if (linearLayout != null) {
-                wq4 d2 = wq4.d(linearLayout);
+                fr4 d2 = fr4.d(linearLayout);
                 d2.n(R.string.J_X01);
                 d2.h(R.color.CAM_X0302);
             }

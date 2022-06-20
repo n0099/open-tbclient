@@ -16,14 +16,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.tl5;
+import com.repackage.qm5;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AiAppsShareActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CustomMessageListener listener;
+    public CustomMessageListener a;
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -76,7 +76,7 @@ public class AiAppsShareActivity extends Activity {
                 return;
             }
         }
-        this.listener = new a(this, 2921376);
+        this.a = new a(this, 2921376);
     }
 
     @Override // android.app.Activity
@@ -106,11 +106,11 @@ public class AiAppsShareActivity extends Activity {
                 LogUtil.logActivity(this, "onCreate");
                 return;
             }
-            tl5 tl5Var = new tl5();
+            qm5 qm5Var = new qm5();
             try {
-                tl5Var.p(new JSONObject(stringExtra));
-                MessageManager.getInstance().sendMessage(new CustomMessage(2001276, new ShareDialogConfig(this, tl5Var, false)));
-                MessageManager.getInstance().registerListener(this.listener);
+                qm5Var.p(new JSONObject(stringExtra));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2001276, new ShareDialogConfig(this, qm5Var, false)));
+                MessageManager.getInstance().registerListener(this.a);
                 LogUtil.logActivity(this, "onCreate");
             } catch (JSONException unused) {
                 finish();
@@ -124,7 +124,7 @@ public class AiAppsShareActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            MessageManager.getInstance().unRegisterListener(this.listener);
+            MessageManager.getInstance().unRegisterListener(this.a);
         }
     }
 }

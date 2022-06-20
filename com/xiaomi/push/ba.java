@@ -1,27 +1,32 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-import android.os.IBinder;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.ay;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class ba implements Runnable {
+public class ba implements au {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ba a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ IBinder a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ ay.b f128a;
+    public int f121a;
 
-    public ba(ay.b bVar, IBinder iBinder) {
+    /* renamed from: a  reason: collision with other field name */
+    public au f122a;
+
+    public ba(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar, iBinder};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,67 +36,102 @@ public class ba implements Runnable {
                 return;
             }
         }
-        this.f128a = bVar;
-        this.a = iBinder;
+        this.f122a = az.a(context);
+        this.f121a = az.a;
+        com.xiaomi.channel.commonutils.logger.b.m84a("create id manager is: " + this.f121a);
     }
 
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    @Override // java.lang.Runnable
-    public void run() {
-        Object obj;
-        Object obj2;
-        Object obj3;
-        Object obj4;
-        Context context;
-        String e;
-        Object obj5;
-        Object obj6;
+    public static ba a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                context = this.f128a.a.f121a;
-                String packageName = context.getPackageName();
-                e = this.f128a.a.e();
-                ay.a aVar = new ay.a(this.f128a.a, null);
-                aVar.f125a = ay.c.a(this.a, packageName, e, "GUID");
-                aVar.b = ay.c.a(this.a, packageName, e, "OUID");
-                aVar.c = ay.c.a(this.a, packageName, e, "DUID");
-                aVar.d = ay.c.a(this.a, packageName, e, "AUID");
-                this.f128a.a.f123a = aVar;
-                this.f128a.a.b();
-                this.f128a.a.f120a = 2;
-                obj5 = this.f128a.a.f124a;
-                synchronized (obj5) {
-                    try {
-                        obj6 = this.f128a.a.f124a;
-                        obj6.notifyAll();
-                    } catch (Exception unused) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (a == null) {
+                synchronized (ba.class) {
+                    if (a == null) {
+                        a = new ba(context.getApplicationContext());
                     }
-                }
-            } catch (Exception unused2) {
-                this.f128a.a.b();
-                this.f128a.a.f120a = 2;
-                obj3 = this.f128a.a.f124a;
-                synchronized (obj3) {
-                    try {
-                        obj4 = this.f128a.a.f124a;
-                        obj4.notifyAll();
-                    } catch (Exception unused3) {
-                    }
-                }
-            } catch (Throwable th) {
-                this.f128a.a.b();
-                this.f128a.a.f120a = 2;
-                obj = this.f128a.a.f124a;
-                synchronized (obj) {
-                    try {
-                        obj2 = this.f128a.a.f124a;
-                        obj2.notifyAll();
-                    } catch (Exception unused4) {
-                    }
-                    throw th;
                 }
             }
+            return a;
         }
+        return (ba) invokeL.objValue;
+    }
+
+    private String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) ? str == null ? "" : str : (String) invokeL.objValue;
+    }
+
+    @Override // com.xiaomi.push.au
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a(this.f122a.a()) : (String) invokeV.objValue;
+    }
+
+    @Override // com.xiaomi.push.au
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    public void a(Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) || map == null) {
+            return;
+        }
+        String b = b();
+        if (!TextUtils.isEmpty(b)) {
+            map.put("udid", b);
+        }
+        String a2 = a();
+        if (!TextUtils.isEmpty(a2)) {
+            map.put("oaid", a2);
+        }
+        String c = c();
+        if (!TextUtils.isEmpty(c)) {
+            map.put("vaid", c);
+        }
+        String d = d();
+        if (!TextUtils.isEmpty(d)) {
+            map.put("aaid", d);
+        }
+        map.put("oaid_type", String.valueOf(this.f121a));
+    }
+
+    @Override // com.xiaomi.push.au
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f122a.m168a() : invokeV.booleanValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
     }
 }

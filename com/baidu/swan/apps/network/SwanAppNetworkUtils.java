@@ -18,12 +18,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b62;
-import com.repackage.bd3;
-import com.repackage.qv2;
-import com.repackage.rf1;
-import com.repackage.uq2;
-import com.repackage.uv2;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
+import com.repackage.bw2;
+import com.repackage.cg1;
+import com.repackage.fr2;
+import com.repackage.fw2;
+import com.repackage.m62;
+import com.repackage.md3;
 import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import org.json.JSONException;
@@ -62,7 +63,7 @@ public class SwanAppNetworkUtils {
                     return;
                 }
             }
-            NONE = new NetType("NONE", 0, "no");
+            NONE = new NetType(HlsPlaylistParser.METHOD_NONE, 0, "no");
             WIFI = new NetType("WIFI", 1, "wifi");
             _2G = new NetType("_2G", 2, "2g");
             _3G = new NetType("_3G", 3, "3g");
@@ -108,7 +109,7 @@ public class SwanAppNetworkUtils {
     }
 
     /* loaded from: classes2.dex */
-    public static class a implements qv2<Bundle> {
+    public static class a implements bw2<Bundle> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
@@ -132,7 +133,7 @@ public class SwanAppNetworkUtils {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.qv2
+        @Override // com.repackage.bw2
         /* renamed from: a */
         public void onResult(Bundle bundle) {
             b bVar;
@@ -162,7 +163,7 @@ public class SwanAppNetworkUtils {
                 return;
             }
         }
-        a = rf1.a;
+        a = cg1.a;
     }
 
     public static boolean a(OkHttpClient okHttpClient, String str) {
@@ -192,7 +193,7 @@ public class SwanAppNetworkUtils {
     public static void b(@NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, bVar) == null) {
-            uv2.a(uq2.class, null, new a(bVar));
+            fw2.a(fr2.class, null, new a(bVar));
         }
     }
 
@@ -329,7 +330,7 @@ public class SwanAppNetworkUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            String f = bd3.f(b62.U().g0());
+            String f = md3.f(m62.U().g0());
             return TextUtils.isEmpty(f) ? "" : f;
         }
         return (String) invokeV.objValue;

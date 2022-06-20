@@ -26,8 +26,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ig8;
-import com.repackage.jg;
+import com.repackage.bh8;
+import com.repackage.ng;
 /* loaded from: classes3.dex */
 public class NewDetailTopicStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -88,7 +88,7 @@ public class NewDetailTopicStatic {
                     if (StringUtils.isNull(queryParameter)) {
                         return 3;
                     }
-                    TopicDetailActivityConfig topicDetailActivityConfig2 = new TopicDetailActivityConfig(tbPageContext.getPageActivity(), jg.g(queryParameter, 0L));
+                    TopicDetailActivityConfig topicDetailActivityConfig2 = new TopicDetailActivityConfig(tbPageContext.getPageActivity(), ng.g(queryParameter, 0L));
                     topicDetailActivityConfig2.setIsFromYunPush(lowerCase.contains(UrlSchemaHelper.FROM_YUN_PUSH));
                     tbPageContext.sendMessage(new CustomMessage(2002001, topicDetailActivityConfig2));
                     return 1;
@@ -136,24 +136,24 @@ public class NewDetailTopicStatic {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            ig8.h(309085, BlessSocketResponseMessage.class, false, false);
-            ig8.c(309085, CmdConfigHttp.CMD_TOPIC_BLESS, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
+            bh8.h(309085, BlessSocketResponseMessage.class, false, false);
+            bh8.c(309085, CmdConfigHttp.CMD_TOPIC_BLESS, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
         }
     }
 
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            ig8.h(303050, ResponseSocketHotTopicMessage.class, false, false);
-            ig8.c(303050, CmdConfigHttp.CMD_HOT_TOPIC, TbConfig.URL_GET_HOT_TOPIC_DATA, ResponseHttpHotTopicMessage.class, false, false, true, false);
+            bh8.h(303050, ResponseSocketHotTopicMessage.class, false, false);
+            bh8.c(303050, CmdConfigHttp.CMD_HOT_TOPIC, TbConfig.URL_GET_HOT_TOPIC_DATA, ResponseHttpHotTopicMessage.class, false, false, true, false);
         }
     }
 
     public static void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            ig8.h(309005, ResponseSocketGetTopicRelateThreadMessage.class, false, false);
-            ig8.c(309005, CmdConfigHttp.CMD_TOPIC_RELATE_THREAD, TbConfig.URL_GET_TOPIC_RELATE_THREAD, ResponseHttpGetTopicRelateThreadMessage.class, false, false, true, false);
+            bh8.h(309005, ResponseSocketGetTopicRelateThreadMessage.class, false, false);
+            bh8.c(309005, CmdConfigHttp.CMD_TOPIC_RELATE_THREAD, TbConfig.URL_GET_TOPIC_RELATE_THREAD, ResponseHttpGetTopicRelateThreadMessage.class, false, false, true, false);
         }
     }
 

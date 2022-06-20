@@ -1,52 +1,27 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wv3;
-import java.io.File;
-@Service
 /* loaded from: classes6.dex */
-public class kw3 implements pg1 {
+public class kw3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile jw3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public kw3() {
+    public static synchronized jw3 a() {
+        InterceptResult invokeV;
+        jw3 jw3Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (kw3.class) {
+                if (a == null) {
+                    a = new jw3();
+                }
+                jw3Var = a;
             }
+            return jw3Var;
         }
-    }
-
-    @Override // com.repackage.pg1
-    public File a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? wv3.d.h(str, str2) : (File) invokeLL.objValue;
-    }
-
-    @Override // com.repackage.pg1
-    public File b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? wv3.d() : (File) invokeV.objValue;
-    }
-
-    @Override // com.repackage.pg1
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? wv3.d.g().getPath() : (String) invokeV.objValue;
+        return (jw3) invokeV.objValue;
     }
 }

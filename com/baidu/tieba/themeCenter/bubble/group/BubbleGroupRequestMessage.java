@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dc5;
+import com.repackage.qc5;
 import tbclient.GetBubbleByCategory.DataReq;
 import tbclient.GetBubbleByCategory.GetBubbleByCategoryReqIdl;
 /* loaded from: classes4.dex */
@@ -42,7 +42,7 @@ public class BubbleGroupRequestMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                dc5.a(builder, true);
+                qc5.a(builder, true);
             }
             GetBubbleByCategoryReqIdl.Builder builder2 = new GetBubbleByCategoryReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -7,6 +7,7 @@ import com.baidu.mapapi.synchronization.histroytrace.HistoryTraceQueryOptions;
 import com.baidu.mapsdkplatform.comapi.util.PermissionCheck;
 import com.baidu.mapsdkplatform.comapi.util.SyncSysInfo;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
+import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -80,7 +81,7 @@ public class f {
             }
             this.b.a("page_index", String.valueOf(d));
             d = 1;
-            this.b.a("page_size", "5000");
+            this.b.a(SuggestAddrField.KEY_PAGE_SIZE, "5000");
             this.b.a("is_processed", "1");
             b();
         }

@@ -7,9 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fe0;
-import com.repackage.ne0;
-import com.repackage.u79;
+import com.repackage.c89;
+import com.repackage.je0;
+import com.repackage.re0;
 /* loaded from: classes4.dex */
 public class MiniVideoEffectProcessor extends BaseEffectProcessor {
     public static /* synthetic */ Interceptable $ic;
@@ -40,23 +40,23 @@ public class MiniVideoEffectProcessor extends BaseEffectProcessor {
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.IEffectProcessor
-    public int onProcessFrame(fe0 fe0Var, int i, float[] fArr) {
+    public int onProcessFrame(je0 je0Var, int i, float[] fArr) {
         InterceptResult invokeLIL;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fe0Var, i, fArr)) == null) {
-            if (fe0Var == null || !this.mIsDraw) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, je0Var, i, fArr)) == null) {
+            if (je0Var == null || !this.mIsDraw) {
                 return i;
             }
             int i3 = 1;
             while (true) {
-                if (i3 >= u79.b(fe0Var.l())) {
+                if (i3 >= c89.b(je0Var.l())) {
                     i2 = i;
                     break;
                 }
-                MediaTrack mediaTrack = (MediaTrack) u79.c(fe0Var.l(), i3);
-                if (mediaTrack != null && ne0.m(mediaTrack, "effect")) {
-                    i2 = fe0Var.i(mediaTrack, i, null);
+                MediaTrack mediaTrack = (MediaTrack) c89.c(je0Var.l(), i3);
+                if (mediaTrack != null && re0.m(mediaTrack, "effect")) {
+                    i2 = je0Var.i(mediaTrack, i, null);
                     break;
                 }
                 i3++;

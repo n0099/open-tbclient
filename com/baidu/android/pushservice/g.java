@@ -57,7 +57,7 @@ public final class g {
     public static int a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? m.o(context) ? b : a : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? m.A(context) ? b : a : invokeL.intValue;
     }
 
     public static String a() {
@@ -122,7 +122,7 @@ public final class g {
                 }
             } else {
                 properties.put("http_server", "http://10.95.41.15:8080");
-                if (m.o(context)) {
+                if (m.A(context)) {
                     properties.put("socket_server_port_v3", "8006");
                 } else {
                     properties.put("socket_server_port", WbAuthConstants.AUTH_FAILED_QUICK_NULL_TOKEN_ERROR_CODE);
@@ -148,7 +148,7 @@ public final class g {
             if (!TextUtils.isEmpty(property4)) {
                 i = property4;
             }
-            if (m.o(context)) {
+            if (m.A(context)) {
                 String property5 = properties.getProperty("socket_server_port_v3");
                 if (!TextUtils.isEmpty(property5)) {
                     b = Integer.parseInt(property5);

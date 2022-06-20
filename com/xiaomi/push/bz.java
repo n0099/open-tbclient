@@ -1,27 +1,26 @@
 package com.xiaomi.push;
 
 import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.cg;
+import com.xiaomi.push.al;
 import java.lang.ref.WeakReference;
 /* loaded from: classes8.dex */
-public class bz implements Runnable {
+public class bz extends al.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public final /* synthetic */ bx a;
 
-    /* renamed from: a  reason: collision with other field name */
-    public WeakReference<Context> f150a;
-
-    public bz(String str, WeakReference<Context> weakReference) {
+    public bz(bx bxVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, weakReference};
+            Object[] objArr = {bxVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,26 +30,31 @@ public class bz implements Runnable {
                 return;
             }
         }
-        this.a = str;
-        this.f150a = weakReference;
+        this.a = bxVar;
+    }
+
+    @Override // com.xiaomi.push.al.a
+    /* renamed from: a */
+    public String mo202a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "10054" : (String) invokeV.objValue;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        WeakReference<Context> weakReference;
+        String c;
         Context context;
+        Context context2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (weakReference = this.f150a) == null || (context = weakReference.get()) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            com.xiaomi.channel.commonutils.logger.b.c("exec== DbSizeControlJob");
+            c = this.a.c();
+            context = this.a.f142a;
+            cc ccVar = new cc(c, new WeakReference(context));
+            context2 = this.a.f142a;
+            cj.a(context2).a(ccVar);
+            this.a.b("check_time");
         }
-        if (cm.a(this.a) <= by.f148a) {
-            com.xiaomi.channel.commonutils.logger.b.b("=====> do not need clean db");
-            return;
-        }
-        cc a = cc.a(this.a);
-        cb a2 = cb.a(this.a);
-        a.a(a2);
-        a2.a(ca.a(context, this.a, 1000));
-        cg.a(context).a((cg.a) a);
     }
 }

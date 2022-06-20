@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jg;
+import com.repackage.ng;
 import java.io.Serializable;
 import java.util.Map;
 import tbclient.Agree;
@@ -203,7 +203,7 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
             this.author.portrait = (String) map2.get("portrait");
             this.author.hasFocus = "1".equals(map2.get("has_concerned"));
             if (map2.get("god_data") instanceof Map) {
-                int e = jg.e((String) ((Map) map2.get("god_data")).get("type"), 0);
+                int e = ng.e((String) ((Map) map2.get("god_data")).get("type"), 0);
                 this.author.isBigV = e == 2 || e == 1;
                 this.author.isGod = e == 2;
             }
@@ -212,7 +212,7 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
                 this.author.baijiahaoData = new VideoAggregationAuthorData.BaijiahaoAuthorData();
                 this.author.baijiahaoData.name = (String) map3.get("name");
                 this.author.baijiahaoData.avatar = (String) map3.get("avatar");
-                this.author.baijiahaoData.auth_id = Integer.valueOf(jg.e((String) map3.get("auth_id"), 0));
+                this.author.baijiahaoData.auth_id = Integer.valueOf(ng.e((String) map3.get("auth_id"), 0));
                 this.author.baijiahaoData.auth_desc = (String) map3.get("auth_desc");
                 this.author.baijiahaoData.brief = (String) map3.get(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF);
             }
@@ -222,7 +222,7 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
             BaijiahaoData baijiahaoData = new BaijiahaoData();
             baijiahaoData.oriUgcNid = (String) map4.get("ori_ugc_nid");
             baijiahaoData.oriUgcTid = (String) map4.get("ori_ugc_tid");
-            baijiahaoData.oriUgcType = jg.e((String) map4.get(TiebaStatic.Params.UGC_TYPE), 0);
+            baijiahaoData.oriUgcType = ng.e((String) map4.get(TiebaStatic.Params.UGC_TYPE), 0);
             baijiahaoData.oriUgcVid = (String) map4.get("ori_ugc_vid");
             baijiahaoData.forwardUrl = (String) map4.get("forward_url");
             this.mBaijiahaoData = baijiahaoData;
@@ -234,32 +234,32 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
             videoAggregationVideoData.thumbnailHeight = String.valueOf(map5.get("thumbnail_height"));
             videoAggregationVideoData.videoMd5 = (String) map5.get(VideoFinishResult.KEY_VIDEO_MD5);
             videoAggregationVideoData.videoUrl = (String) map5.get("video_url");
-            videoAggregationVideoData.videoDuration = jg.e((String) map5.get(AdWebVideoActivityConfig.KEY_VIDEO_DURATION), 0);
+            videoAggregationVideoData.videoDuration = ng.e((String) map5.get(AdWebVideoActivityConfig.KEY_VIDEO_DURATION), 0);
             videoAggregationVideoData.videoWidth = String.valueOf(map5.get("video_width"));
             videoAggregationVideoData.videoHeight = String.valueOf(map5.get("video_height"));
-            videoAggregationVideoData.videoSize = jg.e((String) map5.get("video_length"), 0);
+            videoAggregationVideoData.videoSize = ng.e((String) map5.get("video_length"), 0);
             videoAggregationVideoData.thumbnailUrl = (String) map5.get("thumbnail_url");
-            this.playCount = jg.e((String) map5.get("play_count"), 0);
+            this.playCount = ng.e((String) map5.get("play_count"), 0);
         }
         this.video = videoAggregationVideoData;
         this.forumId = String.valueOf(map.get("fid"));
         this.threadId = (String) map.get("tid");
         this.firstPostId = (String) map.get("first_post_id");
         this.createTime = (String) map.get("create_time");
-        this.postNum = jg.g((String) map.get("reply_num"), 0L);
-        this.shareNum = jg.g((String) map.get("share_num"), 0L);
+        this.postNum = ng.g((String) map.get("reply_num"), 0L);
+        this.shareNum = ng.g((String) map.get("share_num"), 0L);
         this.title = (String) map.get("title");
         if (map.get("agree") instanceof Map) {
             Map map6 = (Map) map.get("agree");
-            this.agreeNum = jg.g((String) map6.get("agree_num"), 0L);
-            this.disAgreeNum = jg.g((String) map6.get("disagree_num"), 0L);
-            this.agreeType = jg.e((String) map6.get("agree_type"), 0);
+            this.agreeNum = ng.g((String) map6.get("agree_num"), 0L);
+            this.disAgreeNum = ng.g((String) map6.get("disagree_num"), 0L);
+            this.agreeType = ng.e((String) map6.get("agree_type"), 0);
             this.hasAgree = "1".equals(map6.get("has_agree"));
             AgreeData agreeData = new AgreeData();
             this.mAgreeData = agreeData;
             agreeData.threadId = this.threadId;
             agreeData.agreeNum = this.agreeNum;
-            agreeData.diffAgreeNum = jg.g((String) map6.get("diff_agree_num"), 0L);
+            agreeData.diffAgreeNum = ng.g((String) map6.get("diff_agree_num"), 0L);
             AgreeData agreeData2 = this.mAgreeData;
             agreeData2.disAgreeNum = this.disAgreeNum;
             agreeData2.agreeType = this.agreeType;

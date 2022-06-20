@@ -36,6 +36,6 @@ public class j extends com.kwad.sdk.f.kwai.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.b = a(R.id.obfuscated_res_0x7f091136);
+        this.b = a(R.id.obfuscated_res_0x7f091126);
     }
 }

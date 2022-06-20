@@ -13,18 +13,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bh5;
-import com.repackage.jn;
-import com.repackage.mg5;
-import com.repackage.n78;
-import com.repackage.ng5;
-import com.repackage.og5;
-import com.repackage.pg5;
-import com.repackage.sg5;
-import com.repackage.tg5;
-import com.repackage.ug5;
-import com.repackage.vg5;
-import com.repackage.wg5;
+import com.repackage.jh5;
+import com.repackage.kh5;
+import com.repackage.lh5;
+import com.repackage.mh5;
+import com.repackage.nn;
+import com.repackage.ph5;
+import com.repackage.qh5;
+import com.repackage.rh5;
+import com.repackage.sh5;
+import com.repackage.th5;
+import com.repackage.u88;
+import com.repackage.yh5;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -58,47 +58,47 @@ public class FrsFeedAdStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            bh5 bh5Var;
-            tg5 c;
+            yh5 yh5Var;
+            qh5 c;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof bh5) && (c = (bh5Var = (bh5) customResponsedMessage.getData()).c()) != null && (c instanceof n78)) {
-                n78 n78Var = (n78) c;
-                sg5 injectPlugin = c.getInjectPlugin(1);
-                if (injectPlugin == null) {
-                    vg5 a = wg5.b().a(1);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof yh5) && (c = (yh5Var = (yh5) customResponsedMessage.getData()).c()) != null && (c instanceof u88)) {
+                u88 u88Var = (u88) c;
+                ph5 Q0 = c.Q0(1);
+                if (Q0 == null) {
+                    sh5 a = th5.b().a(1);
                     if (a == null) {
                         return;
                     }
-                    injectPlugin = a.a();
-                    c.setInjectPlugin(1, injectPlugin);
-                    injectPlugin.n(new ug5(n78Var));
+                    Q0 = a.a();
+                    c.p0(1, Q0);
+                    Q0.n(new rh5(u88Var));
                 }
-                if (injectPlugin instanceof pg5) {
-                    pg5 pg5Var = (pg5) injectPlugin;
-                    if (bh5Var.a() == 1) {
-                        List list = (List) bh5Var.f();
-                        ng5.b(pg5Var.c());
-                        for (BdUniqueId bdUniqueId : ng5.e()) {
-                            mg5 mg5Var = new mg5(n78Var, bdUniqueId);
-                            mg5Var.Z(n78Var.i());
-                            list.add(mg5Var);
+                if (Q0 instanceof mh5) {
+                    mh5 mh5Var = (mh5) Q0;
+                    if (yh5Var.a() == 1) {
+                        List list = (List) yh5Var.f();
+                        kh5.b(mh5Var.c());
+                        for (BdUniqueId bdUniqueId : kh5.c()) {
+                            jh5 jh5Var = new jh5(u88Var, bdUniqueId);
+                            jh5Var.Z(u88Var.o());
+                            list.add(jh5Var);
                         }
-                    } else if (bh5Var.a() == 2) {
-                        pg5Var.i(bh5Var.d());
-                    } else if (bh5Var.a() == 3) {
-                        List<jn> n = bh5Var.n();
-                        List<og5> d = FrsFeedAdStatic.d(n);
-                        if (bh5Var.p()) {
-                            pg5Var.m(d, FrsFeedAdStatic.d(bh5Var.k()), bh5Var.o(), bh5Var.e());
+                    } else if (yh5Var.a() == 2) {
+                        mh5Var.i(yh5Var.d());
+                    } else if (yh5Var.a() == 3) {
+                        List<nn> n = yh5Var.n();
+                        List<lh5> d = FrsFeedAdStatic.d(n);
+                        if (yh5Var.p()) {
+                            mh5Var.m(d, FrsFeedAdStatic.d(yh5Var.k()), yh5Var.o(), yh5Var.e());
                         } else {
-                            pg5Var.g(d, bh5Var.e());
+                            mh5Var.g(d, yh5Var.e());
                         }
                         n.clear();
                         n.addAll(FrsFeedAdStatic.c(d));
-                    } else if (bh5Var.a() == 4) {
-                        pg5Var.a(bh5Var.m());
-                    } else if (bh5Var.a() == 5) {
-                        pg5Var.d(FrsFeedAdStatic.d(bh5Var.n()), bh5Var.h(), bh5Var.g(), bh5Var.l(), bh5Var.i(), bh5Var.q(), bh5Var.j());
+                    } else if (yh5Var.a() == 4) {
+                        mh5Var.a(yh5Var.m());
+                    } else if (yh5Var.a() == 5) {
+                        mh5Var.d(FrsFeedAdStatic.d(yh5Var.n()), yh5Var.h(), yh5Var.g(), yh5Var.l(), yh5Var.i(), yh5Var.q(), yh5Var.j());
                     }
                 }
             }
@@ -135,7 +135,7 @@ public class FrsFeedAdStatic {
         }
     }
 
-    public static List<jn> c(List<og5> list) {
+    public static List<nn> c(List<lh5> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
@@ -143,14 +143,14 @@ public class FrsFeedAdStatic {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            for (og5 og5Var : list) {
-                if (og5Var.c() == 3) {
-                    ng5 ng5Var = new ng5();
-                    ng5Var.i(og5Var.a());
-                    ng5Var.j(og5Var.b());
-                    arrayList.add(ng5Var);
-                } else if (og5Var.a() instanceof jn) {
-                    arrayList.add((jn) og5Var.a());
+            for (lh5 lh5Var : list) {
+                if (lh5Var.c() == 3) {
+                    kh5 kh5Var = new kh5();
+                    kh5Var.h(lh5Var.a());
+                    kh5Var.j(lh5Var.b());
+                    arrayList.add(kh5Var);
+                } else if (lh5Var.a() instanceof nn) {
+                    arrayList.add((nn) lh5Var.a());
                 }
             }
             return arrayList;
@@ -158,33 +158,33 @@ public class FrsFeedAdStatic {
         return (List) invokeL.objValue;
     }
 
-    public static List<og5> d(List<jn> list) {
+    public static List<lh5> d(List<nn> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (jn jnVar : list) {
-                og5 og5Var = new og5();
-                if (jnVar instanceof ThreadData) {
-                    ThreadData threadData = (ThreadData) jnVar;
+            for (nn nnVar : list) {
+                lh5 lh5Var = new lh5();
+                if (nnVar instanceof ThreadData) {
+                    ThreadData threadData = (ThreadData) nnVar;
                     if (threadData.getIs_top() == 1) {
-                        og5Var.f(1);
+                        lh5Var.f(1);
                     } else if (threadData.getIs_top() == 0) {
-                        og5Var.f(2);
+                        lh5Var.f(2);
                     } else {
-                        og5Var.f(4);
+                        lh5Var.f(4);
                     }
-                    og5Var.d(jnVar);
-                } else if (jnVar instanceof ng5) {
-                    og5Var.f(3);
-                    ng5 ng5Var = (ng5) jnVar;
-                    og5Var.e(ng5Var.f());
-                    og5Var.d(ng5Var.a());
+                    lh5Var.d(nnVar);
+                } else if (nnVar instanceof kh5) {
+                    lh5Var.f(3);
+                    kh5 kh5Var = (kh5) nnVar;
+                    lh5Var.e(kh5Var.f());
+                    lh5Var.d(kh5Var.a());
                 } else {
-                    og5Var.f(4);
-                    og5Var.d(jnVar);
+                    lh5Var.f(4);
+                    lh5Var.d(nnVar);
                 }
-                arrayList.add(og5Var);
+                arrayList.add(lh5Var);
             }
             return arrayList;
         }

@@ -1,75 +1,56 @@
 package com.xiaomi.push;
 
-import android.os.Environment;
-import android.os.StatFs;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.down.statistic.ConfigSpeedStat;
+import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class aa {
     public static /* synthetic */ Interceptable $ic;
+    public static final HashMap<String, String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static long a() {
-        InterceptResult invokeV;
-        File externalStorageDirectory;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (!b() && (externalStorageDirectory = Environment.getExternalStorageDirectory()) != null && !TextUtils.isEmpty(externalStorageDirectory.getPath())) {
-                try {
-                    StatFs statFs = new StatFs(externalStorageDirectory.getPath());
-                    return statFs.getBlockSize() * (statFs.getAvailableBlocks() - 4);
-                } catch (Throwable unused) {
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-56379872, "Lcom/xiaomi/push/aa;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return 0L;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-56379872, "Lcom/xiaomi/push/aa;");
+                return;
+            }
         }
-        return invokeV.longValue;
+        HashMap<String, String> hashMap = new HashMap<>();
+        a = hashMap;
+        hashMap.put("FFD8FF", "jpg");
+        a.put("89504E47", "png");
+        a.put("47494638", NativeConstants.TYPE_GIF);
+        a.put("474946", NativeConstants.TYPE_GIF);
+        a.put("424D", "bmp");
     }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public static boolean m176a() {
-        InterceptResult invokeV;
+    public static long a(File file) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            long j = 0;
             try {
-                return Environment.getExternalStorageState().equals("removed");
+                File[] listFiles = file.listFiles();
+                for (int i = 0; i < listFiles.length; i++) {
+                    j += listFiles[i].isDirectory() ? a(listFiles[i]) : listFiles[i].length();
+                }
             } catch (Exception e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
-                return true;
             }
+            return j;
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            try {
-                return true ^ Environment.getExternalStorageState().equals("mounted");
-            } catch (Exception e) {
-                Log.e("XMPush-", "check SDCard is busy: " + e);
-                return true;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a() <= ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT : invokeV.booleanValue;
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (b() || c() || m176a()) ? false : true : invokeV.booleanValue;
+        return invokeL.longValue;
     }
 }

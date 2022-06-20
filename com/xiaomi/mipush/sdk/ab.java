@@ -4,18 +4,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.xiaomi.mipush.sdk.MiTinyDataClient;
+import java.util.concurrent.ScheduledFuture;
 /* loaded from: classes8.dex */
 public class ab implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ NotificationClickedActivity a;
+    public final /* synthetic */ MiTinyDataClient.a.C0664a a;
 
-    public ab(NotificationClickedActivity notificationClickedActivity) {
+    public ab(MiTinyDataClient.a.C0664a c0664a) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {notificationClickedActivity};
+            Object[] objArr = {c0664a};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -25,15 +27,25 @@ public class ab implements Runnable {
                 return;
             }
         }
-        this.a = notificationClickedActivity;
+        this.a = c0664a;
     }
 
     @Override // java.lang.Runnable
     public void run() {
+        ScheduledFuture scheduledFuture;
+        ScheduledFuture scheduledFuture2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.xiaomi.channel.commonutils.logger.b.m108a("clicked activity finish by timeout.");
-            this.a.finish();
+            if (this.a.f35a.size() != 0) {
+                this.a.b();
+                return;
+            }
+            scheduledFuture = this.a.f36a;
+            if (scheduledFuture != null) {
+                scheduledFuture2 = this.a.f36a;
+                scheduledFuture2.cancel(false);
+                this.a.f36a = null;
+            }
         }
     }
 }

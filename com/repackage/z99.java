@@ -1,20 +1,67 @@
 package com.repackage;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import java.util.List;
-import org.json.JSONObject;
+import android.os.IBinder;
+import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.voyager.impl.IVoyagerService;
 /* loaded from: classes7.dex */
-public interface z99 {
-    public static final ServiceReference a = new ServiceReference("voyager", StatConstants.VALUE_TYPE_UPLOAD);
+public class z99 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static volatile IVoyagerService b;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(String str, String str2, int i, y99 y99Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755157033, "Lcom/repackage/z99;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755157033, "Lcom/repackage/z99;");
+                return;
+            }
+        }
+        a = AppConfig.isDebug();
+    }
 
-    void b(List<String> list, String str, long j, JSONObject jSONObject);
+    public z99() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
-    void c(String str, String str2, JSONObject jSONObject);
-
-    void d(String str, String str2, y99 y99Var);
-
-    void e(List<String> list, String str, long j, y99 y99Var);
+    public static IVoyagerService b() {
+        InterceptResult invokeV;
+        IBinder f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == null) {
+                synchronized (z99.class) {
+                    if (b == null && (f = IPCServiceManager.f("remote_voyager_service", true)) != null) {
+                        b = IVoyagerService.Stub.asInterface(f);
+                    }
+                }
+            }
+            return b;
+        }
+        return (IVoyagerService) invokeV.objValue;
+    }
 }

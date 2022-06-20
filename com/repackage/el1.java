@@ -1,13 +1,11 @@
 package com.repackage;
-
-import android.content.Context;
 /* loaded from: classes5.dex */
 public interface el1 {
-    void a(Context context, ae3<Boolean> ae3Var);
+    String a();
 
-    void b(boolean z, ae3<String> ae3Var);
+    String b();
 
-    void c(Context context, ae3<String> ae3Var);
+    String getAppName();
 
-    void d(ae3<Integer> ae3Var);
+    String getSchemeHeader();
 }

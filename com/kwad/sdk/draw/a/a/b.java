@@ -16,8 +16,8 @@ public class b extends com.kwad.sdk.draw.kwai.a {
     public DrawCardH5 d;
     public AdTemplate e;
     public AdInfo f;
-    public a.InterfaceC0320a g = new a.InterfaceC0320a() { // from class: com.kwad.sdk.draw.a.a.b.1
-        @Override // com.kwad.sdk.draw.a.a.a.InterfaceC0320a
+    public a.InterfaceC0328a g = new a.InterfaceC0328a() { // from class: com.kwad.sdk.draw.a.a.b.1
+        @Override // com.kwad.sdk.draw.a.a.a.InterfaceC0328a
         public void a() {
             b.this.e();
         }
@@ -91,14 +91,14 @@ public class b extends com.kwad.sdk.draw.kwai.a {
         super.c();
         this.c.a();
         this.d.a();
-        ((com.kwad.sdk.draw.kwai.a) this).a.f.a((a.InterfaceC0320a) null);
+        ((com.kwad.sdk.draw.kwai.a) this).a.f.a((a.InterfaceC0328a) null);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.b = (ViewGroup) a(R.id.obfuscated_res_0x7f090fee);
-        this.c = (DrawCardApp) a(R.id.obfuscated_res_0x7f091015);
-        this.d = (DrawCardH5) a(R.id.obfuscated_res_0x7f09101e);
+        this.b = (ViewGroup) a(R.id.obfuscated_res_0x7f090fde);
+        this.c = (DrawCardApp) a(R.id.obfuscated_res_0x7f091005);
+        this.d = (DrawCardH5) a(R.id.obfuscated_res_0x7f09100e);
     }
 }

@@ -1,33 +1,40 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideo;
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jr0 {
+public class jr0 extends zv0<ir0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static xu0 a(@NonNull BdVideoSeries bdVideoSeries, @NonNull BdVideo bdVideo, @NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLLLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jr0() {
+        super(10);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, bdVideoSeries, bdVideo, str, str2)) == null) {
-            xu0 xu0Var = new xu0();
-            xu0Var.k(str2);
-            xu0Var.l(wu0.c(bdVideo.getCurrentLength()) + "/" + wu0.c(bdVideo.getTotalLength()));
-            xu0Var.p(bdVideoSeries.getVid());
-            xu0Var.m(bdVideo.getType());
-            xu0Var.j(System.currentTimeMillis());
-            xu0Var.n(bdVideo.getTitle());
-            xu0Var.o(str);
-            xu0Var.r(bdVideoSeries.getPositionMs());
-            xu0Var.q(bdVideo.getCurrentLength());
-            xu0Var.s(bdVideo.getTotalLength());
-            return xu0Var;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (xu0) invokeLLLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.xv0
+    /* renamed from: e */
+    public ir0 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new ir0() : (ir0) invokeV.objValue;
     }
 }

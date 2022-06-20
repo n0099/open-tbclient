@@ -11,13 +11,13 @@ public interface a {
 
     /* renamed from: com.kwai.filedownloader.message.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0357a extends MessageSnapshot implements a {
+    public static class C0365a extends MessageSnapshot implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final MessageSnapshot b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0357a(MessageSnapshot messageSnapshot) {
+        public C0365a(MessageSnapshot messageSnapshot) {
             super(messageSnapshot.m());
             Interceptable interceptable = $ic;
             if (interceptable != null) {

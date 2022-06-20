@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nk5;
-import com.repackage.ok5;
+import com.repackage.kl5;
+import com.repackage.ll5;
 import java.io.IOException;
 /* loaded from: classes3.dex */
 public class ScalableVideoView extends TextureView implements TextureView.SurfaceTextureListener, MediaPlayer.OnVideoSizeChangedListener {
@@ -100,7 +100,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public final void f(int i, int i2) {
         Matrix m;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) || i == 0 || i2 == 0 || (m = new nk5(new ok5(getWidth(), getHeight()), new ok5(i, i2)).m(this.a)) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) || i == 0 || i2 == 0 || (m = new kl5(new ll5(getWidth(), getHeight()), new ll5(i, i2)).m(this.a)) == null) {
             return;
         }
         setTransform(m);

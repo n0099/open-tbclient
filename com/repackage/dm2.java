@@ -1,6 +1,8 @@
 package com.repackage;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,13 +13,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dm2 implements gp2 {
+public class dm2 extends em2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<am2> a;
-    public int b;
-    public float c;
-    public boolean d;
+    public int[] A;
+    public ArrayList<lm2> z;
 
     public dm2() {
         Interceptable interceptable = $ic;
@@ -32,52 +32,46 @@ public class dm2 implements gp2 {
                 return;
             }
         }
-        this.b = 0;
-        this.c = 0.0f;
-        this.d = false;
+        this.A = new int[]{0, 0, 0, 0};
     }
 
-    @Override // com.repackage.gp2
+    @Override // com.repackage.em2, com.repackage.iv1, com.repackage.rp2
     public void a(JSONObject jSONObject) throws JSONException {
+        JSONArray jSONArray;
+        JSONArray jSONArray2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("points")) {
-            JSONArray optJSONArray = jSONObject.optJSONArray("points");
-            int length = optJSONArray == null ? 0 : optJSONArray.length();
-            if (length > 0) {
-                this.a = new ArrayList<>(length);
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        am2 am2Var = new am2();
-                        am2Var.a(optJSONObject);
-                        if (am2Var.isValid()) {
-                            this.a.add(am2Var);
-                        }
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        super.a(jSONObject);
+        if (jSONObject.has("points") && (jSONArray2 = jSONObject.getJSONArray("points")) != null && jSONArray2.length() > 0) {
+            int length = jSONArray2.length();
+            this.z = new ArrayList<>(length);
+            for (int i = 0; i < length; i++) {
+                JSONObject jSONObject2 = jSONArray2.getJSONObject(i);
+                if (jSONObject2 != null) {
+                    lm2 lm2Var = new lm2();
+                    lm2Var.a(jSONObject2);
+                    if (lm2Var.isValid()) {
+                        this.z.add(lm2Var);
                     }
                 }
             }
-            ArrayList<am2> arrayList = this.a;
-            if (arrayList == null || arrayList.size() <= 0) {
-                return;
-            }
-            this.b = ul2.a(jSONObject.optString("color"), 0);
-            this.c = Math.abs(ul2.b(jSONObject.optDouble("width", 0.0d)));
-            this.d = jSONObject.optBoolean("dottedLine", false);
-            jSONObject.optBoolean("arrowLine", false);
-            jSONObject.optString("arrowIconPath");
-            ul2.a(jSONObject.optString("borderColor"), 0);
-            Math.abs(ul2.b(jSONObject.optDouble("borderWidth", 0.0d)));
+        }
+        if (!jSONObject.has(CriusAttrConstants.PADDING) || (jSONArray = jSONObject.getJSONArray(CriusAttrConstants.PADDING)) == null || jSONArray.length() <= 0) {
+            return;
+        }
+        int min = Math.min(jSONArray.length(), 4);
+        for (int i2 = 0; i2 < min; i2++) {
+            this.A[i2] = jd3.g(jSONArray.optInt(i2));
         }
     }
 
-    @Override // com.repackage.gp2
+    @Override // com.repackage.iv1, com.repackage.rp2
     public boolean isValid() {
         InterceptResult invokeV;
+        ArrayList<lm2> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<am2> arrayList = this.a;
-            return arrayList != null && arrayList.size() > 0;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.c) || TextUtils.isEmpty(this.b) || (arrayList = this.z) == null || arrayList.size() <= 0) ? false : true : invokeV.booleanValue;
     }
 }

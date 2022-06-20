@@ -1,134 +1,146 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidParameterException;
 /* loaded from: classes7.dex */
-public class ye {
+public class ye extends ke<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String[] b;
-    public int c;
-    public String d;
-    public a e;
-    public int f;
-    public String[] g;
-    public boolean h;
+    public String h;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(String str, int i, boolean z);
-    }
-
-    public ye(String str, int i, a aVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ye(j9 j9Var, String str) {
+        super(j9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), aVar};
+            Object[] objArr = {j9Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((j9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.b = null;
-        this.c = 0;
-        this.d = null;
-        this.e = null;
-        this.f = 0;
-        this.g = null;
-        this.h = false;
-        if (str != null) {
-            this.d = str;
-            this.e = aVar;
-            this.f = i;
-            return;
+        this.h = str;
+    }
+
+    @Override // com.repackage.ke
+    public boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            try {
+                this.a.f().delete(this.b, "m_ns = ?", new String[]{str});
+                return true;
+            } catch (Throwable th) {
+                this.a.i(th, "clearData");
+                return false;
+            }
         }
-        throw new InvalidParameterException("SwitchData name is null");
+        return invokeL.booleanValue;
     }
 
-    public void a(int i, boolean z) {
-        a aVar;
+    @Override // com.repackage.ke
+    public int g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) || (aVar = this.e) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 1;
         }
-        aVar.a(this.d, i, z);
+        return invokeV.intValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    /* JADX WARN: Type inference failed for: r0v14, types: [T, java.lang.String] */
+    @Override // com.repackage.ke
+    public oe<String> i(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : invokeV.intValue;
-    }
-
-    public String[] c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String[]) invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public String[] g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.g : (String[]) invokeV.objValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.h : invokeV.booleanValue;
-    }
-
-    public void i(int i, String[] strArr, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), strArr, Integer.valueOf(i2)}) == null) {
-            this.a = i;
-            this.b = strArr;
-            this.c = i2;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, str)) != null) {
+            return (oe) invokeLL.objValue;
+        }
+        Cursor cursor = null;
+        try {
+            Cursor rawQuery = sQLiteDatabase.rawQuery("SELECT m_key, m_ns, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.b + " where m_key = ?", new String[]{str});
+            try {
+                if (!rawQuery.moveToNext()) {
+                    mg.a(rawQuery);
+                    return null;
+                }
+                oe<String> oeVar = new oe<>();
+                oeVar.a = rawQuery.getString(0);
+                oeVar.c = rawQuery.getString(1);
+                oeVar.d = rawQuery.getLong(2);
+                oeVar.e = rawQuery.getLong(3);
+                oeVar.f = rawQuery.getLong(4);
+                oeVar.b = rawQuery.getString(5);
+                mg.a(rawQuery);
+                return oeVar;
+            } catch (Throwable th) {
+                th = th;
+                cursor = rawQuery;
+                mg.a(cursor);
+                throw th;
+            }
+        } catch (Throwable th2) {
+            th = th2;
         }
     }
 
-    public void j(boolean z) {
+    @Override // com.repackage.ke
+    public void k(String str, String str2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.h = z;
+        if (interceptable == null || interceptable.invokeLLII(1048579, this, str, str2, i, i2) == null) {
         }
     }
 
-    public void k(String[] strArr) {
+    @Override // com.repackage.ke
+    public String l(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, strArr) == null) {
-            this.g = strArr;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            this.a.d("CREATE TABLE IF NOT EXISTS " + this.h + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
+            this.a.d("CREATE INDEX if not exists idx_mi_ns ON " + this.h + "(m_ns)");
+            return this.h;
         }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.ke
+    public ContentValues p(oe<String> oeVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, oeVar)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("m_key", oeVar.a);
+            contentValues.put("m_ns", oeVar.c);
+            contentValues.put("m_value", oeVar.b);
+            contentValues.put("saveTime", Long.valueOf(oeVar.d));
+            contentValues.put("lastHitTime", Long.valueOf(oeVar.e));
+            contentValues.put("timeToExpire", Long.valueOf(oeVar.f));
+            return contentValues;
+        }
+        return (ContentValues) invokeL.objValue;
+    }
+
+    @Override // com.repackage.ke
+    public Cursor q(SQLiteDatabase sQLiteDatabase, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, sQLiteDatabase, str)) == null) {
+            return sQLiteDatabase.rawQuery("select * from " + this.b + " where m_ns = ?", new String[]{str});
+        }
+        return (Cursor) invokeLL.objValue;
     }
 }

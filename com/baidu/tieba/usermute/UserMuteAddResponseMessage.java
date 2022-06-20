@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jg;
+import com.repackage.ng;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class UserMuteAddResponseMessage extends JsonHttpResponsedMessage {
@@ -51,7 +51,7 @@ public class UserMuteAddResponseMessage extends JsonHttpResponsedMessage {
     public int getMuteErrorCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? jg.e(this.errorNo, -1) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ng.e(this.errorNo, -1) : invokeV.intValue;
     }
 
     public String getMuteMessage() {

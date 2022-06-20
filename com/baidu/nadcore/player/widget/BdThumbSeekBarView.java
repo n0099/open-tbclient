@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jw0;
 import com.repackage.nw0;
+import com.repackage.rw0;
 /* loaded from: classes2.dex */
 public class BdThumbSeekBarView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -772,22 +772,22 @@ public class BdThumbSeekBarView extends View {
         Paint paint = new Paint();
         this.b = paint;
         paint.setAntiAlias(true);
-        this.b.setColor(getResources().getColor(R.color.obfuscated_res_0x7f0607fb));
+        this.b.setColor(getResources().getColor(R.color.obfuscated_res_0x7f0607f9));
         Paint paint2 = new Paint();
         this.o = paint2;
         paint2.setAntiAlias(true);
-        this.o.setColor(getResources().getColor(R.color.obfuscated_res_0x7f0607fd));
+        this.o.setColor(getResources().getColor(R.color.obfuscated_res_0x7f0607fb));
         Paint paint3 = new Paint();
         this.p = paint3;
         paint3.setAntiAlias(true);
-        this.p.setColor(getResources().getColor(R.color.obfuscated_res_0x7f0607fc));
+        this.p.setColor(getResources().getColor(R.color.obfuscated_res_0x7f0607fa));
         this.l = 100.0f;
         this.m = 0.0f;
         this.n = 0;
         if (this.h == null) {
-            this.h = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080db2);
+            this.h = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080da2);
         }
-        this.i = jw0.a(this, 0.0f);
+        this.i = nw0.a(this, 0.0f);
         if (this.j == null) {
             d(1.5f);
         }
@@ -798,6 +798,6 @@ public class BdThumbSeekBarView extends View {
         this.e = (int) ((i2 * f) + 0.5d);
         this.f = (int) (50.0f * f);
         this.g = (int) (f * 3.0f);
-        nw0.b(com.baidu.searchbox.player.widget.BdThumbSeekBarView.TAG, "mUITraceHeight: " + this.e);
+        rw0.b(com.baidu.searchbox.player.widget.BdThumbSeekBarView.TAG, "mUITraceHeight: " + this.e);
     }
 }

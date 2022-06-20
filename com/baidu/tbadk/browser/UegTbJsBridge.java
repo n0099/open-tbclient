@@ -1,5 +1,6 @@
 package com.baidu.tbadk.browser;
 
+import android.content.Context;
 import android.webkit.JsPromptResult;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -13,19 +14,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.Cdo;
-import com.repackage.ai;
-import com.repackage.ph8;
-import com.repackage.th8;
-import com.repackage.tn8;
-import com.repackage.tv4;
-import com.repackage.v65;
+import com.repackage.bo8;
+import com.repackage.dw4;
+import com.repackage.ei;
+import com.repackage.hi8;
+import com.repackage.ho;
+import com.repackage.j75;
+import com.repackage.li8;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.BlockPopInfo;
-@Cdo
+@ho
 /* loaded from: classes2.dex */
-public class UegTbJsBridge implements ph8 {
+public class UegTbJsBridge implements hi8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERFACE_NAME = "CommonJSBridge";
     public static final String METHOD_BIND_MOBILE_NUMBER = "bindMobileNumber";
@@ -36,7 +37,8 @@ public class UegTbJsBridge implements ph8 {
     public static final String METHOD_SET_BLOCK_POP_INFO = "setBlockPopInfo";
     public static final String SUCCESS_CODE = "1";
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbPageContext<?> mTbPageContext;
+    public Context mContext;
+    public TbPageContext<?> mTbPageContext;
 
     public UegTbJsBridge(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
@@ -44,12 +46,12 @@ public class UegTbJsBridge implements ph8 {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
@@ -58,42 +60,46 @@ public class UegTbJsBridge implements ph8 {
 
     private void copyToClipboard(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65538, this, str) == null) {
             try {
-                ai.a(new JSONObject(str).optString("content"));
+                ei.a(new JSONObject(str).optString("content"));
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public th8 bindingMobileNumber() {
+    public li8 bindingMobileNumber() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            th8 th8Var = new th8();
+            li8 li8Var = new li8();
             try {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, tv4.b()));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, dw4.b()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return th8Var;
+            return li8Var;
         }
-        return (th8) invokeV.objValue;
+        return (li8) invokeV.objValue;
     }
 
-    public th8 callNativeSMS(String str, String str2) {
+    public li8 callNativeSMS(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            th8 th8Var = new th8();
-            UtilHelper.smsTo(this.mTbPageContext.getPageActivity(), str, str2);
-            return th8Var;
+            li8 li8Var = new li8();
+            Context pageActivity = this.mTbPageContext.getPageActivity();
+            if (pageActivity == null) {
+                pageActivity = this.mContext;
+            }
+            UtilHelper.smsTo(pageActivity, str, str2);
+            return li8Var;
         }
-        return (th8) invokeLL.objValue;
+        return (li8) invokeLL.objValue;
     }
 
-    @Override // com.repackage.ph8
+    @Override // com.repackage.hi8
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -150,37 +156,37 @@ public class UegTbJsBridge implements ph8 {
         return invokeLLLL.booleanValue;
     }
 
-    public th8 novelPayResultToClient(boolean z) {
+    public li8 novelPayResultToClient(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            th8 th8Var = new th8();
+            li8 li8Var = new li8();
             if (z) {
-                v65.d();
+                j75.d();
             }
-            return th8Var;
+            return li8Var;
         }
-        return (th8) invokeZ.objValue;
+        return (li8) invokeZ.objValue;
     }
 
-    public th8 recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
+    public li8 recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048580, this, str, str2, str3, str4, str5)) == null) {
-            th8 th8Var = new th8();
+            li8 li8Var = new li8();
             ReadRecordsData readRecordsData = new ReadRecordsData(str, str2, str3, str4, str5);
-            readRecordsData.A(true);
-            v65.e(str2, readRecordsData);
-            return th8Var;
+            readRecordsData.B(true);
+            j75.e(str2, readRecordsData);
+            return li8Var;
         }
-        return (th8) invokeLLLLL.objValue;
+        return (li8) invokeLLLLL.objValue;
     }
 
-    public th8 setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
+    public li8 setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4, Integer.valueOf(i2)})) == null) {
-            th8 th8Var = new th8();
+            li8 li8Var = new li8();
             try {
                 BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
                 builder.can_post = Integer.valueOf(i);
@@ -190,13 +196,31 @@ public class UegTbJsBridge implements ph8 {
                 builder.ok_info = str4;
                 builder.ahead_type = Integer.valueOf(i2);
                 BlockPopInfo build = builder.build(false);
-                tn8.g(build);
-                tn8.f(build);
+                bo8.g(build);
+                bo8.f(build);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return th8Var;
+            return li8Var;
         }
-        return (th8) invokeCommon.objValue;
+        return (li8) invokeCommon.objValue;
+    }
+
+    public UegTbJsBridge(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mContext = context;
     }
 }

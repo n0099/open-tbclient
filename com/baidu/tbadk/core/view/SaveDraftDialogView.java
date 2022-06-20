@@ -14,8 +14,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ki;
-import com.repackage.li;
+import com.repackage.oi;
+import com.repackage.pi;
 /* loaded from: classes3.dex */
 public class SaveDraftDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -60,7 +60,7 @@ public class SaveDraftDialogView extends LinearLayout {
             if (this.g == null) {
                 GradientDrawable gradientDrawable = new GradientDrawable();
                 this.g = gradientDrawable;
-                gradientDrawable.setCornerRadii(new float[]{li.f(getContext(), R.dimen.tbds31), li.f(getContext(), R.dimen.tbds31), li.f(getContext(), R.dimen.tbds31), li.f(getContext(), R.dimen.tbds31), 0.0f, 0.0f, 0.0f, 0.0f});
+                gradientDrawable.setCornerRadii(new float[]{pi.f(getContext(), R.dimen.tbds31), pi.f(getContext(), R.dimen.tbds31), pi.f(getContext(), R.dimen.tbds31), pi.f(getContext(), R.dimen.tbds31), 0.0f, 0.0f, 0.0f, 0.0f});
             }
             this.g.setColor(SkinManager.getColor(R.color.CAM_X0211));
             setBackground(this.g);
@@ -71,13 +71,13 @@ public class SaveDraftDialogView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             setOrientation(1);
-            setPadding(0, 0, 0, li.f(context, R.dimen.tbds21));
+            setPadding(0, 0, 0, pi.f(context, R.dimen.tbds21));
             LinearLayout linearLayout = new LinearLayout(context);
             this.a = linearLayout;
             linearLayout.setOrientation(1);
             this.a.setGravity(17);
-            addView(this.a, -1, li.f(context, R.dimen.tbds182));
-            int f = li.f(context, R.dimen.tbds44);
+            addView(this.a, -1, pi.f(context, R.dimen.tbds182));
+            int f = pi.f(context, R.dimen.tbds44);
             TextView textView = new TextView(context);
             this.b = textView;
             float f2 = f;
@@ -86,30 +86,30 @@ public class SaveDraftDialogView extends LinearLayout {
             this.a.addView(this.b, -1, -2);
             TextView textView2 = new TextView(context);
             this.c = textView2;
-            textView2.setTextSize(0, li.f(context, R.dimen.tbds34));
+            textView2.setTextSize(0, pi.f(context, R.dimen.tbds34));
             this.c.setGravity(17);
-            this.c.setPadding(0, li.f(context, R.dimen.tbds10), 0, 0);
+            this.c.setPadding(0, pi.f(context, R.dimen.tbds10), 0, 0);
             this.a.addView(this.c, -1, -2);
             TextView textView3 = new TextView(context);
             this.d = textView3;
-            textView3.setId(R.id.obfuscated_res_0x7f091bd8);
+            textView3.setId(R.id.obfuscated_res_0x7f091bd0);
             this.d.setTextSize(0, f2);
             this.d.setGravity(17);
-            this.d.setText(R.string.obfuscated_res_0x7f0f0c9d);
-            addView(this.d, -1, li.f(context, R.dimen.tbds136));
+            this.d.setText(R.string.obfuscated_res_0x7f0f0ca0);
+            addView(this.d, -1, pi.f(context, R.dimen.tbds136));
             TextView textView4 = new TextView(context);
             this.e = textView4;
-            textView4.setId(R.id.obfuscated_res_0x7f091bd9);
+            textView4.setId(R.id.obfuscated_res_0x7f091bd1);
             this.e.setTextSize(0, f2);
             this.e.setGravity(17);
-            addView(this.e, -1, li.f(context, R.dimen.tbds136));
+            addView(this.e, -1, pi.f(context, R.dimen.tbds136));
             TextView textView5 = new TextView(context);
             this.f = textView5;
-            textView5.setId(R.id.obfuscated_res_0x7f091bd7);
+            textView5.setId(R.id.obfuscated_res_0x7f091bcf);
             this.f.setTextSize(0, f2);
             this.f.setGravity(17);
-            this.f.setText(R.string.obfuscated_res_0x7f0f0376);
-            addView(this.f, -1, li.f(context, R.dimen.tbds136));
+            this.f.setText(R.string.obfuscated_res_0x7f0f0366);
+            addView(this.f, -1, pi.f(context, R.dimen.tbds136));
             a();
         }
     }
@@ -145,7 +145,7 @@ public class SaveDraftDialogView extends LinearLayout {
         if (interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, str3) == null) {
             this.b.setText(str);
             this.e.setText(str3);
-            if (!ki.isEmpty(str2)) {
+            if (!oi.isEmpty(str2)) {
                 this.c.setText(str2);
                 this.c.setVisibility(0);
                 return;
@@ -203,10 +203,10 @@ public class SaveDraftDialogView extends LinearLayout {
         if (interceptable == null || interceptable.invokeLLLL(1048582, this, str, str2, str3, str4) == null) {
             this.b.setText(str);
             this.e.setText(str3);
-            if (!ki.isEmpty(str4)) {
+            if (!oi.isEmpty(str4)) {
                 this.d.setText(str4);
             }
-            if (!ki.isEmpty(str2)) {
+            if (!oi.isEmpty(str2)) {
                 this.c.setText(str2);
                 this.c.setVisibility(0);
                 return;

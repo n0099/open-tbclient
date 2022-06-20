@@ -18,9 +18,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ag;
-import com.repackage.ei;
-import com.repackage.qu4;
+import com.repackage.av4;
+import com.repackage.eg;
+import com.repackage.ii;
 import java.util.List;
 import java.util.Locale;
 /* loaded from: classes3.dex */
@@ -32,7 +32,7 @@ public class UserRecommendLayout extends LinearLayout {
     public int c;
     public View.OnClickListener d;
     public View.OnClickListener e;
-    public ag<UserRecommendItemView> f;
+    public eg<UserRecommendItemView> f;
     public final ViewGroup.OnHierarchyChangeListener g;
 
     /* loaded from: classes3.dex */
@@ -71,8 +71,8 @@ public class UserRecommendLayout extends LinearLayout {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, view3) == null) && (view3 instanceof UserRecommendItemView) && this.a.f != null) {
                 UserRecommendItemView userRecommendItemView = (UserRecommendItemView) view3;
-                if (userRecommendItemView.getTag() instanceof qu4) {
-                    ((qu4) userRecommendItemView.getTag()).u(this.a.a.getUniqueId());
+                if (userRecommendItemView.getTag() instanceof av4) {
+                    ((av4) userRecommendItemView.getTag()).t(this.a.a.getUniqueId());
                 }
                 this.a.f.e(userRecommendItemView);
             }
@@ -166,21 +166,21 @@ public class UserRecommendLayout extends LinearLayout {
     }
 
     public final void e(UserRecommendItemView userRecommendItemView, MetaData metaData) {
-        qu4 qu4Var;
+        av4 av4Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, userRecommendItemView, metaData) == null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             userRecommendItemView.getFansNum().setText(String.format(Locale.CHINA, "%s粉丝", StringHelper.numFormatOverWanNa(metaData.getFansNum())));
             userRecommendItemView.getUsername().setText(metaData.getName_show());
             userRecommendItemView.getLikeBtn().setFanNumCallBack(new b(this, userRecommendItemView));
-            if (userRecommendItemView.getLikeBtn().getTag() instanceof qu4) {
-                qu4Var = (qu4) userRecommendItemView.getLikeBtn().getTag();
+            if (userRecommendItemView.getLikeBtn().getTag() instanceof av4) {
+                av4Var = (av4) userRecommendItemView.getLikeBtn().getTag();
             } else {
-                qu4Var = new qu4(this.a, userRecommendItemView.getLikeBtn());
+                av4Var = new av4(this.a, userRecommendItemView.getLikeBtn());
             }
-            qu4Var.m("7");
-            userRecommendItemView.getLikeBtn().setTag(qu4Var);
-            qu4Var.n(metaData);
+            av4Var.m("7");
+            userRecommendItemView.getLikeBtn().setTag(av4Var);
+            av4Var.n(metaData);
             userRecommendItemView.getLikeBtn().setAfterOnClickListener(this.d);
             userRecommendItemView.getHeaderView().setData(metaData);
             userRecommendItemView.getHeaderView().setAfterClickListener(this.e);
@@ -232,7 +232,7 @@ public class UserRecommendLayout extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        int a2 = ei.a(getContext()) - (getPaddingLeft() * 2);
+        int a2 = ii.a(getContext()) - (getPaddingLeft() * 2);
         int i = this.c;
         int i2 = (a2 - (i * 2)) / 3;
         this.b = i + i2;
@@ -276,10 +276,10 @@ public class UserRecommendLayout extends LinearLayout {
         }
     }
 
-    public void setViewPool(ag<UserRecommendItemView> agVar) {
+    public void setViewPool(eg<UserRecommendItemView> egVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, agVar) == null) {
-            this.f = agVar;
+        if (interceptable == null || interceptable.invokeL(1048587, this, egVar) == null) {
+            this.f = egVar;
         }
     }
 

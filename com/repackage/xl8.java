@@ -2,8 +2,9 @@ package com.repackage;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.KuangFloatingViewController;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,14 +16,45 @@ public class xl8 extends CustomMessageListener {
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
 
+    /* loaded from: classes7.dex */
+    public class a implements fm4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(xl8 xl8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xl8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.fm4
+        public void onPermissionResult(boolean z) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {
+                KuangFloatingViewController.getInstance().showFloatingView();
+                TiebaStatic.log(new StatisticItem("c12264").param("obj_type", 3));
+            }
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xl8(MainTabActivity mainTabActivity, uj8 uj8Var) {
-        super(2016493);
+    public xl8(MainTabActivity mainTabActivity, dk8 dk8Var) {
+        super(2921380);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, uj8Var};
+            Object[] objArr = {mainTabActivity, dk8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,16 +71,14 @@ public class xl8 extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        gz4 gz4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof gz4) || (gz4Var = (gz4) customResponsedMessage.getData()) == null || StringUtils.isNull(gz4Var.a)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof String) || oi.isEmpty((String) customResponsedMessage.getData())) {
             return;
         }
-        sb5.h(gz4Var);
-        if (StringUtils.isNull(gz4Var.c)) {
-            UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{gz4Var.a});
-        } else {
-            UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{gz4Var.a, gz4Var.c});
+        String str = (String) customResponsedMessage.getData();
+        if (KuangFloatingViewController.getInstance().init()) {
+            KuangFloatingViewController.getInstance().setInfo(str);
+            this.a.getPageContext().getOrignalPage().grantWindowPermission(new a(this), false);
         }
     }
 }

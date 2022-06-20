@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.hk;
+import com.xiaomi.push.ho;
 import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class l {
@@ -63,7 +63,7 @@ public class l {
         a(e.d, new a("com.xiaomi.assemble.control.FTOSPushManager", "newInstance"));
     }
 
-    public static at a(e eVar) {
+    public static au a(e eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, eVar)) == null) {
@@ -74,29 +74,29 @@ public class l {
                         if (i != 4) {
                             return null;
                         }
-                        return at.f;
+                        return au.f;
                     }
-                    return at.e;
+                    return au.e;
                 }
-                return at.d;
+                return au.d;
             }
-            return at.c;
+            return au.c;
         }
-        return (at) invokeL.objValue;
+        return (au) invokeL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static a m172a(e eVar) {
+    public static a m152a(e eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, eVar)) == null) ? a.get(eVar) : (a) invokeL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static hk m173a(e eVar) {
+    public static ho m153a(e eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, eVar)) == null) ? hk.ao : (hk) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, eVar)) == null) ? ho.ao : (ho) invokeL.objValue;
     }
 
     public static void a(e eVar, a aVar) {

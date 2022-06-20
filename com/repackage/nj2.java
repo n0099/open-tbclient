@@ -1,94 +1,27 @@
 package com.repackage;
 
-import android.content.Context;
-import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface nj2 {
+public class nj2 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile mj2 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void b(nj2 nj2Var);
+    public static synchronized mj2 a() {
+        InterceptResult invokeV;
+        mj2 mj2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (nj2.class) {
+                if (a == null) {
+                    a = new mj2();
+                }
+                mj2Var = a;
+            }
+            return mj2Var;
+        }
+        return (mj2) invokeV.objValue;
     }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        boolean f(nj2 nj2Var, int i, int i2);
-    }
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        void c(nj2 nj2Var);
-    }
-
-    /* loaded from: classes6.dex */
-    public interface d {
-        void e(nj2 nj2Var);
-    }
-
-    /* loaded from: classes6.dex */
-    public interface e {
-        void a(nj2 nj2Var);
-    }
-
-    /* loaded from: classes6.dex */
-    public interface f {
-        void d(nj2 nj2Var);
-    }
-
-    void a(FrameLayout frameLayout);
-
-    void b();
-
-    void c();
-
-    void d(boolean z);
-
-    nj2 e(Context context, @NonNull bo2 bo2Var);
-
-    void f();
-
-    void g(a aVar);
-
-    int getCurrentPosition();
-
-    int getDuration();
-
-    void h(bo2 bo2Var, boolean z);
-
-    void i(String str);
-
-    boolean isEnd();
-
-    boolean isPlaying();
-
-    void j(e eVar);
-
-    void k(f fVar);
-
-    void l(boolean z, int i);
-
-    void m(d dVar);
-
-    void mute(boolean z);
-
-    void n(bo2 bo2Var);
-
-    void o(bo2 bo2Var);
-
-    boolean onBackPressed();
-
-    void p(b bVar);
-
-    void pause();
-
-    int q(String str);
-
-    void r(c cVar);
-
-    void resume();
-
-    void seekTo(int i);
-
-    void stop();
 }

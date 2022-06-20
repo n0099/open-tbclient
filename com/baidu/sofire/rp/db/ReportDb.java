@@ -14,6 +14,7 @@ import com.baidu.sofire.rp.info.ReportItemInfo;
 import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.sofire.utility.CommonMethods;
 import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.diskCache.ImagesInvalidService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -246,29 +247,29 @@ public class ReportDb {
                                 arrayList.add(reportItemInfo);
                             }
                         }
-                        if (cursor != null) {
-                            cursor.close();
-                        }
                     } catch (Exception e2) {
                         CommonMethods.handleNuLException(e2);
                         if (cursor != null) {
                             cursor.close();
                         }
                     }
-                } catch (Exception e3) {
-                    CommonMethods.handleNuLException(e3);
-                }
-                return arrayList;
-            } catch (Throwable th) {
-                if (cursor != null) {
-                    try {
+                    if (cursor != null) {
                         cursor.close();
-                    } catch (Exception e4) {
-                        CommonMethods.handleNuLException(e4);
                     }
+                } catch (Throwable th) {
+                    if (cursor != null) {
+                        try {
+                            cursor.close();
+                        } catch (Exception e3) {
+                            CommonMethods.handleNuLException(e3);
+                        }
+                    }
+                    throw th;
                 }
-                throw th;
+            } catch (Exception e4) {
+                CommonMethods.handleNuLException(e4);
             }
+            return arrayList;
         }
         return (List) invokeV.objValue;
     }
@@ -321,27 +322,27 @@ public class ReportDb {
                                 arrayList.add(reportItemInfo);
                             }
                         }
+                    } catch (Throwable th) {
                         if (cursor != null) {
-                            cursor.close();
+                            try {
+                                cursor.close();
+                            } catch (Exception e2) {
+                                CommonMethods.handleNuLException(e2);
+                            }
                         }
-                    } catch (Exception e2) {
-                        CommonMethods.handleNuLException(e2);
+                        throw th;
                     }
-                } catch (Throwable th) {
-                    if (0 != 0) {
-                        try {
-                            cursor.close();
-                        } catch (Exception e3) {
-                            CommonMethods.handleNuLException(e3);
-                        }
-                    }
-                    throw th;
+                } catch (Exception e3) {
+                    CommonMethods.handleNuLException(e3);
                 }
             } catch (Exception e4) {
                 CommonMethods.handleNuLException(e4);
                 if (cursor != null) {
                     cursor.close();
                 }
+            }
+            if (cursor != null) {
+                cursor.close();
             }
             return arrayList;
         }
@@ -358,7 +359,7 @@ public class ReportDb {
             if (z) {
                 str = "(d < (" + currentTimeMillis + "-f*3600000) and f!= 0)";
             } else {
-                str = "d<=" + (currentTimeMillis - 259200000);
+                str = "d<=" + (currentTimeMillis - ImagesInvalidService.FILE_VALID_TIME);
             }
             String str2 = str;
             Cursor cursor = null;

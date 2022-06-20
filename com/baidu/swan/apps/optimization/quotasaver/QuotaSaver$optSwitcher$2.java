@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.el2;
+import com.repackage.pl2;
 import java.util.concurrent.TimeUnit;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
@@ -21,7 +21,7 @@ public final class QuotaSaver$optSwitcher$2 extends Lambda implements Function0<
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static final class a implements el2 {
+    public static final class a implements pl2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -39,45 +39,45 @@ public final class QuotaSaver$optSwitcher$2 extends Lambda implements Function0<
             }
         }
 
-        @Override // com.repackage.el2
+        @Override // com.repackage.pl2
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (QuotaSaver.l.k() > 0) {
-                    return (int) TimeUnit.MILLISECONDS.toSeconds(QuotaSaver.l.k());
+                if (QuotaSaver.l.l() > 0) {
+                    return (int) TimeUnit.MILLISECONDS.toSeconds(QuotaSaver.l.l());
                 }
                 return -1;
             }
             return invokeV.intValue;
         }
 
-        @Override // com.repackage.el2
+        @Override // com.repackage.pl2
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? QuotaSaver.l.b() && QuotaSaver.l.g() && QuotaSaver.l.j() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? QuotaSaver.l.c() && QuotaSaver.l.h() && QuotaSaver.l.k() : invokeV.booleanValue;
         }
 
-        @Override // com.repackage.el2
+        @Override // com.repackage.pl2
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? QuotaSaver.l.b() && QuotaSaver.l.h() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? QuotaSaver.l.c() && QuotaSaver.l.i() : invokeV.booleanValue;
         }
 
-        @Override // com.repackage.el2
+        @Override // com.repackage.pl2
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? QuotaSaver.l.b() && QuotaSaver.l.i() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? QuotaSaver.l.c() && QuotaSaver.l.j() : invokeV.booleanValue;
         }
 
-        @Override // com.repackage.el2
+        @Override // com.repackage.pl2
         public boolean e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? QuotaSaver.l.b() && QuotaSaver.l.j() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? QuotaSaver.l.c() && QuotaSaver.l.k() : invokeV.booleanValue;
         }
     }
 

@@ -1,57 +1,48 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.content.Context;
 import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdhttpdns.BDHttpDns;
-import com.baidu.bdhttpdns.BDHttpDnsResult;
-import com.baidu.tbadk.TiebaIMConfig;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.switchs.UseHttpdnsSdkSwitch;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.TimeHelper;
+import com.baidu.tbadk.core.view.PushPermissionDialogViewV2;
+import com.baidu.tieba.R;
+import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.iy4;
-import com.repackage.ly4;
-import java.util.ArrayList;
-import java.util.List;
+import com.repackage.nq4;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class oy4 {
     public static /* synthetic */ Interceptable $ic;
-    public static oy4 l;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public boolean c;
-    public boolean d;
-    public List<String> e;
-    public boolean f;
-    public final Object g;
-    public List<String> h;
-    public boolean i;
-    public BDHttpDnsResult j;
-    public final jj k;
 
     /* loaded from: classes6.dex */
-    public class a implements jj {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oy4 a;
+        public final /* synthetic */ ny4 a;
 
-        public a(oy4 oy4Var) {
+        public a(ny4 ny4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {oy4Var};
+                Object[] objArr = {ny4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -61,513 +52,405 @@ public class oy4 {
                     return;
                 }
             }
-            this.a = oy4Var;
+            this.a = ny4Var;
         }
 
-        @Override // com.repackage.jj
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            }
-        }
-
-        @Override // com.repackage.jj
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                if ((i == 2 || i == 9) && ji.z()) {
-                    oy4.d(this.a);
-                    if (UseHttpdnsSdkSwitch.isOn()) {
-                        if (this.a.h == null || this.a.h.isEmpty()) {
-                            this.a.w();
-                        } else {
-                            this.a.a();
-                        }
-                        StringBuffer stringBuffer = new StringBuffer();
-                        stringBuffer.append("retryiplist_");
-                        stringBuffer.append(aa.d());
-                        if (this.a.j != null) {
-                            stringBuffer.append("-dnsResolveIp_");
-                            stringBuffer.append(this.a.j.a());
-                            stringBuffer.append("-dnsResolveType_");
-                            stringBuffer.append(this.a.j.d());
-                            stringBuffer.append("-dnsResolveStatus_");
-                            stringBuffer.append(this.a.j.c());
-                        }
-                        ba.a("RetryIpListManager", 0, 0, "retry_iplist", 0, stringBuffer.toString());
-                        if (this.a.a >= 5) {
-                            BdSocketLinkService.setAvailable(false);
-                            this.a.B();
-                        }
-                    } else if (this.a.a >= 5) {
-                        ba.a("RetryIpListManager", 0, 0, "retry_iplist", 0, "retryiplist_" + aa.d());
-                        this.a.C();
-                    }
-                }
-            }
-        }
-
-        @Override // com.repackage.jj
-        public void c(fj fjVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fjVar) == null) {
-            }
-        }
-
-        @Override // com.repackage.jj
-        public void d(byte[] bArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
-            }
-        }
-
-        @Override // com.repackage.jj
-        public void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
-        }
-
-        @Override // com.repackage.jj
-        public void f(nj njVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, njVar) == null) {
-            }
-        }
-
-        @Override // com.repackage.jj
-        public void g(int i, fj fjVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048582, this, i, fjVar) == null) {
-            }
-        }
-
-        @Override // com.repackage.jj
-        public void h(fj fjVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, fjVar) == null) {
-            }
-        }
-
-        @Override // com.repackage.jj
-        public void i(fj fjVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fjVar) == null) {
-            }
-        }
-
-        @Override // com.repackage.jj
-        public void onOpen(Map<String, String> map) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, map) == null) {
-                if (UseHttpdnsSdkSwitch.isOn()) {
-                    if (this.a.a > 0) {
-                        this.a.i = false;
-                        StringBuffer stringBuffer = new StringBuffer();
-                        stringBuffer.append("URL_");
-                        stringBuffer.append(aa.d());
-                        if (this.a.j != null) {
-                            stringBuffer.append("-dnsResolveIp_");
-                            stringBuffer.append(this.a.j.a());
-                            stringBuffer.append("-dnsResolveType_");
-                            stringBuffer.append(this.a.j.d());
-                            stringBuffer.append("-dnsResolveStatus_");
-                            stringBuffer.append(this.a.j.c());
-                        }
-                        ba.a("RetryIpListManager", 0, 0, "retry_iplist_succ", 0, stringBuffer.toString());
-                    }
-                } else if (this.a.a >= 5) {
-                    ba.a("RetryIpListManager", 0, 0, "retry_iplist_succ", 0, "URL-" + aa.d());
-                    iy4.f().l(aa.d());
-                    iy4.f().k();
-                }
-                this.a.a = 0;
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements BDHttpDns.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oy4 a;
-
-        public b(oy4 oy4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {oy4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = oy4Var;
-        }
-
-        @Override // com.baidu.bdhttpdns.BDHttpDns.e
-        public void a(BDHttpDnsResult bDHttpDnsResult) {
-            ArrayList<String> a;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bDHttpDnsResult) == null) {
-                this.a.i = false;
-                this.a.j = bDHttpDnsResult;
-                if (bDHttpDnsResult == null || (a = bDHttpDnsResult.a()) == null || a.isEmpty()) {
-                    return;
-                }
-                synchronized (this.a.g) {
-                    this.a.h = a;
-                }
-                this.a.a();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements iy4.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ oy4 b;
-
-        public c(oy4 oy4Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {oy4Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = oy4Var;
-            this.a = str;
-        }
-
-        @Override // com.repackage.iy4.b
-        public void a() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.b = 0;
-                this.b.e = iy4.f().g();
-                if (this.b.e != null) {
-                    this.b.A(this.a);
-                } else {
-                    this.b.f = false;
-                }
+                this.a.w();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class d implements ly4.c {
+    public static class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oy4 a;
+        public final /* synthetic */ ql4 a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ nq4 c;
 
-        /* loaded from: classes6.dex */
-        public class a implements iy4.b {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d a;
-
-            public a(d dVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = dVar;
-            }
-
-            @Override // com.repackage.iy4.b
-            public void a() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.b = 0;
-                    this.a.a.e = iy4.f().g();
-                    if (this.a.a.e != null) {
-                        this.a.a.A("change ip to reconnect with DNS' failed.");
-                    } else {
-                        this.a.a.f = false;
-                    }
-                }
-            }
-        }
-
-        public d(oy4 oy4Var) {
+        public b(ql4 ql4Var, int i, nq4 nq4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {oy4Var};
+                Object[] objArr = {ql4Var, Integer.valueOf(i), nq4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = oy4Var;
+            this.a = ql4Var;
+            this.b = i;
+            this.c = nq4Var;
         }
 
-        @Override // com.repackage.ly4.c
-        public void a(boolean z) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                jy4.e().a(z ? 2 : 1);
-                if (z) {
-                    this.a.e = iy4.f().g();
-                    if (this.a.e != null) {
-                        this.a.A("change ip to reconnect with DNS' failed.");
-                        return;
-                    } else {
-                        iy4.f().m(new a(this));
-                        return;
-                    }
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                ql4 ql4Var = this.a;
+                if (ql4Var != null) {
+                    ql4Var.a();
                 }
-                this.a.f = false;
-                this.a.D();
+                oy4.d(this.b, true);
+                this.c.dismiss();
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755423385, "Lcom/repackage/oy4;")) == null) {
-            return;
+    /* loaded from: classes6.dex */
+    public static class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ql4 a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ nq4 c;
+
+        public c(ql4 ql4Var, int i, nq4 nq4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ql4Var, Integer.valueOf(i), nq4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ql4Var;
+            this.b = i;
+            this.c = nq4Var;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755423385, "Lcom/repackage/oy4;");
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                ql4 ql4Var = this.a;
+                if (ql4Var != null) {
+                    ql4Var.b();
+                }
+                oy4.d(this.b, false);
+                this.c.dismiss();
+            }
         }
     }
 
-    public oy4() {
+    public static String b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i == 2 ? "im" : i == 3 ? "reply_message_bar" : i == 4 ? "forum_sign" : i == 5 ? "sign" : "default" : (String) invokeI.objValue;
+    }
+
+    public static int c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i == 2) {
+                return 12;
             }
+            if (i == 3) {
+                return 11;
+            }
+            if (i == 4) {
+                return 2;
+            }
+            return i == 5 ? 5 : 0;
         }
-        this.b = 0;
-        this.c = false;
-        this.d = false;
-        this.e = null;
-        this.f = false;
-        this.g = new Object();
-        this.h = new ArrayList();
-        this.i = false;
-        this.j = null;
-        this.k = new a(this);
+        return invokeI.intValue;
     }
 
-    public static /* synthetic */ int d(oy4 oy4Var) {
-        int i = oy4Var.a;
-        oy4Var.a = i + 1;
-        return i;
+    public static void d(int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            TiebaStatic.log(new StatisticItem("c13673").param("obj_type", z ? 1 : 2).param("obj_source", c(i)));
+        }
     }
 
-    public static String u(String str) {
+    public static void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
+            TiebaStatic.log(new StatisticItem("c13674").param("obj_source", c(i)));
+        }
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public static Map<String, String> f(String str) {
         InterceptResult invokeL;
-        int lastIndexOf;
+        char c2;
+        String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, str)) == null) {
-            if (str != null && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
-                try {
-                    return str.substring(5, lastIndexOf);
-                } catch (Exception unused) {
-                    return null;
-                }
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String v(String str) {
-        InterceptResult invokeL;
-        int lastIndexOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, str)) == null) {
-            if (str != null && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
-                try {
-                    return str.substring(lastIndexOf + 1);
-                } catch (Exception unused) {
-                    return null;
-                }
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static synchronized oy4 y() {
-        InterceptResult invokeV;
-        oy4 oy4Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
-            synchronized (oy4.class) {
-                if (l == null) {
-                    synchronized (oy4.class) {
-                        if (l == null) {
-                            l = new oy4();
-                        }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            HashMap hashMap = new HashMap();
+            String string2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f49);
+            switch (str.hashCode()) {
+                case -1130769265:
+                    if (str.equals("forum_follow")) {
+                        c2 = 0;
+                        break;
                     }
-                }
-                oy4Var = l;
+                    c2 = 65535;
+                    break;
+                case -841017829:
+                    if (str.equals("forum_sign")) {
+                        c2 = 1;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case -429621401:
+                    if (str.equals("reply_pb")) {
+                        c2 = 2;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case -426397178:
+                    if (str.equals("reply_message_bar")) {
+                        c2 = 3;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 3364:
+                    if (str.equals("im")) {
+                        c2 = 4;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                default:
+                    c2 = 65535;
+                    break;
             }
-            return oy4Var;
-        }
-        return (oy4) invokeV.objValue;
-    }
-
-    public final void A(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            String x = x();
-            if (x == null) {
-                if (!iy4.f().i()) {
-                    iy4.f().m(new c(this, str));
-                }
-                aa.h(TiebaIMConfig.url);
-                BdSocketLinkService.setAvailable(false);
-                D();
-            } else if (u(x) == null) {
-                D();
+            if (c2 == 0) {
+                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f45);
+            } else if (c2 == 1) {
+                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f46);
+            } else if (c2 == 2 || c2 == 3) {
+                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f48);
+            } else if (c2 != 4) {
+                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f44);
             } else {
-                this.f = false;
-                BdSocketLinkService.stopReConnStrategy("change ip and stop to restart to reconnet.");
-                aa.h(x);
-                BdSocketLinkService.init();
-                BdSocketLinkService.startService(true, str);
-                this.c = true;
-                this.b++;
+                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f47);
             }
+            bx4 bx4Var = null;
+            ax4 pushStrategyConfig = TbSingleton.getInstance().getPushStrategyConfig();
+            if (pushStrategyConfig != null && pushStrategyConfig.d()) {
+                bx4Var = pushStrategyConfig.c(str);
+            }
+            if (bx4Var != null && !TextUtils.isEmpty(bx4Var.c())) {
+                string2 = bx4Var.c();
+            }
+            if (bx4Var != null && !TextUtils.isEmpty(bx4Var.b())) {
+                string = bx4Var.b();
+            }
+            hashMap.put("view_params_key_title", string2);
+            hashMap.put("view_params_key_desc", string);
+            hashMap.put("view_params_key_source", str);
+            return hashMap;
         }
+        return (Map) invokeL.objValue;
     }
 
-    public final void B() {
+    public static boolean g(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            NoNetworkView.e();
-            this.b = 0;
-            this.i = false;
-        }
-    }
-
-    public final void C() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f) {
-            return;
-        }
-        this.f = true;
-        if (this.c) {
-            this.c = false;
-            jy4.e().d(TiebaIMConfig.url);
-        }
-        jy4.e().b();
-        if (!this.d) {
-            new ly4("www.baidu.com", new d(this));
-            this.d = true;
-            return;
-        }
-        A("change ip to reconnect with DNS' failed.");
-    }
-
-    public final void D() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            NoNetworkView.e();
-            this.d = false;
-            this.b = 0;
-            this.f = false;
-            this.c = false;
-        }
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this.g) {
-                if (this.h != null && !this.h.isEmpty()) {
-                    String remove = this.h.remove(0);
-                    if (!TextUtils.isEmpty(remove)) {
-                        aa.h("ws://" + remove + ":" + v(TiebaIMConfig.url));
-                        BdSocketLinkService.init();
-                    }
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, context, i)) == null) {
+            ax4 pushStrategyConfig = TbSingleton.getInstance().getPushStrategyConfig();
+            boolean z = false;
+            int b2 = (pushStrategyConfig == null || !pushStrategyConfig.d()) ? 0 : pushStrategyConfig.b();
+            if (b2 <= 0) {
+                b2 = 7;
+            }
+            Date date = new Date(ht4.k().m("push_permission_dialog_scene_cold_start_key", 0L));
+            Date date2 = new Date(ht4.k().m("push_permission_dialog_scene_interaction_key", 0L));
+            long currentTimeMillis = System.currentTimeMillis();
+            Date date3 = new Date(currentTimeMillis);
+            if (i == 0 && TimeHelper.getDayDifference(date3, date2) >= b2 && !TimeHelper.isSameDay(date3, date)) {
+                z = true;
+            }
+            if (i == 1 && TimeHelper.getDayDifference(date3, date) >= b2 && !TimeHelper.isSameDay(date3, date2)) {
+                z = true;
+            }
+            if (z) {
+                if (i == 0) {
+                    ht4.k().x("push_permission_dialog_scene_interaction_key", currentTimeMillis);
+                } else if (i == 1) {
+                    ht4.k().x("push_permission_dialog_scene_cold_start_key", currentTimeMillis);
                 }
             }
+            return z;
         }
+        return invokeLI.booleanValue;
     }
 
-    public final void w() {
+    public static ny4 h(TbPageContext<?> tbPageContext, Map<String, String> map, long j) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.i) {
-            return;
-        }
-        try {
-            String u = u(TiebaIMConfig.url);
-            if (ki.isEmpty(u)) {
-                B();
-                return;
-            }
-            this.i = true;
-            BDHttpDns.h(BdBaseApplication.getInst().getApplicationContext()).b(u, new b(this));
-        } catch (Exception e) {
-            BdLog.e(e);
-        }
-    }
-
-    public final String x() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            List<String> list = this.e;
-            if (list == null || (i = this.b) <= -1 || i >= list.size()) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{tbPageContext, map, Long.valueOf(j)})) == null) {
+            if (tbPageContext == null || map == null) {
                 return null;
             }
-            return iy4.f().g().get(this.b);
+            ny4 ny4Var = new ny4(tbPageContext, map);
+            if (j <= 0) {
+                ny4Var.w();
+            } else {
+                qg.a().postDelayed(new a(ny4Var), j);
+            }
+            return ny4Var;
         }
-        return (String) invokeV.objValue;
+        return (ny4) invokeCommon.objValue;
     }
 
-    public void z() {
+    public static ny4 i(TbPageContext<?> tbPageContext, String str, long j) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            kj.j().c(this.k);
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{tbPageContext, str, Long.valueOf(j)})) == null) ? j(tbPageContext, str, j, null) : (ny4) invokeCommon.objValue;
+    }
+
+    public static ny4 j(TbPageContext<?> tbPageContext, String str, long j, Map<String, String> map) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{tbPageContext, str, Long.valueOf(j), map})) == null) {
+            if (tbPageContext == null || tbPageContext.getPageActivity() == null) {
+                return null;
+            }
+            Map<String, String> f = f(str);
+            if (map != null) {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    f.put(entry.getKey(), entry.getValue());
+                }
+            }
+            boolean areNotificationsEnabled = NotificationManagerCompat.from(tbPageContext.getPageActivity()).areNotificationsEnabled();
+            char c2 = 65535;
+            switch (str.hashCode()) {
+                case -1130769265:
+                    if (str.equals("forum_follow")) {
+                        c2 = 4;
+                        break;
+                    }
+                    break;
+                case -841017829:
+                    if (str.equals("forum_sign")) {
+                        c2 = 5;
+                        break;
+                    }
+                    break;
+                case -485371922:
+                    if (str.equals("homepage")) {
+                        c2 = 0;
+                        break;
+                    }
+                    break;
+                case -429621401:
+                    if (str.equals("reply_pb")) {
+                        c2 = 1;
+                        break;
+                    }
+                    break;
+                case -426397178:
+                    if (str.equals("reply_message_bar")) {
+                        c2 = 3;
+                        break;
+                    }
+                    break;
+                case 3530173:
+                    if (str.equals("sign")) {
+                        c2 = 2;
+                        break;
+                    }
+                    break;
+                case 949444906:
+                    if (str.equals("collect")) {
+                        c2 = 6;
+                        break;
+                    }
+                    break;
+            }
+            switch (c2) {
+                case 0:
+                    if (UbsABTestHelper.isPushOpenPlan3() || areNotificationsEnabled) {
+                        return null;
+                    }
+                    return h(tbPageContext, f, j);
+                case 1:
+                    if (UbsABTestHelper.isPushOpenPlan1()) {
+                        return null;
+                    }
+                    boolean x = rx4.d().x();
+                    if (areNotificationsEnabled && x) {
+                        return null;
+                    }
+                    return h(tbPageContext, f, j);
+                case 2:
+                    return UbsABTestHelper.isPushOpenPlan1() ? null : null;
+                case 3:
+                    return UbsABTestHelper.isPushOpenPlan1() ? null : null;
+                case 4:
+                    return h(tbPageContext, f, j);
+                case 5:
+                    return h(tbPageContext, f, j);
+                case 6:
+                    if (areNotificationsEnabled) {
+                        return null;
+                    }
+                    return h(tbPageContext, f, j);
+                default:
+                    throw new IllegalStateException("Unexpected value: " + str);
+            }
+        }
+        return (ny4) invokeCommon.objValue;
+    }
+
+    public static void k(TbPageContext<?> tbPageContext, int i, ql4 ql4Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLIL(65546, null, tbPageContext, i, ql4Var) == null) || tbPageContext == null || tbPageContext.getPageActivity() == null) {
+            return;
+        }
+        nq4 nq4Var = new nq4(tbPageContext.getPageActivity());
+        nq4Var.setCancelable(false);
+        nq4Var.setPositiveButton((String) null, (nq4.e) null);
+        nq4Var.setNegativeButton((String) null, (nq4.e) null);
+        nq4Var.setContentViewSize(7);
+        PushPermissionDialogViewV2 pushPermissionDialogViewV2 = new PushPermissionDialogViewV2(tbPageContext.getPageActivity());
+        Map<String, String> f = f(b(i));
+        pushPermissionDialogViewV2.setTitle(f.get("view_params_key_title"));
+        pushPermissionDialogViewV2.setDescription(f.get("view_params_key_title"));
+        nq4Var.setContentView(pushPermissionDialogViewV2);
+        if (pushPermissionDialogViewV2.getConfirmButton() != null) {
+            pushPermissionDialogViewV2.getConfirmButton().setOnClickListener(new b(ql4Var, i, nq4Var));
+        }
+        if (pushPermissionDialogViewV2.getCancelButton() != null) {
+            pushPermissionDialogViewV2.getCancelButton().setOnClickListener(new c(ql4Var, i, nq4Var));
+        }
+        nq4Var.create(tbPageContext).show();
+        e(i);
+    }
+
+    public static void l(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65547, null, activity) == null) || activity == null) {
+            return;
+        }
+        View findViewById = activity.findViewById(16908290);
+        if (findViewById instanceof ViewGroup) {
+            BdTopToast bdTopToast = new BdTopToast(activity, 3000);
+            bdTopToast.i(true);
+            bdTopToast.h(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f40));
+            bdTopToast.j((ViewGroup) findViewById);
         }
     }
 }

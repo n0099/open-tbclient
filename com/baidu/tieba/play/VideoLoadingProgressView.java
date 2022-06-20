@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
+import com.repackage.pi;
 /* loaded from: classes3.dex */
 public class VideoLoadingProgressView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -191,7 +191,7 @@ public class VideoLoadingProgressView extends View {
             this.g = new RectF();
             this.h = new Paint(1);
             this.i = getContext().getResources().getColor(R.color.CAM_X0101);
-            this.j = li.f(getContext(), R.dimen.obfuscated_res_0x7f0701d4);
+            this.j = pi.f(getContext(), R.dimen.obfuscated_res_0x7f0701d4);
             this.h.setColor(this.i);
             this.h.setStrokeWidth(this.j);
             this.h.setStyle(Paint.Style.STROKE);

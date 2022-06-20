@@ -1,6 +1,6 @@
 package com.meizu.cloud.pushsdk.b.a;
 
-import com.repackage.ni9;
+import com.meizu.cloud.pushinternal.DebugLogger;
 /* loaded from: classes5.dex */
 public class a {
     public static boolean a = false;
@@ -12,13 +12,13 @@ public class a {
 
     public static void a(String str) {
         if (a) {
-            ni9.a(b, str);
+            DebugLogger.d(b, str);
         }
     }
 
     public static void b(String str) {
         if (a) {
-            ni9.d(b, str);
+            DebugLogger.i(b, str);
         }
     }
 }

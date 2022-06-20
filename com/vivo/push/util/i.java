@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class i implements BaseNotifyLayoutAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,11 +46,11 @@ public final class i implements BaseNotifyLayoutAdapter {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (j.g) {
+            if (j.c) {
                 resources = this.a;
                 str = this.b;
                 str2 = "notify_icon_rom30";
-            } else if (j.f) {
+            } else if (j.b) {
                 resources = this.a;
                 str = this.b;
                 str2 = "notify_icon_rom20";
@@ -71,7 +71,7 @@ public final class i implements BaseNotifyLayoutAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
-                i = ((Integer) aa.a("com.android.internal.R$color", "vivo_notification_title_text_color")).intValue();
+                i = ((Integer) z.a("com.android.internal.R$color", "vivo_notification_title_text_color")).intValue();
             } catch (Exception e) {
                 e.printStackTrace();
                 i = 0;
@@ -79,11 +79,11 @@ public final class i implements BaseNotifyLayoutAdapter {
             if (i > 0) {
                 return this.a.getColor(i);
             }
-            if (j.g) {
+            if (j.c) {
                 return -1;
             }
-            if (j.f) {
-                if (j.g) {
+            if (j.b) {
+                if (j.c) {
                     return Color.parseColor("#ff999999");
                 }
                 return -1;

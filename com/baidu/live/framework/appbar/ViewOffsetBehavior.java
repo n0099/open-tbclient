@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m90;
+import com.repackage.q90;
 /* loaded from: classes2.dex */
 public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m90 a;
+    public q90 a;
     public int b;
     public int c;
 
@@ -40,9 +40,9 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            m90 m90Var = this.a;
-            if (m90Var != null) {
-                return m90Var.a();
+            q90 q90Var = this.a;
+            if (q90Var != null) {
+                return q90Var.a();
             }
             return 0;
         }
@@ -60,9 +60,9 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            m90 m90Var = this.a;
-            if (m90Var != null) {
-                return m90Var.d(i);
+            q90 q90Var = this.a;
+            if (q90Var != null) {
+                return q90Var.d(i);
             }
             this.b = i;
             return false;
@@ -77,7 +77,7 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048579, this, coordinatorLayout, v, i)) == null) {
             F(coordinatorLayout, v, i);
             if (this.a == null) {
-                this.a = new m90(v);
+                this.a = new q90(v);
             }
             this.a.b();
             int i2 = this.b;

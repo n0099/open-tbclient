@@ -79,14 +79,14 @@ public class b extends g implements View.OnClickListener {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.c = (TextView) a(R.id.obfuscated_res_0x7f09102f);
-        this.b = (ImageView) a(R.id.obfuscated_res_0x7f091103);
+        this.c = (TextView) a(R.id.obfuscated_res_0x7f09101f);
+        this.b = (ImageView) a(R.id.obfuscated_res_0x7f0910f3);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         if (view2 == this.c) {
-            com.kwad.sdk.core.download.a.a.a(new a.C0296a(view2.getContext()).a(this.d).a(this.e).a(false).a(2).a(new a.b() { // from class: com.kwad.sdk.fullscreen.kwai.kwai.b.2
+            com.kwad.sdk.core.download.a.a.a(new a.C0304a(view2.getContext()).a(this.d).a(this.e).a(false).a(2).a(new a.b() { // from class: com.kwad.sdk.fullscreen.kwai.kwai.b.2
                 @Override // com.kwad.sdk.core.download.a.a.b
                 public void a() {
                     b.this.r();

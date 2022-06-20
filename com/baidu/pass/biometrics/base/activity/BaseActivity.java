@@ -82,7 +82,7 @@ public class BaseActivity extends Activity implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            this.c = getResources().getString(R.string.obfuscated_res_0x7f0f0d41);
+            this.c = getResources().getString(R.string.obfuscated_res_0x7f0f0d46);
             LogUtil.logActivity(this, "onCreate");
         }
     }

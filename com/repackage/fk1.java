@@ -1,7 +1,7 @@
 package com.repackage;
-
-import android.content.Context;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface fk1 {
-    void a(Context context);
+    void a();
+
+    boolean b();
 }

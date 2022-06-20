@@ -34,7 +34,7 @@ public class AlaRecentHistoryAdapter extends AbsTabPagerAdapter {
                 return;
             }
         }
-        b = new String[]{TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f11e3), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f11e4)};
+        b = new String[]{TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f11f0), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f11f1)};
         c = new int[]{100, 200};
     }
 
@@ -58,8 +58,8 @@ public class AlaRecentHistoryAdapter extends AbsTabPagerAdapter {
         }
         Fragment[] fragmentArr = new Fragment[2];
         this.a = fragmentArr;
-        fragmentArr[0] = AlaRecentHistoryFragment.J0(0);
-        this.a[1] = AlaRecentHistoryFragment.J0(1);
+        fragmentArr[0] = AlaRecentHistoryFragment.w1(0);
+        this.a[1] = AlaRecentHistoryFragment.w1(1);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter

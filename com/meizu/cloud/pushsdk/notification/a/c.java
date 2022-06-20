@@ -4,10 +4,10 @@ import android.app.Notification;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.notification.PushNotificationBuilder;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
-import com.repackage.ni9;
 /* loaded from: classes5.dex */
 public class c extends com.meizu.cloud.pushsdk.notification.a {
     public c(Context context, PushNotificationBuilder pushNotificationBuilder) {
@@ -32,13 +32,13 @@ public class c extends com.meizu.cloud.pushsdk.notification.a {
                     a = a(this.a, messageV3.getUploadDataPackageName());
                     str = "set largeIcon by package default large icon";
                 }
-                ni9.d("AbstractPushNotification", str);
+                DebugLogger.i("AbstractPushNotification", str);
             } else if (Thread.currentThread() == this.a.getMainLooper().getThread()) {
                 return;
             } else {
                 Bitmap a2 = a(appIconSetting.getLargeIconUrl());
                 if (a2 != null) {
-                    ni9.d("AbstractPushNotification", "On other Thread down load largeIcon image success");
+                    DebugLogger.i("AbstractPushNotification", "On other Thread down load largeIcon image success");
                     builder.setLargeIcon(a2);
                     return;
                 }

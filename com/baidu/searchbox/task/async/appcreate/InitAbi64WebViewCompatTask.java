@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yh;
-import com.repackage.zh;
+import com.repackage.ci;
+import com.repackage.di;
 /* loaded from: classes2.dex */
 public class InitAbi64WebViewCompatTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -35,13 +35,13 @@ public class InitAbi64WebViewCompatTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
             if (TbadkSettings.getInst().isContains("key_last_running_in_64_bit")) {
-                if (TbadkSettings.getInst().loadBoolean("key_last_running_in_64_bit", false) != zh.a()) {
-                    yh.b(context);
+                if (TbadkSettings.getInst().loadBoolean("key_last_running_in_64_bit", false) != di.a()) {
+                    ci.b(context);
                 }
             } else {
-                yh.b(context);
+                ci.b(context);
             }
-            TbadkSettings.getInst().saveBoolean("key_last_running_in_64_bit", zh.a());
+            TbadkSettings.getInst().saveBoolean("key_last_running_in_64_bit", di.a());
         }
     }
 
@@ -57,7 +57,7 @@ public class InitAbi64WebViewCompatTask extends LaunchTask {
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "initAbi64WebViewCompat" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "Ignore_initAbi64WebViewCompat" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask

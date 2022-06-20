@@ -1,14 +1,8 @@
 package com.repackage;
 
-import com.baidu.swan.apps.SwanAppActivity;
-import org.json.JSONObject;
+import android.app.Activity;
+import android.os.Bundle;
 /* loaded from: classes7.dex */
 public interface zj1 {
-    void a();
-
-    void b(String str, xn1 xn1Var);
-
-    void c(SwanAppActivity swanAppActivity, String str, xn1 xn1Var);
-
-    void d(String str, String str2, JSONObject jSONObject, xn1 xn1Var);
+    void a(Activity activity, Bundle bundle, on2 on2Var);
 }

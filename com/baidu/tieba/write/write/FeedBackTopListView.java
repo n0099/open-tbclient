@@ -96,10 +96,10 @@ public class FeedBackTopListView extends LinearLayout {
             if (threadData == null) {
                 return null;
             }
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0349, (ViewGroup) null);
-            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090bcc);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090bce);
-            inflate.findViewById(R.id.obfuscated_res_0x7f090bc9);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0347, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090bbb);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090bbd);
+            inflate.findViewById(R.id.obfuscated_res_0x7f090bb8);
             String tid = threadData.getTid();
             textView.setText(threadData.getTitle());
             this.c.getLayoutMode().k(this.d == 1);

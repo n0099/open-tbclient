@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.message;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.x67;
+import com.repackage.h87;
 import com.squareup.wire.Wire;
 import protobuf.BlockInfo;
 import protobuf.CommitPersonalMsg.CommitPersonalMsgResIdl;
@@ -42,62 +43,64 @@ public class ResponseCommitPersonalMessage extends ResponseCommitMessage {
         this.toUserType = 0;
     }
 
-    public String getToUserId() {
-        InterceptResult invokeV;
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.toUserId : (String) invokeV.objValue;
-    }
-
-    public int getToUserType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.toUserType : invokeV.intValue;
-    }
-
-    public void setToUserId(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.toUserId = str;
-        }
-    }
-
-    public void setToUserType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.toUserType = i;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.message.ResponseCommitMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
             CommitPersonalMsgResIdl commitPersonalMsgResIdl = (CommitPersonalMsgResIdl) new Wire(new Class[0]).parseFrom(bArr, CommitPersonalMsgResIdl.class);
             setError(commitPersonalMsgResIdl.error.errorno.intValue());
             setErrorString(commitPersonalMsgResIdl.error.usermsg);
             DataRes dataRes = commitPersonalMsgResIdl.data;
             if (dataRes == null) {
                 BdStatisticsManager.getInstance().error("im", 0L, (String) null, "comment", "personalchat_resdatanull");
-                return;
+                return commitPersonalMsgResIdl;
             }
             long longValue = dataRes.msgId.longValue();
             setToUserType(commitPersonalMsgResIdl.data.toUserType.intValue());
-            setMsgId(x67.a(longValue));
+            setMsgId(h87.a(longValue));
             setRecordId(commitPersonalMsgResIdl.data.recordId.longValue());
             setGroupId(String.valueOf(commitPersonalMsgResIdl.data.groupId));
             setToUserId(String.valueOf(commitPersonalMsgResIdl.data.toUid));
             BlockInfo blockInfo = commitPersonalMsgResIdl.data.blockInfo;
-            if (blockInfo == null || StringUtils.isNull(blockInfo.blockErrmsg)) {
-                return;
+            if (blockInfo != null && !StringUtils.isNull(blockInfo.blockErrmsg)) {
+                BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
+                BlockInfo blockInfo2 = commitPersonalMsgResIdl.data.blockInfo;
+                blockPopInfoData.block_info = blockInfo2.blockErrmsg;
+                blockPopInfoData.ahead_info = blockInfo2.blockConfirm;
+                blockPopInfoData.ahead_url = blockInfo2.blockDealurl;
+                blockPopInfoData.ok_info = blockInfo2.blockCancel;
+                setBlockPopInfoData(blockPopInfoData);
             }
-            BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
-            BlockInfo blockInfo2 = commitPersonalMsgResIdl.data.blockInfo;
-            blockPopInfoData.block_info = blockInfo2.blockErrmsg;
-            blockPopInfoData.ahead_info = blockInfo2.blockConfirm;
-            blockPopInfoData.ahead_url = blockInfo2.blockDealurl;
-            blockPopInfoData.ok_info = blockInfo2.blockCancel;
-            setBlockPopInfoData(blockPopInfoData);
+            return commitPersonalMsgResIdl;
+        }
+        return invokeIL.objValue;
+    }
+
+    public String getToUserId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.toUserId : (String) invokeV.objValue;
+    }
+
+    public int getToUserType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.toUserType : invokeV.intValue;
+    }
+
+    public void setToUserId(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.toUserId = str;
+        }
+    }
+
+    public void setToUserType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.toUserType = i;
         }
     }
 }

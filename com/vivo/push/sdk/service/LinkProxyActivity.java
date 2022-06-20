@@ -14,10 +14,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeDrawable;
-import com.vivo.push.util.aa;
 import com.vivo.push.util.p;
+import com.vivo.push.util.z;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class LinkProxyActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +82,7 @@ public class LinkProxyActivity extends Activity {
                         if (intent2 == null) {
                             p.d("LinkProxyActivity", "adapterToService proxyIntent is null");
                         } else {
-                            aa.a(this, intent2);
+                            z.a(this, intent2);
                         }
                     }
                 } catch (Exception e) {

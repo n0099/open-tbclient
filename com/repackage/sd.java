@@ -5,19 +5,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
 /* loaded from: classes7.dex */
-public class sd implements id {
+public class sd implements ld {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Set<Object> a;
+    public Object a;
 
-    public sd(Set<Object> set) {
+    public sd(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {set};
+            Object[] objArr = {obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,13 +26,13 @@ public class sd implements id {
                 return;
             }
         }
-        this.a = set;
+        this.a = obj;
     }
 
-    @Override // com.repackage.id
-    public Object a(yd ydVar) {
+    @Override // com.repackage.ld
+    public Object a(be beVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ydVar)) == null) ? xd.e(this.a, ydVar) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, beVar)) == null) ? this.a : invokeL.objValue;
     }
 }

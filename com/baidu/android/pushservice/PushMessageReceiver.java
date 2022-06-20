@@ -145,7 +145,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
 
     private void handleHuaweiMessage(Context context, Intent intent, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65538, this, context, intent, str) == null) && com.baidu.android.pushservice.b.d.l(context)) {
+        if ((interceptable == null || interceptable.invokeLLL(65538, this, context, intent, str) == null) && com.baidu.android.pushservice.b.d.m(context)) {
             try {
                 if (intent.getBooleanExtra("IS_HMS_PASS_MSG_KEY", false)) {
                     handleHuaweiMessageCallBack(context, intent.getStringExtra("HMS_PASS_MSG_VALUE_KEY"), null);
@@ -465,10 +465,10 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                             new b.c(context).a(Log.getStackTraceString(e2)).a();
                         }
                         m.a(context, false);
-                        if (com.baidu.android.pushservice.b.d.k(context)) {
+                        if (com.baidu.android.pushservice.b.d.l(context)) {
                             MiPushClient.unregisterPush(context);
                         }
-                        if (com.baidu.android.pushservice.b.d.j(context)) {
+                        if (com.baidu.android.pushservice.b.d.k(context)) {
                             String a4 = com.baidu.android.pushservice.i.i.a(context, "BD_MEIZU_PROXY_APPID_KEY");
                             String a5 = com.baidu.android.pushservice.i.i.a(context, "BD_MEIZU_PROXY_APPKEY_KEY");
                             if (TextUtils.isEmpty(a4) || TextUtils.isEmpty(a5)) {
@@ -572,7 +572,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                     b2.a();
                     return;
                 } else if (TextUtils.equals(action, "com.huawei.android.push.intent.REGISTRATION")) {
-                    if (!com.baidu.android.pushservice.b.d.l(context) || !PushSettings.l(context)) {
+                    if (!com.baidu.android.pushservice.b.d.m(context) || !PushSettings.l(context)) {
                         return;
                     }
                     try {
@@ -592,11 +592,11 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                         return;
                     }
                     if (TextUtils.equals(action, "com.xiaomi.mipush.REGISTER")) {
-                        if (!com.baidu.android.pushservice.b.d.k(context) || !intent.hasExtra(PushPatchMessageReceiver.REGISTER_ERRORCODE)) {
+                        if (!com.baidu.android.pushservice.b.d.l(context) || !intent.hasExtra(PushPatchMessageReceiver.REGISTER_ERRORCODE)) {
                             return;
                         }
                         if (intent.getLongExtra(PushPatchMessageReceiver.REGISTER_ERRORCODE, 0L) != 0) {
-                            e.i(context);
+                            e.j(context);
                             return;
                         } else if (!intent.hasExtra(PushPatchMessageReceiver.REGID)) {
                             return;
@@ -607,7 +607,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                             }
                         }
                     } else if (TextUtils.equals(action, "com.xiaomi.mipush.PUSH_MSG")) {
-                        if (m.b() && intent.hasExtra(PushPatchMessageReceiver.PUSH_MSG)) {
+                        if (m.m(context) && intent.hasExtra(PushPatchMessageReceiver.PUSH_MSG)) {
                             MiPushMessage miPushMessage = (MiPushMessage) intent.getSerializableExtra(PushPatchMessageReceiver.PUSH_MSG);
                             if (intent.hasExtra(PushPatchMessageReceiver.PUSH_MSG_TYPE)) {
                                 handleXiaomiMessageCallBack(context, miPushMessage, intent.getIntExtra(PushPatchMessageReceiver.PUSH_MSG_TYPE, 0));
@@ -618,19 +618,19 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                         return;
                     } else if (!TextUtils.equals(action, "com.meizu.mzpush.REGISTER")) {
                         if (TextUtils.equals(action, "com.meizu.mzpush.PUSH_MSG")) {
-                            if (m.c() && intent.hasExtra("mz_push_msg_type")) {
+                            if (m.n(context) && intent.hasExtra("mz_push_msg_type")) {
                                 handleMeizuMessageCallBack(context, intent);
                                 return;
                             }
                             return;
                         } else if (TextUtils.equals(action, "com.baidu.android.pushservice.action.OPPO_CLICK")) {
-                            if (m.f() || m.g() || m.h()) {
+                            if (m.p(context) || m.q(context) || m.r(context)) {
                                 handleOppoMessageCallBack(context, intent);
                                 return;
                             }
                             return;
                         } else if (TextUtils.equals(action, "com.baidu.android.pushservice.action.VIVO_CLICK")) {
-                            if (m.i()) {
+                            if (m.s(context)) {
                                 handleVivoMessageCallBack(context, intent);
                                 return;
                             }
@@ -641,12 +641,12 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                         } else {
                             return;
                         }
-                    } else if (!com.baidu.android.pushservice.b.d.j(context) || !intent.hasExtra("mz_register_errorcode")) {
+                    } else if (!com.baidu.android.pushservice.b.d.k(context) || !intent.hasExtra("mz_register_errorcode")) {
                         return;
                     } else {
                         String stringExtra13 = intent.getStringExtra("mz_register_errorcode");
                         if (TextUtils.isEmpty(stringExtra13) || !stringExtra13.equals(BasicPushStatus.SUCCESS_CODE)) {
-                            e.j(context);
+                            e.k(context);
                             return;
                         } else if (!intent.hasExtra("mz_pushid")) {
                             return;
@@ -659,7 +659,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                     }
                     e.a(context, stringExtra);
                     return;
-                } else if (!com.baidu.android.pushservice.b.d.l(context) || !PushSettings.l(context)) {
+                } else if (!com.baidu.android.pushservice.b.d.m(context) || !PushSettings.l(context)) {
                     return;
                 } else {
                     try {
@@ -676,7 +676,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                 }
                 cVar.a(Log.getStackTraceString(e)).a();
                 return;
-            } else if ((com.baidu.android.pushservice.b.d.q(context) && !com.baidu.android.pushservice.b.d.c(context)) || intent.getExtras() == null) {
+            } else if ((com.baidu.android.pushservice.b.d.r(context) && !com.baidu.android.pushservice.b.d.c(context)) || intent.getExtras() == null) {
                 return;
             } else {
                 byte[] byteArrayExtra3 = intent.getByteArrayExtra("baidu_message_secur_info");

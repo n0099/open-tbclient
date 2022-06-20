@@ -1,89 +1,89 @@
 package com.repackage;
 
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.storage.PathType;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class zn1 extends yn1 {
+public class zn1 extends xn1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public class a implements le3<v43<JSONObject>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ File a;
-        public final /* synthetic */ int b;
+        public final /* synthetic */ dh1 a;
+        public final /* synthetic */ CallbackHandler b;
         public final /* synthetic */ String c;
-        public final /* synthetic */ hz2 d;
-        public final /* synthetic */ zn1 e;
 
-        public a(zn1 zn1Var, File file, int i, String str, hz2 hz2Var) {
+        public a(zn1 zn1Var, dh1 dh1Var, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zn1Var, file, Integer.valueOf(i), str, hz2Var};
+                Object[] objArr = {zn1Var, dh1Var, callbackHandler, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.e = zn1Var;
-            this.a = file;
-            this.b = i;
+            this.a = dh1Var;
+            this.b = callbackHandler;
             this.c = str;
-            this.d = hz2Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.le3
+        /* renamed from: b */
+        public void a(v43<JSONObject> v43Var) {
+            JSONObject wrapCallbackParams;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                File k = fc3.k(this.a.getName());
-                if (!fc3.b(this.a, k, this.b)) {
-                    hw1.c("ImageApi", "compress image failed");
-                    this.e.d(this.c, new hr1(1001, "compress image failed"));
-                    return;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v43Var) == null) {
+                if (v43Var.c() && zn1.y(v43Var.a)) {
+                    JSONObject optJSONObject = v43Var.a.optJSONObject("data");
+                    if (optJSONObject != null && optJSONObject.optBoolean("result")) {
+                        wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(optJSONObject, 0);
+                        l63.T("checkSession", "success");
+                    } else {
+                        wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "session key expired");
+                        l63.U("checkSession", com.baidu.pass.biometrics.face.liveness.b.a.g0, "session key expired");
+                    }
+                } else {
+                    wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(v43Var.b());
+                    this.a.g(this.b, wrapCallbackParams.toString());
+                    l63.U("checkSession", com.baidu.pass.biometrics.face.liveness.b.a.g0, "result failed");
                 }
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("tempFilePath", p63.J(k.getAbsolutePath(), this.d.b));
-                } catch (JSONException e) {
-                    hw1.c("ImageApi", e.toString());
-                }
-                this.e.d(this.c, new hr1(0, jSONObject));
+                this.b.handleSchemeDispatchCallback(this.c, wrapCallbackParams.toString());
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zn1(@NonNull in1 in1Var) {
-        super(in1Var);
+    public zn1(@NonNull tn1 tn1Var) {
+        super(tn1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {in1Var};
+            Object[] objArr = {tn1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((in1) newInitContext.callArgs[0]);
+                super((tn1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -91,66 +91,64 @@ public class zn1 extends yn1 {
         }
     }
 
-    @Override // com.repackage.kn1
+    public static boolean y(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) ? jSONObject != null && TextUtils.equals(jSONObject.optString("errno"), "0") : invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.vn1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ImageApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "CheckSessionApi" : (String) invokeV.objValue;
     }
 
-    public hr1 x(String str) {
+    public sr1 x(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#compressImage", false);
-            Pair<hr1, JSONObject> s = s(str);
-            hr1 hr1Var = (hr1) s.first;
-            if (hr1Var.isSuccess()) {
-                JSONObject jSONObject = (JSONObject) s.second;
-                String optString = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    hw1.c("ImageApi", "cb is empty");
-                    return new hr1(202, "cb is empty");
-                }
-                return y(optString, jSONObject.optString("src"), jSONObject.optInt("quality", 80));
+            q("#checkSession", false);
+            l63.T("checkSession", "create");
+            dh1 j = aj2.j();
+            CallbackHandler i = a().i();
+            sz2 b0 = sz2.b0();
+            if (b0 == null) {
+                j.g(i, UnitedSchemeUtility.wrapCallbackParams(1001, "swan app is null").toString());
+                l63.U("checkSession", com.baidu.pass.biometrics.face.liveness.b.a.g0, "empty swanApp");
+                return new sr1(1001, "swan app is null");
             }
-            return hr1Var;
+            String O = b0.O();
+            if (TextUtils.isEmpty(O)) {
+                j.g(i, UnitedSchemeUtility.wrapCallbackParams(1001, "empty app key").toString());
+                l63.U("checkSession", com.baidu.pass.biometrics.face.liveness.b.a.g0, "empty app key");
+                return new sr1(1001, "empty app key");
+            }
+            JSONObject r = vn1.r(str);
+            if (r == null) {
+                j.g(i, UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams").toString());
+                l63.U("checkSession", com.baidu.pass.biometrics.face.liveness.b.a.g0, "empty joParams");
+                return new sr1(201, "empty joParams");
+            }
+            String optString = r.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                j.g(i, UnitedSchemeUtility.wrapCallbackParams(201, "cb is empty").toString());
+                l63.U("checkSession", com.baidu.pass.biometrics.face.liveness.b.a.g0, "empty cb");
+                return new sr1(201, "cb is empty");
+            }
+            Context context = getContext();
+            if (!b0.N().e(context)) {
+                j.g(i, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
+                l63.U("checkSession", com.baidu.pass.biometrics.face.liveness.b.a.g0, "account not login");
+                return new sr1(10004, "user not logged in");
+            }
+            l63.T("checkSession", "checkSession");
+            y43 g = rz2.K().y().a().b().g(context, O);
+            g.q("checkSession");
+            g.o(new a(this, j, i, optString));
+            g.call();
+            return new sr1(0);
         }
-        return (hr1) invokeL.objValue;
-    }
-
-    public final hr1 y(String str, String str2, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, str, str2, i)) == null) {
-            hz2 a0 = hz2.a0();
-            if (a0 == null) {
-                return new hr1(1001, "swan app is null");
-            }
-            int i2 = (i < 0 || i > 100) ? 80 : i;
-            if (TextUtils.isEmpty(str2)) {
-                hw1.c("ImageApi", "src is null");
-                return new hr1(202, "src is null");
-            }
-            PathType s = p63.s(str2);
-            String str3 = null;
-            if (s == PathType.BD_FILE) {
-                str3 = p63.M(str2, a0.b);
-            } else if (s == PathType.RELATIVE) {
-                str3 = p63.L(str2, a0, a0.j0());
-            }
-            if (TextUtils.isEmpty(str3)) {
-                hw1.c("ImageApi", "file path error");
-                return new hr1(2001, "file path error");
-            }
-            File file = new File(str3);
-            if (!file.exists()) {
-                hw1.c("ImageApi", "file does not exist");
-                return new hr1(2001, "file does not exist");
-            }
-            bc3.k(new a(this, file, i2, str, a0), "compressImage");
-            return hr1.f();
-        }
-        return (hr1) invokeLLI.objValue;
+        return (sr1) invokeL.objValue;
     }
 }

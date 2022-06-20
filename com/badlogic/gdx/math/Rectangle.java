@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.r7;
+import com.repackage.t7;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class Rectangle implements Serializable {
@@ -87,7 +87,7 @@ public class Rectangle implements Serializable {
             }
             if (obj != null && getClass() == obj.getClass()) {
                 Rectangle rectangle = (Rectangle) obj;
-                return r7.b(this.height) == r7.b(rectangle.height) && r7.b(this.width) == r7.b(rectangle.width) && r7.b(this.x) == r7.b(rectangle.x) && r7.b(this.y) == r7.b(rectangle.y);
+                return t7.b(this.height) == t7.b(rectangle.height) && t7.b(this.width) == t7.b(rectangle.width) && t7.b(this.x) == t7.b(rectangle.x) && t7.b(this.y) == t7.b(rectangle.y);
             }
             return false;
         }
@@ -213,7 +213,7 @@ public class Rectangle implements Serializable {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? ((((((r7.b(this.height) + 31) * 31) + r7.b(this.width)) * 31) + r7.b(this.x)) * 31) + r7.b(this.y) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? ((((((t7.b(this.height) + 31) * 31) + t7.b(this.width)) * 31) + t7.b(this.x)) * 31) + t7.b(this.y) : invokeV.intValue;
     }
 
     public Rectangle merge(Rectangle rectangle) {

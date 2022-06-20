@@ -33,10 +33,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rz7;
-import com.repackage.sk4;
-import com.repackage.v65;
-import com.repackage.yj4;
+import com.repackage.cl4;
+import com.repackage.ik4;
+import com.repackage.j75;
+import com.repackage.ml5;
+import com.repackage.w08;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class PersonOftenFuncItemView extends LinearLayout implements View.OnClickListener {
@@ -44,10 +45,10 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
     public TextView b;
-    public rz7 c;
+    public w08 c;
 
     /* loaded from: classes3.dex */
-    public class a implements yj4 {
+    public class a implements ik4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -78,7 +79,7 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
             this.d = i;
         }
 
-        @Override // com.repackage.yj4
+        @Override // com.repackage.ik4
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -93,7 +94,7 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
             }
         }
 
-        @Override // com.repackage.yj4
+        @Override // com.repackage.ik4
         public void onFail() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -124,22 +125,22 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
         b(context);
     }
 
-    public void a(rz7 rz7Var) {
+    public void a(w08 w08Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, rz7Var) == null) {
-            this.c = rz7Var;
-            this.a.setImageResource(rz7Var.b);
-            this.b.setText(rz7Var.e);
+        if (interceptable == null || interceptable.invokeL(1048576, this, w08Var) == null) {
+            this.c = w08Var;
+            this.a.setImageResource(w08Var.b);
+            this.b.setText(w08Var.e);
         }
     }
 
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d069c, this);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d069a, this);
             inflate.setOnClickListener(this);
-            this.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091327);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091328);
+            this.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09131e);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09131f);
         }
     }
 
@@ -162,12 +163,12 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        rz7 rz7Var;
+        w08 w08Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, view2) == null) || (rz7Var = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, view2) == null) || (w08Var = this.c) == null) {
             return;
         }
-        int i = rz7Var.a;
+        int i = w08Var.a;
         String valueOf = String.valueOf(TbadkCoreApplication.getCurrentAccountId());
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
         String displayName = currentAccountInfo.getDisplayName();
@@ -200,7 +201,7 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(TbadkCoreApplication.getInst().getApplicationContext(), "AuthenticationCenterPage", hashMap)));
                     return;
                 case 54:
-                    sk4.o(getContext(), v65.g("https://boxnovel.baidu.com/boxnovel/tbvipright?data={\"fromaction\": \"tieba\"}"));
+                    cl4.o(getContext(), j75.g("https://boxnovel.baidu.com/boxnovel/tbvipright?data={\"fromaction\": \"tieba\"}"));
                     return;
                 case 55:
                     d(TbConfig.COMMUNITY_CONVENTION);
@@ -209,6 +210,14 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
                 case 56:
                     d(TbConfig.CREATE_BA + TbConfig.getVersion());
                     TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_CREATE_BA_CLICK).addParam("uid", TbadkCoreApplication.getCurrentAccount()));
+                    return;
+                case 57:
+                    d(TbConfig.EARN_MONEY + TbConfig.getVersion());
+                    TiebaStatic.log(new StatisticItem("c14711").addParam("uid", TbadkCoreApplication.getCurrentAccount()));
+                    return;
+                case 58:
+                    ml5.b("T43rINkXjgPfdKNXTuhQER2KdACVdB00", "", "1191000600000000", 0);
+                    TiebaStatic.log(new StatisticItem("c14710").addParam("uid", TbadkCoreApplication.getCurrentAccount()));
                     return;
                 default:
                     return;

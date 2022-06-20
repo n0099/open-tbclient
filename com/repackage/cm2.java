@@ -1,24 +1,19 @@
 package com.repackage;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cm2 implements gp2 {
+public class cm2 extends em2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<am2> a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
+    public String z;
 
     public cm2() {
         Interceptable interceptable = $ic;
@@ -33,50 +28,25 @@ public class cm2 implements gp2 {
                 return;
             }
         }
-        this.b = 1;
-        this.c = -16777216;
-        this.d = 0;
-        this.e = 0;
+        this.z = "";
     }
 
-    @Override // com.repackage.gp2
+    @Override // com.repackage.em2, com.repackage.iv1, com.repackage.rp2
     public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("points")) {
-            JSONArray optJSONArray = jSONObject.optJSONArray("points");
-            int length = optJSONArray == null ? 0 : optJSONArray.length();
-            if (length > 0) {
-                this.a = new ArrayList<>(length);
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        am2 am2Var = new am2();
-                        am2Var.a(optJSONObject);
-                        if (am2Var.isValid()) {
-                            this.a.add(am2Var);
-                        }
-                    }
-                }
-            }
-            ArrayList<am2> arrayList = this.a;
-            if (arrayList == null || arrayList.size() <= 0) {
-                return;
-            }
-            this.b = (int) Math.abs(ul2.b(jSONObject.optInt("strokeWidth", 1)));
-            this.c = ul2.a(jSONObject.optString("strokeColor"), -16777216);
-            this.d = ul2.a(jSONObject.optString("fillColor"), 0);
-            this.e = jSONObject.optInt("zIndex", 0);
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
+        super.a(jSONObject);
+        this.z = jSONObject.optString("cb");
+        jSONObject.optDouble("latitude");
+        jSONObject.optDouble("longitude");
     }
 
-    @Override // com.repackage.gp2
+    @Override // com.repackage.iv1, com.repackage.rp2
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<am2> arrayList = this.a;
-            return (arrayList == null || arrayList.isEmpty()) ? false : true;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !TextUtils.isEmpty(this.z) : invokeV.booleanValue;
     }
 }

@@ -1,25 +1,27 @@
 package com.baidu.tbadk.core.bigday;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cq4;
-import com.repackage.jm4;
-import com.repackage.qe;
+import com.repackage.mq4;
+import com.repackage.te;
+import com.repackage.tm4;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.GetBigday.BigdayInfo;
 import tbclient.GetBigday.DataRes;
 import tbclient.GetBigday.GetBigdayResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GetBigdayInfoSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<jm4> bigdayInfos;
+    public ArrayList<tm4> bigdayInfos;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetBigdayInfoSocketResMessage() {
@@ -39,6 +41,38 @@ public class GetBigdayInfoSocketResMessage extends SocketResponsedMessage {
         }
     }
 
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bArr)) == null) {
+            GetBigdayResIdl getBigdayResIdl = (GetBigdayResIdl) new Wire(new Class[0]).parseFrom(bArr, GetBigdayResIdl.class);
+            if (getBigdayResIdl != null) {
+                Error error = getBigdayResIdl.error;
+                if (error != null) {
+                    setError(error.errorno.intValue());
+                    setErrorString(getBigdayResIdl.error.errmsg);
+                }
+                DataRes dataRes = getBigdayResIdl.data;
+                if (dataRes != null && dataRes.bigday_list != null) {
+                    this.bigdayInfos = new ArrayList<>();
+                    for (BigdayInfo bigdayInfo : getBigdayResIdl.data.bigday_list) {
+                        if (bigdayInfo != null) {
+                            tm4 tm4Var = new tm4();
+                            tm4Var.b(bigdayInfo);
+                            if (tm4Var.a()) {
+                                this.bigdayInfos.add(tm4Var);
+                            }
+                        }
+                    }
+                }
+            }
+            return getBigdayResIdl;
+        }
+        return invokeIL.objValue;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
@@ -48,39 +82,10 @@ public class GetBigdayInfoSocketResMessage extends SocketResponsedMessage {
             if (bArr == null) {
                 return;
             }
-            cq4.f();
-            qe<byte[]> d = cq4.d("tb.bigday_datas");
+            mq4.f();
+            te<byte[]> d = mq4.d("tb.bigday_datas");
             d.remove("tb.bigday_datas");
             d.g("tb.bigday_datas", bArr);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        GetBigdayResIdl getBigdayResIdl;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) || (getBigdayResIdl = (GetBigdayResIdl) new Wire(new Class[0]).parseFrom(bArr, GetBigdayResIdl.class)) == null) {
-            return;
-        }
-        Error error = getBigdayResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(getBigdayResIdl.error.errmsg);
-        }
-        DataRes dataRes = getBigdayResIdl.data;
-        if (dataRes == null || dataRes.bigday_list == null) {
-            return;
-        }
-        this.bigdayInfos = new ArrayList<>();
-        for (BigdayInfo bigdayInfo : getBigdayResIdl.data.bigday_list) {
-            if (bigdayInfo != null) {
-                jm4 jm4Var = new jm4();
-                jm4Var.b(bigdayInfo);
-                if (jm4Var.a()) {
-                    this.bigdayInfos.add(jm4Var);
-                }
-            }
         }
     }
 }

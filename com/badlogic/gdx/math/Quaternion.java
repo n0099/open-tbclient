@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.r7;
+import com.repackage.t7;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class Quaternion implements Serializable {
@@ -123,7 +123,7 @@ public class Quaternion implements Serializable {
             }
             if (obj != null && (obj instanceof Quaternion)) {
                 Quaternion quaternion = (Quaternion) obj;
-                return r7.b(this.w) == r7.b(quaternion.w) && r7.b(this.x) == r7.b(quaternion.x) && r7.b(this.y) == r7.b(quaternion.y) && r7.b(this.z) == r7.b(quaternion.z);
+                return t7.b(this.w) == t7.b(quaternion.w) && t7.b(this.x) == t7.b(quaternion.x) && t7.b(this.y) == t7.b(quaternion.y) && t7.b(this.z) == t7.b(quaternion.z);
             }
             return false;
         }
@@ -305,7 +305,7 @@ public class Quaternion implements Serializable {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? ((((((r7.b(this.w) + 31) * 31) + r7.b(this.x)) * 31) + r7.b(this.y)) * 31) + r7.b(this.z) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? ((((((t7.b(this.w) + 31) * 31) + t7.b(this.x)) * 31) + t7.b(this.y)) * 31) + t7.b(this.z) : invokeV.intValue;
     }
 
     public Quaternion idt() {

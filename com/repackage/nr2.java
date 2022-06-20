@@ -1,13 +1,10 @@
 package com.repackage;
 
-import android.content.Context;
-import android.preference.PreferenceManager;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,20 +12,107 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Random;
-import java.util.concurrent.ExecutorService;
-import org.json.JSONArray;
+import java.security.InvalidParameterException;
+import java.util.HashMap;
+import java.util.Map;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
-@Singleton
-@Service
 /* loaded from: classes6.dex */
-public class nr2 implements te4 {
+public class nr2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final String h;
+    public static final MediaType i;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public Boolean b;
+    public String a;
+    public Map<String, String> b;
+    public Map<String, String> c;
+    public boolean d;
+    public JSONObject e;
+    public b f;
+    public ResponseCallback<JSONObject> g;
+
+    /* loaded from: classes6.dex */
+    public class a extends ResponseCallback<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nr2 a;
+
+        public a(nr2 nr2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nr2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nr2Var;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                if (this.a.f != null) {
+                    this.a.f.onFail(exc.getMessage());
+                    return;
+                }
+                sw1.i("IsBlockDomainRequest", "IsBlockDomainRequestCallback is empty and isblockdomain request failed : \n" + Log.getStackTraceString(exc));
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(JSONObject jSONObject, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) {
+                if (this.a.f == null) {
+                    sw1.i("IsBlockDomainRequest", "isblockdomain request success, but IsBlockDomainRequestCallback is empty.");
+                } else if (jSONObject == null) {
+                    this.a.f.onFail("response is empty");
+                } else if (jSONObject.optInt("errno", -1) == 0) {
+                    this.a.f.a(jSONObject.optJSONObject("data"));
+                } else {
+                    String optString = jSONObject.optString("tipmsg", "");
+                    b bVar = this.a.f;
+                    if (TextUtils.isEmpty(optString)) {
+                        optString = "errno is non-zero";
+                    }
+                    bVar.onFail(optString);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public JSONObject parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
+                if (response == null || response.body() == null) {
+                    return null;
+                }
+                return sc3.d(response.body().string());
+            }
+            return (JSONObject) invokeLI.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(JSONObject jSONObject);
+
+        void onFail(String str);
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +127,9 @@ public class nr2 implements te4 {
                 return;
             }
         }
-        c = rf1.a;
+        boolean z = cg1.a;
+        h = String.format("%s/ma/isblockdomain", mw1.b());
+        i = zq2.a;
     }
 
     public nr2() {
@@ -51,245 +137,88 @@ public class nr2 implements te4 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = null;
-        this.a = AppRuntime.getAppContext();
+        this.a = h;
+        this.b = new HashMap();
+        this.c = new HashMap();
+        this.d = false;
+        this.e = new JSONObject();
+        this.g = new a(this);
+        e();
+        f();
     }
 
-    @Override // com.repackage.te4
-    public String a() {
-        InterceptResult invokeV;
+    public void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? oi2.n().a() : (String) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || TextUtils.isEmpty(str) || str2 == null) {
+            return;
+        }
+        this.b.put(str, str2);
     }
 
-    @Override // com.repackage.te4
-    public String b() {
-        InterceptResult invokeV;
+    public void c(@NonNull ResponseCallback<JSONObject> responseCallback) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? sf1.a() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.te4
-    public boolean c(String str) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            dj1 g0 = oi2.g0();
-            if (g0 != null) {
-                g0.getSwitch("ANDROID_UBC_SAMPLE_" + str, "");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, responseCallback) == null) {
+            if (!this.d) {
+                responseCallback.onFail(new InvalidParameterException("error: invalid url"));
+                return;
             }
-            if (TextUtils.isEmpty("")) {
-                return false;
+            this.a = kd3.b(this.a, this.c);
+            t64 t64Var = new t64(this.a, RequestBody.create(i, this.e.toString()), responseCallback);
+            t64Var.c = this.b;
+            t64Var.g = true;
+            sw1.b("IsBlockDomainRequest", "start isblockdomain request : " + this.e);
+            u64.g().e(t64Var);
+        }
+    }
+
+    public void d(@NonNull b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.f = bVar;
+            c(this.g);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            String i2 = y84.i(h);
+            this.a = i2;
+            this.a = ow1.b(i2);
+            String O = rz2.K().r().O();
+            String str = this.a;
+            if (TextUtils.isEmpty(O)) {
+                O = "";
             }
-            try {
-                i = new JSONObject("").getInt("probability");
-            } catch (JSONException e) {
-                e.printStackTrace();
-                i = 0;
-            }
-            return new Random().nextInt(100) < i;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.te4
-    public ExecutorService d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? oi2.z0().d() : (ExecutorService) invokeV.objValue;
-    }
-
-    @Override // com.repackage.te4
-    public void e(String str, int i, JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, str, i, jSONArray) == null) {
-            oi2.z0().e(str, i, jSONArray);
+            this.a = ow1.a(str, "src_app", O);
         }
     }
 
-    @Override // com.repackage.te4
-    public void f(String str, int i) {
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, str, i) == null) {
-            oi2.z0().f(str, i);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            b("Referer", zc3.b());
         }
     }
 
-    @Override // com.repackage.te4
-    public void g(String str, String str2, int i, String str3, int i2) {
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i), str3, Integer.valueOf(i2)}) == null) {
-            oi2.z0().g(str, str2, i, str3, i2);
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || TextUtils.isEmpty(str)) {
+            return;
         }
-    }
-
-    @Override // com.repackage.te4
-    public String getAppId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            hz2 D = uk2.U().D();
-            return D != null ? D.b : "";
+        try {
+            this.e.put("url", str);
+            this.d = true;
+        } catch (JSONException unused) {
+            sw1.i("IsBlockDomainRequest", "set url need to check failed");
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.te4
-    public String getAppVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            hz2 D = uk2.U().D();
-            return D != null ? D.X().v1() : "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.te4
-    public String getDeviceId(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) ? oi2.h0().i(oi2.c()) : (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.te4
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            dj1 g0 = oi2.g0();
-            return g0 != null ? g0.p() : "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.te4
-    public void i(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048587, this, str, i, str2) == null) {
-            oi2.z0().i(str, i, str2);
-        }
-    }
-
-    @Override // com.repackage.te4
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? oi2.g0().j() : invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.te4
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            hz2 D = uk2.U().D();
-            return D != null ? D.V().T() : "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.te4
-    public int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? gz2.J().l() : invokeV.intValue;
-    }
-
-    @Override // com.repackage.te4
-    public ue4 m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? oi2.O().m() : (ue4) invokeV.objValue;
-    }
-
-    @Override // com.repackage.te4
-    public String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? m83.h(l()) : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.te4
-    public void o(String str, String str2, int i, String str3, long j, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{str, str2, Integer.valueOf(i), str3, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
-            oi2.z0().o(str, str2, i, str3, j, i2);
-        }
-    }
-
-    @Override // com.repackage.te4
-    public String p(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, context)) == null) ? sf4.b(context).a() : (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.te4
-    public boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            if (this.b == null) {
-                oi2.g0().getSwitch("swan_ceres_add_counter", false);
-                this.b = false;
-            }
-            return this.b.booleanValue();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.te4
-    public boolean r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? gv2.X() && (s() || rf1.b) : invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.te4
-    public boolean s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return c && PreferenceManager.getDefaultSharedPreferences(oi2.c()).getBoolean("KEY_UBC_DEBUG", true);
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.te4
-    public String t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            String b = oi2.n().b();
-            if (bd3.G() || TextUtils.isEmpty(b)) {
-                return null;
-            }
-            return b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.te4
-    public String u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? bw1.b() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.te4
-    public String v(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, context)) == null) ? oi2.h0().h(oi2.c()) : (String) invokeL.objValue;
     }
 }

@@ -3,8 +3,8 @@ package com.repackage;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.forumMember.tbtitle.model.cache.GetLevelInfoReadCacheResponsedMessage;
-import com.baidu.tieba.forumMember.tbtitle.model.req.GetLevelInfoReadCacheRequestMessage;
+import com.baidu.tieba.forumMember.bawu.BawuTeamInfoReadCacheRequestMessage;
+import com.baidu.tieba.forumMember.bawu.BawuTeamReadCacheResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,17 +34,17 @@ public class t96 implements CustomMessageTask.CustomRunnable<Object> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage == null || !(customMessage instanceof GetLevelInfoReadCacheRequestMessage)) {
+            if (customMessage == null || !(customMessage instanceof BawuTeamInfoReadCacheRequestMessage)) {
                 return null;
             }
-            byte[] a = new s96().a(((GetLevelInfoReadCacheRequestMessage) customMessage).getCacheKey());
-            GetLevelInfoReadCacheResponsedMessage getLevelInfoReadCacheResponsedMessage = new GetLevelInfoReadCacheResponsedMessage();
+            byte[] a = new r96().a(((BawuTeamInfoReadCacheRequestMessage) customMessage).getCacheKey());
+            BawuTeamReadCacheResponseMessage bawuTeamReadCacheResponseMessage = new BawuTeamReadCacheResponseMessage();
             try {
-                getLevelInfoReadCacheResponsedMessage.decodeInBackGround(2003007, a);
+                bawuTeamReadCacheResponseMessage.decodeInBackGround(2003005, a);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return getLevelInfoReadCacheResponsedMessage;
+            return bawuTeamReadCacheResponseMessage;
         }
         return (CustomResponsedMessage) invokeL.objValue;
     }

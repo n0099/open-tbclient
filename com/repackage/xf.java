@@ -1,309 +1,411 @@
 package com.repackage;
 
-import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.network.http.BdHttpCancelException;
+import com.baidu.adp.lib.network.http.IHttpNet;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.InetSocketAddress;
+import java.net.ProtocolException;
+import java.net.Proxy;
+import java.net.SocketException;
+import java.net.URL;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLSession;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes7.dex */
-public class xf {
+public class xf implements IHttpNet {
     public static /* synthetic */ Interceptable $ic;
-    public static String d;
-    public static String e;
-    public static String f;
-    public static boolean g;
-    public static String h;
-    public static String i;
-    public static String j;
-    public static String k;
     public transient /* synthetic */ FieldHolder $fh;
-    public of a;
-    public lf b;
-    public long c;
+    public final rf a;
+    public HttpURLConnection b;
+    public final IHttpNet.HttpNetType c;
 
-    public xf() {
+    /* loaded from: classes7.dex */
+    public class a implements HostnameVerifier {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ HttpsURLConnection a;
+
+        public a(xf xfVar, HttpsURLConnection httpsURLConnection) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xfVar, httpsURLConnection};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = httpsURLConnection;
+        }
+
+        @Override // javax.net.ssl.HostnameVerifier
+        public boolean verify(String str, SSLSession sSLSession) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, sSLSession)) == null) {
+                String requestProperty = this.a.getRequestProperty("Host");
+                if (requestProperty == null) {
+                    requestProperty = this.a.getURL().getHost();
+                }
+                return HttpsURLConnection.getDefaultHostnameVerifier().verify(requestProperty, sSLSession);
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    public xf(rf rfVar, IHttpNet.HttpNetType httpNetType) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {rfVar, httpNetType};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        i();
+        this.a = rfVar;
+        this.c = httpNetType;
     }
 
-    public static void n(String str) {
+    @Override // com.baidu.adp.lib.network.http.IHttpNet
+    public void a(URL url, int i, int i2) throws SocketException, ProtocolException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            d = str;
+        if (interceptable == null || interceptable.invokeLII(1048576, this, url, i, i2) == null) {
+            HttpURLConnection httpURLConnection = this.b;
+            if (httpURLConnection != null) {
+                if (this.c == IHttpNet.HttpNetType.GET) {
+                    httpURLConnection.setRequestMethod("GET");
+                } else {
+                    httpURLConnection.setRequestMethod("POST");
+                    this.b.setDoOutput(true);
+                    this.b.setDoInput(true);
+                    IHttpNet.HttpNetType httpNetType = this.c;
+                    if (httpNetType == IHttpNet.HttpNetType.POST_FORM) {
+                        this.b.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+                    } else if (httpNetType == IHttpNet.HttpNetType.POST_BYTE) {
+                        this.b.setRequestProperty("Content-Type", "multipart/form-data; boundary=--------7da3d81520810*");
+                    }
+                }
+                this.b.setConnectTimeout(i);
+                this.b.setReadTimeout(i2);
+                return;
+            }
+            throw new SocketException("network not available.");
         }
     }
 
-    public static void o(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            h = str;
-        }
-    }
-
-    public static void p(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            i = str;
-        }
-    }
-
-    public static void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            j = str;
-        }
-    }
-
-    public static void r(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            k = str;
-        }
-    }
-
-    public static void s(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
-            g = z;
-        }
-    }
-
-    public static void t(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
-            f = str;
-        }
-    }
-
-    public static void u(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            e = str;
-        }
-    }
-
-    public final void a(of ofVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ofVar) == null) {
-            b(ofVar, false);
-        }
-    }
-
-    public final void b(of ofVar, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ofVar, z) == null) || ofVar == null) {
-            return;
-        }
-        if (!TextUtils.isEmpty(d)) {
-            ofVar.b().a("Cookie", d);
-        } else {
-            ofVar.b().a("Cookie", "");
-        }
-        if (!TextUtils.isEmpty(f)) {
-            ofVar.b().a("client_user_token", f);
-        }
-        if (!TextUtils.isEmpty(e)) {
-            ofVar.b().a("User-Agent", e);
-        }
-        if (z) {
-            ofVar.b().a("Accept-Encoding", "gzip");
-        } else {
-            ofVar.b().a("Accept-Encoding", "");
-        }
-        if (g) {
-            ofVar.b().a(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-        } else {
-            ofVar.b().a(HTTP.CONN_DIRECTIVE, "close");
-        }
-        ofVar.b().a("client_logid", String.valueOf(this.c));
-        if (!TextUtils.isEmpty(h)) {
-            ofVar.b().a("cuid", h);
-        }
-        if (!TextUtils.isEmpty(i)) {
-            ofVar.b().a("cuid_galaxy2", i);
-        }
-        if (!TextUtils.isEmpty(j)) {
-            ofVar.b().a("c3_aid", j);
-        }
-        if (TextUtils.isEmpty(k)) {
-            return;
-        }
-        ofVar.b().a(TiebaStatic.Params.CUID_GID, k);
-    }
-
-    public void c() {
-        lf lfVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (lfVar = this.b) == null) {
-            return;
-        }
-        lfVar.b();
-    }
-
-    public boolean d(String str, String str2, boolean z, int i2, int i3, int i4, int i5, LinkedList<BasicNameValuePair> linkedList, sf sfVar, boolean z2, boolean z3, boolean z4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), linkedList, sfVar, Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) {
-            of ofVar = new of();
-            this.a = ofVar;
-            a(ofVar);
-            this.a.b().v(str);
-            this.a.b().q(z4);
-            lf lfVar = new lf(this.a);
-            this.b = lfVar;
-            return lfVar.c(str2, sfVar, i2, i3, i4, i5, z2, z3);
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public of e() {
+    @Override // com.baidu.adp.lib.network.http.IHttpNet
+    public Map<String, List<String>> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (of) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b.getHeaderFields() : (Map) invokeV.objValue;
     }
 
-    public lf f() {
+    @Override // com.baidu.adp.lib.network.http.IHttpNet
+    public int c() throws IOException {
         InterceptResult invokeV;
+        DataOutputStream dataOutputStream;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (lf) invokeV.objValue;
-    }
-
-    public qf g(String str, int i2, int i3, int i4) throws Exception {
-        InterceptResult invokeLIII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIII = interceptable.invokeLIII(1048582, this, str, i2, i3, i4)) == null) ? h(str, false, i2, i3, i4) : (qf) invokeLIII.objValue;
-    }
-
-    public qf h(String str, boolean z, int i2, int i3, int i4) throws Exception {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            of ofVar = new of();
-            this.a = ofVar;
-            b(ofVar, z);
-            this.a.b().v(str);
-            lf lfVar = new lf(this.a);
-            this.b = lfVar;
-            lfVar.d(i2, i3, i4);
-            return this.a.c();
-        }
-        return (qf) invokeCommon.objValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            System.setProperty("http.keepAlive", "false");
-            this.c = BdStatisticsManager.getInstance().getClientLogId();
-        }
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            lf lfVar = this.b;
-            if (lfVar != null) {
-                return lfVar.k();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.b == null) {
+                return 0;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public qf k(String str, List<BasicNameValuePair> list, boolean z, int i2, int i3, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{str, list, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), linkedList})) == null) {
-            of ofVar = new of();
-            this.a = ofVar;
-            b(ofVar, z);
-            this.a.b().v(str);
-            if (list != null) {
-                for (BasicNameValuePair basicNameValuePair : list) {
-                    this.a.b().d(basicNameValuePair);
+            IHttpNet.HttpNetType httpNetType = this.c;
+            if (httpNetType == IHttpNet.HttpNetType.POST_FORM) {
+                String sb = i().toString();
+                dataOutputStream = new DataOutputStream(this.b.getOutputStream());
+                try {
+                    dataOutputStream.writeBytes(sb);
+                    dataOutputStream.flush();
+                    mg.d(dataOutputStream);
+                    return sb.length();
+                } finally {
                 }
-            }
-            if (linkedList != null) {
-                Iterator<BasicNameValuePair> it = linkedList.iterator();
-                while (it.hasNext()) {
-                    BasicNameValuePair next = it.next();
-                    this.a.b().a(next.getName(), next.getValue());
+            } else if (httpNetType == IHttpNet.HttpNetType.POST_BYTE) {
+                dataOutputStream = new DataOutputStream(this.b.getOutputStream());
+                try {
+                    if (this.a.b().l() != null) {
+                        Iterator<BasicNameValuePair> it = this.a.b().l().iterator();
+                        while (it.hasNext()) {
+                            BasicNameValuePair next = it.next();
+                            if (next != null) {
+                                String name = next.getName();
+                                String value = next.getValue();
+                                if (value != null && name != null) {
+                                    dataOutputStream.writeBytes("----------7da3d81520810*\r\n");
+                                    byte[] bytes = value.getBytes("UTF-8");
+                                    dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + name + "\"\r\n");
+                                    dataOutputStream.writeBytes("\r\n");
+                                    dataOutputStream.write(bytes);
+                                    dataOutputStream.writeBytes("\r\n");
+                                }
+                            }
+                        }
+                    }
+                    if (this.a.b().g != null) {
+                        for (Map.Entry<String, byte[]> entry : this.a.b().g.entrySet()) {
+                            String key = entry.getKey();
+                            byte[] value2 = entry.getValue();
+                            if (value2 != null) {
+                                dataOutputStream.writeBytes("----------7da3d81520810*\r\n");
+                                dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + key + "\"; filename=\"file\"\r\n");
+                                dataOutputStream.writeBytes("\r\n");
+                                dataOutputStream.write(value2);
+                                dataOutputStream.writeBytes("\r\n");
+                            }
+                        }
+                    }
+                    dataOutputStream.writeBytes("----------7da3d81520810*--\r\n");
+                    dataOutputStream.flush();
+                    return dataOutputStream.size();
+                } finally {
                 }
+            } else {
+                return 0;
             }
-            lf lfVar = new lf(this.a);
-            this.b = lfVar;
-            lfVar.m(i2, i3, -1);
-            return this.a.c();
         }
-        return (qf) invokeCommon.objValue;
+        return invokeV.intValue;
     }
 
-    public qf l(String str, boolean z, ArrayList<BasicNameValuePair> arrayList, HashMap<String, byte[]> hashMap, int i2, int i3, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.adp.lib.network.http.IHttpNet
+    public void connect() throws IOException {
+        HttpURLConnection httpURLConnection;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{str, Boolean.valueOf(z), arrayList, hashMap, Integer.valueOf(i2), Integer.valueOf(i3), linkedList})) == null) {
-            of ofVar = new of();
-            this.a = ofVar;
-            b(ofVar, z);
-            this.a.b().v(str);
-            if (linkedList != null) {
-                Iterator<BasicNameValuePair> it = linkedList.iterator();
-                while (it.hasNext()) {
-                    BasicNameValuePair next = it.next();
-                    this.a.b().a(next.getName(), next.getValue());
-                }
-            }
-            if (arrayList != null) {
-                Iterator<BasicNameValuePair> it2 = arrayList.iterator();
-                while (it2.hasNext()) {
-                    BasicNameValuePair next2 = it2.next();
-                    this.a.b().b(next2.getName(), next2.getValue());
-                }
-            }
-            if (hashMap != null) {
-                for (Map.Entry<String, byte[]> entry : hashMap.entrySet()) {
-                    this.a.b().c(entry.getKey(), entry.getValue());
-                }
-            }
-            lf lfVar = new lf(this.a);
-            this.b = lfVar;
-            lfVar.m(i2, i3, -1);
-            return this.a.c();
-        }
-        return (qf) invokeCommon.objValue;
-    }
-
-    public void m() {
-        lf lfVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (lfVar = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (httpURLConnection = this.b) == null) {
             return;
         }
-        lfVar.p();
+        httpURLConnection.connect();
+    }
+
+    @Override // com.baidu.adp.lib.network.http.IHttpNet
+    public URL d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            HttpURLConnection httpURLConnection = this.b;
+            if (httpURLConnection == null) {
+                return null;
+            }
+            return httpURLConnection.getURL();
+        }
+        return (URL) invokeV.objValue;
+    }
+
+    @Override // com.baidu.adp.lib.network.http.IHttpNet
+    public void disconnect() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            mg.e(this.b);
+        }
+    }
+
+    @Override // com.baidu.adp.lib.network.http.IHttpNet
+    public void e(URL url) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, url) == null) && ni.z() && ni.x()) {
+            try {
+                String c = ni.c();
+                if (c == null || c.length() <= 0) {
+                    return;
+                }
+                if (ni.F(c) && ni.D()) {
+                    StringBuilder sb = new StringBuilder(80);
+                    sb.append("http://");
+                    sb.append(c);
+                    String file = url.getFile();
+                    if (file != null && file.startsWith("?")) {
+                        sb.append("/");
+                    }
+                    sb.append(file);
+                    this.b = (HttpURLConnection) new URL(sb.toString()).openConnection();
+                    this.a.b().a("X-Online-Host", url.getHost());
+                    return;
+                }
+                this.b = (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(c, ni.d())));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override // com.baidu.adp.lib.network.http.IHttpNet
+    public byte[] execute() throws IOException {
+        InterceptResult invokeV;
+        int read;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.b == null) {
+                return null;
+            }
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
+            try {
+                byte[] bArr = new byte[1024];
+                InputStream inputStream = this.b.getInputStream();
+                while (!this.a.c().a && (read = inputStream.read(bArr)) != -1) {
+                    byteArrayOutputStream.write(bArr, 0, read);
+                }
+                if (!this.a.c().a) {
+                    byte[] byteArray = byteArrayOutputStream.toByteArray();
+                    mg.d(byteArrayOutputStream);
+                    mg.c(inputStream);
+                    return byteArray;
+                }
+                throw new BdHttpCancelException();
+            } catch (Throwable th) {
+                mg.d(byteArrayOutputStream);
+                mg.c(null);
+                throw th;
+            }
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.adp.lib.network.http.IHttpNet
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.b == null || this.a.b().h() == null) {
+            return;
+        }
+        for (Map.Entry<String, String> entry : this.a.b().h().entrySet()) {
+            this.b.addRequestProperty(entry.getKey(), entry.getValue());
+        }
+    }
+
+    @Override // com.baidu.adp.lib.network.http.IHttpNet
+    public void g(URL url, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048585, this, url, z) == null) {
+            try {
+                if (this.b == null) {
+                    this.b = (HttpURLConnection) url.openConnection();
+                }
+                if (z && url.getProtocol().equals("https")) {
+                    HttpsURLConnection httpsURLConnection = (HttpsURLConnection) this.b;
+                    httpsURLConnection.setSSLSocketFactory(new wf(httpsURLConnection));
+                    httpsURLConnection.setHostnameVerifier(new a(this, httpsURLConnection));
+                    this.b = httpsURLConnection;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override // com.baidu.adp.lib.network.http.IHttpNet
+    public String getContentEncoding() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            HttpURLConnection httpURLConnection = this.b;
+            return httpURLConnection == null ? "" : httpURLConnection.getContentEncoding();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.adp.lib.network.http.IHttpNet
+    public long getContentLength() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            HttpURLConnection httpURLConnection = this.b;
+            if (httpURLConnection == null) {
+                return 0L;
+            }
+            return httpURLConnection.getContentLength();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.adp.lib.network.http.IHttpNet
+    public String getContentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            HttpURLConnection httpURLConnection = this.b;
+            return httpURLConnection == null ? "" : httpURLConnection.getContentType();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.adp.lib.network.http.IHttpNet
+    public int getResponseCode() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            HttpURLConnection httpURLConnection = this.b;
+            if (httpURLConnection == null) {
+                return 0;
+            }
+            return httpURLConnection.getResponseCode();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.adp.lib.network.http.IHttpNet
+    public void h() throws IOException {
+        HttpURLConnection httpURLConnection;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (httpURLConnection = this.b) != null && cg.c(httpURLConnection.getContentType())) {
+            this.b.disconnect();
+            this.b.connect();
+            if (this.a.c().a) {
+                throw new BdHttpCancelException();
+            }
+        }
+    }
+
+    public final StringBuilder i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            StringBuilder sb = new StringBuilder(1024);
+            LinkedList<BasicNameValuePair> l = this.a.b().l();
+            if (l == null) {
+                return sb;
+            }
+            int i = 0;
+            Iterator<BasicNameValuePair> it = l.iterator();
+            while (it.hasNext()) {
+                BasicNameValuePair next = it.next();
+                if (next != null) {
+                    String name = next.getName();
+                    String value = next.getValue();
+                    if (i != 0) {
+                        sb.append("&");
+                    }
+                    sb.append(name + "=");
+                    sb.append(oi.getUrlEncode(value));
+                    i++;
+                }
+            }
+            return sb;
+        }
+        return (StringBuilder) invokeV.objValue;
     }
 }

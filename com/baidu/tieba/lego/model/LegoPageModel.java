@@ -16,22 +16,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b9;
-import com.repackage.cq4;
-import com.repackage.ig8;
-import com.repackage.qe;
-import com.repackage.vb7;
-import com.repackage.wa;
+import com.repackage.bh8;
+import com.repackage.d9;
+import com.repackage.gd7;
+import com.repackage.mq4;
+import com.repackage.te;
+import com.repackage.za;
 import tbclient.Lego.DataRes;
 /* loaded from: classes3.dex */
 public class LegoPageModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wa a;
+    public za a;
     public b b;
 
     /* loaded from: classes3.dex */
-    public class a extends wa {
+    public class a extends za {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LegoPageModel a;
@@ -60,7 +60,7 @@ public class LegoPageModel extends BdBaseModel {
 
         /* JADX WARN: Removed duplicated region for block: B:25:0x0060  */
         /* JADX WARN: Removed duplicated region for block: B:26:0x0073  */
-        @Override // com.repackage.wa
+        @Override // com.repackage.za
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -101,8 +101,8 @@ public class LegoPageModel extends BdBaseModel {
                         this.a.b.a(j, str, dataRes, z);
                     } else {
                         if (z && dataRes != null) {
-                            cq4.f();
-                            qe<byte[]> d = cq4.d("tb.lego_update");
+                            mq4.f();
+                            te<byte[]> d = mq4.d("tb.lego_update");
                             StringBuilder sb = new StringBuilder();
                             sb.append(j);
                             sb.append("_");
@@ -134,18 +134,18 @@ public class LegoPageModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LegoPageModel(b9 b9Var, BdUniqueId bdUniqueId) {
-        super(b9Var);
+    public LegoPageModel(d9 d9Var, BdUniqueId bdUniqueId) {
+        super(d9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {b9Var, bdUniqueId};
+            Object[] objArr = {d9Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((b9) newInitContext.callArgs[0]);
+                super((d9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -159,9 +159,30 @@ public class LegoPageModel extends BdBaseModel {
         registerListener(this.a);
     }
 
-    public void A(b bVar) {
+    public void A(int i, long j, String str, int i2, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), str, Integer.valueOf(i2), str2}) == null) {
+            LegoPageRequest legoPageRequest = new LegoPageRequest();
+            legoPageRequest.setNetType(NetMessage.NetType.HTTP);
+            legoPageRequest.setTag(getUniqueId());
+            legoPageRequest.setPn(i2);
+            legoPageRequest.setItemId(str);
+            legoPageRequest.setLastRank(str2);
+            legoPageRequest.setTagCode(j);
+            legoPageRequest.setPageType(i);
+            gd7 a2 = gd7.a(j, str);
+            if (a2 != null) {
+                legoPageRequest.setRn(a2.d);
+                legoPageRequest.setParams(a2.e);
+            }
+            legoPageRequest.getHttpMessage().addParam("page_id", j);
+            sendMessage(legoPageRequest);
+        }
+    }
+
+    public void B(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.b = bVar;
         }
     }
@@ -170,7 +191,7 @@ public class LegoPageModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             cancelMessage();
             return false;
         }
@@ -181,7 +202,7 @@ public class LegoPageModel extends BdBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -189,32 +210,11 @@ public class LegoPageModel extends BdBaseModel {
 
     public final void registerHttpTask() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ENTERTAINMENT, ig8.a(TbConfig.ENTERTAINMENT_ADDRESS, 309312));
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ENTERTAINMENT, bh8.a(TbConfig.ENTERTAINMENT_ADDRESS, 309312));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(LegoHttpResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public void z(int i, long j, String str, int i2, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), str, Integer.valueOf(i2), str2}) == null) {
-            LegoPageRequest legoPageRequest = new LegoPageRequest();
-            legoPageRequest.setNetType(NetMessage.NetType.HTTP);
-            legoPageRequest.setTag(getUniqueId());
-            legoPageRequest.setPn(i2);
-            legoPageRequest.setItemId(str);
-            legoPageRequest.setLastRank(str2);
-            legoPageRequest.setTagCode(j);
-            legoPageRequest.setPageType(i);
-            vb7 a2 = vb7.a(j, str);
-            if (a2 != null) {
-                legoPageRequest.setRn(a2.d);
-                legoPageRequest.setParams(a2.e);
-            }
-            legoPageRequest.getHttpMessage().addParam("page_id", j);
-            sendMessage(legoPageRequest);
         }
     }
 }

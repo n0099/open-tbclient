@@ -31,7 +31,7 @@ public class a {
     public boolean h;
     public boolean i;
     public AdTemplate j;
-    public InterfaceC0325a k;
+    public InterfaceC0333a k;
     public FrameLayout m;
     @Nullable
     public b.c n;
@@ -44,7 +44,7 @@ public class a {
 
     /* renamed from: com.kwad.sdk.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0325a {
+    public interface InterfaceC0333a {
         void a();
     }
 
@@ -58,7 +58,7 @@ public class a {
         this.m.removeAllViews();
         this.m.setVisibility(4);
         this.a = com.kwad.sdk.a.kwai.a.a((ViewGroup) this.m, b(), true);
-        KsAdWebView ksAdWebView = (KsAdWebView) this.m.findViewById(R.id.obfuscated_res_0x7f091156);
+        KsAdWebView ksAdWebView = (KsAdWebView) this.m.findViewById(R.id.obfuscated_res_0x7f091146);
         this.g = ksAdWebView;
         ksAdWebView.setBackgroundColor(-1);
         p.a aVar = new p.a();
@@ -113,7 +113,7 @@ public class a {
                 }
             }
         });
-        ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091046);
+        ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091036);
         this.f = imageView;
         imageView.setVisibility(8);
         this.f.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.i.a.4
@@ -130,9 +130,9 @@ public class a {
         if (ksAdWebView != null) {
             ksAdWebView.c();
         }
-        InterfaceC0325a interfaceC0325a = this.k;
-        if (interfaceC0325a != null) {
-            interfaceC0325a.a();
+        InterfaceC0333a interfaceC0333a = this.k;
+        if (interfaceC0333a != null) {
+            interfaceC0333a.a();
         }
         Activity activity = this.e;
         if (activity != null) {
@@ -195,8 +195,8 @@ public class a {
         this.n = cVar;
     }
 
-    public void a(InterfaceC0325a interfaceC0325a) {
-        this.k = interfaceC0325a;
+    public void a(InterfaceC0333a interfaceC0333a) {
+        this.k = interfaceC0333a;
     }
 
     public void a(b bVar) {
@@ -204,7 +204,7 @@ public class a {
     }
 
     public int b() {
-        return R.layout.obfuscated_res_0x7f0d0406;
+        return R.layout.obfuscated_res_0x7f0d0400;
     }
 
     public boolean c() {

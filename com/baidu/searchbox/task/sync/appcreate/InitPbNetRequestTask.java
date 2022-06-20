@@ -2,16 +2,15 @@ package com.baidu.searchbox.task.sync.appcreate;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
-import com.baidu.tieba.yunpush.YunPushProxyActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nr4;
-import com.repackage.uq7;
-import com.repackage.vq7;
-import com.repackage.wq7;
+import com.repackage.bs7;
+import com.repackage.cs7;
+import com.repackage.ds7;
+import com.repackage.wr4;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class InitPbNetRequestTask extends LaunchTask {
@@ -36,13 +35,13 @@ public class InitPbNetRequestTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (uq7.a().c() && nr4.a().c == 1) {
-                new wq7().i(nr4.a().d);
+            if (bs7.a().c() && wr4.a().c == 1) {
+                new ds7().i(wr4.a().d);
             }
-            if (uq7.a().c() && nr4.a().c == 2) {
+            if (bs7.a().c() && wr4.a().c == 2) {
                 try {
-                    String str = nr4.a().d;
-                    vq7.l(new String[]{new JSONObject(str.substring(str.indexOf(YunPushProxyActivity.PUSH_BODY) + 20)).getString(YunPushProxyActivity.JUME_SCHEME)});
+                    String str = wr4.a().d;
+                    cs7.l(new String[]{new JSONObject(str.substring(str.indexOf("tbyunpushnotifybody=") + 20)).getString("jump_scheme")});
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

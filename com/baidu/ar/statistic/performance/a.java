@@ -20,21 +20,21 @@ public class a {
     public long xj;
     public long xk;
     public long xl;
-    public BlockingQueue<C0058a> xm;
+    public BlockingQueue<C0060a> xm;
 
     /* renamed from: com.baidu.ar.statistic.performance.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0058a {
+    public static class C0060a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int xn;
         public long xo;
         public long xp;
-        public BlockingQueue<C0059a> xq;
+        public BlockingQueue<C0061a> xq;
 
         /* renamed from: com.baidu.ar.statistic.performance.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static class C0059a {
+        public static class C0061a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int count;
@@ -42,7 +42,7 @@ public class a {
             public String xr;
             public long xs;
 
-            public C0059a() {
+            public C0061a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,7 +57,7 @@ public class a {
             }
         }
 
-        public C0058a() {
+        public C0060a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -102,20 +102,20 @@ public class a {
                 jSONObject.put("mem_total", String.valueOf(this.xk));
                 jSONObject.put("mem_used", String.valueOf(this.xl));
                 JSONArray jSONArray = new JSONArray();
-                for (C0058a c0058a : this.xm) {
+                for (C0060a c0060a : this.xm) {
                     try {
                         JSONObject jSONObject2 = new JSONObject();
-                        jSONObject2.put("frame_index", c0058a.xn);
-                        jSONObject2.put("frame_in", c0058a.xo);
-                        jSONObject2.put("frame_out", c0058a.xp);
+                        jSONObject2.put("frame_index", c0060a.xn);
+                        jSONObject2.put("frame_in", c0060a.xo);
+                        jSONObject2.put("frame_out", c0060a.xp);
                         JSONArray jSONArray2 = new JSONArray();
-                        for (C0058a.C0059a c0059a : c0058a.xq) {
+                        for (C0060a.C0061a c0061a : c0060a.xq) {
                             try {
                                 JSONObject jSONObject3 = new JSONObject();
-                                jSONObject3.put("name", c0059a.name);
-                                jSONObject3.put("func", c0059a.xr);
-                                jSONObject3.put("time_cost", c0059a.xs);
-                                jSONObject3.put("count", c0059a.count);
+                                jSONObject3.put("name", c0061a.name);
+                                jSONObject3.put("func", c0061a.xr);
+                                jSONObject3.put("time_cost", c0061a.xs);
+                                jSONObject3.put("count", c0061a.count);
                                 jSONArray2.put(jSONObject3);
                             } catch (JSONException e) {
                                 e.printStackTrace();

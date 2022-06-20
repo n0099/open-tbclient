@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dc5;
+import com.repackage.qc5;
 import tbclient.GetToken.DataReq;
 import tbclient.GetToken.GetTokenReqIdl;
 /* loaded from: classes2.dex */
@@ -47,7 +47,7 @@ public class GetTokenRequestMessage extends NetMessage {
             builder.token = this.mToken;
             builder.shoubaicuid = this.mBaiduCuid;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                dc5.a(builder, true);
+                qc5.a(builder, true);
             }
             GetTokenReqIdl.Builder builder2 = new GetTokenReqIdl.Builder();
             builder2.data = builder.build(false);

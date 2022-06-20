@@ -1,28 +1,19 @@
 package com.repackage;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class yk4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, String> a;
-    public String b;
+public interface yk4 {
+    void a(int i);
 
-    public yk4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b(String str);
+
+    void c(String str);
+
+    void d(String str);
+
+    void e(boolean z, boolean z2, int i, String str, String str2, String str3);
+
+    void f(String str, boolean z);
+
+    void g(boolean z, boolean z2, int i);
+
+    void onAdDismiss();
 }

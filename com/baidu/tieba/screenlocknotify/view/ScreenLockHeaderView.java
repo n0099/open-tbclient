@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ki;
-import com.repackage.q98;
+import com.repackage.oi;
+import com.repackage.xa8;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -32,7 +32,7 @@ public class ScreenLockHeaderView extends LinearLayout {
     public TextView e;
     public TextView f;
     public View g;
-    public q98 h;
+    public xa8 h;
     public TextView i;
     public EditText j;
     public RelativeLayout k;
@@ -55,20 +55,20 @@ public class ScreenLockHeaderView extends LinearLayout {
                 return;
             }
         }
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0726, (ViewGroup) this, true);
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090a97);
-        this.b = findViewById(R.id.obfuscated_res_0x7f090a96);
-        this.c = findViewById(R.id.obfuscated_res_0x7f091425);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091170);
-        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0915c7);
-        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092262);
-        this.g = findViewById(R.id.obfuscated_res_0x7f09121a);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0725, (ViewGroup) this, true);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090a86);
+        this.b = findViewById(R.id.obfuscated_res_0x7f090a85);
+        this.c = findViewById(R.id.obfuscated_res_0x7f091417);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091165);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0915b9);
+        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092250);
+        this.g = findViewById(R.id.obfuscated_res_0x7f09120f);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        setBackgroundResource(R.drawable.obfuscated_res_0x7f0810a3);
+        setBackgroundResource(R.drawable.obfuscated_res_0x7f081094);
         setOrientation(1);
-        this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091bef);
-        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091bf0);
-        this.j = (EditText) findViewById(R.id.obfuscated_res_0x7f091bee);
+        this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091be7);
+        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091be8);
+        this.j = (EditText) findViewById(R.id.obfuscated_res_0x7f091be6);
         this.k.setVisibility(8);
     }
 
@@ -103,21 +103,21 @@ public class ScreenLockHeaderView extends LinearLayout {
         }
     }
 
-    public void d(q98 q98Var) {
+    public void d(xa8 xa8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, q98Var) == null) {
-            this.h = q98Var;
-            this.a.setText(q98Var.a);
-            this.d.setText(a(q98Var.l));
-            this.e.setText(q98Var.e);
-            this.f.setText(b(q98Var.i));
+        if (interceptable == null || interceptable.invokeL(1048579, this, xa8Var) == null) {
+            this.h = xa8Var;
+            this.a.setText(xa8Var.a);
+            this.d.setText(a(xa8Var.l));
+            this.e.setText(xa8Var.e);
+            this.f.setText(b(xa8Var.i));
         }
     }
 
-    public q98 getData() {
+    public xa8 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.h : (q98) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.h : (xa8) invokeV.objValue;
     }
 
     public View getEditText() {
@@ -132,7 +132,7 @@ public class ScreenLockHeaderView extends LinearLayout {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             EditText editText = this.j;
             if (editText != null) {
-                return ki.charSequence2String(editText.getText(), null);
+                return oi.charSequence2String(editText.getText(), null);
             }
             return null;
         }

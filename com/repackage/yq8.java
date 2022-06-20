@@ -1,13 +1,26 @@
 package com.repackage;
+
+import android.hardware.Camera;
+import com.faceunity.encoder.TextureMovieEncoder;
 /* loaded from: classes7.dex */
 public interface yq8 {
-    void finishActivity();
 
-    void rePlayVideo(String str);
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(boolean z, String str);
+    }
 
-    void showDialog(String str, String str2);
+    void a(Camera camera);
 
-    void showErrorView();
+    void b(Camera camera);
 
-    void startPlayVideo(String str);
+    void c(a aVar);
+
+    void d(Camera camera);
+
+    void e(Camera camera);
+
+    void setOnEncoderStatusUpdateListener(TextureMovieEncoder.OnEncoderStatusUpdateListener onEncoderStatusUpdateListener);
+
+    void setPreviewSize(int i, int i2);
 }

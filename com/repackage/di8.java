@@ -1,110 +1,52 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.os.Bundle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes5.dex */
 public class di8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile int a;
-    public volatile int b;
-    public volatile HashMap<Long, Integer> c;
+    public Rect a;
+    public Bitmap b;
+    public Rect c;
+    public Context d;
+    public Bundle e;
+    public boolean f;
+    public boolean g;
 
-    public di8(int i) {
+    public di8(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new HashMap<>();
-        this.a = 0;
-        this.b = i;
+        this.d = context;
+        this.c = new Rect();
     }
 
-    public void a(String str) {
+    public void a(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            try {
-                Long valueOf = Long.valueOf(Long.parseLong(str));
-                synchronized (this) {
-                    if (this.c.size() >= this.b) {
-                        c();
-                    }
-                    this.a++;
-                    this.c.put(valueOf, Integer.valueOf(this.a));
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            this.d.getResources().getDisplayMetrics();
+            this.c.set(0, 0, this.b.getWidth(), this.b.getHeight());
+            canvas.drawBitmap(this.b, this.c, this.a, (Paint) null);
         }
-    }
-
-    public boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            try {
-                return this.c.containsKey(Long.valueOf(Long.parseLong(str)));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                Long l = null;
-                int i = 134217727;
-                for (Map.Entry<Long, Integer> entry : this.c.entrySet()) {
-                    if (entry.getValue().intValue() < i) {
-                        int intValue = entry.getValue().intValue();
-                        i = intValue;
-                        l = entry.getKey();
-                    }
-                }
-                if (l != null) {
-                    this.c.remove(l);
-                } else {
-                    this.c.clear();
-                }
-            }
-        }
-    }
-
-    public boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            try {
-                Long valueOf = Long.valueOf(Long.parseLong(str));
-                synchronized (this) {
-                    return this.c.get(valueOf) != null;
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
     }
 }

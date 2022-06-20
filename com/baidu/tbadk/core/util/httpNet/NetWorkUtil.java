@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ji;
+import com.repackage.ni;
 /* loaded from: classes3.dex */
 public class NetWorkUtil {
     public static /* synthetic */ Interceptable $ic = null;
@@ -34,8 +34,8 @@ public class NetWorkUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             try {
-                if (ji.z()) {
-                    if (ji.H()) {
+                if (ni.z()) {
+                    if (ni.H()) {
                         return "3";
                     }
                     String defaultHost = Proxy.getDefaultHost();

@@ -1,26 +1,30 @@
 package com.repackage;
 
 import android.content.Context;
-import android.view.MotionEvent;
-import android.view.View;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.core.Info;
+import com.fun.openid.sdk.FunOpenIDSdk;
 /* loaded from: classes5.dex */
-public class cn9 implements View.OnTouchListener {
+public class cn9 {
     public static /* synthetic */ Interceptable $ic;
+    public static cn9 b;
+    public static String c;
+    public static String d;
+    public static String e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ jn9 a;
+    public Context a;
 
-    public cn9(jn9 jn9Var) {
+    public cn9(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jn9Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,59 +34,71 @@ public class cn9 implements View.OnTouchListener {
                 return;
             }
         }
-        this.a = jn9Var;
+        this.a = context;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
-        Info info;
+    public static cn9 a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (action == 0) {
-                this.a.j = true;
-                this.a.k = System.currentTimeMillis();
-                this.a.l = motionEvent.getX();
-                this.a.m = motionEvent.getY();
-                this.a.n = (int) motionEvent.getRawX();
-                this.a.o = (int) motionEvent.getRawY();
-                this.a.v = System.currentTimeMillis();
-                this.a.p = (int) motionEvent.getX();
-                this.a.q = (int) motionEvent.getY();
-                jn9.c(this.a, view2);
-            } else if (action == 1) {
-                this.a.w = (int) motionEvent.getRawX();
-                this.a.x = (int) motionEvent.getRawY();
-                this.a.r = (int) motionEvent.getX();
-                this.a.s = (int) motionEvent.getY();
-                this.a.y = System.currentTimeMillis();
-                Math.abs(motionEvent.getX() - this.a.l);
-                Math.abs(motionEvent.getY() - this.a.m);
-                if (System.currentTimeMillis() - this.a.k < 2000) {
-                    jn9 jn9Var = this.a;
-                    if (jn9Var.j && (info = jn9Var.c) != null && pm9.d(info, jn9Var.h)) {
-                        this.a.h = System.currentTimeMillis();
-                        jn9 jn9Var2 = this.a;
-                        Context context = jn9Var2.a;
-                        String open = jn9Var2.c.getOpen();
-                        jn9 jn9Var3 = this.a;
-                        pm9.a(context, open, jn9Var3.c, jn9Var3.g, jn9Var3.g().toString());
-                        nn9 a = rn9.a(this.a.a);
-                        a.h(new vn9(this.a.c), null);
-                        a.l("desc", this.a.g().toString());
-                        a.m();
-                        jn9 jn9Var4 = this.a;
-                        ll9.p(jn9Var4.c, jn9Var4.g().toString());
-                        xn9 xn9Var = this.a.f;
-                        if (xn9Var != null) {
-                            xn9Var.onClicked();
-                        }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (b == null) {
+                synchronized (cn9.class) {
+                    if (b == null) {
+                        b = new cn9(context);
                     }
                 }
             }
-            return true;
+            return b;
         }
-        return invokeLL.booleanValue;
+        return (cn9) invokeL.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d : (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (TextUtils.isEmpty(c)) {
+                try {
+                    return in9.E(this.a);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                    return "";
+                }
+            }
+            return c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? e : (String) invokeV.objValue;
+    }
+
+    public void e() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            try {
+                Class.forName("com.fun.openid.sdk.FunOpenIDSdk");
+                Class.forName("com.fun.openid.sdk.OnGetOaidListener");
+                z = true;
+            } catch (Exception unused) {
+                z = false;
+            }
+            if (z) {
+                try {
+                    FunOpenIDSdk.getOaid(this.a, new zm9(this));
+                } catch (Exception unused2) {
+                }
+            }
+        }
     }
 }

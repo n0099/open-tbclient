@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ae8;
+import com.repackage.hf8;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GetStampResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ae8> mFetchStampDataList;
+    public List<hf8> mFetchStampDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetStampResponseMessage(int i) {
@@ -50,15 +50,15 @@ public class GetStampResponseMessage extends JsonHttpResponsedMessage {
                 return;
             }
             for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                ae8 ae8Var = new ae8();
-                ae8Var.d(jSONArray.getJSONObject(i2).optString("title"));
-                ae8Var.c(jSONArray.getJSONObject(i2).optString("pic160"));
-                this.mFetchStampDataList.add(ae8Var);
+                hf8 hf8Var = new hf8();
+                hf8Var.d(jSONArray.getJSONObject(i2).optString("title"));
+                hf8Var.c(jSONArray.getJSONObject(i2).optString("pic160"));
+                this.mFetchStampDataList.add(hf8Var);
             }
         }
     }
 
-    public List<ae8> getStampList() {
+    public List<hf8> getStampList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mFetchStampDataList : (List) invokeV.objValue;

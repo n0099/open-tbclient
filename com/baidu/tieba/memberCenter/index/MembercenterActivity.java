@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i75;
+import com.repackage.w75;
 /* loaded from: classes3.dex */
 public class MembercenterActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MemberCenterFragment mFragment;
-    public FragmentManager mFragmentManager;
-    public FragmentTransaction mFragmentTransaction;
+    public MemberCenterFragment a;
+    public FragmentManager b;
+    public FragmentTransaction c;
 
     public MembercenterActivity() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class MembercenterActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.f75
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.t75
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -41,17 +41,17 @@ public class MembercenterActivity extends BaseFragmentActivity {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public i75 getPageStayDurationItem() {
+    public w75 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            i75 pageStayDurationItem = super.getPageStayDurationItem();
+            w75 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.a = true;
             }
             return pageStayDurationItem;
         }
-        return (i75) invokeV.objValue;
+        return (w75) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
@@ -68,14 +68,14 @@ public class MembercenterActivity extends BaseFragmentActivity {
             super.onCreate(bundle);
             String stringExtra = getIntent().getStringExtra("key_url");
             MemberCenterFragment memberCenterFragment = new MemberCenterFragment();
-            this.mFragment = memberCenterFragment;
-            memberCenterFragment.J0(stringExtra);
+            this.a = memberCenterFragment;
+            memberCenterFragment.w1(stringExtra);
             FragmentManager supportFragmentManager = getSupportFragmentManager();
-            this.mFragmentManager = supportFragmentManager;
+            this.b = supportFragmentManager;
             FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();
-            this.mFragmentTransaction = beginTransaction;
-            beginTransaction.add(16908290, this.mFragment);
-            this.mFragmentTransaction.commit();
+            this.c = beginTransaction;
+            beginTransaction.add(16908290, this.a);
+            this.c.commit();
         }
     }
 
@@ -92,9 +92,9 @@ public class MembercenterActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onResume();
-            MemberCenterFragment memberCenterFragment = this.mFragment;
+            MemberCenterFragment memberCenterFragment = this.a;
             if (memberCenterFragment != null) {
-                memberCenterFragment.loadData();
+                memberCenterFragment.a();
             }
         }
     }

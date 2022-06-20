@@ -1,31 +1,41 @@
 package com.repackage;
 
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class h04 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public int a;
+    public s04 b;
+    public int c;
+    public long d;
 
-    public h04() {
+    public h04(int i, s04 s04Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), s04Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = i;
+        this.b = s04Var;
+        this.c = o04.d() ? 20 : 10;
+        this.d = System.currentTimeMillis();
     }
 
     public JSONObject a() {
@@ -34,7 +44,12 @@ public class h04 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, this.a);
+                jSONObject.put("type", this.a);
+                jSONObject.put("stage", this.c);
+                jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.d);
+                if (this.b != null) {
+                    jSONObject.put("msg", this.b.a());
+                }
             } catch (JSONException unused) {
             }
             return jSONObject;

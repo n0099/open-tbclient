@@ -2,160 +2,72 @@ package com.repackage;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.ByteBuffer;
 import org.java_websocket.exceptions.InvalidDataException;
+import org.java_websocket.exceptions.InvalidFrameException;
 import org.java_websocket.framing.Framedata;
 /* loaded from: classes6.dex */
-public abstract class is9 implements Framedata {
+public class is9 implements js9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public Framedata.Opcode b;
-    public ByteBuffer c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
-    public boolean g;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-289586075, "Lcom/repackage/is9$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-289586075, "Lcom/repackage/is9$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[Framedata.Opcode.values().length];
-            a = iArr;
-            try {
-                iArr[Framedata.Opcode.PING.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[Framedata.Opcode.PONG.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[Framedata.Opcode.TEXT.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[Framedata.Opcode.BINARY.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                a[Framedata.Opcode.CLOSING.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                a[Framedata.Opcode.CONTINUOUS.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
-            }
-        }
-    }
-
-    public is9(Framedata.Opcode opcode) {
+    public is9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {opcode};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = opcode;
-        this.c = ys9.a();
-        this.a = true;
-        this.d = false;
-        this.e = false;
-        this.f = false;
-        this.g = false;
     }
 
-    public static is9 g(Framedata.Opcode opcode) {
+    @Override // com.repackage.js9
+    public js9 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new is9() : (js9) invokeV.objValue;
+    }
+
+    @Override // com.repackage.js9
+    public boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, opcode)) == null) {
-            if (opcode != null) {
-                switch (a.a[opcode.ordinal()]) {
-                    case 1:
-                        return new js9();
-                    case 2:
-                        return new ks9();
-                    case 3:
-                        return new ls9();
-                    case 4:
-                        return new ds9();
-                    case 5:
-                        return new es9();
-                    case 6:
-                        return new fs9();
-                    default:
-                        throw new IllegalArgumentException("Supplied opcode is invalid");
-                }
-            }
-            throw new IllegalArgumentException("Supplied opcode cannot be null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return true;
         }
-        return (is9) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // org.java_websocket.framing.Framedata
-    public ByteBuffer a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.js9
+    public void c(Framedata framedata) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (ByteBuffer) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, framedata) == null) {
+        }
     }
 
-    @Override // org.java_websocket.framing.Framedata
-    public boolean b() {
+    @Override // com.repackage.js9
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "" : (String) invokeV.objValue;
     }
 
-    @Override // org.java_websocket.framing.Framedata
-    public boolean c() {
-        InterceptResult invokeV;
+    @Override // com.repackage.js9
+    public boolean e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : invokeV.booleanValue;
-    }
-
-    @Override // org.java_websocket.framing.Framedata
-    public Framedata.Opcode d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (Framedata.Opcode) invokeV.objValue;
-    }
-
-    @Override // org.java_websocket.framing.Framedata
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g : invokeV.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public boolean equals(Object obj) {
@@ -165,106 +77,52 @@ public abstract class is9 implements Framedata {
             if (this == obj) {
                 return true;
             }
-            if (obj == null || getClass() != obj.getClass()) {
-                return false;
-            }
-            is9 is9Var = (is9) obj;
-            if (this.a == is9Var.a && this.d == is9Var.d && this.e == is9Var.e && this.f == is9Var.f && this.g == is9Var.g && this.b == is9Var.b) {
-                ByteBuffer byteBuffer = this.c;
-                ByteBuffer byteBuffer2 = is9Var.c;
-                return byteBuffer != null ? byteBuffer.equals(byteBuffer2) : byteBuffer2 == null;
-            }
-            return false;
+            return obj != null && is9.class == obj.getClass();
         }
         return invokeL.booleanValue;
     }
 
-    @Override // org.java_websocket.framing.Framedata
-    public boolean f() {
-        InterceptResult invokeV;
+    @Override // com.repackage.js9
+    public void f(Framedata framedata) throws InvalidDataException {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeL(1048582, this, framedata) == null) {
+        }
     }
 
-    public abstract void h() throws InvalidDataException;
+    @Override // com.repackage.js9
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.js9
+    public void h(Framedata framedata) throws InvalidDataException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, framedata) == null) {
+            if (framedata.b() || framedata.c() || framedata.e()) {
+                throw new InvalidFrameException("bad rsv RSV1: " + framedata.b() + " RSV2: " + framedata.c() + " RSV3: " + framedata.e());
+            }
+        }
+    }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            int hashCode = (((this.a ? 1 : 0) * 31) + this.b.hashCode()) * 31;
-            ByteBuffer byteBuffer = this.c;
-            return ((((((((hashCode + (byteBuffer != null ? byteBuffer.hashCode() : 0)) * 31) + (this.d ? 1 : 0)) * 31) + (this.e ? 1 : 0)) * 31) + (this.f ? 1 : 0)) * 31) + (this.g ? 1 : 0);
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? is9.class.hashCode() : invokeV.intValue;
     }
 
-    public void i(boolean z) {
+    @Override // com.repackage.js9
+    public void reset() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.a = z;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
         }
     }
 
-    public void j(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, byteBuffer) == null) {
-            this.c = byteBuffer;
-        }
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.f = z;
-        }
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.g = z;
-        }
-    }
-
-    public void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.d = z;
-        }
-    }
-
+    @Override // com.repackage.js9
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("Framedata{ optcode:");
-            sb.append(d());
-            sb.append(", fin:");
-            sb.append(f());
-            sb.append(", rsv1:");
-            sb.append(b());
-            sb.append(", rsv2:");
-            sb.append(c());
-            sb.append(", rsv3:");
-            sb.append(e());
-            sb.append(", payloadlength:[pos:");
-            sb.append(this.c.position());
-            sb.append(", len:");
-            sb.append(this.c.remaining());
-            sb.append("], payload:");
-            sb.append(this.c.remaining() > 1000 ? "(too big to display)" : new String(this.c.array()));
-            sb.append('}');
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? is9.class.getSimpleName() : (String) invokeV.objValue;
     }
 }

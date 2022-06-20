@@ -1,372 +1,191 @@
 package com.repackage;
 
-import android.content.Context;
-import android.os.Handler;
-import android.os.Message;
-import android.widget.TextView;
+import android.text.Editable;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import androidx.viewpager.widget.ViewPager;
-import com.baidu.adp.widget.IndicatorView;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.repackage.ru4;
 /* loaded from: classes7.dex */
-public class ru4 {
-    public static /* synthetic */ Interceptable $ic;
+public abstract class ru4<T extends ru4> {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int h = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewPager a;
-    public IndicatorView b;
-    public TextView c;
-    public BdBaseViewPagerAdapter d;
-    public tu4 e;
-    public boolean f;
-    public boolean g;
-    public int h;
-    public Context i;
-    public List<jn> j;
-    public ViewPager.OnPageChangeListener k;
-    public long l;
-    public final Handler.Callback m;
-    public final Handler n;
-    public ViewPager.OnPageChangeListener o;
+    public final int a;
+    public boolean b;
+    public Editable c;
+    public int d;
+    public int e;
+    public int f;
+    public a g;
 
     /* loaded from: classes7.dex */
-    public class a implements Handler.Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ru4 a;
+    public interface a {
+        void a(int i, boolean z);
+    }
 
-        public a(ru4 ru4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ru4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ru4Var;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755337856, "Lcom/repackage/ru4;")) == null) {
+            return;
         }
-
-        @Override // android.os.Handler.Callback
-        public boolean handleMessage(Message message) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-                if (message.what != 1) {
-                    return false;
-                }
-                this.a.g();
-                return false;
-            }
-            return invokeL.booleanValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755337856, "Lcom/repackage/ru4;");
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements ViewPager.OnPageChangeListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ru4 a;
-
-        public b(ru4 ru4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ru4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ru4Var;
-        }
-
-        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrollStateChanged(int i) {
-            int count;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (this.a.k != null) {
-                    this.a.k.onPageScrollStateChanged(i);
-                }
-                if (i == 1) {
-                    this.a.p();
-                } else if (i != 0 || (count = this.a.d.getCount()) < 2) {
-                } else {
-                    int currentItem = this.a.a.getCurrentItem();
-                    int i2 = count - 2;
-                    if (currentItem < 1) {
-                        this.a.a.setCurrentItem(i2, false);
-                    } else if (currentItem > i2) {
-                        this.a.a.setCurrentItem(1, false);
-                    }
-                    this.a.o();
-                }
-            }
-        }
-
-        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrolled(int i, float f, int i2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) || this.a.k == null) {
-                return;
-            }
-            this.a.k.onPageScrolled(i, f, i2);
-        }
-
-        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageSelected(int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && this.a.e != null && this.a.e.a(i) == i) {
-                if (this.a.b != null) {
-                    this.a.b.setPosition(this.a.e.c(i));
-                }
-                if (this.a.k != null) {
-                    this.a.k.onPageSelected(this.a.e.c(i));
-                }
-            }
-        }
-    }
-
-    public ru4(Context context, ViewPager viewPager, IndicatorView indicatorView, TextView textView) {
+    public ru4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, viewPager, indicatorView, textView};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f = false;
-        this.g = true;
-        this.h = 2;
-        this.j = new ArrayList();
-        this.l = 5000L;
-        this.m = new a(this);
-        this.n = new Handler(this.m);
-        this.o = new b(this);
-        h(context, viewPager, indicatorView, textView);
-    }
-
-    public final void g() {
-        int count;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null || this.d == null) {
-            return;
-        }
-        e9 c = f9.c(this.i);
-        if ((c == null || !c.isScroll()) && (count = this.d.getCount()) >= 2) {
-            int currentItem = this.a.getCurrentItem();
-            int i = count - 2;
-            if (currentItem < 1) {
-                this.a.setCurrentItem(i, false);
-            } else if (currentItem > i) {
-                this.a.setCurrentItem(1, false);
-            } else {
-                this.a.setCurrentItem(currentItem + 1);
-            }
-        }
-    }
-
-    public final void h(Context context, ViewPager viewPager, IndicatorView indicatorView, TextView textView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, viewPager, indicatorView, textView) == null) {
-            this.a = viewPager;
-            this.b = indicatorView;
-            this.c = textView;
-            this.i = context;
-            BdBaseViewPagerAdapter bdBaseViewPagerAdapter = new BdBaseViewPagerAdapter(context);
-            this.d = bdBaseViewPagerAdapter;
-            ViewPager viewPager2 = this.a;
-            if (viewPager2 != null) {
-                viewPager2.setAdapter(bdBaseViewPagerAdapter);
-                this.a.setOnPageChangeListener(this.o);
-            }
-        }
-    }
-
-    public void i(Context context, su4<?, ?> su4Var) {
-        BdBaseViewPagerAdapter bdBaseViewPagerAdapter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, su4Var) == null) || (bdBaseViewPagerAdapter = this.d) == null) {
-            return;
-        }
-        bdBaseViewPagerAdapter.g(context, su4Var);
-    }
-
-    public void j(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            if (j < 0) {
-                j = 0;
-            }
-            this.l = j;
-        }
-    }
-
-    public void k(List<jn> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, list) == null) || ListUtils.getCount(list) == 0) {
-            return;
-        }
-        this.j = list;
-        tu4 tu4Var = new tu4(list, this.f, this.h);
-        this.e = tu4Var;
-        tu4Var.i(2);
-        this.e.g(1);
-        this.d.h(this.e.e());
-        this.d.notifyDataSetChanged();
-        this.a.setCurrentItem(this.e.d(), false);
-        if (this.e.b() <= 0) {
-            return;
-        }
-        if (this.e.b() > this.h) {
-            TextView textView = this.c;
-            if (textView != null) {
-                textView.setVisibility(0);
-                this.c.setOnClickListener(null);
-                IndicatorView indicatorView = this.b;
-                if (indicatorView != null) {
-                    indicatorView.setVisibility(8);
-                }
-            } else {
-                IndicatorView indicatorView2 = this.b;
-                if (indicatorView2 != null && !this.f) {
-                    indicatorView2.setVisibility(8);
-                }
-            }
-            IndicatorView indicatorView3 = this.b;
-            if (indicatorView3 != null && indicatorView3.getVisibility() == 0) {
-                int count = this.b.getCount();
-                int i = this.h;
-                if (count != i) {
-                    this.b.setCount(i);
-                }
-            }
-            o();
-        }
-        if (this.e.b() >= 2 && this.e.b() <= this.h) {
-            TextView textView2 = this.c;
-            if (textView2 != null) {
-                textView2.setVisibility(8);
-            }
-            IndicatorView indicatorView4 = this.b;
-            if (indicatorView4 != null) {
-                indicatorView4.setVisibility(0);
-                if (this.b.getCount() != this.e.b()) {
-                    this.b.setCount(this.e.b());
-                }
-            }
-            o();
-        }
-        if (this.e.b() < 2) {
-            TextView textView3 = this.c;
-            if (textView3 != null) {
-                textView3.setVisibility(8);
-            }
-            IndicatorView indicatorView5 = this.b;
-            if (indicatorView5 != null) {
-                indicatorView5.setVisibility(8);
-            }
-            p();
-        }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.g = z;
-        }
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f = z;
-        }
-    }
-
-    public void n(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.h = i;
-            tu4 tu4Var = this.e;
-            if (tu4Var != null) {
-                tu4Var.h(i);
-            }
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (this.g) {
-                this.n.removeMessages(1);
-                this.n.sendEmptyMessageDelayed(1, this.l);
-                return;
-            }
-            this.n.removeMessages(1);
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.n.removeMessages(1);
-        }
-    }
-
-    public ru4(Context context, ViewPager viewPager, IndicatorView indicatorView, TextView textView, int i, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, viewPager, indicatorView, textView, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f = false;
-        this.g = true;
-        this.h = 2;
-        this.j = new ArrayList();
-        this.l = 5000L;
-        this.m = new a(this);
-        this.n = new Handler(this.m);
-        this.o = new b(this);
-        this.f = z;
-        this.g = z2;
-        n(i);
-        h(context, viewPager, indicatorView, textView);
+        int i3 = h;
+        h = i3 + 1;
+        this.a = i3;
     }
+
+    public void a(Editable editable, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(1048576, this, editable, i, i2, i3) == null) {
+            this.c = editable;
+            this.d = i;
+            this.e = i2;
+            this.f = i3;
+        }
+    }
+
+    public void b(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            this.b = t.h();
+            this.c = t.g();
+            this.d = t.f();
+            this.e = t.c();
+            this.f = t.d();
+        }
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : invokeV.intValue;
+    }
+
+    public Editable g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c : (Editable) invokeV.objValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : invokeV.booleanValue;
+    }
+
+    public void i(@NonNull CharSequence charSequence) {
+        Editable editable;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, charSequence) == null) || (editable = this.c) == null || charSequence == null) {
+            return;
+        }
+        try {
+            editable.replace(this.d, this.e, charSequence);
+        } catch (Exception e) {
+            BdLog.e(e);
+        }
+        this.e = this.d + charSequence.length();
+    }
+
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void k(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
+            this.g = aVar;
+        }
+    }
+
+    public void l(Object obj, int i, int i2, int i3) {
+        Editable editable;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLIII(1048587, this, obj, i, i2, i3) == null) || (editable = this.c) == null) {
+            return;
+        }
+        editable.setSpan(obj, i, i2, i3);
+    }
+
+    public void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void n(Editable editable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, editable) == null) {
+            this.c = editable;
+        }
+    }
+
+    public void o(boolean z) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            boolean z2 = this.b;
+            this.b = z;
+            if (z2 == z || (aVar = this.g) == null) {
+                return;
+            }
+            aVar.a(this.a, z);
+        }
+    }
+
+    public abstract void p(Editable editable);
+
+    public abstract void q(Editable editable, int i);
 }

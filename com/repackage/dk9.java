@@ -1,45 +1,45 @@
 package com.repackage;
 
+import android.webkit.DownloadListener;
+import android.webkit.URLUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.webviewbase.AdvancedWebView;
 /* loaded from: classes5.dex */
-public class dk9 {
+public class dk9 implements DownloadListener {
     public static /* synthetic */ Interceptable $ic;
-    public static dk9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public AdvancedWebView a;
+    public final /* synthetic */ AdvancedWebView a;
 
-    public dk9() {
+    public dk9(AdvancedWebView advancedWebView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {advancedWebView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = advancedWebView;
     }
 
-    public static dk9 a() {
-        InterceptResult invokeV;
+    @Override // android.webkit.DownloadListener
+    public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (dk9.class) {
-                    if (b == null) {
-                        b = new dk9();
-                    }
-                }
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) {
+            String guessFileName = URLUtil.guessFileName(str, str3, str4);
+            gk9 gk9Var = this.a.c;
+            if (gk9Var != null) {
+                gk9Var.b(str, guessFileName, str4, j, str3, str2);
             }
-            return b;
         }
-        return (dk9) invokeV.objValue;
     }
 }

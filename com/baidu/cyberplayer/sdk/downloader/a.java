@@ -22,14 +22,14 @@ public class a implements b.a {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public InterfaceC0087a b;
+    public InterfaceC0089a b;
     public String c;
     public String d;
     public ArrayList<String> e;
 
     /* renamed from: com.baidu.cyberplayer.sdk.downloader.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0087a {
+    public interface InterfaceC0089a {
         void a(String str, long j);
 
         void a(String str, long j, int i, String str2);
@@ -261,13 +261,13 @@ public class a implements b.a {
         }
     }
 
-    public void a(String str, String str2, String str3, InterfaceC0087a interfaceC0087a) {
+    public void a(String str, String str2, String str3, InterfaceC0089a interfaceC0089a) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048579, this, str, str2, str3, interfaceC0087a) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || interfaceC0087a == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(1048579, this, str, str2, str3, interfaceC0089a) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || interfaceC0089a == null) {
             return;
         }
         this.c = str2;
-        this.b = interfaceC0087a;
+        this.b = interfaceC0089a;
         this.d = str3;
         o.b(str3);
         CyberLog.d("CyberFileDownloader", " unzipFolder:" + this.d);

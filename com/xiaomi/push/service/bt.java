@@ -6,48 +6,66 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.xiaomi.push.fl;
+import com.xiaomi.push.gh;
+import com.xiaomi.push.hi;
 import com.xiaomi.push.service.XMPushService;
 /* loaded from: classes8.dex */
-public class bt extends XMPushService.i {
+public class bt extends XMPushService.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ XMPushService a;
+    public fl a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public XMPushService f942a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bt(XMPushService xMPushService, int i) {
-        super(i);
+    public bt(XMPushService xMPushService, fl flVar) {
+        super(4);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xMPushService, Integer.valueOf(i)};
+            Object[] objArr = {xMPushService, flVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = xMPushService;
+        this.f942a = null;
+        this.f942a = xMPushService;
+        this.a = flVar;
     }
 
-    @Override // com.xiaomi.push.service.XMPushService.i
+    @Override // com.xiaomi.push.service.XMPushService.j
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "disconnect for service destroy." : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "send a message." : (String) invokeV.objValue;
     }
 
-    @Override // com.xiaomi.push.service.XMPushService.i
+    @Override // com.xiaomi.push.service.XMPushService.j
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a.f824a == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            try {
+                if (this.a != null) {
+                    this.f942a.a(this.a);
+                    if (this.a.f365a == null || !hi.a(this.f942a, 1)) {
+                        return;
+                    }
+                    this.a.f365a.d = System.currentTimeMillis();
+                    bz.a("category_coord_up", "coord_up", "com.xiaomi.xmsf", this.a.f365a);
+                }
+            } catch (gh e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
+                this.f942a.a(10, e);
+            }
         }
-        this.a.f824a.b(15, (Exception) null);
-        this.a.f824a = null;
     }
 }

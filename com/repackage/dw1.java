@@ -1,348 +1,1011 @@
 package com.repackage;
 
 import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.Build;
+import android.text.Editable;
+import android.text.SpannableString;
 import android.text.TextUtils;
+import android.text.TextWatcher;
+import android.text.style.AbsoluteSizeSpan;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
+import android.util.Log;
+import android.view.KeyEvent;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.FrameLayout;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.face.platform.ConstPath;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.component.components.textarea.SwanEditText;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.swan.apps.textarea.ShowConfirmBarLayout;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dw1 {
+public final class dw1 extends yu1<SwanEditText, ew1> {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
+    public SwanAppActivity i;
+    public az1 j;
+    public int k;
+    public i l;
+    public String m;
+    public int n;
+    public ShowConfirmBarLayout o;
+    public boolean p;
+    public int q;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755753101, "Lcom/repackage/dw1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ew1 a;
+        public final /* synthetic */ SwanEditText b;
+        public final /* synthetic */ dw1 c;
+
+        public a(dw1 dw1Var, ew1 ew1Var, SwanEditText swanEditText) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dw1Var, ew1Var, swanEditText};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755753101, "Lcom/repackage/dw1;");
+            this.c = dw1Var;
+            this.a = ew1Var;
+            this.b = swanEditText;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.c.i != null) {
+                    InputMethodManager inputMethodManager = (InputMethodManager) this.c.i.getSystemService("input_method");
+                    if (inputMethodManager == null || !this.a.P) {
+                        return;
+                    }
+                    this.b.setFocusable(true);
+                    this.b.setFocusableInTouchMode(true);
+                    this.b.requestFocus();
+                    inputMethodManager.showSoftInput(this.b, 0);
+                    return;
+                }
+                lw1.a("Component-TextArea", "activity is null, set textarea attr failed");
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements SwanEditText.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SwanEditText a;
+        public final /* synthetic */ dw1 b;
+
+        public b(dw1 dw1Var, SwanEditText swanEditText) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dw1Var, swanEditText};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = dw1Var;
+            this.a = swanEditText;
+        }
+
+        @Override // com.baidu.swan.apps.component.components.textarea.SwanEditText.a
+        public void a(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+                this.b.F0(this.a, "selection");
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements TextWatcher {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SwanEditText a;
+        public final /* synthetic */ dw1 b;
+
+        public c(dw1 dw1Var, SwanEditText swanEditText) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dw1Var, swanEditText};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = dw1Var;
+            this.a = swanEditText;
+        }
+
+        @Override // android.text.TextWatcher
+        public void afterTextChanged(Editable editable) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, editable) == null) && this.a.hasFocus()) {
+                sw1.i("Component-TextArea", "send input callback");
+            }
+        }
+
+        @Override // android.text.TextWatcher
+        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
+            }
+        }
+
+        @Override // android.text.TextWatcher
+        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) || this.a.getLineCount() <= 0) {
+                return;
+            }
+            if (this.b.q != this.a.getLineCount()) {
+                sw1.i("Component-TextArea", "send line change callback");
+                this.b.F0(this.a, "linechange");
+            }
+            int i4 = i3 - i2;
+            if (i2 != i4) {
+                this.b.G0(this.a, "input", i2 > i4 ? '\b' : charSequence.charAt((i + i4) - 1));
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d implements View.OnFocusChangeListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SwanEditText a;
+        public final /* synthetic */ dw1 b;
+
+        public d(dw1 dw1Var, SwanEditText swanEditText) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dw1Var, swanEditText};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = dw1Var;
+            this.a = swanEditText;
+        }
+
+        @Override // android.view.View.OnFocusChangeListener
+        public void onFocusChange(View view2, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(1048576, this, view2, z) == null) {
+                if (hv1.h) {
+                    Log.d("Component-TextArea", "onFocusChange:" + z);
+                }
+                if (z) {
+                    if (this.b.k != 0) {
+                        this.b.F0(this.a, AddFriendActivityConfig.TYPE_FOCUS);
+                    }
+                    this.b.J0();
+                    return;
+                }
+                this.b.F0(this.a, ConstPath.KEY_BLUR);
+                this.b.I0();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class e implements fb3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SwanEditText a;
+        public final /* synthetic */ SwanAppActivity b;
+        public final /* synthetic */ View c;
+        public final /* synthetic */ dw1 d;
+
+        /* loaded from: classes5.dex */
+        public class a implements ShowConfirmBarLayout.b {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ew1 a;
+            public final /* synthetic */ e b;
+
+            public a(e eVar, ew1 ew1Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {eVar, ew1Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = eVar;
+                this.a = ew1Var;
+            }
+
+            @Override // com.baidu.swan.apps.textarea.ShowConfirmBarLayout.b
+            public void onClick(View view2) {
+                InputMethodManager inputMethodManager;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                    if (!this.a.X && (inputMethodManager = (InputMethodManager) this.b.b.getSystemService("input_method")) != null) {
+                        inputMethodManager.hideSoftInputFromWindow(this.b.a.getWindowToken(), 0);
+                    }
+                    sw1.i("Component-TextArea", "send confirm change callback");
+                    e eVar = this.b;
+                    eVar.d.F0(eVar.a, "confirm");
+                }
+            }
+        }
+
+        public e(dw1 dw1Var, SwanEditText swanEditText, SwanAppActivity swanAppActivity, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dw1Var, swanEditText, swanAppActivity, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = dw1Var;
+            this.a = swanEditText;
+            this.b = swanAppActivity;
+            this.c = view2;
+        }
+
+        @Override // com.repackage.fb3
+        public void a(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+                if (this.d.k != 0) {
+                    this.d.k = 0;
+                    if (this.d.j.x3().getScrollY() > 0) {
+                        this.d.j.x3().setScrollY(0);
+                        this.d.p = false;
+                    }
+                    if (this.d.o != null && this.d.o.getVisibility() == 0) {
+                        ((FrameLayout) this.c.findViewById(16908290)).removeView(this.d.o);
+                        this.d.o = null;
+                    }
+                }
+                if (this.a.hasFocus()) {
+                    this.a.clearFocus();
+                    if (hv1.h) {
+                        Log.d("Component-TextArea", "clearFocus");
+                    }
+                }
+            }
+        }
+
+        @Override // com.repackage.fb3
+        public void b(String str, int i) {
+            int i2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) {
+                ew1 ew1Var = (ew1) this.d.n();
+                zl1 i3 = fl2.U().i();
+                if (this.d.k == i || !this.a.hasFocus() || i3 == null) {
+                    return;
+                }
+                this.d.k = i;
+                this.d.n = this.a.getHeight();
+                this.d.F0(this.a, AddFriendActivityConfig.TYPE_FOCUS);
+                boolean z = ew1Var.T;
+                if (ew1Var.S) {
+                    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
+                    i2 = jd3.g(38.0f);
+                    if (this.d.o == null) {
+                        this.d.o = new ShowConfirmBarLayout(this.b);
+                        this.d.o.setOnConfirmButtonClickListener(new a(this, ew1Var));
+                        layoutParams.topMargin = ((this.c.getHeight() - i) - i2) - cd3.c();
+                        ((FrameLayout) this.c.findViewById(16908290)).addView(this.d.o, layoutParams);
+                    }
+                } else {
+                    i2 = 0;
+                }
+                if (z) {
+                    int webViewScrollY = !ew1Var.R ? i3.getWebViewScrollY() : 0;
+                    yp2 yp2Var = ew1Var.h;
+                    int height = ((this.d.j.x3().getHeight() - (yp2Var != null ? yp2Var.e() : 0)) - this.a.getHeight()) + webViewScrollY;
+                    int i4 = ew1Var.E;
+                    if (height - i4 < i) {
+                        this.d.p = true;
+                        if (i4 > height) {
+                            this.d.j.x3().setScrollY(i + i2);
+                            return;
+                        } else {
+                            this.d.j.x3().setScrollY((i - height) + i4 + i2);
+                            return;
+                        }
+                    }
+                    this.d.p = false;
+                }
+            }
+        }
+
+        @Override // com.repackage.fb3
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.d.q == this.a.getLineCount()) {
+                return;
+            }
+            sw1.i("Component-TextArea", "send line change callback");
+            this.d.F0(this.a, "linechange");
+            this.d.E0(this.a, str);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class f implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SwanEditText a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ dw1 c;
+
+        public f(dw1 dw1Var, SwanEditText swanEditText, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dw1Var, swanEditText, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = dw1Var;
+            this.a = swanEditText;
+            this.b = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
+                return;
+            }
+            JSONObject jSONObject = new JSONObject();
+            String obj = this.a.getTag().toString();
+            if (!TextUtils.equals(obj, ((ew1) this.c.n()).b)) {
+                lw1.a("Component-TextArea", "changeTextAreaStatus with different id");
+            }
+            int D0 = this.c.D0(this.a);
+            try {
+                jSONObject.put("eventName", this.b);
+                jSONObject.put("value", this.a.getText().toString());
+                jSONObject.put(Constants.EXTRA_CONFIG_CURSOR, this.a.getSelectionStart());
+                jSONObject.put("selectionStart", this.a.getSelectionStart());
+                jSONObject.put("selectionEnd", this.a.getSelectionEnd());
+                jSONObject.put("lineCount", this.a.getLineCount());
+                jSONObject.put("height", "" + jd3.O(D0));
+                jSONObject.put("keyboardHeight", "" + jd3.O((float) this.c.k));
+            } catch (JSONException e) {
+                if (hv1.h) {
+                    e.printStackTrace();
+                }
+            }
+            if (hv1.h) {
+                Log.d("Component-TextArea", "changeTextAreaStatus:" + jSONObject.toString());
+            }
+            this.c.l.a(obj, this.c.m, jSONObject);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class g implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SwanEditText a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ dw1 d;
+
+        public g(dw1 dw1Var, SwanEditText swanEditText, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dw1Var, swanEditText, str, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = dw1Var;
+            this.a = swanEditText;
+            this.b = str;
+            this.c = i;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
+                return;
+            }
+            JSONObject jSONObject = new JSONObject();
+            String obj = this.a.getTag().toString();
+            if (!TextUtils.equals(obj, ((ew1) this.d.n()).b)) {
+                lw1.a("Component-TextArea", "changeTextAreaStatus with different id");
+            }
+            int D0 = this.d.D0(this.a);
+            try {
+                jSONObject.put("eventName", this.b);
+                jSONObject.put("value", this.a.getText().toString());
+                jSONObject.put(Constants.EXTRA_CONFIG_CURSOR, this.a.getSelectionStart());
+                jSONObject.put("selectionStart", this.a.getSelectionStart());
+                jSONObject.put("selectionEnd", this.a.getSelectionEnd());
+                jSONObject.put("lineCount", this.a.getLineCount());
+                jSONObject.put("height", "" + jd3.O(D0));
+                jSONObject.put("keyboardHeight", "" + jd3.O((float) this.d.k));
+                jSONObject.put("keyCode", this.c);
+            } catch (JSONException e) {
+                if (hv1.h) {
+                    e.printStackTrace();
+                }
+            }
+            if (hv1.h) {
+                Log.d("Component-TextArea", "changeTextAreaStatus:" + jSONObject.toString());
+            }
+            this.d.l.a(obj, this.d.m, jSONObject);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class h implements TextView.OnEditorActionListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SwanEditText a;
+        public final /* synthetic */ ew1 b;
+        public final /* synthetic */ dw1 c;
+
+        public h(dw1 dw1Var, SwanEditText swanEditText, ew1 ew1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dw1Var, swanEditText, ew1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = dw1Var;
+            this.a = swanEditText;
+            this.b = ew1Var;
+        }
+
+        @Override // android.widget.TextView.OnEditorActionListener
+        public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+            InterceptResult invokeLIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i, keyEvent)) == null) {
+                if (i >= 2 && i <= 7) {
+                    this.c.F0(this.a, "confirm");
+                }
+                return this.b.X;
+            }
+            return invokeLIL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface i {
+        void a(String str, String str2, JSONObject jSONObject);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dw1(@Nullable Context context, @NonNull ew1 ew1Var, @NonNull SwanAppActivity swanAppActivity, @NonNull az1 az1Var, @NonNull i iVar) {
+        super(context, ew1Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, ew1Var, swanAppActivity, az1Var, iVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (zu1) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = bw1.b();
-        b = new String[]{bw1.c(), bw1.b(), "https://ossapi.baidu.com", "https://ext.baidu.com"};
+        this.p = false;
+        this.q = 1;
+        this.i = swanAppActivity;
+        this.j = az1Var;
+        this.l = iVar;
     }
 
-    public static String a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        StringBuilder sb;
-        StringBuilder sb2;
+    public final int D0(SwanEditText swanEditText) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, swanEditText)) == null) {
+            ew1 ew1Var = (ew1) n();
+            int lineCount = swanEditText.getLineCount();
+            int lineHeight = swanEditText.getLineHeight();
+            int i2 = ew1Var.U;
+            int i3 = ew1Var.V;
+            int height = swanEditText.getHeight();
+            if (ew1Var.Q) {
+                int paddingTop = (lineHeight * lineCount) + swanEditText.getPaddingTop() + swanEditText.getPaddingBottom();
+                if (i3 < i2) {
+                    i3 = i2;
+                }
+                return paddingTop <= i2 ? i2 : paddingTop >= i3 ? i3 : paddingTop;
             }
-            String str4 = str2 + "=";
-            int indexOf = str.indexOf("?");
-            String str5 = null;
-            if (indexOf < 0) {
-                int indexOf2 = str.indexOf("#");
-                if (indexOf2 < 0) {
-                    sb2 = new StringBuilder(str);
+            return height;
+        }
+        return invokeL.intValue;
+    }
+
+    public final void E0(SwanEditText swanEditText, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, swanEditText, str) == null) {
+            ew1 ew1Var = (ew1) n();
+            if (!TextUtils.equals(str, ew1Var.b)) {
+                lw1.a("Component-TextArea", "keyBoardShow with different id");
+            }
+            boolean z = ew1Var.T;
+            if (!swanEditText.hasFocus() || ew1Var.R) {
+                return;
+            }
+            if (this.k > 0 && z && this.p) {
+                int scrollY = this.j.x3().getScrollY() + (swanEditText.getHeight() - this.n);
+                if (scrollY > 0) {
+                    this.j.x3().setScrollY(scrollY);
                 } else {
-                    str5 = str.substring(indexOf2);
-                    sb2 = new StringBuilder(str.substring(0, indexOf2));
+                    this.j.x3().setScrollY(0);
                 }
-                sb2.append("?");
-                sb2.append(str4);
-                sb2.append(str3);
-                if (str5 != null) {
-                    sb2.append(str5);
-                }
-                return sb2.toString();
             }
-            if (str.indexOf("&" + str4, indexOf) < 0) {
-                if (str.indexOf("?" + str4, indexOf) < 0) {
-                    int indexOf3 = str.indexOf("#");
-                    if (indexOf3 < 0) {
-                        sb = new StringBuilder(str);
-                    } else {
-                        str5 = str.substring(indexOf3);
-                        str = str.substring(0, indexOf3);
-                        sb = new StringBuilder(str);
-                    }
-                    if (!str.endsWith("&") && !str.endsWith("?")) {
-                        sb.append("&");
-                    }
-                    sb.append(str4);
-                    sb.append(str3);
-                    if (str5 != null) {
-                        sb.append(str5);
-                    }
-                    return sb.toString();
-                }
-                return str;
-            }
-            return str;
+            this.n = swanEditText.getHeight();
         }
-        return (String) invokeLLL.objValue;
     }
 
-    public static String b(String str) {
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public final void F0(SwanEditText swanEditText, String str) {
+        char c2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, swanEditText, str) == null) {
+            switch (str.hashCode()) {
+                case -1715965556:
+                    if (str.equals("selection")) {
+                        c2 = 4;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 3027047:
+                    if (str.equals(ConstPath.KEY_BLUR)) {
+                        c2 = 3;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 97604824:
+                    if (str.equals(AddFriendActivityConfig.TYPE_FOCUS)) {
+                        c2 = 2;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 100358090:
+                    if (str.equals("input")) {
+                        c2 = 1;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 259718308:
+                    if (str.equals("linechange")) {
+                        c2 = 0;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                default:
+                    c2 = 65535;
+                    break;
+            }
+            if (c2 == 0) {
+                this.q = swanEditText.getLineCount();
+                ((ew1) n()).m(swanEditText.getHeight());
+            } else if (c2 == 1) {
+                ((ew1) n()).j(swanEditText.getText().toString());
+            } else if (c2 == 2) {
+                ((ew1) n()).q(true);
+            } else if (c2 == 3) {
+                ((ew1) n()).q(false);
+            } else if (c2 == 4) {
+                ((ew1) n()).l(swanEditText.getSelectionStart(), swanEditText.getSelectionEnd());
+            }
+            md3.a0(new f(this, swanEditText, str));
+        }
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public final void G0(SwanEditText swanEditText, String str, int i2) {
+        char c2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048581, this, swanEditText, str, i2) == null) {
+            switch (str.hashCode()) {
+                case -1715965556:
+                    if (str.equals("selection")) {
+                        c2 = 4;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 3027047:
+                    if (str.equals(ConstPath.KEY_BLUR)) {
+                        c2 = 3;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 97604824:
+                    if (str.equals(AddFriendActivityConfig.TYPE_FOCUS)) {
+                        c2 = 2;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 100358090:
+                    if (str.equals("input")) {
+                        c2 = 1;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 259718308:
+                    if (str.equals("linechange")) {
+                        c2 = 0;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                default:
+                    c2 = 65535;
+                    break;
+            }
+            if (c2 == 0) {
+                this.q = swanEditText.getLineCount();
+                ((ew1) n()).m(swanEditText.getHeight());
+            } else if (c2 == 1) {
+                ((ew1) n()).j(swanEditText.getText().toString());
+            } else if (c2 == 2) {
+                ((ew1) n()).q(true);
+            } else if (c2 == 3) {
+                ((ew1) n()).q(false);
+            } else if (c2 == 4) {
+                ((ew1) n()).l(swanEditText.getSelectionStart(), swanEditText.getSelectionEnd());
+            }
+            md3.a0(new g(this, swanEditText, str, i2));
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.yu1, com.repackage.dv1, com.repackage.fv1, com.repackage.hv1
+    @NonNull
+    /* renamed from: H0 */
+    public kw1 k(@NonNull ew1 ew1Var, @NonNull ew1 ew1Var2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, ew1Var, ew1Var2)) == null) {
+            kw1 k = super.k(ew1Var, ew1Var2);
+            if (!TextUtils.equals(ew1Var.L, ew1Var2.L)) {
+                k.b(14);
+            }
+            if (ew1Var.M != ew1Var2.M) {
+                k.b(14);
+            }
+            if (!TextUtils.equals(ew1Var.N, ew1Var2.N)) {
+                k.b(14);
+            }
+            if (!TextUtils.equals(ew1Var.O, ew1Var2.O)) {
+                k.b(14);
+            }
+            if (ew1Var.W != ew1Var2.W) {
+                k.b(15);
+            }
+            return k;
+        }
+        return (kw1) invokeLL.objValue;
+    }
+
+    public final void I0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            SwanAppActivity activity = fl2.U().getActivity();
+            if (activity == null) {
+                sw1.o("Component-TextArea", "activity is null when close input");
+                return;
+            }
+            if (hv1.h) {
+                Log.d("Component-TextArea", "forceCloseKeyboard");
+            }
+            tc3.a(activity, activity.getWindow().getDecorView().getWindowToken());
+        }
+    }
+
+    public final void J0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            SwanAppActivity activity = fl2.U().getActivity();
+            if (activity == null) {
+                sw1.o("Component-TextArea", "activity is null when open input");
+                return;
+            }
+            if (hv1.h) {
+                Log.d("Component-TextArea", "forceOpenKeyboard");
+            }
+            tc3.b(activity, true);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.hv1
+    @NonNull
+    /* renamed from: K0 */
+    public SwanEditText v(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            String b2 = ht2.b();
-            return b2 != null ? a(str, "launchid", b2) : str;
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) ? new SwanEditText(context) : (SwanEditText) invokeL.objValue;
     }
 
-    public static int c() {
-        InterceptResult invokeV;
-        NetworkInfo networkInfo;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.hv1
+    /* renamed from: L0 */
+    public void A(@NonNull SwanEditText swanEditText) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String str = null;
-            try {
-                networkInfo = ((ConnectivityManager) oi2.c().getSystemService("connectivity")).getActiveNetworkInfo();
-            } catch (NullPointerException unused) {
-                networkInfo = null;
+        if (interceptable == null || interceptable.invokeL(1048587, this, swanEditText) == null) {
+            super.A(swanEditText);
+            ew1 ew1Var = (ew1) n();
+            swanEditText.setTag(ew1Var.b);
+            swanEditText.setInputType(262144);
+            swanEditText.setSingleLine(false);
+            swanEditText.setHorizontallyScrolling(false);
+            this.m = ew1Var.e;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.yu1
+    /* renamed from: M0 */
+    public void a0(@NonNull SwanEditText swanEditText, @NonNull ew1 ew1Var, @NonNull kw1 kw1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048588, this, swanEditText, ew1Var, kw1Var) == null) {
+            super.T(swanEditText, ew1Var, kw1Var);
+            if (kw1Var.a(14)) {
+                Q0(swanEditText, ew1Var);
             }
-            if (networkInfo != null) {
-                str = "wifi".equals(networkInfo.getTypeName().toLowerCase()) ? "WIFI" : networkInfo.getExtraInfo();
+            boolean z = !t();
+            if (z) {
+                swanEditText.setMinHeight(ew1Var.U);
+                swanEditText.setMaxHeight(ew1Var.V);
             }
-            if (str != null) {
-                String upperCase = str.toUpperCase();
-                if ("WIFI".equals(upperCase)) {
-                    return 1;
-                }
-                if ("3GNET".equals(upperCase)) {
-                    return 21;
-                }
-                if ("3GWAP".equals(upperCase)) {
-                    return 22;
-                }
-                if ("CMNET".equals(upperCase)) {
-                    return 31;
-                }
-                if ("UNINET".equals(upperCase)) {
-                    return 32;
-                }
-                if ("CTNET".equals(upperCase)) {
-                    return 33;
-                }
-                if ("CMWAP".equals(upperCase)) {
-                    return 41;
-                }
-                if ("UNIWAP".equals(upperCase)) {
-                    return 42;
-                }
-                return "CTWAP".equals(upperCase) ? 43 : 5;
+            md3.a0(new a(this, ew1Var, swanEditText));
+            if (kw1Var.a(15)) {
+                P0(swanEditText, ew1Var);
             }
-            return 5;
-        }
-        return invokeV.intValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? oi2.n().a() : (String) invokeV.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? "a0" : (String) invokeV.objValue;
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            String g = g();
-            String h = h();
-            int i = Build.VERSION.SDK_INT;
-            String i2 = i();
-            return g + "_" + h + "_" + i + "_" + i2;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            String str = Build.MODEL;
-            return TextUtils.isEmpty(str) ? "NUL" : str.replace("_", "-");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            String str = Build.VERSION.RELEASE;
-            return TextUtils.isEmpty(str) ? "0.0" : str.replace("_", "-");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            String str = Build.MANUFACTURER;
-            return TextUtils.isEmpty(str) ? "NUL" : str.replace("_", "-");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            try {
-                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return str;
+            if (z) {
+                V0(swanEditText, this.i);
             }
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String k() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.yu1
+    /* renamed from: N0 */
+    public boolean c0(@NonNull SwanEditText swanEditText, @NonNull ew1 ew1Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? j(s()) : (String) invokeV.objValue;
-    }
-
-    public static String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? j(t()) : (String) invokeV.objValue;
-    }
-
-    public static String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? j(f()) : (String) invokeV.objValue;
-    }
-
-    public static int n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            NetworkInfo c = SwanAppNetworkUtils.c(oi2.c());
-            if (c == null) {
-                return 0;
-            }
-            return c.getSubtype();
-        }
-        return invokeV.intValue;
-    }
-
-    public static String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            return c() + "_" + n();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? AppRuntime.getApplication().getPackageName() : (String) invokeV.objValue;
-    }
-
-    public static String q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? "android" : (String) invokeV.objValue;
-    }
-
-    public static String r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? sf1.a() : (String) invokeV.objValue;
-    }
-
-    public static String s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
-            Context appContext = AppRuntime.getAppContext();
-            int o = yc3.o(appContext);
-            int n = yc3.n(appContext);
-            int m = yc3.m(appContext);
-            String q = q();
-            StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(o);
-            stringBuffer.append("_");
-            stringBuffer.append(n);
-            stringBuffer.append("_");
-            stringBuffer.append(q);
-            stringBuffer.append("_");
-            stringBuffer.append(bd3.D());
-            stringBuffer.append("_");
-            stringBuffer.append(m);
-            return stringBuffer.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? oi2.h0().i(AppRuntime.getAppContext()) : (String) invokeV.objValue;
-    }
-
-    public static boolean u(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, swanEditText, ew1Var)) == null) {
+            if (TextUtils.isEmpty(ew1Var.I) || "default".equals(ew1Var.I)) {
                 return false;
             }
-            for (String str2 : b) {
-                if (str.startsWith(str2)) {
-                    return true;
+            boolean c0 = super.c0(swanEditText, ew1Var);
+            if (c0) {
+                swanEditText.setOnEditorActionListener(new h(this, swanEditText, ew1Var));
+            }
+            return c0;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.yu1
+    /* renamed from: O0 */
+    public void d0(@NonNull SwanEditText swanEditText, @NonNull ew1 ew1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048591, this, swanEditText, ew1Var) == null) {
+            Editable text = swanEditText.getText();
+            int length = text != null ? text.length() : 0;
+            if (ew1Var.P) {
+                int i2 = ew1Var.F;
+                if (i2 <= length && i2 >= 0) {
+                    swanEditText.setSelection(i2);
+                } else {
+                    swanEditText.setSelection(length);
                 }
             }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 
-    public static String v(String str) {
-        InterceptResult invokeL;
+    public final void P0(@NonNull SwanEditText swanEditText, @NonNull ew1 ew1Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65558, null, str)) == null) ? w(str, false) : (String) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeLL(1048592, this, swanEditText, ew1Var) == null) {
+            if (hv1.h) {
+                Log.d("Component-TextArea", "renderDisable");
+            }
+            swanEditText.setEnabled(!ew1Var.W);
+        }
     }
 
-    public static String w(String str, boolean z) {
-        InterceptResult invokeLZ;
+    public final void Q0(@NonNull SwanEditText swanEditText, @NonNull ew1 ew1Var) {
+        StyleSpan styleSpan;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65559, null, str, z)) == null) {
-            String a2 = a(a(a(a(a(a(a(a(a(a(str, "uid", l()), "ua", k()), "ut", m()), "osbranch", e()), "pkgname", p()), "network", o()), "appname", d()), "hostname", d()), "swan_sdk_version", r()), "mnpunion", String.valueOf(SwanAppAllianceLoginHelper.d.f() ? 2 : 0));
-            return z ? b(a2) : a2;
+        if (interceptable == null || interceptable.invokeLL(1048593, this, swanEditText, ew1Var) == null) {
+            if (hv1.h) {
+                Log.d("Component-TextArea", "renderPlaceHolder");
+            }
+            SpannableString spannableString = new SpannableString(ew1Var.L);
+            String str = ew1Var.N;
+            char c2 = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != -1039745817) {
+                if (hashCode == 3029637 && str.equals("bold")) {
+                    c2 = 1;
+                }
+            } else if (str.equals("normal")) {
+                c2 = 0;
+            }
+            if (c2 == 0) {
+                styleSpan = new StyleSpan(0);
+            } else if (c2 != 1) {
+                styleSpan = new StyleSpan(0);
+            } else {
+                styleSpan = new StyleSpan(1);
+            }
+            spannableString.setSpan(styleSpan, 0, ew1Var.L.length(), 33);
+            spannableString.setSpan(new ForegroundColorSpan(SwanAppConfigData.t(ew1Var.O)), 0, ew1Var.L.length(), 33);
+            spannableString.setSpan(new AbsoluteSizeSpan(ew1Var.M, true), 0, ew1Var.L.length(), 33);
+            swanEditText.setHint(spannableString);
         }
-        return (String) invokeLZ.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.yu1
+    /* renamed from: R0 */
+    public void f0(@NonNull SwanEditText swanEditText, @NonNull ew1 ew1Var) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048594, this, swanEditText, ew1Var) == null) {
+            Editable text = swanEditText.getText();
+            int length = text != null ? text.length() : 0;
+            int i3 = ew1Var.H;
+            if (i3 > length || i3 <= 0 || (i2 = ew1Var.G) > i3 || i2 <= 0 || !ew1Var.P || swanEditText.hasFocus()) {
+                return;
+            }
+            swanEditText.setSelection(ew1Var.G, ew1Var.H);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.dv1
+    /* renamed from: S0 */
+    public void U(@NonNull SwanEditText swanEditText, @NonNull ew1 ew1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048596, this, swanEditText, ew1Var) == null) {
+            if (hv1.h) {
+                Log.d("Component-TextArea", "renderText");
+            }
+            if (TextUtils.equals(swanEditText.getText(), ew1Var.t)) {
+                return;
+            }
+            swanEditText.setLineSpacing(ew1Var.y, 1.0f);
+            swanEditText.setText(ew1Var.t);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.dv1
+    /* renamed from: T0 */
+    public void X(@NonNull SwanEditText swanEditText, @NonNull ew1 ew1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048598, this, swanEditText, ew1Var) == null) {
+            super.Y(swanEditText, ew1Var, 48);
+        }
+    }
+
+    public void U0(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
+            if (!TextUtils.equals(((ew1) n()).b, str)) {
+                lw1.a("Component-TextArea", "sendLineChangeEvent with different id");
+            }
+            SwanEditText swanEditText = (SwanEditText) q();
+            if (swanEditText == null) {
+                lw1.a("Component-TextArea", "sendLineChangeEvent with a null editText");
+            } else {
+                F0(swanEditText, "linechange");
+            }
+        }
+    }
+
+    public final void V0(SwanEditText swanEditText, @NonNull SwanAppActivity swanAppActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048601, this, swanEditText, swanAppActivity) == null) {
+            swanEditText.setSelectListener(new b(this, swanEditText));
+            swanEditText.addTextChangedListener(new c(this, swanEditText));
+            swanEditText.setOnFocusChangeListener(new d(this, swanEditText));
+            gb3.g(((ew1) n()).b, swanAppActivity, new e(this, swanEditText, swanAppActivity, swanAppActivity.getWindow().getDecorView()));
+        }
     }
 }

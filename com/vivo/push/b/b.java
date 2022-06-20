@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public final class b extends c {
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
             aVar.a("sdk_clients", this.a);
-            aVar.a("sdk_version", 800L);
+            aVar.a("sdk_version", 323L);
             aVar.a("BaseAppCommand.EXTRA_APPID", this.c);
             aVar.a("BaseAppCommand.EXTRA_APPKEY", this.b);
             aVar.a("PUSH_REGID", this.d);

@@ -1,18 +1,25 @@
 package com.repackage;
 
-import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
-public final class a60 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "liteUBC";
-    public static final boolean b;
+public class a60 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile a60 b;
+    public static final int c;
+    public static final int d;
+    public static final int e;
     public transient /* synthetic */ FieldHolder $fh;
+    public ThreadPoolExecutor a;
 
     static {
         InterceptResult invokeClinit;
@@ -27,30 +34,61 @@ public final class a60 {
                 return;
             }
         }
-        b = r50.d().b();
+        int availableProcessors = Runtime.getRuntime().availableProcessors();
+        c = availableProcessors;
+        d = Math.max(4, Math.min(availableProcessors - 1, 4));
+        e = (c * 3) + 1;
     }
 
-    public static void a(String str, String str2) {
+    public a60() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && b) {
-            String str3 = a;
-            Log.d(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.a = null;
+        ThreadPoolExecutor.DiscardOldestPolicy discardOldestPolicy = new ThreadPoolExecutor.DiscardOldestPolicy();
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(d, e, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue(), Executors.defaultThreadFactory(), discardOldestPolicy);
+        this.a = threadPoolExecutor;
+        threadPoolExecutor.allowCoreThreadTimeOut(false);
+        Executors.newSingleThreadExecutor();
     }
 
-    public static void b(String str, String str2, Throwable th) {
+    public static a60 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) && b) {
-            String str3 = a;
-            Log.e(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2, th);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (a60.class) {
+                    if (b == null) {
+                        b = new a60();
+                    }
+                }
+            }
+            return b;
         }
+        return (a60) invokeV.objValue;
     }
 
-    public static void c(String str, String str2) {
+    public final boolean b(Runnable runnable) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && b) {
-            String str3 = a;
-            Log.i(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+            try {
+                this.a.submit(runnable);
+                return true;
+            } catch (Throwable th) {
+                e60.b("UBCTaskManager", "Exception ", th);
+                return false;
+            }
         }
+        return invokeL.booleanValue;
     }
 }

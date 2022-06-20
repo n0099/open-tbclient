@@ -1,7 +1,7 @@
 package com.repackage;
-/* loaded from: classes7.dex */
-public interface tk9 {
-    void a();
 
-    void onLoaded();
+import com.win.opensdk.PBListener;
+/* loaded from: classes7.dex */
+public interface tk9 extends PBListener {
+    void onDisplayed();
 }

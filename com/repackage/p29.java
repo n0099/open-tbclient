@@ -11,7 +11,7 @@ import java.util.List;
 public final class p29 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public o29 a;
+    public q29 a;
 
     public p29() {
         Interceptable interceptable = $ic;
@@ -26,10 +26,10 @@ public final class p29 {
                 return;
             }
         }
-        this.a = new o29();
+        this.a = new q29();
     }
 
-    public final List<com.baidu.ubs.analytics.a.l> a() {
+    public final List<com.baidu.ubs.analytics.a.a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a() : (List) invokeV.objValue;
@@ -42,10 +42,10 @@ public final class p29 {
         }
     }
 
-    public final void c(com.baidu.ubs.analytics.a.l lVar) {
+    public final void c(com.baidu.ubs.analytics.a.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lVar) == null) {
-            this.a.c(lVar);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.a.c(aVar);
         }
     }
 }

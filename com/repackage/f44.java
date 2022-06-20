@@ -1,94 +1,72 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.graphics.Point;
-import android.widget.ImageView;
-import com.baidu.mapapi.map.MapViewLayoutParams;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ec3;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class f44 {
+public class f44 extends d44<em2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a implements ec3.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zl2 a;
-        public final /* synthetic */ q44 b;
-        public final /* synthetic */ m44 c;
-
-        public a(zl2 zl2Var, q44 q44Var, m44 m44Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755757813, "Lcom/repackage/f44;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zl2Var, q44Var, m44Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = zl2Var;
-            this.b = q44Var;
-            this.c = m44Var;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755757813, "Lcom/repackage/f44;");
+                return;
+            }
         }
+        boolean z = cg1.a;
+    }
 
-        @Override // com.repackage.ec3.b
-        public void a(String str, Bitmap bitmap) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
-                if (bitmap == null) {
-                    hw1.o("map", " icon is null ");
-                }
-                if (bitmap != null) {
-                    int i = this.a.d.c;
-                    if (i == -1) {
-                        i = bitmap.getWidth();
-                    }
-                    int i2 = this.a.d.d;
-                    if (i2 == -1) {
-                        i2 = bitmap.getHeight();
-                    }
-                    MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
-                    builder.layoutMode(MapViewLayoutParams.ELayoutMode.absoluteMode);
-                    builder.width(i);
-                    builder.height(i2);
-                    builder.align(1, 8);
-                    em2 em2Var = this.a.d;
-                    builder.point(new Point(em2Var.a, em2Var.b));
-                    ImageView imageView = new ImageView(AppRuntime.getAppContext());
-                    imageView.setImageBitmap(bitmap);
-                    imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                    this.b.l.addView(imageView, builder.build());
-                    imageView.setOnClickListener(this.c);
-                    imageView.setClickable(this.a.c);
-                    o44 o44Var = new o44();
-                    o44Var.a = this.a;
-                    o44Var.b = imageView;
-                    this.b.o.add(o44Var);
-                }
+    public f44() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void a(q44 q44Var, zl2 zl2Var, m44 m44Var) {
+    public static f44 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, q44Var, zl2Var, m44Var) == null) {
-            hw1.i("map", "createControl start");
-            if (zl2Var != null && zl2Var.isValid()) {
-                ec3.e(zl2Var.b, new a(zl2Var, q44Var, m44Var));
-            }
-            hw1.i("map", "createControl end");
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new f44() : (f44) invokeV.objValue;
+    }
+
+    @Override // com.repackage.d44
+    public boolean b(Context context, em2 em2Var, bm2 bm2Var, sz2 sz2Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, em2Var, bm2Var, sz2Var, jSONObject)) == null) ? e(context, em2Var, bm2Var, sz2Var) : invokeLLLLL.booleanValue;
+    }
+
+    public final boolean e(Context context, em2 em2Var, bm2 bm2Var, sz2 sz2Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, em2Var, bm2Var, sz2Var)) == null) {
+            sw1.i("map", "MapRemoveAction start");
+            boolean g = a44.b().g(em2Var);
+            sw1.i("map", "MapRemoveAction end");
+            return g;
         }
+        return invokeLLLL.booleanValue;
     }
 }

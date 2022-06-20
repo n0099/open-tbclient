@@ -1,38 +1,59 @@
 package com.repackage;
 
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
+import android.graphics.Rect;
+import android.os.Handler;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import android.view.ViewParent;
+import android.widget.AbsListView;
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.SwipeBackLayout;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.BawuTeamInfoActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.forumMember.member.FrsMemberTeamViewHolder;
+import com.baidu.tieba.face.view.EmotionPreview;
+import com.baidu.tieba.faceshop.EmotionPackageData;
+import com.baidu.tieba.faceshop.EmotionPackageDetailActivity;
+import com.baidu.tieba.faceshop.packagedetail.PackageDetailListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-import tbclient.BawuRoleInfoPub;
-import tbclient.MemberGroupInfo;
 /* loaded from: classes6.dex */
-public class j96 extends fb6<k96, FrsMemberTeamViewHolder> {
+public class j96 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View.OnClickListener t;
+    public EmotionPackageDetailActivity a;
+    public final float b;
+    public final int c;
+    public final int d;
+    public final Rect e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public Handler j;
+    public EmotionPreview k;
+    public PackageDetailListView l;
+    public boolean m;
+    public boolean n;
+    public FrameLayout o;
+    public int p;
+    public e q;
+    public final Runnable r;
+    public final PackageDetailListView.a s;
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ j96 a;
@@ -55,112 +76,431 @@ public class j96 extends fb6<k96, FrsMemberTeamViewHolder> {
             this.a = j96Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            k96 k96Var;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                String str = "";
-                if (view2.getTag() instanceof BawuRoleInfoPub) {
-                    BawuRoleInfoPub bawuRoleInfoPub = (BawuRoleInfoPub) view2.getTag();
-                    this.a.k.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.a, "" + bawuRoleInfoPub.user_id, bawuRoleInfoPub.user_name)));
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f092044) {
-                    Object tag = view2.getTag();
-                    if (tag instanceof Integer) {
-                        Integer num = (Integer) tag;
-                        if (this.a.z(num.intValue()) instanceof k96) {
-                            k96Var = (k96) this.a.z(num.intValue());
-                            if (k96Var != null || k96Var.b() == null) {
-                            }
-                            String[] split = StringUtils.isNull(k96Var.b().member_group_type) ? null : k96Var.b().member_group_type.split("_");
-                            if (split != null && split.length == 2) {
-                                str = split[0];
-                            }
-                            if (StringUtils.isNull(str) || !str.equalsIgnoreCase("1")) {
-                                return;
-                            }
-                            this.a.k.sendMessage(new CustomMessage(2002001, new BawuTeamInfoActivityConfig(this.a.a, jg.g(k96Var.a(), 0L))));
-                            return;
-                        }
-                    }
-                    k96Var = null;
-                    if (k96Var != null) {
-                    }
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.B();
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j96(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
+    /* loaded from: classes6.dex */
+    public class b implements PackageDetailListView.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ j96 a;
+
+        public b(j96 j96Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j96Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = j96Var;
+        }
+
+        @Override // com.baidu.tieba.faceshop.packagedetail.PackageDetailListView.a
+        public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+            InterceptResult invokeL;
+            e v;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+                if (motionEvent == null) {
+                    return false;
+                }
+                int action = motionEvent.getAction();
+                if (action != 0) {
+                    if (action != 1) {
+                        if (action == 2) {
+                            if (this.a.f > -1 && this.a.g > -1) {
+                                this.a.h = (int) motionEvent.getX();
+                                this.a.i = (int) motionEvent.getY();
+                                if (this.a.m || this.a.q != null) {
+                                    if (this.a.q != null && (v = this.a.v()) != null && (this.a.q == null || !this.a.q.equals(v))) {
+                                        this.a.z(v);
+                                    }
+                                } else {
+                                    float f = this.a.h - this.a.f;
+                                    float f2 = this.a.i - this.a.g;
+                                    if ((f * f) + (f2 * f2) > this.a.b * this.a.b) {
+                                        this.a.m = true;
+                                    }
+                                }
+                            }
+                            return this.a.q != null;
+                        } else if (action != 3) {
+                            return false;
+                        }
+                    }
+                    this.a.u();
+                    return false;
+                }
+                this.a.f = (int) motionEvent.getX();
+                this.a.g = (int) motionEvent.getY();
+                this.a.m = false;
+                this.a.A();
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements AbsListView.OnScrollListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ j96 a;
+
+        public c(j96 j96Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j96Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = j96Var;
+        }
+
+        @Override // android.widget.AbsListView.OnScrollListener
+        public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(1048576, this, absListView, i, i2, i3) == null) {
+            }
+        }
+
+        @Override // android.widget.AbsListView.OnScrollListener
+        public void onScrollStateChanged(AbsListView absListView, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i) == null) {
+                this.a.u();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements SwipeBackLayout.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ j96 a;
+
+        public d(j96 j96Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j96Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = j96Var;
+        }
+
+        @Override // com.baidu.adp.widget.SwipeBackLayout.b
+        public void a(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                this.a.n = false;
+            }
+        }
+
+        @Override // com.baidu.adp.widget.SwipeBackLayout.b
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.n = true;
+                this.a.u();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public View a;
+        public int b;
+        public int c;
+
+        public e(View view2, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = view2;
+            this.b = i;
+            this.c = i2;
+        }
+
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                if (obj == null || !(obj instanceof e)) {
+                    return false;
+                }
+                e eVar = (e) obj;
+                return eVar.b == this.b && eVar.c == this.c && eVar.a == this.a;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    public j96(EmotionPackageDetailActivity emotionPackageDetailActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {emotionPackageDetailActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.t = new a(this);
+        this.e = new Rect();
+        this.f = -1;
+        this.g = -1;
+        this.h = -1;
+        this.i = -1;
+        this.m = false;
+        this.n = false;
+        this.p = 3;
+        this.r = new a(this);
+        this.s = new b(this);
+        this.a = emotionPackageDetailActivity;
+        PackageDetailListView p2 = emotionPackageDetailActivity.p2();
+        this.l = p2;
+        p2.setTouchEventInterceptHandler(this.s);
+        this.j = emotionPackageDetailActivity.getSafeHandler();
+        this.l = emotionPackageDetailActivity.p2();
+        this.b = ViewConfiguration.get(emotionPackageDetailActivity).getScaledTouchSlop() * 2;
+        this.c = pi.f(emotionPackageDetailActivity, R.dimen.obfuscated_res_0x7f070286);
+        this.d = pi.f(emotionPackageDetailActivity, R.dimen.obfuscated_res_0x7f07028d);
+        this.l.setOnScrollListener(new c(this));
+        SwipeBackLayout q2 = emotionPackageDetailActivity.q2();
+        if (q2 != null) {
+            q2.setOnSlidingStateChangeListener(new d(this));
+        }
     }
 
-    @Override // com.repackage.fb6, com.repackage.wm
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        q0(i, view2, viewGroup, (k96) obj, (FrsMemberTeamViewHolder) viewHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.wm
-    /* renamed from: p0 */
-    public FrsMemberTeamViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void A() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new FrsMemberTeamViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02b6, (ViewGroup) null), this.t) : (FrsMemberTeamViewHolder) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.j.removeCallbacks(this.r);
+            this.j.postDelayed(this.r, 500L);
+        }
     }
 
-    public View q0(int i, View view2, ViewGroup viewGroup, k96 k96Var, FrsMemberTeamViewHolder frsMemberTeamViewHolder) {
-        InterceptResult invokeCommon;
-        MemberGroupInfo b;
-        List<BawuRoleInfoPub> list;
+    public final void B() {
+        e v;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, k96Var, frsMemberTeamViewHolder})) == null) {
-            super.S(i, view2, viewGroup, k96Var, frsMemberTeamViewHolder);
-            if (k96Var != null && k96Var.b() != null && (list = (b = k96Var.b()).member_group_list) != null && list.size() > 0 && !StringUtils.isNull(b.member_group_type)) {
-                frsMemberTeamViewHolder.a.setTag(Integer.valueOf(i));
-                String[] split = !StringUtils.isNull(b.member_group_type) ? b.member_group_type.split("_") : null;
-                String str = (split == null || split.length != 2) ? "" : split[1];
-                TextView textView = frsMemberTeamViewHolder.a;
-                textView.setText(str + "(" + b.member_group_num + SmallTailInfo.EMOTION_SUFFIX);
-                int i2 = 0;
-                for (BawuRoleInfoPub bawuRoleInfoPub : b.member_group_list) {
-                    if (i2 > 3) {
-                        break;
-                    } else if (bawuRoleInfoPub != null) {
-                        frsMemberTeamViewHolder.c(bawuRoleInfoPub, i2);
-                        i2++;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.m || this.n || this.q != null || (v = v()) == null) {
+            return;
+        }
+        z(v);
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.j.removeCallbacks(this.r);
+            u();
+        }
+    }
+
+    public final boolean t(View view2, EmotionPackageData.SingleEmotionData singleEmotionData) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, singleEmotionData)) == null) {
+            if (singleEmotionData == null || TextUtils.isEmpty(singleEmotionData.url) || view2 == null) {
+                return false;
+            }
+            Log.d("PackageDetailPreview", "show preview, url: " + singleEmotionData.url);
+            int[] iArr = new int[2];
+            view2.getLocationOnScreen(iArr);
+            EmotionPreview emotionPreview = new EmotionPreview(this.a);
+            this.k = emotionPreview;
+            SkinManager.setBackgroundResource(emotionPreview, R.drawable.bg_expression_bubble, this.p);
+            this.k.e(singleEmotionData.url, singleEmotionData.thumbnail, false, 10);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.c, this.d);
+            int i = iArr[0] - 60;
+            layoutParams.leftMargin = i;
+            layoutParams.topMargin = iArr[1] - this.d;
+            if (i < 0) {
+                layoutParams.leftMargin = 0;
+            }
+            if (layoutParams.leftMargin + this.c > pi.k(this.a)) {
+                layoutParams.leftMargin = pi.k(this.a) - this.c;
+            }
+            if (this.o == null) {
+                this.o = (FrameLayout) this.a.getWindow().getDecorView();
+            }
+            if (this.k.getParent() != null) {
+                ViewParent parent = this.k.getParent();
+                FrameLayout frameLayout = this.o;
+                if (parent == frameLayout) {
+                    frameLayout.removeView(this.k);
+                }
+            }
+            this.o.addView(this.k, layoutParams);
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.i = -1;
+            this.h = -1;
+            this.g = -1;
+            this.f = -1;
+            this.m = false;
+            this.a.setSwipeBackEnabled(true);
+            EmotionPreview emotionPreview = this.k;
+            if (emotionPreview == null || this.q == null) {
+                return;
+            }
+            if (emotionPreview.getParent() != null) {
+                ViewParent parent = this.k.getParent();
+                FrameLayout frameLayout = this.o;
+                if (parent == frameLayout) {
+                    frameLayout.removeView(this.k);
+                }
+            }
+            this.q = null;
+            this.l.setDisableListViewTouchIntercept(false);
+        }
+    }
+
+    public final e v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int i = this.h;
+            int i2 = this.i;
+            if (i < 0) {
+                i = this.f;
+            }
+            if (i2 < 0) {
+                i2 = this.g;
+            }
+            int pointToPosition = this.l.pointToPosition(i, i2);
+            if (pointToPosition >= 0) {
+                this.e.set(i, i2, i + 1, i2 + 1);
+                View childAt = this.l.getChildAt(pointToPosition);
+                if (childAt == null || !(childAt instanceof ViewGroup)) {
+                    return null;
+                }
+                ViewGroup viewGroup = (ViewGroup) childAt;
+                this.l.offsetRectIntoDescendantCoords(childAt, this.e);
+                int childCount = viewGroup.getChildCount();
+                for (int i3 = 0; i3 < childCount; i3++) {
+                    View childAt2 = viewGroup.getChildAt(i3);
+                    if (childAt2.getLeft() < this.e.left && childAt2.getRight() > this.e.right && childAt2.getTop() < this.e.left && childAt2.getBottom() > this.e.bottom) {
+                        int headerViewsCount = pointToPosition - this.l.getHeaderViewsCount();
+                        e eVar = new e(childAt2, headerViewsCount, i3);
+                        Log.d("PackageDetailPreview", "touch cell: (" + headerViewsCount + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + SmallTailInfo.EMOTION_SUFFIX);
+                        return eVar;
                     }
                 }
-                frsMemberTeamViewHolder.d(this.n);
-                SkinManager.setBackgroundColor(frsMemberTeamViewHolder.n, R.color.CAM_X0201);
-                SkinManager.setViewTextColor(frsMemberTeamViewHolder.a, R.color.CAM_X0105, 1);
-                SkinManager.setViewTextColor(frsMemberTeamViewHolder.j, R.color.CAM_X0106, 1);
-                SkinManager.setViewTextColor(frsMemberTeamViewHolder.k, R.color.CAM_X0106, 1);
-                SkinManager.setViewTextColor(frsMemberTeamViewHolder.l, R.color.CAM_X0106, 1);
-                SkinManager.setViewTextColor(frsMemberTeamViewHolder.m, R.color.CAM_X0106, 1);
-                frsMemberTeamViewHolder.a.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                return null;
             }
-            return view2;
+            return null;
         }
-        return (View) invokeCommon.objValue;
+        return (e) invokeV.objValue;
+    }
+
+    public final EmotionPackageData.SingleEmotionData w(int i, int i2) {
+        InterceptResult invokeII;
+        List list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048582, this, i, i2)) == null) {
+            en adapter2 = this.l.getAdapter2();
+            int i3 = (i * 4) + i2;
+            int headerViewsCount = i + this.l.getHeaderViewsCount();
+            if (adapter2 == null || headerViewsCount <= -1 || headerViewsCount >= adapter2.getCount() || (list = (List) adapter2.getItem(headerViewsCount)) == null || i3 <= -1 || i3 >= list.size()) {
+                return null;
+            }
+            return (EmotionPackageData.SingleEmotionData) list.get(i3);
+        }
+        return (EmotionPackageData.SingleEmotionData) invokeII.objValue;
+    }
+
+    public final void x() {
+        EmotionPreview emotionPreview;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (emotionPreview = this.k) == null || this.o == null) {
+            return;
+        }
+        if (emotionPreview.getParent() != null) {
+            ViewParent parent = this.k.getParent();
+            FrameLayout frameLayout = this.o;
+            if (parent == frameLayout) {
+                frameLayout.removeView(this.k);
+            }
+        }
+        this.k = null;
+    }
+
+    public void y(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.p = i;
+            EmotionPreview emotionPreview = this.k;
+            if (emotionPreview != null) {
+                SkinManager.setBackgroundResource(emotionPreview, R.drawable.bg_expression_bubble, i);
+            }
+        }
+    }
+
+    public final void z(e eVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, eVar) == null) || eVar == null) {
+            return;
+        }
+        x();
+        if (t(eVar.a, w(eVar.b, eVar.c))) {
+            this.q = eVar;
+            this.l.setDisableListViewTouchIntercept(true);
+            this.a.setSwipeBackEnabled(false);
+        }
     }
 }

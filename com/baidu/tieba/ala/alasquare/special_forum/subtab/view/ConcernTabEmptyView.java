@@ -14,10 +14,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nv5;
-import com.repackage.qp5;
+import com.repackage.mw5;
+import com.repackage.pq5;
 /* loaded from: classes3.dex */
-public class ConcernTabEmptyView extends nv5<qp5> {
+public class ConcernTabEmptyView extends mw5<pq5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewHolder i;
@@ -49,8 +49,8 @@ public class ConcernTabEmptyView extends nv5<qp5> {
                 }
             }
             this.a = view2;
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092188);
-            this.c = this.a.findViewById(R.id.obfuscated_res_0x7f09077b);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092184);
+            this.c = this.a.findViewById(R.id.obfuscated_res_0x7f090766);
         }
     }
 
@@ -73,19 +73,19 @@ public class ConcernTabEmptyView extends nv5<qp5> {
                 return;
             }
         }
-        this.i = new ViewHolder(k());
-        m(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+        this.i = new ViewHolder(h());
+        j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.repackage.nv5
+    @Override // com.repackage.mw5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d076a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0769 : invokeV.intValue;
     }
 
-    @Override // com.repackage.nv5
-    public void m(TbPageContext<?> tbPageContext, int i) {
+    @Override // com.repackage.mw5
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
             SkinManager.setViewTextColor(this.i.b, (int) R.color.CAM_X0109);
@@ -101,11 +101,11 @@ public class ConcernTabEmptyView extends nv5<qp5> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.nv5
-    /* renamed from: s */
-    public void l(qp5 qp5Var) {
+    @Override // com.repackage.mw5
+    /* renamed from: r */
+    public void i(pq5 pq5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, qp5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, pq5Var) == null) {
         }
     }
 }

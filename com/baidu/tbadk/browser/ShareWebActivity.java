@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.zk4;
+import com.repackage.jl4;
 /* loaded from: classes2.dex */
 public class ShareWebActivity extends TbWebViewActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -32,8 +32,8 @@ public class ShareWebActivity extends TbWebViewActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
-            zk4 zk4Var = this.mView;
-            if (zk4Var == null || (imageView = zk4Var.i) == null) {
+            jl4 jl4Var = this.mView;
+            if (jl4Var == null || (imageView = jl4Var.i) == null) {
                 return;
             }
             imageView.setVisibility(8);

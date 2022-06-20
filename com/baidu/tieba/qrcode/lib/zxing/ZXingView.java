@@ -15,7 +15,7 @@ import com.google.zxing.MultiFormatReader;
 import com.google.zxing.PlanarYUVLuminanceSource;
 import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
-import com.repackage.l68;
+import com.repackage.s78;
 /* loaded from: classes3.dex */
 public class ZXingView extends QRCodeView {
     public static /* synthetic */ Interceptable $ic;
@@ -43,7 +43,7 @@ public class ZXingView extends QRCodeView {
         }
     }
 
-    @Override // com.repackage.k68.a
+    @Override // com.repackage.r78.a
     public String a(byte[] bArr, int i, int i2, boolean z) {
         InterceptResult invokeCommon;
         Result result;
@@ -80,7 +80,7 @@ public class ZXingView extends QRCodeView {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             MultiFormatReader multiFormatReader = new MultiFormatReader();
             this.j = multiFormatReader;
-            multiFormatReader.setHints(l68.a);
+            multiFormatReader.setHints(s78.a);
         }
     }
 

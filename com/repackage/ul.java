@@ -1,65 +1,49 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.pms.statistic.StatisticCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.Arrays;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ul {
+public class ul implements StatisticCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Object obj, String str, Object[] objArr) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
+    public ul() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, obj, str, objArr) == null) {
-            Field b = b(obj, str);
-            Object[] objArr2 = (Object[]) b.get(obj);
-            Object[] objArr3 = (Object[]) Array.newInstance(objArr2.getClass().getComponentType(), objArr2.length + objArr.length);
-            System.arraycopy(objArr, 0, objArr3, 0, objArr.length);
-            System.arraycopy(objArr2, 0, objArr3, objArr.length, objArr2.length);
-            b.set(obj, objArr3);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static Field b(Object obj, String str) throws NoSuchFieldException {
-        InterceptResult invokeLL;
+    @Override // com.baidu.searchbox.pms.statistic.StatisticCallback
+    public boolean addDownloadStatistic2(int i, String str, String str2, String str3, long j, String str4, String str5, int i2, int i3) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, obj, str)) == null) {
-            for (Class<?> cls = obj.getClass(); cls != null; cls = cls.getSuperclass()) {
-                try {
-                    Field declaredField = cls.getDeclaredField(str);
-                    if (!declaredField.isAccessible()) {
-                        declaredField.setAccessible(true);
-                    }
-                    return declaredField;
-                } catch (NoSuchFieldException e) {
-                    e.printStackTrace();
-                }
-            }
-            throw new NoSuchFieldException("Field " + str + " not found in " + obj.getClass());
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, str3, Long.valueOf(j), str4, str5, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            return false;
         }
-        return (Field) invokeLL.objValue;
+        return invokeCommon.booleanValue;
     }
 
-    public static Method c(Object obj, String str, Class<?>... clsArr) throws NoSuchMethodException {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.searchbox.pms.statistic.StatisticCallback
+    public boolean addFetchStatistic2InHost(int i, String str, String str2, JSONObject jSONObject) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, obj, str, clsArr)) == null) {
-            for (Class<?> cls = obj.getClass(); cls != null; cls = cls.getSuperclass()) {
-                try {
-                    Method declaredMethod = cls.getDeclaredMethod(str, clsArr);
-                    if (!declaredMethod.isAccessible()) {
-                        declaredMethod.setAccessible(true);
-                    }
-                    return declaredMethod;
-                } catch (NoSuchMethodException unused) {
-                }
-            }
-            throw new NoSuchMethodException("Method " + str + " with parameters " + Arrays.asList(clsArr) + " not found in " + obj.getClass());
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, str2, jSONObject})) == null) {
+            return false;
         }
-        return (Method) invokeLLL.objValue;
+        return invokeCommon.booleanValue;
     }
 }

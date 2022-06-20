@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c03;
-import com.repackage.d03;
-import com.repackage.im3;
-import com.repackage.na1;
+import com.repackage.n03;
+import com.repackage.o03;
+import com.repackage.tm3;
+import com.repackage.ya1;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
-public class UnitedSchemeBaseDispatcher_UnitedSchemeRuntime_ListProvider implements na1 {
+public class UnitedSchemeBaseDispatcher_UnitedSchemeRuntime_ListProvider implements ya1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,15 +29,15 @@ public class UnitedSchemeBaseDispatcher_UnitedSchemeRuntime_ListProvider impleme
         }
     }
 
-    @Override // com.repackage.na1
+    @Override // com.repackage.ya1
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new c03());
-            arrayList.add(new d03());
-            arrayList.add(new im3());
+            arrayList.add(new n03());
+            arrayList.add(new o03());
+            arrayList.add(new tm3());
             return arrayList;
         }
         return invokeV.objValue;

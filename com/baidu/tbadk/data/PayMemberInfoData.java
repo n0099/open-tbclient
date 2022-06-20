@@ -39,7 +39,7 @@ public class PayMemberInfoData extends OrmObject {
         jSONObject.optString("expire_remind");
     }
 
-    public void y(PayMemberInfo payMemberInfo) {
+    public void z(PayMemberInfo payMemberInfo) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payMemberInfo) == null) || payMemberInfo == null) {
             return;

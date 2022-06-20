@@ -1,66 +1,40 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class hc5 extends Thread {
+public class hc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public String c;
 
-    public hc5(int i, int i2) {
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str == null) {
+                return false;
             }
+            int indexOf = str.indexOf("hiphotos");
+            if (indexOf <= 0 || indexOf >= 20) {
+                int indexOf2 = str.indexOf("tiebapic");
+                return indexOf2 > 0 && indexOf2 < 20;
+            }
+            return true;
         }
-        this.a = 0;
-        this.b = 0;
-        this.c = null;
-        this.a = i;
-        this.b = i2;
+        return invokeL.booleanValue;
     }
 
-    public void a(String str) {
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.c = str;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? c() : invokeV.booleanValue;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.run();
-            if (TbadkCoreApplication.getInst().checkInterrupt()) {
-                return;
-            }
-            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.LOAD_REG_PV_ADDRESS);
-            netWork.addPostData("img_num", String.valueOf(this.a));
-            netWork.addPostData("img_total", String.valueOf(this.b));
-            String str = this.c;
-            if (str != null) {
-                netWork.addPostData("img_type", str);
-            }
-            netWork.postNetData();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? FileHelper.checkSD() && ob.c() : invokeV.booleanValue;
     }
 }

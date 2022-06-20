@@ -18,11 +18,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ji;
-import com.repackage.jn;
-import com.repackage.li;
-import com.repackage.mo5;
-import com.repackage.pn5;
+import com.repackage.kp5;
+import com.repackage.ni;
+import com.repackage.nn;
+import com.repackage.no5;
+import com.repackage.pi;
 import com.yy.hiidostatis.inner.FlushManager;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -34,7 +34,7 @@ public class AlaLiveTabFriendModel extends BdBaseModel {
     public boolean c;
     public boolean d;
     public BdUniqueId e;
-    public mo5 f;
+    public kp5 f;
     public long g;
     public b h;
     public HttpMessageListener i;
@@ -77,16 +77,16 @@ public class AlaLiveTabFriendModel extends BdBaseModel {
                         this.a.h.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.d);
                     }
                 } else {
-                    pn5 pn5Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
+                    no5 no5Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
                     if (this.a.d) {
-                        this.a.f.a(pn5Var);
-                        AlaLiveTabFriendModel.E(this.a);
+                        this.a.f.a(no5Var);
+                        AlaLiveTabFriendModel.F(this.a);
                     } else {
                         AlaLiveTabFragment.k++;
                         if (this.a.f != null) {
                             this.a.f.b();
                         }
-                        this.a.f = new mo5(alaTabLiveResponsedMessage);
+                        this.a.f = new kp5(alaTabLiveResponsedMessage);
                     }
                     AlaLiveTabFriendModel alaLiveTabFriendModel = this.a;
                     alaLiveTabFriendModel.c = alaLiveTabFriendModel.f.f();
@@ -101,7 +101,7 @@ public class AlaLiveTabFriendModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(boolean z, List<jn> list);
+        void a(boolean z, List<nn> list);
 
         void b(int i, String str, boolean z);
     }
@@ -127,31 +127,31 @@ public class AlaLiveTabFriendModel extends BdBaseModel {
         this.e = BdUniqueId.gen();
     }
 
-    public static /* synthetic */ int E(AlaLiveTabFriendModel alaLiveTabFriendModel) {
+    public static /* synthetic */ int F(AlaLiveTabFriendModel alaLiveTabFriendModel) {
         int i = alaLiveTabFriendModel.b;
         alaLiveTabFriendModel.b = i + 1;
         return i;
     }
 
-    public final void H(int i, int i2, int i3) {
+    public final void I(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO);
             httpMessage.addParam("tab_id", 3);
             String str = "N";
-            if (ji.z()) {
-                if (ji.H()) {
+            if (ni.z()) {
+                if (ni.H()) {
                     str = "1_0";
-                } else if (ji.v()) {
+                } else if (ni.v()) {
                     str = "0_13";
-                } else if (ji.u()) {
+                } else if (ni.u()) {
                     str = "0_3";
-                } else if (ji.t()) {
+                } else if (ni.t()) {
                     str = "0_2";
                 }
             }
             httpMessage.addParam("network", str);
-            httpMessage.addParam("ua_str", li.k(this.a.getPageActivity()) + "_" + li.i(this.a.getPageActivity()) + "_android_" + TbConfig.getVersion());
+            httpMessage.addParam("ua_str", pi.k(this.a.getPageActivity()) + "_" + pi.i(this.a.getPageActivity()) + "_android_" + TbConfig.getVersion());
             httpMessage.addParam("session_id", this.g);
             httpMessage.addParam("refresh_type", i2);
             httpMessage.addParam("big_refresh_count", i3);
@@ -164,17 +164,29 @@ public class AlaLiveTabFriendModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            mo5 mo5Var = this.f;
-            return (mo5Var == null || ListUtils.isEmpty(mo5Var.d())) ? false : true;
+            kp5 kp5Var = this.f;
+            return (kp5Var == null || ListUtils.isEmpty(kp5Var.d())) ? false : true;
         }
         return invokeV.booleanValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.c && !this.d) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (currentTimeMillis - this.g >= FlushManager.ReportTimer.DEFAULT_INTERVAL) {
+                this.g = currentTimeMillis;
+            }
+            this.d = true;
+            I(this.b + 1, 1, AlaLiveTabFragment.k - 1);
+        }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -182,7 +194,7 @@ public class AlaLiveTabFriendModel extends BdBaseModel {
 
     public void init() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             MessageManager.getInstance().registerListener(this.i);
         }
     }
@@ -191,22 +203,10 @@ public class AlaLiveTabFriendModel extends BdBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
-    }
-
-    public void loadMore() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.c && !this.d) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.g >= FlushManager.ReportTimer.DEFAULT_INTERVAL) {
-                this.g = currentTimeMillis;
-            }
-            this.d = true;
-            H(this.b + 1, 1, AlaLiveTabFragment.k - 1);
-        }
     }
 
     public void onDestroy() {
@@ -222,7 +222,7 @@ public class AlaLiveTabFriendModel extends BdBaseModel {
             this.g = System.currentTimeMillis();
             this.d = false;
             this.b = 1;
-            H(1, 0, AlaLiveTabFragment.k);
+            I(1, 0, AlaLiveTabFragment.k);
         }
     }
 }

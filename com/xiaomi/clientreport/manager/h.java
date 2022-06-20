@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.bn;
+import com.xiaomi.push.bq;
 /* loaded from: classes8.dex */
 public class h implements Runnable {
     public static /* synthetic */ Interceptable $ic;
@@ -12,14 +12,14 @@ public class h implements Runnable {
     public final /* synthetic */ a a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ bn f21a;
+    public final /* synthetic */ bq f21a;
 
-    public h(a aVar, bn bnVar) {
+    public h(a aVar, bq bqVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, bnVar};
+            Object[] objArr = {aVar, bqVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,7 +30,7 @@ public class h implements Runnable {
             }
         }
         this.a = aVar;
-        this.f21a = bnVar;
+        this.f21a = bqVar;
     }
 
     @Override // java.lang.Runnable

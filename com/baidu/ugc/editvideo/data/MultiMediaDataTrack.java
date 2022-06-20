@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.u79;
+import com.repackage.c89;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -148,7 +148,7 @@ public class MultiMediaDataTrack implements Parcelable, Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (u79.e(this.multiMediaDataList) || this.multiMediaDataList.size() < 1) {
+            if (c89.e(this.multiMediaDataList) || this.multiMediaDataList.size() < 1) {
                 return false;
             }
             List<MultiMediaData> list = this.multiMediaDataList;
@@ -161,7 +161,7 @@ public class MultiMediaDataTrack implements Parcelable, Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (u79.e(this.multiMediaDataList) || this.multiMediaDataList.get(0) == null) {
+            if (c89.e(this.multiMediaDataList) || this.multiMediaDataList.get(0) == null) {
                 return false;
             }
             return MediaSegment.SEG_TYPE_INPUT_HEADER.equals(this.multiMediaDataList.get(0).inputType);

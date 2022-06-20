@@ -1,134 +1,169 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class uv1 {
+public class uv1 extends r03 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755247615, "Lcom/repackage/uv1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755247615, "Lcom/repackage/uv1;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public uv1(p03 p03Var) {
+        super(p03Var, "/swanAPI/coverview");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {p03Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((p03) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        boolean z = rf1.a;
     }
 
-    @Nullable
-    public static <C extends wu1> C a(xu1 xu1Var) {
-        InterceptResult invokeL;
-        C c;
+    @Override // com.repackage.r03
+    @NonNull
+    public String j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, xu1Var)) == null) {
-            if (xu1Var == null) {
-                aw1.a("Component-Finder", "find a null component: null model");
-                return null;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "/swanAPI/coverview" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.r03
+    public boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, sz2 sz2Var) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, sz2Var)) == null) {
+            if (p13.b) {
+                Log.d("Component-Action-CoverView", "insert");
             }
-            String d = xu1Var.d();
-            String str = xu1Var.c;
-            if (TextUtils.isEmpty(str)) {
-                hw1.c("Component-Finder", "find a null " + d + " : slaveId is empty");
-                return null;
+            aw1 q = q(unitedSchemeEntity);
+            if (q == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                sw1.c("Component-Action-CoverView", "model is null");
+                return false;
             }
-            xv1 d2 = d(str);
-            if (d2 == null) {
-                hw1.c("Component-Finder", "find a null " + d + " : null component context");
-                return null;
-            }
-            String str2 = xu1Var.b;
-            if (TextUtils.isEmpty(str2)) {
-                hw1.o("Component-Finder", "find " + d + " with a empty componentId");
-                List<wu1> list = d2.a().c.get(xu1Var.a);
-                if (list == null) {
-                    hw1.c("Component-Finder", "find a null " + d + " with a empty componentId: fallbackComponents are null ");
-                    return null;
-                } else if (list.size() <= 0) {
-                    hw1.c("Component-Finder", "find a null " + d + " with a empty componentId: fallbackComponents are empty ");
-                    return null;
-                } else {
-                    hw1.o("Component-Finder", "find " + d + " with a empty componentId: fina a fallback component");
-                    c = (C) list.get(0);
-                }
+            jv1 insert = new zv1(context, q).insert();
+            boolean a = insert.a();
+            if (a) {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             } else {
-                c = (C) d2.a().b.get(str2);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, insert.b);
             }
-            if (c == null) {
-                hw1.c("Component-Finder", "find a null " + d + " : not exist");
-                return null;
-            }
-            return c;
+            return a;
         }
-        return (C) invokeL.objValue;
+        return invokeLLLLL.booleanValue;
     }
 
-    @Nullable
-    public static <C extends wu1> C b(@Nullable String str, @Nullable String str2) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.r03
+    public boolean o(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, sz2 sz2Var) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return null;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, str, sz2Var)) == null) {
+            if (p13.b) {
+                Log.d("Component-Action-CoverView", "remove");
             }
-            xv1 d = d(str);
-            if (d == null) {
-                hw1.c("Component-Finder", "find a null " + str2 + " : null component context");
-                return null;
+            aw1 q = q(unitedSchemeEntity);
+            if (q == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                sw1.c("Component-Action-CoverView", "model is null");
+                return false;
             }
-            C c = (C) d.a().b.get(str2);
-            if (c == null) {
-                hw1.c("Component-Finder", "find a null " + str2 + " : not exist");
-                return null;
+            zv1 zv1Var = (zv1) fw1.a(q);
+            if (zv1Var == null) {
+                String str2 = "can't find coverView component:#" + q.b;
+                sw1.c("Component-Action-CoverView", str2);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
+                return false;
             }
-            return c;
+            jv1 B = zv1Var.B();
+            boolean a = B.a();
+            if (a) {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            } else {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, B.b);
+            }
+            return a;
         }
-        return (C) invokeLL.objValue;
+        return invokeLLLLL.booleanValue;
+    }
+
+    @Override // com.repackage.r03
+    public boolean p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, sz2 sz2Var) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, unitedSchemeEntity, callbackHandler, str, sz2Var)) == null) {
+            if (p13.b) {
+                Log.d("Component-Action-CoverView", "update");
+            }
+            aw1 q = q(unitedSchemeEntity);
+            if (q == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                sw1.c("Component-Action-CoverView", "model is null");
+                return false;
+            }
+            zv1 zv1Var = (zv1) fw1.a(q);
+            if (zv1Var == null) {
+                String str2 = "can't find coverView component:#" + q.b;
+                sw1.c("Component-Action-CoverView", str2);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
+                return false;
+            }
+            jv1 update = zv1Var.update((zv1) q);
+            boolean a = update.a();
+            if (a) {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            } else {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, update.b);
+            }
+            return a;
+        }
+        return invokeLLLLL.booleanValue;
     }
 
     @Nullable
-    public static xv1 c(xu1 xu1Var) {
+    public final aw1 q(UnitedSchemeEntity unitedSchemeEntity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, xu1Var)) == null) {
-            if (xu1Var == null) {
-                aw1.a("Component-Finder", "find component context with a null model");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, unitedSchemeEntity)) == null) {
+            if (unitedSchemeEntity == null) {
                 return null;
             }
-            return d(xu1Var.c);
-        }
-        return (xv1) invokeL.objValue;
-    }
-
-    @Nullable
-    public static xv1 d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                hw1.c("Component-Finder", "find component context with a null slave id");
+            JSONObject k = k(unitedSchemeEntity);
+            if (k == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                sw1.c("Component-Action-CoverView", "params is null");
                 return null;
             }
-            pl1 A = uk2.U().A(str);
-            if (A instanceof nl1) {
-                return ((nl1) A).f0();
+            aw1 aw1Var = new aw1();
+            try {
+                aw1Var.a(k);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                sw1.d("Component-Action-CoverView", "model parse exception:", e);
             }
-            return null;
+            return aw1Var;
         }
-        return (xv1) invokeL.objValue;
+        return (aw1) invokeL.objValue;
     }
 }

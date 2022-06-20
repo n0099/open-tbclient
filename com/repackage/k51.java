@@ -1,65 +1,79 @@
 package com.repackage;
 
-import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.interfa.IWebViewDataDirectoryManager;
+import com.baidu.nps.interfa.IWebViewDataDirectoryManager_WebViewDataDirectoryManager_Provider;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class k51 {
+public class k51 {
     public static /* synthetic */ Interceptable $ic;
+    public static k51 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    @Inject
+    public bb1<IWebViewDataDirectoryManager> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755607990, "Lcom/repackage/k51;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755607990, "Lcom/repackage/k51;");
+                return;
+            }
+        }
+        b = new k51();
+    }
 
     public k51() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = false;
+        b();
     }
 
-    public boolean a() {
+    public static k51 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (k51) invokeV.objValue;
     }
 
-    public abstract boolean b(SQLiteDatabase sQLiteDatabase);
-
-    public void c(SQLiteDatabase sQLiteDatabase) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) != null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            za1 b2 = za1.b();
+            this.a = b2;
+            b2.a(new IWebViewDataDirectoryManager_WebViewDataDirectoryManager_Provider());
         }
-        this.a = false;
-        try {
-            sQLiteDatabase.beginTransaction();
-            if (b(sQLiteDatabase)) {
-                sQLiteDatabase.setTransactionSuccessful();
-                this.a = true;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (c61.a()) {
+                Log.i("NPS-WebViewDataDirec", "webViewDataDirectoryManagerHolder class=" + this.a.getClass());
             }
-        } catch (Exception unused) {
-        } catch (Throwable th) {
-            try {
-                sQLiteDatabase.endTransaction();
-            } catch (Exception unused2) {
-            }
-            throw th;
-        }
-        try {
-            sQLiteDatabase.endTransaction();
-        } catch (Exception unused3) {
+            this.a.get().setDataDirectorySuffix();
         }
     }
 }

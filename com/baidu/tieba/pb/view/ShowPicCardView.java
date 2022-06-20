@@ -19,15 +19,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
-import com.repackage.mg8;
-import com.repackage.sk4;
+import com.repackage.cl4;
+import com.repackage.fh8;
+import com.repackage.pi;
 /* loaded from: classes3.dex */
 public class ShowPicCardView extends FrameLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public mg8 b;
+    public fh8 b;
     public TbImageView c;
     public LinearLayout d;
     public ImageView e;
@@ -60,19 +60,19 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.h = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06ce, (ViewGroup) this, true);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09183d);
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0903cb);
+            this.h = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06cc, (ViewGroup) this, true);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091833);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0903c9);
             this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092032);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09076a);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ce8);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090755);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cdf);
         }
     }
 
-    public mg8 getData() {
+    public fh8 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (mg8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (fh8) invokeV.objValue;
     }
 
     public ImageView getIcon() {
@@ -83,37 +83,37 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        mg8 mg8Var;
+        fh8 fh8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || (mg8Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || (fh8Var = this.b) == null) {
             return;
         }
-        sk4.o(this.a, mg8Var.e());
+        cl4.o(this.a, fh8Var.e());
     }
 
-    public void setData(mg8 mg8Var) {
+    public void setData(fh8 fh8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, mg8Var) == null) || mg8Var == null || this.b == mg8Var) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, fh8Var) == null) || fh8Var == null || this.b == fh8Var) {
             return;
         }
-        this.b = mg8Var;
-        if (!StringUtils.isNULL(mg8Var.f())) {
+        this.b = fh8Var;
+        if (!StringUtils.isNULL(fh8Var.f())) {
             this.f.setVisibility(0);
-            this.f.setText(mg8Var.f());
+            this.f.setText(fh8Var.f());
         } else {
             this.f.setVisibility(8);
         }
-        if (!StringUtils.isNULL(mg8Var.a())) {
+        if (!StringUtils.isNULL(fh8Var.a())) {
             this.g.setVisibility(0);
-            this.g.setText(mg8Var.a());
+            this.g.setText(fh8Var.a());
         } else {
             this.g.setVisibility(8);
         }
         if (this.i) {
             this.c.setSupportNoImage(true);
         }
-        int d = mg8Var.d();
-        int b = mg8Var.b();
+        int d = fh8Var.d();
+        int b = fh8Var.b();
         if (d <= 0 || b <= 0) {
             return;
         }
@@ -121,15 +121,15 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
         this.c.setOnClickListener(this);
         this.c.setInterceptOnClick(true);
         this.c.setDefaultResource(R.drawable.icon_click);
-        this.c.K(mg8Var.c(), 18, false);
-        int k = li.k(this.a) - (li.f(this.a, R.dimen.obfuscated_res_0x7f070201) * 2);
+        this.c.J(fh8Var.c(), 18, false);
+        int k = pi.k(this.a) - (pi.f(this.a, R.dimen.obfuscated_res_0x7f070201) * 2);
         float f = b / d;
         this.c.setLayoutParams(new FrameLayout.LayoutParams(k, (int) (f > 1.7777778f ? k * 1.7777778f : f < 0.75f ? k * 0.75f : k * f)));
         removeView(this.c);
         addView(this.c);
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.d.getLayoutParams();
         layoutParams.width = k;
-        layoutParams.height = li.f(this.a, R.dimen.obfuscated_res_0x7f070239);
+        layoutParams.height = pi.f(this.a, R.dimen.obfuscated_res_0x7f070239);
         removeView(this.d);
         addView(this.d, layoutParams);
     }

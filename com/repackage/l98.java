@@ -1,17 +1,26 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
 /* loaded from: classes6.dex */
-public class l98 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface l98 extends IAdBaseAsyncController {
 
-    public abstract void a();
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(int i);
+    }
 
-    public abstract void b();
+    void a(TbPageContext<BaseFragmentActivity> tbPageContext);
 
-    public abstract void c();
+    void c(AdvertAppInfo advertAppInfo, boolean z);
 
-    public abstract void d();
+    @Nullable
+    m88 i(AdvertAppInfo advertAppInfo);
+
+    void loadAd();
+
+    void m(AdvertAppInfo advertAppInfo);
 }

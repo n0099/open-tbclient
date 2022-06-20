@@ -1,135 +1,39 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.view.View;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
 public class p68 {
     public static /* synthetic */ Interceptable $ic;
-    public static p68 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<String, q68> a;
 
-    public p68() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ConcurrentHashMap<>();
-    }
-
-    public static p68 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (p68.class) {
-                    if (b == null) {
-                        b = new p68();
-                    }
-                }
-            }
-            return b;
-        }
-        return (p68) invokeV.objValue;
-    }
-
-    public ConcurrentHashMap<String, q68> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ConcurrentHashMap) invokeV.objValue;
-    }
-
-    public q68 c(String str) {
+    public static boolean a(i45 i45Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            ConcurrentHashMap<String, q68> concurrentHashMap = this.a;
-            if (concurrentHashMap == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, i45Var)) == null) {
+            if (i45Var != null) {
+                return i45Var.isViewAttached();
             }
-            return concurrentHashMap.get(str);
+            return false;
         }
-        return (q68) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void d(String str) {
-        ConcurrentHashMap<String, q68> concurrentHashMap;
+    public static void b(i45 i45Var, View.OnClickListener onClickListener, Context context, View view2, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str) || (concurrentHashMap = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{i45Var, onClickListener, context, view2, str, Boolean.valueOf(z)}) == null) || a(i45Var) || context == null || view2 == null) {
             return;
         }
-        Iterator<String> it = concurrentHashMap.keySet().iterator();
-        while (it.hasNext()) {
-            q68 q68Var = this.a.get(it.next());
-            if (q68Var != null && str.equals(q68Var.b)) {
-                it.remove();
-            }
+        if (i45Var == null) {
+            i45Var = new i45(context, onClickListener);
         }
-    }
-
-    public void e(boolean z) {
-        ConcurrentHashMap<String, q68> concurrentHashMap;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (concurrentHashMap = this.a) == null) {
-            return;
-        }
-        for (String str : concurrentHashMap.keySet()) {
-            q68 q68Var = this.a.get(str);
-            if (q68Var != null) {
-                q68Var.e = z;
-            }
-        }
-    }
-
-    public void f(boolean z, String str) {
-        ConcurrentHashMap<String, q68> concurrentHashMap;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZL(1048580, this, z, str) == null) || TextUtils.isEmpty(str) || (concurrentHashMap = this.a) == null) {
-            return;
-        }
-        for (String str2 : concurrentHashMap.keySet()) {
-            q68 q68Var = this.a.get(str2);
-            if (q68Var != null && str.equals(q68Var.b)) {
-                q68Var.e = z;
-            }
-        }
-    }
-
-    public void g(HashMap<String, q68> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, hashMap) == null) {
-            this.a.clear();
-            if (hashMap == null) {
-                return;
-            }
-            this.a.putAll(hashMap);
-        }
-    }
-
-    public void h(String str, HashMap<String, q68> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, hashMap) == null) {
-            if (this.a == null) {
-                this.a = new ConcurrentHashMap<>();
-            }
-            d(str);
-            this.a.putAll(hashMap);
-        }
+        i45Var.k(context.getResources().getDimensionPixelSize(R.dimen.tbds530));
+        i45Var.attachView(view2, z);
+        i45Var.p();
+        i45Var.onChangeSkinType();
     }
 }

@@ -25,10 +25,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cx;
-import com.repackage.li;
+import com.repackage.gx;
+import com.repackage.pi;
 /* loaded from: classes3.dex */
-public class EllipsizeTagTitleView extends View implements cx {
+public class EllipsizeTagTitleView extends View implements gx {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: A */
@@ -83,13 +83,13 @@ public class EllipsizeTagTitleView extends View implements cx {
                 return;
             }
         }
-        B = li.f(TbadkCoreApplication.getInst(), R.dimen.T_X06);
-        C = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds16);
-        D = li.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
-        E = li.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
-        F = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds12);
-        G = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds6);
-        H = li.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+        B = pi.f(TbadkCoreApplication.getInst(), R.dimen.T_X06);
+        C = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds16);
+        D = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
+        E = pi.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
+        F = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds12);
+        G = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+        H = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -337,7 +337,7 @@ public class EllipsizeTagTitleView extends View implements cx {
             TextPaint textPaint2 = new TextPaint(1);
             this.w = textPaint2;
             textPaint2.setColor(SkinManager.getColor(this.k));
-            this.w.setTextSize(li.f(TbadkCoreApplication.getInst(), R.dimen.T_X10));
+            this.w.setTextSize(pi.f(TbadkCoreApplication.getInst(), R.dimen.T_X10));
             if (this.w.getFontMetrics() != null) {
                 this.p = this.w.getFontMetrics().descent - this.w.getFontMetrics().ascent;
                 this.q = this.w.getFontMetrics().descent;
@@ -345,7 +345,7 @@ public class EllipsizeTagTitleView extends View implements cx {
         }
     }
 
-    @Override // com.repackage.cx
+    @Override // com.repackage.gx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048587, this, tbPageContext, i) == null) {

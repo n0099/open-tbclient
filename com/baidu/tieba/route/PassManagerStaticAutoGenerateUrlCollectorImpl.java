@@ -50,6 +50,8 @@ public final class PassManagerStaticAutoGenerateUrlCollectorImpl implements ICmd
             hashMap.put("2921339", "com.baidu.tieba.passaccount.framework.PassManagerStatic");
             hashMap.put("2921352", "com.baidu.tieba.passaccount.framework.PassManagerStatic");
             hashMap.put("3001000", "com.baidu.tieba.passaccount.framework.PassManagerStatic");
+            hashMap.put("2921709", "com.baidu.tieba.passaccount.framework.PassManagerStatic");
+            hashMap.put("2921710", "com.baidu.tieba.passaccount.framework.PassManagerStatic");
             return hashMap;
         }
         return (Map) invokeV.objValue;

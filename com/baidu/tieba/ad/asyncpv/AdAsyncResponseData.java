@@ -52,7 +52,7 @@ public class AdAsyncResponseData extends JsonHttpResponsedMessage {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject2 = optJSONArray.optJSONObject(i).optJSONObject("adInfo");
                 if (optJSONObject2 != null) {
-                    arrayList.add(AdvertAppInfo.v(optJSONObject2));
+                    arrayList.add(AdvertAppInfo.t(optJSONObject2));
                 }
             }
             return arrayList;

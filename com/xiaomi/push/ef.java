@@ -1,121 +1,79 @@
 package com.xiaomi.push;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes8.dex */
-public class ef implements ed {
+public final class ef {
     public static /* synthetic */ Interceptable $ic;
+    public static final ef a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public static final /* synthetic */ ef[] f302a;
+    public static final ef b;
+    public static final ef c;
+    public static final ef d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ef() {
+    /* renamed from: a  reason: collision with other field name */
+    public String f303a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-56375873, "Lcom/xiaomi/push/ef;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-56375873, "Lcom/xiaomi/push/ef;");
+                return;
+            }
+        }
+        a = new ef("ACTIVITY", 0, "activity");
+        b = new ef("SERVICE_ACTION", 1, "service_action");
+        c = new ef("SERVICE_COMPONENT", 2, "service_component");
+        ef efVar = new ef("PROVIDER", 3, "provider");
+        d = efVar;
+        f302a = new ef[]{a, b, c, efVar};
+    }
+
+    public ef(String str, int i, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                String str3 = (String) objArr2[0];
+                ((Integer) objArr2[1]).intValue();
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.f303a = str2;
     }
 
-    private void a(Context context, String str) {
+    public static ef valueOf(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, this, context, str) == null) {
-            try {
-                if (!TextUtils.isEmpty(str) && context != null) {
-                    String[] split = str.split("/");
-                    if (split.length > 0 && !TextUtils.isEmpty(split[split.length - 1])) {
-                        String str2 = split[split.length - 1];
-                        if (TextUtils.isEmpty(str2)) {
-                            dw.a(context, "provider", 1008, "B get a incorrect message");
-                            return;
-                        }
-                        String decode = Uri.decode(str2);
-                        if (TextUtils.isEmpty(decode)) {
-                            dw.a(context, "provider", 1008, "B get a incorrect message");
-                            return;
-                        }
-                        String b = dv.b(decode);
-                        if (!TextUtils.isEmpty(b)) {
-                            dw.a(context, b, 1007, "play with provider successfully");
-                            return;
-                        }
-                    }
-                }
-                dw.a(context, "provider", 1008, "B get a incorrect message");
-            } catch (Exception e) {
-                dw.a(context, "provider", 1008, "B meet a exception" + e.getMessage());
-            }
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ef) Enum.valueOf(ef.class, str) : (ef) invokeL.objValue;
     }
 
-    private void b(Context context, dz dzVar) {
+    public static ef[] values() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, this, context, dzVar) == null) {
-            String b = dzVar.b();
-            String d = dzVar.d();
-            int a = dzVar.a();
-            if (context == null || TextUtils.isEmpty(b) || TextUtils.isEmpty(d)) {
-                if (TextUtils.isEmpty(d)) {
-                    dw.a(context, "provider", 1008, "argument error");
-                } else {
-                    dw.a(context, d, 1008, "argument error");
-                }
-            } else if (!com.xiaomi.push.service.g.b(context, b)) {
-                dw.a(context, d, 1003, "B is not ready");
-            } else {
-                dw.a(context, d, 1002, "B is ready");
-                dw.a(context, d, 1004, "A is ready");
-                String a2 = dv.a(d);
-                try {
-                    if (TextUtils.isEmpty(a2)) {
-                        dw.a(context, d, 1008, "info is empty");
-                    } else if (a == 1 && !ea.m320a(context)) {
-                        dw.a(context, d, 1008, "A not in foreground");
-                    } else {
-                        String type = context.getContentResolver().getType(dv.a(b, a2));
-                        if (TextUtils.isEmpty(type) || !"success".equals(type)) {
-                            dw.a(context, d, 1008, "A is fail to help B's provider");
-                            return;
-                        }
-                        dw.a(context, d, 1005, "A is successful");
-                        dw.a(context, d, 1006, "The job is finished");
-                    }
-                } catch (Exception e) {
-                    com.xiaomi.channel.commonutils.logger.b.a(e);
-                    dw.a(context, d, 1008, "A meet a exception when help B's provider");
-                }
-            }
-        }
-    }
-
-    @Override // com.xiaomi.push.ed
-    public void a(Context context, Intent intent, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, context, intent, str) == null) {
-            a(context, str);
-        }
-    }
-
-    @Override // com.xiaomi.push.ed
-    public void a(Context context, dz dzVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, dzVar) == null) {
-            if (dzVar != null) {
-                b(context, dzVar);
-            } else {
-                dw.a(context, "provider", 1008, "A receive incorrect message");
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ef[]) f302a.clone() : (ef[]) invokeV.objValue;
     }
 }

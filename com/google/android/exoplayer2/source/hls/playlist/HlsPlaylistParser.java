@@ -465,7 +465,7 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
                     } else if (next.startsWith(TAG_KEY)) {
                         String parseStringAttr3 = parseStringAttr(next, REGEX_METHOD);
                         String parseOptionalStringAttr2 = parseOptionalStringAttr(next, REGEX_KEYFORMAT);
-                        if ("NONE".equals(parseStringAttr3)) {
+                        if (METHOD_NONE.equals(parseStringAttr3)) {
                             str2 = null;
                             str3 = null;
                         } else {

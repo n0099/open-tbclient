@@ -1,13 +1,12 @@
 package com.repackage;
 
-import com.baidu.bdtask.framework.ui.toast.ToastViewData;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qs;
 /* loaded from: classes7.dex */
-public abstract class rs<VM extends qs<? extends ToastViewData>> implements ks<ToastViewData, VM> {
+public class rs<T> extends qs<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -22,6 +21,22 @@ public abstract class rs<VM extends qs<? extends ToastViewData>> implements ks<T
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @Override // com.repackage.qs
+    public void o(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
+            super.o(t);
+        }
+    }
+
+    @Override // com.repackage.qs
+    public void p(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            super.p(t);
         }
     }
 }

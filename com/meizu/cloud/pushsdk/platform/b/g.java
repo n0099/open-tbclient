@@ -4,10 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.platform.PlatformMessageSender;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.meizu.cloud.pushsdk.platform.message.UnRegisterStatus;
-import com.repackage.ni9;
 import java.util.concurrent.ScheduledExecutorService;
 /* loaded from: classes5.dex */
 public class g extends c<UnRegisterStatus> {
@@ -80,18 +80,18 @@ public class g extends c<UnRegisterStatus> {
             com.meizu.cloud.pushsdk.b.a.c b = this.j.b(this.f, this.g, this.i);
             if (b.b()) {
                 unRegisterStatus = new UnRegisterStatus((String) b.a());
-                ni9.b("Strategy", "network unRegisterStatus " + unRegisterStatus);
+                DebugLogger.e("Strategy", "network unRegisterStatus " + unRegisterStatus);
                 if (BasicPushStatus.SUCCESS_CODE.equals(unRegisterStatus.getCode())) {
                     com.meizu.cloud.pushsdk.util.b.g(this.e, "", this.h);
                 }
             } else {
                 com.meizu.cloud.pushsdk.b.b.a c = b.c();
                 if (c.a() != null) {
-                    ni9.b("Strategy", "status code=" + c.b() + " data=" + c.a());
+                    DebugLogger.e("Strategy", "status code=" + c.b() + " data=" + c.a());
                 }
                 unRegisterStatus.setCode(String.valueOf(c.b()));
                 unRegisterStatus.setMessage(c.c());
-                ni9.b("Strategy", "unRegisterStatus " + unRegisterStatus);
+                DebugLogger.e("Strategy", "unRegisterStatus " + unRegisterStatus);
             }
         }
         return unRegisterStatus;

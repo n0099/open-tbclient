@@ -1,7 +1,7 @@
 package com.repackage;
 /* loaded from: classes6.dex */
 public interface hs {
-    void a();
+    fs a();
 
-    void b();
+    gs b();
 }

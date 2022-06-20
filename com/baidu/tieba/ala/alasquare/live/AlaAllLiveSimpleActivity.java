@@ -14,8 +14,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AlaAllLiveSimpleActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlaSquareLiveFragment mFragment;
-    public NavigationBar mNavigationBar;
+    public NavigationBar a;
+    public AlaSquareLiveFragment b;
 
     public AlaAllLiveSimpleActivity() {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class AlaAllLiveSimpleActivity extends BaseFragmentActivity {
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-            AlaSquareLiveFragment alaSquareLiveFragment = this.mFragment;
+            this.a.onChangeSkinType(getPageContext(), i);
+            AlaSquareLiveFragment alaSquareLiveFragment = this.b;
             if (alaSquareLiveFragment != null) {
                 alaSquareLiveFragment.changeSkinType(i);
             }
@@ -48,16 +48,16 @@ public class AlaAllLiveSimpleActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0792);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0914cd);
-            this.mNavigationBar = navigationBar;
+            setContentView(R.layout.obfuscated_res_0x7f0d0791);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0914bf);
+            this.a = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.mNavigationBar.setTitleText(R.string.obfuscated_res_0x7f0f0269);
+            this.a.setTitleText(R.string.obfuscated_res_0x7f0f0269);
             if (bundle == null) {
                 AlaSquareLiveFragment alaSquareLiveFragment = new AlaSquareLiveFragment(true);
-                this.mFragment = alaSquareLiveFragment;
+                this.b = alaSquareLiveFragment;
                 alaSquareLiveFragment.setPrimary(true);
-                getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f0906b0, this.mFragment).commitAllowingStateLoss();
+                getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f09069b, this.b).commitAllowingStateLoss();
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }

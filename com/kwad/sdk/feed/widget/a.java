@@ -42,7 +42,7 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
     public boolean p;
     public volatile boolean q;
     public com.kwad.sdk.widget.k r;
-    public final a.InterfaceC0308a s;
+    public final a.InterfaceC0316a s;
 
     public a(@NonNull Context context) {
         super(context);
@@ -84,8 +84,8 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
                 com.kwad.sdk.core.report.a.j(((com.kwad.sdk.feed.widget.base.a) a.this).b);
             }
         };
-        this.s = new a.InterfaceC0308a() { // from class: com.kwad.sdk.feed.widget.a.3
-            @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC0308a
+        this.s = new a.InterfaceC0316a() { // from class: com.kwad.sdk.feed.widget.a.3
+            @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC0316a
             public void a(int i, z.a aVar) {
                 int i2;
                 int i3 = 2;
@@ -104,7 +104,7 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
                 p.a aVar2 = new p.a();
                 aVar2.g = aVar;
                 aVar2.b = i2;
-                com.kwad.sdk.core.download.a.a.a(new a.C0296a(bb.a(a.this.m)).a(((com.kwad.sdk.feed.widget.base.a) a.this).b).a(a.this.j).a(i3).a(z).c(true).e(true).a(aVar2).a(new a.b() { // from class: com.kwad.sdk.feed.widget.a.3.1
+                com.kwad.sdk.core.download.a.a.a(new a.C0304a(bb.a(a.this.m)).a(((com.kwad.sdk.feed.widget.base.a) a.this).b).a(a.this.j).a(i3).a(z).c(true).e(true).a(aVar2).a(new a.b() { // from class: com.kwad.sdk.feed.widget.a.3.1
                     @Override // com.kwad.sdk.core.download.a.a.b
                     public void a() {
                         a.this.l();
@@ -138,7 +138,7 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
             this.n.setAutoRelease(false);
             int i = z ? 1 : 2;
             AdVideoPlayerViewCache.a().a(a, this.m);
-            com.kwad.sdk.core.download.a.a.a(new a.C0296a(bb.a(this)).a(((com.kwad.sdk.feed.widget.base.a) this).b).a(this.j).a(z).a(i).e(true).a(new a.b() { // from class: com.kwad.sdk.feed.widget.a.5
+            com.kwad.sdk.core.download.a.a.a(new a.C0304a(bb.a(this)).a(((com.kwad.sdk.feed.widget.base.a) this).b).a(this.j).a(z).a(i).e(true).a(new a.b() { // from class: com.kwad.sdk.feed.widget.a.5
                 @Override // com.kwad.sdk.core.download.a.a.b
                 public void a() {
                     a.this.k();
@@ -148,23 +148,23 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
     }
 
     private void d() {
-        findViewById(R.id.obfuscated_res_0x7f090fe4).setVisibility(0);
-        findViewById(R.id.obfuscated_res_0x7f090fe3).setVisibility(8);
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091058);
-        ((TextView) findViewById(R.id.obfuscated_res_0x7f091056)).setText(com.kwad.sdk.core.response.a.a.s(((com.kwad.sdk.feed.widget.base.a) this).c));
+        findViewById(R.id.obfuscated_res_0x7f090fd4).setVisibility(0);
+        findViewById(R.id.obfuscated_res_0x7f090fd3).setVisibility(8);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091048);
+        ((TextView) findViewById(R.id.obfuscated_res_0x7f091046)).setText(com.kwad.sdk.core.response.a.a.s(((com.kwad.sdk.feed.widget.base.a) this).c));
         textView.setText(com.kwad.sdk.core.response.a.a.A(((com.kwad.sdk.feed.widget.base.a) this).c));
-        findViewById(R.id.obfuscated_res_0x7f091059).setOnClickListener(this);
+        findViewById(R.id.obfuscated_res_0x7f091049).setOnClickListener(this);
         textView.setOnClickListener(this);
     }
 
     private void g() {
-        findViewById(R.id.obfuscated_res_0x7f090fe3).setVisibility(0);
-        findViewById(R.id.obfuscated_res_0x7f090fe4).setVisibility(8);
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091001);
-        ((TextView) findViewById(R.id.obfuscated_res_0x7f091005)).setText(com.kwad.sdk.core.response.a.a.t(((com.kwad.sdk.feed.widget.base.a) this).c));
-        imageView.setImageResource(R.drawable.obfuscated_res_0x7f080bcb);
+        findViewById(R.id.obfuscated_res_0x7f090fd3).setVisibility(0);
+        findViewById(R.id.obfuscated_res_0x7f090fd4).setVisibility(8);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ff1);
+        ((TextView) findViewById(R.id.obfuscated_res_0x7f090ff5)).setText(com.kwad.sdk.core.response.a.a.t(((com.kwad.sdk.feed.widget.base.a) this).c));
+        imageView.setImageResource(R.drawable.obfuscated_res_0x7f080bb6);
         KSImageLoader.loadAppIcon(imageView, com.kwad.sdk.core.response.a.a.au(((com.kwad.sdk.feed.widget.base.a) this).c), ((com.kwad.sdk.feed.widget.base.a) this).b, 8);
-        ((TextView) findViewById(R.id.obfuscated_res_0x7f090ffc)).setText(com.kwad.sdk.core.response.a.a.s(((com.kwad.sdk.feed.widget.base.a) this).c));
+        ((TextView) findViewById(R.id.obfuscated_res_0x7f090fec)).setText(com.kwad.sdk.core.response.a.a.s(((com.kwad.sdk.feed.widget.base.a) this).c));
         this.o.a(((com.kwad.sdk.feed.widget.base.a) this).b);
         this.o.setOnClickListener(this);
         com.kwad.sdk.core.download.a.b bVar = new com.kwad.sdk.core.download.a.b(((com.kwad.sdk.feed.widget.base.a) this).b, null, this.o.getAppDownloadListener());
@@ -256,14 +256,14 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
 
     @Override // com.kwad.sdk.feed.widget.base.a
     public void c() {
-        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090fdf);
-        RatioFrameLayout ratioFrameLayout = (RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f091129);
+        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090fcf);
+        RatioFrameLayout ratioFrameLayout = (RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f091119);
         this.g = ratioFrameLayout;
         ratioFrameLayout.setRatio(0.56f);
-        this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fe1);
-        this.k = (ImageView) findViewById(R.id.obfuscated_res_0x7f091139);
-        this.i = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f090fe2);
-        this.o = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f090ffe);
+        this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fd1);
+        this.k = (ImageView) findViewById(R.id.obfuscated_res_0x7f091129);
+        this.i = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f090fd2);
+        this.o = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f090fee);
     }
 
     @Override // com.kwad.sdk.feed.widget.base.a, com.kwad.sdk.core.j.d

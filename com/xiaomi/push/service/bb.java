@@ -1,74 +1,78 @@
 package com.xiaomi.push.service;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Pair;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.dv;
-import com.xiaomi.push.ea;
-import com.xiaomi.push.ee;
-import com.xiaomi.push.hd;
-import com.xiaomi.push.hf;
 import com.xiaomi.push.hp;
-import com.xiaomi.push.ie;
-import com.xiaomi.push.ip;
-import java.util.HashMap;
+import com.xiaomi.push.hq;
+import com.xiaomi.push.hs;
+import com.xiaomi.push.hu;
+import com.xiaomi.push.ig;
+import com.xiaomi.push.ih;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class bb implements ee {
+public class bb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public bb() {
+    public static int a(ba baVar, hp hpVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, baVar, hpVar)) == null) {
+            return baVar.a(hpVar, bc.a[hpVar.ordinal()] != 1 ? 0 : 1);
+        }
+        return invokeLL.intValue;
+    }
+
+    public static List<Pair<Integer, Object>> a(List<hu> list, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, list, z)) == null) {
+            if (com.xiaomi.push.ag.a(list)) {
+                return null;
             }
-        }
-    }
-
-    @Override // com.xiaomi.push.ee
-    public void a(Context context, HashMap<String, String> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, hashMap) == null) {
-            ie ieVar = new ie();
-            ieVar.b(ea.a(context).m322a());
-            ieVar.d(ea.a(context).b());
-            ieVar.c(hp.I.f490a);
-            ieVar.a(at.a());
-            ieVar.f631a = hashMap;
-            byte[] a = ip.a(y.a(ieVar.c(), ieVar.b(), ieVar, hf.i));
-            if (!(context instanceof XMPushService)) {
-                com.xiaomi.channel.commonutils.logger.b.m108a("MoleInfo : context is not correct in pushLayer " + ieVar.m503a());
-                return;
+            ArrayList arrayList = new ArrayList();
+            for (hu huVar : list) {
+                int a = huVar.a();
+                hq a2 = hq.a(huVar.b());
+                if (a2 != null) {
+                    if (z && huVar.f504a) {
+                        arrayList.add(new Pair(Integer.valueOf(a), null));
+                    } else {
+                        int i = bc.b[a2.ordinal()];
+                        arrayList.add(i != 1 ? i != 2 ? i != 3 ? i != 4 ? null : new Pair(Integer.valueOf(a), Boolean.valueOf(huVar.g())) : new Pair(Integer.valueOf(a), huVar.m412a()) : new Pair(Integer.valueOf(a), Long.valueOf(huVar.m411a())) : new Pair(Integer.valueOf(a), Integer.valueOf(huVar.c())));
+                    }
+                }
             }
-            com.xiaomi.channel.commonutils.logger.b.m108a("MoleInfo : send data directly in pushLayer " + ieVar.m503a());
-            ((XMPushService) context).a(context.getPackageName(), a, true);
+            return arrayList;
+        }
+        return (List) invokeLZ.objValue;
+    }
+
+    public static void a(ba baVar, ig igVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, baVar, igVar) == null) {
+            baVar.a(a(igVar.a(), true));
+            baVar.b();
         }
     }
 
-    @Override // com.xiaomi.push.ee
-    public void b(Context context, HashMap<String, String> hashMap) {
-        hd a;
+    public static void a(ba baVar, ih ihVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, hashMap) == null) || (a = hd.a(context)) == null) {
-            return;
-        }
-        a.a("category_awake_app", "wake_up_app", 1L, dv.a(hashMap));
-    }
-
-    @Override // com.xiaomi.push.ee
-    public void c(Context context, HashMap<String, String> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, hashMap) == null) {
-            com.xiaomi.channel.commonutils.logger.b.m108a("MoleInfo：\u3000" + dv.b(hashMap));
+        if (interceptable == null || interceptable.invokeLL(65539, null, baVar, ihVar) == null) {
+            ArrayList arrayList = new ArrayList();
+            ArrayList arrayList2 = new ArrayList();
+            for (hs hsVar : ihVar.a()) {
+                arrayList.add(new Pair<>(hsVar.m407a(), Integer.valueOf(hsVar.a())));
+                List<Pair<Integer, Object>> a = a(hsVar.f496a, false);
+                if (!com.xiaomi.push.ag.a(a)) {
+                    arrayList2.addAll(a);
+                }
+            }
+            baVar.a(arrayList, arrayList2);
+            baVar.b();
         }
     }
 }

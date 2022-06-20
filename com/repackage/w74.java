@@ -1,250 +1,108 @@
 package com.repackage;
 
-import android.content.ContentUris;
 import android.content.ContentValues;
-import android.content.Context;
-import android.content.UriMatcher;
 import android.database.Cursor;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.ETAG;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class w74 {
+public class w74 extends q74<r84> {
     public static /* synthetic */ Interceptable $ic;
-    public static final hc4 b;
-    public static final String c;
-    public static final Uri d;
-    public static final Uri e;
-    public static final Uri f;
-    public static final Uri g;
-    public static final Uri h;
-    public static final Uri i;
-    public static final Uri j;
-    public static UriMatcher k;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755248483, "Lcom/repackage/w74;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755248483, "Lcom/repackage/w74;");
-                return;
-            }
-        }
-        b = hc4.c();
-        c = AppRuntime.getAppContext().getPackageName() + ".aiapp.pms";
-        d = Uri.parse("content://" + c + "/framework");
-        e = Uri.parse("content://" + c + "/swan_app");
-        f = Uri.parse("content://" + c + "/pkg_main");
-        g = Uri.parse("content://" + c + "/pkg_sub");
-        h = Uri.parse("content://" + c + "/" + ETAG.KEY_EXTENSION);
-        i = Uri.parse("content://" + c + "/swan_plugin");
-        j = Uri.parse("content://" + c + "/so_lib");
-        UriMatcher uriMatcher = new UriMatcher(-1);
-        k = uriMatcher;
-        uriMatcher.addURI(c, "framework", 2);
-        k.addURI(c, "pkg_main", 0);
-        k.addURI(c, "pkg_sub", 1);
-        k.addURI(c, ETAG.KEY_EXTENSION, 3);
-        k.addURI(c, "swan_app", 4);
-        k.addURI(c, "swan_plugin", 5);
-        k.addURI(c, "so_lib", 7);
-    }
-
-    public w74(Context context) {
+    public w74() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = context;
     }
 
-    public SQLiteOpenHelper a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? v74.a() : (SQLiteOpenHelper) invokeV.objValue;
-    }
-
-    public final String b(Uri uri) {
+    @Override // com.repackage.q74
+    public List<r84> e(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
-            int match = k.match(uri);
-            if (match != 0) {
-                if (match != 1) {
-                    if (match != 2) {
-                        if (match != 3) {
-                            if (match != 4) {
-                                if (match != 5) {
-                                    if (match != 7) {
-                                        return null;
-                                    }
-                                    return "so_lib";
-                                }
-                                return "swan_plugin";
-                            }
-                            return "swan_app";
-                        }
-                        return ETAG.KEY_EXTENSION;
-                    }
-                    return "framework";
-                }
-                return "pkg_sub";
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
+                return arrayList;
             }
-            return "pkg_main";
+            do {
+                arrayList.add(h(cursor));
+            } while (cursor.moveToNext());
+            return arrayList;
         }
-        return (String) invokeL.objValue;
+        return (List) invokeL.objValue;
     }
 
-    @Nullable
-    public Cursor c(@NonNull Uri uri, @Nullable String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, uri, str)) == null) {
-            if (!TextUtils.isEmpty(b(uri))) {
-                try {
-                    return a().getReadableDatabase().rawQuery(str, null);
-                } catch (SQLException e2) {
-                    b.g("PMSDBProvider", "#rawQuery error", e2);
-                }
-            }
-            return null;
-        }
-        return (Cursor) invokeLL.objValue;
-    }
-
-    public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, uri, str, strArr)) == null) {
-            String b2 = b(uri);
-            if (TextUtils.isEmpty(b2)) {
-                return 0;
-            }
-            hc4 hc4Var = b;
-            hc4Var.i("PMSDBProvider", "#delete tableName=" + b2 + " selection=" + str);
-            try {
-                int delete = a().getWritableDatabase().delete(b2, str, strArr);
-                if (delete > 0) {
-                    this.a.getContentResolver().notifyChange(uri, null);
-                }
-                return delete;
-            } catch (SQLException e2) {
-                b.g("PMSDBProvider", "#delete error", e2);
-                return 0;
-            }
-        }
-        return invokeLLL.intValue;
-    }
-
-    @Nullable
-    public String getType(@NonNull Uri uri) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.q74
+    /* renamed from: f */
+    public ContentValues c(r84 r84Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, uri)) == null) {
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, r84Var)) == null) {
+            ContentValues a = super.a(r84Var);
+            a.put("max_age", Long.valueOf(r84Var.o));
+            a.put("token", r84Var.p);
+            a.put("domains", r84Var.q);
+            a.put(GameGuideConfigInfo.KEY_APP_KEY, r84Var.r);
+            a.put("app_name", r84Var.s);
+            return a;
         }
-        return (String) invokeL.objValue;
+        return (ContentValues) invokeL.objValue;
     }
 
-    @Nullable
-    public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.q74
+    /* renamed from: g */
+    public r84 d(Cursor cursor) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, uri, contentValues)) == null) {
-            String b2 = b(uri);
-            if (!TextUtils.isEmpty(b2) && contentValues != null) {
-                hc4 hc4Var = b;
-                hc4Var.i("PMSDBProvider", "#insert values=" + contentValues);
-                try {
-                    long insertWithOnConflict = a().getWritableDatabase().insertWithOnConflict(b2, null, contentValues, 5);
-                    if (insertWithOnConflict > 0) {
-                        Uri withAppendedId = ContentUris.withAppendedId(uri, insertWithOnConflict);
-                        this.a.getContentResolver().notifyChange(withAppendedId, null);
-                        return withAppendedId;
-                    }
-                    return uri;
-                } catch (SQLException e2) {
-                    b.g("PMSDBProvider", "#insert error", e2);
-                }
-            }
-            return null;
-        }
-        return (Uri) invokeLL.objValue;
-    }
-
-    @Nullable
-    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, uri, strArr, str, strArr2, str2)) == null) {
-            if (uri.getQueryParameter("rawQuery") != null) {
-                return c(uri, str);
-            }
-            String b2 = b(uri);
-            if (TextUtils.isEmpty(b2)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
+            if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
                 return null;
             }
-            try {
-                return a().getReadableDatabase().query(b2, strArr, str, strArr2, null, null, str2, null);
-            } catch (SQLException e2) {
-                b.g("PMSDBProvider", "#query error", e2);
-                return null;
-            }
+            return h(cursor);
         }
-        return (Cursor) invokeLLLLL.objValue;
+        return (r84) invokeL.objValue;
     }
 
-    public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        InterceptResult invokeLLLL;
+    public final r84 h(Cursor cursor) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, uri, contentValues, str, strArr)) == null) {
-            String b2 = b(uri);
-            if (TextUtils.isEmpty(b2)) {
-                return 0;
-            }
-            hc4 hc4Var = b;
-            hc4Var.i("PMSDBProvider", "#update tableName=" + b2 + " selection=" + str);
-            try {
-                int update = a().getWritableDatabase().update(b2, contentValues, str, strArr);
-                if (update > 0) {
-                    this.a.getContentResolver().notifyChange(uri, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cursor)) == null) {
+            if (cursor != null) {
+                int columnIndex = cursor.getColumnIndex("max_age");
+                int columnIndex2 = cursor.getColumnIndex("token");
+                int columnIndex3 = cursor.getColumnIndex("domains");
+                int columnIndex4 = cursor.getColumnIndex(GameGuideConfigInfo.KEY_APP_KEY);
+                int columnIndex5 = cursor.getColumnIndex("app_name");
+                r84 r84Var = new r84();
+                if (b(cursor, r84Var)) {
+                    r84Var.o = cursor.getLong(columnIndex);
+                    r84Var.p = cursor.getString(columnIndex2);
+                    r84Var.q = cursor.getString(columnIndex3);
+                    r84Var.r = cursor.getString(columnIndex4);
+                    r84Var.s = cursor.getString(columnIndex5);
+                    return r84Var;
                 }
-                return update;
-            } catch (SQLException e2) {
-                b.g("PMSDBProvider", "#update error", e2);
-                return 0;
+                return null;
             }
+            return null;
         }
-        return invokeLLLL.intValue;
+        return (r84) invokeL.objValue;
     }
 }

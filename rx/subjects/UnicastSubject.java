@@ -7,33 +7,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cv9;
 import com.repackage.dv9;
-import com.repackage.gx9;
-import com.repackage.gy9;
-import com.repackage.hx9;
-import com.repackage.hy9;
-import com.repackage.iz9;
-import com.repackage.lv9;
+import com.repackage.ev9;
+import com.repackage.jv9;
+import com.repackage.kv9;
+import com.repackage.nx9;
 import com.repackage.ny9;
-import com.repackage.qu9;
-import com.repackage.ru9;
-import com.repackage.su9;
-import com.repackage.wu9;
+import com.repackage.ox9;
+import com.repackage.oy9;
+import com.repackage.pz9;
+import com.repackage.sv9;
+import com.repackage.uy9;
 import com.repackage.xu9;
+import com.repackage.yu9;
+import com.repackage.zu9;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.OnErrorThrowable;
 import rx.internal.operators.NotificationLite;
 /* loaded from: classes8.dex */
-public final class UnicastSubject<T> extends iz9<T, T> {
+public final class UnicastSubject<T> extends pz9<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final State<T> b;
 
     /* loaded from: classes8.dex */
-    public static final class State<T> extends AtomicLong implements su9, ru9<T>, qu9.a<T>, xu9 {
+    public static final class State<T> extends AtomicLong implements zu9, yu9<T>, xu9.a<T>, ev9 {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -9044104859202255786L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -43,16 +43,16 @@ public final class UnicastSubject<T> extends iz9<T, T> {
         public Throwable error;
         public boolean missed;
         public final Queue<Object> queue;
-        public final AtomicReference<wu9<? super T>> subscriber;
-        public final AtomicReference<dv9> terminateOnce;
+        public final AtomicReference<dv9<? super T>> subscriber;
+        public final AtomicReference<kv9> terminateOnce;
 
-        public State(int i, dv9 dv9Var) {
-            Queue<Object> gy9Var;
+        public State(int i, kv9 kv9Var) {
+            Queue<Object> ny9Var;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), dv9Var};
+                Object[] objArr = {Integer.valueOf(i), kv9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -63,35 +63,35 @@ public final class UnicastSubject<T> extends iz9<T, T> {
                 }
             }
             this.subscriber = new AtomicReference<>();
-            this.terminateOnce = dv9Var != null ? new AtomicReference<>(dv9Var) : null;
+            this.terminateOnce = kv9Var != null ? new AtomicReference<>(kv9Var) : null;
             if (i > 1) {
-                gy9Var = ny9.b() ? new hy9<>(i) : new hx9<>(i);
+                ny9Var = uy9.b() ? new oy9<>(i) : new ox9<>(i);
             } else {
-                gy9Var = ny9.b() ? new gy9<>() : new gx9<>();
+                ny9Var = uy9.b() ? new ny9<>() : new nx9<>();
             }
-            this.queue = gy9Var;
+            this.queue = ny9Var;
         }
 
-        @Override // com.repackage.qu9.a, com.repackage.ev9
+        @Override // com.repackage.xu9.a, com.repackage.lv9
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((wu9) ((wu9) obj));
+            call((dv9) ((dv9) obj));
         }
 
-        public boolean checkTerminated(boolean z, boolean z2, wu9<? super T> wu9Var) {
+        public boolean checkTerminated(boolean z, boolean z2, dv9<? super T> dv9Var) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), wu9Var})) == null) {
-                if (wu9Var.isUnsubscribed()) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), dv9Var})) == null) {
+                if (dv9Var.isUnsubscribed()) {
                     this.queue.clear();
                     return true;
                 } else if (z) {
                     Throwable th = this.error;
                     if (th != null) {
                         this.queue.clear();
-                        wu9Var.onError(th);
+                        dv9Var.onError(th);
                         return true;
                     } else if (z2) {
-                        wu9Var.onCompleted();
+                        dv9Var.onCompleted();
                         return true;
                     } else {
                         return false;
@@ -104,23 +104,23 @@ public final class UnicastSubject<T> extends iz9<T, T> {
         }
 
         public void doTerminate() {
-            AtomicReference<dv9> atomicReference;
-            dv9 dv9Var;
+            AtomicReference<kv9> atomicReference;
+            kv9 kv9Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (atomicReference = this.terminateOnce) == null || (dv9Var = atomicReference.get()) == null || !atomicReference.compareAndSet(dv9Var, null)) {
+            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (atomicReference = this.terminateOnce) == null || (kv9Var = atomicReference.get()) == null || !atomicReference.compareAndSet(kv9Var, null)) {
                 return;
             }
-            dv9Var.call();
+            kv9Var.call();
         }
 
-        @Override // com.repackage.xu9
+        @Override // com.repackage.ev9
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.done : invokeV.booleanValue;
         }
 
-        @Override // com.repackage.ru9
+        @Override // com.repackage.yu9
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.done) {
@@ -143,7 +143,7 @@ public final class UnicastSubject<T> extends iz9<T, T> {
             this.subscriber.get().onCompleted();
         }
 
-        @Override // com.repackage.ru9
+        @Override // com.repackage.yu9
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048582, this, th) == null) || this.done) {
@@ -167,7 +167,7 @@ public final class UnicastSubject<T> extends iz9<T, T> {
             this.subscriber.get().onError(th);
         }
 
-        @Override // com.repackage.ru9
+        @Override // com.repackage.yu9
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048583, this, t) == null) || this.done) {
@@ -186,11 +186,11 @@ public final class UnicastSubject<T> extends iz9<T, T> {
                     return;
                 }
             }
-            wu9<? super T> wu9Var = this.subscriber.get();
+            dv9<? super T> dv9Var = this.subscriber.get();
             try {
-                wu9Var.onNext(t);
+                dv9Var.onNext(t);
             } catch (Throwable th) {
-                cv9.g(th, wu9Var, t);
+                jv9.g(th, dv9Var, t);
             }
         }
 
@@ -226,10 +226,10 @@ public final class UnicastSubject<T> extends iz9<T, T> {
                 this.emitting = true;
                 Queue<Object> queue = this.queue;
                 while (true) {
-                    wu9<? super T> wu9Var = this.subscriber.get();
-                    if (wu9Var == null) {
+                    dv9<? super T> dv9Var = this.subscriber.get();
+                    if (dv9Var == null) {
                         z = false;
-                    } else if (checkTerminated(this.done, queue.isEmpty(), wu9Var)) {
+                    } else if (checkTerminated(this.done, queue.isEmpty(), dv9Var)) {
                         return;
                     } else {
                         long j = get();
@@ -239,7 +239,7 @@ public final class UnicastSubject<T> extends iz9<T, T> {
                             boolean z2 = this.done;
                             Object poll = queue.poll();
                             boolean z3 = poll == null;
-                            if (checkTerminated(z2, z3, wu9Var)) {
+                            if (checkTerminated(z2, z3, dv9Var)) {
                                 return;
                             }
                             if (z3) {
@@ -247,13 +247,13 @@ public final class UnicastSubject<T> extends iz9<T, T> {
                             }
                             Object obj = (Object) NotificationLite.e(poll);
                             try {
-                                wu9Var.onNext(obj);
+                                dv9Var.onNext(obj);
                                 j--;
                                 j2++;
                             } catch (Throwable th) {
                                 queue.clear();
-                                cv9.e(th);
-                                wu9Var.onError(OnErrorThrowable.addValueAsLastCause(th, obj));
+                                jv9.e(th);
+                                dv9Var.onError(OnErrorThrowable.addValueAsLastCause(th, obj));
                                 return;
                             }
                         }
@@ -271,7 +271,7 @@ public final class UnicastSubject<T> extends iz9<T, T> {
             }
         }
 
-        @Override // com.repackage.su9
+        @Override // com.repackage.zu9
         public void request(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
@@ -280,7 +280,7 @@ public final class UnicastSubject<T> extends iz9<T, T> {
                     throw new IllegalArgumentException("n >= 0 required");
                 }
                 if (i > 0) {
-                    lv9.b(this, j);
+                    sv9.b(this, j);
                     replay();
                 } else if (this.done) {
                     replay();
@@ -288,7 +288,7 @@ public final class UnicastSubject<T> extends iz9<T, T> {
             }
         }
 
-        @Override // com.repackage.xu9
+        @Override // com.repackage.ev9
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -304,15 +304,15 @@ public final class UnicastSubject<T> extends iz9<T, T> {
             }
         }
 
-        public void call(wu9<? super T> wu9Var) {
+        public void call(dv9<? super T> dv9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, wu9Var) == null) {
-                if (this.subscriber.compareAndSet(null, wu9Var)) {
-                    wu9Var.b(this);
-                    wu9Var.f(this);
+            if (interceptable == null || interceptable.invokeL(1048576, this, dv9Var) == null) {
+                if (this.subscriber.compareAndSet(null, dv9Var)) {
+                    dv9Var.b(this);
+                    dv9Var.f(this);
                     return;
                 }
-                wu9Var.onError(new IllegalStateException("Only a single subscriber is allowed"));
+                dv9Var.onError(new IllegalStateException("Only a single subscriber is allowed"));
             }
         }
     }
@@ -329,7 +329,7 @@ public final class UnicastSubject<T> extends iz9<T, T> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((qu9.a) newInitContext.callArgs[0]);
+                super((xu9.a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -338,13 +338,13 @@ public final class UnicastSubject<T> extends iz9<T, T> {
         this.b = state;
     }
 
-    public static <T> UnicastSubject<T> D(int i, dv9 dv9Var) {
+    public static <T> UnicastSubject<T> D(int i, kv9 kv9Var) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, dv9Var)) == null) ? new UnicastSubject<>(new State(i, dv9Var)) : (UnicastSubject) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, kv9Var)) == null) ? new UnicastSubject<>(new State(i, kv9Var)) : (UnicastSubject) invokeIL.objValue;
     }
 
-    @Override // com.repackage.ru9
+    @Override // com.repackage.yu9
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -352,7 +352,7 @@ public final class UnicastSubject<T> extends iz9<T, T> {
         }
     }
 
-    @Override // com.repackage.ru9
+    @Override // com.repackage.yu9
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -360,7 +360,7 @@ public final class UnicastSubject<T> extends iz9<T, T> {
         }
     }
 
-    @Override // com.repackage.ru9
+    @Override // com.repackage.yu9
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {

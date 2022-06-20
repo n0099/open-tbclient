@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nv5;
+import com.repackage.mw5;
 /* loaded from: classes3.dex */
-public class CardViewHolder<T extends nv5> extends TypeAdapter.ViewHolder {
+public class CardViewHolder<T extends mw5> extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public T a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CardViewHolder(T t) {
-        super(t.k());
+        super(t.h());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

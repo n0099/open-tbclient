@@ -9,7 +9,7 @@ public abstract class a implements c {
     public c.a c;
     public c.f d;
     public c.h e;
-    public c.InterfaceC0307c f;
+    public c.InterfaceC0315c f;
     public c.d g;
     public c.g h;
 
@@ -56,8 +56,8 @@ public abstract class a implements c {
     }
 
     @Override // com.kwad.sdk.core.video.kwai.c
-    public void a(c.InterfaceC0307c interfaceC0307c) {
-        this.f = interfaceC0307c;
+    public void a(c.InterfaceC0315c interfaceC0315c) {
+        this.f = interfaceC0315c;
     }
 
     @Override // com.kwad.sdk.core.video.kwai.c
@@ -88,8 +88,8 @@ public abstract class a implements c {
     }
 
     public final boolean b(int i, int i2) {
-        c.InterfaceC0307c interfaceC0307c = this.f;
-        return interfaceC0307c != null && interfaceC0307c.a(this, i, i2);
+        c.InterfaceC0315c interfaceC0315c = this.f;
+        return interfaceC0315c != null && interfaceC0315c.a(this, i, i2);
     }
 
     public final void c() {

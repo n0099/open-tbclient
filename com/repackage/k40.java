@@ -1,38 +1,192 @@
 package com.repackage;
 
+import android.provider.Settings;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.ContentUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.internal.Base64;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
-import com.kwad.yoga.YogaNodeJNIBase;
-import kotlin.jvm.internal.ByteCompanionObject;
-import org.apache.commons.codec.binary4util.BaseNCodec;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.b40;
+import com.repackage.e40;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class k40 {
+public class k40 extends e40 {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[] a;
-    public static final byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
+    public b40.a d;
+    public a e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755608982, "Lcom/repackage/k40;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public boolean b;
+        public y30 c;
+        public String d;
+        public String e;
+        public final /* synthetic */ k40 f;
+
+        public a(k40 k40Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k40Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755608982, "Lcom/repackage/k40;");
+            this.f = k40Var;
+            this.b = true;
+            this.c = new y30();
+        }
+
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (String) invokeV.objValue;
+        }
+
+        public void b(String str) {
+            String str2;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (str2 = this.e) == str) {
+                return;
+            }
+            if (str == null || !str.equals(str2)) {
+                this.e = str;
+                this.b = true;
+            }
+        }
+
+        public String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (String) invokeV.objValue;
+        }
+
+        public void d(long j) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeJ(1048579, this, j) == null) || this.a == j) {
+                return;
+            }
+            this.a = j;
+            this.b = true;
+        }
+
+        public void e(String str) {
+            String str2;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (str2 = this.d) == str) {
+                return;
+            }
+            if (str == null || !str.equals(str2)) {
+                this.d = str;
+                this.b = true;
+            }
+        }
+
+        public boolean f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                if (this.b) {
+                    try {
+                        JSONObject jSONObject = new JSONObject();
+                        jSONObject.put("form_id", this.d);
+                        jSONObject.put("lst_fe_ts", this.a);
+                        jSONObject.put("c_form_ver", 1);
+                        jSONObject.put("flags", this.c.d());
+                        jSONObject.put("ssaid", this.e);
+                        this.f.d.i("cache.dat", jSONObject.toString(), true);
+                        this.b = false;
+                        return true;
+                    } catch (Exception unused) {
+                    }
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                String g = this.f.d.g("cache.dat", true);
+                if (TextUtils.isEmpty(g)) {
+                    return false;
+                }
+                try {
+                    JSONObject jSONObject = new JSONObject(g);
+                    this.d = jSONObject.optString("form_id");
+                    this.a = jSONObject.getLong("lst_fe_ts");
+                    jSONObject.getInt("c_form_ver");
+                    this.e = jSONObject.getString("ssaid");
+                    this.c.b(jSONObject.getLong("flags"));
+                    return true;
+                } catch (Exception unused) {
+                    return false;
+                }
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k40() {
+        super("ssaid");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new byte[]{0, -118, 109, 108, -43, -56, 63, 62, 108, -63, -94, 72, -110, -122, -111, -109, 102, -12, 17, 110, ContentUtil.GZIP_HEAD_2, 1, -110, 124, 18, 78, -48, -23, 85, -21, -48, 4, -50, -68, 88, -15, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, -32, -14, 54, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, -61, -110, -61, 113, -21, -60, 66, -122, -52, Base64.INTERNAL_PADDING, 28, -48, -24, -96, -25, 13, -88, -96, -98, 23, -14, -89, 24, 90, 82, -16, -65, 107, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, -22, 113, 24, -46, 120, 57, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, -13, 2, Constants.SHORT_PING_CMD_TYPE, 92, 9, 69, 91, 107, -49, -127, 54, -70, 104, 34, -13, 76, 26, 84, -1, -99, 80, -98, 43, -38, -60, 86, 58, 107, 40, -69, -43, -109, -124, 103, -79, -43, -22, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, -11, -52, 55, 86, 75, -43, 114, -18, 2, 77, -53, -65, 3, 8, 45, 106, -117, -42, 56, 51, -11, -76, 21, 68, 116, -52, -71, 81, -17, 49, 71, 4, -1, -60, 52, -55, -72, 8, -100, 90, -12, 15, 108, 45, 86, 97, 20, 53, 70, -106, -36, -1, 10, -115, 53, -109, -52, -73, 108, 122, -8, 113, 98, Byte.MIN_VALUE, -81, 79, 98, -15, -36, 119, 118, -55, -125, BaseNCodec.PAD_DEFAULT, -98, 59, 111, YogaNodeJNIBase.HAS_NEW_LAYOUT, 22, 118, 40, -18, -5, 2, -17, 71, -114, 42, -45, 96, 10, -104, 64, 95, -47, 73, ByteCompanionObject.MAX_VALUE, 88, -54, -3, -99, YogaNodeJNIBase.HAS_NEW_LAYOUT, -58, 27, -7, -36, 60, -60, -13, -99, 55, 55, -7, -96, -34, 7, -34, 28, -31, -26, -96, -31, 54, -108, 45, 6, -27, -106, -104, -58, -22, -71, -81, -30, 100, BaseNCodec.PAD_DEFAULT, -1, -59, 56, 48, -61, -11};
-        b = new byte[]{1, 0, 1};
+        this.e = new a(this);
+    }
+
+    @Override // com.repackage.e40
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e.c() : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.e40
+    public void f(e40.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.d = this.a.f(e());
+            String string = Settings.Secure.getString(this.b.a.getContentResolver(), HttpRequest.ANDROID_ID);
+            if (string == null) {
+                string = "0";
+            }
+            this.e.g();
+            if (TextUtils.isEmpty(this.e.c()) || !TextUtils.equals(string, this.e.a())) {
+                this.e.b(string);
+                try {
+                    this.e.e(e40.b("A30", new v30("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).c(string.getBytes("UTF-8"))));
+                } catch (Exception unused) {
+                }
+                this.e.d(System.currentTimeMillis());
+            }
+            this.e.f();
+        }
     }
 }

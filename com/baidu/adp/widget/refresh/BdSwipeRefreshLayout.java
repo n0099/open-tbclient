@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ao;
+import com.repackage.eo;
 /* loaded from: classes.dex */
 public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingParent, NestedScrollingChild {
     public static /* synthetic */ Interceptable $ic;
@@ -370,7 +370,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public BdCircleImageView a;
-        public ao b;
+        public eo b;
         public Animation c;
         public Animation d;
         public final /* synthetic */ BdSwipeRefreshLayout e;
@@ -407,9 +407,9 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
             public void applyTransformation(float f, Transformation transformation) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), transformation}) == null) {
-                    ao aoVar = this.c.b;
+                    eo eoVar = this.c.b;
                     int i = this.a;
-                    aoVar.setAlpha((int) (i + ((this.b - i) * f)));
+                    eoVar.setAlpha((int) (i + ((this.b - i) * f)));
                 }
             }
         }
@@ -431,9 +431,9 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
             }
             this.e = bdSwipeRefreshLayout;
             this.a = new BdCircleImageView(bdSwipeRefreshLayout.getContext(), SwipeRefreshLayout.CIRCLE_BG_LIGHT);
-            ao aoVar = new ao(context, this.a);
-            this.b = aoVar;
-            aoVar.e(SwipeRefreshLayout.CIRCLE_BG_LIGHT);
+            eo eoVar = new eo(context, this.a);
+            this.b = eoVar;
+            eoVar.e(SwipeRefreshLayout.CIRCLE_BG_LIGHT);
             this.a.setImageDrawable(this.b);
             this.a.setVisibility(8);
         }
@@ -477,24 +477,24 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
             }
         }
 
-        public void e(@ColorInt int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-                this.a.setBackgroundColor(i);
-                this.b.e(i);
-            }
-        }
-
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
-        public void f() {
+        public void e() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 if (Build.VERSION.SDK_INT >= 11) {
                     this.b.setAlpha(255);
                 }
                 this.b.d(0.0f);
                 this.b.setAlpha(255);
                 this.b.start();
+            }
+        }
+
+        public void f(@ColorInt int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+                this.a.setBackgroundColor(i);
+                this.b.e(i);
             }
         }
 
@@ -585,7 +585,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
 
         void d();
 
-        void f();
+        void e();
 
         long getCompleteAnimTime();
 
@@ -1409,7 +1409,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         if (interceptable == null || interceptable.invokeI(1048629, this, i2) == null) {
             i iVar = this.v;
             if (iVar instanceof h) {
-                ((h) iVar).e(i2);
+                ((h) iVar).f(i2);
             }
         }
     }
@@ -1540,7 +1540,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048643, this) == null) {
             this.a = 2;
-            this.v.f();
+            this.v.e();
             if (!this.D || (lVar = this.c) == null) {
                 return;
             }

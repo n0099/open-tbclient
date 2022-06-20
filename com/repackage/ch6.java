@@ -1,164 +1,160 @@
 package com.repackage;
 
-import android.graphics.drawable.ShapeDrawable;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
+import com.baidu.tieba.frs.entelechy.adapter.FrsVideoActivityViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.Calendar;
 /* loaded from: classes5.dex */
-public class ch6 {
+public class ch6 extends fc6<ng8, FrsVideoActivityViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String t;
 
     /* loaded from: classes5.dex */
-    public static class a extends ShapeDrawable {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
+        public final /* synthetic */ ng8 a;
+        public final /* synthetic */ ch6 b;
 
-        public a(int i, int i2, int i3, int i4) {
+        public a(ch6 ch6Var, ng8 ng8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+                Object[] objArr = {ch6Var, ng8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = i3;
-            this.b = i4;
-            setDither(false);
-            getPaint().setColor(i);
-            setIntrinsicWidth(i2);
+            this.b = ch6Var;
+            this.a = ng8Var;
         }
 
-        @Override // android.graphics.drawable.Drawable
-        public void setBounds(int i, int i2, int i3, int i4) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIIII(1048576, this, i, i2, i3, i4) == null) {
-                super.setBounds(i, i2 + this.a, i3, i4 + this.b);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                TiebaStatic.log(new StatisticItem("c12587").param("fid", this.b.t));
+                ht4 k = ht4.k();
+                k.x("frs_video_activity_tip" + this.b.t, System.currentTimeMillis());
+                ng8 ng8Var = this.a;
+                if (ng8Var == null || StringUtils.isNull(ng8Var.b)) {
+                    return;
+                }
+                cl4.n(this.b.a, this.a.b);
             }
         }
     }
 
-    public static long a(String str) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ch6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext, bdUniqueId, bdUniqueId2);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return 0L;
-            }
-            try {
-                Date parse = new SimpleDateFormat("yyyy.MM.dd").parse(str);
-                return (parse != null ? parse.getTime() : 0L) / 1000;
-            } catch (ParseException e) {
-                e.printStackTrace();
-                return 0L;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeL.longValue;
     }
 
-    public static int b(long j) {
+    public final boolean n0(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
-            if (j < 0) {
-                return -1;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+            if (j == 0) {
+                return true;
             }
-            return (int) (j / 86400);
+            long currentTimeMillis = System.currentTimeMillis();
+            if (currentTimeMillis - j > 86400000) {
+                return true;
+            }
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(currentTimeMillis);
+            Calendar calendar2 = Calendar.getInstance();
+            calendar2.setTimeInMillis(j);
+            return calendar.get(7) > calendar2.get(7);
         }
-        return invokeJ.intValue;
+        return invokeJ.booleanValue;
     }
 
-    public static void c(int i, int i2, EditText editText) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.an
+    /* renamed from: o0 */
+    public FrsVideoActivityViewHolder M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65538, null, i, i2, editText) == null) {
-            try {
-                Method declaredMethod = TextView.class.getDeclaredMethod("createEditorIfNeeded", new Class[0]);
-                declaredMethod.setAccessible(true);
-                declaredMethod.invoke(editText, new Object[0]);
-                Field declaredField = TextView.class.getDeclaredField("mEditor");
-                Field declaredField2 = Class.forName("android.widget.Editor").getDeclaredField("mCursorDrawable");
-                declaredField.setAccessible(true);
-                declaredField2.setAccessible(true);
-                Object obj = declaredField2.get(declaredField.get(editText));
-                Array.set(obj, 0, new a(SkinManager.getColor(R.color.CAM_X0302), UtilHelper.getDimenPixelSize(R.dimen.tbds5), i, i2));
-                Array.set(obj, 1, new a(SkinManager.getColor(R.color.CAM_X0302), UtilHelper.getDimenPixelSize(R.dimen.tbds5), i, i2));
-            } catch (Exception unused) {
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d034d, (ViewGroup) null);
+            FrsVideoActivityViewHolder frsVideoActivityViewHolder = new FrsVideoActivityViewHolder(inflate);
+            SkinManager.setViewTextColor(frsVideoActivityViewHolder.a, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(frsVideoActivityViewHolder.c, (int) R.color.CAM_X0301);
+            SkinManager.setImageResource(frsVideoActivityViewHolder.b, R.drawable.icon_news_list_prompt);
+            SkinManager.setImageResource(frsVideoActivityViewHolder.d, R.drawable.icon_index_category_arrow_r);
+            SkinManager.setBackgroundColor(frsVideoActivityViewHolder.e, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(frsVideoActivityViewHolder.f, R.color.CAM_X0204);
+            SkinManager.setBackgroundResource(inflate, R.drawable.home_thread_card_item_bg);
+            return frsVideoActivityViewHolder;
         }
+        return (FrsVideoActivityViewHolder) invokeL.objValue;
     }
 
-    public static String d(int i) {
-        InterceptResult invokeI;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.fc6, com.repackage.an
+    /* renamed from: p0 */
+    public View S(int i, View view2, ViewGroup viewGroup, ng8 ng8Var, FrsVideoActivityViewHolder frsVideoActivityViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            switch (i) {
-                case 1:
-                    return "一";
-                case 2:
-                    return "二";
-                case 3:
-                    return "三";
-                case 4:
-                    return "四";
-                case 5:
-                    return "五";
-                case 6:
-                    return "六";
-                case 7:
-                    return "七";
-                case 8:
-                    return "八";
-                case 9:
-                    return "九";
-                case 10:
-                    return "十";
-                case 11:
-                    return "十一";
-                case 12:
-                    return "十二";
-                case 13:
-                    return "十三";
-                case 14:
-                    return "十四";
-                case 15:
-                    return "十五";
-                case 16:
-                    return "十六";
-                case 17:
-                    return "十七";
-                case 18:
-                    return "十八";
-                case 19:
-                    return "十九";
-                case 20:
-                    return "二十";
-                default:
-                    return "";
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ng8Var, frsVideoActivityViewHolder})) == null) {
+            if (view2 == null || frsVideoActivityViewHolder == null) {
+                return null;
             }
+            view2.setOnClickListener(new a(this, ng8Var));
+            frsVideoActivityViewHolder.a.setText(ng8Var != null ? ng8Var.a : "");
+            ht4 k = ht4.k();
+            if (n0(k.m("frs_video_activity_tip" + this.t, 0L))) {
+                frsVideoActivityViewHolder.b.setVisibility(0);
+            } else {
+                frsVideoActivityViewHolder.b.setVisibility(8);
+            }
+            return frsVideoActivityViewHolder.b();
         }
-        return (String) invokeI.objValue;
+        return (View) invokeCommon.objValue;
+    }
+
+    public void q0(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.t = str;
+        }
     }
 }

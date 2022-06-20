@@ -1,106 +1,62 @@
 package com.repackage;
 
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 /* loaded from: classes6.dex */
 public class hv4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile hv4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755634805, "Lcom/repackage/hv4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755634805, "Lcom/repackage/hv4;");
-        }
-    }
+    public String a;
+    public String b;
+    public int c;
+    public String d;
 
     public hv4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        this.b = 0;
-        try {
-            wb wbVar = new wb("", "apk_ab_test.txt", DiskFileOperate.Action.READ);
-            wbVar.setSdCard(true);
-            wbVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-            if (wbVar.call()) {
-                String a = wbVar.a();
-                if (a != null) {
-                    this.b = Integer.parseInt(a);
-                }
-                if (this.b == 1 || this.b == 2) {
-                    this.a = true;
-                }
+        this.a = null;
+        this.b = null;
+        this.c = 0;
+        this.d = null;
+    }
+
+    public static String a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            switch (i) {
+                case 1:
+                    return gj.a(R.string.obfuscated_res_0x7f0f155f);
+                case 2:
+                    return gj.a(R.string.obfuscated_res_0x7f0f1564);
+                case 3:
+                    return gj.a(R.string.obfuscated_res_0x7f0f0c37);
+                case 4:
+                    return gj.a(R.string.obfuscated_res_0x7f0f1562);
+                case 5:
+                    return gj.a(R.string.obfuscated_res_0x7f0f1560);
+                case 6:
+                    return gj.a(R.string.obfuscated_res_0x7f0f1563);
+                case 7:
+                    return gj.a(R.string.obfuscated_res_0x7f0f1561);
+                default:
+                    return "";
             }
-        } catch (Throwable th) {
-            BdLog.e(th.getMessage());
         }
-    }
-
-    public static hv4 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (hv4.class) {
-                    if (c == null) {
-                        c = new hv4();
-                    }
-                }
-            }
-            return c;
-        }
-        return (hv4) invokeV.objValue;
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a ? "pub_env=" + this.b + ParamableElem.DIVIDE_PARAM : "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.booleanValue;
+        return (String) invokeI.objValue;
     }
 }

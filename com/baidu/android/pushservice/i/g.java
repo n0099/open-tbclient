@@ -12,10 +12,6 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.Inet4Address;
-import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.util.Enumeration;
 /* loaded from: classes.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
@@ -66,13 +62,13 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             try {
-                ConnectivityManager i = i(context.getApplicationContext());
-                if (i != null) {
-                    return i.getActiveNetworkInfo();
+                ConnectivityManager e = e(context.getApplicationContext());
+                if (e != null) {
+                    return e.getActiveNetworkInfo();
                 }
                 return null;
-            } catch (Exception e) {
-                new b.c(context).a(Log.getStackTraceString(e)).a();
+            } catch (Exception e2) {
+                new b.c(context).a(Log.getStackTraceString(e2)).a();
                 return null;
             }
         }
@@ -82,94 +78,7 @@ public class g {
     public static String d(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? j(context) != null ? j(context).getSimOperatorName() : "noPermission" : (String) invokeL.objValue;
-    }
-
-    public static String e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            String str = "nonMobileIp";
-            try {
-                Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
-                while (networkInterfaces.hasMoreElements()) {
-                    Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
-                    while (inetAddresses.hasMoreElements()) {
-                        InetAddress nextElement = inetAddresses.nextElement();
-                        if (!nextElement.isLoopbackAddress() && (nextElement instanceof Inet4Address)) {
-                            str = nextElement.getHostAddress().toString();
-                        }
-                    }
-                }
-            } catch (Exception unused) {
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String f(Context context) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            if (j(context) != null) {
-                int networkType = j(context).getNetworkType();
-                switch (networkType) {
-                    case 1:
-                    case 2:
-                    case 4:
-                    case 7:
-                    case 11:
-                    case 16:
-                        str = "2G";
-                        break;
-                    case 3:
-                    case 5:
-                    case 6:
-                    case 8:
-                    case 9:
-                    case 10:
-                    case 12:
-                    case 14:
-                    case 15:
-                    case 17:
-                        str = "3G";
-                        break;
-                    case 13:
-                    case 18:
-                        str = "4G";
-                        break;
-                    default:
-                        str = "";
-                        break;
-                }
-                return str + "-" + networkType;
-            }
-            return "unKnow";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            if (a(context)) {
-                if (b(context)) {
-                    return "wifi";
-                }
-                return d(context) + "|" + e(context) + "|" + f(context);
-            }
-            return "nonNet";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             if (a(context)) {
                 NetworkInfo c = c(context);
                 switch (c != null ? c.getType() : -1) {
@@ -196,10 +105,10 @@ public class g {
         return (String) invokeL.objValue;
     }
 
-    public static ConnectivityManager i(Context context) {
+    public static ConnectivityManager e(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             if (context == null) {
                 return a;
             }
@@ -209,22 +118,5 @@ public class g {
             return a;
         }
         return (ConnectivityManager) invokeL.objValue;
-    }
-
-    public static TelephonyManager j(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            if (context.checkCallingOrSelfPermission("android.permission.READ_PHONE_STATE") == 0) {
-                if (context == null) {
-                    return b;
-                }
-                if (b == null) {
-                    b = (TelephonyManager) context.getSystemService("phone");
-                }
-            }
-            return b;
-        }
-        return (TelephonyManager) invokeL.objValue;
     }
 }

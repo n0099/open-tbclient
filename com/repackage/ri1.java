@@ -1,14 +1,14 @@
 package com.repackage;
 
-import android.content.res.Resources;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.browser.BaseWebViewActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class ri1 {
+public class ri1 implements el1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,45 +26,31 @@ public abstract class ri1 {
         }
     }
 
-    public boolean a() {
+    @Override // com.repackage.el1
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? v73.a().getBoolean("PREFS_NIGHT_MODE", false) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? xj3.e().d() : (String) invokeV.objValue;
     }
 
-    public Resources b() {
+    @Override // com.repackage.el1
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (Resources) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? xj3.e().b() : (String) invokeV.objValue;
     }
 
-    public abstract void c(boolean z);
-
-    public void d(boolean z) {
+    @Override // com.repackage.el1
+    public String getAppName() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? BaseWebViewActivity.SHOUBAI_SCHEME : (String) invokeV.objValue;
     }
 
-    public void e(boolean z) {
+    @Override // com.repackage.el1
+    public String getSchemeHeader() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            v73.a().putBoolean("PREFS_NIGHT_MODE", z);
-        }
-    }
-
-    public void f(Object obj, v43 v43Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, obj, v43Var) == null) {
-        }
-    }
-
-    public void g(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? xj3.e().f() : (String) invokeV.objValue;
     }
 }

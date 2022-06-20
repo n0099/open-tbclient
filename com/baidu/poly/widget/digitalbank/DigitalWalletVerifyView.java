@@ -28,9 +28,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f91;
-import com.repackage.h91;
-import com.repackage.r61;
+import com.repackage.c71;
+import com.repackage.q91;
+import com.repackage.s91;
 import com.tachikoma.core.component.anim.AnimationProperty;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
 import org.json.JSONObject;
@@ -82,20 +82,20 @@ public class DigitalWalletVerifyView extends LinearLayout implements Verificatio
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 long currentTimeMillis = (System.currentTimeMillis() / 1000) - this.a.f;
                 if (currentTimeMillis < 60) {
-                    this.a.t(60 - currentTimeMillis);
+                    this.a.s(60 - currentTimeMillis);
                     this.a.m.sendEmptyMessageDelayed(0, 1000L);
                     return;
                 }
                 this.a.m.removeCallbacksAndMessages(null);
                 if (this.a.h) {
-                    this.a.v();
+                    this.a.u();
                 }
             }
         }
     }
 
     /* loaded from: classes2.dex */
-    public class b extends r61<JSONObject> {
+    public class b extends c71<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DigitalWalletVerifyView a;
@@ -118,22 +118,22 @@ public class DigitalWalletVerifyView extends LinearLayout implements Verificatio
             this.a = digitalWalletVerifyView;
         }
 
-        @Override // com.repackage.r61
+        @Override // com.repackage.c71
         public void a(Throwable th, int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
                 if (127007 == i || 127008 == i) {
-                    this.a.A(str);
+                    this.a.z(str);
                     this.a.h = false;
                     return;
                 }
-                h91.f(this.a.getContext(), str);
-                this.a.v();
+                s91.f(this.a.getContext(), str);
+                this.a.u();
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.r61
+        @Override // com.repackage.c71
         /* renamed from: d */
         public void c(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -141,7 +141,7 @@ public class DigitalWalletVerifyView extends LinearLayout implements Verificatio
                 this.a.m.sendEmptyMessage(0);
                 this.a.f = System.currentTimeMillis() / 1000;
                 TextView textView = this.a.b;
-                textView.setText("验证码已发送至你的手机 " + f91.c);
+                textView.setText("验证码已发送至你的手机 " + q91.c);
             }
         }
     }
@@ -194,7 +194,7 @@ public class DigitalWalletVerifyView extends LinearLayout implements Verificatio
     }
 
     /* loaded from: classes2.dex */
-    public class d extends r61<JSONObject> {
+    public class d extends c71<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DigitalWalletVerifyView a;
@@ -217,7 +217,7 @@ public class DigitalWalletVerifyView extends LinearLayout implements Verificatio
             this.a = digitalWalletVerifyView;
         }
 
-        @Override // com.repackage.r61
+        @Override // com.repackage.c71
         public void a(Throwable th, int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
@@ -226,27 +226,27 @@ public class DigitalWalletVerifyView extends LinearLayout implements Verificatio
                     this.a.c.g();
                 }
                 if (127001 == i) {
-                    this.a.B();
+                    this.a.A();
                     this.a.d.setVisibility(0);
                     this.a.d.setText(str);
                 } else if (127007 == i || 127008 == i || 127013 == i || 224810 == i) {
-                    this.a.A(str);
+                    this.a.z(str);
                     this.a.h = false;
                 } else {
-                    h91.f(this.a.getContext(), str);
-                    this.a.v();
+                    s91.f(this.a.getContext(), str);
+                    this.a.u();
                 }
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.r61
+        @Override // com.repackage.c71
         /* renamed from: d */
         public void c(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
                 this.a.d.setVisibility(8);
-                this.a.s(jSONObject.optString("drmbCheckInfo"));
+                this.a.r(jSONObject.optString("drmbCheckInfo"));
             }
         }
     }
@@ -285,7 +285,7 @@ public class DigitalWalletVerifyView extends LinearLayout implements Verificatio
     }
 
     /* loaded from: classes2.dex */
-    public class f extends r61<JSONObject> {
+    public class f extends c71<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DigitalWalletVerifyView a;
@@ -308,7 +308,7 @@ public class DigitalWalletVerifyView extends LinearLayout implements Verificatio
             this.a = digitalWalletVerifyView;
         }
 
-        @Override // com.repackage.r61
+        @Override // com.repackage.c71
         public void a(Throwable th, int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
@@ -316,12 +316,12 @@ public class DigitalWalletVerifyView extends LinearLayout implements Verificatio
                     this.a.g.dismiss();
                 }
                 this.a.i.b0(3, EventAlias.PayEventAlias.PAY_FAIL, "0");
-                h91.f(this.a.getContext(), str);
+                s91.f(this.a.getContext(), str);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.r61
+        @Override // com.repackage.c71
         /* renamed from: d */
         public void c(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -331,13 +331,13 @@ public class DigitalWalletVerifyView extends LinearLayout implements Verificatio
                 }
                 int optInt = jSONObject.optInt("status", 1);
                 if (optInt == 2) {
-                    h91.d(this.a.getContext(), R.drawable.obfuscated_res_0x7f080647, EventAlias.PayEventAlias.PAY_SUCCESS);
+                    s91.d(this.a.getContext(), R.drawable.obfuscated_res_0x7f080645, EventAlias.PayEventAlias.PAY_SUCCESS);
                     this.a.i.b0(0, EventAlias.PayEventAlias.PAY_SUCCESS, "0");
                 } else if (optInt != -1) {
                     this.a.i.b0(3, EventAlias.PayEventAlias.PAY_FAIL, "0");
-                    h91.d(this.a.getContext(), R.drawable.obfuscated_res_0x7f08063e, EventAlias.PayEventAlias.PAY_FAIL);
+                    s91.d(this.a.getContext(), R.drawable.obfuscated_res_0x7f08063c, EventAlias.PayEventAlias.PAY_FAIL);
                 } else {
-                    h91.f(this.a.getContext(), "支付取消");
+                    s91.f(this.a.getContext(), "支付取消");
                     this.a.i.b0(2, "支付取消", "0");
                 }
             }
@@ -372,10 +372,10 @@ public class DigitalWalletVerifyView extends LinearLayout implements Verificatio
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.g.setRightBtnEnable(false);
-                this.a.g.startLoadingAnim();
-                this.a.g.setTitle("确认支付结果");
-                this.a.g.setTips("支付结果查询中 请稍候");
+                this.a.g.d(false);
+                this.a.g.h();
+                this.a.g.g("确认支付结果");
+                this.a.g.f("支付结果查询中 请稍候");
             }
         }
 
@@ -427,9 +427,9 @@ public class DigitalWalletVerifyView extends LinearLayout implements Verificatio
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.setTitle(EventAlias.PayEventAlias.PAY_FAIL);
-                this.a.setTips(this.b);
-                this.a.setSingleBtnText("我知道了");
+                this.a.g(EventAlias.PayEventAlias.PAY_FAIL);
+                this.a.f(this.b);
+                this.a.e("我知道了");
             }
         }
 
@@ -471,22 +471,12 @@ public class DigitalWalletVerifyView extends LinearLayout implements Verificatio
         }
         this.h = true;
         this.m = new a(this);
-        y(context);
+        x(context);
     }
 
-    public final void A(String str) {
+    public final void A() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            PolyNoticeDialog polyNoticeDialog = new PolyNoticeDialog();
-            polyNoticeDialog.setCancelable(true);
-            polyNoticeDialog.setOptionOnClickListener(new h(this, polyNoticeDialog, str));
-            polyNoticeDialog.show(((Activity) getContext()).getFragmentManager(), "DRMP_PAY_RESULT_NOTICE_FRAGMENT_TAG");
-        }
-    }
-
-    public final void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ((Vibrator) getContext().getSystemService("vibrator")).vibrate(100L);
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.c, AnimationProperty.TRANSLATE_X, 0.0f, 20.0f, -20.0f, 0.0f);
             ofFloat.setDuration(600L);
@@ -496,15 +486,15 @@ public class DigitalWalletVerifyView extends LinearLayout implements Verificatio
         }
     }
 
-    public void C(ChannelListView channelListView, Bundle bundle, String str, PayChannelEntity payChannelEntity) {
+    public void B(ChannelListView channelListView, Bundle bundle, String str, PayChannelEntity payChannelEntity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, channelListView, bundle, str, payChannelEntity) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, channelListView, bundle, str, payChannelEntity) == null) {
             this.i = channelListView;
             setVisibility(0);
-            startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010123));
+            startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010125));
             this.c.g();
             if ((System.currentTimeMillis() / 1000) - this.f >= 60) {
-                w(bundle, str, payChannelEntity);
+                v(bundle, str, payChannelEntity);
             }
         }
     }
@@ -512,43 +502,43 @@ public class DigitalWalletVerifyView extends LinearLayout implements Verificatio
     @Override // com.baidu.poly.widget.VerificationCodeView.a
     public void a(View view2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, view2, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, str) == null) {
         }
     }
 
     @Override // com.baidu.poly.widget.VerificationCodeView.a
     public void b(View view2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, view2, str) == null) {
-            h91.e(getContext(), R.drawable.obfuscated_res_0x7f080625, "支付中");
-            f91.h(str, new d(this));
+        if (interceptable == null || interceptable.invokeLL(1048579, this, view2, str) == null) {
+            s91.e(getContext(), R.drawable.obfuscated_res_0x7f080623, "支付中");
+            q91.h(str, new d(this));
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f091880) {
-                x();
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091877) {
+                w();
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f09188b) {
-                u();
+            if (view2.getId() == R.id.obfuscated_res_0x7f091882) {
+                t();
             }
         }
     }
 
-    public final void s(String str) {
+    public final void r(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            z();
-            f91.c(str, new f(this));
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            y();
+            q91.c(str, new f(this));
         }
     }
 
-    public final void t(long j) {
+    public final void s(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
             TextView textView = this.e;
             textView.setText("重新发送 (" + j + "s)");
             this.e.setEnabled(false);
@@ -556,67 +546,77 @@ public class DigitalWalletVerifyView extends LinearLayout implements Verificatio
         }
     }
 
-    public final void u() {
+    public final void t() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.j == null || this.k == null || this.l == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.j == null || this.k == null || this.l == null) {
             return;
         }
-        h91.e(getContext(), R.drawable.obfuscated_res_0x7f080625, "请稍候");
-        f91.e(this.j, this.k, this.l.getPayChannel(), System.currentTimeMillis() / 1000, new b(this));
+        s91.e(getContext(), R.drawable.obfuscated_res_0x7f080623, "请稍候");
+        q91.e(this.j, this.k, this.l.getPayChannel(), System.currentTimeMillis() / 1000, new b(this));
     }
 
-    public final void v() {
+    public final void u() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.e.setText("重新获取验证码");
             this.e.setEnabled(true);
             this.e.setTextColor(Color.parseColor("#4E6EF2"));
         }
     }
 
-    public void w(Bundle bundle, String str, PayChannelEntity payChannelEntity) {
+    public void v(Bundle bundle, String str, PayChannelEntity payChannelEntity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048586, this, bundle, str, payChannelEntity) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048585, this, bundle, str, payChannelEntity) == null) {
             this.j = bundle;
             this.k = str;
             this.l = payChannelEntity;
-            u();
+            t();
         }
     }
 
-    public void x() {
+    public void w() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010121);
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010123);
             loadAnimation.setAnimationListener(new c(this));
             startAnimation(loadAnimation);
         }
     }
 
-    public final void y(Context context) {
+    public final void x(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0497, this);
-            this.a = inflate.findViewById(R.id.obfuscated_res_0x7f091880);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091890);
-            this.c = (VerificationCodeView) inflate.findViewById(R.id.obfuscated_res_0x7f09188f);
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09188e);
-            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09188b);
-            t(60L);
+        if (interceptable == null || interceptable.invokeL(1048587, this, context) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0495, this);
+            this.a = inflate.findViewById(R.id.obfuscated_res_0x7f091877);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091887);
+            this.c = (VerificationCodeView) inflate.findViewById(R.id.obfuscated_res_0x7f091886);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091885);
+            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091882);
+            s(60L);
             this.c.setOnCodeFinishListener(this);
             this.a.setOnClickListener(this);
             this.e.setOnClickListener(this);
         }
     }
 
-    public final void z() {
+    public final void y() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             PolyNoticeDialog polyNoticeDialog = new PolyNoticeDialog();
             this.g = polyNoticeDialog;
             polyNoticeDialog.setCancelable(false);
-            this.g.setOptionOnClickListener(new g(this));
+            this.g.c(new g(this));
             this.g.show(((Activity) getContext()).getFragmentManager(), "DRMB_QUERY_ORDER_NOTICE_FRAGMENT_TAG");
+        }
+    }
+
+    public final void z(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            PolyNoticeDialog polyNoticeDialog = new PolyNoticeDialog();
+            polyNoticeDialog.setCancelable(true);
+            polyNoticeDialog.c(new h(this, polyNoticeDialog, str));
+            polyNoticeDialog.show(((Activity) getContext()).getFragmentManager(), "DRMP_PAY_RESULT_NOTICE_FRAGMENT_TAG");
         }
     }
 
@@ -641,7 +641,7 @@ public class DigitalWalletVerifyView extends LinearLayout implements Verificatio
         }
         this.h = true;
         this.m = new a(this);
-        y(context);
+        x(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -665,6 +665,6 @@ public class DigitalWalletVerifyView extends LinearLayout implements Verificatio
         }
         this.h = true;
         this.m = new a(this);
-        y(context);
+        x(context);
     }
 }

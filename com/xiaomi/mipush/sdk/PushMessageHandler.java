@@ -16,10 +16,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.mipush.sdk.MessageHandleService;
 import com.xiaomi.mipush.sdk.MiPushClient;
-import com.xiaomi.push.el;
-import com.xiaomi.push.ev;
-import com.xiaomi.push.hj;
-import com.xiaomi.push.ip;
+import com.xiaomi.push.eo;
+import com.xiaomi.push.ey;
+import com.xiaomi.push.hn;
+import com.xiaomi.push.it;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -101,7 +101,7 @@ public class PushMessageHandler extends BaseService {
             try {
                 context.startService(intent);
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m108a(e.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m84a(e.getMessage());
             }
         }
     }
@@ -121,7 +121,7 @@ public class PushMessageHandler extends BaseService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, intent, resolveInfo, Boolean.valueOf(z)}) == null) {
             try {
-                MessageHandleService.a aVar = new MessageHandleService.a(intent, (PushMessageReceiver) com.xiaomi.push.t.a(context, resolveInfo.activityInfo.name).newInstance());
+                MessageHandleService.a aVar = new MessageHandleService.a(intent, (PushMessageReceiver) com.xiaomi.push.v.a(context, resolveInfo.activityInfo.name).newInstance());
                 if (z) {
                     MessageHandleService.a(context.getApplicationContext(), aVar);
                 } else {
@@ -175,21 +175,21 @@ public class PushMessageHandler extends BaseService {
                 MiPushCommandMessage miPushCommandMessage = (MiPushCommandMessage) aVar;
                 String command = miPushCommandMessage.getCommand();
                 String str = null;
-                if (ev.a.f321a.equals(command)) {
+                if (ey.a.f326a.equals(command)) {
                     List<String> commandArguments = miPushCommandMessage.getCommandArguments();
                     if (commandArguments != null && !commandArguments.isEmpty()) {
                         str = commandArguments.get(0);
                     }
                     a(miPushCommandMessage.getResultCode(), miPushCommandMessage.getReason(), str);
-                } else if (ev.c.f321a.equals(command) || ev.d.f321a.equals(command) || ev.i.f321a.equals(command)) {
+                } else if (ey.c.f326a.equals(command) || ey.d.f326a.equals(command) || ey.i.f326a.equals(command)) {
                     a(context, miPushCommandMessage.getCategory(), command, miPushCommandMessage.getResultCode(), miPushCommandMessage.getReason(), miPushCommandMessage.getCommandArguments());
-                } else if (ev.g.f321a.equals(command)) {
+                } else if (ey.g.f326a.equals(command)) {
                     List<String> commandArguments2 = miPushCommandMessage.getCommandArguments();
                     if (commandArguments2 != null && !commandArguments2.isEmpty()) {
                         str = commandArguments2.get(0);
                     }
                     a(context, miPushCommandMessage.getCategory(), miPushCommandMessage.getResultCode(), miPushCommandMessage.getReason(), str);
-                } else if (ev.h.f321a.equals(command)) {
+                } else if (ey.h.f326a.equals(command)) {
                     List<String> commandArguments3 = miPushCommandMessage.getCommandArguments();
                     if (commandArguments3 != null && !commandArguments3.isEmpty()) {
                         str = commandArguments3.get(0);
@@ -272,7 +272,7 @@ public class PushMessageHandler extends BaseService {
                 intent.setAction("action_clicked_activity_finish");
                 context.sendBroadcast(intent, d.a(context));
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m108a("callback sync error" + e);
+                com.xiaomi.channel.commonutils.logger.b.m84a("callback sync error" + e);
             }
         }
     }
@@ -282,20 +282,22 @@ public class PushMessageHandler extends BaseService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65553, null, context, intent) == null) {
             boolean z = false;
-            if (intent != null && intent.getBooleanExtra("is_clicked_activity_call", false)) {
-                z = true;
+            try {
+                z = intent.getBooleanExtra("is_clicked_activity_call", false);
+            } catch (Throwable th) {
+                com.xiaomi.channel.commonutils.logger.b.m84a("intent unparcel error:" + th);
             }
             try {
                 ResolveInfo resolveInfo = null;
                 if ("com.xiaomi.mipush.sdk.WAKEUP".equals(intent.getAction())) {
                     o.a(context, intent, null);
                 } else if ("com.xiaomi.mipush.SEND_TINYDATA".equals(intent.getAction())) {
-                    hj hjVar = new hj();
-                    ip.a(hjVar, intent.getByteArrayExtra("mipush_payload"));
-                    com.xiaomi.channel.commonutils.logger.b.c("PushMessageHandler.onHandleIntent " + hjVar.d());
-                    MiTinyDataClient.upload(context, hjVar);
+                    hn hnVar = new hn();
+                    it.a(hnVar, intent.getByteArrayExtra("mipush_payload"));
+                    com.xiaomi.channel.commonutils.logger.b.c("PushMessageHandler.onHandleIntent " + hnVar.d());
+                    MiTinyDataClient.upload(context, hnVar);
                 } else if (1 == PushMessageHelper.getPushMode(context)) {
-                    if (m126b()) {
+                    if (m103b()) {
                         com.xiaomi.channel.commonutils.logger.b.d("receive a message before application calling initialize");
                         if (z) {
                             b(context);
@@ -303,7 +305,7 @@ public class PushMessageHandler extends BaseService {
                         }
                         return;
                     }
-                    a a2 = al.a(context).a(intent);
+                    a a2 = am.a(context).a(intent);
                     if (a2 != null) {
                         a(context, a2);
                     }
@@ -320,7 +322,7 @@ public class PushMessageHandler extends BaseService {
                                     break;
                                 }
                                 ResolveInfo next = it.next();
-                                if (next.activityInfo != null && next.activityInfo.packageName.equals(context.getPackageName()) && PushMessageReceiver.class.isAssignableFrom(com.xiaomi.push.t.a(context, next.activityInfo.name))) {
+                                if (next.activityInfo != null && next.activityInfo.packageName.equals(context.getPackageName()) && PushMessageReceiver.class.isAssignableFrom(com.xiaomi.push.v.a(context, next.activityInfo.name))) {
                                     resolveInfo = next;
                                     break;
                                 }
@@ -330,17 +332,17 @@ public class PushMessageHandler extends BaseService {
                             a(context, intent2, resolveInfo, z);
                         } else {
                             com.xiaomi.channel.commonutils.logger.b.d("cannot find the receiver to handler this message, check your manifest");
-                            el.a(context).a(context.getPackageName(), intent, "11");
+                            eo.a(context).a(context.getPackageName(), intent, "11");
                         }
                     } catch (Exception e) {
                         com.xiaomi.channel.commonutils.logger.b.a(e);
-                        el.a(context).a(context.getPackageName(), intent, "9");
+                        eo.a(context).a(context.getPackageName(), intent, "9");
                     }
                 }
-            } catch (Throwable th) {
+            } catch (Throwable th2) {
                 try {
-                    com.xiaomi.channel.commonutils.logger.b.a(th);
-                    el.a(context).a(context.getPackageName(), intent, "10");
+                    com.xiaomi.channel.commonutils.logger.b.a(th2);
+                    eo.a(context).a(context.getPackageName(), intent, "10");
                     if (!z) {
                     }
                 } finally {
@@ -366,7 +368,7 @@ public class PushMessageHandler extends BaseService {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m126b() {
+    public static boolean m103b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? b.isEmpty() : invokeV.booleanValue;
@@ -377,12 +379,12 @@ public class PushMessageHandler extends BaseService {
         if (!(interceptable == null || interceptable.invokeLL(65556, null, context, intent) == null) || intent == null || f39a.isShutdown()) {
             return;
         }
-        f39a.execute(new ak(context, intent));
+        f39a.execute(new al(context, intent));
     }
 
     @Override // com.xiaomi.mipush.sdk.BaseService
     /* renamed from: a  reason: collision with other method in class */
-    public boolean mo127a() {
+    public boolean mo104a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

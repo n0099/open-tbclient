@@ -76,7 +76,7 @@ public class e extends FrameLayout {
                 return;
             }
         }
-        this.c = R.drawable.obfuscated_res_0x7f080bf2;
+        this.c = R.drawable.obfuscated_res_0x7f080bdd;
         a(context, attributeSet, 0);
     }
 
@@ -90,9 +90,9 @@ public class e extends FrameLayout {
     private void a(Context context, AttributeSet attributeSet, @StyleRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65539, this, context, attributeSet, i) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0431, this);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091164);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091163);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d042b, this);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091154);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091153);
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040436, R.attr.obfuscated_res_0x7f040437, R.attr.obfuscated_res_0x7f040438, R.attr.obfuscated_res_0x7f040439}, 0, i);
             int resourceId = obtainStyledAttributes.getResourceId(0, 0);
             CharSequence text = obtainStyledAttributes.getText(2);
@@ -185,8 +185,8 @@ public class e extends FrameLayout {
                 TextView textView = new TextView(getContext(), null, R.style.obfuscated_res_0x7f100262);
                 this.f = textView;
                 textView.setGravity(17);
-                this.f.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060783));
-                this.f.setTextSize(0, getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070944));
+                this.f.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060781));
+                this.f.setTextSize(0, getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070941));
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 layoutParams.topMargin = g.a(getContext(), 5.0f);
                 layoutParams.gravity = 1;

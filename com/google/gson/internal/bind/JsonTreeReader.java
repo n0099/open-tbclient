@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class JsonTreeReader extends JsonReader {
     public static /* synthetic */ Interceptable $ic;
     public static final Object SENTINEL_CLOSED;

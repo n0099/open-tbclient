@@ -1,5 +1,6 @@
 package com.baidu.tieba.homepage.personalize.data;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ww6;
+import com.repackage.ey6;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
@@ -38,37 +39,42 @@ public class RecPersonalizeSocketResponse extends SocketResponsedMessage {
         }
     }
 
-    public DataRes getResultData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.resultData : (DataRes) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        PersonalizedResIdl personalizedResIdl;
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         DataRes dataRes;
         List<ThreadInfo> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (personalizedResIdl = (PersonalizedResIdl) new Wire(new Class[0]).parseFrom(bArr, PersonalizedResIdl.class)) == null) {
-            return;
-        }
-        Error error = personalizedResIdl.error;
-        if (error != null) {
-            Integer num = error.errorno;
-            if (num != null) {
-                setError(num.intValue());
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            PersonalizedResIdl personalizedResIdl = (PersonalizedResIdl) new Wire(new Class[0]).parseFrom(bArr, PersonalizedResIdl.class);
+            if (personalizedResIdl == null) {
+                return null;
             }
-            setErrorString(personalizedResIdl.error.usermsg);
+            Error error = personalizedResIdl.error;
+            if (error != null) {
+                Integer num = error.errorno;
+                if (num != null) {
+                    setError(num.intValue());
+                }
+                setErrorString(personalizedResIdl.error.usermsg);
+            }
+            ey6.a = false;
+            if (ey6.c(this) && (dataRes = personalizedResIdl.data) != null && (list = dataRes.thread_list) != null && list.size() == 0) {
+                this.resultData = ey6.b();
+                ey6.a = true;
+                ey6.a();
+            } else {
+                this.resultData = personalizedResIdl.data;
+            }
+            return personalizedResIdl;
         }
-        ww6.a = false;
-        if (ww6.c(this) && (dataRes = personalizedResIdl.data) != null && (list = dataRes.thread_list) != null && list.size() == 0) {
-            this.resultData = ww6.b();
-            ww6.a = true;
-            ww6.a();
-            return;
-        }
-        this.resultData = personalizedResIdl.data;
+        return invokeIL.objValue;
+    }
+
+    public DataRes getResultData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.resultData : (DataRes) invokeV.objValue;
     }
 }

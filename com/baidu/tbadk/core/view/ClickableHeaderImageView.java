@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.il4;
-import com.repackage.jg;
+import com.repackage.ng;
+import com.repackage.sl4;
 /* loaded from: classes3.dex */
 public class ClickableHeaderImageView extends HeadImageView {
     public static /* synthetic */ Interceptable $ic;
@@ -26,7 +26,7 @@ public class ClickableHeaderImageView extends HeadImageView {
     public ThreadData S0;
     public boolean T0;
     public View.OnClickListener U0;
-    public il4 V0;
+    public sl4 V0;
     public View.OnClickListener W0;
 
     /* loaded from: classes3.dex */
@@ -57,14 +57,14 @@ public class ClickableHeaderImageView extends HeadImageView {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                il4 il4Var = this.a.V0;
-                if ((il4Var == null || !il4Var.a(view2)) && this.a.S0 != null) {
+                sl4 sl4Var = this.a.V0;
+                if ((sl4Var == null || !sl4Var.a(view2)) && this.a.S0 != null) {
                     MetaData s = this.a.T0 ? this.a.S0.getTopAgreePost().s() : this.a.S0.getAuthor();
                     if (s == null || StringUtils.isNull(s.getName_show()) || StringUtils.isNull(s.getUserId())) {
                         return;
                     }
-                    long g = jg.g(s.getUserId(), 0L);
-                    PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(this.a.getContext()).createNormalConfig(g, g == jg.g(TbadkCoreApplication.getCurrentAccount(), 0L), s.isBigV());
+                    long g = ng.g(s.getUserId(), 0L);
+                    PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(this.a.getContext()).createNormalConfig(g, g == ng.g(TbadkCoreApplication.getCurrentAccount(), 0L), s.isBigV());
                     createNormalConfig.setSourceTid(this.a.S0.getTid());
                     createNormalConfig.setSourceNid(this.a.S0.getNid());
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
@@ -95,7 +95,7 @@ public class ClickableHeaderImageView extends HeadImageView {
             }
         }
         this.W0 = new a(this);
-        w();
+        v();
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
@@ -118,31 +118,31 @@ public class ClickableHeaderImageView extends HeadImageView {
         } else {
             author = threadData.getAuthor();
         }
-        setContentDescription(author.getName_show() + getContext().getString(R.string.obfuscated_res_0x7f0f11bb));
+        setContentDescription(author.getName_show() + getContext().getString(R.string.obfuscated_res_0x7f0f11c8));
         setUserId(author.getUserId());
         setUserName(author.getUserName());
         if (threadData.getThreadAlaInfo() != null && (this.S0.getThreadType() == 49 || this.S0.getThreadType() == 69)) {
             setUrl(threadData.getAuthor().getAvater());
-            K(threadData.getAuthor().getAvater(), 28, false);
+            J(threadData.getAuthor().getAvater(), 28, false);
         } else {
             setUrl(author.getAvater());
             if (!StringUtils.isNull(author.getAvater()) && author.getAvater().contains("http")) {
-                K(author.getAvater(), 10, false);
+                J(author.getAvater(), 10, false);
             } else {
-                K(author.getAvater(), 28, false);
+                J(author.getAvater(), 28, false);
             }
         }
         UtilHelper.showHeadImageViewBigV(this, author);
     }
 
-    public void setOnInterceptClickEventListener(il4 il4Var) {
+    public void setOnInterceptClickEventListener(sl4 sl4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, il4Var) == null) {
-            this.V0 = il4Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, sl4Var) == null) {
+            this.V0 = sl4Var;
         }
     }
 
-    public void w() {
+    public void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             setOnClickListener(this.W0);
@@ -171,7 +171,7 @@ public class ClickableHeaderImageView extends HeadImageView {
             }
         }
         this.W0 = new a(this);
-        w();
+        v();
     }
 
     public void setData(ThreadData threadData, boolean z) {

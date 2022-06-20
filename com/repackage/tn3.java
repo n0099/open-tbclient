@@ -1,7 +1,15 @@
 package com.repackage;
 
-import android.view.View;
+import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
 /* loaded from: classes7.dex */
 public interface tn3 {
-    void e(View view2);
+    void a(DownloadInfo downloadInfo);
+
+    void b();
+
+    DownloadInfo c(String str);
+
+    void close();
+
+    void delete(DownloadInfo downloadInfo);
 }

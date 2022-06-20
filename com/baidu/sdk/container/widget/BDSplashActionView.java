@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.zz0;
+import com.repackage.d01;
 /* loaded from: classes2.dex */
 public class BDSplashActionView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -215,9 +215,9 @@ public class BDSplashActionView extends RelativeLayout {
             layoutParams.addRule(12);
             layoutParams.addRule(14);
             if (this.c) {
-                layoutParams.bottomMargin = zz0.c.a(this.a, this.d);
+                layoutParams.bottomMargin = d01.c.a(this.a, this.d);
             } else {
-                layoutParams.bottomMargin = zz0.c.a(this.a, this.d);
+                layoutParams.bottomMargin = d01.c.a(this.a, this.d);
             }
             baseActionLayout.addView(this, layoutParams);
         }
@@ -269,7 +269,7 @@ public class BDSplashActionView extends RelativeLayout {
             layoutParams.gravity = 16;
             linearLayout.addView(textView, layoutParams);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams2.leftMargin = zz0.c.a(this.a, 10.0f);
+            layoutParams2.leftMargin = d01.c.a(this.a, 10.0f);
             layoutParams2.gravity = 16;
             linearLayout.addView(textView2, layoutParams2);
             return linearLayout;

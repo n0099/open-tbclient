@@ -390,7 +390,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x00af, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x00ae, code lost:
         if (r7 == 2) goto L46;
      */
     @Nullable

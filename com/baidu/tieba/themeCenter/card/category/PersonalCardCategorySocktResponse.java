@@ -1,5 +1,6 @@
 package com.baidu.tieba.themeCenter.card.category;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dn8;
 import com.repackage.ln8;
+import com.repackage.tn8;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +22,8 @@ public class PersonalCardCategorySocktResponse extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
-    public List<dn8> mCardCategoryList;
-    public ln8 mRecommand;
+    public List<ln8> mCardCategoryList;
+    public tn8 mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonalCardCategorySocktResponse() {
@@ -43,62 +44,66 @@ public class PersonalCardCategorySocktResponse extends SocketResponsedMessage {
         this.hasMore = true;
     }
 
-    public List<dn8> getCardCategoryList() {
-        InterceptResult invokeV;
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mCardCategoryList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            GetCardByCategoryResIdl getCardByCategoryResIdl = (GetCardByCategoryResIdl) new Wire(new Class[0]).parseFrom(bArr, GetCardByCategoryResIdl.class);
+            if (getCardByCategoryResIdl == null) {
+                return null;
+            }
+            Error error = getCardByCategoryResIdl.error;
+            if (error != null) {
+                setError(error.errorno.intValue());
+                setErrorString(getCardByCategoryResIdl.error.usermsg);
+            }
+            DataRes dataRes = getCardByCategoryResIdl.data;
+            if (dataRes == null) {
+                return getCardByCategoryResIdl;
+            }
+            if (dataRes.has_more.intValue() == 1) {
+                this.hasMore = true;
+            } else {
+                this.hasMore = false;
+            }
+            if (getCardByCategoryResIdl.data.recommend != null) {
+                tn8 tn8Var = new tn8();
+                this.mRecommand = tn8Var;
+                tn8Var.d(getCardByCategoryResIdl.data.recommend);
+            }
+            List<ThemeCardInMain> list = getCardByCategoryResIdl.data.cards;
+            if (list != null && list.size() > 0) {
+                this.mCardCategoryList = new ArrayList();
+                for (ThemeCardInMain themeCardInMain : list) {
+                    if (themeCardInMain != null) {
+                        ln8 ln8Var = new ln8();
+                        ln8Var.c(themeCardInMain);
+                        this.mCardCategoryList.add(ln8Var);
+                    }
+                }
+            }
+            return getCardByCategoryResIdl;
+        }
+        return invokeIL.objValue;
     }
 
-    public ln8 getRecommand() {
+    public List<ln8> getCardCategoryList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRecommand : (ln8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCardCategoryList : (List) invokeV.objValue;
+    }
+
+    public tn8 getRecommand() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mRecommand : (tn8) invokeV.objValue;
     }
 
     public boolean isHasMore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.hasMore : invokeV.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        GetCardByCategoryResIdl getCardByCategoryResIdl;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getCardByCategoryResIdl = (GetCardByCategoryResIdl) new Wire(new Class[0]).parseFrom(bArr, GetCardByCategoryResIdl.class)) == null) {
-            return;
-        }
-        Error error = getCardByCategoryResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(getCardByCategoryResIdl.error.usermsg);
-        }
-        DataRes dataRes = getCardByCategoryResIdl.data;
-        if (dataRes == null) {
-            return;
-        }
-        if (dataRes.has_more.intValue() == 1) {
-            this.hasMore = true;
-        } else {
-            this.hasMore = false;
-        }
-        if (getCardByCategoryResIdl.data.recommend != null) {
-            ln8 ln8Var = new ln8();
-            this.mRecommand = ln8Var;
-            ln8Var.d(getCardByCategoryResIdl.data.recommend);
-        }
-        List<ThemeCardInMain> list = getCardByCategoryResIdl.data.cards;
-        if (list == null || list.size() <= 0) {
-            return;
-        }
-        this.mCardCategoryList = new ArrayList();
-        for (ThemeCardInMain themeCardInMain : list) {
-            if (themeCardInMain != null) {
-                dn8 dn8Var = new dn8();
-                dn8Var.c(themeCardInMain);
-                this.mCardCategoryList.add(dn8Var);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.hasMore : invokeV.booleanValue;
     }
 }

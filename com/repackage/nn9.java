@@ -1,33 +1,34 @@
 package com.repackage;
 
 import android.content.Context;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.view.MotionEvent;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.d.D;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.json.JSONStringer;
+import com.win.opensdk.core.Info;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class nn9 {
+public class nn9 implements View.OnClickListener, View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public JSONStringer b;
-    public String c;
+    public int a;
+    public int b;
+    public long c;
+    public int d;
+    public int e;
+    public long f;
+    public final /* synthetic */ qn9 g;
 
-    public nn9(rn9 rn9Var, Context context) {
+    public nn9(qn9 qn9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rn9Var, context};
+            Object[] objArr = {qn9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,265 +38,80 @@ public class nn9 {
                 return;
             }
         }
-        this.b = new JSONStringer();
-        this.c = "";
-        this.a = context;
+        this.g = qn9Var;
     }
 
-    public nn9 a(int i, long j) {
-        InterceptResult invokeCommon;
+    public HashMap a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
-            try {
-                this.b = rn9.c();
-                l("e", "bce");
-                l("timeis", rn9.e());
-                k("co", i);
-                k("dr", j);
-            } catch (JSONException unused) {
-            }
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("dx", Integer.valueOf(this.a));
+            hashMap.put("dy", Integer.valueOf(this.b));
+            hashMap.put("dts", Long.valueOf(this.c));
+            hashMap.put("ux", Integer.valueOf(this.d));
+            hashMap.put("uy", Integer.valueOf(this.e));
+            hashMap.put("uts", Long.valueOf(this.f));
+            qn9 qn9Var = this.g;
+            sl9.j(hashMap, qn9Var.p, qn9Var.q, qn9Var.r, qn9Var.s, qn9Var.t, qn9Var.u);
+            return hashMap;
         }
-        return (nn9) invokeCommon.objValue;
+        return (HashMap) invokeV.objValue;
     }
 
-    public nn9 b(vn9 vn9Var) {
-        InterceptResult invokeL;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vn9Var)) == null) {
-            try {
-                this.b = rn9.d("ao", vn9Var);
-            } catch (JSONException unused) {
-            }
-            return this;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
         }
-        return (nn9) invokeL.objValue;
     }
 
-    public nn9 c(vn9 vn9Var, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, vn9Var, i)) == null) {
-            try {
-                this.b = rn9.d("rle", vn9Var);
-                k("co", i);
-            } catch (JSONException unused) {
-            }
-            return this;
-        }
-        return (nn9) invokeLI.objValue;
-    }
-
-    public nn9 d(vn9 vn9Var, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, vn9Var, i, i2)) == null) {
-            try {
-                this.b = rn9.d("asr", vn9Var);
-                k("width", i);
-                k("height", i2);
-            } catch (JSONException unused) {
-            }
-            return this;
-        }
-        return (nn9) invokeLII.objValue;
-    }
-
-    public nn9 e(vn9 vn9Var, int i, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{vn9Var, Integer.valueOf(i), Long.valueOf(j)})) == null) {
-            try {
-                this.b = rn9.d("bpe", vn9Var);
-                k("co", i);
-                k("dr", j);
-            } catch (JSONException unused) {
-            }
-            return this;
-        }
-        return (nn9) invokeCommon.objValue;
-    }
-
-    public nn9 f(vn9 vn9Var, int i, String str) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048581, this, vn9Var, i, str)) == null) {
-            try {
-                this.b = rn9.d("wbe", vn9Var);
-                k("co", i);
-                l("msg", rn9.b(str));
-            } catch (JSONException unused) {
-            }
-            return this;
-        }
-        return (nn9) invokeLIL.objValue;
-    }
-
-    public nn9 g(vn9 vn9Var, long j, int i, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{vn9Var, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            try {
-                this.b = rn9.d("be", vn9Var);
-                k("dr", j);
-                k("co", i);
-                k("num", i2);
-            } catch (JSONException unused) {
-            }
-            return this;
-        }
-        return (nn9) invokeCommon.objValue;
-    }
-
-    public nn9 h(vn9 vn9Var, String str) {
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, vn9Var, str)) == null) {
-            try {
-                this.b = rn9.d(D.COLUMN_PLUGIN_ACTIVITY_INFO_LIST, vn9Var);
-                l("msg", rn9.b(str));
-            } catch (JSONException unused) {
-            }
-            return this;
-        }
-        return (nn9) invokeLL.objValue;
-    }
-
-    public nn9 i(vn9 vn9Var, String str, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, vn9Var, str, i)) == null) {
-            try {
-                this.b = rn9.d("dplop", vn9Var);
-                l("msg", rn9.b(str));
-                k("co", i);
-            } catch (JSONException unused) {
-            }
-            return this;
-        }
-        return (nn9) invokeLLI.objValue;
-    }
-
-    public nn9 j(vn9 vn9Var, String str, int i, int i2) {
-        InterceptResult invokeLLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048585, this, vn9Var, str, i, i2)) == null) {
-            try {
-                this.b = rn9.d("wdre", vn9Var);
-                try {
-                    str = ll9.g(str);
-                } catch (Exception unused) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (action == 0) {
+                this.a = (int) motionEvent.getRawX();
+                this.b = (int) motionEvent.getRawY();
+                this.c = System.currentTimeMillis();
+                this.g.p = (int) motionEvent.getX();
+                this.g.q = (int) motionEvent.getY();
+                qn9.c(this.g, view2);
+                return false;
+            } else if (action != 1) {
+                return false;
+            } else {
+                this.d = (int) motionEvent.getRawX();
+                this.e = (int) motionEvent.getRawY();
+                this.f = System.currentTimeMillis();
+                this.g.r = (int) motionEvent.getX();
+                this.g.s = (int) motionEvent.getY();
+                qn9 qn9Var = this.g;
+                Info info = qn9Var.c;
+                if (info == null || !wm9.d(info, qn9Var.h)) {
+                    return false;
                 }
-                l("pkg", str);
-                k("vsc", i);
-                k("co", i2);
-            } catch (JSONException unused2) {
-            }
-            return this;
-        }
-        return (nn9) invokeLLII.objValue;
-    }
-
-    public nn9 k(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048586, this, str, j)) == null) {
-            try {
-                this.b.key(str).value(j);
-            } catch (JSONException unused) {
-            }
-            return this;
-        }
-        return (nn9) invokeLJ.objValue;
-    }
-
-    public nn9 l(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
-            try {
-                if (!TextUtils.isEmpty(str2)) {
-                    this.b.key(str).value(str2);
+                this.g.h = System.currentTimeMillis();
+                qn9 qn9Var2 = this.g;
+                Context context = qn9Var2.a;
+                String open = qn9Var2.c.getOpen();
+                qn9 qn9Var3 = this.g;
+                wm9.a(context, open, qn9Var3.c, qn9Var3.g, a().toString());
+                un9 a = yn9.a(this.g.a);
+                a.h(new co9(this.g.c), null);
+                a.l("desc", a().toString());
+                a.m();
+                sl9.p(this.g.c, a().toString());
+                eo9 eo9Var = this.g.f;
+                if (eo9Var != null) {
+                    eo9Var.onClicked();
+                    return false;
                 }
-            } catch (JSONException unused) {
-            }
-            return this;
-        }
-        return (nn9) invokeLL.objValue;
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            JSONArray jSONArray = new JSONArray();
-            try {
-                if (!TextUtils.isEmpty(this.b.toString())) {
-                    this.b.endObject();
-                    this.c = this.b.toString();
-                }
-                JSONObject jSONObject = new JSONObject(this.c);
-                String optString = jSONObject.optString("e");
-                if (n(optString)) {
-                    return;
-                }
-                boolean z = !ll9.u(rn9.a, optString);
-                jSONArray.put(jSONObject);
-                in9.b(new kn9(this, z, jSONArray.toString()));
-            } catch (JSONException unused) {
-            }
-        }
-    }
-
-    public final boolean n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            if (bn9.G(this.a) < 0) {
                 return false;
             }
-            return ll9.u(rn9.a, str) ? bn9.G(this.a) < 1 : ll9.u(rn9.b, str) ? bn9.G(this.a) < 2 : ll9.u(rn9.c, str) ? bn9.G(this.a) < 3 : ll9.u(rn9.d, str) && bn9.G(this.a) < 4;
         }
-        return invokeL.booleanValue;
-    }
-
-    public nn9 o(vn9 vn9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, vn9Var)) == null) {
-            try {
-                this.b = rn9.d("as", vn9Var);
-            } catch (JSONException unused) {
-            }
-            return this;
-        }
-        return (nn9) invokeL.objValue;
-    }
-
-    public nn9 p(vn9 vn9Var, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048591, this, vn9Var, i)) == null) {
-            try {
-                this.b = rn9.d("wde", vn9Var);
-                k("co", i);
-            } catch (JSONException unused) {
-            }
-            return this;
-        }
-        return (nn9) invokeLI.objValue;
-    }
-
-    public nn9 q(vn9 vn9Var, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048592, this, vn9Var, i)) == null) {
-            try {
-                this.b = rn9.d("wdin", vn9Var);
-                k("co", i);
-            } catch (JSONException unused) {
-            }
-            return this;
-        }
-        return (nn9) invokeLI.objValue;
+        return invokeLL.booleanValue;
     }
 }

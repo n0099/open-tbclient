@@ -37,8 +37,7 @@ public final class BuyTBeanActivityStaticAutoGenerateUrlCollectorImpl implements
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             HashMap hashMap = new HashMap();
             new ArrayList();
-            hashMap.put("2002001", "com.baidu.tieba.tbean.BuyTBeanActivityStatic");
-            hashMap.put("3001000", "com.baidu.tieba.tbean.BuyTBeanActivityStatic");
+            hashMap.put("3001000", "com.baidu.tieba.wallet.BuyTBeanActivityStatic");
             return hashMap;
         }
         return (Map) invokeV.objValue;
@@ -51,10 +50,9 @@ public final class BuyTBeanActivityStaticAutoGenerateUrlCollectorImpl implements
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             HashMap hashMap = new HashMap();
             ArrayList arrayList = new ArrayList();
-            arrayList.add("BuyTBeanActivityConfig");
             arrayList.add("tdoudiscount:");
             arrayList.add(TbConfig.WEB_VIEW_JUMP2NATIVE);
-            hashMap.put("com.baidu.tieba.tbean.BuyTBeanActivityStatic", arrayList);
+            hashMap.put("com.baidu.tieba.wallet.BuyTBeanActivityStatic", arrayList);
             return hashMap;
         }
         return (Map) invokeV.objValue;

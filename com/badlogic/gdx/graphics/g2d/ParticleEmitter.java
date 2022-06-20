@@ -12,9 +12,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b1;
-import com.repackage.y3;
-import com.repackage.y6;
+import com.repackage.a4;
+import com.repackage.a7;
+import com.repackage.e1;
 import java.io.BufferedReader;
 import java.io.IOException;
 /* loaded from: classes.dex */
@@ -23,7 +23,7 @@ public class ParticleEmitter {
     public transient /* synthetic */ FieldHolder $fh;
     public float A;
     public String B;
-    public y6<String> C;
+    public a7<String> C;
     public int D;
     public boolean[] E;
     public boolean F;
@@ -70,7 +70,7 @@ public class ParticleEmitter {
     public g r;
     public h s;
     public float t;
-    public y6<y3> u;
+    public a7<a4> u;
     public SpriteMode v;
     public d[] w;
     public int x;
@@ -482,7 +482,7 @@ public class ParticleEmitter {
                         bufferedReader.reset();
                         return;
                     } else {
-                        b1.a.error("ParticleEmitter", "The loaded particle effect descriptor file uses an old invalid format. Please download the latest version of the Particle Editor tool and recreate the file by loading and saving it again.");
+                        e1.a.error("ParticleEmitter", "The loaded particle effect descriptor file uses an old invalid format. Please download the latest version of the Particle Editor tool and recreate the file by loading and saving it again.");
                         throw new IOException("The loaded particle effect descriptor file uses an old invalid format. Please download the latest version of the Particle Editor tool and recreate the file by loading and saving it again.");
                     }
                 }
@@ -492,7 +492,7 @@ public class ParticleEmitter {
     }
 
     /* loaded from: classes.dex */
-    public static class d extends y3 {
+    public static class d extends a4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public float A;
@@ -519,18 +519,18 @@ public class ParticleEmitter {
         public float z;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(y3 y3Var) {
-            super(y3Var);
+        public d(a4 a4Var) {
+            super(a4Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {y3Var};
+                Object[] objArr = {a4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((y3) newInitContext.callArgs[0]);
+                    super((a4) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -864,7 +864,7 @@ public class ParticleEmitter {
     }
 
     public final void a(int i) {
-        y3 f2;
+        a4 f2;
         float f3;
         float l;
         float l2;
@@ -1125,23 +1125,23 @@ public class ParticleEmitter {
         }
     }
 
-    public y6<String> f() {
+    public a7<String> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.C : (y6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.C : (a7) invokeV.objValue;
     }
 
-    public y6<y3> g() {
+    public a7<a4> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.u : (y6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.u : (a7) invokeV.objValue;
     }
 
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.u = new y6<>();
-            this.C = new y6<>();
+            this.u = new a7<>();
+            this.C = new a7<>();
             this.c.c(true);
             this.e.c(true);
             this.d.c(true);
@@ -1218,15 +1218,15 @@ public class ParticleEmitter {
                     this.v = SpriteMode.valueOf(p(readLine));
                     bufferedReader.readLine();
                 }
-                y6<String> y6Var = new y6<>();
+                a7<String> a7Var = new a7<>();
                 while (true) {
                     String readLine2 = bufferedReader.readLine();
                     if (readLine2 == null || readLine2.isEmpty()) {
                         break;
                     }
-                    y6Var.a(readLine2);
+                    a7Var.a(readLine2);
                 }
-                r(y6Var);
+                r(a7Var);
             } catch (RuntimeException e2) {
                 if (this.B == null) {
                     throw e2;
@@ -1236,10 +1236,10 @@ public class ParticleEmitter {
         }
     }
 
-    public d j(y3 y3Var) {
+    public d j(a4 a4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, y3Var)) == null) ? new d(y3Var) : (d) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, a4Var)) == null) ? new d(a4Var) : (d) invokeL.objValue;
     }
 
     public final void q() {
@@ -1305,10 +1305,10 @@ public class ParticleEmitter {
         }
     }
 
-    public void r(y6<String> y6Var) {
+    public void r(a7<String> a7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, y6Var) == null) {
-            this.C = y6Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, a7Var) == null) {
+            this.C = a7Var;
         }
     }
 
@@ -1329,11 +1329,11 @@ public class ParticleEmitter {
         }
     }
 
-    public void u(y6<y3> y6Var) {
+    public void u(a7<a4> a7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, y6Var) == null) {
-            this.u = y6Var;
-            if (y6Var.b == 0) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, a7Var) == null) {
+            this.u = a7Var;
+            if (a7Var.b == 0) {
                 return;
             }
             int length = this.w.length;
@@ -1342,21 +1342,21 @@ public class ParticleEmitter {
                 if (dVar == null) {
                     return;
                 }
-                y3 y3Var = null;
+                a4 a4Var = null;
                 int i2 = a.a[this.v.ordinal()];
                 if (i2 == 1) {
-                    y3Var = y6Var.f();
+                    a4Var = a7Var.f();
                 } else if (i2 == 2) {
                     float f2 = 1.0f - (dVar.u / dVar.t);
-                    int i3 = y6Var.b;
+                    int i3 = a7Var.b;
                     int min = Math.min((int) (f2 * i3), i3 - 1);
                     dVar.O = min;
-                    y3Var = y6Var.get(min);
+                    a4Var = a7Var.get(min);
                 } else if (i2 == 3) {
-                    y3Var = y6Var.h();
+                    a4Var = a7Var.h();
                 }
-                dVar.i(y3Var);
-                dVar.v(y3Var.l(), y3Var.m());
+                dVar.i(a4Var);
+                dVar.v(a4Var.l(), a4Var.m());
             }
         }
     }
@@ -1502,13 +1502,13 @@ public class ParticleEmitter {
                 int i4 = this.u.b;
                 int min = Math.min((int) (f5 * i4), i4 - 1);
                 if (dVar.O != min) {
-                    y3 y3Var = this.u.get(min);
+                    a4 a4Var = this.u.get(min);
                     float n = dVar.n();
                     float k = dVar.k();
-                    dVar.i(y3Var);
-                    dVar.z(y3Var.n(), y3Var.k());
-                    dVar.v(y3Var.l(), y3Var.m());
-                    dVar.A((n - y3Var.n()) / 2.0f, (k - y3Var.k()) / 2.0f);
+                    dVar.i(a4Var);
+                    dVar.z(a4Var.n(), a4Var.k());
+                    dVar.v(a4Var.l(), a4Var.m());
+                    dVar.A((n - a4Var.n()) / 2.0f, (k - a4Var.k()) / 2.0f);
                     dVar.O = min;
                 }
             }

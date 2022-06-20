@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Executor;
 /* loaded from: classes6.dex */
-public class n implements i00 {
+public class n implements m00 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Executor a;
@@ -18,15 +18,15 @@ public class n implements i00 {
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final h00 a;
-        public final g00 b;
+        public final l00 a;
+        public final k00 b;
 
-        public a(h00 h00Var) {
+        public a(l00 l00Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {h00Var};
+                Object[] objArr = {l00Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -36,8 +36,8 @@ public class n implements i00 {
                     return;
                 }
             }
-            this.a = h00Var;
-            this.b = h00Var.a();
+            this.a = l00Var;
+            this.b = l00Var.a();
         }
 
         @Override // java.lang.Runnable
@@ -46,19 +46,19 @@ public class n implements i00 {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 switch (this.a.h()) {
                     case 102:
-                        m00.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CONNECTING");
+                        q00.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CONNECTING");
                         this.b.c();
                         return;
                     case 103:
-                        m00.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CONNECTED length: " + this.a.e() + " acceptRanges: " + this.a.i());
+                        q00.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CONNECTED length: " + this.a.e() + " acceptRanges: " + this.a.i());
                         this.b.b(this.a.e(), this.a.i());
                         return;
                     case 104:
-                        m00.a(DownloadStatusDeliveryImpl.TAG, "STATUS_PROGRESS finished: " + this.a.d() + " length: " + this.a.e() + " percent: " + this.a.f());
+                        q00.a(DownloadStatusDeliveryImpl.TAG, "STATUS_PROGRESS finished: " + this.a.d() + " length: " + this.a.e() + " percent: " + this.a.f());
                         this.b.g(this.a.d(), this.a.e(), this.a.f());
                         return;
                     case 105:
-                        m00.a(DownloadStatusDeliveryImpl.TAG, "STATUS_COMPLETED Path:" + this.a.g());
+                        q00.a(DownloadStatusDeliveryImpl.TAG, "STATUS_COMPLETED Path:" + this.a.g());
                         if (this.a.b()) {
                             return;
                         }
@@ -66,15 +66,15 @@ public class n implements i00 {
                         this.b.a(this.a.g());
                         return;
                     case 106:
-                        m00.a(DownloadStatusDeliveryImpl.TAG, "STATUS_PAUSED");
+                        q00.a(DownloadStatusDeliveryImpl.TAG, "STATUS_PAUSED");
                         this.b.e();
                         return;
                     case 107:
-                        m00.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CANCELED");
+                        q00.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CANCELED");
                         this.b.d();
                         return;
                     case 108:
-                        m00.b(DownloadStatusDeliveryImpl.TAG, "STATUS_FAILED error: " + this.a.c().getCause());
+                        q00.b(DownloadStatusDeliveryImpl.TAG, "STATUS_FAILED error: " + this.a.c().getCause());
                         this.b.f((DownloadException) this.a.c());
                         return;
                     default:
@@ -135,11 +135,11 @@ public class n implements i00 {
         this.a = new b(this, handler);
     }
 
-    @Override // com.repackage.i00
-    public void a(h00 h00Var) {
+    @Override // com.repackage.m00
+    public void a(l00 l00Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, h00Var) == null) {
-            this.a.execute(new a(h00Var));
+        if (interceptable == null || interceptable.invokeL(1048576, this, l00Var) == null) {
+            this.a.execute(new a(l00Var));
         }
     }
 }

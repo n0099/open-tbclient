@@ -156,7 +156,6 @@ public class TbHttpMessageTask extends HttpMessageTask {
     public void setIsUseCurrentBDUSS(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            this.mIsUseCurrentBDUSS = z;
         }
     }
 

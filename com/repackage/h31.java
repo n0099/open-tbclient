@@ -5,19 +5,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
-public class h31 {
+public class h31 implements InvocationHandler {
     public static /* synthetic */ Interceptable $ic;
-    public static h31 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
+    public f31 a;
 
-    public h31() {
+    public h31(f31 f31Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {f31Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,32 +28,26 @@ public class h31 {
                 return;
             }
         }
-        new ArrayList();
-        this.a = new ArrayList();
+        this.a = f31Var;
     }
 
-    public static h31 a() {
-        InterceptResult invokeV;
+    @Override // java.lang.reflect.InvocationHandler
+    public Object invoke(Object obj, Method method, Object[] objArr) throws Throwable {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (h31.class) {
-                    if (b == null) {
-                        b = new h31();
-                    }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, method, objArr)) == null) {
+            if (this.a != null) {
+                try {
+                    this.a.onTranslucent(((Boolean) objArr[0]).booleanValue());
+                    return null;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    this.a.onTranslucent(false);
+                    return null;
                 }
             }
-            return b;
+            return null;
         }
-        return (h31) invokeV.objValue;
-    }
-
-    public synchronized void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            synchronized (this) {
-                gx0.b(this.a, str);
-            }
-        }
+        return invokeLLL.objValue;
     }
 }

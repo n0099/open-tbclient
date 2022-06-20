@@ -1,110 +1,12 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.newdetail.HotTopicDetailActivity;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class nk7 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface nk7 {
+    void a(JSONObject jSONObject) throws JSONException;
 
-    public static void a(String str, Object obj, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65536, null, str, obj, i, str2) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            if (obj instanceof dp4) {
-                statisticItem.param("fid", ((dp4) obj).k());
-            } else if (obj instanceof el7) {
-                el7 el7Var = (el7) obj;
-                ThreadData threadData = el7Var.h;
-                if (threadData != null) {
-                    statisticItem.param("tid", threadData.getTid());
-                }
-                statisticItem.param("obj_locate", el7Var.a());
-            }
-            statisticItem.param("topic_id", str2);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.eventStat();
-        }
-    }
+    void b(JSONObject jSONObject) throws JSONException;
 
-    public static void b(qk7 qk7Var, om4 om4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, qk7Var, om4Var) == null) {
-            d(qk7Var, om4Var, true);
-        }
-    }
-
-    public static void c(qk7 qk7Var, om4 om4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, qk7Var, om4Var) == null) {
-            d(qk7Var, om4Var, false);
-        }
-    }
-
-    public static void d(qk7 qk7Var, om4 om4Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(65539, null, qk7Var, om4Var, z) == null) || om4Var == null || om4Var.getThreadData() == null) {
-            return;
-        }
-        ThreadData threadData = om4Var.getThreadData();
-        boolean Z = qk7Var.Z();
-        StatisticItem statisticItem = new StatisticItem(z ? Z ? "c13823" : "c13822" : Z ? "c13824" : "c13821");
-        statisticItem.param("tid", threadData.getTid());
-        statisticItem.param("fid", threadData.getFid());
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        if (qk7Var.a0().getOrignalPage() instanceof HotTopicDetailActivity) {
-            statisticItem.param("topic_id", ((HotTopicDetailActivity) qk7Var.a0().getOrignalPage()).getTopicId());
-        }
-        statisticItem.eventStat();
-    }
-
-    public static void e(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData) == null) || threadData == null) {
-            return;
-        }
-        new StatisticItem("c13022").addParam("tid", threadData.getTid()).addParam("fid", threadData.getFid()).addParam("fname", threadData.getForum_name()).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam(TiebaStatic.Params.OBJ_TO, UbsABTestHelper.isImgClickToPb() ? 1 : 2).eventStat();
-    }
-
-    public static void f(TbPageContext<HotTopicDetailActivity> tbPageContext, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65541, null, tbPageContext, str) == null) || tbPageContext == null || StringUtils.isNull(str)) {
-            return;
-        }
-        StatisticItem statisticItem = new StatisticItem(str);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        statisticItem.param("topic_id", tbPageContext.getOrignalPage().getTopicId());
-        statisticItem.eventStat();
-    }
-
-    public static void g(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) || StringUtils.isNull(str) || StringUtils.isNull(str2)) {
-            return;
-        }
-        StatisticItem statisticItem = new StatisticItem(str);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        statisticItem.param("topic_id", str2);
-        statisticItem.eventStat();
-    }
-
-    public static void h(TbPageContext<HotTopicDetailActivity> tbPageContext, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65543, null, tbPageContext, str) == null) || tbPageContext == null || StringUtils.isNull(str)) {
-            return;
-        }
-        StatisticItem statisticItem = new StatisticItem(str);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        statisticItem.param("topic_id", tbPageContext.getOrignalPage().getTopicId());
-        statisticItem.eventStat();
-    }
+    void c(JSONObject jSONObject) throws JSONException;
 }

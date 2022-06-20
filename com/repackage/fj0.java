@@ -1,144 +1,83 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.os.IBinder;
-import android.view.View;
-import android.view.Window;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.nadcore.download.view.AdDownloadDlgView;
-import com.baidu.tieba.R;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes6.dex */
 public class fj0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<ii0> a;
 
-    /* loaded from: classes5.dex */
-    public static class a implements View.OnClickListener {
+    /* loaded from: classes6.dex */
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final fj0 a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AlertDialog a;
-        public final /* synthetic */ Activity b;
 
-        public a(AlertDialog alertDialog, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {alertDialog, activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-384053336, "Lcom/repackage/fj0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-384053336, "Lcom/repackage/fj0$a;");
                     return;
                 }
             }
-            this.a = alertDialog;
-            this.b = activity;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                fj0.a(this.a, this.b);
-            }
+            a = new fj0(null);
         }
     }
 
-    public static boolean a(Dialog dialog, Activity activity) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dialog, activity)) == null) {
-            if (dialog == null || activity == null || activity.isFinishing() || activity.getWindow() == null || !b(activity.getWindow().getDecorView())) {
-                return false;
-            }
-            dialog.dismiss();
-            return true;
-        }
-        return invokeLL.booleanValue;
+    public /* synthetic */ fj0(ej0 ej0Var) {
+        this();
     }
 
-    public static boolean b(View view2) {
-        InterceptResult invokeL;
-        IBinder windowToken;
+    public static fj0 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            if (view2 == null || (windowToken = view2.getWindowToken()) == null) {
-                return false;
-            }
-            try {
-                if (windowToken.isBinderAlive()) {
-                    return windowToken.pingBinder();
-                }
-                return false;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (fj0) invokeV.objValue;
     }
 
-    public static Dialog c(@NonNull ki0 ki0Var, @NonNull View view2, @NonNull Activity activity, @Nullable DialogInterface.OnDismissListener onDismissListener, @Nullable DialogInterface.OnShowListener onShowListener) {
-        InterceptResult invokeLLLLL;
+    public void b(ii0 ii0Var) {
+        File file;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65538, null, ki0Var, view2, activity, onDismissListener, onShowListener)) == null) {
-            AlertDialog create = new AlertDialog.Builder(activity, R.style.obfuscated_res_0x7f100131).create();
-            create.setCanceledOnTouchOutside(true);
-            create.setOnDismissListener(onDismissListener);
-            create.setOnShowListener(onShowListener);
-            AdDownloadDlgView adDownloadDlgView = new AdDownloadDlgView(activity);
-            adDownloadDlgView.b(ki0Var);
-            adDownloadDlgView.setDownloadView(view2);
-            adDownloadDlgView.setOnCloseClickListener(new a(create, activity));
-            d(create, activity);
-            Window window = create.getWindow();
-            if (window != null) {
-                window.setGravity(80);
-                window.setLayout(-1, -2);
-                window.setContentView(adDownloadDlgView);
-            }
-            return create;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, ii0Var) == null) || ii0Var == null || (file = ii0Var.h) == null || !file.exists()) {
+            return;
         }
-        return (Dialog) invokeLLLLL.objValue;
+        String str = ii0Var.p.h;
+        String absolutePath = ii0Var.h.getAbsolutePath();
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(absolutePath)) {
+            return;
+        }
+        ii0Var.q.m = "reminded_type_none";
+        kx0.b(this.a, ii0Var);
     }
 
-    public static boolean d(Dialog dialog, Activity activity) {
-        InterceptResult invokeLL;
+    public fj0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, dialog, activity)) == null) {
-            if (dialog == null || activity == null || activity.isFinishing()) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (activity.getWindow() != null && !activity.getWindow().isActive()) {
-                try {
-                    dialog.show();
-                    return true;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            if (activity.getWindow() != null && b(activity.getWindow().getDecorView())) {
-                try {
-                    dialog.show();
-                    return true;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-            }
-            return false;
         }
-        return invokeLL.booleanValue;
+        this.a = new ArrayList();
     }
 }

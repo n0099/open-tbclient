@@ -3,7 +3,6 @@ package com.baidu.tieba.card.data;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,10 +10,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.co;
-import com.repackage.jn;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
+import com.repackage.go;
+import com.repackage.nn;
 /* loaded from: classes3.dex */
-public abstract class BaseCardInfo implements jn {
+public abstract class BaseCardInfo implements nn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean forceNoTest;
@@ -22,7 +22,7 @@ public abstract class BaseCardInfo implements jn {
     public SupportType mSupportType;
     public boolean needTopMargin;
     public int position;
-    public co trigger;
+    public go trigger;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
@@ -50,8 +50,8 @@ public abstract class BaseCardInfo implements jn {
                     return;
                 }
             }
-            NONE = new SupportType("NONE", 0);
-            FULL = new SupportType(PolyActivity.FULL_PANEL_TYPE, 1);
+            NONE = new SupportType(HlsPlaylistParser.METHOD_NONE, 0);
+            FULL = new SupportType("FULL", 1);
             TOP = new SupportType("TOP", 2);
             CONTENT = new SupportType("CONTENT", 3);
             BOTTOM = new SupportType("BOTTOM", 4);
@@ -110,13 +110,13 @@ public abstract class BaseCardInfo implements jn {
         this.mSupportType = SupportType.NONE;
     }
 
-    public co getTrigger() {
+    public go getTrigger() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.trigger : (co) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.trigger : (go) invokeV.objValue;
     }
 
-    @Override // com.repackage.jn
+    @Override // com.repackage.nn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -169,10 +169,10 @@ public abstract class BaseCardInfo implements jn {
         }
     }
 
-    public void setTrigger(co coVar) {
+    public void setTrigger(go goVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, coVar) == null) {
-            this.trigger = coVar;
+        if (interceptable == null || interceptable.invokeL(1048585, this, goVar) == null) {
+            this.trigger = goVar;
         }
     }
 }

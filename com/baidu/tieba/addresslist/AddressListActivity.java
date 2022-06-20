@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AddressListActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NavigationBar mNavigationBar;
+    public NavigationBar a;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -67,7 +67,7 @@ public class AddressListActivity extends BaseFragmentActivity {
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+            this.a.onChangeSkinType(getPageContext(), i);
         }
     }
 
@@ -76,11 +76,11 @@ public class AddressListActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0078);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923a2);
-            this.mNavigationBar = navigationBar;
+            setContentView(R.layout.obfuscated_res_0x7f0d0077);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09238f);
+            this.a = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            this.mNavigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0b45));
+            this.a.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0b49));
             getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f09012a, new AddressListFragment()).commit();
         }
     }

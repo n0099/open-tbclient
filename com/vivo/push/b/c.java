@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c extends com.vivo.push.o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public class c extends com.vivo.push.o {
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             aVar.a("req_id", this.a);
             aVar.a("package_name", this.b);
-            aVar.a("sdk_version", 800L);
+            aVar.a("sdk_version", 323L);
             aVar.a("PUSH_APP_STATUS", this.d);
             if (TextUtils.isEmpty(this.f)) {
                 return;

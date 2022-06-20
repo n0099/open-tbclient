@@ -1,7 +1,9 @@
 package com.repackage;
 /* loaded from: classes6.dex */
 public interface ok1 {
-    void a(boolean z);
+    void a();
 
-    boolean b();
+    void b();
+
+    void c();
 }

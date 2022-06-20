@@ -1,367 +1,152 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.al;
-import java.io.File;
-import java.io.IOException;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class db {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile db a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with other field name */
-    public Context f198a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public final ConcurrentLinkedQueue<b> f199a;
-
-    /* loaded from: classes8.dex */
-    public class a extends b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ db a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(db dbVar) {
-            super(dbVar);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((db) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dbVar;
-        }
-
-        @Override // com.xiaomi.push.db.b, com.xiaomi.push.al.b
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b extends al.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public final /* synthetic */ db b;
-
-        public b(db dbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = dbVar;
-            this.a = System.currentTimeMillis();
-        }
-
-        @Override // com.xiaomi.push.al.b
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.xiaomi.push.al.b
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        @Override // com.xiaomi.push.al.b
-        public final boolean b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? System.currentTimeMillis() - this.a > 172800000 : invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c extends b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-
-        /* renamed from: a  reason: collision with other field name */
-        public final /* synthetic */ db f200a;
-
-        /* renamed from: a  reason: collision with other field name */
-        public File f201a;
-
-        /* renamed from: a  reason: collision with other field name */
-        public String f202a;
-
-        /* renamed from: a  reason: collision with other field name */
-        public boolean f203a;
-        public String b;
-
-        /* renamed from: b  reason: collision with other field name */
-        public boolean f204b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(db dbVar, String str, String str2, File file, boolean z) {
-            super(dbVar);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dbVar, str, str2, file, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((db) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f200a = dbVar;
-            this.f202a = str;
-            this.b = str2;
-            this.f201a = file;
-            this.f204b = z;
-        }
-
-        private boolean c() {
-            InterceptResult invokeV;
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-                int i2 = 0;
-                SharedPreferences sharedPreferences = this.f200a.f198a.getSharedPreferences("log.timestamp", 0);
-                String string = sharedPreferences.getString("log.requst", "");
-                long currentTimeMillis = System.currentTimeMillis();
-                try {
-                    JSONObject jSONObject = new JSONObject(string);
-                    currentTimeMillis = jSONObject.getLong("time");
-                    i = jSONObject.getInt("times");
-                } catch (JSONException unused) {
-                    i = 0;
-                }
-                if (System.currentTimeMillis() - currentTimeMillis >= 86400000) {
-                    currentTimeMillis = System.currentTimeMillis();
-                } else if (i > 10) {
-                    return false;
-                } else {
-                    i2 = i;
-                }
-                JSONObject jSONObject2 = new JSONObject();
-                try {
-                    jSONObject2.put("time", currentTimeMillis);
-                    jSONObject2.put("times", i2 + 1);
-                    sharedPreferences.edit().putString("log.requst", jSONObject2.toString()).commit();
-                } catch (JSONException e) {
-                    com.xiaomi.channel.commonutils.logger.b.c("JSONException on put " + e.getMessage());
-                }
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.xiaomi.push.db.b, com.xiaomi.push.al.b
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? bg.e(this.f200a.f198a) || (this.f204b && bg.b(this.f200a.f198a)) : invokeV.booleanValue;
-        }
-
-        @Override // com.xiaomi.push.db.b, com.xiaomi.push.al.b
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                try {
-                    if (c()) {
-                        HashMap hashMap = new HashMap();
-                        hashMap.put("uid", com.xiaomi.push.service.bi.m650a());
-                        hashMap.put("token", this.b);
-                        hashMap.put("net", bg.m210a(this.f200a.f198a));
-                        bg.a(this.f202a, hashMap, this.f201a, "file");
-                    }
-                    this.f203a = true;
-                } catch (IOException unused) {
-                }
-            }
-        }
-
-        @Override // com.xiaomi.push.al.b
-        /* renamed from: c  reason: collision with other method in class */
-        public void mo280c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (!this.f203a) {
-                    int i = this.a + 1;
-                    this.a = i;
-                    if (i < 3) {
-                        this.f200a.f199a.add(this);
-                    }
-                }
-                if (this.f203a || this.a >= 3) {
-                    this.f201a.delete();
-                }
-                this.f200a.a((1 << this.a) * 1000);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-56376958, "Lcom/xiaomi/push/db;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-56376958, "Lcom/xiaomi/push/db;");
-        }
-    }
-
-    public db(Context context) {
+    public static int a(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, context, i)) == null) {
+            int a = hb.a(context);
+            if (-1 == a) {
+                return -1;
             }
+            return (i * (a == 0 ? 13 : 11)) / 10;
         }
-        ConcurrentLinkedQueue<b> concurrentLinkedQueue = new ConcurrentLinkedQueue<>();
-        this.f199a = concurrentLinkedQueue;
-        this.f198a = context;
-        concurrentLinkedQueue.add(new a(this));
-        b(0L);
+        return invokeLI.intValue;
     }
 
-    public static db a(Context context) {
+    public static int a(hj hjVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (a == null) {
-                synchronized (db.class) {
-                    if (a == null) {
-                        a = new db(context);
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hjVar)) == null) ? en.a(hjVar.a()) : invokeL.intValue;
+    }
+
+    public static int a(iu iuVar, hj hjVar) {
+        InterceptResult invokeLL;
+        int a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, iuVar, hjVar)) == null) {
+            switch (dc.a[hjVar.ordinal()]) {
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                case 10:
+                    return en.a(hjVar.a());
+                case 11:
+                    a = en.a(hjVar.a());
+                    if (iuVar != null) {
+                        try {
+                            if (iuVar instanceof ia) {
+                                String str = ((ia) iuVar).f583d;
+                                if (!TextUtils.isEmpty(str) && en.a(en.m303a(str)) != -1) {
+                                    a = en.a(en.m303a(str));
+                                    break;
+                                }
+                            } else if (iuVar instanceof ii) {
+                                String str2 = ((ii) iuVar).f642d;
+                                if (!TextUtils.isEmpty(str2)) {
+                                    if (en.a(en.m303a(str2)) != -1) {
+                                        a = en.a(en.m303a(str2));
+                                    }
+                                    if (ht.B.equals(en.m303a(str2))) {
+                                        return -1;
+                                    }
+                                }
+                            }
+                        } catch (Exception unused) {
+                            com.xiaomi.channel.commonutils.logger.b.d("PERF_ERROR : parse Notification type error");
+                            return a;
+                        }
                     }
-                }
+                    break;
+                case 12:
+                    a = en.a(hjVar.a());
+                    if (iuVar != null) {
+                        try {
+                            if (iuVar instanceof ie) {
+                                String b = ((ie) iuVar).b();
+                                if (!TextUtils.isEmpty(b) && ey.a(b) != -1) {
+                                    a = ey.a(b);
+                                    break;
+                                }
+                            } else if (iuVar instanceof id) {
+                                String a2 = ((id) iuVar).a();
+                                if (!TextUtils.isEmpty(a2) && ey.a(a2) != -1) {
+                                    return ey.a(a2);
+                                }
+                            }
+                        } catch (Exception unused2) {
+                            com.xiaomi.channel.commonutils.logger.b.d("PERF_ERROR : parse Command type error");
+                            break;
+                        }
+                    }
+                    break;
+                default:
+                    return -1;
             }
-            a.f198a = context;
             return a;
         }
-        return (db) invokeL.objValue;
+        return invokeLL.intValue;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(long j) {
-        b peek;
+    public static void a(String str, Context context, int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(65541, this, j) == null) && (peek = this.f199a.peek()) != null && peek.a()) {
-            b(j);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || aa.b() || aa.m176a()) {
+        if (!(interceptable == null || interceptable.invokeLLII(65539, null, str, context, i, i2) == null) || i <= 0 || i2 <= 0) {
             return;
         }
+        int a = a(context, i2);
+        if (i != en.a(ht.B)) {
+            eo.a(context.getApplicationContext()).a(str, i, 1L, a);
+        }
+    }
+
+    public static void a(String str, Context context, Cif cif, int i) {
+        hj a;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, context, cif, i) == null) || context == null || cif == null || (a = cif.a()) == null) {
+            return;
+        }
+        int a2 = a(a);
+        if (i <= 0) {
+            byte[] a3 = it.a(cif);
+            i = a3 != null ? a3.length : 0;
+        }
+        a(str, context, a2, i);
+    }
+
+    public static void a(String str, Context context, iu iuVar, hj hjVar, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, context, iuVar, hjVar, Integer.valueOf(i)}) == null) {
+            a(str, context, a(iuVar, hjVar), i);
+        }
+    }
+
+    public static void a(String str, Context context, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65542, null, str, context, bArr) == null) || context == null || bArr == null || bArr.length <= 0) {
+            return;
+        }
+        Cif cif = new Cif();
         try {
-            File file = new File(this.f198a.getExternalFilesDir(null) + "/.logcache");
-            if (file.exists() && file.isDirectory()) {
-                for (File file2 : file.listFiles()) {
-                    file2.delete();
-                }
-            }
-        } catch (NullPointerException unused) {
-        }
-    }
-
-    private void b(long j) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65545, this, j) == null) || this.f199a.isEmpty()) {
-            return;
-        }
-        go.a(new dd(this), j);
-    }
-
-    private void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            while (!this.f199a.isEmpty()) {
-                b peek = this.f199a.peek();
-                if (peek != null) {
-                    if (!peek.b() && this.f199a.size() <= 6) {
-                        return;
-                    }
-                    com.xiaomi.channel.commonutils.logger.b.c("remove Expired task");
-                    this.f199a.remove(peek);
-                }
-            }
-        }
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c();
-            a(0L);
-        }
-    }
-
-    public void a(String str, String str2, Date date, Date date2, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, date, date2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            this.f199a.add(new dc(this, i, date, date2, str, str2, z));
-            b(0L);
+            it.a(cif, bArr);
+            a(str, context, cif, bArr.length);
+        } catch (iz unused) {
+            com.xiaomi.channel.commonutils.logger.b.m84a("fail to convert bytes to container");
         }
     }
 }

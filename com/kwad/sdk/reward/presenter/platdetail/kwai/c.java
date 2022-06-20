@@ -129,16 +129,16 @@ public class c extends g implements View.OnClickListener {
         int i;
         View view2;
         super.c_();
-        this.b = (ViewGroup) a(R.id.obfuscated_res_0x7f0910b7);
-        this.c = (ImageView) a(R.id.obfuscated_res_0x7f091030);
-        this.d = (TextView) a(R.id.obfuscated_res_0x7f091122);
+        this.b = (ViewGroup) a(R.id.obfuscated_res_0x7f0910a7);
+        this.c = (ImageView) a(R.id.obfuscated_res_0x7f091020);
+        this.d = (TextView) a(R.id.obfuscated_res_0x7f091112);
         if (TextUtils.isEmpty(com.kwad.sdk.core.config.b.V())) {
             if (com.kwad.sdk.core.config.b.S() == 0) {
                 imageView = this.c;
-                i = R.drawable.obfuscated_res_0x7f080c0f;
+                i = R.drawable.obfuscated_res_0x7f080bfa;
             } else {
                 imageView = this.c;
-                i = R.drawable.obfuscated_res_0x7f080cfb;
+                i = R.drawable.obfuscated_res_0x7f080ce6;
             }
             imageView.setImageResource(i);
             this.d.setVisibility(8);

@@ -10,7 +10,7 @@ import com.vivo.push.model.UPSNotificationMessage;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class q {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -68,6 +68,7 @@ public final class q {
             jSONArray.put(insideNotificationItem.getAdClickCheckUrl());
             jSONArray.put(insideNotificationItem.getCompatibleType());
             jSONArray.put(insideNotificationItem.getInnerPriority());
+            jSONArray.put(insideNotificationItem.getDisplayStyle());
             return jSONArray.toString();
         }
         return (String) invokeL.objValue;
@@ -119,6 +120,9 @@ public final class q {
             }
             if (jSONArray.length() > 20) {
                 insideNotificationItem.setInnerPriority(jSONArray.getInt(20));
+            }
+            if (jSONArray.length() > 21) {
+                insideNotificationItem.setDisplayStyle(jSONArray.getInt(21));
             }
             return insideNotificationItem;
         }

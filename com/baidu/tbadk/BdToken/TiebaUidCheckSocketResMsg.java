@@ -1,5 +1,6 @@
 package com.baidu.tbadk.BdToken;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -37,28 +38,31 @@ public class TiebaUidCheckSocketResMsg extends SocketResponsedMessage {
         }
     }
 
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            try {
+                GetUserByTiebaUidResIdl getUserByTiebaUidResIdl = (GetUserByTiebaUidResIdl) new Wire(new Class[0]).parseFrom(bArr, GetUserByTiebaUidResIdl.class);
+                if (getUserByTiebaUidResIdl != null && getUserByTiebaUidResIdl.data != null) {
+                    UserData userData = new UserData();
+                    this.mUserData = userData;
+                    userData.parserProtobuf(getUserByTiebaUidResIdl.data.user);
+                }
+                return getUserByTiebaUidResIdl;
+            } catch (Throwable th) {
+                BdLog.e(th);
+                return null;
+            }
+        }
+        return invokeIL.objValue;
+    }
+
     public UserData getUserData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mUserData : (UserData) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
-            try {
-                GetUserByTiebaUidResIdl getUserByTiebaUidResIdl = (GetUserByTiebaUidResIdl) new Wire(new Class[0]).parseFrom(bArr, GetUserByTiebaUidResIdl.class);
-                if (getUserByTiebaUidResIdl == null || getUserByTiebaUidResIdl.data == null) {
-                    return;
-                }
-                UserData userData = new UserData();
-                this.mUserData = userData;
-                userData.parserProtobuf(getUserByTiebaUidResIdl.data.user);
-            } catch (Throwable th) {
-                BdLog.e(th);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mUserData : (UserData) invokeV.objValue;
     }
 }

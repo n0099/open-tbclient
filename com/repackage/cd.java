@@ -1,23 +1,30 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
+import com.squareup.wire.Message;
+import java.lang.reflect.Field;
+import java.lang.reflect.Type;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class cd implements id {
+public class cd implements yc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public Message a;
+    public Set<String> b;
 
-    public cd(boolean z) {
+    public cd(Message message) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
+            Object[] objArr = {message};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,52 +34,53 @@ public class cd implements id {
                 return;
             }
         }
-        this.a = z;
+        this.a = message;
+        List<Field> b = bc.b(message.getClass());
+        this.b = new HashSet();
+        if (b == null || b.size() <= 0) {
+            return;
+        }
+        for (Field field : b) {
+            if (field != null) {
+                this.b.add(field.getName());
+            }
+        }
     }
 
-    @Override // com.repackage.id
-    public Object a(yd ydVar) {
+    @Override // com.repackage.yc
+    public void a(String str, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, obj) == null) {
+            bc.h(this.a, str, obj);
+        }
+    }
+
+    @Override // com.repackage.yc
+    public Object b(String str, Type type) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, type)) == null) {
+            Object c = c(str);
+            if (c != null) {
+                be beVar = new be(type);
+                ld a = fe.a(c);
+                return a != null ? a.a(beVar) : c;
+            }
+            return c;
+        }
+        return invokeLL.objValue;
+    }
+
+    public Object c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ydVar)) == null) {
-            Class<?> a = ydVar.a();
-            if (a != Boolean.class && a != Boolean.TYPE) {
-                if (a == Short.class || a == Short.TYPE) {
-                    return Short.valueOf((short) (!this.a ? 1 : 0));
-                }
-                if (a == Integer.class || a == Integer.TYPE) {
-                    return Integer.valueOf(!this.a ? 1 : 0);
-                }
-                if (a == Long.class || a == Long.TYPE) {
-                    return Long.valueOf(!this.a ? 1 : 0);
-                }
-                if (a == Float.class || a == Float.TYPE) {
-                    return Float.valueOf(!this.a ? 1 : 0);
-                }
-                if (a == Double.class || a == Double.TYPE) {
-                    return Double.valueOf(!this.a ? 1 : 0);
-                }
-                if (a == Character.class || a == Character.TYPE) {
-                    return Character.valueOf((char) (!this.a ? 1 : 0));
-                }
-                if (a == String.class) {
-                    return String.valueOf(this.a);
-                }
-                if (a == char[].class) {
-                    return String.valueOf(this.a).toCharArray();
-                }
-                if (a == byte[].class) {
-                    try {
-                        return ci.e(String.valueOf(this.a), 0);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        return null;
-                    }
-                }
-                return null;
-            }
-            return Boolean.valueOf(this.a);
-        }
-        return invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? bc.d(this.a, str) : invokeL.objValue;
+    }
+
+    @Override // com.repackage.yc
+    public Set<String> getKeys() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (Set) invokeV.objValue;
     }
 }

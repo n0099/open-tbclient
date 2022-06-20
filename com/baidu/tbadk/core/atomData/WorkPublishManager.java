@@ -7,9 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jv8;
-import com.repackage.wi8;
-/* loaded from: classes2.dex */
+import com.repackage.oj8;
+import com.repackage.rv8;
+/* loaded from: classes3.dex */
 public class WorkPublishManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FROM_VIDEO_HOT_TOPIC = 8;
@@ -62,21 +62,21 @@ public class WorkPublishManager {
         }
         objLocate = str;
         if (str != null && str.equals("7")) {
-            wi8.k().z(true);
-            wi8.k().x(str2);
+            oj8.k().z(true);
+            oj8.k().x(str2);
             i = 7;
         } else if (TextUtils.equals(str, "8")) {
-            wi8.k().y(8);
-            wi8.k().x(str2);
+            oj8.k().y(8);
+            oj8.k().x(str2);
             i = 8;
         } else {
             i = 6;
         }
-        if (jv8.b()) {
-            jv8.h(null, null, null, null, i, Boolean.TRUE, str3, str4, str5);
+        if (rv8.b()) {
+            rv8.h(null, null, null, null, i, Boolean.TRUE, str3, str4, str5);
             return;
         }
-        jv8.k(false, false, null, null, null, null, i, Boolean.TRUE, str3, str4, str5);
+        rv8.k(false, false, null, null, null, null, i, Boolean.TRUE, str3, str4, str5);
     }
 
     public static void setObjLocate(String str) {

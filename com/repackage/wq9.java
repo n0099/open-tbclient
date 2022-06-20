@@ -1,49 +1,52 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.PBError;
 /* loaded from: classes7.dex */
-public class wq9 extends Handler {
+public class wq9 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ xl9 a;
+    public final /* synthetic */ ar9 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wq9(xl9 xl9Var, Looper looper) {
-        super(looper);
+    public wq9(ar9 ar9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xl9Var, looper};
+            Object[] objArr = {ar9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = xl9Var;
+        this.a = ar9Var;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        xl9 xl9Var;
-        yl9 yl9Var;
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || message.what != 0 || (yl9Var = (xl9Var = this.a).e) == null || xl9Var.i) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                View rootView = this.a.a.getRootView();
+                if (rootView != null && rootView.getVisibility() == 0 && rootView.isShown()) {
+                    un9 a = yn9.a(this.a.b.a);
+                    a.d(new co9(this.a.b.c), this.a.a.getWidth(), this.a.a.getHeight());
+                    a.m();
+                    sl9.n(this.a.b.c);
+                    if (this.a.b.f != null) {
+                        this.a.b.f.onDisplayed();
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        yl9Var.onFail(PBError.LOAD_TIME_OUT);
-        this.a.j = true;
     }
 }

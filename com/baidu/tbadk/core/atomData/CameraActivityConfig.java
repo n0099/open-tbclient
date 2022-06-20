@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CameraActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONTENT_TYPE_GENERAL = "general";
@@ -36,8 +36,8 @@ public class CameraActivityConfig extends IntentConfig {
             }
         }
         Intent intent = getIntent();
-        intent.putExtra("outputFilePath", str);
-        intent.putExtra("contentType", str2);
+        intent.putExtra(KEY_OUTPUT_FILE_PATH, str);
+        intent.putExtra(KEY_CONTENT_TYPE, str2);
         intent.putExtra("request_code", i);
     }
 }

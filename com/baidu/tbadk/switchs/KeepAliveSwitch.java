@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xe;
-import com.repackage.ye;
+import com.repackage.af;
+import com.repackage.bf;
 /* loaded from: classes3.dex */
-public class KeepAliveSwitch extends xe {
+public class KeepAliveSwitch extends af {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEEP_ALIVE_KEY = "android_new_keep_alive";
     public static final int OFF_TYPE = 0;
@@ -31,26 +31,26 @@ public class KeepAliveSwitch extends xe {
         }
     }
 
-    @Override // com.repackage.xe
+    @Override // com.repackage.af
     public void addToManager() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ye yeVar = new ye(this.mName, this.mDefaultType, this.mSwitchListener);
-            yeVar.i(this.mMaxCrashTimes, this.mKey, this.mOffType);
-            yeVar.k(getSwitchLibs());
-            yeVar.j(true);
-            SwitchManager.getInstance().addSwitchData(yeVar);
+            bf bfVar = new bf(this.mName, this.mDefaultType, this.mSwitchListener);
+            bfVar.i(this.mMaxCrashTimes, this.mKey, this.mOffType);
+            bfVar.k(getSwitchLibs());
+            bfVar.j(true);
+            SwitchManager.getInstance().addSwitchData(bfVar);
         }
     }
 
-    @Override // com.repackage.xe
+    @Override // com.repackage.af
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
         }
     }
 
-    @Override // com.repackage.xe
+    @Override // com.repackage.af
     public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class KeepAliveSwitch extends xe {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.repackage.xe
+    @Override // com.repackage.af
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -70,7 +70,7 @@ public class KeepAliveSwitch extends xe {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.xe
+    @Override // com.repackage.af
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -80,14 +80,14 @@ public class KeepAliveSwitch extends xe {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.xe
+    @Override // com.repackage.af
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? KEEP_ALIVE_KEY : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.xe
+    @Override // com.repackage.af
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

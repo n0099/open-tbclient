@@ -55,8 +55,8 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092173);
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0921ac);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09216f);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0921a8);
         }
     }
 
@@ -198,7 +198,7 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i)) == null) ? new ViewHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04d7, viewGroup, false)) : (ViewHolder) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i)) == null) ? new ViewHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04d6, viewGroup, false)) : (ViewHolder) invokeLI.objValue;
     }
 
     public void j(int i, List<String> list) {

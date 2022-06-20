@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j16;
+import com.repackage.j26;
 @Autowired
 /* loaded from: classes2.dex */
 public class ClearCacheRuntime {
@@ -32,6 +32,6 @@ public class ClearCacheRuntime {
     public static IClearCacheContext getClearCacheContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? j16.a() : (IClearCacheContext) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? j26.a() : (IClearCacheContext) invokeV.objValue;
     }
 }

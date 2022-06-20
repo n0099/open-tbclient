@@ -1,29 +1,13 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.view.View;
 /* loaded from: classes7.dex */
-public class sc1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static float a = 1.01f;
-    public static boolean b;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface sc1 {
+    void a(tc1 tc1Var);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755325456, "Lcom/repackage/sc1;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755325456, "Lcom/repackage/sc1;");
-        }
-    }
+    void c(rc1 rc1Var);
+
+    View getAdView();
+
+    void load();
 }

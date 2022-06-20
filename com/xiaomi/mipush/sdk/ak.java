@@ -1,44 +1,33 @@
 package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
-import android.content.Intent;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.xiaomi.mipush.sdk.l;
+import com.xiaomi.push.bk;
 /* loaded from: classes8.dex */
-public final class ak implements Runnable {
+public class ak {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ Context a;
 
-    /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ Intent f43a;
-
-    public ak(Context context, Intent intent) {
+    public static AbstractPushManager a(Context context, e eVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, intent};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = context;
-        this.f43a = intent;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, eVar)) == null) ? b(context, eVar) : (AbstractPushManager) invokeLL.objValue;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    public static AbstractPushManager b(Context context, e eVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            PushMessageHandler.b(this.a, this.f43a);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, eVar)) == null) {
+            l.a m152a = l.m152a(eVar);
+            if (m152a == null || TextUtils.isEmpty(m152a.a) || TextUtils.isEmpty(m152a.b)) {
+                return null;
+            }
+            return (AbstractPushManager) bk.a(m152a.a, m152a.b, context);
         }
+        return (AbstractPushManager) invokeLL.objValue;
     }
 }

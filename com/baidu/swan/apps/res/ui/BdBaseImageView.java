@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mc3;
+import com.repackage.xc3;
 @SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes2.dex */
 public class BdBaseImageView extends ImageView {
@@ -48,13 +48,13 @@ public class BdBaseImageView extends ImageView {
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Color.alpha(mc3.d(getContext())) != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Color.alpha(xc3.d(getContext())) != 0 : invokeV.booleanValue;
     }
 
     public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a || this.b != mc3.d(getContext()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a || this.b != xc3.d(getContext()) : invokeV.booleanValue;
     }
 
     @Override // android.view.View
@@ -62,8 +62,8 @@ public class BdBaseImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             if (b()) {
-                mc3.b(getContext(), getDrawable());
-                this.b = mc3.d(getContext());
+                xc3.b(getContext(), getDrawable());
+                this.b = xc3.d(getContext());
                 this.a = false;
             }
             super.draw(canvas);
@@ -75,7 +75,7 @@ public class BdBaseImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             if (a()) {
-                mc3.c(getContext(), getDrawable(), i);
+                xc3.c(getContext(), getDrawable(), i);
             } else {
                 super.setImageAlpha(i);
             }

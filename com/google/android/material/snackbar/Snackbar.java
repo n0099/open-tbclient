@@ -279,7 +279,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, view2, charSequence, i)) == null) {
             ViewGroup findSuitableParent = findSuitableParent(view2);
             if (findSuitableParent != null) {
-                SnackbarContentLayout snackbarContentLayout = (SnackbarContentLayout) LayoutInflater.from(findSuitableParent.getContext()).inflate(hasSnackbarContentStyleAttrs(findSuitableParent.getContext()) ? R.layout.obfuscated_res_0x7f0d0564 : R.layout.obfuscated_res_0x7f0d0214, findSuitableParent, false);
+                SnackbarContentLayout snackbarContentLayout = (SnackbarContentLayout) LayoutInflater.from(findSuitableParent.getContext()).inflate(hasSnackbarContentStyleAttrs(findSuitableParent.getContext()) ? R.layout.obfuscated_res_0x7f0d0561 : R.layout.obfuscated_res_0x7f0d0211, findSuitableParent, false);
                 Snackbar snackbar = new Snackbar(findSuitableParent, snackbarContentLayout, snackbarContentLayout);
                 snackbar.setText(charSequence);
                 snackbar.setDuration(i);
@@ -337,7 +337,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, colorStateList)) == null) {
-            ((SnackbarContentLayout) this.f1025view.getChildAt(0)).getActionView().setTextColor(colorStateList);
+            ((SnackbarContentLayout) this.f1064view.getChildAt(0)).getActionView().setTextColor(colorStateList);
             return this;
         }
         return (Snackbar) invokeL.objValue;
@@ -355,7 +355,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, colorStateList)) == null) {
-            this.f1025view.setBackgroundTintList(colorStateList);
+            this.f1064view.setBackgroundTintList(colorStateList);
             return this;
         }
         return (Snackbar) invokeL.objValue;
@@ -366,7 +366,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, mode)) == null) {
-            this.f1025view.setBackgroundTintMode(mode);
+            this.f1064view.setBackgroundTintMode(mode);
             return this;
         }
         return (Snackbar) invokeL.objValue;
@@ -396,7 +396,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
-            ((SnackbarContentLayout) this.f1025view.getChildAt(0)).setMaxInlineActionWidth(i);
+            ((SnackbarContentLayout) this.f1064view.getChildAt(0)).setMaxInlineActionWidth(i);
             return this;
         }
         return (Snackbar) invokeI.objValue;
@@ -407,7 +407,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, charSequence)) == null) {
-            ((SnackbarContentLayout) this.f1025view.getChildAt(0)).getMessageView().setText(charSequence);
+            ((SnackbarContentLayout) this.f1064view.getChildAt(0)).getMessageView().setText(charSequence);
             return this;
         }
         return (Snackbar) invokeL.objValue;
@@ -418,7 +418,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, colorStateList)) == null) {
-            ((SnackbarContentLayout) this.f1025view.getChildAt(0)).getMessageView().setTextColor(colorStateList);
+            ((SnackbarContentLayout) this.f1064view.getChildAt(0)).getMessageView().setTextColor(colorStateList);
             return this;
         }
         return (Snackbar) invokeL.objValue;
@@ -437,7 +437,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, charSequence, onClickListener)) == null) {
-            Button actionView = ((SnackbarContentLayout) this.f1025view.getChildAt(0)).getActionView();
+            Button actionView = ((SnackbarContentLayout) this.f1064view.getChildAt(0)).getActionView();
             if (!TextUtils.isEmpty(charSequence) && onClickListener != null) {
                 this.hasAction = true;
                 actionView.setVisibility(0);
@@ -491,7 +491,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            ((SnackbarContentLayout) this.f1025view.getChildAt(0)).getActionView().setTextColor(i);
+            ((SnackbarContentLayout) this.f1064view.getChildAt(0)).getActionView().setTextColor(i);
             return this;
         }
         return (Snackbar) invokeI.objValue;
@@ -509,7 +509,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
-            ((SnackbarContentLayout) this.f1025view.getChildAt(0)).getMessageView().setTextColor(i);
+            ((SnackbarContentLayout) this.f1064view.getChildAt(0)).getMessageView().setTextColor(i);
             return this;
         }
         return (Snackbar) invokeI.objValue;

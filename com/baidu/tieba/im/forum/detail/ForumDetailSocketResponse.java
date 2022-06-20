@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.forum.detail;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
@@ -50,62 +51,15 @@ public class ForumDetailSocketResponse extends TbSocketReponsedMessage {
         }
     }
 
-    public ManagerApplyInfo getApplyInfo() {
-        InterceptResult invokeV;
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.applyInfo : (ManagerApplyInfo) invokeV.objValue;
-    }
-
-    public BzApplySwitch getBzApplySwitch() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.bzApplySwitch : (BzApplySwitch) invokeV.objValue;
-    }
-
-    public RecommendForumInfo getForumInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.forumInfo : (RecommendForumInfo) invokeV.objValue;
-    }
-
-    public ManagerElectionTab getManagerElectionTab() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.managerElectionTab : (ManagerElectionTab) invokeV.objValue;
-    }
-
-    public PriManagerApplyInfo getPrivateApplyInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.privateApplyInfo : (PriManagerApplyInfo) invokeV.objValue;
-    }
-
-    public List<SimpleThreadInfo> getThreadInfoList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.threadInfoList : (List) invokeV.objValue;
-    }
-
-    public int isBawuShow() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.isBawuShow : invokeV.intValue;
-    }
-
-    public boolean isComplaintShow() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.isComplaintShow : invokeV.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.message.websockt.TbSocketReponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
             GetForumDetailResIdl getForumDetailResIdl = (GetForumDetailResIdl) new Wire(new Class[0]).parseFrom(bArr, GetForumDetailResIdl.class);
             if (getForumDetailResIdl == null) {
-                return;
+                return null;
             }
             Error error = getForumDetailResIdl.error;
             if (error != null) {
@@ -114,7 +68,7 @@ public class ForumDetailSocketResponse extends TbSocketReponsedMessage {
             }
             DataRes dataRes = getForumDetailResIdl.data;
             if (dataRes == null) {
-                return;
+                return getForumDetailResIdl;
             }
             this.forumInfo = dataRes.forum_info;
             this.threadInfoList = dataRes.thread_list;
@@ -124,6 +78,56 @@ public class ForumDetailSocketResponse extends TbSocketReponsedMessage {
             this.applyInfo = dataRes2.bz_apply_info;
             this.privateApplyInfo = dataRes2.pribz_apply_info;
             this.managerElectionTab = dataRes2.election_tab;
+            return getForumDetailResIdl;
         }
+        return invokeIL.objValue;
+    }
+
+    public ManagerApplyInfo getApplyInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.applyInfo : (ManagerApplyInfo) invokeV.objValue;
+    }
+
+    public BzApplySwitch getBzApplySwitch() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.bzApplySwitch : (BzApplySwitch) invokeV.objValue;
+    }
+
+    public RecommendForumInfo getForumInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.forumInfo : (RecommendForumInfo) invokeV.objValue;
+    }
+
+    public ManagerElectionTab getManagerElectionTab() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.managerElectionTab : (ManagerElectionTab) invokeV.objValue;
+    }
+
+    public PriManagerApplyInfo getPrivateApplyInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.privateApplyInfo : (PriManagerApplyInfo) invokeV.objValue;
+    }
+
+    public List<SimpleThreadInfo> getThreadInfoList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.threadInfoList : (List) invokeV.objValue;
+    }
+
+    public int isBawuShow() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.isBawuShow : invokeV.intValue;
+    }
+
+    public boolean isComplaintShow() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.isComplaintShow : invokeV.booleanValue;
     }
 }

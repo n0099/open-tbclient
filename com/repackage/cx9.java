@@ -3,90 +3,57 @@ package com.repackage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.AbstractQueue;
-import java.util.Iterator;
-import java.util.concurrent.atomic.AtomicReferenceArray;
 /* loaded from: classes5.dex */
-public abstract class cx9<E> extends AbstractQueue<E> {
+public final class cx9<T> extends dv9<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReferenceArray<E> a;
-    public final int b;
+    public final lv9<? super T> e;
+    public final lv9<Throwable> f;
+    public final kv9 g;
 
-    public cx9(int i) {
+    public cx9(lv9<? super T> lv9Var, lv9<Throwable> lv9Var2, kv9 kv9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {lv9Var, lv9Var2, kv9Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        int b = qx9.b(i);
-        this.b = b - 1;
-        this.a = new AtomicReferenceArray<>(b);
+        this.e = lv9Var;
+        this.f = lv9Var2;
+        this.g = kv9Var;
     }
 
-    public final int a(long j) {
-        InterceptResult invokeJ;
+    @Override // com.repackage.yu9
+    public void onCompleted() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? this.b & ((int) j) : invokeJ.intValue;
-    }
-
-    public final int b(long j, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) ? ((int) j) & i : invokeCommon.intValue;
-    }
-
-    public final E c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? d(this.a, i) : (E) invokeI.objValue;
-    }
-
-    @Override // java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048579, this) != null) {
-            return;
-        }
-        while (true) {
-            if (poll() == null && isEmpty()) {
-                return;
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.g.call();
         }
     }
 
-    public final E d(AtomicReferenceArray<E> atomicReferenceArray, int i) {
-        InterceptResult invokeLI;
+    @Override // com.repackage.yu9
+    public void onError(Throwable th) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, atomicReferenceArray, i)) == null) ? atomicReferenceArray.get(i) : (E) invokeLI.objValue;
-    }
-
-    public final void e(AtomicReferenceArray<E> atomicReferenceArray, int i, E e) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048581, this, atomicReferenceArray, i, e) == null) {
-            atomicReferenceArray.lazySet(i, e);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+            this.f.call(th);
         }
     }
 
-    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
-    public Iterator<E> iterator() {
-        InterceptResult invokeV;
+    @Override // com.repackage.yu9
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            throw new UnsupportedOperationException();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+            this.e.call(t);
         }
-        return (Iterator) invokeV.objValue;
     }
 }

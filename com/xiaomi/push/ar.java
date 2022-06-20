@@ -1,15 +1,17 @@
 package com.xiaomi.push;
+
+import android.os.Looper;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public interface ar {
-    String a();
+public class ar {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with other method in class */
-    boolean m189a();
-
-    /* renamed from: b */
-    String mo187b();
-
-    String c();
-
-    String d();
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && Looper.getMainLooper().getThread() == Thread.currentThread()) {
+            throw new RuntimeException("can't do this on ui thread");
+        }
+    }
 }

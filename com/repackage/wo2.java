@@ -1,6 +1,7 @@
 package com.repackage;
 
 import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -29,7 +30,7 @@ public class wo2 extends uo2 {
                 return;
             }
         }
-        boolean z = rf1.a;
+        boolean z = cg1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -52,23 +53,23 @@ public class wo2 extends uo2 {
         }
     }
 
-    private void update(po2 po2Var, ro2 ro2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65538, this, po2Var, ro2Var, unitedSchemeEntity, callbackHandler) == null) {
-            po2Var.h(ro2Var);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-        }
-    }
-
     @Override // com.repackage.uo2
-    public boolean a(po2 po2Var, ro2 ro2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hz2 hz2Var) {
+    public boolean a(ko2 ko2Var, mo2 mo2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, sz2 sz2Var) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{po2Var, ro2Var, context, unitedSchemeEntity, callbackHandler, hz2Var})) == null) {
-            hw1.b("vrvideo", "update, video id:" + ro2Var.j + " slave id: " + ro2Var.c);
-            update(po2Var, ro2Var, unitedSchemeEntity, callbackHandler);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{ko2Var, mo2Var, context, unitedSchemeEntity, callbackHandler, sz2Var})) == null) {
+            sw1.i("video", "seek, video id:" + mo2Var.j + " slave id: " + mo2Var.c);
+            d(ko2Var, mo2Var.r, unitedSchemeEntity, callbackHandler);
             return true;
         }
         return invokeCommon.booleanValue;
+    }
+
+    public final void d(ko2 ko2Var, int i, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ko2Var, i, unitedSchemeEntity, callbackHandler) == null) {
+            ko2Var.t(i * 1000);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        }
     }
 }

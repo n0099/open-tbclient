@@ -1,157 +1,86 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdConfig;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.repackage.cb9;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public final class bb9 implements Runnable {
+public class bb9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ List a;
-    public final /* synthetic */ FunAdConfig b;
-    public final /* synthetic */ Map c;
-    public final /* synthetic */ long d;
-    public final /* synthetic */ cb9.a e;
+    public int a;
+    public long b;
 
-    public bb9(List list, FunAdConfig funAdConfig, Map map, long j, cb9.a aVar) {
+    public bb9(boolean z, long j, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list, funAdConfig, map, Long.valueOf(j), aVar};
+            Object[] objArr = {Boolean.valueOf(z), Long.valueOf(j), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = list;
-        this.b = funAdConfig;
-        this.c = map;
-        this.d = j;
-        this.e = aVar;
+        this.b = j;
+        this.a = i;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        String str;
-        String str2;
+    public static bb9 b(String str, int i, int i2) {
+        InterceptResult invokeLII;
+        long j;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (Ssp ssp : this.a) {
-                if (!this.b.forbiddenPlatforms.contains(ssp.type)) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    LogPrinter.d("sdk for %s init start", ssp.type);
-                    String str3 = ssp.type;
-                    str3.hashCode();
-                    char c = 65535;
-                    switch (str3.hashCode()) {
-                        case 3407:
-                            if (str3.equals(FunAdSdk.PLATFORM_JY)) {
-                                c = 0;
-                                break;
-                            }
-                            break;
-                        case 3432:
-                            if (str3.equals(FunAdSdk.PLATFORM_KS)) {
-                                c = 1;
-                                break;
-                            }
-                            break;
-                        case 3477:
-                            if (str3.equals(FunAdSdk.PLATFORM_MB)) {
-                                c = 2;
-                                break;
-                            }
-                            break;
-                        case 102199:
-                            if (str3.equals(FunAdSdk.PLATFORM_GDT)) {
-                                c = 3;
-                                break;
-                            }
-                            break;
-                        case 106042:
-                            if (str3.equals(FunAdSdk.PLATFORM_KDS)) {
-                                c = 4;
-                                break;
-                            }
-                            break;
-                        case 113873:
-                            if (str3.equals(FunAdSdk.PLATFORM_SIG)) {
-                                c = 5;
-                                break;
-                            }
-                            break;
-                        case 93498907:
-                            if (str3.equals("baidu")) {
-                                c = 6;
-                                break;
-                            }
-                            break;
-                    }
-                    switch (c) {
-                        case 0:
-                            str = ssp.type;
-                            str2 = "com.fun.ad.sdk.channel.JyModule";
-                            cb9.c(str, str2, this.b, this.c, ssp.sspId);
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                        case 1:
-                            str = ssp.type;
-                            str2 = "com.fun.ad.sdk.channel.KsModule";
-                            cb9.c(str, str2, this.b, this.c, ssp.sspId);
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                        case 2:
-                            str = ssp.type;
-                            str2 = "com.fun.ad.sdk.channel.MbModule";
-                            cb9.c(str, str2, this.b, this.c, ssp.sspId);
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                        case 3:
-                            str = ssp.type;
-                            str2 = "com.fun.ad.sdk.channel.GdtModule";
-                            cb9.c(str, str2, this.b, this.c, ssp.sspId);
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                        case 4:
-                            str = ssp.type;
-                            str2 = "com.fun.ad.sdk.channel.KdsModule";
-                            cb9.c(str, str2, this.b, this.c, ssp.sspId);
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                        case 5:
-                            str = ssp.type;
-                            str2 = "com.fun.ad.sdk.channel.SigModule";
-                            cb9.c(str, str2, this.b, this.c, ssp.sspId);
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                        case 6:
-                            str = ssp.type;
-                            str2 = "com.fun.ad.sdk.channel.BaiduModule";
-                            cb9.c(str, str2, this.b, this.c, ssp.sspId);
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                        default:
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                    }
-                } else {
-                    LogPrinter.d("Ssp:%s is not initialized for type is forbidden", ssp.type);
-                }
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, str, i, i2)) == null) {
+            if (i >= i2) {
+                return null;
             }
-            cb9.b(this.d, this.e, this.c);
+            long j2 = 0;
+            int i4 = i;
+            while (i4 < i2) {
+                char charAt = str.charAt(i4);
+                if (charAt < '0' || charAt > '9') {
+                    if (charAt >= 'A' && charAt <= 'F') {
+                        j = j2 * 16;
+                        i3 = charAt - 'A';
+                    } else if (charAt < 'a' || charAt > 'f') {
+                        break;
+                    } else {
+                        j = j2 * 16;
+                        i3 = charAt - 'a';
+                    }
+                    j2 = j + i3 + 10;
+                } else {
+                    j2 = (j2 * 16) + (charAt - '0');
+                }
+                if (j2 > 4294967295L) {
+                    return null;
+                }
+                i4++;
+            }
+            if (i4 == i) {
+                return null;
+            }
+            return new bb9(false, j2, i4);
         }
+        return (bb9) invokeLII.objValue;
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (int) this.b : invokeV.intValue;
     }
 }

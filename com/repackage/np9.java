@@ -1,24 +1,33 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.widget.ImageView;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class np9 implements qo9 {
+public class np9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ ImageView a;
+    public int[] a;
+    public int b;
+    public int c;
+    public jp9 d;
+    public List e;
+    public int f;
+    public int g;
+    public boolean h;
+    public int i;
+    public int j;
+    public int k;
+    public int l;
+    public int m;
 
-    public np9(vl9 vl9Var, ImageView imageView) {
+    public np9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vl9Var, imageView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,30 +37,10 @@ public class np9 implements qo9 {
                 return;
             }
         }
-        this.a = imageView;
-    }
-
-    @Override // com.repackage.qo9
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-        }
-    }
-
-    @Override // com.repackage.qo9
-    public void a(Bitmap bitmap) {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) || (imageView = this.a) == null || bitmap == null) {
-            return;
-        }
-        imageView.setImageBitmap(bitmap);
-    }
-
-    @Override // com.repackage.qo9
-    public void a(com.win.opensdk.k0 k0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k0Var) == null) {
-        }
+        this.a = null;
+        this.b = 0;
+        this.c = 0;
+        this.e = new ArrayList();
+        this.m = 0;
     }
 }

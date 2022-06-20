@@ -1,150 +1,311 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.IMConstants;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gd1;
-import java.util.ArrayList;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class rd1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile rd1 a;
+    public static String b;
+    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements Runnable {
+    public interface a {
+        void onFinish(String str);
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gd1.a a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ ArrayList d;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ rd1 b;
 
-        /* renamed from: com.repackage.rd1$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C0509a extends ne1 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ gd1.a b;
-            public final /* synthetic */ a c;
-
-            public C0509a(a aVar, gd1.a aVar2) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, aVar2};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = aVar;
-                this.b = aVar2;
-            }
-
-            @Override // com.repackage.ne1
-            public void b() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.b.onFinish(this.c.b);
-                }
-            }
-        }
-
-        public a(gd1.a aVar, String str, int i, ArrayList arrayList) {
+        public b(rd1 rd1Var, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, str, Integer.valueOf(i), arrayList};
+                Object[] objArr = {rd1Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = aVar;
-            this.b = str;
-            this.c = i;
-            this.d = arrayList;
+            this.b = rd1Var;
+            this.a = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.onFinish(this.b);
-                if (this.c != 1 || this.d == null) {
+                try {
+                    this.b.e(this.a);
+                    ee1.j().d(this.a);
+                } catch (Throwable th) {
+                    df1.d(th);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ a c;
+
+        public c(rd1 rd1Var, Context context, long j, a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rd1Var, context, Long.valueOf(j), aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                for (int i = 0; i < this.d.size(); i++) {
-                    gd1.a aVar = (gd1.a) this.d.get(i);
-                    if (aVar != null) {
-                        pe1.c().b(new C0509a(this, aVar));
-                    }
+            }
+            this.a = context;
+            this.b = j;
+            this.c = aVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    ee1.j().e(this.a, 0, null, this.b, this.c);
+                } catch (Throwable th) {
+                    df1.d(th);
                 }
             }
         }
     }
 
-    public static int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i == 1) {
-                return 2010;
+    /* loaded from: classes7.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ a c;
+
+        public d(rd1 rd1Var, Context context, long j, a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rd1Var, context, Long.valueOf(j), aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if (i == 2) {
-                return 2011;
-            }
-            return i == 3 ? IMConstants.IM_MSG_TYPE_SHIELD_ME : i == 4 ? IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME : i == 5 ? IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL : i == 6 ? 2015 : 2009;
+            this.a = context;
+            this.b = j;
+            this.c = aVar;
         }
-        return invokeI.intValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    ee1.j().f(this.a, this.b, this.c);
+                } catch (Throwable th) {
+                    df1.d(th);
+                }
+            }
+        }
     }
 
-    public static void b(gd1.a aVar, od1 od1Var, int i, ArrayList<gd1.a> arrayList, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{aVar, od1Var, Integer.valueOf(i), arrayList, Boolean.valueOf(z)}) == null) || od1Var == null) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("0", od1Var.a);
-            jSONObject.put("1", od1Var.b);
-            jSONObject.put("2", String.valueOf(od1Var.c));
-            jSONObject.put("3", od1Var.d);
-            String jSONObject2 = jSONObject.toString();
-            if (aVar != null) {
-                if (i == 1) {
-                    if (z) {
-                        ld1.c().f(false);
-                    }
-                } else if (i == 2) {
-                    if (z) {
-                        ld1.c().d(false);
-                    }
-                } else if (i == 3) {
-                    if (z) {
-                        ld1.c().j(false);
-                    }
-                } else if (z) {
-                    ld1.c().n(false);
+    /* loaded from: classes7.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ a c;
+
+        public e(rd1 rd1Var, Context context, long j, a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rd1Var, context, Long.valueOf(j), aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                new Thread(new a(aVar, jSONObject2, i, arrayList)).start();
             }
-        } catch (Throwable th) {
-            se1.d(th);
+            this.a = context;
+            this.b = j;
+            this.c = aVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    ee1.j().l(this.a, this.b, this.c);
+                } catch (Throwable th) {
+                    df1.d(th);
+                }
+            }
+        }
+    }
+
+    public rd1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static rd1 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (rd1.class) {
+                    if (a == null) {
+                        a = new rd1();
+                    }
+                }
+            }
+            return a;
+        }
+        return (rd1) invokeV.objValue;
+    }
+
+    public String b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            int intValue = ((Integer) lf1.c(context).second).intValue();
+            if (intValue == 1) {
+                return OneKeyLoginSdkCall.OPERATOR_CHINA_MOBILE;
+            }
+            if (intValue == 3) {
+                return OneKeyLoginSdkCall.OPERATOR_CHINA_TELECOM;
+            }
+            if (intValue == 2) {
+                return OneKeyLoginSdkCall.OPERATOR_CHINA_UNICOM;
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public synchronized void d(Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2) == null) {
+            synchronized (this) {
+                try {
+                    b = str;
+                    c = str2;
+                    xe1.a().post(new b(this, context));
+                } catch (Throwable th) {
+                    df1.d(th);
+                }
+            }
+        }
+    }
+
+    public final void e(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            String l0 = sd1.f(context).l0();
+            if (TextUtils.isEmpty(l0)) {
+                return;
+            }
+            String[] split = l0.split("_");
+            if (split.length != 2) {
+                sd1.f(context).h();
+            }
+            b = split[0];
+            c = split[1];
+        }
+    }
+
+    public void f(Context context, long j, a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, Long.valueOf(j), aVar}) == null) {
+            try {
+                xe1.a().post(new d(this, context, j, aVar));
+            } catch (Throwable th) {
+                df1.d(th);
+            }
+        }
+    }
+
+    public void g(Context context, long j, a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, Long.valueOf(j), aVar}) == null) {
+            try {
+                xe1.a().post(new c(this, context, j, aVar));
+            } catch (Throwable th) {
+                df1.d(th);
+            }
+        }
+    }
+
+    public void h(Context context, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048581, this, context, z) == null) {
+            try {
+                sd1.f(context).W(z);
+            } catch (Throwable th) {
+                df1.d(th);
+            }
+        }
+    }
+
+    public void i(Context context, long j, a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, Long.valueOf(j), aVar}) == null) {
+            try {
+                xe1.a().post(new e(this, context, j, aVar));
+            } catch (Throwable th) {
+                df1.d(th);
+            }
         }
     }
 }

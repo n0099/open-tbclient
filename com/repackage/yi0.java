@@ -1,15 +1,14 @@
 package com.repackage;
 
-import java.io.File;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 /* loaded from: classes7.dex */
-public interface yi0 {
-    void a(int i, long j, long j2);
+public interface yi0<VIEW extends View> {
+    void b(@NonNull ViewGroup viewGroup);
 
-    void b(long j, File file);
+    @NonNull
+    VIEW getRealView();
 
-    void c(int i, int i2);
-
-    void onError();
-
-    void onSuccess(int i);
+    void update(String str, @NonNull ii0 ii0Var);
 }

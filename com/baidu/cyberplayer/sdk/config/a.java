@@ -24,13 +24,13 @@ public class a {
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.cyberplayer.sdk.config.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class EnumC0086a {
+    public static final class EnumC0088a {
         public static /* synthetic */ Interceptable $ic;
-        public static final EnumC0086a a;
-        public static final EnumC0086a b;
-        public static final EnumC0086a c;
-        public static final EnumC0086a d;
-        public static final /* synthetic */ EnumC0086a[] e;
+        public static final EnumC0088a a;
+        public static final EnumC0088a b;
+        public static final EnumC0088a c;
+        public static final EnumC0088a d;
+        public static final /* synthetic */ EnumC0088a[] e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -46,15 +46,15 @@ public class a {
                     return;
                 }
             }
-            a = new EnumC0086a("FAILED", 0);
-            b = new EnumC0086a("AND_NEED_CHECK_NEXT", 1);
-            c = new EnumC0086a("OR_NEED_CHECK_NEXT", 2);
-            EnumC0086a enumC0086a = new EnumC0086a("SUCCESS", 3);
-            d = enumC0086a;
-            e = new EnumC0086a[]{a, b, c, enumC0086a};
+            a = new EnumC0088a("FAILED", 0);
+            b = new EnumC0088a("AND_NEED_CHECK_NEXT", 1);
+            c = new EnumC0088a("OR_NEED_CHECK_NEXT", 2);
+            EnumC0088a enumC0088a = new EnumC0088a("SUCCESS", 3);
+            d = enumC0088a;
+            e = new EnumC0088a[]{a, b, c, enumC0088a};
         }
 
-        public EnumC0086a(String str, int i) {
+        public EnumC0088a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,16 +73,16 @@ public class a {
             }
         }
 
-        public static EnumC0086a valueOf(String str) {
+        public static EnumC0088a valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC0086a) Enum.valueOf(EnumC0086a.class, str) : (EnumC0086a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC0088a) Enum.valueOf(EnumC0088a.class, str) : (EnumC0088a) invokeL.objValue;
         }
 
-        public static EnumC0086a[] values() {
+        public static EnumC0088a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC0086a[]) e.clone() : (EnumC0086a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC0088a[]) e.clone() : (EnumC0088a[]) invokeV.objValue;
         }
     }
 
@@ -230,17 +230,17 @@ public class a {
             return invokeLLLL.booleanValue;
         }
 
-        public EnumC0086a b(String str) {
+        public EnumC0088a b(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
                 if (this.d) {
-                    return EnumC0086a.a;
+                    return EnumC0088a.a;
                 }
                 boolean a = a(str);
-                return this.b ? a ? EnumC0086a.b : EnumC0086a.a : a ? EnumC0086a.d : EnumC0086a.c;
+                return this.b ? a ? EnumC0088a.b : EnumC0088a.a : a ? EnumC0088a.d : EnumC0088a.c;
             }
-            return (EnumC0086a) invokeL.objValue;
+            return (EnumC0088a) invokeL.objValue;
         }
     }
 
@@ -252,8 +252,8 @@ public class a {
             boolean z = false;
             bVar.a(0);
             bVar.a(str, "|", ParamableElem.DIVIDE_PARAM);
-            EnumC0086a b2 = bVar.b(str2);
-            return Boolean.valueOf((b2 == EnumC0086a.d || b2 == EnumC0086a.b) ? true : true);
+            EnumC0088a b2 = bVar.b(str2);
+            return Boolean.valueOf((b2 == EnumC0088a.d || b2 == EnumC0088a.b) ? true : true);
         }
         return (Boolean) invokeLL.objValue;
     }

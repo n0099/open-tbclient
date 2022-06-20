@@ -7,8 +7,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.mode.CommandMessage;
-import com.xiaomi.push.bq;
-import com.xiaomi.push.l;
+import com.xiaomi.push.bt;
+import com.xiaomi.push.m;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
@@ -36,8 +36,8 @@ public class a {
                 return;
             }
         }
-        this.os = bq.a();
-        this.miuiVersion = l.m570a();
+        this.os = bt.a();
+        this.miuiVersion = m.m552a();
     }
 
     public String getPackageName() {

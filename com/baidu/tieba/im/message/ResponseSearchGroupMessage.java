@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.message;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.BaseGroupData;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qe;
+import com.repackage.te;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -19,7 +20,7 @@ import protobuf.SearchGroup.SearchGroupResIdl;
 public class ResponseSearchGroupMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<qe.b<String>> cacheList;
+    public List<te.b<String>> cacheList;
     public long gid;
     public List<BaseGroupData> searchResult;
 
@@ -43,55 +44,17 @@ public class ResponseSearchGroupMessage extends SocketResponsedMessage {
         this.cacheList = new ArrayList();
     }
 
-    public List<qe.b<String>> getCacheList() {
-        InterceptResult invokeV;
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.cacheList : (List) invokeV.objValue;
-    }
-
-    public long getGid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.gid : invokeV.longValue;
-    }
-
-    public List<BaseGroupData> getSearchResult() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.searchResult : (List) invokeV.objValue;
-    }
-
-    public void setCacheList(List<qe.b<String>> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.cacheList = list;
-        }
-    }
-
-    public void setGid(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.gid = j;
-        }
-    }
-
-    public void setSearchResult(List<BaseGroupData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
-            this.searchResult = list;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
             SearchGroupResIdl searchGroupResIdl = (SearchGroupResIdl) new Wire(new Class[0]).parseFrom(bArr, SearchGroupResIdl.class);
             setError(searchGroupResIdl.error.errorno.intValue());
             setErrorString(searchGroupResIdl.error.usermsg);
             if (getError() != 0) {
-                return;
+                return searchGroupResIdl;
             }
             LinkedList linkedList = new LinkedList();
             GroupInfo groupInfo = searchGroupResIdl.data.group;
@@ -118,6 +81,47 @@ public class ResponseSearchGroupMessage extends SocketResponsedMessage {
                 linkedList.add(baseGroupData);
             }
             setSearchResult(linkedList);
+            return searchGroupResIdl;
+        }
+        return invokeIL.objValue;
+    }
+
+    public List<te.b<String>> getCacheList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.cacheList : (List) invokeV.objValue;
+    }
+
+    public long getGid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.gid : invokeV.longValue;
+    }
+
+    public List<BaseGroupData> getSearchResult() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.searchResult : (List) invokeV.objValue;
+    }
+
+    public void setCacheList(List<te.b<String>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            this.cacheList = list;
+        }
+    }
+
+    public void setGid(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.gid = j;
+        }
+    }
+
+    public void setSearchResult(List<BaseGroupData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
+            this.searchResult = list;
         }
     }
 

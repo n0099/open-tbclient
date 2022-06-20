@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PersonChangeActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String IS_COMPLETE_LOCAL_INFO = "is_complete_local_info";
@@ -40,7 +40,7 @@ public class PersonChangeActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra("data", personChangeData);
-        getIntent().putExtra("isFromPersonInfo", bool);
+        getIntent().putExtra(IS_FROM_PERSONINFO, bool);
         setRequestCode(i);
         setIntentAction(IntentAction.ActivityForResult);
     }
@@ -53,7 +53,7 @@ public class PersonChangeActivityConfig extends IntentConfig {
             if (Build.VERSION.SDK_INT >= 9) {
                 return true;
             }
-            UtilHelper.showToast(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f09fc));
+            UtilHelper.showToast(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f0a00));
             return false;
         }
         return invokeV.booleanValue;

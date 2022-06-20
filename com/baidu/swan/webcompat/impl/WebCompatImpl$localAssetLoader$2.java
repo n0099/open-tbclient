@@ -7,8 +7,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.model.AssetUriLoader;
-import com.repackage.dh4;
-import com.repackage.gz2;
+import com.repackage.nh4;
+import com.repackage.rz2;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
@@ -52,7 +52,7 @@ public final class WebCompatImpl$localAssetLoader$2 extends Lambda implements Fu
         String q2;
         WebViewAssetLoader.InternalStoragePathHandler m2;
         FilePathInfo l;
-        dh4 k;
+        nh4 k;
         String q3;
         String q4;
         String q5;
@@ -63,7 +63,7 @@ public final class WebCompatImpl$localAssetLoader$2 extends Lambda implements Fu
         WebViewAssetLoader.InternalStoragePathHandler m3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            gz2 J = gz2.J();
+            rz2 K = rz2.K();
             WebViewAssetLoader.Builder builder = new WebViewAssetLoader.Builder();
             n = this.this$0.n();
             builder.setDomain(n).setHttpAllowed(true);
@@ -95,9 +95,9 @@ public final class WebCompatImpl$localAssetLoader$2 extends Lambda implements Fu
                 }
             }
             q3 = this.this$0.q(AssetUriLoader.ASSET_PATH_SEGMENT);
-            builder.addPathHandler(q3, new WebViewAssetLoader.AssetsPathHandler(J));
+            builder.addPathHandler(q3, new WebViewAssetLoader.AssetsPathHandler(K));
             q4 = this.this$0.q("android_res");
-            builder.addPathHandler(q4, new WebViewAssetLoader.ResourcesPathHandler(J));
+            builder.addPathHandler(q4, new WebViewAssetLoader.ResourcesPathHandler(K));
             WebViewAssetLoader build = builder.build();
             Intrinsics.checkNotNullExpressionValue(build, "WebViewAssetLoader.Build…(swan))\n        }.build()");
             return build;

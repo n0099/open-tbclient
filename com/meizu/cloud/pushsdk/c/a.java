@@ -4,13 +4,13 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.c.b.c;
 import com.meizu.cloud.pushsdk.c.b.f;
 import com.meizu.cloud.pushsdk.c.e.b;
 import com.meizu.cloud.pushsdk.c.e.c;
 import com.meizu.cloud.pushsdk.c.f.e;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
-import com.repackage.ni9;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
 public class a {
@@ -48,7 +48,7 @@ public class a {
                 }
             }
         }
-        ni9.d("PushAndroidTracker", "can upload subject " + z);
+        DebugLogger.i("PushAndroidTracker", "can upload subject " + z);
         if (z) {
             a.a(a(context));
         }
@@ -63,7 +63,7 @@ public class a {
         if (MzSystemUtils.isInternational() || MzSystemUtils.isIndiaLocal()) {
             return "push-statics.in.meizu.com";
         }
-        ni9.b("QuickTracker", "current statics domain is push-statics.meizu.com");
+        DebugLogger.e("QuickTracker", "current statics domain is push-statics.meizu.com");
         return "push-statics.meizu.com";
     }
 

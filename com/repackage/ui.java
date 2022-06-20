@@ -1,112 +1,169 @@
 package com.repackage;
 
-import android.os.Build;
-import android.os.Handler;
-import android.os.Message;
-import android.widget.Toast;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.database.Cursor;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Field;
+import com.repackage.te;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class ui {
     public static /* synthetic */ Interceptable $ic;
-    public static Field a;
-    public static Field b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a extends Handler {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Handler a;
+    }
 
-        public a(Handler handler) {
+    /* loaded from: classes7.dex */
+    public static class b implements Comparator<te.b<?>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {handler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = handler;
-        }
-
-        @Override // android.os.Handler
-        public void dispatchMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                try {
-                    super.dispatchMessage(message);
-                } catch (Exception unused) {
                 }
             }
         }
 
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(te.b<?> bVar, te.b<?> bVar2) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
-                try {
-                    if (this.a != null) {
-                        this.a.handleMessage(message);
-                    }
-                } catch (Exception unused) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bVar, bVar2)) == null) {
+                long j = bVar.c;
+                long j2 = bVar2.c;
+                if (j == j2) {
+                    return 0;
                 }
+                return j > j2 ? -1 : 1;
             }
+            return invokeLL.intValue;
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964025871, "Lcom/repackage/ui;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1964025871, "Lcom/repackage/ui;");
-                return;
-            }
-        }
-        try {
-            if (Build.VERSION.SDK_INT < 28) {
-                Field declaredField = Toast.class.getDeclaredField("mTN");
-                a = declaredField;
-                declaredField.setAccessible(true);
-                Field declaredField2 = a.getType().getDeclaredField("mHandler");
-                b = declaredField2;
-                declaredField2.setAccessible(true);
-            }
-        } catch (Exception unused) {
-        }
-    }
-
-    public static void a(Toast toast) {
-        Object obj;
-        Handler handler;
+    /* JADX WARN: Type inference failed for: r3v11, types: [T, byte[]] */
+    public static List<te.b<byte[]>> a(te<byte[]> teVar) {
+        InterceptResult invokeL;
+        Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, toast) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, teVar)) == null) {
+            LinkedList linkedList = new LinkedList();
             try {
-                if (Build.VERSION.SDK_INT >= 28 || a == null || b == null || (obj = a.get(toast)) == null || (handler = (Handler) b.get(obj)) == null) {
-                    return;
-                }
-                b.set(obj, new a(handler));
-            } catch (Exception unused) {
+                cursor = c(teVar);
+            } catch (Throwable th) {
+                th = th;
+                cursor = null;
             }
+            if (cursor == null) {
+                return null;
+            }
+            while (cursor.moveToNext()) {
+                try {
+                    te.b bVar = new te.b();
+                    bVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
+                    bVar.c = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                    cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                    bVar.b = cursor.getBlob(cursor.getColumnIndex("m_value"));
+                    linkedList.add(bVar);
+                } catch (Throwable th2) {
+                    th = th2;
+                    try {
+                        BdLog.e(th);
+                        mg.a(cursor);
+                        Collections.sort(linkedList, new b(null));
+                        return linkedList;
+                    } finally {
+                        mg.a(cursor);
+                    }
+                }
+            }
+            mg.a(cursor);
+            Collections.sort(linkedList, new b(null));
+            return linkedList;
         }
+        return (List) invokeL.objValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r3v11, types: [T, java.lang.String] */
+    public static List<te.b<String>> b(te<String> teVar) {
+        InterceptResult invokeL;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, teVar)) == null) {
+            LinkedList linkedList = new LinkedList();
+            try {
+                cursor = c(teVar);
+            } catch (Throwable th) {
+                th = th;
+                cursor = null;
+            }
+            if (cursor == null) {
+                return null;
+            }
+            while (cursor.moveToNext()) {
+                try {
+                    te.b bVar = new te.b();
+                    bVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
+                    bVar.c = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                    cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                    bVar.b = cursor.getString(cursor.getColumnIndex("m_value"));
+                    linkedList.add(bVar);
+                } catch (Throwable th2) {
+                    th = th2;
+                    try {
+                        BdLog.e(th);
+                        mg.a(cursor);
+                        Collections.sort(linkedList, new b(null));
+                        return linkedList;
+                    } finally {
+                        mg.a(cursor);
+                    }
+                }
+            }
+            mg.a(cursor);
+            Collections.sort(linkedList, new b(null));
+            return linkedList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static Cursor c(te<?> teVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, teVar)) == null) {
+            if (teVar != null && (teVar instanceof te.c)) {
+                te.c cVar = (te.c) teVar;
+                if (cVar.c() instanceof re) {
+                    ke n = ((re) cVar.c()).n();
+                    return n.q(n.h().f(), cVar.j());
+                }
+                return null;
+            }
+            return null;
+        }
+        return (Cursor) invokeL.objValue;
     }
 }

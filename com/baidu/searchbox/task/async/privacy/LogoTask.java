@@ -16,9 +16,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d85;
-import com.repackage.l9;
-import com.repackage.ys4;
+import com.repackage.ht4;
+import com.repackage.o9;
+import com.repackage.q85;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class LogoTask extends LaunchTask {
@@ -45,7 +45,7 @@ public class LogoTask extends LaunchTask {
     private void startSwitchDebugService() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2000996, new l9(TbadkCoreApplication.getInst())));
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2000996, new o9(TbadkCoreApplication.getInst())));
         }
     }
 
@@ -76,10 +76,10 @@ public class LogoTask extends LaunchTask {
             if (this.mIsFirstUse) {
                 TbadkSettings.getInst().saveBoolean("first_sync_image_quality", true);
                 TbadkCoreApplication.getInst().setIsAbstractOn(0);
-                ys4.k().u("frs_first_in", true);
+                ht4.k().u("frs_first_in", true);
             }
             NASLib.onAppStart(TbadkCoreApplication.getInst());
-            d85.b().z(this.mIsFirstUse);
+            q85.b().z(this.mIsFirstUse);
         }
     }
 

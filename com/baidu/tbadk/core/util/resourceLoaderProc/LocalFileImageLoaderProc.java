@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dg;
-import com.repackage.g35;
-import com.repackage.gg;
-import com.repackage.li;
-import com.repackage.u25;
-import com.repackage.um;
+import com.repackage.hg;
+import com.repackage.j35;
+import com.repackage.kg;
+import com.repackage.pi;
+import com.repackage.v35;
+import com.repackage.ym;
 /* loaded from: classes3.dex */
-public class LocalFileImageLoaderProc implements gg<um> {
+public class LocalFileImageLoaderProc implements kg<ym> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int height;
@@ -45,23 +45,23 @@ public class LocalFileImageLoaderProc implements gg<um> {
     private void initDefalutMaxSize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.width = li.k(TbadkCoreApplication.getInst());
-            this.height = li.i(TbadkCoreApplication.getInst());
+            this.width = pi.k(TbadkCoreApplication.getInst());
+            this.height = pi.i(TbadkCoreApplication.getInst());
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: decodeToResource */
-    public um m46decodeToResource(byte[] bArr, Object... objArr) {
+    public ym m46decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bArr, objArr)) == null) {
             return null;
         }
-        return (um) invokeLL.objValue;
+        return (ym) invokeLL.objValue;
     }
 
-    @Override // com.repackage.gg
+    @Override // com.repackage.kg
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -71,7 +71,7 @@ public class LocalFileImageLoaderProc implements gg<um> {
         return (BdAsyncTaskParallel) invokeV.objValue;
     }
 
-    @Override // com.repackage.gg
+    @Override // com.repackage.kg
     public int getAsyncTaskPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -81,35 +81,35 @@ public class LocalFileImageLoaderProc implements gg<um> {
         return invokeV.intValue;
     }
 
-    public um getBitmapFromFile(String str, int i, int i2) {
+    public ym getBitmapFromFile(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, str, i, i2)) == null) {
             try {
                 if (str.toLowerCase().endsWith(".gif")) {
-                    return new um(BitmapHelper.loadBitmap(str), true, str);
+                    return new ym(BitmapHelper.loadBitmap(str), true, str);
                 }
-                return new um(BitmapHelper.checkBitmapSize(BitmapHelper.loadResizedBitmap(str, this.width, this.height), i, i2), false, str);
+                return new ym(BitmapHelper.checkBitmapSize(BitmapHelper.loadResizedBitmap(str, this.width, this.height), i, i2), false, str);
             } catch (Throwable unused) {
                 return null;
             }
         }
-        return (um) invokeLII.objValue;
+        return (ym) invokeLII.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.repackage.gg
-    public um getFromRemote(String str, String str2, int i, int i2, dg dgVar, Object... objArr) {
+    @Override // com.repackage.kg
+    public ym getFromRemote(String str, String str2, int i, int i2, hg hgVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), dgVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), hgVar, objArr})) == null) {
             return null;
         }
-        return (um) invokeCommon.objValue;
+        return (ym) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.gg
+    @Override // com.repackage.kg
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -129,54 +129,54 @@ public class LocalFileImageLoaderProc implements gg<um> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            ImageOperation g = g35.g(this.width, this.height);
+            ImageOperation g = v35.g(this.width, this.height);
             return "image_" + str + ':' + g.actionName + '=' + g.actionParam;
         }
         return (String) invokeL.objValue;
     }
 
-    @Override // com.repackage.gg
+    @Override // com.repackage.kg
     public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && obj != null && (obj instanceof um)) {
-            um umVar = (um) obj;
-            if (umVar.u()) {
-                umVar.A(i);
-                umVar.z(i2);
-                u25.k().d(toCacheKey(str), umVar);
+        if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && obj != null && (obj instanceof ym)) {
+            ym ymVar = (ym) obj;
+            if (ymVar.u()) {
+                ymVar.A(i);
+                ymVar.z(i2);
+                j35.k().d(toCacheKey(str), ymVar);
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.repackage.gg
-    public um getFromLocal(String str, String str2, int i, int i2, dg dgVar, Object... objArr) {
+    @Override // com.repackage.kg
+    public ym getFromLocal(String str, String str2, int i, int i2, hg hgVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), dgVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), hgVar, objArr})) == null) {
             if (StringUtils.isNull(str)) {
                 return null;
             }
             return getBitmapFromFile(str, i, i2);
         }
-        return (um) invokeCommon.objValue;
+        return (ym) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.repackage.gg
-    public um getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    @Override // com.repackage.kg
+    public ym getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
-            um checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str), u25.k().m(toCacheKey(str)), i, i2);
+            ym checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str), j35.k().m(toCacheKey(str)), i, i2);
             if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.p() == null || checkIsValidPicMemoryCache.p().isRecycled()) {
                 return null;
             }
             return checkIsValidPicMemoryCache;
         }
-        return (um) invokeCommon.objValue;
+        return (ym) invokeCommon.objValue;
     }
 
     public LocalFileImageLoaderProc(int i, int i2) {

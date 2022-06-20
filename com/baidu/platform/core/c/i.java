@@ -90,7 +90,7 @@ public class i extends com.baidu.platform.base.e {
             com.baidu.platform.util.a aVar3 = this.a;
             aVar3.a(SuggestAddrField.KEY_PAGE_NUM, poiBoundSearchOption.mPageNum + "");
             com.baidu.platform.util.a aVar4 = this.a;
-            aVar4.a("page_size", poiBoundSearchOption.mPageCapacity + "");
+            aVar4.a(SuggestAddrField.KEY_PAGE_SIZE, poiBoundSearchOption.mPageCapacity + "");
             if (poiBoundSearchOption.mScope != 2 || (poiFilter = poiBoundSearchOption.mPoiFilter) == null || TextUtils.isEmpty(poiFilter.toString())) {
                 return;
             }
@@ -110,7 +110,7 @@ public class i extends com.baidu.platform.base.e {
             com.baidu.platform.util.a aVar2 = this.a;
             aVar2.a(SuggestAddrField.KEY_PAGE_NUM, poiCitySearchOption.mPageNum + "");
             com.baidu.platform.util.a aVar3 = this.a;
-            aVar3.a("page_size", poiCitySearchOption.mPageCapacity + "");
+            aVar3.a(SuggestAddrField.KEY_PAGE_SIZE, poiCitySearchOption.mPageCapacity + "");
             com.baidu.platform.util.a aVar4 = this.a;
             aVar4.a("scope", poiCitySearchOption.mScope + "");
             this.a.a("tag", poiCitySearchOption.mTag);
@@ -144,7 +144,7 @@ public class i extends com.baidu.platform.base.e {
             com.baidu.platform.util.a aVar4 = this.a;
             aVar4.a(SuggestAddrField.KEY_PAGE_NUM, poiNearbySearchOption.mPageNum + "");
             com.baidu.platform.util.a aVar5 = this.a;
-            aVar5.a("page_size", poiNearbySearchOption.mPageCapacity + "");
+            aVar5.a(SuggestAddrField.KEY_PAGE_SIZE, poiNearbySearchOption.mPageCapacity + "");
             com.baidu.platform.util.a aVar6 = this.a;
             aVar6.a("scope", poiNearbySearchOption.mScope + "");
             this.a.a("tag", poiNearbySearchOption.mTag);

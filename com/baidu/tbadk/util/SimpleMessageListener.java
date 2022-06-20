@@ -105,7 +105,7 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
         }
     }
 
-    public void i(@NonNull TbPageContext<?> tbPageContext) {
+    public void e(@NonNull TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
             this.a.setSelfListener(true);

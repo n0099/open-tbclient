@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b20;
-import com.repackage.sa1;
-import com.repackage.x09;
-import com.repackage.yg0;
+import com.repackage.ch0;
+import com.repackage.db1;
+import com.repackage.f19;
+import com.repackage.f20;
 /* loaded from: classes2.dex */
 public class InitSDKWithPrivacyTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -39,7 +39,7 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
             if (TbadkCoreApplication.getInst().isMainProcess(true) || TbadkCoreApplication.getInst().isRemoteProcess()) {
-                yg0.c();
+                ch0.c();
             }
         }
     }
@@ -47,7 +47,7 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
     private void initAxeSdk() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-            b20.a.c(TbadkCoreApplication.getInst()).b().t();
+            f20.a.c(TbadkCoreApplication.getInst()).b().t();
         }
     }
 
@@ -55,8 +55,8 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65539, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
             AppIdentityManager.getInstance().setAppName("tieba");
-            if (sa1.g()) {
-                x09.a();
+            if (db1.g()) {
+                f19.a();
                 CloudControlManager.getInstance().requestCloudControl("0");
             }
         }
@@ -77,7 +77,7 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "AppCreate_InitSDKWithPrivacy" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "Ignore_InitSDKWithPrivacy" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask

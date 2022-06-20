@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
+import com.repackage.pi;
 /* loaded from: classes4.dex */
 public class TbPreViewFrameLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -114,10 +114,10 @@ public class TbPreViewFrameLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int k = li.k(getContext());
-            int i = li.i(getContext());
+            int k = pi.k(getContext());
+            int i = pi.i(getContext());
             a aVar = this.g;
-            int[] a2 = aVar != null ? aVar.a() : new int[]{li.k(getContext()), li.i(getContext())};
+            int[] a2 = aVar != null ? aVar.a() : new int[]{pi.k(getContext()), pi.i(getContext())};
             a2[0] = Math.min(k, a2[0]);
             a2[1] = Math.min(i, a2[1]);
             return a2;
@@ -164,7 +164,7 @@ public class TbPreViewFrameLayout extends FrameLayout {
                 } else if (Math.abs(this.c - motionEvent.getX()) > this.e && (motionEvent.getX() - this.c) - 50.0f > Math.abs(this.d - motionEvent.getY()) && this.i && (cVar = this.f) != null) {
                     cVar.a(motionEvent);
                 }
-                if (Math.abs(this.c - motionEvent.getX()) < 30.0f && Math.abs(this.d - motionEvent.getY()) < 30.0f && motionEvent.getY() <= li.i(getContext()) * 0.6d && (cVar2 = this.f) != null) {
+                if (Math.abs(this.c - motionEvent.getX()) < 30.0f && Math.abs(this.d - motionEvent.getY()) < 30.0f && motionEvent.getY() <= pi.i(getContext()) * 0.6d && (cVar2 = this.f) != null) {
                     cVar2.c(motionEvent);
                 }
             }

@@ -106,16 +106,16 @@ public class BDEmotionBagLayout extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
                 if (view2 == null) {
-                    linearLayout = (LinearLayout) this.mInflater.inflate(R.layout.obfuscated_res_0x7f0d0250, viewGroup, false);
+                    linearLayout = (LinearLayout) this.mInflater.inflate(R.layout.obfuscated_res_0x7f0d024d, viewGroup, false);
                     ViewGroup.LayoutParams layoutParams = linearLayout.getLayoutParams();
                     layoutParams.height = (int) UIUtils.dp2px(this.mContext, 48.0f);
                     linearLayout.setLayoutParams(layoutParams);
                 } else {
                     linearLayout = (LinearLayout) view2;
                 }
-                ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e87);
+                ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e79);
                 if (i == getCount() - 1) {
-                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f08054c);
+                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f08054a);
                 } else if (i < this.mList.size() && (emotionBitmapByName = EmotionUtils.getInstance().getEmotionBitmapByName(EmotionType.EMOTION_CLASSIC_TYPE, this.mList.get(i))) != null) {
                     imageView.setImageBitmap(emotionBitmapByName);
                 }

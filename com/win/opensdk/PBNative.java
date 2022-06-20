@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fk9;
-import com.repackage.pp9;
-import com.repackage.up9;
+import com.repackage.bq9;
+import com.repackage.mk9;
+import com.repackage.wp9;
 import com.win.opensdk.core.Info;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PBNative {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AD_TYPE_HTML = "h5";
@@ -24,7 +24,7 @@ public class PBNative {
     public static final String AD_TYPE_VIDEO = "video";
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public fk9 b;
+    public mk9 b;
     public PBNativeListener c;
 
     public PBNative(Context context, String str) {
@@ -43,9 +43,9 @@ public class PBNative {
             }
         }
         this.a = str;
-        fk9 fk9Var = new fk9(context, str);
-        this.b = fk9Var;
-        fk9Var.f = new up9(this);
+        mk9 mk9Var = new mk9(context, str);
+        this.b = mk9Var;
+        mk9Var.f = new bq9(this);
     }
 
     public void destroy() {
@@ -68,11 +68,11 @@ public class PBNative {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            fk9 fk9Var = this.b;
-            if (fk9Var == null || !fk9Var.g()) {
+            mk9 mk9Var = this.b;
+            if (mk9Var == null || !mk9Var.g()) {
                 return "unknown";
             }
-            String material_type = fk9Var.c.getMaterial_type();
+            String material_type = mk9Var.c.getMaterial_type();
             return !TextUtils.isEmpty(material_type) ? material_type : "unknown";
         }
         return (String) invokeV.objValue;
@@ -82,8 +82,8 @@ public class PBNative {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            fk9 fk9Var = this.b;
-            return (fk9Var == null || !fk9Var.g()) ? "" : fk9Var.c.getDesc();
+            mk9 mk9Var = this.b;
+            return (mk9Var == null || !mk9Var.g()) ? "" : mk9Var.c.getDesc();
         }
         return (String) invokeV.objValue;
     }
@@ -92,8 +92,8 @@ public class PBNative {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            fk9 fk9Var = this.b;
-            return (fk9Var == null || !fk9Var.g()) ? "" : fk9Var.c.getBtndesc();
+            mk9 mk9Var = this.b;
+            return (mk9Var == null || !mk9Var.g()) ? "" : mk9Var.c.getBtndesc();
         }
         return (String) invokeV.objValue;
     }
@@ -102,8 +102,8 @@ public class PBNative {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            fk9 fk9Var = this.b;
-            return (fk9Var == null || !fk9Var.g()) ? "" : fk9Var.c.getTitle();
+            mk9 mk9Var = this.b;
+            return (mk9Var == null || !mk9Var.g()) ? "" : mk9Var.c.getTitle();
         }
         return (String) invokeV.objValue;
     }
@@ -112,12 +112,12 @@ public class PBNative {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            fk9 fk9Var = this.b;
-            if (fk9Var != null) {
-                String image = fk9Var.g() ? fk9Var.c.getImage() : "";
+            mk9 mk9Var = this.b;
+            if (mk9Var != null) {
+                String image = mk9Var.g() ? mk9Var.c.getImage() : "";
                 if (TextUtils.isEmpty(image)) {
-                    fk9 fk9Var2 = this.b;
-                    return fk9Var2.g() ? fk9Var2.c.getIcon() : "";
+                    mk9 mk9Var2 = this.b;
+                    return mk9Var2.g() ? mk9Var2.c.getIcon() : "";
                 }
                 return image;
             }
@@ -130,8 +130,8 @@ public class PBNative {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            fk9 fk9Var = this.b;
-            return (fk9Var == null || !fk9Var.g()) ? "" : fk9Var.c.getIcon();
+            mk9 mk9Var = this.b;
+            return (mk9Var == null || !mk9Var.g()) ? "" : mk9Var.c.getIcon();
         }
         return (String) invokeV.objValue;
     }
@@ -140,11 +140,11 @@ public class PBNative {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            fk9 fk9Var = this.b;
-            if (fk9Var == null || !fk9Var.g()) {
+            mk9 mk9Var = this.b;
+            if (mk9Var == null || !mk9Var.g()) {
                 return 0;
             }
-            return fk9Var.c.getH();
+            return mk9Var.c.getH();
         }
         return invokeV.intValue;
     }
@@ -153,11 +153,11 @@ public class PBNative {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            fk9 fk9Var = this.b;
-            if (fk9Var == null || !fk9Var.g()) {
+            mk9 mk9Var = this.b;
+            if (mk9Var == null || !mk9Var.g()) {
                 return 0;
             }
-            return fk9Var.c.getW();
+            return mk9Var.c.getW();
         }
         return invokeV.intValue;
     }
@@ -172,9 +172,9 @@ public class PBNative {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            fk9 fk9Var = this.b;
-            if (fk9Var != null) {
-                Info info = fk9Var.c;
+            mk9 mk9Var = this.b;
+            if (mk9Var != null) {
+                Info info = mk9Var.c;
                 return info != null && info.getOpent() == 1;
             }
             return false;
@@ -186,38 +186,38 @@ public class PBNative {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            fk9 fk9Var = this.b;
-            return fk9Var != null && fk9Var.g();
+            mk9 mk9Var = this.b;
+            return mk9Var != null && mk9Var.g();
         }
         return invokeV.booleanValue;
     }
 
     public void load() {
-        fk9 fk9Var;
-        pp9 pp9Var;
+        mk9 mk9Var;
+        wp9 wp9Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (fk9Var = this.b) == null || (pp9Var = fk9Var.b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (mk9Var = this.b) == null || (wp9Var = mk9Var.b) == null) {
             return;
         }
-        pp9Var.g();
+        wp9Var.g();
     }
 
     public void registerViewForInteraction(View view2, PBMediaView pBMediaView) {
-        fk9 fk9Var;
+        mk9 mk9Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048589, this, view2, pBMediaView) == null) || (fk9Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048589, this, view2, pBMediaView) == null) || (mk9Var = this.b) == null) {
             return;
         }
-        fk9Var.c(view2, pBMediaView);
+        mk9Var.c(view2, pBMediaView);
     }
 
     public void registerViewForInteraction(View view2, PBMediaView pBMediaView, List list) {
-        fk9 fk9Var;
+        mk9 mk9Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048590, this, view2, pBMediaView, list) == null) || (fk9Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048590, this, view2, pBMediaView, list) == null) || (mk9Var = this.b) == null) {
             return;
         }
-        fk9Var.d(view2, pBMediaView, list);
+        mk9Var.d(view2, pBMediaView, list);
     }
 
     public void setNativeListener(PBNativeListener pBNativeListener) {

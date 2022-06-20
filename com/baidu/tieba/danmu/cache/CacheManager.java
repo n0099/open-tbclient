@@ -16,15 +16,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c06;
-import com.repackage.ly5;
-import com.repackage.n06;
-import com.repackage.ny5;
-import com.repackage.oy5;
-import com.repackage.py5;
-import com.repackage.r06;
-import com.repackage.ry5;
-import com.repackage.z06;
+import com.repackage.c16;
+import com.repackage.lz5;
+import com.repackage.n16;
+import com.repackage.nz5;
+import com.repackage.oz5;
+import com.repackage.pz5;
+import com.repackage.r16;
+import com.repackage.rz5;
+import com.repackage.z16;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -39,13 +39,13 @@ public final class CacheManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Handler a;
-    public final n06 b;
+    public final n16 b;
     public boolean c;
     public final Lazy d;
     public final Lazy e;
     public boolean f;
-    public final Map<Long, z06> g;
-    public final py5 h;
+    public final Map<Long, z16> g;
+    public final pz5 h;
     public boolean i;
 
     /* loaded from: classes3.dex */
@@ -100,23 +100,23 @@ public final class CacheManager {
                             if (bVar == null) {
                                 return;
                             }
-                            ly5 a = bVar.a();
-                            ry5 c = bVar.c();
+                            lz5 a = bVar.a();
+                            rz5 c = bVar.c();
                             if (this.a.f) {
                                 BdLog.d("DanmakuEngine [CacheManager] cancel cache.");
                                 this.a.f = false;
                                 return;
                             }
-                            c06.b("CacheManager_checkMeasure");
+                            c16.b("CacheManager_checkMeasure");
                             DrawState f = c.f();
                             if (!f.r(a.p())) {
-                                z06 a2 = this.a.b.a(c, bVar.b(), a);
+                                z16 a2 = this.a.b.a(c, bVar.b(), a);
                                 f.I(a2.b());
                                 f.x(a2.a());
                                 f.z(a.p());
                                 c.o(ItemState.Measured);
                             }
-                            c06.a();
+                            c16.a();
                             return;
                         case 1:
                             Object obj2 = msg.obj;
@@ -124,18 +124,18 @@ public final class CacheManager {
                             if (bVar2 == null) {
                                 return;
                             }
-                            c06.b("CacheManager_buildCache");
-                            ly5 a3 = bVar2.a();
-                            ry5 c2 = bVar2.c();
+                            c16.b("CacheManager_buildCache");
+                            lz5 a3 = bVar2.a();
+                            rz5 c2 = bVar2.c();
                             DrawState f2 = c2.f();
-                            c06.b("CacheManager_checkCache");
-                            if (f2.c().g() == null || Intrinsics.areEqual(f2.c(), ny5.f.a()) || a(f2)) {
-                                if (!Intrinsics.areEqual(f2.c(), ny5.f.a()) && f2.c().g() != null) {
+                            c16.b("CacheManager_checkCache");
+                            if (f2.c().g() == null || Intrinsics.areEqual(f2.c(), nz5.f.a()) || a(f2)) {
+                                if (!Intrinsics.areEqual(f2.c(), nz5.f.a()) && f2.c().g() != null) {
                                     f2.c().d();
                                 }
-                                ny5 a4 = this.a.j().a((int) f2.q(), (int) f2.d());
+                                nz5 a4 = this.a.j().a((int) f2.q(), (int) f2.d());
                                 if (a4 == null) {
-                                    a4 = new ny5();
+                                    a4 = new nz5();
                                     a4.b((int) f2.q(), (int) f2.d(), bVar2.b().a(), true, (r12 & 16) != 0 ? 32 : 0);
                                 }
                                 f2.w(a4);
@@ -143,12 +143,12 @@ public final class CacheManager {
                                 f2.c().m();
                                 f2.c().o(this.a);
                             }
-                            c06.a();
-                            c06.b("CacheManager_drawCache");
-                            oy5 g = f2.c().g();
+                            c16.a();
+                            c16.b("CacheManager_drawCache");
+                            oz5 g = f2.c().g();
                             if (g == null) {
                                 this.a.j().c(f2.c());
-                                f2.w(ny5.f.a());
+                                f2.w(nz5.f.a());
                                 c2.o(ItemState.Error);
                                 return;
                             }
@@ -164,8 +164,8 @@ public final class CacheManager {
                                 }
                                 Unit unit = Unit.INSTANCE;
                             }
-                            c06.a();
-                            c06.a();
+                            c16.a();
+                            c16.a();
                             return;
                         case 2:
                             removeCallbacksAndMessages(null);
@@ -181,19 +181,19 @@ public final class CacheManager {
                             return;
                         case 4:
                             Object obj3 = msg.obj;
-                            ny5 ny5Var = obj3 instanceof ny5 ? (ny5) obj3 : null;
-                            if (ny5Var == null) {
+                            nz5 nz5Var = obj3 instanceof nz5 ? (nz5) obj3 : null;
+                            if (nz5Var == null) {
                                 return;
                             }
-                            ny5Var.e();
+                            nz5Var.e();
                             return;
                         case 5:
                             Object obj4 = msg.obj;
-                            ny5 ny5Var2 = obj4 instanceof ny5 ? (ny5) obj4 : null;
-                            if (ny5Var2 == null || this.a.j().c(ny5Var2)) {
+                            nz5 nz5Var2 = obj4 instanceof nz5 ? (nz5) obj4 : null;
+                            if (nz5Var2 == null || this.a.j().c(nz5Var2)) {
                                 return;
                             }
-                            ny5Var2.e();
+                            nz5Var2.e();
                             return;
                         default:
                             return;
@@ -210,11 +210,11 @@ public final class CacheManager {
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ry5 a;
-        public final r06 b;
-        public final ly5 c;
+        public final rz5 a;
+        public final r16 b;
+        public final lz5 c;
 
-        public b(ry5 item, r06 displayer, ly5 config) {
+        public b(rz5 item, r16 displayer, lz5 config) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -237,22 +237,22 @@ public final class CacheManager {
             this.c = config;
         }
 
-        public final ly5 a() {
+        public final lz5 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (ly5) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (lz5) invokeV.objValue;
         }
 
-        public final r06 b() {
+        public final r16 b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (r06) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (r16) invokeV.objValue;
         }
 
-        public final ry5 c() {
+        public final rz5 c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (ry5) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (rz5) invokeV.objValue;
         }
     }
 
@@ -271,7 +271,7 @@ public final class CacheManager {
         }
     }
 
-    public CacheManager(Handler callbackHandler, n06 renderer) {
+    public CacheManager(Handler callbackHandler, n16 renderer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -293,7 +293,7 @@ public final class CacheManager {
         this.d = LazyKt__LazyJVMKt.lazy(new CacheManager$cacheThread$2(this));
         this.e = LazyKt__LazyJVMKt.lazy(new CacheManager$cacheHandler$2(this));
         this.g = Collections.synchronizedMap(new LinkedHashMap());
-        this.h = new py5(ly5.x.b());
+        this.h = new pz5(lz5.x.b());
     }
 
     public final a i() {
@@ -302,10 +302,10 @@ public final class CacheManager {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (a) this.e.getValue() : (a) invokeV.objValue;
     }
 
-    public final py5 j() {
+    public final pz5 j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h : (py5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h : (pz5) invokeV.objValue;
     }
 
     public final HandlerThread k() {
@@ -314,18 +314,18 @@ public final class CacheManager {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (HandlerThread) this.d.getValue() : (HandlerThread) invokeV.objValue;
     }
 
-    public final void l(ny5 cache) {
+    public final void l(nz5 cache) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cache) == null) {
             Intrinsics.checkNotNullParameter(cache, "cache");
-            if (Intrinsics.areEqual(cache, ny5.f.a())) {
+            if (Intrinsics.areEqual(cache, nz5.f.a())) {
                 return;
             }
             i().obtainMessage(5, cache).sendToTarget();
         }
     }
 
-    public final void m(ry5 item, r06 displayer, ly5 config) {
+    public final void m(rz5 item, r16 displayer, lz5 config) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, item, displayer, config) == null) {
             Intrinsics.checkNotNullParameter(item, "item");
@@ -343,7 +343,7 @@ public final class CacheManager {
         }
     }
 
-    public final void o(ry5 item, r06 displayer, ly5 config) {
+    public final void o(rz5 item, r16 displayer, lz5 config) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048582, this, item, displayer, config) == null) {
             Intrinsics.checkNotNullParameter(item, "item");

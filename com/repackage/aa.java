@@ -1,54 +1,71 @@
 package com.repackage;
 
-import android.app.Application;
+import android.os.Handler;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.pass.biometrics.base.result.PassBiometricResult;
-import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
-import com.baidu.tieba.R;
+import com.baidu.adp.framework.client.socket.coder.CoderException;
+import com.baidu.adp.framework.message.SocketMessage;
+import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
-import java.util.ArrayList;
-import org.apache.http.message.BasicNameValuePair;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tachikoma.core.component.input.ReturnKeyType;
+import java.security.InvalidParameterException;
 /* loaded from: classes5.dex */
-public class aa {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int A;
-    public static String B = null;
-    public static String C = null;
-    public static int[] D = null;
-    public static ArrayList<BasicNameValuePair> E = null;
-    public static int a = -100000000;
-    public static final int b;
-    public static final int c;
-    public static final int d;
-    public static final int e;
-    public static final int f;
-    public static final int g;
-    public static final int h;
-    public static final int i;
-    public static final int j;
-    public static final int k;
-    public static final int l;
-    public static final int m;
-    public static final int n;
-    public static final int o;
-    public static final int p;
-    public static final int q;
-    public static final int r;
-    public static final int s;
-    public static final int t;
-    public static final int u;
-    public static final int v;
-    public static final int w;
-    public static final int x;
-    public static final int y;
-    public static final int z;
+public class aa extends jj {
+    public static /* synthetic */ Interceptable $ic;
+    public static Handler o;
     public transient /* synthetic */ FieldHolder $fh;
+    public CoderException c;
+    public SocketMessage d;
+    public volatile int e;
+    public Runnable f;
+    public ca g;
+    public boolean h;
+    public int i;
+    public int j;
+    public long k;
+    public SocketMessageTask l;
+    public long m;
+    public long n;
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ aa a;
+
+        public a(aa aaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aaVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.A();
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -63,100 +80,289 @@ public class aa {
                 return;
             }
         }
-        b = (-100000000) - 200;
-        c = (-100000000) + PassBiometricResult.ERROR_CODE_LACK_SO_ERROR;
-        d = (-100000000) - 213;
-        e = (-100000000) - 214;
-        f = (-100000000) - 221;
-        g = (-100000000) - 230;
-        h = (-100000000) - 232;
-        i = (-100000000) - 233;
-        j = (-100000000) - 234;
-        k = (-100000000) - 235;
-        l = (-100000000) - 236;
-        m = (-100000000) - 301;
-        n = (-100000000) - 302;
-        o = (-100000000) + PassFaceRecogResult.ERROR_CODE_FACE_SDK_INIT_FAIL;
-        p = (-100000000) - 306;
-        q = (-100000000) + PassFaceRecogResult.ERROR_CODE_MAY_BE_NO_CAMERA_PERMISSION;
-        r = (-100000000) - 308;
-        s = (-100000000) - 309;
-        t = (-100000000) - 310;
-        u = (-100000000) - 311;
-        v = (-100000000) - 312;
-        w = (-100000000) - 313;
-        x = (-100000000) - 314;
-        y = (-100000000) - 310;
-        z = (-100000000) - 311;
-        A = (-100000000) + ErrorCode.ARGS_ERROR;
-        D = p9.a;
-        E = null;
+        o = new Handler();
     }
 
-    public static String a() {
-        InterceptResult invokeV;
+    public aa(SocketMessage socketMessage, SocketMessageTask socketMessageTask, ca caVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C : (String) invokeV.objValue;
-    }
-
-    public static ArrayList<BasicNameValuePair> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? E : (ArrayList) invokeV.objValue;
-    }
-
-    public static int[] c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? D : (int[]) invokeV.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? B : (String) invokeV.objValue;
-    }
-
-    public static void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            C = str;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {socketMessage, socketMessageTask, caVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-    }
-
-    public static void f(ArrayList<BasicNameValuePair> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, arrayList) == null) {
-            E = arrayList;
-        }
-    }
-
-    public static void g(int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, null, iArr) == null) || iArr == null) {
+        this.d = null;
+        this.e = 0;
+        this.f = null;
+        this.g = null;
+        this.h = true;
+        this.i = 0;
+        this.j = 0;
+        this.k = 0L;
+        this.l = null;
+        if (socketMessage != null && socketMessageTask != null) {
+            this.l = socketMessageTask;
+            this.d = socketMessage;
+            this.g = caVar;
             return;
         }
-        D = iArr;
+        throw new InvalidParameterException("SenderData msg null");
     }
 
-    public static void h(String str) {
+    public final void A() {
+        ca caVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            B = str;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (caVar = this.g) != null && this.h) {
+            caVar.A(this);
         }
     }
 
-    public static String i(int i2) {
-        InterceptResult invokeI;
+    @Override // com.repackage.mk
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i2)) == null) {
-            int i3 = a - i2;
-            Application app = BdBaseApplication.getInst().getApp();
-            if (i3 > -300 && i3 <= -200) {
-                return app.getString(R.string.obfuscated_res_0x7f0f08ae);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            o.removeCallbacks(u());
+            x(i);
+        }
+    }
+
+    @Override // com.repackage.mk
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (this.k == 0) {
+                this.k = System.currentTimeMillis();
             }
-            return app.getString(R.string.obfuscated_res_0x7f0f08af);
+            int cmd = this.d.getCmd();
+            int length = e() != null ? e().length : 0;
+            long clientLogID = this.d.getClientLogID();
+            int i = this.e;
+            ea.b("SenderData", cmd, clientLogID, i, "StartSend", 0, "SenderData: start send size = " + length);
+            o.removeCallbacks(u());
+            if (this.l.getTimeOut() != null) {
+                o.postDelayed(u(), this.l.getTimeOut().b());
+            }
+            z();
+            n9 n9Var = n9.b;
+            if (n9Var != null) {
+                n9Var.a(this.d.getCmd(), ReturnKeyType.SEND, this.d.getData());
+            }
         }
-        return (String) invokeI.objValue;
+    }
+
+    @Override // com.repackage.mk
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            int cmd = this.d.getCmd();
+            int length = e() != null ? e().length : 0;
+            long clientLogID = this.d.getClientLogID();
+            int i = this.e;
+            ea.b("SenderData", cmd, clientLogID, i, "FinishSend", 0, "SenderData: finish send  size = " + length);
+            if (!this.l.b()) {
+                o.removeCallbacks(u());
+            }
+            y();
+        }
+    }
+
+    @Override // com.repackage.jj
+    public byte[] d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.k == 0) {
+                this.k = System.currentTimeMillis();
+            }
+            this.c = null;
+            ga f = ga.f();
+            this.e = ba.a().b();
+            SocketMessage socketMessage = this.d;
+            if (socketMessage != null) {
+                socketMessage.setSquencedId(this.e);
+                BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
+                SocketMessage socketMessage2 = this.d;
+                long clientLogID = socketMessage2 == null ? -1L : socketMessage2.getClientLogID();
+                String valueOf = String.valueOf(this.e & 4294967295L);
+                Object[] objArr = new Object[2];
+                objArr[0] = "cmd";
+                SocketMessage socketMessage3 = this.d;
+                objArr[1] = Integer.valueOf(socketMessage3 == null ? -1 : socketMessage3.getCmd());
+                bdStatisticsManager.newDebug("seqid", clientLogID, valueOf, objArr);
+            }
+            try {
+                return f.e(this.d, this.e, this.l.c(), this.l.getNeedEncrypt());
+            } catch (CoderException e) {
+                this.c = e;
+                return null;
+            }
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int i = this.j + 1;
+            this.j = i;
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            int i = this.i + 1;
+            this.i = i;
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.l.d() : invokeV.booleanValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            o.removeCallbacks(u());
+        }
+    }
+
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            SocketMessage socketMessage = this.d;
+            if (socketMessage != null) {
+                return socketMessage.getCmd();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            int retry = this.l.getRetry();
+            if (retry > 1) {
+                return retry;
+            }
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    public SocketMessage m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.d : (SocketMessage) invokeV.objValue;
+    }
+
+    public int n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.l.getPriority() : invokeV.intValue;
+    }
+
+    public int o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.j : invokeV.intValue;
+    }
+
+    public int p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.i : invokeV.intValue;
+    }
+
+    public int q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.e : invokeV.intValue;
+    }
+
+    public CoderException r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.c : (CoderException) invokeV.objValue;
+    }
+
+    public long s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.k : invokeV.longValue;
+    }
+
+    public SocketMessageTask t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.l : (SocketMessageTask) invokeV.objValue;
+    }
+
+    public final Runnable u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            if (this.f == null) {
+                this.f = new a(this);
+            }
+            return this.f;
+        }
+        return (Runnable) invokeV.objValue;
+    }
+
+    public boolean v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.l.b() : invokeV.booleanValue;
+    }
+
+    public void w() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            j();
+            this.h = false;
+        }
+    }
+
+    public final void x(int i) {
+        ca caVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048598, this, i) == null) && (caVar = this.g) != null && this.h) {
+            caVar.x(i, this);
+        }
+    }
+
+    public final void y() {
+        ca caVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && (caVar = this.g) != null && this.h) {
+            caVar.y(this);
+        }
+    }
+
+    public final void z() {
+        ca caVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && (caVar = this.g) != null && this.h) {
+            caVar.z(this);
+        }
     }
 }

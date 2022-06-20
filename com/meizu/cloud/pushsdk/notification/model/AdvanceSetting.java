@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.notification.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import com.repackage.ni9;
+import com.meizu.cloud.pushinternal.DebugLogger;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
@@ -56,7 +56,7 @@ public class AdvanceSetting implements Parcelable {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e) {
-                ni9.b(TAG, "parse json string error " + e.getMessage());
+                DebugLogger.e(TAG, "parse json string error " + e.getMessage());
             }
             return parse(jSONObject);
         }
@@ -91,7 +91,7 @@ public class AdvanceSetting implements Parcelable {
             return advanceSetting;
         }
         str = "no such tag advance_setting";
-        ni9.b(TAG, str);
+        DebugLogger.e(TAG, str);
         return advanceSetting;
     }
 

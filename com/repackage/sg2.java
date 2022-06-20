@@ -1,6 +1,7 @@
 package com.repackage;
 
 import androidx.annotation.NonNull;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes7.dex */
-public class sg2 extends bd2<sh2> {
+public class sg2 extends md2<og2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,23 +28,27 @@ public class sg2 extends bd2<sh2> {
         }
     }
 
-    @Override // com.repackage.bd2
+    @Override // com.repackage.md2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getVideoSarDen" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "pageScrollUp" : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.bd2
+    @Override // com.repackage.md2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull sh2 sh2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull og2 og2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, sh2Var) == null) {
-            command.ret = sh2Var.getVideoSarDen();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, og2Var) == null) {
+            int i = command.arg1;
+            int g = jd3.g(command.arg2);
+            int i2 = command.arg3;
+            int i3 = command.arg4;
             String str = command.what;
-            d(sh2Var, str, "SarDen: " + command.ret, false);
+            d(og2Var, str, "(top, inputHeight, keyboardHeight, cursorSpacing) " + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + g + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3, false);
+            og2Var.z0(i, g, i2, i3);
         }
     }
 }

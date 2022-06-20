@@ -1,0 +1,11 @@
+package com.repackage;
+
+import com.baidu.tbadk.core.data.MediaData;
+import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
+import java.util.List;
+/* loaded from: classes7.dex */
+public interface ye5 {
+    int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2);
+
+    int b(int i);
+}

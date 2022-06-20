@@ -1,10 +1,6 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,57 +8,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.CookieManager;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes7.dex */
 public class x14 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final ReentrantLock c;
+    public static volatile x14 d;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public static class a implements ae3<h43> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ or1 a;
-        public final /* synthetic */ String b;
-
-        public a(or1 or1Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {or1Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = or1Var;
-            this.b = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ae3
-        /* renamed from: a */
-        public void onCallback(h43 h43Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, h43Var) == null) {
-                if (h43Var == null || h43Var.d || h43Var.j != 1) {
-                    x14.c(this.a, "system deny");
-                } else {
-                    x14.e(this.a, this.b);
-                }
-            }
-        }
-    }
+    public List<z14> a;
+    public a24 b;
 
     static {
         InterceptResult invokeClinit;
@@ -77,66 +33,96 @@ public class x14 {
                 return;
             }
         }
-        a = rf1.a;
+        c = new ReentrantLock();
     }
 
-    public static void c(or1 or1Var, String str) {
+    public x14() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, or1Var, str) == null) {
-            pt3 pt3Var = new pt3();
-            pt3Var.errMsg = str;
-            s14.call(or1Var, false, pt3Var);
-        }
-    }
-
-    public static void d(JsObject jsObject) {
-        or1 F;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jsObject) == null) || (F = or1.F(jsObject)) == null) {
-            return;
-        }
-        hz2 a0 = hz2.a0();
-        if (a0 == null) {
-            c(F, "internal error");
-            return;
-        }
-        String C = F.C("domain", "baidu.com");
-        if (a) {
-            Log.i("SwanGameUuapApi", "getUUAPInfo-domain: " + C);
-        }
-        a0.d0().e("mapp_uuap_info", new a(F, C));
-    }
-
-    public static void e(or1 or1Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, or1Var, str) == null) {
-            y14 y14Var = new y14();
-            String cookie = CookieManager.getInstance().getCookie(str);
-            if (!TextUtils.isEmpty(cookie)) {
-                Map<String, String> f = f(cookie);
-                y14Var.uuap_p_token = f.get("UUAP_P_TOKEN");
-                y14Var.uuap_p_token_offline = f.get("UUAP_P_TOKEN_OFFLINE");
-                y14Var.uuap_s_token = f.get("UUAP_S_TOKEN");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            s14.call(or1Var, true, y14Var);
         }
+        this.a = new ArrayList(3);
     }
 
-    @NonNull
-    public static Map<String, String> f(@NonNull String str) {
-        InterceptResult invokeL;
-        String[] split;
+    public static x14 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            HashMap hashMap = new HashMap();
-            for (String str2 : str.split(ParamableElem.DIVIDE_PARAM)) {
-                if (str2 != null && str2.contains("=")) {
-                    int indexOf = str2.indexOf("=");
-                    hashMap.put(str2.substring(0, indexOf).trim().toUpperCase(Locale.US), str2.substring(indexOf + 1));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (x14.class) {
+                    if (d == null) {
+                        d = new x14();
+                    }
                 }
             }
-            return hashMap;
+            return d;
         }
-        return (Map) invokeL.objValue;
+        return (x14) invokeV.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = null;
+            this.a.clear();
+        }
+    }
+
+    public final void c(z14 z14Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z14Var) == null) {
+            c.lock();
+            try {
+                if (this.b != null) {
+                    this.b.a(z14Var);
+                } else {
+                    this.a.add(z14Var);
+                }
+            } finally {
+                c.unlock();
+            }
+        }
+    }
+
+    public void d(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
+            sw1.i("SwanGameBundleUpdateManager", String.format("sendJSMessage : eventType = %s; hasUpdate = %s", str, Boolean.valueOf(z)));
+            z14 z14Var = new z14(str);
+            z14Var.hasUpdate = z;
+            c(z14Var);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.a.isEmpty() || this.b == null) {
+            return;
+        }
+        c.lock();
+        try {
+            for (z14 z14Var : this.a) {
+                this.b.a(z14Var);
+            }
+            this.a.clear();
+        } finally {
+            c.unlock();
+        }
+    }
+
+    public void f(a24 a24Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, a24Var) == null) {
+            this.b = a24Var;
+            e();
+        }
     }
 }

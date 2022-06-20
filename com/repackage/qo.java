@@ -1,74 +1,65 @@
 package com.repackage;
 
 import android.content.Context;
-import com.baidu.bdhttpdns.BDHttpDns;
-import com.baidu.bdhttpdns.BDHttpDnsResult;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.audiorecorder.lib.voice.NewVoiceRecordButton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.po;
-import com.repackage.ro;
-import java.util.ArrayList;
-/* loaded from: classes6.dex */
-public class qo implements po.a {
+/* loaded from: classes7.dex */
+public class qo extends t05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BDHttpDns.e a;
-    public final BDHttpDns b;
-    public final ro c;
 
-    public qo(Context context, BDHttpDns.e eVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qo(Context context) {
+        super(context, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0afc), 6);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, eVar};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = eVar;
-        BDHttpDns h = BDHttpDns.h(context);
-        this.b = h;
-        this.c = h.d();
+        this.d = R.drawable.obfuscated_res_0x7f08098a;
+        this.e = R.drawable.obfuscated_res_0x7f0807e8;
+        this.i = false;
+        this.j = true;
+        this.n = 6;
+        this.o = true;
+        this.m = new NewVoiceRecordButton(context);
+        this.p = new int[]{1, 9};
     }
 
-    @Override // com.repackage.po.a
-    public void a(int i, ArrayList<String> arrayList, ArrayList<String> arrayList2, long j, String str) {
+    @Override // com.repackage.t05
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), arrayList, arrayList2, Long.valueOf(j), str}) == null) {
-            if (i == -1) {
-                to.a("Async resolve failed, host(%s), dns resolve failed", str);
-                BDHttpDns.e eVar = this.a;
-                if (eVar != null) {
-                    eVar.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_NONE, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveErrorDnsResolve, arrayList, arrayList2));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TbadkCoreApplication.getInst().isAudioRecorderOpen()) {
+                String uegVoiceWarning = TbadkCoreApplication.getInst().getUegVoiceWarning();
+                if (StringUtils.isNull(uegVoiceWarning)) {
+                    uegVoiceWarning = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14aa);
                 }
-            } else if (i != 0) {
-                to.a("Internal error: async dns resolve completion get error ret(%d)", Integer.valueOf(i));
-            } else {
-                Object[] objArr = new Object[4];
-                objArr[0] = str;
-                objArr[1] = arrayList != null ? arrayList.toString() : null;
-                objArr[2] = arrayList2 != null ? arrayList2.toString() : null;
-                objArr[3] = BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS.toString();
-                to.a("Async resolve successful, host(%s) ipv4List(%s) ipv6List(%s) resolveType(%s)", objArr);
-                ro.a aVar = new ro.a();
-                aVar.i(60L);
-                aVar.h(System.currentTimeMillis() / 1000);
-                aVar.f(arrayList);
-                aVar.g(arrayList2);
-                this.c.e(str, aVar);
-                BDHttpDns.e eVar2 = this.a;
-                if (eVar2 != null) {
-                    eVar2.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, arrayList, arrayList2));
-                }
+                UtilHelper.showToast(TbadkCoreApplication.getInst(), uegVoiceWarning);
+                return false;
             }
+            return super.a();
         }
+        return invokeV.booleanValue;
     }
 }

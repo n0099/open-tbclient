@@ -1,17 +1,7 @@
 package com.repackage;
-
-import android.webkit.WebView;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-@Deprecated
 /* loaded from: classes5.dex */
-public class al4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface al4 {
+    float a();
 
-    public static void a(String str, WebView webView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, str, webView) == null) {
-        }
-    }
+    int b();
 }

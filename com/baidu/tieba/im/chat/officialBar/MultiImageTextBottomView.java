@@ -18,17 +18,16 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.stampmission.message.StampMissionHttpRequestMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a67;
-import com.repackage.ff;
-import com.repackage.r37;
-import com.repackage.u47;
-import com.repackage.y67;
+import com.repackage.Cif;
+import com.repackage.b57;
+import com.repackage.e67;
+import com.repackage.i87;
+import com.repackage.k77;
 /* loaded from: classes3.dex */
 public class MultiImageTextBottomView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -36,7 +35,7 @@ public class MultiImageTextBottomView extends LinearLayout {
     public Context a;
     public TbImageView b;
     public TextView c;
-    public ff d;
+    public Cif d;
     public int e;
     public int f;
     public String g;
@@ -71,7 +70,7 @@ public class MultiImageTextBottomView extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
                 if (this.a.d != null) {
-                    this.a.d.onItemViewLongClick(view2, 9, this.a.e, 0L);
+                    this.a.d.o(view2, 9, this.a.e, 0L);
                     return false;
                 }
                 return false;
@@ -84,12 +83,12 @@ public class MultiImageTextBottomView extends LinearLayout {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u47.a a;
+        public final /* synthetic */ e67.a a;
         public final /* synthetic */ TbPageContext b;
         public final /* synthetic */ int c;
         public final /* synthetic */ MultiImageTextBottomView d;
 
-        public b(MultiImageTextBottomView multiImageTextBottomView, u47.a aVar, TbPageContext tbPageContext, int i) {
+        public b(MultiImageTextBottomView multiImageTextBottomView, e67.a aVar, TbPageContext tbPageContext, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,7 +111,7 @@ public class MultiImageTextBottomView extends LinearLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            u47.a aVar;
+            e67.a aVar;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (aVar = this.a) == null || StringUtils.isNull(aVar.d)) {
                 return;
@@ -120,13 +119,13 @@ public class MultiImageTextBottomView extends LinearLayout {
             UrlManager.getInstance().dealOneLink(this.b, new String[]{this.a.d});
             if (this.c == 1) {
                 TiebaStatic.eventStat(this.d.a, "official_msg_ck", "click", 1, "fid", this.a.e);
-                r37 l = y67.l(this.d.g);
+                b57 l = i87.l(this.d.g);
                 if (l != null) {
                     Context context = this.d.a;
-                    TiebaStatic.eventStat(context, "message_open_detail", "click", 1, StampMissionHttpRequestMessage.KEY_TASK_TYPE, l.a, "task_id", l.b, "loc", "" + this.d.f);
+                    TiebaStatic.eventStat(context, "message_open_detail", "click", 1, "task_type", l.a, "task_id", l.b, "loc", "" + this.d.f);
                     int i = this.a.g;
                     if ((i == 1 || i == 3) && !"0".equals(l.b)) {
-                        a67.c().a(l.b);
+                        k77.c().a(l.b);
                     }
                 }
                 StatisticItem statisticItem = new StatisticItem("official_message_open_detail");
@@ -166,11 +165,11 @@ public class MultiImageTextBottomView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(0);
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0549, (ViewGroup) this, true);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0903bd);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0546, (ViewGroup) this, true);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0903be);
             this.b = tbImageView;
             tbImageView.setAutoChangeStyle(false);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0903e1);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0903db);
         }
     }
 
@@ -195,7 +194,7 @@ public class MultiImageTextBottomView extends LinearLayout {
         }
     }
 
-    public void setData(TbPageContext<?> tbPageContext, u47.a aVar, View view2, int i) {
+    public void setData(TbPageContext<?> tbPageContext, e67.a aVar, View view2, int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLLI(1048579, this, tbPageContext, aVar, view2, i) == null) || aVar == null) {
             return;
@@ -208,13 +207,13 @@ public class MultiImageTextBottomView extends LinearLayout {
             return;
         }
         this.b.setTag(aVar.c);
-        this.b.K(aVar.c, 10, false);
+        this.b.J(aVar.c, 10, false);
     }
 
-    public void setOnItemViewLongClickListener(ff ffVar) {
+    public void setOnItemViewLongClickListener(Cif cif) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ffVar) == null) {
-            this.d = ffVar;
+        if (interceptable == null || interceptable.invokeL(1048580, this, cif) == null) {
+            this.d = cif;
         }
     }
 

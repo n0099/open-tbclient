@@ -1,33 +1,82 @@
 package com.repackage;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.widget.layout.FlowLabelLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.person.holder.PersonCenterIntervalHolder;
+import com.baidu.tieba.pb.videopb.VideoPbCommentFloatFragment;
+import com.baidu.tieba.pb.videopb.viewholder.VideoTabPbFloatEnterForumViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class iy7 extends wm<ey7, PersonCenterIntervalHolder> {
+public class iy7 extends an<lr7, VideoTabPbFloatEnterForumViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BaseFragment i;
+
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ iy7 a;
+
+        public a(iy7 iy7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iy7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = iy7Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (this.a.i instanceof VideoPbCommentFloatFragment)) {
+                VideoPbCommentFloatFragment videoPbCommentFloatFragment = (VideoPbCommentFloatFragment) this.a.i;
+                StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_TAB_COMMENT_FLOAT_CLICK);
+                statisticItem.param("fid", videoPbCommentFloatFragment.F().getForumId());
+                statisticItem.param("tid", videoPbCommentFloatFragment.F().i2());
+                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+                statisticItem.param("post_id", videoPbCommentFloatFragment.F().o1());
+                statisticItem.param("obj_source", 1);
+                statisticItem.param("obj_type", 16);
+                statisticItem.param("obj_locate", videoPbCommentFloatFragment.N3());
+                TiebaStatic.log(statisticItem);
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public iy7(Context context, BdUniqueId bdUniqueId) {
+    public iy7(Context context, BdUniqueId bdUniqueId, BaseFragment baseFragment) {
         super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
+            Object[] objArr = {context, bdUniqueId, baseFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,46 +88,46 @@ public class iy7 extends wm<ey7, PersonCenterIntervalHolder> {
                 return;
             }
         }
+        this.i = baseFragment;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.repackage.wm
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, ey7 ey7Var, PersonCenterIntervalHolder personCenterIntervalHolder) {
-        a0(i, view2, viewGroup, ey7Var, personCenterIntervalHolder);
+    @Override // com.repackage.an
+    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, lr7 lr7Var, VideoTabPbFloatEnterForumViewHolder videoTabPbFloatEnterForumViewHolder) {
+        b0(i, view2, viewGroup, lr7Var, videoTabPbFloatEnterForumViewHolder);
         return view2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.wm
-    /* renamed from: Z */
-    public PersonCenterIntervalHolder M(ViewGroup viewGroup) {
+    @Override // com.repackage.an
+    /* renamed from: a0 */
+    public VideoTabPbFloatEnterForumViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PersonCenterIntervalHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03f4, viewGroup, false)) : (PersonCenterIntervalHolder) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            FrameLayout frameLayout = new FrameLayout(this.a);
+            FlowLabelLayout flowLabelLayout = new FlowLabelLayout(this.a);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
+            layoutParams.leftMargin = pi.f(this.a, R.dimen.tbds156);
+            layoutParams.topMargin = pi.f(this.a, R.dimen.M_H_X003);
+            layoutParams.rightMargin = pi.f(this.a, R.dimen.M_W_X007);
+            layoutParams.bottomMargin = pi.f(this.a, R.dimen.M_H_X005);
+            frameLayout.addView(flowLabelLayout, layoutParams);
+            return new VideoTabPbFloatEnterForumViewHolder(this.a, frameLayout);
+        }
+        return (VideoTabPbFloatEnterForumViewHolder) invokeL.objValue;
     }
 
-    public View a0(int i, View view2, ViewGroup viewGroup, ey7 ey7Var, PersonCenterIntervalHolder personCenterIntervalHolder) {
+    public View b0(int i, View view2, ViewGroup viewGroup, lr7 lr7Var, VideoTabPbFloatEnterForumViewHolder videoTabPbFloatEnterForumViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ey7Var, personCenterIntervalHolder})) == null) {
-            if (ey7Var != null && personCenterIntervalHolder != null) {
-                int skinType = TbadkCoreApplication.getInst().getSkinType();
-                if (personCenterIntervalHolder.a != skinType) {
-                    personCenterIntervalHolder.a = skinType;
-                    SkinManager.setBackgroundResource(personCenterIntervalHolder.b, ey7Var.c);
-                }
-                ViewGroup.LayoutParams layoutParams = personCenterIntervalHolder.b.getLayoutParams();
-                int i2 = ey7Var.a;
-                if (i2 > 0) {
-                    layoutParams.height = i2;
-                }
-                int i3 = ey7Var.b;
-                if (i3 > 0) {
-                    layoutParams.width = i3;
-                }
-                personCenterIntervalHolder.b.setLayoutParams(layoutParams);
-                personCenterIntervalHolder.b.setOnClickListener(null);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lr7Var, videoTabPbFloatEnterForumViewHolder})) == null) {
+            if (lr7Var != null) {
+                videoTabPbFloatEnterForumViewHolder.setData(lr7Var.a);
+                videoTabPbFloatEnterForumViewHolder.d(new a(this));
             }
+            SkinManager.setBackgroundColor(view2, R.color.CAM_X0204);
+            videoTabPbFloatEnterForumViewHolder.c();
             return view2;
         }
         return (View) invokeCommon.objValue;

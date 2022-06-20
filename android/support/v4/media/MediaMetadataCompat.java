@@ -1,6 +1,8 @@
 package android.support.v4.media;
 
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
+import android.media.MediaMetadata;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -21,9 +23,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
 import java.util.Set;
+@SuppressLint({"BanParcelableUsage"})
 /* loaded from: classes.dex */
 public final class MediaMetadataCompat implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
@@ -71,31 +72,7 @@ public final class MediaMetadataCompat implements Parcelable {
     public transient /* synthetic */ FieldHolder $fh;
     public final Bundle mBundle;
     public MediaDescriptionCompat mDescription;
-    public Object mMetadataObj;
-
-    @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes.dex */
-    public @interface BitmapKey {
-    }
-
-    @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes.dex */
-    public @interface LongKey {
-    }
-
-    @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes.dex */
-    public @interface RatingKey {
-    }
-
-    @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes.dex */
-    public @interface TextKey {
-    }
+    public MediaMetadata mMetadataFwk;
 
     static {
         InterceptResult invokeClinit;
@@ -112,40 +89,40 @@ public final class MediaMetadataCompat implements Parcelable {
         }
         ArrayMap<String, Integer> arrayMap = new ArrayMap<>();
         METADATA_KEYS_TYPE = arrayMap;
-        arrayMap.put(METADATA_KEY_TITLE, 1);
-        METADATA_KEYS_TYPE.put(METADATA_KEY_ARTIST, 1);
-        METADATA_KEYS_TYPE.put(METADATA_KEY_DURATION, 0);
-        METADATA_KEYS_TYPE.put(METADATA_KEY_ALBUM, 1);
-        METADATA_KEYS_TYPE.put(METADATA_KEY_AUTHOR, 1);
-        METADATA_KEYS_TYPE.put(METADATA_KEY_WRITER, 1);
-        METADATA_KEYS_TYPE.put(METADATA_KEY_COMPOSER, 1);
-        METADATA_KEYS_TYPE.put(METADATA_KEY_COMPILATION, 1);
-        METADATA_KEYS_TYPE.put(METADATA_KEY_DATE, 1);
-        METADATA_KEYS_TYPE.put(METADATA_KEY_YEAR, 0);
-        METADATA_KEYS_TYPE.put(METADATA_KEY_GENRE, 1);
-        METADATA_KEYS_TYPE.put(METADATA_KEY_TRACK_NUMBER, 0);
-        METADATA_KEYS_TYPE.put(METADATA_KEY_NUM_TRACKS, 0);
-        METADATA_KEYS_TYPE.put(METADATA_KEY_DISC_NUMBER, 0);
-        METADATA_KEYS_TYPE.put(METADATA_KEY_ALBUM_ARTIST, 1);
-        METADATA_KEYS_TYPE.put(METADATA_KEY_ART, 2);
-        METADATA_KEYS_TYPE.put(METADATA_KEY_ART_URI, 1);
-        METADATA_KEYS_TYPE.put(METADATA_KEY_ALBUM_ART, 2);
-        METADATA_KEYS_TYPE.put(METADATA_KEY_ALBUM_ART_URI, 1);
-        METADATA_KEYS_TYPE.put(METADATA_KEY_USER_RATING, 3);
-        METADATA_KEYS_TYPE.put(METADATA_KEY_RATING, 3);
-        METADATA_KEYS_TYPE.put(METADATA_KEY_DISPLAY_TITLE, 1);
-        METADATA_KEYS_TYPE.put(METADATA_KEY_DISPLAY_SUBTITLE, 1);
-        METADATA_KEYS_TYPE.put(METADATA_KEY_DISPLAY_DESCRIPTION, 1);
-        METADATA_KEYS_TYPE.put(METADATA_KEY_DISPLAY_ICON, 2);
-        METADATA_KEYS_TYPE.put(METADATA_KEY_DISPLAY_ICON_URI, 1);
-        METADATA_KEYS_TYPE.put(METADATA_KEY_MEDIA_ID, 1);
+        arrayMap.put("android.media.metadata.TITLE", 1);
+        METADATA_KEYS_TYPE.put("android.media.metadata.ARTIST", 1);
+        METADATA_KEYS_TYPE.put("android.media.metadata.DURATION", 0);
+        METADATA_KEYS_TYPE.put("android.media.metadata.ALBUM", 1);
+        METADATA_KEYS_TYPE.put("android.media.metadata.AUTHOR", 1);
+        METADATA_KEYS_TYPE.put("android.media.metadata.WRITER", 1);
+        METADATA_KEYS_TYPE.put("android.media.metadata.COMPOSER", 1);
+        METADATA_KEYS_TYPE.put("android.media.metadata.COMPILATION", 1);
+        METADATA_KEYS_TYPE.put("android.media.metadata.DATE", 1);
+        METADATA_KEYS_TYPE.put("android.media.metadata.YEAR", 0);
+        METADATA_KEYS_TYPE.put("android.media.metadata.GENRE", 1);
+        METADATA_KEYS_TYPE.put("android.media.metadata.TRACK_NUMBER", 0);
+        METADATA_KEYS_TYPE.put("android.media.metadata.NUM_TRACKS", 0);
+        METADATA_KEYS_TYPE.put("android.media.metadata.DISC_NUMBER", 0);
+        METADATA_KEYS_TYPE.put("android.media.metadata.ALBUM_ARTIST", 1);
+        METADATA_KEYS_TYPE.put("android.media.metadata.ART", 2);
+        METADATA_KEYS_TYPE.put("android.media.metadata.ART_URI", 1);
+        METADATA_KEYS_TYPE.put("android.media.metadata.ALBUM_ART", 2);
+        METADATA_KEYS_TYPE.put("android.media.metadata.ALBUM_ART_URI", 1);
+        METADATA_KEYS_TYPE.put("android.media.metadata.USER_RATING", 3);
+        METADATA_KEYS_TYPE.put("android.media.metadata.RATING", 3);
+        METADATA_KEYS_TYPE.put("android.media.metadata.DISPLAY_TITLE", 1);
+        METADATA_KEYS_TYPE.put("android.media.metadata.DISPLAY_SUBTITLE", 1);
+        METADATA_KEYS_TYPE.put("android.media.metadata.DISPLAY_DESCRIPTION", 1);
+        METADATA_KEYS_TYPE.put("android.media.metadata.DISPLAY_ICON", 2);
+        METADATA_KEYS_TYPE.put("android.media.metadata.DISPLAY_ICON_URI", 1);
+        METADATA_KEYS_TYPE.put("android.media.metadata.MEDIA_ID", 1);
         METADATA_KEYS_TYPE.put(METADATA_KEY_BT_FOLDER_TYPE, 0);
-        METADATA_KEYS_TYPE.put(METADATA_KEY_MEDIA_URI, 1);
+        METADATA_KEYS_TYPE.put("android.media.metadata.MEDIA_URI", 1);
         METADATA_KEYS_TYPE.put(METADATA_KEY_ADVERTISEMENT, 0);
         METADATA_KEYS_TYPE.put(METADATA_KEY_DOWNLOAD_STATUS, 0);
-        PREFERRED_DESCRIPTION_ORDER = new String[]{METADATA_KEY_TITLE, METADATA_KEY_ARTIST, METADATA_KEY_ALBUM, METADATA_KEY_ALBUM_ARTIST, METADATA_KEY_WRITER, METADATA_KEY_AUTHOR, METADATA_KEY_COMPOSER};
-        PREFERRED_BITMAP_ORDER = new String[]{METADATA_KEY_DISPLAY_ICON, METADATA_KEY_ART, METADATA_KEY_ALBUM_ART};
-        PREFERRED_URI_ORDER = new String[]{METADATA_KEY_DISPLAY_ICON_URI, METADATA_KEY_ART_URI, METADATA_KEY_ALBUM_ART_URI};
+        PREFERRED_DESCRIPTION_ORDER = new String[]{"android.media.metadata.TITLE", "android.media.metadata.ARTIST", "android.media.metadata.ALBUM", "android.media.metadata.ALBUM_ARTIST", "android.media.metadata.WRITER", "android.media.metadata.AUTHOR", "android.media.metadata.COMPOSER"};
+        PREFERRED_BITMAP_ORDER = new String[]{"android.media.metadata.DISPLAY_ICON", "android.media.metadata.ART", "android.media.metadata.ALBUM_ART"};
+        PREFERRED_URI_ORDER = new String[]{"android.media.metadata.DISPLAY_ICON_URI", "android.media.metadata.ART_URI", "android.media.metadata.ALBUM_ART_URI"};
         CREATOR = new Parcelable.Creator<MediaMetadataCompat>() { // from class: android.support.v4.media.MediaMetadataCompat.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -212,11 +189,12 @@ public final class MediaMetadataCompat implements Parcelable {
                 return null;
             }
             Parcel obtain = Parcel.obtain();
-            MediaMetadataCompatApi21.writeToParcel(obj, obtain, 0);
+            MediaMetadata mediaMetadata = (MediaMetadata) obj;
+            mediaMetadata.writeToParcel(obtain, 0);
             obtain.setDataPosition(0);
             MediaMetadataCompat createFromParcel = CREATOR.createFromParcel(obtain);
             obtain.recycle();
-            createFromParcel.mMetadataObj = obj;
+            createFromParcel.mMetadataFwk = mediaMetadata;
             return createFromParcel;
         }
         return (MediaMetadataCompat) invokeL.objValue;
@@ -245,7 +223,7 @@ public final class MediaMetadataCompat implements Parcelable {
             try {
                 return (Bitmap) this.mBundle.getParcelable(str);
             } catch (Exception e) {
-                Log.w(TAG, "Failed to retrieve a key as Bitmap.", e);
+                Log.w("MediaMetadata", "Failed to retrieve a key as Bitmap.", e);
                 return null;
             }
         }
@@ -268,9 +246,9 @@ public final class MediaMetadataCompat implements Parcelable {
             if (mediaDescriptionCompat != null) {
                 return mediaDescriptionCompat;
             }
-            String string = getString(METADATA_KEY_MEDIA_ID);
+            String string = getString("android.media.metadata.MEDIA_ID");
             CharSequence[] charSequenceArr = new CharSequence[3];
-            CharSequence text = getText(METADATA_KEY_DISPLAY_TITLE);
+            CharSequence text = getText("android.media.metadata.DISPLAY_TITLE");
             if (TextUtils.isEmpty(text)) {
                 int i = 0;
                 int i2 = 0;
@@ -289,8 +267,8 @@ public final class MediaMetadataCompat implements Parcelable {
                 }
             } else {
                 charSequenceArr[0] = text;
-                charSequenceArr[1] = getText(METADATA_KEY_DISPLAY_SUBTITLE);
-                charSequenceArr[2] = getText(METADATA_KEY_DISPLAY_DESCRIPTION);
+                charSequenceArr[1] = getText("android.media.metadata.DISPLAY_SUBTITLE");
+                charSequenceArr[2] = getText("android.media.metadata.DISPLAY_DESCRIPTION");
             }
             int i4 = 0;
             while (true) {
@@ -319,7 +297,7 @@ public final class MediaMetadataCompat implements Parcelable {
                 }
                 i5++;
             }
-            String string3 = getString(METADATA_KEY_MEDIA_URI);
+            String string3 = getString("android.media.metadata.MEDIA_URI");
             Uri parse = TextUtils.isEmpty(string3) ? null : Uri.parse(string3);
             MediaDescriptionCompat.Builder builder = new MediaDescriptionCompat.Builder();
             builder.setMediaId(string);
@@ -356,14 +334,14 @@ public final class MediaMetadataCompat implements Parcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.mMetadataObj == null && Build.VERSION.SDK_INT >= 21) {
+            if (this.mMetadataFwk == null && Build.VERSION.SDK_INT >= 21) {
                 Parcel obtain = Parcel.obtain();
                 writeToParcel(obtain, 0);
                 obtain.setDataPosition(0);
-                this.mMetadataObj = MediaMetadataCompatApi21.createFromParcel(obtain);
+                this.mMetadataFwk = (MediaMetadata) MediaMetadata.CREATOR.createFromParcel(obtain);
                 obtain.recycle();
             }
-            return this.mMetadataObj;
+            return this.mMetadataFwk;
         }
         return invokeV.objValue;
     }
@@ -378,7 +356,7 @@ public final class MediaMetadataCompat implements Parcelable {
                 }
                 return (RatingCompat) this.mBundle.getParcelable(str);
             } catch (Exception e) {
-                Log.w(TAG, "Failed to retrieve a key as Rating.", e);
+                Log.w("MediaMetadata", "Failed to retrieve a key as Rating.", e);
                 return null;
             }
         }
@@ -553,7 +531,7 @@ public final class MediaMetadataCompat implements Parcelable {
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+        @RestrictTo({RestrictTo.Scope.LIBRARY})
         public Builder(MediaMetadataCompat mediaMetadataCompat, int i) {
             this(mediaMetadataCompat);
             Interceptable interceptable = $ic;

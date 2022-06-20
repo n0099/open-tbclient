@@ -4,17 +4,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.PbPage.NewsInfo;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.LotteryRegular;
 /* loaded from: classes7.dex */
 public class so4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public String d;
-    public String e;
-    public String f;
+    public List<Integer> a;
 
     public so4() {
         Interceptable interceptable = $ic;
@@ -30,17 +27,15 @@ public class so4 {
         }
     }
 
-    public void a(NewsInfo newsInfo) {
+    public void a(LotteryRegular lotteryRegular) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, newsInfo) == null) || newsInfo == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, lotteryRegular) == null) {
+            String str = lotteryRegular.regular;
+            this.a = new ArrayList();
+            int size = lotteryRegular.chance.size();
+            for (int i = 0; i < size; i++) {
+                this.a.add(lotteryRegular.chance.get(i));
+            }
         }
-        this.a = newsInfo.news_link;
-        this.b = newsInfo.summary;
-        newsInfo.position.intValue();
-        this.c = newsInfo.news_type.intValue();
-        this.d = newsInfo.news_icon;
-        this.e = newsInfo.subtitle;
-        this.f = newsInfo.button_text;
     }
 }

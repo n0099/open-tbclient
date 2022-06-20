@@ -73,8 +73,8 @@ public class VerificationCodeView extends LinearLayout implements TextWatcher, V
         this.d = obtainStyledAttributes.getDimensionPixelSize(7, 105);
         this.e = obtainStyledAttributes.getColor(5, -16777216);
         this.f = obtainStyledAttributes.getDimensionPixelSize(6, 16);
-        this.g = obtainStyledAttributes.getResourceId(0, R.drawable.obfuscated_res_0x7f080fb2);
-        this.l = obtainStyledAttributes.getResourceId(1, R.drawable.obfuscated_res_0x7f080fb1);
+        this.g = obtainStyledAttributes.getResourceId(0, R.drawable.obfuscated_res_0x7f080fa3);
+        this.l = obtainStyledAttributes.getResourceId(1, R.drawable.obfuscated_res_0x7f080fa2);
         this.k = obtainStyledAttributes.getBoolean(2, true);
         boolean hasValue = obtainStyledAttributes.hasValue(4);
         this.j = hasValue;
@@ -255,7 +255,7 @@ public class VerificationCodeView extends LinearLayout implements TextWatcher, V
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             for (int i = 0; i < getChildCount(); i++) {
-                ((EditText) getChildAt(i)).setBackgroundResource(R.drawable.obfuscated_res_0x7f080fb3);
+                ((EditText) getChildAt(i)).setBackgroundResource(R.drawable.obfuscated_res_0x7f080fa4);
             }
         }
     }
@@ -266,7 +266,7 @@ public class VerificationCodeView extends LinearLayout implements TextWatcher, V
             for (int i = 0; i < getChildCount(); i++) {
                 EditText editText = (EditText) getChildAt(i);
                 editText.setText("");
-                editText.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fb2);
+                editText.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fa3);
             }
             EditText editText2 = (EditText) getChildAt(0);
             editText2.setCursorVisible(true);
@@ -316,7 +316,7 @@ public class VerificationCodeView extends LinearLayout implements TextWatcher, V
         return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.d : invokeV.intValue;
     }
 
-    public final void i() {
+    public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             for (int i = 0; i < this.c; i++) {
@@ -353,7 +353,7 @@ public class VerificationCodeView extends LinearLayout implements TextWatcher, V
         if (interceptable == null || interceptable.invokeII(1048595, this, i, i2) == null) {
             super.onMeasure(i, i2);
             this.m = getMeasuredWidth();
-            i();
+            h();
         }
     }
 

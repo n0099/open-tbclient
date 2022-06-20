@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mg;
+import com.repackage.qg;
 /* loaded from: classes4.dex */
 public class CommonTipView extends TextView {
     public static /* synthetic */ Interceptable $ic;
@@ -126,7 +126,7 @@ public class CommonTipView extends TextView {
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
                 this.a.i();
                 this.a.setVisibility(8);
-                mg.a().postDelayed(this.a.e, 600L);
+                qg.a().postDelayed(this.a.e, 600L);
             }
         }
 
@@ -261,7 +261,7 @@ public class CommonTipView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             removeCallbacks(this.d);
-            mg.a().removeCallbacks(this.e);
+            qg.a().removeCallbacks(this.e);
             e();
         }
     }

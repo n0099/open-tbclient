@@ -1,130 +1,76 @@
 package com.repackage;
 
-import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
+import android.opengl.Matrix;
+import android.os.Handler;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
-import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface;
+import com.baidu.ugc.editvideo.record.processor.MultiMediaPreProcessor;
 /* loaded from: classes6.dex */
-public class lu8 {
+public class lu8 extends BaseOutputSurface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public float[] a;
+    public MultiMediaData b;
 
-    public static long[] a(int i, long j) {
-        InterceptResult invokeCommon;
+    public lu8(int i, int i2, boolean z, Handler handler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
-            if (i < 0) {
-                i = 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), handler};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            float[] fArr = new float[i];
-            if (i > 1) {
-                float f = 1.0f / i;
-                int i2 = 0;
-                while (i2 < i) {
-                    int i3 = i2 + 1;
-                    if (i3 == i) {
-                        int i4 = i2 - 1;
-                        fArr[i2] = fArr[i4] + ((1.0f - fArr[i4]) / 2.0f);
-                    } else {
-                        fArr[i2] = i3 * f;
-                    }
-                    i2 = i3;
-                }
-            } else if (i == 1) {
-                fArr[0] = 0.5f;
-            }
-            long[] jArr = new long[i];
-            for (int i5 = 0; i5 < i; i5++) {
-                jArr[i5] = fArr[i5] * ((float) j) * 1000.0f;
-            }
-            return jArr;
         }
-        return (long[]) invokeCommon.objValue;
+        this.a = new float[16];
+        this.b = new MultiMediaData();
+        init(i, i2, z, handler);
+        this.mFullScreenEXT.setMirror(true);
+        Matrix.orthoM(this.a, 0, 0.0f, i, 0.0f, i2, -1.0f, 1.0f);
     }
 
-    public static ou8 b(qu8 qu8Var, gu8 gu8Var) {
-        InterceptResult invokeLL;
+    public void a(int i, int i2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, qu8Var, gu8Var)) == null) {
-            if (qu8Var == null || gu8Var == null || qu8Var.e == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)}) == null) {
+            MultiMediaData multiMediaData = this.b;
+            multiMediaData.type = 1;
+            multiMediaData.width = i;
+            multiMediaData.height = i2;
+            multiMediaData.rotation = f;
+            if (((f == 90.0f || f == 270.0f) ? (i2 * 1.0f) / i : (i * 1.0f) / i2) <= (this.mVideoWidth * 1.0f) / this.mVideoHeight) {
+                this.b.scaleType = "center_crop";
+            } else {
+                this.b.scaleType = "center_inside";
             }
-            long[] a = a(qu8Var.b, qu8Var.a);
-            MultiMediaData multiMediaData = qu8Var.e;
-            ou8 ou8Var = new ou8();
-            ou8Var.e = new ArrayList();
-            ou8Var.a = multiMediaData.path;
-            ou8Var.c = qu8Var.c;
-            ou8Var.d = qu8Var.d;
-            ou8Var.b = multiMediaData.rotation;
-            for (int i = 0; i < qu8Var.b; i++) {
-                long j = multiMediaData.start + a[i];
-                iu8 iu8Var = new iu8();
-                iu8Var.a = bu8.b(multiMediaData.path, j, multiMediaData.type);
-                iu8Var.b = multiMediaData.path;
-                iu8Var.f = i;
-                iu8Var.g = multiMediaData.type;
-                iu8Var.h = qu8Var.c;
-                iu8Var.i = qu8Var.d;
-                iu8Var.j = gu8Var;
-                iu8Var.d = j;
-                iu8Var.c = multiMediaData.rotation;
-                ou8Var.e.add(iu8Var);
-            }
-            return ou8Var;
         }
-        return (ou8) invokeLL.objValue;
     }
 
-    public static List<ou8> c(pu8 pu8Var, gu8 gu8Var) {
-        InterceptResult invokeLL;
-        List<iu8> list;
+    @Override // com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface
+    public void drawImage(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, pu8Var, gu8Var)) == null) {
-            MultiMediaData multiMediaData = null;
-            if (pu8Var == null || gu8Var == null || pu8Var.b <= 0 || u79.e(pu8Var.e) || u79.e(pu8Var.f)) {
-                return null;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            super.drawImage(i);
+            if (this.mFullScreenEXT == null) {
+                return;
             }
-            long[] a = a(pu8Var.b, pu8Var.a);
-            ArrayList arrayList = new ArrayList();
-            ou8 ou8Var = null;
-            for (int i = 0; i < pu8Var.b; i++) {
-                long j = ((float) a[i]) / 1000.0f;
-                int findInputIndexInSegments = MultiDataSourceUtil.findInputIndexInSegments(pu8Var.e, j);
-                MultiMediaData multiMediaData2 = (MultiMediaData) u79.c(pu8Var.f, findInputIndexInSegments);
-                if (multiMediaData2 != null) {
-                    if (multiMediaData2 != multiMediaData) {
-                        ou8Var = new ou8();
-                        ou8Var.e = new ArrayList();
-                        ou8Var.a = multiMediaData2.path;
-                        ou8Var.c = pu8Var.c;
-                        ou8Var.d = pu8Var.d;
-                        ou8Var.b = multiMediaData2.rotation;
-                        arrayList.add(ou8Var);
-                    }
-                    long multiMediaDataSeekTime = MultiDataSourceUtil.getMultiMediaDataSeekTime(multiMediaData2, (MediaSegment) u79.c(pu8Var.e, findInputIndexInSegments), j) * 1000;
-                    iu8 iu8Var = new iu8();
-                    iu8Var.a = bu8.b(multiMediaData2.path, multiMediaDataSeekTime, multiMediaData2.type);
-                    iu8Var.b = multiMediaData2.path;
-                    iu8Var.f = i;
-                    iu8Var.g = multiMediaData2.type;
-                    iu8Var.h = pu8Var.c;
-                    iu8Var.i = pu8Var.d;
-                    iu8Var.d = multiMediaDataSeekTime;
-                    iu8Var.j = gu8Var;
-                    iu8Var.c = multiMediaData2.rotation;
-                    if (ou8Var != null && (list = ou8Var.e) != null) {
-                        list.add(iu8Var);
-                    }
-                    multiMediaData = multiMediaData2;
-                }
-            }
-            return arrayList;
+            float[] fArr = new float[16];
+            Matrix.setIdentityM(fArr, 0);
+            Matrix.multiplyMM(fArr, 0, this.a, 0, MultiMediaPreProcessor.calculateModelView(this.b, this.mVideoWidth, this.mVideoHeight, 0, 0), 0);
+            this.mFullScreenEXT.setVertexPoint(fArr);
+            this.mFullScreenEXT.setAngle(180.0f);
+            this.mFullScreenEXT.drawFrame(this.mTextureId, this.mSTMatrix);
+            Matrix.setIdentityM(fArr, 0);
+            this.mFullScreenEXT.setVertexPoint(fArr);
         }
-        return (List) invokeLL.objValue;
     }
 }

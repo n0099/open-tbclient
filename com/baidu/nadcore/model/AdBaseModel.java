@@ -16,16 +16,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
-import com.repackage.ag0;
-import com.repackage.fm0;
-import com.repackage.gm0;
-import com.repackage.gx0;
-import com.repackage.im0;
+import com.repackage.cn0;
+import com.repackage.dn0;
+import com.repackage.eg0;
+import com.repackage.jm0;
 import com.repackage.km0;
+import com.repackage.kx0;
+import com.repackage.mm0;
 import com.repackage.om0;
-import com.repackage.qm0;
-import com.repackage.vm0;
-import com.repackage.ym0;
+import com.repackage.sm0;
+import com.repackage.um0;
 import com.repackage.zm0;
 import com.tachikoma.core.component.TKBase;
 import java.util.ArrayList;
@@ -44,26 +44,26 @@ public class AdBaseModel {
     @NonNull
     public final List<MonitorUrl> e;
     @NonNull
-    public final om0 f;
+    public final sm0 f;
     @Nullable
-    public final fm0 g;
+    public final jm0 g;
     @Nullable
     public final AdOperator h;
     @Nullable
-    public final zm0 i;
+    public final dn0 i;
     @Nullable
-    public final vm0 j;
+    public final zm0 j;
     @Nullable
-    public final List<qm0> k;
+    public final List<um0> k;
     @Nullable
-    public final gm0 l;
+    public final km0 l;
     @Nullable
-    public km0 m;
+    public om0 m;
     public int n;
     @NonNull
     public List<String> o;
-    public ym0 p;
-    public ag0 q;
+    public cn0 p;
+    public eg0 q;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
@@ -165,12 +165,12 @@ public class AdBaseModel {
         }
     }
 
-    public AdBaseModel(@NonNull om0 om0Var, @NonNull JSONObject jSONObject) throws ParseError {
+    public AdBaseModel(@NonNull sm0 sm0Var, @NonNull JSONObject jSONObject) throws ParseError {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {om0Var, jSONObject};
+            Object[] objArr = {sm0Var, jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -182,21 +182,21 @@ public class AdBaseModel {
         }
         this.e = new ArrayList();
         this.o = new ArrayList();
-        String str = om0Var.b;
+        String str = sm0Var.b;
         JSONObject optJSONObject = jSONObject.optJSONObject(GameGuideConfigInfo.KEY_CLOSE_INFO);
-        this.g = optJSONObject == null ? null : fm0.a(optJSONObject);
-        this.f = om0Var;
-        this.j = vm0.b(jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO));
-        this.k = qm0.a(jSONObject.optJSONArray("prefetch_video"));
-        this.l = gm0.b(jSONObject.optJSONObject(TiebaMainDatabaseHelper.TABLE_NAME_DOWNLOAD_INFO));
-        this.m = km0.a(jSONObject.optJSONObject("enhance"));
-        im0.a(jSONObject.optJSONObject("interaction"));
+        this.g = optJSONObject == null ? null : jm0.a(optJSONObject);
+        this.f = sm0Var;
+        this.j = zm0.b(jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO));
+        this.k = um0.a(jSONObject.optJSONArray("prefetch_video"));
+        this.l = km0.b(jSONObject.optJSONObject(TiebaMainDatabaseHelper.TABLE_NAME_DOWNLOAD_INFO));
+        this.m = om0.a(jSONObject.optJSONObject("enhance"));
+        mm0.a(jSONObject.optJSONObject("interaction"));
         JSONObject optJSONObject2 = jSONObject.optJSONObject("operate");
         AdOperator a = optJSONObject2 == null ? null : AdOperator.a(optJSONObject2);
         this.h = a;
         this.d = a != null;
         JSONObject optJSONObject3 = jSONObject.optJSONObject("app_info");
-        zm0 c = optJSONObject3 == null ? null : zm0.c(optJSONObject3);
+        dn0 c = optJSONObject3 == null ? null : dn0.c(optJSONObject3);
         this.i = (c == null || !c.k) ? null : c;
         JSONArray optJSONArray = jSONObject.optJSONArray("ad_monitor_url");
         int length = optJSONArray == null ? 0 : optJSONArray.length();
@@ -206,7 +206,7 @@ public class AdBaseModel {
                 String optString = optJSONObject4.optString("show_url");
                 String optString2 = optJSONObject4.optString("click_url");
                 if (!TextUtils.isEmpty(optString) || !TextUtils.isEmpty(optString2)) {
-                    gx0.b(this.e, new MonitorUrl(optString, optString2));
+                    kx0.b(this.e, new MonitorUrl(optString, optString2));
                 }
             }
         }
@@ -217,28 +217,28 @@ public class AdBaseModel {
             if (optJSONObject5 != null) {
                 String optString3 = optJSONObject5.optString("word");
                 if (!TextUtils.isEmpty(optString3)) {
-                    gx0.b(this.o, optString3);
+                    kx0.b(this.o, optString3);
                 }
             }
         }
-        vm0 vm0Var = this.j;
-        if (vm0Var != null) {
-            vm0Var.d(this);
+        zm0 zm0Var = this.j;
+        if (zm0Var != null) {
+            zm0Var.d(this);
         }
         this.c = null;
     }
 
-    public void a(@Nullable ym0 ym0Var) {
-        List<qm0> list;
+    public void a(@Nullable cn0 cn0Var) {
+        List<um0> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ym0Var) == null) {
-            this.p = ym0Var;
-            if (ym0Var == null || ym0Var.c) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, cn0Var) == null) {
+            this.p = cn0Var;
+            if (cn0Var == null || cn0Var.c) {
                 this.f.b();
             }
-            if ((ym0Var == null || ym0Var.d) && (list = this.k) != null && list.size() > 0) {
-                for (qm0 qm0Var : this.k) {
-                    qm0Var.b();
+            if ((cn0Var == null || cn0Var.d) && (list = this.k) != null && list.size() > 0) {
+                for (um0 um0Var : this.k) {
+                    um0Var.b();
                 }
             }
         }

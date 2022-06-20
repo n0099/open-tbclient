@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qn7;
+import com.repackage.xo7;
 import com.tencent.mm.sdk.modelbase.BaseReq;
 import com.tencent.mm.sdk.modelbase.BaseResp;
 import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
@@ -33,12 +33,11 @@ import com.tencent.mm.sdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
 /* loaded from: classes4.dex */
 public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IWXAPIEventHandler {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int WX_NOTINSTALL_CODE = 123456;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Intent mIntentForShare;
-    public NavigationBar mNavigationBar;
-    public IWXAPI mWxAPI;
+    public IWXAPI a;
+    public Intent b;
+    public NavigationBar c;
 
     public WXEntryActivity() {
         Interceptable interceptable = $ic;
@@ -54,9 +53,9 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         }
     }
 
-    private void onHandleReqFromWeixinToTieba(ShowMessageFromWX.Req req) {
+    public final void A1(ShowMessageFromWX.Req req) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, req) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, req) == null) {
             String str = req.message.messageExt;
             if (TextUtils.isEmpty(str)) {
                 return;
@@ -93,7 +92,7 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
     @Override // com.baidu.tbadk.BaseActivity
     public void closeAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
         }
     }
@@ -101,9 +100,9 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            NavigationBar navigationBar = this.mNavigationBar;
+            NavigationBar navigationBar = this.c;
             if (navigationBar != null) {
                 navigationBar.onChangeSkinType(getPageContext(), i);
             }
@@ -114,22 +113,22 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
     public void onCreate(Bundle bundle) {
         IWXAPI iwxapi;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             MessageManager.getInstance().runTask(2921332, (Class) null);
-            setContentView(R.layout.obfuscated_res_0x7f0d04cc);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091b20);
-            this.mNavigationBar = navigationBar;
+            setContentView(R.layout.obfuscated_res_0x7f0d04ca);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091b18);
+            this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.mNavigationBar.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f0a5a));
+            this.c.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f0a5e));
             try {
-                this.mWxAPI = WXAPIFactory.createWXAPI(getActivity(), TbConfig.WEIXIN_SHARE_APP_ID, false);
+                this.a = WXAPIFactory.createWXAPI(getActivity(), TbConfig.WEIXIN_SHARE_APP_ID, false);
             } catch (Exception e) {
                 e.printStackTrace();
             }
             Intent intent = getIntent();
-            this.mIntentForShare = intent;
-            if (intent == null || (iwxapi = this.mWxAPI) == null) {
+            this.b = intent;
+            if (intent == null || (iwxapi = this.a) == null) {
                 return;
             }
             iwxapi.handleIntent(getIntent(), this);
@@ -140,11 +139,11 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
     public void onNewIntent(Intent intent) {
         IWXAPI iwxapi;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, intent) == null) {
             super.onNewIntent(intent);
             setIntent(intent);
-            this.mIntentForShare = intent;
-            if (intent == null || (iwxapi = this.mWxAPI) == null) {
+            this.b = intent;
+            if (intent == null || (iwxapi = this.a) == null) {
                 return;
             }
             iwxapi.handleIntent(intent, this);
@@ -154,23 +153,23 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
     @Override // com.tencent.mm.sdk.openapi.IWXAPIEventHandler
     public void onReq(BaseReq baseReq) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, baseReq) == null) && baseReq.getType() == 4 && (baseReq instanceof ShowMessageFromWX.Req)) {
-            onHandleReqFromWeixinToTieba((ShowMessageFromWX.Req) baseReq);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, baseReq) == null) && baseReq.getType() == 4 && (baseReq instanceof ShowMessageFromWX.Req)) {
+            A1((ShowMessageFromWX.Req) baseReq);
         }
     }
 
     @Override // com.tencent.mm.sdk.openapi.IWXAPIEventHandler
     public void onResp(BaseResp baseResp) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, baseResp) == null) || baseResp == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, baseResp) == null) || baseResp == null) {
             return;
         }
         int type = baseResp.getType();
         if (1 == type) {
-            qn7 qn7Var = new qn7();
-            qn7Var.a = this;
-            qn7Var.b = baseResp;
-            MessageManager.getInstance().runTask(2921351, null, qn7Var);
+            xo7 xo7Var = new xo7();
+            xo7Var.a = this;
+            xo7Var.b = baseResp;
+            MessageManager.getInstance().runTask(2921351, null, xo7Var);
             closeActivity();
         } else if (2 == type && (baseResp instanceof SendMessageToWX.Resp)) {
             SendMessageToWX.Resp resp = (SendMessageToWX.Resp) baseResp;

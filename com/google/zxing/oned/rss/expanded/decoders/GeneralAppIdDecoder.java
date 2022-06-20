@@ -4,7 +4,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
-import com.baidu.tieba.write.write.WriteActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -106,7 +105,7 @@ public final class GeneralAppIdDecoder {
                     case w0.c1 /* 232 */:
                         c = '!';
                         break;
-                    case WriteActivity.CONTENT_MAX_COUNT /* 233 */:
+                    case 233:
                         c = Typography.quote;
                         break;
                     case 234:

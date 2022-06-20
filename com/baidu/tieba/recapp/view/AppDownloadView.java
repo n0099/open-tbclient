@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f88;
+import com.repackage.m98;
 /* loaded from: classes3.dex */
 public class AppDownloadView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -55,7 +55,7 @@ public class AppDownloadView extends LinearLayout {
     public static int getStatus(DownloadData downloadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, downloadData)) == null) ? f88.p(downloadData) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, downloadData)) == null) ? m98.p(downloadData) : invokeL.intValue;
     }
 
     public final void a(Context context) {
@@ -63,11 +63,11 @@ public class AppDownloadView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(0);
             setGravity(16);
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d011d, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d011c, (ViewGroup) this, true);
             this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09028c);
-            this.b = (ProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f090aaf);
-            this.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090aad);
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090aae);
+            this.b = (ProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f090a9e);
+            this.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090a9c);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a9d);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -91,7 +91,7 @@ public class AppDownloadView extends LinearLayout {
             setVisibility(0);
             SkinManager.setImageResource(this.c, R.drawable.icon_download_play);
         }
-        int j = f88.n().j(downloadData.getId(), downloadData.getName());
+        int j = m98.n().j(downloadData.getId(), downloadData.getName());
         if (j >= 0) {
             c(j);
         } else {

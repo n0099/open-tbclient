@@ -1,189 +1,29 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.content.res.Resources;
 import android.view.View;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.consts.AdDownloadCode;
-import com.baidu.nadcore.download.view.IDownloadViewCreator;
 import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.model.AdOperator;
 import com.baidu.nadcore.widget.view.NadExpressNaBaseView;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class l41 extends h41 {
+public abstract class l41 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TextView f;
-    public final RelativeLayout g;
-    public final ui0<?> h;
-    public pi0 i;
+    public final int a;
+    public final View b;
+    public String c;
+    public d41 d;
+    public c41 e;
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l41 a;
-
-        public a(l41 l41Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l41Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = l41Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.i == null) {
-                return;
-            }
-            this.a.i.l();
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements vi0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AdBaseModel a;
-        public final /* synthetic */ l41 b;
-
-        public b(l41 l41Var, AdBaseModel adBaseModel) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l41Var, adBaseModel};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = l41Var;
-            this.a = adBaseModel;
-        }
-
-        @Override // com.repackage.vi0
-        public void a(ei0 ei0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, ei0Var) == null) {
-                l41 l41Var = this.b;
-                if (l41Var.e == null || !l41Var.n(ei0Var, this.a)) {
-                    return;
-                }
-                this.b.e.e(this.a);
-            }
-        }
-
-        @Override // com.repackage.vi0
-        public void b(ei0 ei0Var, AdDownloadCode adDownloadCode) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ei0Var, adDownloadCode) == null) {
-                l41 l41Var = this.b;
-                if (l41Var.e == null || !l41Var.n(ei0Var, this.a)) {
-                    return;
-                }
-                this.b.e.c(this.a);
-            }
-        }
-
-        @Override // com.repackage.vi0
-        public void c(ei0 ei0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ei0Var) == null) {
-                l41 l41Var = this.b;
-                if (l41Var.e == null || !l41Var.n(ei0Var, this.a)) {
-                    return;
-                }
-                this.b.e.a(this.a);
-            }
-        }
-
-        @Override // com.repackage.vi0
-        public void d(ei0 ei0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, ei0Var) == null) {
-                l41 l41Var = this.b;
-                if (l41Var.e == null || !l41Var.n(ei0Var, this.a)) {
-                    return;
-                }
-                this.b.e.c(this.a);
-            }
-        }
-
-        @Override // com.repackage.vi0
-        public void e(ei0 ei0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, ei0Var) == null) {
-                l41 l41Var = this.b;
-                if (l41Var.e == null || !l41Var.n(ei0Var, this.a)) {
-                    return;
-                }
-                this.b.e.a(this.a);
-            }
-        }
-
-        @Override // com.repackage.vi0
-        public void f(ei0 ei0Var, float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLF(1048581, this, ei0Var, f) == null) {
-                l41 l41Var = this.b;
-                if (l41Var.e == null || !l41Var.n(ei0Var, this.a)) {
-                    return;
-                }
-                this.b.e.g(this.a, f);
-            }
-        }
-
-        @Override // com.repackage.vi0
-        public void g(ei0 ei0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, ei0Var) == null) {
-                l41 l41Var = this.b;
-                if (l41Var.e == null || !l41Var.n(ei0Var, this.a)) {
-                    return;
-                }
-                this.b.e.b(this.a);
-            }
-        }
-
-        @Override // com.repackage.vi0
-        public void h(ei0 ei0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, ei0Var) == null) {
-                l41 l41Var = this.b;
-                if (l41Var.e == null || !l41Var.n(ei0Var, this.a)) {
-                    return;
-                }
-                this.b.e.f(this.a);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l41(int i, View view2) {
-        super(i, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -193,81 +33,102 @@ public class l41 extends h41 {
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = (TextView) a(R.id.obfuscated_res_0x7f09096c);
-        this.g = (RelativeLayout) a(R.id.obfuscated_res_0x7f091493);
-        view2.setBackgroundColor(0);
-        this.h = hj0.a(this.g, IDownloadViewCreator.ViewType.FEED_DOWNLOAD_VIEW);
-        this.g.setOnClickListener(new a(this));
-        m();
+        this.c = null;
+        this.a = i;
+        this.b = view2;
     }
 
-    @Override // com.repackage.h41
+    public static boolean c(AdBaseModel adBaseModel) {
+        InterceptResult invokeL;
+        km0 km0Var;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, adBaseModel)) == null) ? d(adBaseModel) && adBaseModel.h.a == AdOperator.TYPE.DOWNLOAD && (km0Var = adBaseModel.l) != null && km0Var.e : invokeL.booleanValue;
+    }
+
+    public static boolean d(AdBaseModel adBaseModel) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, adBaseModel)) == null) ? (adBaseModel == null || adBaseModel.h == null) ? false : true : invokeL.booleanValue;
+    }
+
+    public final <T> T a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? (T) this.b.findViewById(i) : (T) invokeI.objValue;
+    }
+
+    public final <T> T b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (T) this.b.getTag() : (T) invokeV.objValue;
+    }
+
     public void e() {
-        pi0 pi0Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (pi0Var = this.i) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    public void f(d41 d41Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, d41Var) == null) {
+            this.d = d41Var;
+        }
+    }
+
+    public final <T> void g(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+            this.b.setTag(t);
+        }
+    }
+
+    public final Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b.getContext() : (Context) invokeV.objValue;
+    }
+
+    public final Resources getResources() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b.getResources() : (Resources) invokeV.objValue;
+    }
+
+    public void h(c41 c41Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, c41Var) == null) {
+            this.e = c41Var;
+        }
+    }
+
+    public final void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.b.setVisibility(i);
+        }
+    }
+
+    public void j() {
+        View view2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (view2 = this.b) == null || view2.getLayoutParams() == null) {
             return;
         }
-        pi0Var.j();
-        this.i = null;
+        this.b.getLayoutParams().height = -2;
+        View view3 = this.b;
+        view3.setLayoutParams(view3.getLayoutParams());
     }
 
-    public final void m() {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (textView = this.f) == null) {
-            return;
-        }
-        textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060251));
-    }
-
-    public final boolean n(ei0 ei0Var, AdBaseModel adBaseModel) {
-        InterceptResult invokeLL;
-        gm0 gm0Var;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, ei0Var, adBaseModel)) == null) ? (ei0Var == null || adBaseModel == null || (gm0Var = adBaseModel.l) == null || !TextUtils.equals(ei0Var.g, gm0Var.c) || !TextUtils.equals(ei0Var.d(), gm0Var.d)) ? false : true : invokeLL.booleanValue;
-    }
-
-    public final void o(AdBaseModel adBaseModel) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, adBaseModel) == null) || this.f == null) {
-            return;
-        }
-        this.f.setTextColor(getResources().getColor(adBaseModel.b ? R.color.obfuscated_res_0x7f060281 : R.color.obfuscated_res_0x7f060251));
-    }
-
-    @Override // com.repackage.h41
     public void update(AdBaseModel adBaseModel, NadExpressNaBaseView nadExpressNaBaseView) {
-        TextView textView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, adBaseModel, nadExpressNaBaseView) == null) {
-            super.update(adBaseModel, nadExpressNaBaseView);
-            if (h41.c(adBaseModel) && adBaseModel.h != null) {
-                m();
-                String str = adBaseModel.h.b.a;
-                if (!TextUtils.isEmpty(str) && (textView = this.f) != null) {
-                    textView.setText(str);
-                    o(adBaseModel);
-                }
-                if (TextUtils.isEmpty(adBaseModel.f.d)) {
-                    return;
-                }
-                this.i = new pi0(ei0.b(adBaseModel), this.h);
-                y31 y31Var = this.e;
-                if (y31Var != null) {
-                    y31Var.d(adBaseModel);
-                }
-                this.i.n(new b(this, adBaseModel));
-                return;
-            }
-            i(8);
+        if (interceptable == null || interceptable.invokeLL(1048586, this, adBaseModel, nadExpressNaBaseView) == null) {
+            g(adBaseModel);
         }
     }
 }

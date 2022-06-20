@@ -1,38 +1,57 @@
 package com.repackage;
 
-import android.content.Intent;
-import android.os.Bundle;
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.chat.AbsMsgImageActivity;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
+import com.baidu.tbadk.data.IconData;
+import com.baidu.tieba.R;
+import com.baidu.tieba.imMessageCenter.im.chat.personaltalk.PersonalTalkSettingActivity;
+import com.baidu.tieba.imMessageCenter.im.chat.personaltalk.PersonalTalkSettingModel;
+import com.baidu.tieba.imMessageCenter.im.chat.personaltalk.PersonalTalkSettingViewSettingView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.LinkedList;
+import protobuf.QueryUserInfos.DataRes;
+import protobuf.QueryUserInfos.IconInfo;
+import tbclient.PermissionList;
 /* loaded from: classes5.dex */
 public class b97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, Boolean> a;
-    public long b;
-    public String c;
-    public int d;
-    public int e;
-    public int f;
+    public final PersonalTalkSettingActivity a;
+    public final NavigationBar b;
+    public final View c;
+    public final HeadImageView d;
+    public final TextView e;
+    public final UserIconBox f;
+    public final TextView g;
+    public ImageView h;
+    public TbSettingTextTipView i;
+    public TbSettingTextTipView j;
+    public TbSettingTextTipView k;
+    public RelativeLayout l;
+    public View m;
+    public PersonalTalkSettingViewSettingView n;
 
-    public b97() {
+    public b97(PersonalTalkSettingActivity personalTalkSettingActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {personalTalkSettingActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,180 +61,188 @@ public class b97 {
                 return;
             }
         }
-        this.b = 0L;
-        this.a = new HashMap<>();
+        this.a = personalTalkSettingActivity;
+        personalTalkSettingActivity.setContentView(R.layout.obfuscated_res_0x7f0d0635);
+        View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f0917f9);
+        this.c = findViewById;
+        NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.obfuscated_res_0x7f09238f);
+        this.b = navigationBar;
+        navigationBar.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1386));
+        this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        PersonalTalkSettingViewSettingView personalTalkSettingViewSettingView = (PersonalTalkSettingViewSettingView) this.a.findViewById(R.id.obfuscated_res_0x7f091c81);
+        this.n = personalTalkSettingViewSettingView;
+        personalTalkSettingViewSettingView.b.setSwitchStateChangeListener(this.a);
+        this.l = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09227d);
+        this.i = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f091d77);
+        this.j = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f091d78);
+        this.k = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09011a);
+        this.i.setOnClickListener(this.a);
+        this.j.setOnClickListener(this.a);
+        this.k.setOnClickListener(this.a);
+        this.l.setOnClickListener(this.a);
+        HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091825);
+        this.d = headImageView;
+        headImageView.setIsRound(true);
+        this.d.setGodIconWidth(R.dimen.tbds47);
+        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090e00);
+        this.h = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090dfe);
+        this.f = (UserIconBox) this.a.findViewById(R.id.obfuscated_res_0x7f092276);
+        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09226c);
+        this.m = this.a.findViewById(R.id.obfuscated_res_0x7f0907d8);
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public void a(PermissionList permissionList) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : invokeV.intValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : invokeV.intValue;
-    }
-
-    public void c(List<String> list, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, list, i, i2) == null) {
-            synchronized (this.a) {
-                if (System.nanoTime() - this.b > AbsMsgImageActivity.INV_TIME && list != null && i < list.size()) {
-                    this.a.put(list.get(i), Boolean.TRUE);
-                }
-                this.b = System.nanoTime();
-                if (list != null && i2 < list.size() && this.a.get(list.get(i2)) == null) {
-                    this.a.put(list.get(i2), Boolean.FALSE);
-                }
-            }
-            if (this.a.size() >= 100) {
-                g();
-            }
-        }
-    }
-
-    public void d(Bundle bundle, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, bundle, intent) == null) {
-            if (bundle != null) {
-                this.c = bundle.getString(ImageViewerConfig.PV_TYPE);
-            } else if (intent != null) {
-                this.c = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
-                int intExtra = intent.getIntExtra("index", -1);
-                this.d = intExtra;
-                this.e = intExtra;
-                this.f = intExtra;
-            }
-        }
-    }
-
-    public void e(int i, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) && i == 1 && System.nanoTime() - this.b > AbsMsgImageActivity.INV_TIME) {
-            this.a.put(str, Boolean.TRUE);
-        }
-    }
-
-    public void f(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) || bundle == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, permissionList) == null) || permissionList == null || this.n == null) {
             return;
         }
-        bundle.putString(ImageViewerConfig.PV_TYPE, this.c);
+        StringBuilder sb = new StringBuilder();
+        if (permissionList.follow.intValue() == 1) {
+            sb.append("关注、");
+        }
+        if (permissionList.interact.intValue() == 1) {
+            sb.append("互动、");
+        }
+        if (permissionList.chat.intValue() == 1) {
+            sb.append("私信");
+            this.m.setVisibility(8);
+            this.n.a.setVisibility(8);
+            this.n.b.setVisibility(8);
+        } else {
+            this.n.a.setVisibility(0);
+            this.n.b.setVisibility(0);
+        }
+        if (!StringUtils.isNull(sb.toString()) && sb.length() > 0) {
+            sb.insert(0, "禁止");
+        } else {
+            sb.delete(0, sb.length());
+        }
+        String sb2 = sb.toString();
+        if (!StringUtils.isNull(sb2) && sb2.endsWith("、")) {
+            sb2 = sb2.substring(0, sb2.length() - 1);
+        }
+        this.k.setTip(sb2);
     }
 
-    public void g() {
-        HashMap<String, Boolean> hashMap;
+    public void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (hashMap = this.a) == null) {
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.n.a(z);
+        }
+    }
+
+    public void c(PersonalTalkSettingModel personalTalkSettingModel) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, personalTalkSettingModel) == null) || personalTalkSettingModel == null || personalTalkSettingModel.K() == null || (str = personalTalkSettingModel.K().portrait) == null || str.length() <= 0) {
             return;
         }
-        synchronized (hashMap) {
-            if (this.a.size() <= 0) {
+        this.d.setImageResource(0);
+        UtilHelper.showHeadImageViewBigV(this.d, personalTalkSettingModel.M());
+        this.d.setTag(null);
+        this.d.setPageId(this.a.getUniqueId());
+        this.d.J(str, 12, false);
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.a.getLayoutMode().j(this.c);
+            this.b.onChangeSkinType(this.a.getPageContext(), i);
+            fr4 d = fr4.d(this.e);
+            d.A(R.string.F_X02);
+            d.z(R.dimen.T_X04);
+            d.v(R.color.CAM_X0105);
+            fr4 d2 = fr4.d(this.g);
+            d2.A(R.string.F_X01);
+            d2.z(R.dimen.T_X08);
+            d2.v(R.color.CAM_X0109);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+            SkinManager.setBackgroundColor(this.i, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.k, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201);
+        }
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.n.c(z);
+        }
+    }
+
+    public void f(BdSwitchView.b bVar) {
+        PersonalTalkSettingViewSettingView personalTalkSettingViewSettingView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) || (personalTalkSettingViewSettingView = this.n) == null) {
+            return;
+        }
+        personalTalkSettingViewSettingView.setSwitchStateChangeListener(bVar);
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:27:0x008c  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x009a  */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x00a5  */
+    /* JADX WARN: Removed duplicated region for block: B:44:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void g(PersonalTalkSettingModel personalTalkSettingModel) {
+        int i;
+        String a;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, personalTalkSettingModel) == null) || personalTalkSettingModel == null || personalTalkSettingModel.K() == null) {
+            return;
+        }
+        DataRes K = personalTalkSettingModel.K();
+        this.e.setText(StringUtils.isNull(personalTalkSettingModel.getNameShow()) ? K.name + "" : personalTalkSettingModel.getNameShow());
+        if (K.sex.intValue() == 1) {
+            this.e.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_pop_boy, 0);
+        } else if (K.sex.intValue() == 2) {
+            if (K.iconInfo.size() > 0 && K.iconInfo.get(0).name.equals(IconData.meizhi_icon_name)) {
+                this.e.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+            } else {
+                this.e.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_pop_girl, 0);
+            }
+        } else {
+            i = 9;
+            a = personalTalkSettingModel.M() != null ? a97.a(personalTalkSettingModel.M()) : "";
+            if (StringUtils.isNull(a)) {
+                a = K.intro;
+            }
+            this.g.setText(a);
+            if (this.f == null) {
+                LinkedList linkedList = new LinkedList();
+                for (IconInfo iconInfo : K.iconInfo) {
+                    IconData iconData = new IconData();
+                    iconData.setIconName(iconInfo.name);
+                    iconData.setIcon(iconInfo.iconUrl);
+                    linkedList.add(iconData);
+                }
+                this.f.g(linkedList, i, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224));
                 return;
             }
-            int i = 0;
-            for (Map.Entry<String, Boolean> entry : this.a.entrySet()) {
-                if (entry.getValue().booleanValue()) {
-                    i++;
-                }
-            }
-            TbadkCoreApplication.getInst().sendImagePv(i, this.a.size(), this.c, this.d + 1, this.e + 1);
-            this.a.clear();
+            return;
+        }
+        i = 8;
+        if (personalTalkSettingModel.M() != null) {
+        }
+        if (StringUtils.isNull(a)) {
+        }
+        this.g.setText(a);
+        if (this.f == null) {
         }
     }
 
-    public void h(int i) {
+    public void h(PersonalTalkSettingModel personalTalkSettingModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.e = i;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, personalTalkSettingModel) == null) || personalTalkSettingModel == null) {
+            return;
         }
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void j(int i, String str, String str2, String str3, String str4, String str5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4, str5}) == null) {
-            StringBuilder sb = new StringBuilder();
-            StringBuilder sb2 = new StringBuilder();
-            int i2 = this.f;
-            if (i2 != this.e) {
-                while (true) {
-                    int i3 = this.e;
-                    if (i2 > i3) {
-                        break;
-                    }
-                    if (i2 == i3) {
-                        sb.append(i2 + 1);
-                        if (this.e == i - 1) {
-                            sb2.append(1);
-                        } else {
-                            sb2.append(0);
-                        }
-                    } else {
-                        sb.append(i2 + 1);
-                        sb.append("|");
-                        sb2.append(0);
-                        sb2.append("|");
-                    }
-                    i2++;
-                }
-            } else {
-                sb.append(i2 + 1);
-                if (this.e == i - 1) {
-                    sb2.append(1);
-                } else {
-                    sb2.append(0);
-                }
-            }
-            StatisticItem statisticItem = new StatisticItem("common_exp");
-            statisticItem.param("page_type", "a008");
-            if (!ki.isEmpty(str2)) {
-                statisticItem.param("fid", str2);
-            }
-            if (!ki.isEmpty(str3)) {
-                statisticItem.param("tid", str3);
-            }
-            if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
-                statisticItem.param("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().k);
-            }
-            statisticItem.param("pic_count", i);
-            statisticItem.param(TiebaStatic.Params.OBJ_FLOOR_MERGE, sb.toString());
-            statisticItem.param(TiebaStatic.Params.OBJ_ISAD_MERGE, sb2.toString());
-            int i4 = this.e;
-            int i5 = (i4 - this.f) + 1;
-            if (i5 == 1) {
-                if (i4 == i - 1) {
-                    statisticItem.param("obj_id", str);
-                } else {
-                    statisticItem.param("obj_id", "");
-                }
-            }
-            if (i5 > 1) {
-                StringBuilder sb3 = new StringBuilder();
-                for (int i6 = 0; i6 < i5 - 1; i6++) {
-                    sb3.append("|");
-                }
-                if (this.e == i - 1) {
-                    sb3.append(str);
-                }
-                statisticItem.param(TiebaStatic.Params.OBJ_ID_MERGE, str);
-            }
-            if (!StringUtils.isNull(str4)) {
-                statisticItem.param(TiebaStatic.Params.FIRST_DIR, str4);
-            }
-            if (!StringUtils.isNull(str5)) {
-                statisticItem.param(TiebaStatic.Params.SECOND_DIR, str5);
-            }
-            TiebaStatic.log(statisticItem);
-        }
+        a(personalTalkSettingModel.L());
+        b(personalTalkSettingModel.N());
+        e(j87.a(String.valueOf(personalTalkSettingModel.getUid())) > 0);
+        g(personalTalkSettingModel);
+        c(personalTalkSettingModel);
     }
 }

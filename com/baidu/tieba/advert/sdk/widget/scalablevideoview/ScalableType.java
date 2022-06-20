@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes3.dex */
 public final class ScalableType {
@@ -53,7 +54,7 @@ public final class ScalableType {
                 return;
             }
         }
-        NONE = new ScalableType("NONE", 0);
+        NONE = new ScalableType(HlsPlaylistParser.METHOD_NONE, 0);
         FIT_XY = new ScalableType("FIT_XY", 1);
         FIT_START = new ScalableType("FIT_START", 2);
         FIT_CENTER = new ScalableType("FIT_CENTER", 3);

@@ -1,159 +1,133 @@
 package com.repackage;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.R;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.pb.main.PbReplyTitleViewHolder;
-import com.baidu.tieba.view.SortSwitchButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.te;
 /* loaded from: classes6.dex */
-public class ht7 extends es7<xp7, PbReplyTitleViewHolder> {
+public class ht7 {
     public static /* synthetic */ Interceptable $ic;
+    public static ht7 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public View.OnClickListener o;
-    public SortSwitchButton.f p;
-    public BdUniqueId q;
-    public BdUniqueId r;
-    public boolean s;
-    public kp7 t;
-    public View u;
+    public te<byte[]> a;
+    public te<byte[]> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ht7(pw7 pw7Var, BdUniqueId bdUniqueId) {
-        super(pw7Var, bdUniqueId);
+    public ht7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pw7Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((pw7) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.s = false;
-        this.q = BdUniqueId.gen();
-        this.r = BdUniqueId.gen();
+        this.a = null;
+        this.b = null;
+        c();
     }
 
-    @Override // com.repackage.es7, com.repackage.wm
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        e0(i, view2, viewGroup, (xp7) obj, (PbReplyTitleViewHolder) viewHolder);
-        return view2;
-    }
-
-    public final void b0() {
-        kp7 kp7Var;
+    public static synchronized ht7 b() {
+        InterceptResult invokeV;
+        ht7 ht7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (kp7Var = this.t) == null || kp7Var.O() == null || this.t.h() == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (ht7.class) {
+                if (c == null) {
+                    c = new ht7();
+                }
+                ht7Var = c;
+            }
+            return ht7Var;
         }
-        kp7 kp7Var2 = this.t;
-        if (kp7Var2.i && !this.s) {
-            this.s = true;
-            boolean isLike = kp7Var2.h().getIsLike();
-            TiebaStatic.log(new StatisticItem("common_exp").param("page_type", "a005").param(TiebaStatic.Params.OBJ_ISAD, 1).param(TiebaStatic.Params.OBJ_FLOOR, 1).param(TiebaStatic.Params.OBJ_AD_LOCATE, 9).param("obj_id", this.t.h().b()).param("thread_type", this.t.O().getThreadType()).param("tid", this.t.O().getId()));
-            if (isLike) {
+        return (ht7) invokeV.objValue;
+    }
+
+    public byte[] a(String str, boolean z) {
+        InterceptResult invokeLZ;
+        te.b<byte[]> h;
+        byte[] bArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
+            if (z) {
+                te<byte[]> teVar = this.a;
+                if (teVar != null && str != null) {
+                    h = teVar.h(str);
+                }
+                h = null;
+            } else {
+                te<byte[]> teVar2 = this.b;
+                if (teVar2 != null && str != null) {
+                    h = teVar2.h(str);
+                }
+                h = null;
+            }
+            if (h == null || (bArr = h.b) == null) {
+                return null;
+            }
+            return bArr;
+        }
+        return (byte[]) invokeLZ.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.a == null) {
+                mq4.f();
+                this.a = mq4.d("tb.pb_mark");
+            }
+            if (this.b == null) {
+                mq4.f();
+                this.b = mq4.d("tb.pb_normal");
+            }
+        }
+    }
+
+    public void d(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
+            if (z) {
+                te<byte[]> teVar = this.a;
+                if (teVar == null || str == null) {
+                    return;
+                }
+                teVar.i(str, new byte[0], 0L);
                 return;
             }
-            TiebaStatic.log(new StatisticItem("common_exp").param("page_type", "a005").param(TiebaStatic.Params.OBJ_ISAD, 1).param(TiebaStatic.Params.OBJ_FLOOR, 1).param(TiebaStatic.Params.OBJ_AD_LOCATE, 10).param("obj_id", this.t.h().b()).param("thread_type", this.t.O().getThreadType()).param("tid", this.t.O().getId()));
-        }
-    }
-
-    public View c0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.u : (View) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.wm
-    /* renamed from: d0 */
-    public PbReplyTitleViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0685, viewGroup, false);
-            this.u = inflate;
-            PbReplyTitleViewHolder pbReplyTitleViewHolder = new PbReplyTitleViewHolder(this.i.getPageContext(), inflate);
-            PbFragment pbFragment = this.j;
-            if (pbFragment != null) {
-                pbReplyTitleViewHolder.s(pbFragment.k0);
+            te<byte[]> teVar2 = this.b;
+            if (teVar2 == null || str == null) {
+                return;
             }
-            pbReplyTitleViewHolder.u = false;
-            pbReplyTitleViewHolder.r(this.o);
-            pbReplyTitleViewHolder.q(this.p);
-            if (getType() == xp7.h) {
-                pbReplyTitleViewHolder.o(this.q);
-            } else if (getType() == xp7.i) {
-                pbReplyTitleViewHolder.n(this.r);
-            }
-            return pbReplyTitleViewHolder;
-        }
-        return (PbReplyTitleViewHolder) invokeL.objValue;
-    }
-
-    public void e(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
-            this.o = onClickListener;
+            teVar2.i(str, new byte[0], 0L);
         }
     }
 
-    public View e0(int i, View view2, ViewGroup viewGroup, xp7 xp7Var, PbReplyTitleViewHolder pbReplyTitleViewHolder) {
-        InterceptResult invokeCommon;
+    public void e(String str, boolean z, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xp7Var, pbReplyTitleViewHolder})) == null) {
-            super.S(i, view2, viewGroup, xp7Var, pbReplyTitleViewHolder);
-            if (pbReplyTitleViewHolder != null) {
-                b0();
-                xp7Var.g = this.t.f;
-                pbReplyTitleViewHolder.i(xp7Var);
-            }
-            return view2;
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Boolean.valueOf(z), bArr}) == null) || str == null) {
+            return;
         }
-        return (View) invokeCommon.objValue;
-    }
-
-    public void f0(SortSwitchButton.f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, fVar) == null) {
-            this.p = fVar;
+        c();
+        if (z) {
+            this.a.e(str, bArr, 604800000L);
+        } else {
+            this.b.e(str, bArr, 86400000L);
         }
     }
 
-    public void onDestroy() {
+    public void f(String str, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.s = false;
-            MessageManager.getInstance().unRegisterListener(this.q);
-            MessageManager.getInstance().unRegisterListener(this.r);
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, bArr) == null) || bArr == null || str == null) {
+            return;
         }
-    }
-
-    public void t(kp7 kp7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, kp7Var) == null) {
-            this.t = kp7Var;
-        }
+        c();
+        this.a.e(str, bArr, 2592000000L);
     }
 }

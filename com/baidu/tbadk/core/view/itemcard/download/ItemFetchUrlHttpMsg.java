@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
+import com.repackage.pi;
 /* loaded from: classes3.dex */
 public class ItemFetchUrlHttpMsg extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
@@ -40,8 +40,8 @@ public class ItemFetchUrlHttpMsg extends HttpMessage {
                 return;
             }
         }
-        addParam("screen_width", li.k(TbadkCoreApplication.getInst().getContext()));
-        addParam("screen_length", li.i(TbadkCoreApplication.getInst().getContext()));
+        addParam("screen_width", pi.k(TbadkCoreApplication.getInst().getContext()));
+        addParam("screen_length", pi.i(TbadkCoreApplication.getInst().getContext()));
         addParam("os_ver", Build.VERSION.RELEASE);
         addParam("package", itemData.pkgName);
         addParam("query", str);

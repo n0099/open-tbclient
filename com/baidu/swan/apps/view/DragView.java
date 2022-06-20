@@ -74,7 +74,7 @@ public class DragView extends FrameLayout {
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
                 super.onViewPositionChanged(view2, i, i2, i3, i4);
                 if (this.a.g != null) {
-                    this.a.g.onClosing(i2 - this.a.d);
+                    this.a.g.a(i2 - this.a.d);
                 }
             }
         }
@@ -106,11 +106,11 @@ public class DragView extends FrameLayout {
 
     /* loaded from: classes2.dex */
     public interface b {
+        void a(int i);
+
+        void f(MotionEvent motionEvent);
+
         void onClose();
-
-        void onClosing(int i);
-
-        void onDragViewTouchEvent(MotionEvent motionEvent);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -231,7 +231,7 @@ public class DragView extends FrameLayout {
                 this.a.processTouchEvent(motionEvent);
                 b bVar = this.g;
                 if (bVar != null) {
-                    bVar.onDragViewTouchEvent(motionEvent);
+                    bVar.f(motionEvent);
                     return true;
                 }
                 return true;

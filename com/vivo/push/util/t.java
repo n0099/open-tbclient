@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class t {
     public static /* synthetic */ Interceptable $ic;
     public static Boolean a;
@@ -65,7 +65,7 @@ public final class t {
                 p.a("PushPackageUtils", "findAllPushPackages error: find no package!");
             } else {
                 com.vivo.push.model.b bVar = null;
-                String a2 = z.b(applicationContext).a("com.vivo.push.cur_pkg", null);
+                String a2 = y.b(applicationContext).a("com.vivo.push.cur_pkg", null);
                 com.vivo.push.model.b bVar2 = (TextUtils.isEmpty(a2) || !a(applicationContext, a2, "com.vivo.pushservice.action.METHOD") || (bVar2 = f(applicationContext, a2)) == null || !bVar2.d()) ? null : null;
                 f2 = (f2 == null || !f2.d()) ? null : null;
                 if (bVar2 == null) {
@@ -247,14 +247,14 @@ public final class t {
                     applicationInfo = packageInfo.applicationInfo;
                 }
                 if (applicationInfo != null) {
-                    bVar.a(aa.a(context, b2));
+                    bVar.a(z.a(context, b2));
                 }
                 bVar.a(a(context, bVar.b()));
                 bVar.b(a(context, b2));
                 return bVar;
-            } catch (PackageManager.NameNotFoundException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
-                p.d("PushPackageUtils", "PackageManager NameNotFoundException is null");
+                p.b("PushPackageUtils", "PackageManager NameNotFoundException is null", e);
                 return null;
             }
         }
@@ -269,9 +269,9 @@ public final class t {
 
     public static com.vivo.push.model.b f(Context context, String str) {
         InterceptResult invokeLL;
+        ApplicationInfo applicationInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, context, str)) == null) {
-            ApplicationInfo applicationInfo = null;
             if (!TextUtils.isEmpty(str)) {
                 if (a(context, str, "com.vivo.pushservice.action.METHOD") || a(context, str, "com.vivo.pushservice.action.RECEIVE")) {
                     com.vivo.push.model.b bVar = new com.vivo.push.model.b(str);
@@ -281,16 +281,18 @@ public final class t {
                             bVar.a(packageInfo.versionCode);
                             bVar.a(packageInfo.versionName);
                             applicationInfo = packageInfo.applicationInfo;
+                        } else {
+                            applicationInfo = null;
                         }
                         if (applicationInfo != null) {
-                            bVar.a(aa.a(context, str));
+                            bVar.a(z.a(context, str));
                         }
-                    } catch (PackageManager.NameNotFoundException e) {
+                        bVar.b(a(context, str));
+                        bVar.a(a(context, bVar.b()));
+                        return bVar;
+                    } catch (Exception e) {
                         p.a("PushPackageUtils", "getPushPackageInfo exception: ", e);
                     }
-                    bVar.b(a(context, str));
-                    bVar.a(a(context, bVar.b()));
-                    return bVar;
                 }
             }
             return null;
@@ -315,7 +317,7 @@ public final class t {
                     }
                     return stringBuffer.toString();
                 } catch (Exception e) {
-                    p.a("PushPackageUtils", e);
+                    p.a("PushPackageUtils", " getSignatureSHA exception ".concat(String.valueOf(e)));
                 }
             }
             return null;

@@ -1,102 +1,116 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import android.util.Log;
+import android.util.Pair;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.retrieve.RetrieveTaskManager;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.repackage.ls2;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class fs2 implements ae3<HybridUbcFlow> {
+/* loaded from: classes6.dex */
+public class fs2 extends ds2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755697332, "Lcom/repackage/fs2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements ls2.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ fs2 b;
+
+        public a(fs2 fs2Var, String str) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fs2Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755697332, "Lcom/repackage/fs2;");
-                return;
+            this.b = fs2Var;
+            this.a = str;
+        }
+
+        @Override // com.repackage.ls2.d
+        public void a(@NonNull sr1 sr1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, sr1Var) == null) {
+                this.b.d(this.a, sr1Var);
             }
         }
-        a = rf1.a;
     }
 
-    public fs2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fs2(@NonNull tn1 tn1Var) {
+        super(tn1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tn1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((tn1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public final JSONObject a(HybridUbcFlow hybridUbcFlow) throws JSONException {
+    @Override // com.repackage.vn1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "PaymentApi" : (String) invokeV.objValue;
+    }
+
+    public sr1 x(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hybridUbcFlow)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (hybridUbcFlow != null && !hybridUbcFlow.f.isEmpty()) {
-                jSONObject.put("flowId", hybridUbcFlow.l());
-                JSONArray jSONArray = new JSONArray();
-                for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.f) {
-                    if (!ubcFlowEvent.b() && !TextUtils.isEmpty(ubcFlowEvent.a)) {
-                        if (a) {
-                            Log.i("FlowJarToH5Reporter", "buildJoMsg: event=" + ubcFlowEvent);
-                        }
-                        jSONArray.put(new JSONObject().put("actionId", ubcFlowEvent.a).put("timestamp", ubcFlowEvent.g()));
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#requestThirdPayment", false);
+            sz2 b0 = sz2.b0();
+            if (b0 == null) {
+                return new sr1(1001, "swan app is null");
+            }
+            SwanAppActivity x = b0.x();
+            if (x == null) {
+                return new sr1(1001, "swan activity is null");
+            }
+            Pair<sr1, JSONObject> s = s(str);
+            sr1 sr1Var = (sr1) s.first;
+            if (sr1Var.isSuccess()) {
+                JSONObject jSONObject = (JSONObject) s.second;
+                String optString = jSONObject.optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    return new sr1(202, "cb is empty");
                 }
-                jSONObject.put("data", jSONArray);
-            }
-            if (a) {
-                Log.i("FlowJarToH5Reporter", "buildJoMsg: joMsg=" + jSONObject);
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ae3
-    /* renamed from: b */
-    public void onCallback(HybridUbcFlow hybridUbcFlow) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
-            if (a) {
-                Log.i("FlowJarToH5Reporter", "report: flow=" + hybridUbcFlow);
-            }
-            if (uk2.U().Y()) {
-                if (a || uk2.U().N()) {
-                    try {
-                        os2.e().c(a(hybridUbcFlow));
-                    } catch (JSONException e) {
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                    }
+                JSONObject optJSONObject = jSONObject.optJSONObject("orderInfo");
+                String optString2 = jSONObject.optString("invokeFrom");
+                if (TextUtils.isEmpty(optString2)) {
+                    optString2 = RetrieveTaskManager.KEY;
                 }
+                new ls2(b0, x, new a(this, optString)).n(optJSONObject, optString2);
+                return sr1.f();
             }
+            return sr1Var;
         }
+        return (sr1) invokeL.objValue;
     }
 }

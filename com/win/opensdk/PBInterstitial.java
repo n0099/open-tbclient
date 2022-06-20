@@ -7,21 +7,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dm9;
-import com.repackage.gl9;
-import com.repackage.kl9;
-import com.repackage.ll9;
-import com.repackage.pk9;
-import com.repackage.pp9;
-import com.repackage.rp9;
+import com.repackage.km9;
+import com.repackage.nl9;
+import com.repackage.rl9;
 import com.repackage.sl9;
+import com.repackage.wk9;
+import com.repackage.wp9;
+import com.repackage.yp9;
+import com.repackage.zl9;
 import com.win.opensdk.activitys.H5Activity;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PBInterstitial {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public dm9 b;
+    public km9 b;
     public PBInterstitialListener c;
 
     public PBInterstitial(Context context, String str) {
@@ -41,21 +41,21 @@ public class PBInterstitial {
         }
         Context applicationContext = context.getApplicationContext();
         this.a = str;
-        dm9 dm9Var = new dm9(applicationContext, str);
-        this.b = dm9Var;
-        dm9Var.h = new rp9(this);
+        km9 km9Var = new km9(applicationContext, str);
+        this.b = km9Var;
+        km9Var.h = new yp9(this);
     }
 
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            dm9 dm9Var = this.b;
-            dm9Var.e = false;
-            dm9Var.c = false;
-            dm9Var.d = false;
-            pp9 pp9Var = dm9Var.i;
-            if (pp9Var != null) {
-                pp9Var.b();
+            km9 km9Var = this.b;
+            km9Var.e = false;
+            km9Var.c = false;
+            km9Var.d = false;
+            wp9 wp9Var = km9Var.i;
+            if (wp9Var != null) {
+                wp9Var.b();
             }
         }
     }
@@ -70,9 +70,9 @@ public class PBInterstitial {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            dm9 dm9Var = this.b;
-            if (!dm9Var.c()) {
-                if (!(dm9Var.d && !dm9Var.e && dm9Var.e() && !dm9Var.f.isShown() && dm9Var.f.isEffective())) {
+            km9 km9Var = this.b;
+            if (!km9Var.d()) {
+                if (!(km9Var.d && !km9Var.e && km9Var.f() && !km9Var.f.isShown() && km9Var.f.isEffective())) {
                     return false;
                 }
             }
@@ -84,16 +84,16 @@ public class PBInterstitial {
     public void load() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            dm9 dm9Var = this.b;
-            if (dm9Var.e() && dm9Var.f.isEffective() && !dm9Var.f.isShown()) {
-                dm9Var.b(dm9Var.f);
+            km9 km9Var = this.b;
+            if (km9Var.f() && km9Var.f.isEffective() && !km9Var.f.isShown()) {
+                km9Var.c(km9Var.f);
                 return;
             }
-            if (dm9Var.i == null) {
-                dm9Var.i = new pp9(dm9Var.b, dm9Var.a, L.b);
+            if (km9Var.i == null) {
+                km9Var.i = new wp9(km9Var.b, km9Var.a, L.b);
             }
-            dm9Var.i.g = new sl9(dm9Var);
-            dm9Var.i.g();
+            km9Var.i.g = new zl9(km9Var);
+            km9Var.i.g();
         }
     }
 
@@ -107,20 +107,20 @@ public class PBInterstitial {
     public void show() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            dm9 dm9Var = this.b;
-            if (!ll9.H(dm9Var.b)) {
-                PBInterstitialListener pBInterstitialListener = dm9Var.h;
+            km9 km9Var = this.b;
+            if (!sl9.H(km9Var.b)) {
+                PBInterstitialListener pBInterstitialListener = km9Var.h;
                 if (pBInterstitialListener != null) {
                     pBInterstitialListener.onInterstitialShowFail(PBError.NO_NETWORK.getMsg());
                 }
-            } else if (dm9Var.g() && dm9Var.c() && dm9Var.e()) {
-                dm9Var.c = false;
-                pk9.b().d(pk9.c(dm9Var.f.getTraceid(), dm9Var.f.getId(), dm9Var.f.getPid()), dm9Var.g);
-                dm9Var.f.setShown(true);
-                ll9.l(dm9Var.b, dm9Var.f);
-                gl9.a().c(pk9.c(dm9Var.f.getTraceid(), dm9Var.f.getId(), dm9Var.a), dm9Var.f);
-                H5Activity.a(dm9Var.b, dm9Var.f, dm9Var.a);
-                kl9.b(dm9Var.f.getId() + dm9Var.a, dm9Var);
+            } else if (km9Var.h() && km9Var.d() && km9Var.f()) {
+                km9Var.c = false;
+                wk9.b().d(wk9.c(km9Var.f.getTraceid(), km9Var.f.getId(), km9Var.f.getPid()), km9Var.g);
+                km9Var.f.setShown(true);
+                sl9.l(km9Var.b, km9Var.f);
+                nl9.a().c(wk9.c(km9Var.f.getTraceid(), km9Var.f.getId(), km9Var.a), km9Var.f);
+                H5Activity.c(km9Var.b, km9Var.f, km9Var.a);
+                rl9.b(km9Var.f.getId() + km9Var.a, km9Var);
             }
         }
     }

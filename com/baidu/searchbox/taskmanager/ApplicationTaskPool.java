@@ -28,7 +28,6 @@ import com.baidu.searchbox.task.async.homeready.ApplicationIdleTask;
 import com.baidu.searchbox.task.async.homeready.GetYYCloudTask;
 import com.baidu.searchbox.task.async.homeready.InitCookieTask;
 import com.baidu.searchbox.task.async.homeready.InitCyberPlayerTask;
-import com.baidu.searchbox.task.async.homeready.InitFlutterFragmentTask;
 import com.baidu.searchbox.task.async.homeready.InitMaintabFragmentTask;
 import com.baidu.searchbox.task.async.homeready.InitSDKIdleTask;
 import com.baidu.searchbox.task.async.homeready.InitUnionIDTask;
@@ -69,13 +68,10 @@ import com.baidu.searchbox.task.view.appcreate.CreatePersonalizeViewTask;
 import com.baidu.searchbox.task.view.appcreate.InitBearAdViewTask;
 import com.baidu.searchbox.task.view.appcreate.InitBottomIndicatorView2Task;
 import com.baidu.searchbox.task.view.appcreate.InitBottomIndicatorViewTask;
-import com.baidu.searchbox.task.view.appcreate.InitFragmentViewInAppTask;
 import com.baidu.searchbox.task.view.appcreate.InitNoNetworkViewTask;
 import com.baidu.searchbox.task.view.appcreate.InitPersonalizeChildViewTask;
 import com.baidu.searchbox.task.view.mainactivity.InitAdCardViewTask;
-import com.baidu.searchbox.task.view.mainactivity.InitFragmentViewInActivityTask;
 import com.baidu.searchbox.task.view.mainactivity.InitHomeTabBarViewTask;
-import com.baidu.searchbox.task.view.mainactivity.InitNavigationBarTask;
 import com.baidu.searchbox.task.view.mainactivity.InitPersonalizeViewTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.DelayInitNightPluginSwitch;
@@ -180,6 +176,7 @@ public class ApplicationTaskPool extends BaseTaskPool {
                     arrayList.add(new InitDebugTask());
                 }
             } else if (i == 3) {
+                arrayList.add(new InitMaintabFragmentTask());
                 arrayList.add(new InitEmotionsTask());
                 arrayList.add(new ApplicationIdleTask());
                 if (LaunchUpApplicationSwitch.getIsOn()) {
@@ -214,8 +211,6 @@ public class ApplicationTaskPool extends BaseTaskPool {
                 arrayList.add(new MainTabLoadFinishTask());
                 arrayList.add(new GetYYCloudTask());
                 arrayList.add(new InitCookieTask());
-                arrayList.add(new InitMaintabFragmentTask());
-                arrayList.add(new InitFlutterFragmentTask());
                 arrayList.add(new InitUnionIDTask());
                 arrayList.add(new MaintabAsyncInitTask());
                 arrayList.add(new LaunchStatTask());
@@ -240,8 +235,6 @@ public class ApplicationTaskPool extends BaseTaskPool {
             arrayList.add(new InitHomeTabBarViewTask());
             arrayList.add(new InitPersonalizeViewTask());
             arrayList.add(new InitAdCardViewTask());
-            arrayList.add(new InitNavigationBarTask());
-            arrayList.add(new InitFragmentViewInActivityTask());
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -259,7 +252,6 @@ public class ApplicationTaskPool extends BaseTaskPool {
             arrayList.add(new CreatePersonalizeViewTask());
             arrayList.add(new InitPersonalizeChildViewTask());
             arrayList.add(new InitNoNetworkViewTask());
-            arrayList.add(new InitFragmentViewInAppTask());
             return arrayList;
         }
         return (List) invokeV.objValue;

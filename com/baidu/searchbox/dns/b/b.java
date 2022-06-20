@@ -6,6 +6,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.dns.util.DnsChecker;
 import com.baidu.searchbox.dns.util.DnsUtil;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.sofire.core.ForHostApp;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -70,8 +71,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
             if (map != null) {
-                if (map.containsKey("local")) {
-                    return map.get("local");
+                if (map.containsKey(ForHostApp.KEY_NAME_LOCAL)) {
+                    return map.get(ForHostApp.KEY_NAME_LOCAL);
                 }
                 if (map.containsKey(UnitedSchemeConstants.UNITED_SCHEME_BACKUP)) {
                     return map.get(UnitedSchemeConstants.UNITED_SCHEME_BACKUP);
@@ -97,7 +98,7 @@ public class b {
             try {
                 List<String> parseRawAddressList = DnsUtil.parseRawAddressList(Arrays.asList(InetAddress.getAllByName(str)));
                 if (parseRawAddressList != null) {
-                    hashMap.put("local", parseRawAddressList);
+                    hashMap.put(ForHostApp.KEY_NAME_LOCAL, parseRawAddressList);
                 }
                 return hashMap;
             } catch (UnknownHostException e) {

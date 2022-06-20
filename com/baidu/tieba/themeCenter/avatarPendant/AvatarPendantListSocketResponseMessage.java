@@ -1,5 +1,6 @@
 package com.baidu.tieba.themeCenter.avatarPendant;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -8,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jm8;
-import com.repackage.ln8;
+import com.repackage.rm8;
+import com.repackage.tn8;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +22,8 @@ import tbclient.GetPendantByCategory.ThemePendantInMain;
 public class AvatarPendantListSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<jm8> mAvatarPendantList;
-    public ln8 mRecommand;
+    public List<rm8> mAvatarPendantList;
+    public tn8 mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AvatarPendantListSocketResponseMessage() {
@@ -42,49 +43,54 @@ public class AvatarPendantListSocketResponseMessage extends SocketResponsedMessa
         }
     }
 
-    public List<jm8> getAvatarPendantListList() {
-        InterceptResult invokeV;
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mAvatarPendantList : (List) invokeV.objValue;
-    }
-
-    public ln8 getRecommand() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRecommand : (ln8) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        GetPendantByCategoryResIdl getPendantByCategoryResIdl;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getPendantByCategoryResIdl = (GetPendantByCategoryResIdl) new Wire(new Class[0]).parseFrom(bArr, GetPendantByCategoryResIdl.class)) == null) {
-            return;
-        }
-        Error error = getPendantByCategoryResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(getPendantByCategoryResIdl.error.usermsg);
-        }
-        DataRes dataRes = getPendantByCategoryResIdl.data;
-        if (dataRes == null) {
-            return;
-        }
-        if (dataRes.recommend != null) {
-            ln8 ln8Var = new ln8();
-            this.mRecommand = ln8Var;
-            ln8Var.d(getPendantByCategoryResIdl.data.recommend);
-        }
-        if (getPendantByCategoryResIdl.data.pendant != null) {
-            this.mAvatarPendantList = new ArrayList();
-            for (ThemePendantInMain themePendantInMain : getPendantByCategoryResIdl.data.pendant) {
-                if (themePendantInMain != null && !StringUtils.isNull(themePendantInMain.pendant_category)) {
-                    jm8 jm8Var = new jm8();
-                    jm8Var.c(themePendantInMain);
-                    this.mAvatarPendantList.add(jm8Var);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            GetPendantByCategoryResIdl getPendantByCategoryResIdl = (GetPendantByCategoryResIdl) new Wire(new Class[0]).parseFrom(bArr, GetPendantByCategoryResIdl.class);
+            if (getPendantByCategoryResIdl == null) {
+                return null;
+            }
+            Error error = getPendantByCategoryResIdl.error;
+            if (error != null) {
+                setError(error.errorno.intValue());
+                setErrorString(getPendantByCategoryResIdl.error.usermsg);
+            }
+            DataRes dataRes = getPendantByCategoryResIdl.data;
+            if (dataRes == null) {
+                return getPendantByCategoryResIdl;
+            }
+            if (dataRes.recommend != null) {
+                tn8 tn8Var = new tn8();
+                this.mRecommand = tn8Var;
+                tn8Var.d(getPendantByCategoryResIdl.data.recommend);
+            }
+            if (getPendantByCategoryResIdl.data.pendant != null) {
+                this.mAvatarPendantList = new ArrayList();
+                for (ThemePendantInMain themePendantInMain : getPendantByCategoryResIdl.data.pendant) {
+                    if (themePendantInMain != null && !StringUtils.isNull(themePendantInMain.pendant_category)) {
+                        rm8 rm8Var = new rm8();
+                        rm8Var.c(themePendantInMain);
+                        this.mAvatarPendantList.add(rm8Var);
+                    }
                 }
             }
+            return getPendantByCategoryResIdl;
         }
+        return invokeIL.objValue;
+    }
+
+    public List<rm8> getAvatarPendantListList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAvatarPendantList : (List) invokeV.objValue;
+    }
+
+    public tn8 getRecommand() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mRecommand : (tn8) invokeV.objValue;
     }
 }

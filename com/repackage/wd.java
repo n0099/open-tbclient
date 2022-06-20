@@ -1,119 +1,81 @@
 package com.repackage;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
 /* loaded from: classes7.dex */
-public class wd {
+public class wd implements ld {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Short a;
 
-    public static final List<Object> a(yd ydVar, int i) {
-        InterceptResult invokeLI;
+    public wd(short s) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, ydVar, i)) == null) {
-            Class<?> a = ydVar.a();
-            if (a != List.class && a != ArrayList.class) {
-                if (a == LinkedList.class) {
-                    return new LinkedList();
-                }
-                Object g = yb.g(a, i);
-                if (g == null) {
-                    g = yb.f(a);
-                }
-                if (g instanceof List) {
-                    return (List) g;
-                }
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Short.valueOf(s)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return new ArrayList(i);
         }
-        return (List) invokeLI.objValue;
+        this.a = Short.valueOf(s);
     }
 
-    public static final Map<String, Object> b(yd ydVar, int i) {
-        InterceptResult invokeLI;
+    @Override // com.repackage.ld
+    public Object a(be beVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, ydVar, i)) == null) {
-            Class<?> a = ydVar.a();
-            Type[] b = ydVar.b();
-            if (yb.e(a, Map.class)) {
-                if (b != null && b.length >= 2 && b[0] == String.class) {
-                    if (a == Map.class) {
-                        return new HashMap(i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, beVar)) == null) {
+            Class<?> a = beVar.a();
+            if (a != Byte.class && a != Byte.TYPE) {
+                if (a != Short.class && a != Short.TYPE) {
+                    if (a != Integer.class && a != Integer.TYPE) {
+                        if (a != Long.class && a != Long.TYPE) {
+                            if (a != Float.class && a != Float.TYPE) {
+                                if (a != Double.class && a != Double.TYPE) {
+                                    if (a != Character.class && a != Character.TYPE) {
+                                        if (a == Boolean.class || a == Boolean.TYPE) {
+                                            return Boolean.valueOf(this.a.byteValue() == 0);
+                                        } else if (a == String.class) {
+                                            return String.valueOf(this.a);
+                                        } else {
+                                            if (a == char[].class) {
+                                                return String.valueOf(this.a).toCharArray();
+                                            }
+                                            if (a == byte[].class) {
+                                                try {
+                                                    return gi.e(String.valueOf(this.a), 0);
+                                                } catch (IOException e) {
+                                                    e.printStackTrace();
+                                                    return null;
+                                                }
+                                            }
+                                            return null;
+                                        }
+                                    }
+                                    return Character.valueOf((char) this.a.intValue());
+                                }
+                                return Double.valueOf(this.a.doubleValue());
+                            }
+                            return Float.valueOf(this.a.floatValue());
+                        }
+                        return Long.valueOf(this.a.longValue());
                     }
-                    Object g = yb.g(a, i);
-                    if (g == null) {
-                        g = yb.f(a);
-                    }
-                    if (g instanceof Map) {
-                        return (Map) g;
-                    }
-                    return null;
-                } else if (a == Map.class) {
-                    return new HashMap(i);
-                } else {
-                    Object g2 = yb.g(a, i);
-                    if (g2 == null) {
-                        g2 = yb.f(a);
-                    }
-                    if (g2 instanceof Map) {
-                        return (Map) g2;
-                    }
-                    return null;
+                    return Integer.valueOf(this.a.intValue());
                 }
+                return Short.valueOf(this.a.shortValue());
             }
-            return null;
+            return Byte.valueOf(this.a.byteValue());
         }
-        return (Map) invokeLI.objValue;
-    }
-
-    public static final Queue<Object> c(yd ydVar, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, ydVar, i)) == null) {
-            Class<?> a = ydVar.a();
-            if (a == Queue.class) {
-                return new LinkedList();
-            }
-            Object g = yb.g(a, i);
-            if (g == null) {
-                g = yb.f(a);
-            }
-            if (g instanceof Queue) {
-                return (Queue) g;
-            }
-            return null;
-        }
-        return (Queue) invokeLI.objValue;
-    }
-
-    public static final Set<Object> d(yd ydVar, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, ydVar, i)) == null) {
-            Class<?> a = ydVar.a();
-            if (a == Set.class) {
-                return new HashSet();
-            }
-            Object g = yb.g(a, i);
-            if (g == null) {
-                g = yb.f(a);
-            }
-            if (g instanceof Set) {
-                return (Set) g;
-            }
-            return null;
-        }
-        return (Set) invokeLI.objValue;
+        return invokeL.objValue;
     }
 }

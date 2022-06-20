@@ -1,5 +1,6 @@
 package com.baidu.tbadk.BdToken.backUser;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ni4;
+import com.repackage.xi4;
 import com.squareup.wire.Wire;
 import tbclient.BackUser.BackUserResIdl;
 import tbclient.Error;
@@ -15,7 +16,7 @@ import tbclient.Error;
 public class BackUserSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ni4 mData;
+    public xi4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BackUserSocketResMsg() {
@@ -35,29 +36,33 @@ public class BackUserSocketResMsg extends SocketResponsedMessage {
         }
     }
 
-    public ni4 getData() {
-        InterceptResult invokeV;
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (ni4) invokeV.objValue;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            BackUserResIdl backUserResIdl = (BackUserResIdl) new Wire(new Class[0]).parseFrom(bArr, BackUserResIdl.class);
+            if (backUserResIdl != null) {
+                Error error = backUserResIdl.error;
+                if (error != null) {
+                    setError(error.errorno.intValue());
+                    setErrorString(backUserResIdl.error.usermsg);
+                }
+                if (backUserResIdl.data != null) {
+                    xi4 xi4Var = new xi4();
+                    this.mData = xi4Var;
+                    xi4Var.a(backUserResIdl.data);
+                }
+            }
+            return backUserResIdl;
+        }
+        return invokeIL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        BackUserResIdl backUserResIdl;
+    public xi4 getData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (backUserResIdl = (BackUserResIdl) new Wire(new Class[0]).parseFrom(bArr, BackUserResIdl.class)) == null) {
-            return;
-        }
-        Error error = backUserResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(backUserResIdl.error.usermsg);
-        }
-        if (backUserResIdl.data != null) {
-            ni4 ni4Var = new ni4();
-            this.mData = ni4Var;
-            ni4Var.a(backUserResIdl.data);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (xi4) invokeV.objValue;
     }
 }

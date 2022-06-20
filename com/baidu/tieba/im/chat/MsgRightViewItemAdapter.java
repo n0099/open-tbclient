@@ -18,6 +18,7 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean t;
+    public boolean u;
 
     /* loaded from: classes3.dex */
     public class a extends MsgCommonItemAdapter.MsgViewHolder<MsgrightView> {
@@ -66,10 +67,11 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
             }
         }
         this.t = false;
+        this.u = false;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.repackage.wm
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.repackage.an
     public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
         c0(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view2;
@@ -82,20 +84,21 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.S(i, view2, viewGroup, chatMessage, msgViewHolder);
             MsgrightView c = msgViewHolder.c();
-            c.A(this.o);
-            c.s(this.t);
-            c.q(this.p);
+            c.E(this.o);
+            c.w(this.t);
+            c.t(this.p);
             c.setUpdateListener(this.r);
-            c.z(this.q);
-            c.m();
+            c.D(this.q);
+            c.v(this.u);
+            c.q();
             chatMessage.getCacheData().setIs_left(0);
-            c.v(this.j);
-            c.w(this.k);
-            c.x(i);
-            c.n(this.l);
-            c.t(chatMessage.getCacheData().getLastMsgTime());
-            c.y(viewGroup, chatMessage);
-            c.o(viewGroup, chatMessage);
+            c.z(this.j);
+            c.A(this.k);
+            c.B(i);
+            c.r(this.l);
+            c.x(chatMessage.getCacheData().getLastMsgTime());
+            c.C(viewGroup, chatMessage);
+            c.s(viewGroup, chatMessage);
             this.i.getLayoutMode().k(false);
             this.i.getLayoutMode().j(view2);
             return view2;
@@ -109,18 +112,18 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
             return;
         }
         this.s = i;
-        H();
+        G();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.wm
+    @Override // com.repackage.an
     /* renamed from: m0 */
     public MsgCommonItemAdapter.MsgViewHolder<MsgrightView> M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
             MsgrightView msgrightView = new MsgrightView(this.i);
-            return new a(this, msgrightView.e(), msgrightView);
+            return new a(this, msgrightView.h(), msgrightView);
         }
         return (MsgCommonItemAdapter.MsgViewHolder) invokeL.objValue;
     }
@@ -128,6 +131,13 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
     public void n0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.u = z;
+        }
+    }
+
+    public void o0(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             this.t = z;
         }
     }

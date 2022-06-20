@@ -1,422 +1,153 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.badlogic.gdx.Files;
-import com.badlogic.gdx.utils.GdxRuntimeException;
+import android.opengl.GLSurfaceView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import com.tachikoma.core.utility.FileUtil;
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.io.UnsupportedEncodingException;
+import com.baidu.webkit.internal.monitor.MonitorType;
+import javax.microedition.khronos.egl.EGL10;
+import javax.microedition.khronos.egl.EGLConfig;
+import javax.microedition.khronos.egl.EGLDisplay;
 /* loaded from: classes6.dex */
-public class h3 {
+public class h3 implements GLSurfaceView.EGLConfigChooser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public File a;
-    public Files.FileType b;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public final int[] h;
+    public int[] i;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1951852611, "Lcom/repackage/h3$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1951852611, "Lcom/repackage/h3$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[Files.FileType.values().length];
-            a = iArr;
-            try {
-                iArr[Files.FileType.Internal.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[Files.FileType.Classpath.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[Files.FileType.Absolute.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[Files.FileType.External.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-        }
-    }
-
-    public h3() {
+    public h3(int i, int i2, int i3, int i4, int i5, int i6, int i7) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i8 = newInitContext.flag;
+            if ((i8 & 1) != 0) {
+                int i9 = i8 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public h3 a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.a.getPath().length() == 0 ? new h3(new File(str), this.b) : new h3(new File(this.a, str), this.b) : (h3) invokeL.objValue;
-    }
-
-    public final int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int f = (int) f();
-            if (f != 0) {
-                return f;
-            }
-            return 512;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i = a.a[this.b.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    return e().exists();
-                }
-            } else if (e().exists()) {
-                return true;
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append("/");
-            sb.append(this.a.getPath().replace(FileUtil.WINDOWS_SEPARATOR, WebvttCueParser.CHAR_SLASH));
-            return h3.class.getResource(sb.toString()) != null;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String name = this.a.getName();
-            int lastIndexOf = name.lastIndexOf(46);
-            return lastIndexOf == -1 ? "" : name.substring(lastIndexOf + 1);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean delete() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Files.FileType fileType = this.b;
-            if (fileType != Files.FileType.Classpath) {
-                if (fileType != Files.FileType.Internal) {
-                    return e().delete();
-                }
-                throw new GdxRuntimeException("Cannot delete an internal file: " + this.a);
-            }
-            throw new GdxRuntimeException("Cannot delete a classpath file: " + this.a);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public File e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b == Files.FileType.External ? new File(b1.d.e(), this.a.getPath()) : this.a : (File) invokeV.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
-            if (obj instanceof h3) {
-                h3 h3Var = (h3) obj;
-                return this.b == h3Var.b && j().equals(h3Var.j());
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            Files.FileType fileType = this.b;
-            if (fileType != Files.FileType.Classpath && (fileType != Files.FileType.Internal || this.a.exists())) {
-                return e().length();
-            }
-            InputStream m = m();
-            try {
-                long available = m.available();
-                g8.a(m);
-                return available;
-            } catch (Exception unused) {
-                g8.a(m);
-                return 0L;
-            } catch (Throwable th) {
-                g8.a(m);
-                throw th;
-            }
-        }
-        return invokeV.longValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a.getName() : (String) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            String name = this.a.getName();
-            int lastIndexOf = name.lastIndexOf(46);
-            return lastIndexOf == -1 ? name : name.substring(0, lastIndexOf);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? ((37 + this.b.hashCode()) * 67) + j().hashCode() : invokeV.intValue;
-    }
-
-    public h3 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            File parentFile = this.a.getParentFile();
-            if (parentFile == null) {
-                if (this.b == Files.FileType.Absolute) {
-                    parentFile = new File("/");
-                } else {
-                    parentFile = new File("");
-                }
-            }
-            return new h3(parentFile, this.b);
-        }
-        return (h3) invokeV.objValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.a.getPath().replace(FileUtil.WINDOWS_SEPARATOR, WebvttCueParser.CHAR_SLASH) : (String) invokeV.objValue;
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            String replace = this.a.getPath().replace(FileUtil.WINDOWS_SEPARATOR, WebvttCueParser.CHAR_SLASH);
-            int lastIndexOf = replace.lastIndexOf(46);
-            return lastIndexOf == -1 ? replace : replace.substring(0, lastIndexOf);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public BufferedInputStream l(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) ? new BufferedInputStream(m(), i) : (BufferedInputStream) invokeI.objValue;
-    }
-
-    public InputStream m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            Files.FileType fileType = this.b;
-            if (fileType != Files.FileType.Classpath && ((fileType != Files.FileType.Internal || e().exists()) && (this.b != Files.FileType.Local || e().exists()))) {
-                try {
-                    return new FileInputStream(e());
-                } catch (Exception e) {
-                    if (e().isDirectory()) {
-                        throw new GdxRuntimeException("Cannot open a stream to a directory: " + this.a + " (" + this.b + SmallTailInfo.EMOTION_SUFFIX, e);
-                    }
-                    throw new GdxRuntimeException("Error reading file: " + this.a + " (" + this.b + SmallTailInfo.EMOTION_SUFFIX, e);
-                }
-            }
-            InputStream resourceAsStream = h3.class.getResourceAsStream("/" + this.a.getPath().replace(FileUtil.WINDOWS_SEPARATOR, WebvttCueParser.CHAR_SLASH));
-            if (resourceAsStream != null) {
-                return resourceAsStream;
-            }
-            throw new GdxRuntimeException("File not found: " + this.a + " (" + this.b + SmallTailInfo.EMOTION_SUFFIX);
-        }
-        return (InputStream) invokeV.objValue;
-    }
-
-    public byte[] n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            InputStream m = m();
-            try {
-                try {
-                    return g8.d(m, b());
-                } catch (IOException e) {
-                    throw new GdxRuntimeException("Error reading file: " + this, e);
-                }
-            } finally {
-                g8.a(m);
-            }
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? p(null) : (String) invokeV.objValue;
-    }
-
-    public String p(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048594, this, str)) != null) {
-            return (String) invokeL.objValue;
-        }
-        StringBuilder sb = new StringBuilder(b());
-        InputStreamReader inputStreamReader = null;
-        try {
-            try {
-                if (str == null) {
-                    inputStreamReader = new InputStreamReader(m());
-                } else {
-                    inputStreamReader = new InputStreamReader(m(), str);
-                }
-                char[] cArr = new char[256];
-                while (true) {
-                    int read = inputStreamReader.read(cArr);
-                    if (read == -1) {
-                        g8.a(inputStreamReader);
-                        return sb.toString();
-                    }
-                    sb.append(cArr, 0, read);
-                }
-            } catch (IOException e) {
-                throw new GdxRuntimeException("Error reading layout file: " + this, e);
-            }
-        } catch (Throwable th) {
-            g8.a(inputStreamReader);
-            throw th;
-        }
-    }
-
-    public BufferedReader q(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) ? new BufferedReader(new InputStreamReader(m()), i) : (BufferedReader) invokeI.objValue;
-    }
-
-    public Reader r(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
-            InputStream m = m();
-            try {
-                return new InputStreamReader(m, str);
-            } catch (UnsupportedEncodingException e) {
-                g8.a(m);
-                throw new GdxRuntimeException("Error reading file: " + this, e);
-            }
-        }
-        return (Reader) invokeL.objValue;
-    }
-
-    public h3 s(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
-            if (this.a.getPath().length() != 0) {
-                return new h3(new File(this.a.getParent(), str), this.b);
-            }
-            throw new GdxRuntimeException("Cannot get the sibling of the root.");
-        }
-        return (h3) invokeL.objValue;
-    }
-
-    public Files.FileType t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.b : (Files.FileType) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.a.getPath().replace(FileUtil.WINDOWS_SEPARATOR, WebvttCueParser.CHAR_SLASH) : (String) invokeV.objValue;
-    }
-
-    public h3(String str, Files.FileType fileType) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, fileType};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.b = fileType;
-        this.a = new File(str);
+        this.i = new int[1];
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
+        this.d = i4;
+        this.e = i5;
+        this.f = i6;
+        this.g = i7;
+        this.h = new int[]{MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 4, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 4, 12322, 4, 12352, 4, 12344};
     }
 
-    public h3(File file, Files.FileType fileType) {
+    /* JADX WARN: Code restructure failed: missing block: B:58:0x00e6, code lost:
+        if (r5 == r19.d) goto L50;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public EGLConfig a(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig[] eGLConfigArr) {
+        InterceptResult invokeLLL;
+        int i;
+        EGLConfig eGLConfig;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {file, fileType};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, egl10, eGLDisplay, eGLConfigArr)) == null) {
+            EGLConfig[] eGLConfigArr2 = eGLConfigArr;
+            int length = eGLConfigArr2.length;
+            EGLConfig eGLConfig2 = null;
+            EGLConfig eGLConfig3 = null;
+            EGLConfig eGLConfig4 = null;
+            int i2 = 0;
+            while (i2 < length) {
+                EGLConfig eGLConfig5 = eGLConfigArr2[i2];
+                int b = b(egl10, eGLDisplay, eGLConfig5, 12325, 0);
+                int b2 = b(egl10, eGLDisplay, eGLConfig5, 12326, 0);
+                if (b < this.e || b2 < this.f) {
+                    i = length;
+                } else {
+                    int b3 = b(egl10, eGLDisplay, eGLConfig5, MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 0);
+                    int b4 = b(egl10, eGLDisplay, eGLConfig5, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 0);
+                    int b5 = b(egl10, eGLDisplay, eGLConfig5, 12322, 0);
+                    int b6 = b(egl10, eGLDisplay, eGLConfig5, 12321, 0);
+                    if (eGLConfig2 == null && b3 == 5 && b4 == 6 && b5 == 5 && b6 == 0) {
+                        eGLConfig2 = eGLConfig5;
+                    }
+                    if (eGLConfig3 == null && b3 == this.a && b4 == this.b && b5 == this.c && b6 == this.d) {
+                        eGLConfig3 = eGLConfig5;
+                        if (this.g == 0) {
+                            break;
+                        }
+                    }
+                    i = length;
+                    int b7 = b(egl10, eGLDisplay, eGLConfig5, 12338, 0);
+                    EGLConfig eGLConfig6 = eGLConfig2;
+                    int b8 = b(egl10, eGLDisplay, eGLConfig5, 12337, 0);
+                    if (eGLConfig4 == null && b7 == 1 && b8 >= this.g && b3 == this.a && b4 == this.b && b5 == this.c && b6 == this.d) {
+                        eGLConfig = eGLConfig3;
+                    } else {
+                        eGLConfig = eGLConfig3;
+                        int b9 = b(egl10, eGLDisplay, eGLConfig5, 12512, 0);
+                        int b10 = b(egl10, eGLDisplay, eGLConfig5, 12513, 0);
+                        if (eGLConfig4 == null) {
+                            if (b9 == 1) {
+                                if (b10 >= this.g) {
+                                    if (b3 == this.a) {
+                                        if (b4 == this.b) {
+                                            if (b5 == this.c) {
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        eGLConfig3 = eGLConfig;
+                        eGLConfig2 = eGLConfig6;
+                    }
+                    eGLConfig4 = eGLConfig5;
+                    eGLConfig3 = eGLConfig;
+                    eGLConfig2 = eGLConfig6;
+                }
+                i2++;
+                eGLConfigArr2 = eGLConfigArr;
+                length = i;
             }
+            return eGLConfig4 != null ? eGLConfig4 : eGLConfig3 != null ? eGLConfig3 : eGLConfig2;
         }
-        this.a = file;
-        this.b = fileType;
+        return (EGLConfig) invokeLLL.objValue;
+    }
+
+    public final int b(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig, int i, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{egl10, eGLDisplay, eGLConfig, Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? egl10.eglGetConfigAttrib(eGLDisplay, eGLConfig, i, this.i) ? this.i[0] : i2 : invokeCommon.intValue;
+    }
+
+    @Override // android.opengl.GLSurfaceView.EGLConfigChooser
+    public EGLConfig chooseConfig(EGL10 egl10, EGLDisplay eGLDisplay) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, egl10, eGLDisplay)) == null) {
+            int[] iArr = new int[1];
+            egl10.eglChooseConfig(eGLDisplay, this.h, null, 0, iArr);
+            int i = iArr[0];
+            if (i > 0) {
+                EGLConfig[] eGLConfigArr = new EGLConfig[i];
+                egl10.eglChooseConfig(eGLDisplay, this.h, eGLConfigArr, i, iArr);
+                return a(egl10, eGLDisplay, eGLConfigArr);
+            }
+            throw new IllegalArgumentException("No configs match configSpec");
+        }
+        return (EGLConfig) invokeLL.objValue;
     }
 }

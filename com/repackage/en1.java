@@ -1,62 +1,173 @@
 package com.repackage;
 
-import android.animation.ObjectAnimator;
+import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.animation.LinearInterpolator;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
+import com.baidu.swan.support.v4.app.FragmentActivity;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.tachikoma.core.component.anim.AnimationProperty;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class en1 {
+public class en1 extends gz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static ObjectAnimator a(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, AnimationProperty.TRANSLATE_Y, 0.0f);
-            ofFloat.setDuration(320L);
-            ofFloat.setInterpolator(new k54(0.32f, 0.6f, 0.1f, 1.0f));
-            return ofFloat;
+    /* loaded from: classes5.dex */
+    public class a extends d12 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ en1 c;
+
+        public a(en1 en1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {en1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = en1Var;
         }
-        return (ObjectAnimator) invokeL.objValue;
+
+        @Override // com.repackage.d12, com.repackage.g12
+        public boolean b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? super.b(str) : invokeL.booleanValue;
+        }
     }
 
-    public static ObjectAnimator b(View view2) {
-        InterceptResult invokeL;
+    public en1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, AnimationProperty.OPACITY, 0.0f);
-            ofFloat.setDuration(240L);
-            ofFloat.setInterpolator(new LinearInterpolator());
-            return ofFloat;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return (ObjectAnimator) invokeL.objValue;
     }
 
-    public static ObjectAnimator c(View view2) {
-        InterceptResult invokeL;
+    @Override // com.repackage.gz1, com.repackage.yy1
+    public boolean L() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, AnimationProperty.OPACITY, 1.0f);
-            ofFloat.setDuration(320L);
-            ofFloat.setInterpolator(new LinearInterpolator());
-            return ofFloat;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            zl1 zl1Var = this.G0;
+            if (zl1Var != null && zl1Var.canGoBack()) {
+                this.G0.goBack();
+                return true;
+            }
+            g3();
+            SwanAppAllianceLoginHelper.d.a(fn1.d(), fn1.a());
+            return false;
         }
-        return (ObjectAnimator) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static ObjectAnimator d(View view2, int i) {
-        InterceptResult invokeLI;
+    @Override // com.repackage.gz1, com.repackage.yy1
+    public void U1(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, view2, i)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, AnimationProperty.TRANSLATE_Y, i);
-            ofFloat.setDuration(240L);
-            ofFloat.setInterpolator(new k54(0.32f, 0.6f, 0.1f, 1.0f));
-            return ofFloat;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            super.U1(view2);
+            this.l0.setRightZoneVisibility(true);
         }
-        return (ObjectAnimator) invokeLI.objValue;
+    }
+
+    @Override // com.repackage.gz1
+    public g12 Z2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new a(this) : (g12) invokeV.objValue;
+    }
+
+    @Override // com.repackage.gz1
+    public void a3() {
+        FragmentActivity activity;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (activity = getActivity()) != null && this.m0 == null) {
+            this.m0 = new x54(activity, this.l0, h3(), zi2.K(), new bf3());
+            new ip2(this.m0, this).z();
+        }
+    }
+
+    @Override // com.repackage.gz1, com.repackage.yy1
+    public boolean c2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void g3() {
+        eg1 d;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || SwanAppAllianceLoginHelper.d.c() || (d = SwanAppAllianceLoginHelper.d.d()) == null) {
+            return;
+        }
+        d.onResult(-2);
+    }
+
+    public final int h3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? d2() ? 18 : 12 : invokeV.intValue;
+    }
+
+    @Override // com.repackage.gz1
+    public bm1 m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? m62.U().f0().f(getContext()) : (bm1) invokeV.objValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r6v3, types: [com.repackage.zl1] */
+    @Override // com.repackage.gz1, com.baidu.swan.support.v4.app.Fragment
+    public View x0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00db, viewGroup, false);
+            U1(inflate);
+            bm1 m = m();
+            this.F0 = m;
+            m.c0(Z2());
+            this.G0 = this.F0.u();
+            this.F0.loadUrl(this.H0);
+            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901a5);
+            this.F0.l(frameLayout, this.G0.covertToView());
+            W2(frameLayout);
+            return T1() ? W1(inflate) : inflate;
+        }
+        return (View) invokeLLL.objValue;
+    }
+
+    @Override // com.repackage.gz1, com.baidu.swan.support.v4.app.Fragment
+    public void y0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            g3();
+            super.y0();
+        }
     }
 }

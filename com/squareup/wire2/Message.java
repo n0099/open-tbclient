@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mj9;
+import com.repackage.tj9;
 import com.squareup.wire2.Message;
 import com.squareup.wire2.Message.a;
 import java.io.IOException;
@@ -32,7 +32,7 @@ public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implem
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Buffer unknownFieldsBuffer;
-        public mj9 unknownFieldsWriter;
+        public tj9 unknownFieldsWriter;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implem
                 if (this.unknownFieldsWriter == null) {
                     Buffer buffer = new Buffer();
                     this.unknownFieldsBuffer = buffer;
-                    this.unknownFieldsWriter = new mj9(buffer);
+                    this.unknownFieldsWriter = new tj9(buffer);
                 }
                 try {
                     fieldEncoding.rawProtoAdapter().encodeWithTag(this.unknownFieldsWriter, i, obj);
@@ -75,7 +75,7 @@ public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implem
                     if (this.unknownFieldsWriter == null) {
                         Buffer buffer = new Buffer();
                         this.unknownFieldsBuffer = buffer;
-                        this.unknownFieldsWriter = new mj9(buffer);
+                        this.unknownFieldsWriter = new tj9(buffer);
                     }
                     try {
                         this.unknownFieldsWriter.k(byteString);

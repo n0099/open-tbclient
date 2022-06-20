@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
+import com.repackage.pi;
 /* loaded from: classes3.dex */
 public class PbNextVideoLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -109,26 +109,26 @@ public class PbNextVideoLayout extends RelativeLayout {
     public void b(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            getLayoutParams().height = li.f(getContext(), (!z2 || z) ? R.dimen.tbds156 : R.dimen.tbds267);
-            this.b.getLayoutParams().width = li.f(getContext(), (!z2 || z) ? R.dimen.tbds276 : R.dimen.tbds470);
+            getLayoutParams().height = pi.f(getContext(), (!z2 || z) ? R.dimen.tbds156 : R.dimen.tbds267);
+            this.b.getLayoutParams().width = pi.f(getContext(), (!z2 || z) ? R.dimen.tbds276 : R.dimen.tbds470);
             TextView textView = this.d;
             Context context = getContext();
             int i = R.dimen.tbds52;
             int i2 = R.dimen.tbds42;
-            textView.setTextSize(0, li.f(context, (!z2 || z) ? R.dimen.tbds42 : R.dimen.tbds52));
-            ((LinearLayout.LayoutParams) this.d.getLayoutParams()).topMargin = li.f(getContext(), (!z2 || z) ? R.dimen.tbds8 : R.dimen.tbds22);
+            textView.setTextSize(0, pi.f(context, (!z2 || z) ? R.dimen.tbds42 : R.dimen.tbds52));
+            ((LinearLayout.LayoutParams) this.d.getLayoutParams()).topMargin = pi.f(getContext(), (!z2 || z) ? R.dimen.tbds8 : R.dimen.tbds22);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.e.getLayoutParams();
             Context context2 = getContext();
             if (!z2 || z) {
                 i2 = R.dimen.tbds20;
             }
-            layoutParams.topMargin = li.f(context2, i2);
+            layoutParams.topMargin = pi.f(context2, i2);
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.e.getLayoutParams();
             Context context3 = getContext();
             if (!z2 || z) {
                 i = R.dimen.tbds44;
             }
-            layoutParams2.rightMargin = li.f(context3, i);
+            layoutParams2.rightMargin = pi.f(context3, i);
             this.a = (!z2 || z) ? 50 : 25;
         }
     }
@@ -136,13 +136,13 @@ public class PbNextVideoLayout extends RelativeLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0678, this);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0916e1);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0916e4);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0916e3);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0916e0);
-            this.f = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0916e2);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f080910, R.color.CAM_X0622, null);
+            RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0676, this);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0916d5);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0916d8);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0916d7);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0916d4);
+            this.f = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0916d6);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f0808f8, R.color.CAM_X0622, null);
         }
     }
 
@@ -150,7 +150,7 @@ public class PbNextVideoLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.g = true;
-            this.c.setText(R.string.obfuscated_res_0x7f0f0deb);
+            this.c.setText(R.string.obfuscated_res_0x7f0f0df1);
             a aVar = this.i;
             if (aVar != null) {
                 aVar.cancel();
@@ -169,7 +169,7 @@ public class PbNextVideoLayout extends RelativeLayout {
             if (aVar != null) {
                 aVar.cancel();
             }
-            this.c.setText(R.string.obfuscated_res_0x7f0f0dec);
+            this.c.setText(R.string.obfuscated_res_0x7f0f0df2);
             this.f.setProgress(0);
         }
     }
@@ -179,8 +179,8 @@ public class PbNextVideoLayout extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) || threadData == null || threadData.getThreadVideoInfo() == null) {
             return;
         }
-        this.b.K(threadData.getThreadVideoInfo().thumbnail_url, 10, false);
-        this.c.setText(R.string.obfuscated_res_0x7f0f0deb);
+        this.b.J(threadData.getThreadVideoInfo().thumbnail_url, 10, false);
+        this.c.setText(R.string.obfuscated_res_0x7f0f0df1);
         this.d.setText(threadData.getTitle());
         this.f.setProgress(0);
     }

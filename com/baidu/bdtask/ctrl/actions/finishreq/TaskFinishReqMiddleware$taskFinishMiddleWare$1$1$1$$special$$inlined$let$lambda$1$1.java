@@ -16,10 +16,10 @@ import kotlin.jvm.internal.Lambda;
 public final class TaskFinishReqMiddleware$taskFinishMiddleWare$1$1$1$$special$$inlined$let$lambda$1$1 extends Lambda implements Function0<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ TaskFinishReqMiddleware$taskFinishMiddleWare$1.AnonymousClass1.C00661.a this$0;
+    public final /* synthetic */ TaskFinishReqMiddleware$taskFinishMiddleWare$1.AnonymousClass1.C00681.a this$0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TaskFinishReqMiddleware$taskFinishMiddleWare$1$1$1$$special$$inlined$let$lambda$1$1(TaskFinishReqMiddleware$taskFinishMiddleWare$1.AnonymousClass1.C00661.a aVar) {
+    public TaskFinishReqMiddleware$taskFinishMiddleWare$1$1$1$$special$$inlined$let$lambda$1$1(TaskFinishReqMiddleware$taskFinishMiddleWare$1.AnonymousClass1.C00681.a aVar) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

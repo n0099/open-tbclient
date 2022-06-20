@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 /* loaded from: classes2.dex */
 public interface IAdImageView {
     public static final ImageView.ScaleType[] a0 = {ImageView.ScaleType.MATRIX, ImageView.ScaleType.FIT_XY, ImageView.ScaleType.FIT_START, ImageView.ScaleType.FIT_CENTER, ImageView.ScaleType.FIT_END, ImageView.ScaleType.CENTER, ImageView.ScaleType.CENTER_CROP, ImageView.ScaleType.CENTER_INSIDE};
@@ -42,7 +43,7 @@ public interface IAdImageView {
                     return;
                 }
             }
-            NONE = new ImageScaleType("NONE", 0, -1);
+            NONE = new ImageScaleType(HlsPlaylistParser.METHOD_NONE, 0, -1);
             MATRIX = new ImageScaleType("MATRIX", 1, 0);
             FIT_XY = new ImageScaleType("FIT_XY", 2, 1);
             FIT_START = new ImageScaleType("FIT_START", 3, 2);

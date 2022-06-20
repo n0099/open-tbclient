@@ -6,8 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.widget.SwipeBackLayout;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
@@ -24,32 +24,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ft4;
-import com.repackage.ji;
-import com.repackage.sd8;
-import com.repackage.ts4;
-import com.repackage.ud8;
-import java.net.URLEncoder;
-/* loaded from: classes3.dex */
+import com.repackage.bf8;
+import com.repackage.ct4;
+import com.repackage.ni;
+import com.repackage.ot4;
+import com.repackage.ze8;
+/* loaded from: classes4.dex */
 public class SquareActivity extends BaseActivity<Object> implements SwipeBackLayout.c {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String PAGE_NAME = "square_page";
-    public static boolean needRefresh;
+    public static /* synthetic */ Interceptable $ic;
+    public static boolean m;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean hasCacheData;
-    public long initTime;
-    public TbPageContext<Object> mContext;
-    public final ft4.g mListPullRefreshListener;
-    public NavigationBar mNavigationBar;
-    public final NoNetworkView.b mNetworkChangeListener;
-    public final View.OnKeyListener mOnKyeListener;
-    public final SquareModel.a mOnLoadSquareDataCallback;
-    public View mRootView;
-    public SquareModel mSquareModel;
-    public ud8 mView;
-    public boolean needLoadCacheAtFirst;
+    public bf8 a;
+    public SquareModel b;
+    public boolean c;
+    public boolean d;
+    public long e;
+    public NavigationBar f;
+    public TbPageContext<Object> g;
+    public View h;
+    public final SquareModel.a i;
+    public final NoNetworkView.b j;
+    public final View.OnKeyListener k;
+    public final ot4.g l;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +80,7 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements SquareModel.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,55 +105,55 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
         }
 
         @Override // com.baidu.tieba.square.square.SquareModel.a
-        public void a(boolean z, String str, sd8 sd8Var) {
+        public void a(boolean z, String str, ze8 ze8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, sd8Var}) == null) {
-                this.a.mView.h(true, "");
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, ze8Var}) == null) {
+                this.a.a.k(true, "");
                 SquareActivity squareActivity = this.a;
-                squareActivity.hideLoadingView(squareActivity.mView.i());
-                if (z && sd8Var != null && !sd8Var.g()) {
-                    this.a.mView.l(this.a.mSquareModel.H());
-                    this.a.hasCacheData = true;
-                    this.a.mView.j();
-                    this.a.removeNetWorkStateChangeListener();
+                squareActivity.hideLoadingView(squareActivity.a.l());
+                if (z && ze8Var != null && !ze8Var.g()) {
+                    this.a.a.o(this.a.b.I());
+                    this.a.c = true;
+                    this.a.a.m();
+                    this.a.P1();
                 }
-                if (this.a.needLoadCacheAtFirst) {
-                    this.a.needLoadCacheAtFirst = false;
-                    this.a.updateData(true);
-                    if (!this.a.hasCacheData) {
-                        this.a.mView.j();
+                if (this.a.d) {
+                    this.a.d = false;
+                    this.a.Q1(true);
+                    if (!this.a.c) {
+                        this.a.a.m();
                         SquareActivity squareActivity2 = this.a;
-                        squareActivity2.showLoadingView(squareActivity2.mView.i());
+                        squareActivity2.showLoadingView(squareActivity2.a.l());
                     }
                 } else {
-                    if (this.a.initTime > -1) {
+                    if (this.a.e > -1) {
                         long currentTimeMillis = System.currentTimeMillis();
-                        TiebaStatic.page(TiebaStatic.OpKey.OP_SQUARE_ENTER, currentTimeMillis - this.a.initTime, this.a.mSquareModel.J() - this.a.initTime, this.a.mSquareModel.L(), this.a.mSquareModel.K(), currentTimeMillis - this.a.mSquareModel.I());
-                        this.a.initTime = -1L;
+                        TiebaStatic.page(TiebaStatic.OpKey.OP_SQUARE_ENTER, currentTimeMillis - this.a.e, this.a.b.K() - this.a.e, this.a.b.M(), this.a.b.L(), currentTimeMillis - this.a.b.J());
+                        this.a.e = -1L;
                     }
-                    if (!this.a.hasCacheData) {
-                        if (ji.z()) {
-                            this.a.mView.o(R.string.obfuscated_res_0x7f0f0c4d);
+                    if (!this.a.c) {
+                        if (ni.z()) {
+                            this.a.a.r(R.string.obfuscated_res_0x7f0f0c51);
                         } else {
-                            this.a.mView.o(R.string.obfuscated_res_0x7f0f078c);
+                            this.a.a.r(R.string.obfuscated_res_0x7f0f0788);
                         }
                     }
                 }
-                if (!ji.z()) {
-                    this.a.mView.g();
-                    if (this.a.hasCacheData) {
+                if (!ni.z()) {
+                    this.a.a.j();
+                    if (this.a.c) {
                         return;
                     }
-                    this.a.addNetWorkStateChangeListener();
+                    this.a.M1();
                     return;
                 }
-                this.a.mContext.showToast(str);
-                this.a.mView.k();
+                this.a.g.showToast(str);
+                this.a.a.n();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements NoNetworkView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -180,15 +178,15 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
-        public void d(boolean z) {
+        public void g(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {
-                this.a.updateData(true);
+                this.a.Q1(true);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements View.OnKeyListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -238,8 +236,8 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class e implements ft4.g {
+    /* loaded from: classes4.dex */
+    public class e implements ot4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SquareActivity a;
@@ -262,11 +260,11 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
             this.a = squareActivity;
         }
 
-        @Override // com.repackage.ft4.g
-        public void onListPullRefresh(boolean z) {
+        @Override // com.repackage.ot4.g
+        public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.a.updateData(true);
+                this.a.Q1(true);
             }
         }
     }
@@ -299,156 +297,135 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
                 return;
             }
         }
-        this.mView = null;
-        this.mSquareModel = null;
-        this.hasCacheData = false;
-        this.needLoadCacheAtFirst = false;
-        this.initTime = -1L;
-        this.mOnLoadSquareDataCallback = new b(this);
-        this.mNetworkChangeListener = new c(this);
-        this.mOnKyeListener = new d(this);
-        this.mListPullRefreshListener = new e(this);
+        this.a = null;
+        this.b = null;
+        this.c = false;
+        this.d = false;
+        this.e = -1L;
+        this.i = new b(this);
+        this.j = new c(this);
+        this.k = new d(this);
+        this.l = new e(this);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void addNetWorkStateChangeListener() {
+    @Override // com.baidu.adp.widget.SwipeBackLayout.c
+    public void I0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
-            this.mView.b(this.mNetworkChangeListener);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            setSwipeBackEnabled(false);
         }
     }
 
-    private void cancelAllAsyncTask() {
+    public final void M1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.a(this.j);
+        }
+    }
+
+    public final void N1() {
         SquareModel squareModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65551, this) == null) || (squareModel = this.mSquareModel) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (squareModel = this.b) == null) {
             return;
         }
         squareModel.cancelLoadData();
     }
 
-    private void initData() {
+    public final void O1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65552, this) == null) {
-            SquareModel squareModel = new SquareModel(getPageContext());
-            this.mSquareModel = squareModel;
-            squareModel.P(this.mOnLoadSquareDataCallback);
-            this.needLoadCacheAtFirst = true;
-            updateData(true);
-        }
-    }
-
-    private void initUI() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            ud8 ud8Var = new ud8(getPageContext(), this.mRootView, this.mOnKyeListener);
-            this.mView = ud8Var;
-            ud8Var.n(this.mListPullRefreshListener);
-            NavigationBar navigationBar = (NavigationBar) this.mContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0923a2);
-            this.mNavigationBar = navigationBar;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            bf8 bf8Var = new bf8(getPageContext(), this.h, this.k);
+            this.a = bf8Var;
+            bf8Var.q(this.l);
+            NavigationBar navigationBar = (NavigationBar) this.g.getPageActivity().findViewById(R.id.obfuscated_res_0x7f09238f);
+            this.f = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            this.mNavigationBar.setTitleText(this.mContext.getString(R.string.obfuscated_res_0x7f0f02c1));
+            this.f.setTitleText(this.g.getString(R.string.obfuscated_res_0x7f0f02c1));
         }
     }
 
-    public static String makeStatisticsParam(String str, String str2) {
-        InterceptResult invokeLL;
+    public final void P1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, str, str2)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("square_page");
-            try {
-                sb.append(URLEncoder.encode("|", IMAudioTransRequest.CHARSET));
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                sb.append("|");
-            }
-            sb.append(str + "_" + str2);
-            return sb.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void removeNetWorkStateChangeListener() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65555, this) == null) {
-            this.mView.m(this.mNetworkChangeListener);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a.p(this.j);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void updateData(boolean z) {
+    public final void Q1(boolean z) {
         SquareModel squareModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65556, this, z) == null) || (squareModel = this.mSquareModel) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (squareModel = this.b) == null) {
             return;
         }
         boolean z2 = false;
-        boolean z3 = squareModel.H() == null || this.mSquareModel.H().g();
+        boolean z3 = squareModel.I() == null || this.b.I().g();
         boolean z4 = z;
-        if (!ji.z()) {
-            this.needLoadCacheAtFirst = false;
+        if (!ni.z()) {
+            this.d = false;
             z4 = false;
             z3 = true;
         }
-        if (this.needLoadCacheAtFirst) {
+        if (this.d) {
             z3 = true;
         } else {
             z2 = z4;
         }
         if (z3 || z2) {
-            cancelAllAsyncTask();
+            N1();
             if (z2) {
-                this.mSquareModel.O();
+                this.b.P();
             } else {
-                this.mSquareModel.N();
+                this.b.O();
             }
+        }
+    }
+
+    @Override // com.baidu.adp.widget.SwipeBackLayout.c
+    public void b0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            setSwipeBackEnabled(true);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void closeActivity() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (!getIntent().getBooleanExtra("back_special", false)) {
                 finish();
                 return;
             }
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount != null && currentAccount.length() > 0) {
-                ts4.e(getActivity(), 1);
+                ct4.e(getActivity(), 1);
             } else {
-                ts4.e(getActivity(), 2);
+                ct4.e(getActivity(), 2);
             }
         }
     }
 
-    @Override // com.baidu.adp.widget.SwipeBackLayout.c
-    public void disableSwipeBack() {
+    public final void initData() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setSwipeBackEnabled(false);
-        }
-    }
-
-    @Override // com.baidu.adp.widget.SwipeBackLayout.c
-    public void enableSwipeBack() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            setSwipeBackEnabled(true);
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            SquareModel squareModel = new SquareModel(getPageContext());
+            this.b = squareModel;
+            squareModel.Q(this.i);
+            this.d = true;
+            Q1(true);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             super.onChangeSkinType(i);
-            ud8 ud8Var = this.mView;
-            if (ud8Var != null) {
-                ud8Var.onChangeSkinType(i);
-                this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+            bf8 bf8Var = this.a;
+            if (bf8Var != null) {
+                bf8Var.onChangeSkinType(i);
+                this.f.onChangeSkinType(getPageContext(), i);
             }
         }
     }
@@ -456,13 +433,13 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
             super.onCreate(bundle);
-            this.mContext = getPageContext();
-            this.initTime = System.currentTimeMillis();
-            this.mRootView = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0794, (ViewGroup) null);
-            getPageContext().getPageActivity().setContentView(this.mRootView);
-            initUI();
+            this.g = getPageContext();
+            this.e = System.currentTimeMillis();
+            this.h = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0793, (ViewGroup) null);
+            getPageContext().getPageActivity().setContentView(this.h);
+            O1();
             initData();
         }
     }
@@ -470,8 +447,8 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            cancelAllAsyncTask();
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            N1();
             super.onDestroy();
         }
     }
@@ -479,11 +456,11 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onResume();
-            if (needRefresh) {
-                updateData(true);
-                needRefresh = false;
+            if (m) {
+                Q1(true);
+                m = false;
             }
         }
     }

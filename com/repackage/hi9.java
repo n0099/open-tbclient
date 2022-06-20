@@ -1,26 +1,24 @@
 package com.repackage;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.ar.core.InstallActivity;
+import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
 /* loaded from: classes6.dex */
-public final class hi9 extends BroadcastReceiver {
+public final class hi9 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ ei9 a;
-    public final /* synthetic */ di9 b;
+    public final /* synthetic */ InstallActivity a;
 
-    public hi9(di9 di9Var, ei9 ei9Var) {
+    public hi9(InstallActivity installActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {di9Var, ei9Var};
+            Object[] objArr = {installActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,28 +28,14 @@ public final class hi9 extends BroadcastReceiver {
                 return;
             }
         }
-        this.b = di9Var;
-        this.a = ei9Var;
+        this.a = installActivity;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public final void onReceive(Context context, Intent intent) {
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-            String action = intent.getAction();
-            Bundle extras = intent.getExtras();
-            if ("com.google.android.play.core.install.ACTION_INSTALL_STATUS".equals(action) && extras != null && extras.containsKey("install.status")) {
-                this.b.p();
-                int i = extras.getInt("install.status");
-                if (i == 1 || i == 2 || i == 3) {
-                    this.a.a(com.google.ar.core.p.a);
-                } else if (i == 4) {
-                    this.a.a(com.google.ar.core.p.c);
-                } else if (i != 6) {
-                } else {
-                    this.a.a(com.google.ar.core.p.b);
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            this.a.j(new UnavailableUserDeclinedInstallationException());
         }
     }
 }

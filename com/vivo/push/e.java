@@ -6,6 +6,7 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
+import androidx.media2.session.SessionCommand;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,19 +14,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.push.b.z;
 import com.vivo.push.sdk.PushMessageCallback;
 import com.vivo.push.util.ContextDelegate;
 import com.vivo.push.util.VivoPushException;
-import com.vivo.push.util.aa;
 import com.vivo.push.util.t;
-import com.vivo.push.util.x;
+import com.vivo.push.util.w;
+import com.vivo.push.util.z;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public static volatile e a;
@@ -88,7 +88,7 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) {
             if (this.o == null) {
-                this.o = Boolean.valueOf(l() >= 1230 && aa.e(this.h));
+                this.o = Boolean.valueOf(l() >= 1230 && z.d(this.h));
             }
             return this.o.booleanValue();
         }
@@ -171,7 +171,7 @@ public final class e {
                 return -1L;
             }
             if (this.p == null) {
-                this.p = Long.valueOf(aa.b(context));
+                this.p = Long.valueOf(z.a(context));
             }
             return this.p.longValue();
         }
@@ -208,7 +208,7 @@ public final class e {
         if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (context = this.h) == null) {
             return;
         }
-        aa.c(context);
+        z.b(context);
     }
 
     public final List<String> c() {
@@ -235,7 +235,7 @@ public final class e {
         return (List) invokeV.objValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -370,7 +370,7 @@ public final class e {
                 if (this.h == null) {
                     this.h = ContextDelegate.getContext(context);
                     this.q = t.c(context, context.getPackageName());
-                    x.b().a(this.h);
+                    w.b().a(this.h);
                     a(new com.vivo.push.b.g());
                     com.vivo.push.util.b bVar = new com.vivo.push.util.b();
                     this.j = bVar;
@@ -583,7 +583,7 @@ public final class e {
                         String a2 = a(new a(aVar, iPushActionListener));
                         aVar.b(a2);
                         if (TextUtils.isEmpty(this.k)) {
-                            a(a2, 30001);
+                            a(a2, SessionCommand.COMMAND_CODE_VOLUME_ADJUST_VOLUME);
                             return;
                         } else if (TextUtils.isEmpty(str)) {
                             a(a2, 30002);
@@ -665,7 +665,7 @@ public final class e {
                         String a2 = a(new a(aVar, iPushActionListener));
                         aVar.b(a2);
                         if (TextUtils.isEmpty(this.k)) {
-                            a(a2, 30001);
+                            a(a2, SessionCommand.COMMAND_CODE_VOLUME_ADJUST_VOLUME);
                             return;
                         } else if (TextUtils.isEmpty(str)) {
                             a(a2, 30002);
@@ -707,7 +707,7 @@ public final class e {
                 }
                 return;
             }
-            z zVar = new z(false, context.getPackageName(), arrayList);
+            com.vivo.push.b.z zVar = new com.vivo.push.b.z(false, context.getPackageName(), arrayList);
             zVar.a(500);
             if (this.q) {
                 if (!n()) {
@@ -805,7 +805,7 @@ public final class e {
                 }
                 return;
             }
-            z zVar = new z(true, context.getPackageName(), arrayList);
+            com.vivo.push.b.z zVar = new com.vivo.push.b.z(true, context.getPackageName(), arrayList);
             zVar.a(500);
             if (this.q) {
                 if (!n()) {
@@ -868,7 +868,7 @@ public final class e {
                 }
                 return;
             }
-            com.vivo.push.c.z createReceiveTask = this.r.createReceiveTask(createReceiverCommand);
+            com.vivo.push.d.z createReceiveTask = this.r.createReceiveTask(createReceiverCommand);
             if (createReceiveTask == null) {
                 com.vivo.push.util.p.a("PushClientManager", "sendCommand, null command task! pushCommand = ".concat(String.valueOf(createReceiverCommand)));
                 if (context != null) {

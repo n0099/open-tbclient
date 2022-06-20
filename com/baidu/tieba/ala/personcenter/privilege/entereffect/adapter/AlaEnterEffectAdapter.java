@@ -25,9 +25,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wm;
+import com.repackage.an;
 /* loaded from: classes3.dex */
-public class AlaEnterEffectAdapter extends wm<AlaEnterEffectData, ViewHolder> {
+public class AlaEnterEffectAdapter extends an<AlaEnterEffectData, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context i;
@@ -79,7 +79,7 @@ public class AlaEnterEffectAdapter extends wm<AlaEnterEffectData, ViewHolder> {
                 this.d = (TextView) b().findViewById(R.id.obfuscated_res_0x7f0901d2);
                 this.e = (ImageView) b().findViewById(R.id.obfuscated_res_0x7f0901c7);
                 this.f = (ProgressBar) b().findViewById(R.id.obfuscated_res_0x7f0901ce);
-                this.g = b().findViewById(R.id.obfuscated_res_0x7f0901da);
+                this.g = b().findViewById(R.id.obfuscated_res_0x7f0901d9);
                 this.h = b().findViewById(R.id.obfuscated_res_0x7f0901cb);
                 this.i = (TextView) b().findViewById(R.id.obfuscated_res_0x7f0901c4);
             }
@@ -125,36 +125,36 @@ public class AlaEnterEffectAdapter extends wm<AlaEnterEffectData, ViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.wm
+    @Override // com.repackage.an
     /* renamed from: a0 */
     public ViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new ViewHolder(LayoutInflater.from(this.i).inflate(R.layout.obfuscated_res_0x7f0d00ec, (ViewGroup) null)) : (ViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new ViewHolder(LayoutInflater.from(this.i).inflate(R.layout.obfuscated_res_0x7f0d00eb, (ViewGroup) null)) : (ViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.wm
+    @Override // com.repackage.an
     /* renamed from: b0 */
     public View S(int i, View view2, ViewGroup viewGroup, AlaEnterEffectData alaEnterEffectData, ViewHolder viewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, alaEnterEffectData, viewHolder})) == null) {
-            viewHolder.a.K(alaEnterEffectData.thumbnail_url, 10, false);
+            viewHolder.a.J(alaEnterEffectData.thumbnail_url, 10, false);
             viewHolder.b.setText(alaEnterEffectData.name);
             if (alaEnterEffectData.isUsing()) {
-                SkinManager.setViewTextColor(viewHolder.c, R.color.obfuscated_res_0x7f060780, 1, this.j);
-                SkinManager.setBackgroundResource(viewHolder.c, R.drawable.obfuscated_res_0x7f0801d6, this.j);
+                SkinManager.setViewTextColor(viewHolder.c, R.color.obfuscated_res_0x7f06077e, 1, this.j);
+                SkinManager.setBackgroundResource(viewHolder.c, R.drawable.obfuscated_res_0x7f0801d5, this.j);
                 viewHolder.c.setText(this.i.getString(R.string.obfuscated_res_0x7f0f0215));
                 viewHolder.a.setAlpha(1.0f);
             } else if (alaEnterEffectData.isOwn) {
                 SkinManager.setViewTextColor(viewHolder.c, R.color.CAM_X0302, 1, this.j);
-                SkinManager.setBackgroundResource(viewHolder.c, R.drawable.obfuscated_res_0x7f0801d4, this.j);
+                SkinManager.setBackgroundResource(viewHolder.c, R.drawable.obfuscated_res_0x7f0801d3, this.j);
                 viewHolder.c.setText(this.i.getString(R.string.obfuscated_res_0x7f0f020e));
                 viewHolder.a.setAlpha(1.0f);
             } else {
                 SkinManager.setViewTextColor(viewHolder.c, R.color.CAM_X0109, 1, this.j);
-                SkinManager.setBackgroundResource(viewHolder.c, R.drawable.obfuscated_res_0x7f0801d3, this.j);
+                SkinManager.setBackgroundResource(viewHolder.c, R.drawable.obfuscated_res_0x7f0801d2, this.j);
                 viewHolder.c.setText(this.i.getString(R.string.obfuscated_res_0x7f0f020d));
                 viewHolder.a.setAlpha(0.7f);
             }

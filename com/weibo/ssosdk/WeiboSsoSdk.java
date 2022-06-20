@@ -10,9 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rj9;
-import com.repackage.sj9;
-import com.repackage.tj9;
+import com.repackage.ak9;
+import com.repackage.yj9;
+import com.repackage.zj9;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -27,18 +27,18 @@ import java.net.URLEncoder;
 import java.util.concurrent.Executors;
 import java.util.concurrent.locks.ReentrantLock;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class WeiboSsoSdk {
     public static /* synthetic */ Interceptable $ic;
     public static WeiboSsoSdk e;
-    public static tj9 f;
+    public static ak9 f;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile ReentrantLock a;
     public boolean b;
     public d c;
     public int d;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,7 +78,7 @@ public class WeiboSsoSdk {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,19 +117,19 @@ public class WeiboSsoSdk {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sj9 a;
+        public final /* synthetic */ zj9 a;
         public final /* synthetic */ WeiboSsoSdk b;
 
-        public c(WeiboSsoSdk weiboSsoSdk, sj9 sj9Var) {
+        public c(WeiboSsoSdk weiboSsoSdk, zj9 zj9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {weiboSsoSdk, sj9Var};
+                Object[] objArr = {weiboSsoSdk, zj9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -140,7 +140,7 @@ public class WeiboSsoSdk {
                 }
             }
             this.b = weiboSsoSdk;
-            this.a = sj9Var;
+            this.a = zj9Var;
         }
 
         @Override // java.lang.Runnable
@@ -159,7 +159,7 @@ public class WeiboSsoSdk {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -249,8 +249,8 @@ public class WeiboSsoSdk {
         }
         this.a = new ReentrantLock(true);
         this.b = true;
-        tj9 tj9Var = f;
-        if (tj9Var != null && tj9Var.n()) {
+        ak9 ak9Var = f;
+        if (ak9Var != null && ak9Var.n()) {
             this.d = 0;
             new Thread(new a(this)).start();
             new Thread(new b(this)).start();
@@ -275,19 +275,19 @@ public class WeiboSsoSdk {
         return (WeiboSsoSdk) invokeV.objValue;
     }
 
-    public static synchronized boolean j(tj9 tj9Var) {
+    public static synchronized boolean j(ak9 ak9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, tj9Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, ak9Var)) == null) {
             synchronized (WeiboSsoSdk.class) {
-                if (tj9Var == null) {
+                if (ak9Var == null) {
                     return false;
                 }
-                if (tj9Var.n()) {
+                if (ak9Var.n()) {
                     if (f == null) {
-                        tj9 tj9Var2 = (tj9) tj9Var.clone();
-                        f = tj9Var2;
-                        rj9.w(tj9Var2.b());
+                        ak9 ak9Var2 = (ak9) ak9Var.clone();
+                        f = ak9Var2;
+                        yj9.w(ak9Var2.b());
                         return true;
                     }
                     return false;
@@ -447,7 +447,7 @@ public class WeiboSsoSdk {
             return;
         }
         this.b = false;
-        String n = rj9.n(f.b());
+        String n = yj9.n(f.b());
         try {
             str2 = URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
         } catch (UnsupportedEncodingException unused) {
@@ -475,14 +475,14 @@ public class WeiboSsoSdk {
         throw new Exception("network error.");
     }
 
-    public void m(sj9 sj9Var) {
+    public void m(zj9 zj9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, sj9Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, zj9Var) == null) {
             d dVar = this.c;
             if (dVar != null && !TextUtils.isEmpty(dVar.a()) && !TextUtils.isEmpty(this.c.b())) {
-                sj9Var.handler(this.c);
+                zj9Var.handler(this.c);
             } else {
-                Executors.newSingleThreadExecutor().execute(new c(this, sj9Var));
+                Executors.newSingleThreadExecutor().execute(new c(this, zj9Var));
             }
         }
     }

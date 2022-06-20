@@ -1,11 +1,24 @@
 package com.repackage;
 
-import com.baidu.tieba.video.VideoItemModel;
+import android.view.View;
+import com.baidu.tieba.videoplay.fragment.VideoAttentionListPageFragment;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: lambda */
 /* loaded from: classes6.dex */
-public interface ms8 {
-    void M(int i);
+public final /* synthetic */ class ms8 implements View.OnLongClickListener {
+    public static /* synthetic */ Interceptable $ic;
+    public static final /* synthetic */ ms8 a = new ms8();
+    public transient /* synthetic */ FieldHolder $fh;
 
-    VideoItemModel X();
+    private /* synthetic */ ms8() {
+    }
 
-    int k();
+    @Override // android.view.View.OnLongClickListener
+    public final boolean onLongClick(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) ? VideoAttentionListPageFragment.t1(view2) : invokeL.booleanValue;
+    }
 }

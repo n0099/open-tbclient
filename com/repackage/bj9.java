@@ -1,6 +1,6 @@
 package com.repackage;
 
-import android.graphics.Path;
+import android.graphics.BitmapFactory;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public final class bj9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Path a;
+    public static final BitmapFactory.Options a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -25,12 +25,6 @@ public final class bj9 {
                 return;
             }
         }
-        a = new Path();
-    }
-
-    public static final Path a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a : (Path) invokeV.objValue;
+        a = new BitmapFactory.Options();
     }
 }

@@ -1,19 +1,51 @@
 package com.repackage;
 
+import android.content.SharedPreferences;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ob4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ob4 b;
+    public static ob4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public a a;
+    public String b;
+    public String c;
+
+    /* loaded from: classes6.dex */
+    public static class a extends ag4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a() {
+            super("updatecore_node_tipmsgs");
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
 
     public ob4() {
         Interceptable interceptable = $ic;
@@ -25,56 +57,77 @@ public class ob4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new a();
+        this.b = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f1287);
+        this.c = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f1288);
     }
 
     public static ob4 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
+            if (d == null) {
                 synchronized (ob4.class) {
-                    if (b == null) {
-                        b = new ob4();
+                    if (d == null) {
+                        d = new ob4();
                     }
                 }
             }
-            return b;
+            return d;
         }
         return (ob4) invokeV.objValue;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public String a(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.a)) {
-                this.a = q64.b().i().getString("extract_js_url", null);
-            }
-            return this.a;
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? this.a.getString(String.format("%04d", Long.valueOf(j)), this.b) : (String) invokeJ.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public String c(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? q64.b().i().getString("tts_node_version", "0") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? this.a.getString(String.format("%04d", Long.valueOf(j)), this.c) : (String) invokeJ.objValue;
     }
 
-    public void d(JSONObject jSONObject) {
-        JSONObject optJSONObject;
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getString("tips_config_version", "0") : (String) invokeV.objValue;
+    }
+
+    public void e(JSONObject jSONObject) {
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("extract_js_url")) {
+        if (TextUtils.isEmpty(optString) || (optJSONArray = jSONObject.optJSONArray("data")) == null) {
             return;
         }
-        String optString2 = optJSONObject.optString("extract_js_url");
-        q64.b().i().putString("tts_node_version", optString);
-        q64.b().i().putString("extract_js_url", optString2);
+        HashMap<String, String> hashMap = new HashMap<>(optJSONArray.length());
+        for (int i = 0; i < optJSONArray.length(); i++) {
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+            hashMap.put(optJSONObject.optString("tipno"), optJSONObject.optString("tipmsg"));
+        }
+        f(hashMap, optString);
+    }
+
+    public void f(HashMap<String, String> hashMap, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, hashMap, str) == null) || hashMap == null || hashMap.isEmpty() || TextUtils.isEmpty(str)) {
+            return;
+        }
+        SharedPreferences.Editor edit = this.a.edit();
+        edit.clear();
+        edit.putString("tips_config_version", str);
+        for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+            edit.putString(entry.getKey(), entry.getValue());
+        }
+        edit.apply();
     }
 }

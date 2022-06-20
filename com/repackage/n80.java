@@ -1,22 +1,25 @@
 package com.repackage;
 
 import android.content.Context;
-import android.widget.LinearLayout;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.live.business.refresh.BdSwipeRefreshLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class n80 extends m80 {
+public abstract class n80 implements BdSwipeRefreshLayout.h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean x;
-    public boolean y;
+    public Context a;
+    public View b;
+    public boolean c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n80(Context context) {
-        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -26,56 +29,139 @@ public class n80 extends m80 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.y = false;
+        this.a = null;
+        this.b = null;
+        this.c = false;
+        this.a = context;
     }
 
-    @Override // com.repackage.m80, com.repackage.j80
-    public void g(boolean z) {
+    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            super.g(z);
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.c) {
+            return;
+        }
+        l(false);
+    }
+
+    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.c) {
+            return;
+        }
+        n();
+    }
+
+    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
+    public void c(float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
         }
     }
 
-    @Override // com.repackage.m80, com.repackage.j80
-    public void l(boolean z) {
+    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            super.l(z);
-            if (this.x) {
-                return;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.c) {
+            return;
+        }
+        j();
+    }
+
+    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.c) {
+            return;
+        }
+        m();
+        k(true);
+    }
+
+    public abstract View f();
+
+    public abstract void g(boolean z);
+
+    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
+    public long getCompleteAnimTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return 0L;
+        }
+        return invokeV.longValue;
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a : (Context) invokeV.objValue;
+    }
+
+    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
+    public final View getView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (this.b == null) {
+                View f = f();
+                this.b = f;
+                i(f);
+                this.b.getMeasuredHeight();
+                this.b.getMeasuredWidth();
             }
-            u(0);
+            return this.b;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.c : invokeV.booleanValue;
+    }
+
+    public final void i(View view2) {
+        int makeMeasureSpec;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            if (layoutParams == null) {
+                layoutParams = new ViewGroup.LayoutParams(-1, -2);
+            }
+            int childMeasureSpec = ViewGroup.getChildMeasureSpec(0, 0, layoutParams.width);
+            int i = layoutParams.height;
+            if (i > 0) {
+                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i, 1073741824);
+            } else {
+                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
+            }
+            view2.measure(childMeasureSpec, makeMeasureSpec);
         }
     }
 
-    @Override // com.repackage.m80, com.repackage.j80
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.m();
-        }
-    }
+    public abstract void j();
 
-    @Override // com.repackage.m80
-    public void u(int i) {
+    public abstract void k(boolean z);
+
+    public abstract void l(boolean z);
+
+    public abstract void m();
+
+    public abstract void n();
+
+    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
+    public void onFinish() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            super.u(i);
-            LinearLayout linearLayout = this.e;
-            if (linearLayout == null) {
-                return;
-            }
-            this.x = false;
-            if (this.y) {
-                linearLayout.setBackgroundColor(0);
-            }
+        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || this.c) {
+            return;
         }
+        g(true);
     }
 }

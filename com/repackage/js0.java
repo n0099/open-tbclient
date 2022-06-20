@@ -1,22 +1,28 @@
 package com.repackage;
 
 import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import androidx.annotation.Nullable;
+import com.baidu.nadcore.player.constants.PlayerStatus;
 /* loaded from: classes6.dex */
-public class js0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface js0 {
+    void a(@NonNull ir0 ir0Var);
 
-    @NonNull
-    @Inject(force = false)
-    public static yr0 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? os0.a() : (yr0) invokeV.objValue;
-    }
+    void d(@NonNull ir0 ir0Var);
+
+    int getExpectOrder();
+
+    @Nullable
+    int[] getSubscribeEvent();
+
+    int getType();
+
+    void h(PlayerStatus playerStatus, PlayerStatus playerStatus2);
+
+    void j(@NonNull ir0 ir0Var);
+
+    void k(@NonNull ir0 ir0Var);
+
+    void n(@NonNull ir0 ir0Var);
+
+    void q(@NonNull ir0 ir0Var);
 }

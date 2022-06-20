@@ -1,9 +1,7 @@
 package com.repackage;
 /* loaded from: classes5.dex */
 public interface d1 {
-    void dispose();
+    f2 a(j3 j3Var);
 
-    void pause();
-
-    void resume();
+    e2 f(j3 j3Var);
 }

@@ -128,8 +128,8 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onFinishInflate();
-            this.messageView = (TextView) findViewById(R.id.obfuscated_res_0x7f091d2b);
-            this.actionView = (Button) findViewById(R.id.obfuscated_res_0x7f091d2a);
+            this.messageView = (TextView) findViewById(R.id.obfuscated_res_0x7f091d22);
+            this.actionView = (Button) findViewById(R.id.obfuscated_res_0x7f091d21);
         }
     }
 

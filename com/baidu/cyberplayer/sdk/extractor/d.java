@@ -44,7 +44,7 @@ public class d extends ExtractorProvider {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            com.baidu.cyberplayer.sdk.remote.a a = a.AbstractBinderC0088a.a(g.a().b());
+            com.baidu.cyberplayer.sdk.remote.a a = a.AbstractBinderC0090a.a(g.a().b());
             if (a != null) {
                 return new d(a);
             }

@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class OfficialMsgImageActivityConfig extends AbsMsgImageActivityConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,8 +28,8 @@ public class OfficialMsgImageActivityConfig extends AbsMsgImageActivityConfig {
                 return;
             }
         }
-        getIntent().putExtra("current_url", str);
+        getIntent().putExtra(AbsMsgImageActivityConfig.CURRENT_URL, str);
         getIntent().putExtra("id", String.valueOf(j));
-        getIntent().putExtra("uniqueid", str2);
+        getIntent().putExtra(AbsMsgImageActivityConfig.ID_UNIQUE, str2);
     }
 }

@@ -343,7 +343,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         public final /* synthetic */ BottomSheetBehavior this$0;
 
         /* renamed from: view  reason: collision with root package name */
-        public final View f1021view;
+        public final View f1060view;
 
         public SettleRunnable(BottomSheetBehavior bottomSheetBehavior, View view2, int i) {
             Interceptable interceptable = $ic;
@@ -361,7 +361,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
                 }
             }
             this.this$0 = bottomSheetBehavior;
-            this.f1021view = view2;
+            this.f1060view = view2;
             this.targetState = i;
         }
 
@@ -371,7 +371,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 ViewDragHelper viewDragHelper = this.this$0.viewDragHelper;
                 if (viewDragHelper != null && viewDragHelper.continueSettling(true)) {
-                    ViewCompat.postOnAnimation(this.f1021view, this);
+                    ViewCompat.postOnAnimation(this.f1060view, this);
                 } else {
                     this.this$0.setStateInternal(this.targetState);
                 }

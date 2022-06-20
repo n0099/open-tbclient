@@ -7,18 +7,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d8;
-import com.repackage.j7;
+import com.repackage.f8;
+import com.repackage.l7;
 /* loaded from: classes.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final d8 a;
+    public final f8 a;
     public short[] b;
     public float[] c;
     public int d;
-    public final j7 e;
-    public final d8 f;
+    public final l7 e;
+    public final f8 f;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -33,9 +33,9 @@ public class a {
                 return;
             }
         }
-        this.a = new d8();
-        this.e = new j7();
-        this.f = new d8();
+        this.a = new f8();
+        this.e = new l7();
+        this.f = new f8();
     }
 
     public static int b(float f, float f2, float f3, float f4, float f5, float f6) {
@@ -58,13 +58,13 @@ public class a {
         return invokeI.intValue;
     }
 
-    public d8 c(float[] fArr) {
+    public f8 c(float[] fArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fArr)) == null) ? d(fArr, 0, fArr.length) : (d8) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fArr)) == null) ? d(fArr, 0, fArr.length) : (f8) invokeL.objValue;
     }
 
-    public d8 d(float[] fArr, int i, int i2) {
+    public f8 d(float[] fArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, fArr, i, i2)) == null) {
@@ -72,11 +72,11 @@ public class a {
             int i3 = i2 / 2;
             this.d = i3;
             int i4 = i / 2;
-            d8 d8Var = this.a;
-            d8Var.b();
-            d8Var.c(i3);
-            d8Var.b = i3;
-            short[] sArr = d8Var.a;
+            f8 f8Var = this.a;
+            f8Var.b();
+            f8Var.c(i3);
+            f8Var.b = i3;
+            short[] sArr = f8Var.a;
             this.b = sArr;
             if (b.a(fArr, i, i2)) {
                 for (short s = 0; s < i3; s = (short) (s + 1)) {
@@ -88,29 +88,29 @@ public class a {
                     sArr[i6] = (short) ((i4 + i5) - i6);
                 }
             }
-            j7 j7Var = this.e;
-            j7Var.d();
-            j7Var.e(i3);
+            l7 l7Var = this.e;
+            l7Var.d();
+            l7Var.e(i3);
             for (int i7 = 0; i7 < i3; i7++) {
-                j7Var.a(a(i7));
+                l7Var.a(a(i7));
             }
-            d8 d8Var2 = this.f;
-            d8Var2.b();
-            d8Var2.c(Math.max(0, i3 - 2) * 3);
+            f8 f8Var2 = this.f;
+            f8Var2.b();
+            f8Var2.c(Math.max(0, i3 - 2) * 3);
             j();
-            return d8Var2;
+            return f8Var2;
         }
-        return (d8) invokeLII.objValue;
+        return (f8) invokeLII.objValue;
     }
 
     public final void e(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             short[] sArr = this.b;
-            d8 d8Var = this.f;
-            d8Var.a(sArr[i(i)]);
-            d8Var.a(sArr[i]);
-            d8Var.a(sArr[h(i)]);
+            f8 f8Var = this.f;
+            f8Var.a(sArr[i(i)]);
+            f8Var.a(sArr[i]);
+            f8Var.a(sArr[h(i)]);
             this.a.d(i);
             this.e.f(i);
             this.d--;
@@ -217,11 +217,11 @@ public class a {
                 iArr[i2] = a(i2);
             }
             if (i == 3) {
-                d8 d8Var = this.f;
+                f8 f8Var = this.f;
                 short[] sArr = this.b;
-                d8Var.a(sArr[0]);
-                d8Var.a(sArr[1]);
-                d8Var.a(sArr[2]);
+                f8Var.a(sArr[0]);
+                f8Var.a(sArr[1]);
+                f8Var.a(sArr[2]);
             }
         }
     }

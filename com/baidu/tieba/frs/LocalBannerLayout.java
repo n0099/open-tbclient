@@ -13,24 +13,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cb6;
-import com.repackage.cr4;
-import com.repackage.dr4;
-import com.repackage.er4;
-import com.repackage.fr4;
-import com.repackage.li;
+import com.repackage.cc6;
+import com.repackage.lr4;
+import com.repackage.mr4;
+import com.repackage.nr4;
+import com.repackage.or4;
+import com.repackage.pi;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class LocalBannerLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CoverFlowLocalView<cb6> a;
-    public er4<cb6> b;
-    public List<cb6> c;
-    public er4<cb6> d;
+    public CoverFlowLocalView<cc6> a;
+    public nr4<cc6> b;
+    public List<cc6> c;
+    public nr4<cc6> d;
 
     /* loaded from: classes3.dex */
-    public class a extends cr4 {
+    public class a extends lr4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LocalBannerLayout a;
@@ -53,35 +53,35 @@ public class LocalBannerLayout extends RelativeLayout {
             this.a = localBannerLayout;
         }
 
-        @Override // com.repackage.cr4, com.repackage.ar4
-        public dr4 a() {
+        @Override // com.repackage.lr4, com.repackage.jr4
+        public mr4 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                dr4 dr4Var = new dr4();
-                dr4Var.c(R.drawable.obfuscated_res_0x7f0807d0);
-                dr4Var.g(R.drawable.obfuscated_res_0x7f0807d1);
-                dr4Var.d(81);
-                dr4Var.e(R.dimen.tbds36);
-                dr4Var.h(R.dimen.tbds20);
-                return dr4Var;
+                mr4 mr4Var = new mr4();
+                mr4Var.c(R.drawable.obfuscated_res_0x7f0807cc);
+                mr4Var.g(R.drawable.obfuscated_res_0x7f0807cd);
+                mr4Var.d(81);
+                mr4Var.e(R.dimen.tbds36);
+                mr4Var.h(R.dimen.tbds20);
+                return mr4Var;
             }
-            return (dr4) invokeV.objValue;
+            return (mr4) invokeV.objValue;
         }
 
-        @Override // com.repackage.cr4, com.repackage.ar4
-        public fr4 c() {
+        @Override // com.repackage.lr4, com.repackage.jr4
+        public or4 c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                fr4 fr4Var = new fr4();
-                fr4Var.a(li.f(this.a.getContext(), R.dimen.tbds690));
-                return fr4Var;
+                or4 or4Var = new or4();
+                or4Var.a(pi.f(this.a.getContext(), R.dimen.tbds690));
+                return or4Var;
             }
-            return (fr4) invokeV.objValue;
+            return (or4) invokeV.objValue;
         }
 
-        @Override // com.repackage.cr4, com.repackage.ar4
+        @Override // com.repackage.lr4, com.repackage.jr4
         public TbImageView d(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -98,7 +98,7 @@ public class LocalBannerLayout extends RelativeLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements er4<cb6> {
+    public class b implements nr4<cc6> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LocalBannerLayout a;
@@ -121,7 +121,7 @@ public class LocalBannerLayout extends RelativeLayout {
             this.a = localBannerLayout;
         }
 
-        @Override // com.repackage.er4
+        @Override // com.repackage.nr4
         public void b(int i, String str) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) || i < 0 || this.a.c == null || i > this.a.c.size() + 1 || this.a.b == null) {
@@ -131,14 +131,14 @@ public class LocalBannerLayout extends RelativeLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.er4
+        @Override // com.repackage.nr4
         /* renamed from: c */
-        public void a(int i, cb6 cb6Var) {
+        public void a(int i, cc6 cc6Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, cb6Var) == null) || i < 0 || this.a.c == null || i > this.a.c.size() + 1 || this.a.b == null) {
+            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, cc6Var) == null) || i < 0 || this.a.c == null || i > this.a.c.size() + 1 || this.a.b == null) {
                 return;
             }
-            this.a.b.a(i, cb6Var);
+            this.a.b.a(i, cc6Var);
         }
     }
 
@@ -179,7 +179,7 @@ public class LocalBannerLayout extends RelativeLayout {
         }
     }
 
-    public void setData(List<cb6> list) {
+    public void setData(List<cc6> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             this.c = list;
@@ -187,10 +187,10 @@ public class LocalBannerLayout extends RelativeLayout {
         }
     }
 
-    public void setOnCoverViewCallback(er4<cb6> er4Var) {
+    public void setOnCoverViewCallback(nr4<cc6> nr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, er4Var) == null) {
-            this.b = er4Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nr4Var) == null) {
+            this.b = nr4Var;
         }
     }
 

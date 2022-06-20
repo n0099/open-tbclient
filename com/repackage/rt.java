@@ -1,119 +1,95 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.model.response.NextActive;
+import com.baidu.bdtask.model.response.TaskProcessData;
+import com.baidu.bdtask.model.response.TaskResponseData;
+import com.baidu.bdtask.model.ui.TaskUIData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class rt implements ur {
+public final class rt extends jt<TaskResponseData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Activity> a;
-    public final vo b;
+    public final lt a;
 
-    public rt(vo voVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rt(lt ltVar) {
+        super(ltVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {voVar};
+            Object[] objArr = {ltVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((lt) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = voVar;
+        this.a = ltVar;
     }
 
-    @Override // com.repackage.ur
-    public Activity a() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<Activity> weakReference = this.a;
-            if (weakReference == null) {
-                return null;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "response" : (String) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.jt
+    /* renamed from: c */
+    public TaskResponseData a(String str) {
+        InterceptResult invokeL;
+        JSONObject jSONObject;
+        int optInt;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            try {
+                jSONObject = new JSONObject(str);
+                optInt = jSONObject.optInt(TaskResponseData.keyUiType);
+            } catch (Exception e) {
+                e = e;
             }
-            Activity activity = weakReference != null ? weakReference.get() : null;
-            if (ts.a(activity)) {
-                return null;
+            try {
+                jt a = this.a.a("ui");
+                String optString = jSONObject.optString("ui");
+                Intrinsics.checkExpressionValueIsNotNull(optString, "responseObj.optString(TaskUIData.key)");
+                TaskUIData taskUIData = (TaskUIData) a.a(optString);
+                if (taskUIData == null) {
+                    taskUIData = new TaskUIData(null, null, 0, null, null, null, null, null, null, 0, null, null, 4095, null);
+                }
+                JSONObject optJSONObject = jSONObject.optJSONObject("progress");
+                if (optJSONObject == null) {
+                    optJSONObject = new JSONObject();
+                }
+                int optInt2 = optJSONObject.optInt("total");
+                int optInt3 = optJSONObject.optInt(TaskProcessData.keyComplete);
+                boolean optBoolean = optJSONObject.optBoolean("done");
+                JSONObject optJSONObject2 = jSONObject.optJSONObject(TaskResponseData.keyNextActive);
+                if (optJSONObject2 == null) {
+                    optJSONObject2 = new JSONObject();
+                }
+                long optLong = optJSONObject2.optLong(NextActive.keyUtil, 0L);
+                String taskInfo = optJSONObject2.optString(NextActive.keyTaskInfo, "");
+                TaskProcessData taskProcessData = new TaskProcessData(optInt2, optInt3, optBoolean);
+                Intrinsics.checkExpressionValueIsNotNull(taskInfo, "taskInfo");
+                return new TaskResponseData(optInt, taskProcessData, taskUIData, new NextActive(optLong, taskInfo));
+            } catch (Exception e2) {
+                e = e2;
+                e.printStackTrace();
+                return new TaskResponseData(0, null, null, null, 15, null);
             }
-            return activity;
         }
-        return (Activity) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ur
-    public vr b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            vr r = this.b.r();
-            Intrinsics.checkExpressionValueIsNotNull(r, "bdTaskConfig.taskEnv");
-            return r;
-        }
-        return (vr) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ur
-    public void c(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) || ts.a(activity)) {
-            return;
-        }
-        this.a = new WeakReference<>(activity);
-    }
-
-    @Override // com.repackage.ur
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b.t() : invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.ur
-    public Context getAppContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Context context = this.b.getContext();
-            Intrinsics.checkExpressionValueIsNotNull(context, "bdTaskConfig.context");
-            return context;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ur
-    public String getAppVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            String k = this.b.k();
-            Intrinsics.checkExpressionValueIsNotNull(k, "bdTaskConfig.appVersion");
-            return k;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ur
-    public String getSdkVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            String q = this.b.q();
-            Intrinsics.checkExpressionValueIsNotNull(q, "bdTaskConfig.sdkVersion");
-            return q;
-        }
-        return (String) invokeV.objValue;
+        return (TaskResponseData) invokeL.objValue;
     }
 }

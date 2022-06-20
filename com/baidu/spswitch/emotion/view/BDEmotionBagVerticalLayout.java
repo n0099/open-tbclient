@@ -136,9 +136,9 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
                         view2.setLayoutParams(new ViewGroup.MarginLayoutParams(-1, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070324)));
                         return new PaddingViewHolder(view2, context, bDEmotionBagVerticalLayout);
                     }
-                    return new EmotionViewHolder(from.inflate(R.layout.obfuscated_res_0x7f0d0268, viewGroup, false), context, bDEmotionBagVerticalLayout);
+                    return new EmotionViewHolder(from.inflate(R.layout.obfuscated_res_0x7f0d0265, viewGroup, false), context, bDEmotionBagVerticalLayout);
                 }
-                return new TitleViewHolder(from.inflate(R.layout.obfuscated_res_0x7f0d026b, viewGroup, false), context, bDEmotionBagVerticalLayout);
+                return new TitleViewHolder(from.inflate(R.layout.obfuscated_res_0x7f0d0268, viewGroup, false), context, bDEmotionBagVerticalLayout);
             }
             return (BaseViewHolder) invokeLILL.objValue;
         }
@@ -306,7 +306,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
                 if (view2 == null) {
-                    frameLayout = (FrameLayout) this.mInflater.inflate(R.layout.obfuscated_res_0x7f0d0266, viewGroup, false);
+                    frameLayout = (FrameLayout) this.mInflater.inflate(R.layout.obfuscated_res_0x7f0d0263, viewGroup, false);
                     ViewGroup.LayoutParams layoutParams = frameLayout.getLayoutParams();
                     layoutParams.height = BDEmotionBagVerticalLayout.sExpressionHeightWithPadding;
                     frameLayout.setLayoutParams(layoutParams);
@@ -393,7 +393,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
                         return invokeL.booleanValue;
                     }
                 });
-                ImageView imageView = (ImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f090e87);
+                ImageView imageView = (ImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f090e79);
                 processAlpha(frameLayout, imageView, this.mList.get(i), i);
                 Bitmap emotionBitmapByName = EmotionUtils.getInstance().getEmotionBitmapByName(EmotionType.EMOTION_CLASSIC_TYPE, this.mList.get(i));
                 if (emotionBitmapByName != null) {
@@ -660,7 +660,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
                 }
             }
             this.mCtx = context;
-            GridView gridView = (GridView) view2.findViewById(R.id.obfuscated_res_0x7f090dce);
+            GridView gridView = (GridView) view2.findViewById(R.id.obfuscated_res_0x7f090dbf);
             this.mIconGridList = gridView;
             gridView.setSelector(new ColorDrawable(0));
             this.mIconGridList.setNumColumns(7);
@@ -1075,7 +1075,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
                     return;
                 }
             }
-            this.mTitle = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090899);
+            this.mTitle = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090884);
             this.mCommonPaddingTop = this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070325);
             this.mAllPaddingTop = this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070323);
         }
@@ -1306,7 +1306,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
             if (i == 1) {
                 setPadding(0, 0, 0, 0);
             } else if (i == 2) {
-                int dimensionPixelSize = this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070960);
+                int dimensionPixelSize = this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07095d);
                 setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
             }
             sExprTotalExtraHeight = (this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070329) * 2) + this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070325) + this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070323);
@@ -1320,15 +1320,15 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
             } else {
                 setBackgroundColor(COLOR_EMOTION_BAG);
             }
-            LayoutInflater.from(this.mCtx).inflate(R.layout.obfuscated_res_0x7f0d026a, this);
-            this.mViewPager = (ViewPager) findViewById(R.id.obfuscated_res_0x7f0923a8);
-            this.mIndicator = (CircleIndicator) findViewById(R.id.obfuscated_res_0x7f090ec0);
+            LayoutInflater.from(this.mCtx).inflate(R.layout.obfuscated_res_0x7f0d0267, this);
+            this.mViewPager = (ViewPager) findViewById(R.id.obfuscated_res_0x7f092395);
+            this.mIndicator = (CircleIndicator) findViewById(R.id.obfuscated_res_0x7f090eb3);
             ArrayList arrayList = new ArrayList();
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mCtx).inflate(R.layout.obfuscated_res_0x7f0d0269, (ViewGroup) this, false);
-            ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090759);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mCtx).inflate(R.layout.obfuscated_res_0x7f0d0266, (ViewGroup) this, false);
+            ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090744);
             this.mDelBtn = imageView;
             imageView.setImageDrawable(this.mCtx.getResources().getDrawable(R.drawable.emotion_delete));
-            this.mDelBtn.setBackground(this.mCtx.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0804b2));
+            this.mDelBtn.setBackground(this.mCtx.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0804b0));
             this.mDelBtn.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(this) { // from class: com.baidu.spswitch.emotion.view.BDEmotionBagVerticalLayout.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -1525,7 +1525,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
                     }
                 }
             });
-            this.mEmotionRecyclerView = (RecyclerView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091a1a);
+            this.mEmotionRecyclerView = (RecyclerView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091a11);
             OffsetLinearLayoutManager offsetLinearLayoutManager = new OffsetLinearLayoutManager(this.mCtx);
             this.mLayoutManager = offsetLinearLayoutManager;
             this.mEmotionRecyclerView.setLayoutManager(offsetLinearLayoutManager);

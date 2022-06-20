@@ -59,12 +59,12 @@ public final class QuotaSaver$shouldSuspendMasterTimer$2 extends Lambda implemen
     }
 
     /* JADX DEBUG: Return type fixed from 'boolean' to match base method */
-    /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.Boolean, boolean] */
+    /* JADX WARN: Type inference failed for: r1v0, types: [boolean, java.lang.Boolean] */
     @Override // kotlin.jvm.functions.Function0
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final Boolean invoke2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (QuotaSaver.l.e() || QuotaSaver.l.a().e("should_suspend_master_timer", false)) ? 1 : null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (QuotaSaver.l.f() || QuotaSaver.l.b().e("should_suspend_master_timer", false)) ? 1 : null : invokeV.booleanValue;
     }
 }

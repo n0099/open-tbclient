@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.disk.DefaultDiskStorage;
-import com.repackage.gd1;
+import com.repackage.rd1;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -113,7 +113,7 @@ public class OneKeyLoginSdkCall {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sapiConfiguration, tokenListener) == null) {
             try {
                 try {
-                    gd1.c().i(sapiConfiguration.context, 15000L, new gd1.a(this, tokenListener) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.3
+                    rd1.c().i(sapiConfiguration.context, 15000L, new rd1.a(this, tokenListener) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ OneKeyLoginSdkCall this$0;
@@ -138,7 +138,7 @@ public class OneKeyLoginSdkCall {
                             this.val$listener = tokenListener;
                         }
 
-                        @Override // com.repackage.gd1.a
+                        @Override // com.repackage.rd1.a
                         public void onFinish(String str) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
@@ -251,10 +251,10 @@ public class OneKeyLoginSdkCall {
         if (interceptable == null || interceptable.invokeLL(1048581, this, sapiConfiguration, tokenListener) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             OneKeyLoginStat.OauthToken.statExtMap.put("netType", SapiUtils.getNetworkClass(sapiConfiguration.context));
-            OneKeyLoginStat.OauthToken.statExtMap.put("operator", gd1.c().b(sapiConfiguration.context));
+            OneKeyLoginStat.OauthToken.statExtMap.put("operator", rd1.c().b(sapiConfiguration.context));
             try {
                 try {
-                    gd1.c().f(sapiConfiguration.context, 15000L, new gd1.a(this, currentTimeMillis, tokenListener) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.2
+                    rd1.c().f(sapiConfiguration.context, 15000L, new rd1.a(this, currentTimeMillis, tokenListener) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ OneKeyLoginSdkCall this$0;
@@ -281,7 +281,7 @@ public class OneKeyLoginSdkCall {
                             this.val$listener = tokenListener;
                         }
 
-                        @Override // com.repackage.gd1.a
+                        @Override // com.repackage.rd1.a
                         public void onFinish(String str) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
@@ -376,8 +376,8 @@ public class OneKeyLoginSdkCall {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, sapiConfiguration) == null) {
             try {
-                gd1.c().d(sapiConfiguration.context, oneKeyLoginAppKey, oneKeyLoginAppSecret);
-                gd1.c().h(sapiConfiguration.context, sapiConfiguration.isAgreeDangerousProtocol());
+                rd1.c().d(sapiConfiguration.context, oneKeyLoginAppKey, oneKeyLoginAppSecret);
+                rd1.c().h(sapiConfiguration.context, sapiConfiguration.isAgreeDangerousProtocol());
             } catch (NoClassDefFoundError unused) {
                 Log.e(TAG, "please import the package : onekey_login_ssolibrary-*.aar");
             }
@@ -449,7 +449,7 @@ public class OneKeyLoginSdkCall {
         oneKeyLoginCallback.onFail(oneKeyLoginResult);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:40:0x0138  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x0136  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -490,7 +490,7 @@ public class OneKeyLoginSdkCall {
             }
             String networkClass = SapiUtils.getNetworkClass(context);
             OneKeyLoginStat.PreGetPhoneStat.statExtMap.put("netType", networkClass);
-            String b = gd1.c().b(context);
+            String b = rd1.c().b(context);
             OneKeyLoginStat.PreGetPhoneStat.statExtMap.put("operator", b);
             try {
                 if (TextUtils.equals(b, OPERATOR_CHINA_MOBILE) || TextUtils.equals(b, OPERATOR_CHINA_UNICOM) || TextUtils.equals(b, OPERATOR_CHINA_TELECOM)) {
@@ -510,7 +510,7 @@ public class OneKeyLoginSdkCall {
                     OneKeyLoginStat.PreGetPhoneStat.statExtMap.put("is_login", "0");
                     OneKeyLoginStat.PreGetPhoneStat.statExtMap.put(OneKeyLoginStat.PreGetPhoneStat.KEY_EXT_IS_GRAY, "1");
                     OneKeyLoginStat.PreGetPhoneStat.statExtMap.put(OneKeyLoginStat.PreGetPhoneStat.KEY_EXT_IS_ABLE_SIM, "1");
-                    gd1.c().g(context, i, new gd1.a(this, str, networkClass, currentTimeMillis, oneKeyLoginOptCallback) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.1
+                    rd1.c().g(context, i, new rd1.a(this, str, networkClass, currentTimeMillis, oneKeyLoginOptCallback) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ OneKeyLoginSdkCall this$0;
@@ -541,7 +541,7 @@ public class OneKeyLoginSdkCall {
                             this.val$callback = oneKeyLoginOptCallback;
                         }
 
-                        @Override // com.repackage.gd1.a
+                        @Override // com.repackage.rd1.a
                         public void onFinish(String str2) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, str2) == null) {

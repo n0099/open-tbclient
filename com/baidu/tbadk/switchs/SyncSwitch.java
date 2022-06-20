@@ -5,8 +5,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.tg;
-import com.repackage.xh;
+import com.repackage.bi;
+import com.repackage.xg;
 /* loaded from: classes3.dex */
 public class SyncSwitch {
     public static /* synthetic */ Interceptable $ic;
@@ -107,7 +107,7 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(PluginClassChangeSwitch.class);
             SwitchManager.getInstance().registerSwitch(UseNewMethodCheckLogoSwitch.class);
             SwitchManager.getInstance().registerSwitch(UseHttpdnsSdkSwitch.class);
-            SwitchManager.getInstance().registerSwitch(xh.class);
+            SwitchManager.getInstance().registerSwitch(bi.class);
             SwitchManager.getInstance().registerSwitch(RepostToDynamicDefaultSwitch.class);
             SwitchManager.getInstance().registerSwitch(PbPreloadSwitch.class);
             SwitchManager.getInstance().registerSwitch(FlutterSignAllEnableSwitch.class);
@@ -135,7 +135,7 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(VideoMiddleAdSwitch.class);
             SwitchManager.getInstance().registerSwitch(GdtPrivacySwitch.class);
             SwitchManager.getInstance().registerSwitch(KsPrivacySwitch.class);
-            SwitchManager.getInstance().registerSwitch(tg.class);
+            SwitchManager.getInstance().registerSwitch(xg.class);
             SwitchManager.getInstance().registerSwitch(CsjPrivacySwitch.class);
             SwitchManager.getInstance().registerSwitch(FunAdServerRecordSwitch.class);
             SwitchManager.getInstance().registerSwitch(FunAdSplashClickRegionSwitch.class);
@@ -158,6 +158,8 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(Ipv6TestSwitch.class);
             SwitchManager.getInstance().registerSwitch(AsyncGetClipboardSwitch.class);
             SwitchManager.getInstance().registerSwitch(MemeDiyEnableSwitch.class);
+            SwitchManager.getInstance().registerSwitch(BearTimeoutTryShowSwitch.class);
+            SwitchManager.getInstance().registerSwitch(MainTabFragmentIdleSwitch.class);
         }
     }
 }

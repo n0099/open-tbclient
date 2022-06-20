@@ -5,13 +5,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class gb5 {
+public abstract class gb5 implements jb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public String d;
 
     public gb5() {
         Interceptable interceptable = $ic;
@@ -26,4 +22,10 @@ public class gb5 {
             }
         }
     }
+
+    public abstract void a();
+
+    public abstract void b();
+
+    public abstract void c();
 }

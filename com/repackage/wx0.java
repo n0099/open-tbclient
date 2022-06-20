@@ -1,106 +1,100 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import androidx.annotation.Nullable;
+import com.baidu.nadcore.net.request.Headers;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class wx0 extends ux0 {
+public class wx0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String b;
 
-    public wx0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes7.dex */
+    public static class a extends ao0<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xx0 a;
+
+        public a(xx0 xx0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xx0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xx0Var;
+        }
+
+        @Override // com.repackage.yn0
+        public void a(Exception exc, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
+                vx0.c(this.a.a(i, exc.getMessage()));
             }
         }
-        this.b = null;
+
+        @Override // com.repackage.zn0
+        public /* bridge */ /* synthetic */ Object d(Headers headers, String str, int i) throws Exception {
+            f(headers, str, i);
+            return str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.zn0
+        /* renamed from: e */
+        public void b(Headers headers, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048579, this, headers, str, i) == null) {
+                vx0.c(this.a.a(i, "success"));
+            }
+        }
+
+        public String f(Headers headers, String str, int i) throws Exception {
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) ? str : (String) invokeLLI.objValue;
+        }
     }
 
-    public final void d(StringBuilder sb, String str, String str2) {
+    public static void a(@Nullable xx0 xx0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, sb, str, str2) == null) {
-            if (sb.length() > 0) {
-                sb.append('&');
-            }
-            sb.append(str);
-            sb.append('=');
-            sb.append(str2);
+        if (!(interceptable == null || interceptable.invokeL(65536, null, xx0Var) == null) || xx0Var == null || TextUtils.isEmpty(xx0Var.d())) {
+            return;
         }
+        if (!xx0Var.c()) {
+            b(xx0Var.d());
+            return;
+        }
+        ho0 ho0Var = new ho0();
+        ho0Var.k(xx0Var.d());
+        ho0Var.g(3000);
+        ho0Var.d("User-Agent", bh0.e());
+        ho0Var.c();
+        pn0.b().a().a(ho0Var, new a(xx0Var));
     }
 
-    public final boolean e() {
-        InterceptResult invokeV;
+    public static void b(@Nullable String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            eh0 d = xg0.d();
-            StringBuilder sb = new StringBuilder();
-            d(sb, "productId", d.l());
-            d(sb, HttpRequest.CLIENT_TYPE, "2");
-            d(sb, "_os_type", "2");
-            d(sb, "_os_version", d.c());
-            d(sb, "_client_version", d.q());
-            d(sb, "_sdk_version", "5.2.0.21");
-            d(sb, "model", d.j());
-            d(sb, "cuid", d.b());
-            d(sb, "net_type", String.valueOf(new sn0().c()));
-            if (oe0.a) {
-                d(sb, "rd", d.r());
-                d(sb, "qa", d.s());
-                d(sb, "story_id", d.n());
-            }
-            String sb2 = sb.toString();
-            this.b = sb2;
-            return !TextUtils.isEmpty(sb2);
+        if (!(interceptable == null || interceptable.invokeL(65537, null, str) == null) || TextUtils.isEmpty(str)) {
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.xx0
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                return e();
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.ux0, com.repackage.xx0
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                e();
-            }
-            if (this.a.toString().contains(this.b)) {
-                return this.a.toString();
-            }
-            if (this.a.length() > 0) {
-                this.a.append('&');
-            }
-            this.a.append(this.b);
-            return this.a.toString();
-        }
-        return (String) invokeV.objValue;
+        ho0 ho0Var = new ho0();
+        ho0Var.k(str);
+        ho0Var.g(3000);
+        ho0Var.d("User-Agent", bh0.e());
+        ho0Var.c();
+        pn0.b().a().a(ho0Var, null);
     }
 }

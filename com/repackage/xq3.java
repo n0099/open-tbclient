@@ -1,10 +1,8 @@
 package com.repackage;
 
+import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.manage.Download;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,159 +13,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class xq3 {
+public class xq3 extends xr3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Download a;
-    public JSONObject b;
-    public d c;
-    public zq3 d;
-
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-
-        public /* synthetic */ b(String str, String str2, a aVar) {
-            this(str, str2);
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                fq3.n().t(this.b);
-                fq3.n().l(this.a);
-                fq3.n().k();
-            }
-        }
-
-        public b(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = str2;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Download a;
-        public JSONObject b;
-        public yq3 c;
-
-        public /* synthetic */ c(Download download, JSONObject jSONObject, yq3 yq3Var, a aVar) {
-            this(download, jSONObject, yq3Var);
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                fq3.n().G(this.b);
-                hr3.a(this.a.getKeyByUser(), "installApp", null, null, new fr3(this.b));
-                fq3.n().r(AppRuntime.getAppContext(), this.a.getUrl(), this.a.getKeyByUser(), this.c);
-            }
-        }
-
-        public c(@NonNull Download download, JSONObject jSONObject, @NonNull yq3 yq3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {download, jSONObject, yq3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = download;
-            this.b = jSONObject;
-            this.c = yq3Var;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class d implements yq3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public final /* synthetic */ xq3 c;
-
-        public d(xq3 xq3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xq3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = xq3Var;
-        }
-
-        @Override // com.repackage.zq3
-        public void a(br3 br3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, br3Var) == null) {
-                if (xq3.e) {
-                    Log.d("InstallAppLocal", "onResult mPackageName:" + this.a);
-                }
-                this.c.setResult(br3Var);
-                iq3.d.execute(new b(this.b, this.a, null));
-            }
-        }
-
-        @Override // com.repackage.yq3
-        public void setFilePath(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.b = str;
-            }
-        }
-
-        @Override // com.repackage.yq3
-        public void setPackageName(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.a = str;
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -182,52 +31,55 @@ public class xq3 {
                 return;
             }
         }
-        e = rf1.a;
+        c = cg1.a;
     }
 
-    public xq3(Download download, JSONObject jSONObject) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xq3() {
+        super("openApp");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {download, jSONObject};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = download;
-        this.b = jSONObject;
-        this.c = new d(this);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void setResult(br3 br3Var) {
+    @Override // com.repackage.xr3
+    public sr1 a(@NonNull JSONObject jSONObject, @NonNull wc2 wc2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, br3Var) == null) {
-            zq3 zq3Var = this.d;
-            if (zq3Var != null) {
-                zq3Var.a(br3Var);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, wc2Var)) == null) {
+            if (c) {
+                Log.d("GameCenterOpenAppAction", "handle: " + jSONObject);
             }
-            if (br3Var != null && !br3Var.d()) {
-                hr3.a(this.a.getKeyByUser(), "installApp", com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(br3Var.c()), new fr3(this.b));
+            String optString = jSONObject.optString("packageName");
+            if (TextUtils.isEmpty(optString)) {
+                wc2Var.onFail(31010, "package name is empty");
+                return null;
             }
-            if (this.c != null) {
-                fq3.n().B(this.a.getKeyByUser(), this.c);
-                this.c = null;
+            sr3.a(optString, "openApp", null, null, null);
+            if (!gr3.h(AppRuntime.getAppContext(), optString)) {
+                wc2Var.onFail(31011, "app is not installed");
+                sr3.a(optString, "openApp", com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(31011), null);
+                return null;
             }
+            if (gr3.l(AppRuntime.getAppContext(), optString)) {
+                wc2Var.a(null);
+                sr3.a(optString, "openApp", "success", null, null);
+            } else {
+                wc2Var.onFail(31019, "open app fail");
+                sr3.a(optString, "openApp", com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(31019), null);
+            }
+            return null;
         }
-    }
-
-    public void c(zq3 zq3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, zq3Var) == null) {
-            this.d = zq3Var;
-            iq3.d.execute(new c(this.a, this.b, this.c, null));
-        }
+        return (sr1) invokeLL.objValue;
     }
 }

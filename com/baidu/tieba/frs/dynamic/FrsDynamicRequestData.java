@@ -7,20 +7,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c65;
-import com.repackage.dc5;
-import com.repackage.z55;
+import com.repackage.o65;
+import com.repackage.qc5;
+import com.repackage.r65;
 import java.util.HashMap;
 import tbclient.CommonReq;
 import tbclient.StarTrends.DataReq;
 import tbclient.StarTrends.StarTrendsReqIdl;
 /* loaded from: classes3.dex */
-public class FrsDynamicRequestData extends OrmObject implements c65, z55 {
+public class FrsDynamicRequestData extends OrmObject implements r65, o65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f995common;
+    public CommonReq f1035common;
     public long forumId;
     public long lastThreadId;
     public int qType;
@@ -42,8 +42,8 @@ public class FrsDynamicRequestData extends OrmObject implements c65, z55 {
         }
     }
 
-    @Override // com.repackage.e65
-    public Object f(boolean z) {
+    @Override // com.repackage.t65
+    public Object g(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
@@ -55,7 +55,7 @@ public class FrsDynamicRequestData extends OrmObject implements c65, z55 {
             builder.q_type = Integer.valueOf(this.qType);
             builder.last_thread_id = Long.valueOf(this.lastThreadId);
             builder.rn = 30;
-            dc5.c(builder, true, false, true);
+            qc5.c(builder, true, false, true);
             StarTrendsReqIdl.Builder builder2 = new StarTrendsReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);
@@ -63,7 +63,7 @@ public class FrsDynamicRequestData extends OrmObject implements c65, z55 {
         return invokeZ.objValue;
     }
 
-    @Override // com.repackage.y55
+    @Override // com.repackage.n65
     public String getCacheKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -73,7 +73,7 @@ public class FrsDynamicRequestData extends OrmObject implements c65, z55 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.z55
+    @Override // com.repackage.o65
     public boolean isNeedUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -83,8 +83,8 @@ public class FrsDynamicRequestData extends OrmObject implements c65, z55 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.z55
-    public boolean n() {
+    @Override // com.repackage.o65
+    public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -93,8 +93,8 @@ public class FrsDynamicRequestData extends OrmObject implements c65, z55 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.b65
-    public HashMap<String, Object> u() {
+    @Override // com.repackage.q65
+    public HashMap<String, Object> v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -103,8 +103,8 @@ public class FrsDynamicRequestData extends OrmObject implements c65, z55 {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.repackage.b65
-    public HashMap<String, String> w() {
+    @Override // com.repackage.q65
+    public HashMap<String, String> x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -113,8 +113,8 @@ public class FrsDynamicRequestData extends OrmObject implements c65, z55 {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.repackage.z55
-    public String x() {
+    @Override // com.repackage.o65
+    public String y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {

@@ -6,65 +6,63 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.InetSocketAddress;
+import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class cq {
+public class cq {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f177a;
+    public long f171a;
 
-    public cq(String str, int i) {
+    /* renamed from: a  reason: collision with other field name */
+    public String f172a;
+    public long b;
+    public long c;
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public cq() {
+        this(0, 0L, 0L, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this(((Integer) objArr[0]).intValue(), ((Long) objArr[1]).longValue(), ((Long) objArr[2]).longValue(), (Exception) objArr[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f177a = str;
-        this.a = i;
     }
 
-    public static cq a(String str, int i) {
-        InterceptResult invokeLI;
+    public cq(int i, long j, long j2, Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
-            int lastIndexOf = str.lastIndexOf(":");
-            if (lastIndexOf != -1) {
-                String substring = str.substring(0, lastIndexOf);
-                try {
-                    int parseInt = Integer.parseInt(str.substring(lastIndexOf + 1));
-                    if (parseInt > 0) {
-                        i = parseInt;
-                    }
-                } catch (NumberFormatException unused) {
-                }
-                str = substring;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), exc};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return new cq(str, i);
         }
-        return (cq) invokeLI.objValue;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public static InetSocketAddress m264a(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            cq a = a(str, i);
-            return new InetSocketAddress(a.m265a(), a.a());
+        this.a = i;
+        this.f171a = j;
+        this.c = j2;
+        this.b = System.currentTimeMillis();
+        if (exc != null) {
+            this.f172a = exc.getClass().getSimpleName();
         }
-        return (InetSocketAddress) invokeLI.objValue;
     }
 
     public int a() {
@@ -73,22 +71,33 @@ public final class cq {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public String m265a() {
-        InterceptResult invokeV;
+    public cq a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f177a : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            this.f171a = jSONObject.getLong("cost");
+            this.c = jSONObject.getLong("size");
+            this.b = jSONObject.getLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
+            this.a = jSONObject.getInt("wt");
+            this.f172a = jSONObject.optString("expt");
+            return this;
+        }
+        return (cq) invokeL.objValue;
     }
 
-    public String toString() {
+    /* renamed from: a  reason: collision with other method in class */
+    public JSONObject m236a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.a > 0) {
-                return this.f177a + ":" + this.a;
-            }
-            return this.f177a;
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("cost", this.f171a);
+            jSONObject.put("size", this.c);
+            jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.b);
+            jSONObject.put("wt", this.a);
+            jSONObject.put("expt", this.f172a);
+            return jSONObject;
         }
-        return (String) invokeV.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

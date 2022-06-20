@@ -1,95 +1,30 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import android.content.Context;
+import android.graphics.Canvas;
+import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 /* loaded from: classes7.dex */
-public class zd5 extends ee5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public ConstrainImageLayout.c e;
+public interface zd5 {
+    void a();
 
-    /* loaded from: classes7.dex */
-    public class a implements ConstrainImageLayout.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    void b(Canvas canvas);
 
-        public a(zd5 zd5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zd5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+    void c(ListView listView, Context context, AttributeSet attributeSet);
 
-        @Override // com.baidu.tbadk.widget.layout.ConstrainImageLayout.c
-        public void a(TbImageView tbImageView, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, tbImageView, i, i2) == null) {
-                tbImageView.setRadiusById(R.string.J_X05);
-                tbImageView.t();
-                tbImageView.setDrawCorner(true);
-                tbImageView.setConrers(0);
-                if (i2 == 1) {
-                    tbImageView.setConrers(15);
-                } else if (i2 > 1) {
-                    if (i == 0) {
-                        tbImageView.setConrers(5);
-                    } else if (i == i2 - 1) {
-                        tbImageView.setConrers(10);
-                    }
-                }
-            }
-        }
-    }
+    void onDraw(Canvas canvas);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zd5(int i) {
-        super(i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = new a(this);
-    }
+    boolean onInterceptTouchEvent(MotionEvent motionEvent);
 
-    @Override // com.repackage.ee5, com.repackage.be5
-    public int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2) {
-        InterceptResult invokeLLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, constrainImageLayout, list, i, i2)) == null) {
-            if (list.size() < this.b) {
-                list.size();
-            }
-            constrainImageLayout.setTbImageViewConfiguration(this.e);
-            return super.a(constrainImageLayout, list, i, i2);
-        }
-        return invokeLLII.intValue;
-    }
+    void onMeasure(int i, int i2);
+
+    void onSizeChanged(int i, int i2, int i3, int i4);
+
+    boolean onTouchEvent(MotionEvent motionEvent);
+
+    void requestLayout();
+
+    void setAdapter(ListAdapter listAdapter);
 }

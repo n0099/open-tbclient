@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ru9;
+import com.repackage.yu9;
 import java.io.Serializable;
 /* loaded from: classes8.dex */
 public final class NotificationLite {
@@ -117,22 +117,22 @@ public final class NotificationLite {
         };
     }
 
-    public static <T> boolean a(ru9<? super T> ru9Var, Object obj) {
+    public static <T> boolean a(yu9<? super T> yu9Var, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, ru9Var, obj)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, yu9Var, obj)) == null) {
             if (obj == a) {
-                ru9Var.onCompleted();
+                yu9Var.onCompleted();
                 return true;
             } else if (obj == b) {
-                ru9Var.onNext(null);
+                yu9Var.onNext(null);
                 return false;
             } else if (obj != null) {
                 if (obj.getClass() == OnErrorSentinel.class) {
-                    ru9Var.onError(((OnErrorSentinel) obj).e);
+                    yu9Var.onError(((OnErrorSentinel) obj).e);
                     return true;
                 }
-                ru9Var.onNext(obj);
+                yu9Var.onNext(obj);
                 return false;
             } else {
                 throw new IllegalArgumentException("The lite notification can not be null");

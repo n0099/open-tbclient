@@ -1,76 +1,51 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class hq3 extends mr3 {
+public class hq3 implements kq3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public eq3 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755639641, "Lcom/repackage/hq3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755639641, "Lcom/repackage/hq3;");
-                return;
-            }
-        }
-        boolean z = rf1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hq3() {
-        super("getDownloadConfig");
+    public hq3(eq3 eq3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {eq3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = eq3Var;
     }
 
-    @Override // com.repackage.mr3
-    public hr1 a(JSONObject jSONObject, lc2 lc2Var) {
-        InterceptResult invokeLL;
+    private void setResult(lq3 lq3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, lc2Var)) == null) {
-            if (jSONObject == null) {
-                lc2Var.onFail(202, "params may be error");
-                return null;
+        if (interceptable == null || interceptable.invokeL(65537, this, lq3Var) == null) {
+            this.a.d.clear();
+            if (lq3Var != null) {
+                this.a.d.putString("functionType", lq3Var.a());
+                this.a.d.putString("resultData", lq3Var.b());
+                this.a.d.putInt("resultStatus", lq3Var.c());
             }
-            if (jSONObject.has("wifiResumeDownloadFlag")) {
-                qq3.a().c(jSONObject.optBoolean("wifiResumeDownloadFlag", false));
-            }
-            if (jSONObject.has("install_guide_switch")) {
-                vq3.r(jSONObject.optBoolean("install_guide_switch"));
-            }
-            if (jSONObject.has("install_guide_count")) {
-                vq3.q(jSONObject.optInt("install_guide_count"));
-            }
-            if (jSONObject.has("get_install_result")) {
-                vq3.s(jSONObject.optBoolean("get_install_result"));
-            }
-            lc2Var.a(null);
-            return null;
+            this.a.c();
         }
-        return (hr1) invokeLL.objValue;
+    }
+
+    @Override // com.repackage.kq3
+    public void a(lq3 lq3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, lq3Var) == null) {
+            setResult(lq3Var);
+        }
     }
 }

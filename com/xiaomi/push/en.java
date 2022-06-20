@@ -1,119 +1,252 @@
 package com.xiaomi.push;
 
-import android.annotation.SuppressLint;
-import android.app.Notification;
 import android.content.Context;
-import android.content.res.Resources;
-import android.os.Build;
-import android.os.Bundle;
 import android.text.TextUtils;
-import android.widget.RemoteViews;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.xiaomi.clientreport.data.Config;
+import com.xiaomi.clientreport.data.EventClientReport;
+import com.xiaomi.clientreport.data.PerfClientReport;
+import com.xiaomi.clientreport.manager.ClientReportClient;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-@SuppressLint({"NewApi"})
 /* loaded from: classes8.dex */
-public class en extends Notification.Builder {
+public class en {
     public static /* synthetic */ Interceptable $ic;
+    public static a a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public static Map<String, ht> f304a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public en(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
+    /* loaded from: classes8.dex */
+    public interface a {
+        void uploader(Context context, hn hnVar);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-56375625, "Lcom/xiaomi/push/en;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = context;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-56375625, "Lcom/xiaomi/push/en;");
+        }
     }
 
-    public int a(Resources resources, String str, String str2, String str3) {
-        InterceptResult invokeLLLL;
+    public static int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, resources, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (i > 0) {
+                return i + 1000;
             }
-            return resources.getIdentifier(str, str2, str3);
+            return -1;
         }
-        return invokeLLLL.intValue;
+        return invokeI.intValue;
     }
 
-    public Context a() {
+    public static int a(Enum r4) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, r4)) == null) {
+            if (r4 != null) {
+                if (r4 instanceof hj) {
+                    return r4.ordinal() + 1001;
+                }
+                if (r4 instanceof ht) {
+                    return r4.ordinal() + 2001;
+                }
+                if (r4 instanceof ey) {
+                    return r4.ordinal() + 3001;
+                }
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public static Config a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            return Config.getBuilder().setEventUploadSwitchOpen(com.xiaomi.push.service.ba.a(context).a(ho.aU.a(), false)).setEventUploadFrequency(com.xiaomi.push.service.ba.a(context).a(ho.aB.a(), 86400)).setPerfUploadSwitchOpen(com.xiaomi.push.service.ba.a(context).a(ho.aA.a(), false)).setPerfUploadFrequency(com.xiaomi.push.service.ba.a(context).a(ho.aC.a(), 86400)).build(context);
+        }
+        return (Config) invokeL.objValue;
+    }
+
+    public static EventClientReport a(Context context, String str, String str2, int i, long j, String str3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, str2, Integer.valueOf(i), Long.valueOf(j), str3})) == null) {
+            EventClientReport a2 = a(str);
+            a2.eventId = str2;
+            a2.eventType = i;
+            a2.eventTime = j;
+            a2.eventContent = str3;
+            return a2;
+        }
+        return (EventClientReport) invokeCommon.objValue;
+    }
+
+    public static EventClientReport a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            EventClientReport eventClientReport = new EventClientReport();
+            eventClientReport.production = 1000;
+            eventClientReport.reportType = 1001;
+            eventClientReport.clientInterfaceId = str;
+            return eventClientReport;
+        }
+        return (EventClientReport) invokeL.objValue;
+    }
+
+    public static PerfClientReport a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (Context) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.app.Notification.Builder
-    /* renamed from: a */
-    public en addExtras(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle)) == null) {
-            if (Build.VERSION.SDK_INT >= 20) {
-                super.addExtras(bundle);
-            }
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            PerfClientReport perfClientReport = new PerfClientReport();
+            perfClientReport.production = 1000;
+            perfClientReport.reportType = 1000;
+            perfClientReport.clientInterfaceId = "P100000";
+            return perfClientReport;
         }
-        return (en) invokeL.objValue;
+        return (PerfClientReport) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.app.Notification.Builder
-    /* renamed from: a */
-    public en setCustomContentView(RemoteViews remoteViews) {
-        InterceptResult invokeL;
+    public static PerfClientReport a(Context context, int i, long j, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, remoteViews)) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                super.setCustomContentView(remoteViews);
-            } else {
-                super.setContent(remoteViews);
-            }
-            return this;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{context, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            PerfClientReport a2 = a();
+            a2.code = i;
+            a2.perfCounts = j;
+            a2.perfLatencies = j2;
+            return a2;
         }
-        return (en) invokeL.objValue;
+        return (PerfClientReport) invokeCommon.objValue;
     }
 
-    public en a(Map<String, String> map) {
-        InterceptResult invokeL;
+    public static hn a(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, map)) == null) ? this : (en) invokeL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            hn hnVar = new hn();
+            hnVar.d("category_client_report_data");
+            hnVar.a("push_sdk_channel");
+            hnVar.a(1L);
+            hnVar.b(str);
+            hnVar.a(true);
+            hnVar.b(System.currentTimeMillis());
+            hnVar.g(context.getPackageName());
+            hnVar.e("com.xiaomi.xmsf");
+            hnVar.f(com.xiaomi.push.service.bz.a());
+            hnVar.c("quality_support");
+            return hnVar;
+        }
+        return (hn) invokeLL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m327a() {
+    public static ht m303a(String str) {
+        InterceptResult invokeL;
+        ht[] values;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            if (f304a == null) {
+                synchronized (ht.class) {
+                    if (f304a == null) {
+                        f304a = new HashMap();
+                        for (ht htVar : ht.values()) {
+                            f304a.put(htVar.f498a.toLowerCase(), htVar);
+                        }
+                    }
+                }
+            }
+            ht htVar2 = f304a.get(str.toLowerCase());
+            return htVar2 != null ? htVar2 : ht.a;
+        }
+        return (ht) invokeL.objValue;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static String m304a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) ? i == 1000 ? "E100000" : i == 3000 ? "E100002" : i == 2000 ? "E100001" : i == 6000 ? "E100003" : "" : (String) invokeI.objValue;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static void m305a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65547, null, context) == null) {
+            ClientReportClient.updateConfig(context, a(context));
         }
     }
 
-    @Override // android.app.Notification.Builder
-    public Notification build() {
-        InterceptResult invokeV;
+    public static void a(Context context, Config config) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            m327a();
-            return super.build();
+        if (interceptable == null || interceptable.invokeLL(65548, null, context, config) == null) {
+            ClientReportClient.init(context, config, new el(context), new em(context));
         }
-        return (Notification) invokeV.objValue;
+    }
+
+    public static void a(Context context, hn hnVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65549, null, context, hnVar) == null) {
+            if (m306a(context.getApplicationContext())) {
+                com.xiaomi.push.service.ca.a(context.getApplicationContext(), hnVar);
+                return;
+            }
+            a aVar = a;
+            if (aVar != null) {
+                aVar.uploader(context, hnVar);
+            }
+        }
+    }
+
+    public static void a(Context context, List<String> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65550, null, context, list) == null) || list == null) {
+            return;
+        }
+        try {
+            for (String str : list) {
+                hn a2 = a(context, str);
+                if (!com.xiaomi.push.service.bz.a(a2, false)) {
+                    a(context, a2);
+                }
+            }
+        } catch (Throwable th) {
+            com.xiaomi.channel.commonutils.logger.b.d(th.getMessage());
+        }
+    }
+
+    public static void a(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65551, null, aVar) == null) {
+            a = aVar;
+        }
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static boolean m306a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) ? (context == null || TextUtils.isEmpty(context.getPackageName()) || !"com.xiaomi.xmsf".equals(context.getPackageName())) ? false : true : invokeL.booleanValue;
     }
 }

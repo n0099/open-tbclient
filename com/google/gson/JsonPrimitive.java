@@ -13,7 +13,7 @@ import com.google.gson.internal.C$Gson$Preconditions;
 import com.google.gson.internal.LazilyParsedNumber;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class JsonPrimitive extends JsonElement {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?>[] PRIMITIVE_TYPES;

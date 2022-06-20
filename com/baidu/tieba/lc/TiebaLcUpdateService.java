@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.w97;
+import com.repackage.hb7;
 import java.io.Serializable;
 /* loaded from: classes3.dex */
 public class TiebaLcUpdateService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public w97 mLcUpdateAsyncTask;
+    public hb7 mLcUpdateAsyncTask;
 
     public TiebaLcUpdateService() {
         Interceptable interceptable = $ic;
@@ -39,14 +39,14 @@ public class TiebaLcUpdateService extends BdBaseService {
         if (!(interceptable == null || interceptable.invokeL(65537, this, clientUpdateInfo) == null) || clientUpdateInfo == null) {
             return;
         }
-        w97 w97Var = this.mLcUpdateAsyncTask;
-        if (w97Var != null) {
-            w97Var.cancel();
+        hb7 hb7Var = this.mLcUpdateAsyncTask;
+        if (hb7Var != null) {
+            hb7Var.cancel();
             this.mLcUpdateAsyncTask = null;
         }
-        w97 w97Var2 = new w97(clientUpdateInfo);
-        this.mLcUpdateAsyncTask = w97Var2;
-        w97Var2.execute(new String[0]);
+        hb7 hb7Var2 = new hb7(clientUpdateInfo);
+        this.mLcUpdateAsyncTask = hb7Var2;
+        hb7Var2.execute(new String[0]);
     }
 
     @Override // android.app.Service
@@ -72,9 +72,9 @@ public class TiebaLcUpdateService extends BdBaseService {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            w97 w97Var = this.mLcUpdateAsyncTask;
-            if (w97Var != null) {
-                w97Var.cancel();
+            hb7 hb7Var = this.mLcUpdateAsyncTask;
+            if (hb7Var != null) {
+                hb7Var.cancel();
                 this.mLcUpdateAsyncTask = null;
             }
             super.onDestroy();

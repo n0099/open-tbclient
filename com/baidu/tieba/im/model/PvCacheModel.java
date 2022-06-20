@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jg;
-import com.repackage.zf;
+import com.repackage.dg;
+import com.repackage.ng;
 /* loaded from: classes3.dex */
 public class PvCacheModel {
     public static /* synthetic */ Interceptable $ic;
     public static PvCacheModel mCacheModel;
     public transient /* synthetic */ FieldHolder $fh;
-    public zf<String, String> mCache;
+    public dg<String, String> mCache;
 
     public PvCacheModel() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class PvCacheModel {
             }
         }
         this.mCache = null;
-        this.mCache = new zf<>(256);
+        this.mCache = new dg<>(256);
     }
 
     public static synchronized PvCacheModel getInstance() {
@@ -57,8 +57,8 @@ public class PvCacheModel {
             return;
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        zf<String, String> zfVar = this.mCache;
-        zfVar.h(currentAccount + str, String.valueOf(l));
+        dg<String, String> dgVar = this.mCache;
+        dgVar.h(currentAccount + str, String.valueOf(l));
     }
 
     public boolean isSameDay(String str) {
@@ -69,12 +69,12 @@ public class PvCacheModel {
                 return false;
             }
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            zf<String, String> zfVar = this.mCache;
-            String f = zfVar.f(currentAccount + str);
+            dg<String, String> dgVar = this.mCache;
+            String f = dgVar.f(currentAccount + str);
             if (TextUtils.isEmpty(f)) {
                 return false;
             }
-            return UtilHelper.isSameDay(jg.g(f, 0L), System.currentTimeMillis());
+            return UtilHelper.isSameDay(ng.g(f, 0L), System.currentTimeMillis());
         }
         return invokeL.booleanValue;
     }
@@ -85,7 +85,7 @@ public class PvCacheModel {
             return;
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        zf<String, String> zfVar = this.mCache;
-        zfVar.i(currentAccount + str);
+        dg<String, String> dgVar = this.mCache;
+        dgVar.i(currentAccount + str);
     }
 }

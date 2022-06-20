@@ -1,44 +1,90 @@
 package com.repackage;
 
-import androidx.annotation.CallSuper;
-import com.baidu.bdtask.ctrl.SubTaskState;
-import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubc.UBCManager;
+import java.util.HashMap;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public interface ju {
+public final class ju implements hu {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final UBCManager a;
+    public final ku b;
 
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1964036070, "Lcom/repackage/ju;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1964036070, "Lcom/repackage/ju;");
+        }
+    }
 
-        public static void a(ju juVar, SubTaskState subTaskState) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(65536, null, juVar, subTaskState) == null) || juVar.b(subTaskState.getTaskInfo(), subTaskState.getTaskStatus().getCurStatusCode())) {
+    public ju() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            juVar.a(subTaskState);
         }
+        this.a = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+        this.b = (ku) ServiceManager.getService(ku.a.a());
+    }
 
-        public static boolean b(ju juVar, TaskInfo taskInfo, int i) {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, juVar, taskInfo, i)) == null) ? i == 304 : invokeLLI.booleanValue;
-        }
-
-        @CallSuper
-        public static void c(ju juVar, SubTaskState subTaskState) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65538, null, juVar, subTaskState) == null) {
-                mu.c.b(subTaskState);
+    @Override // com.repackage.hu
+    public void a(String str, String str2, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, jSONObject) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("type", str2);
+            hashMap.put("page", str);
+            if (jSONObject != null) {
+                String jSONObject2 = jSONObject.toString();
+                Intrinsics.checkExpressionValueIsNotNull(jSONObject2, "it.toString()");
+                hashMap.put("ext", jSONObject2);
+            }
+            UBCManager uBCManager = this.a;
+            if (uBCManager != null) {
+                uBCManager.onEvent("3676", hashMap);
             }
         }
     }
 
-    @CallSuper
-    void a(SubTaskState subTaskState);
-
-    boolean b(TaskInfo taskInfo, int i);
+    @Override // com.repackage.hu
+    public void b(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
+            String extra = jSONObject.toString();
+            HashMap hashMap = new HashMap();
+            hashMap.put("value", str);
+            hashMap.put("type", "abnormal");
+            Intrinsics.checkExpressionValueIsNotNull(extra, "extra");
+            hashMap.put("ext", extra);
+            ku kuVar = this.b;
+            if (kuVar != null) {
+                kuVar.a("3677", str, extra);
+            }
+        }
+    }
 }

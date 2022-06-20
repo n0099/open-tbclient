@@ -5,14 +5,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pa1;
-import com.repackage.ra1;
+import com.repackage.ab1;
+import com.repackage.cb1;
 /* loaded from: classes2.dex */
 public class UBCCloudConfigObservers {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject(force = false)
-    public ra1<UBCCloudConfigObserver> mObservers;
+    public cb1<UBCCloudConfigObserver> mObservers;
 
     public UBCCloudConfigObservers() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class UBCCloudConfigObservers {
     public void initmObservers() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            pa1 b = pa1.b();
+            ab1 b = ab1.b();
             this.mObservers = b;
             b.a(new UBCCloudConfigObserver_UBCCloudConfigObservers_ListProvider());
         }

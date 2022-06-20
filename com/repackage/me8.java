@@ -1,19 +1,9 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tieba.R;
-import com.baidu.tieba.stampmission.message.StampMissionHttpRequestMessage;
-import com.baidu.tieba.stampmission.mission.StampMission;
-import com.baidu.tieba.stampmission.model.StampMissionModel;
-import com.baidu.tieba.view.ScreenTopToast;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,458 +11,118 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oe8;
-import java.util.HashMap;
-import java.util.Map;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes6.dex */
-public class me8 {
+public class me8 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile me8 m;
+    public static final BdUniqueId h;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<StampMission.Type, StampMission> a;
-    public StampMissionModel b;
-    public oe8 c;
+    public long a;
+    public String b;
+    public String c;
     public boolean d;
-    public boolean e;
-    public final String f;
-    public final String g;
-    public boolean h;
-    public boolean i;
-    public boolean j;
-    public pe8 k;
-    public final StampMissionModel.b l;
+    public int e;
+    public int f;
+    public String g;
 
-    /* loaded from: classes6.dex */
-    public class a implements StampMissionModel.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ me8 a;
-
-        public a(me8 me8Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755502063, "Lcom/repackage/me8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {me8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = me8Var;
-        }
-
-        @Override // com.baidu.tieba.stampmission.model.StampMissionModel.b
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755502063, "Lcom/repackage/me8;");
+                return;
             }
         }
-
-        /* JADX WARN: Code restructure failed: missing block: B:23:0x0084, code lost:
-            if (r0.equals(com.baidu.tieba.stampmission.message.StampMissionHttpRequestMessage.TASK_FOLLOW) == false) goto L41;
-         */
-        @Override // com.baidu.tieba.stampmission.model.StampMissionModel.b
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void b(oe8 oe8Var) {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oe8Var) == null) {
-                char c = 0;
-                if ("start".equals(oe8Var.c)) {
-                    ys4.k().y(this.a.f, oe8Var.i);
-                    this.a.c = oe8Var;
-                    me8 me8Var = this.a;
-                    me8Var.I(me8Var.c);
-                    if (!this.a.u() && this.a.h) {
-                        ye8.e(oe8Var, this.a.g, this.a.k);
-                        this.a.h = false;
-                    }
-                    this.a.e = true;
-                    this.a.d = true;
-                } else if ("sync".equals(oe8Var.c)) {
-                    String str2 = oe8Var.d;
-                    int hashCode = str2.hashCode();
-                    if (hashCode == -549184070) {
-                        if (str2.equals(StampMissionHttpRequestMessage.TASK_REPLY)) {
-                            c = 2;
-                        }
-                        c = 65535;
-                    } else if (hashCode != -163617491) {
-                        if (hashCode == 1596610899) {
-                        }
-                        c = 65535;
-                    } else {
-                        if (str2.equals(StampMissionHttpRequestMessage.TASK_LIKE)) {
-                            c = 1;
-                        }
-                        c = 65535;
-                    }
-                    if (c == 0) {
-                        this.a.F(StampMission.Type.FOLLOW_FORUM, StampMission.a.a);
-                        oe8.b bVar = oe8Var.h;
-                        if (bVar != null) {
-                            str = bVar.a.a;
-                        }
-                        str = "";
-                    } else if (c != 1) {
-                        if (c == 2) {
-                            this.a.F(StampMission.Type.REPLAY_THREAD, StampMission.a.c);
-                            oe8.b bVar2 = oe8Var.h;
-                            if (bVar2 != null) {
-                                str = bVar2.c.a;
-                            }
-                        }
-                        str = "";
-                    } else {
-                        this.a.F(StampMission.Type.LIKE_THREAD, StampMission.a.b);
-                        oe8.b bVar3 = oe8Var.h;
-                        if (bVar3 != null) {
-                            str = bVar3.b.a;
-                        }
-                        str = "";
-                    }
-                    this.a.H(str);
-                    if (this.a.t()) {
-                        this.a.delete();
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-188028525, "Lcom/repackage/me8$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-188028525, "Lcom/repackage/me8$b;");
-                    return;
-                }
-            }
-            int[] iArr = new int[StampMission.Type.values().length];
-            a = iArr;
-            try {
-                iArr[StampMission.Type.FOLLOW_FORUM.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[StampMission.Type.LIKE_THREAD.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[StampMission.Type.REPLAY_THREAD.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-        }
+        h = BdUniqueId.gen();
     }
 
     public me8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-        this.d = false;
-        this.e = false;
-        this.h = false;
-        this.i = false;
-        this.j = false;
-        this.l = new a(this);
-        B();
-        w();
-        this.f = "key_stamp_mission_dialog_data_" + TbadkCoreApplication.getCurrentAccount();
-        this.g = "key_stamp_mission_dialog_last_time_" + TbadkCoreApplication.getCurrentAccount();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void delete() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            for (StampMission stampMission : this.a.values()) {
-                stampMission.delete();
-            }
-            ys4.k().D(this.f);
-            this.e = false;
         }
     }
 
-    public static me8 r() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
-            if (m == null) {
-                synchronized (me8.class) {
-                    if (m == null) {
-                        m = new me8();
-                    }
-                }
-            }
-            return m;
-        }
-        return (me8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
-    public void A(int i, int i2) {
+    public long f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && p()) {
-            if (this.k == null) {
-                this.k = new pe8();
-            }
-            pe8 pe8Var = this.k;
-            pe8Var.a = i;
-            pe8Var.b = i2;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.longValue;
     }
 
-    public final void B() {
+    public String getRecomReason() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            C(new re8());
-            C(new se8());
-            C(new te8());
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : (String) invokeV.objValue;
     }
 
-    public final void C(StampMission stampMission) {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.nn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, stampMission) == null) {
-            if (this.a == null) {
-                this.a = new HashMap();
-            }
-            if (stampMission == null || stampMission.getType() == null) {
-                return;
-            }
-            this.a.put(stampMission.getType(), stampMission);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? h : (BdUniqueId) invokeV.objValue;
     }
 
-    public void D(boolean z) {
+    public String h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.j = z;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    public void E(boolean z) {
+    public int j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.i = z;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : invokeV.intValue;
     }
 
-    public final void F(StampMission.Type type, int i) {
-        Map<StampMission.Type, StampMission> map;
+    public int l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048581, this, type, i) == null) || (map = this.a) == null || map.get(type) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f : invokeV.intValue;
+    }
+
+    public boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : invokeV.booleanValue;
+    }
+
+    public void r(RecommendForumInfo recommendForumInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, recommendForumInfo) == null) || recommendForumInfo == null) {
             return;
         }
-        this.a.get(type).d(i);
+        this.a = recommendForumInfo.forum_id.longValue();
+        this.b = recommendForumInfo.forum_name;
+        this.c = recommendForumInfo.avatar;
+        this.e = recommendForumInfo.member_count.intValue();
+        this.f = recommendForumInfo.thread_count.intValue();
+        this.d = recommendForumInfo.is_like.intValue() == 1;
+        this.g = recommendForumInfo.recom_reason;
+        String str = recommendForumInfo.extra;
     }
 
-    public void G() {
+    public void s(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && p() && !u()) {
-            String q = ys4.k().q(this.f, null);
-            if (!TextUtils.isEmpty(q)) {
-                this.c = oe8.a(q);
-                if (x()) {
-                    ye8.e(this.c, this.g, this.k);
-                    this.h = false;
-                    return;
-                }
-                return;
-            }
-            this.h = true;
-            this.b.D();
-        }
-    }
-
-    public final void H(final String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || TbadkCoreApplication.getInst().getCurrentActivity() == null) {
-            return;
-        }
-        ScreenTopToast screenTopToast = new ScreenTopToast(TbadkCoreApplication.getInst());
-        screenTopToast.m(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f11f7));
-        screenTopToast.k(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f11f6));
-        screenTopToast.j(new View.OnClickListener() { // from class: com.repackage.le8
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // android.view.View.OnClickListener
-            public final void onClick(View view2) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                    sk4.o(TbadkCoreApplication.getInst(), "https://tieba.baidu.com/mo/q/icon/panelIcon?opacity=0&user_id=" + TbadkCoreApplication.getCurrentAccount() + "&icon_name=" + str);
-                }
-            }
-        });
-        screenTopToast.n((ViewGroup) TbadkCoreApplication.getInst().getCurrentActivity().findViewById(16908290));
-    }
-
-    public final void I(oe8 oe8Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, oe8Var) == null) || oe8Var == null) {
-            return;
-        }
-        if (oe8Var.e == 1) {
-            this.a.get(StampMission.Type.FOLLOW_FORUM).d(StampMission.a.a);
-        }
-        if (oe8Var.f == 1) {
-            this.a.get(StampMission.Type.LIKE_THREAD).d(StampMission.a.b);
-        }
-        if (oe8Var.g == 1) {
-            this.a.get(StampMission.Type.REPLAY_THREAD).d(StampMission.a.c);
-        }
-    }
-
-    public final void J(StampMission.Type type) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, type) == null) {
-            int i = b.a[type.ordinal()];
-            if (i == 1) {
-                this.b.B(StampMissionHttpRequestMessage.TASK_FOLLOW);
-            } else if (i == 2) {
-                this.b.B(StampMissionHttpRequestMessage.TASK_LIKE);
-            } else if (i != 3) {
-            } else {
-                this.b.B(StampMissionHttpRequestMessage.TASK_REPLY);
-            }
-        }
-    }
-
-    public final boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? !this.i && !this.j && TbadkCoreApplication.isLogin() && TbSingleton.getInstance().showStampMissionDialog && (UbsABTestHelper.isStampMissionDialogABTestB() || UbsABTestHelper.isStampMissionDialogABTestA()) : invokeV.booleanValue;
-    }
-
-    public int q(StampMission.Type type) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, type)) == null) {
-            Map<StampMission.Type, StampMission> map = this.a;
-            if (map == null || map.get(type) == null) {
-                return 0;
-            }
-            return this.a.get(type).a();
-        }
-        return invokeL.intValue;
-    }
-
-    public int s(StampMission.Type type) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, type)) == null) {
-            Map<StampMission.Type, StampMission> map = this.a;
-            if (map == null || map.get(type) == null) {
-                return 0;
-            }
-            return this.a.get(type).b();
-        }
-        return invokeL.intValue;
-    }
-
-    public final boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            Map<StampMission.Type, StampMission> map = this.a;
-            if (map == null) {
-                return false;
-            }
-            for (StampMission stampMission : map.values()) {
-                if (stampMission.a() != stampMission.b()) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? TimeHelper.isSameDay(ys4.k().m(this.g, 0L), System.currentTimeMillis()) : invokeV.booleanValue;
-    }
-
-    public final void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            String q = ys4.k().q(this.f, null);
-            if (!TextUtils.isEmpty(q)) {
-                this.c = oe8.a(q);
-                this.e = true;
-                this.d = true;
-                return;
-            }
-            this.b.D();
-        }
-    }
-
-    public final void w() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            StampMissionModel stampMissionModel = new StampMissionModel();
-            this.b = stampMissionModel;
-            stampMissionModel.C(this.l);
-        }
-    }
-
-    public final boolean x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            long currentTimeMillis = System.currentTimeMillis() / 1000;
-            oe8 oe8Var = this.c;
-            return currentTimeMillis >= oe8Var.a && currentTimeMillis <= oe8Var.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void z(StampMission.Type type) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, type) == null) || !p() || this.h || ys4.k().m(this.g, 0L) == 0) {
-            return;
-        }
-        if (!this.d) {
-            v();
-        }
-        if (this.e) {
-            if (!x()) {
-                delete();
-                return;
-            }
-            Map<StampMission.Type, StampMission> map = this.a;
-            if (map == null || map.get(type) == null || this.a.get(type).c()) {
-                return;
-            }
-            J(type);
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.d = z;
         }
     }
 }

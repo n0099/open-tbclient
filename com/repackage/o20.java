@@ -1,17 +1,11 @@
 package com.repackage;
 
-import android.content.Context;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface o20 {
-    long a();
+    o20 a(JSONObject jSONObject);
 
-    String a(Context context);
+    void b(JSONObject jSONObject);
 
-    String b();
-
-    String b(Context context);
-
-    String c(Context context);
-
-    String d(Context context);
+    boolean b();
 }

@@ -1,36 +1,33 @@
 package com.repackage;
 
-import android.util.Log;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
+import android.content.Context;
+import android.view.View;
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import com.tachikoma.core.component.anim.AnimationProperty;
 /* loaded from: classes5.dex */
 public class cc3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a implements Runnable {
+    public static class a extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ boolean b;
+        public final /* synthetic */ View a;
 
-        public a(String str, boolean z) {
+        public a(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Boolean.valueOf(z)};
+                Object[] objArr = {view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -40,44 +37,87 @@ public class cc3 {
                     return;
                 }
             }
-            this.a = str;
-            this.b = z;
+            this.a = view2;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = AppRuntime.getAppContext().getFilesDir().getPath() + File.separator + cc3.b;
-                if (cc3.a) {
-                    Log.d("SwanAppFeedbackUtils", "recordFeedbackExtInfo: " + this.a);
-                }
-                ki2.b(str, this.a, this.b);
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                this.a.setTranslationX(0.0f);
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755802050, "Lcom/repackage/cc3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755802050, "Lcom/repackage/cc3;");
+    public static void a(bz1 bz1Var, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, bz1Var, context) == null) {
+            b(bz1Var, context, 2);
+        }
+    }
+
+    public static void b(bz1 bz1Var, Context context, int i) {
+        View S;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLI(65537, null, bz1Var, context, i) == null) || bz1Var == null || bz1Var.k() < i) {
+            return;
+        }
+        yy1 j = bz1Var.j(bz1Var.k() - i);
+        yy1 m = bz1Var.m();
+        if (m == null || !m.D0) {
+            float o = jd3.o(context) >> 2;
+            if (j == null || (S = j.S()) == null) {
                 return;
             }
+            ObjectAnimator.ofFloat(S, AnimationProperty.TRANSLATE_X, -o, 0.0f).setDuration(300L).start();
         }
-        a = rf1.a;
-        b = "aiapps_folder" + File.separator + "feed_back_record.txt";
     }
 
-    public static void c(@NonNull String str, boolean z) {
+    public static void c(bz1 bz1Var, Context context) {
+        View S;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65539, null, str, z) == null) {
-            bc3.k(new a(str, z), "record_feedback_ext_info");
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, bz1Var, context) == null) || bz1Var == null || bz1Var.k() < 2) {
+            return;
+        }
+        yy1 j = bz1Var.j(bz1Var.k() - 2);
+        float o = jd3.o(context) >> 2;
+        if (j == null || (S = j.S()) == null) {
+            return;
+        }
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(S, AnimationProperty.TRANSLATE_X, 0.0f, -o);
+        ofFloat.setDuration(300L).start();
+        ofFloat.addListener(new a(S));
+    }
+
+    public static void d(@NonNull od4 od4Var, String str, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLII(65539, null, od4Var, str, i, i2) == null) || od4Var == null) {
+            return;
+        }
+        char c = 65535;
+        int hashCode = str.hashCode();
+        if (hashCode != -1876181062) {
+            if (hashCode != -983638536) {
+                if (hashCode == 1528366175 && str.equals("showModalPage")) {
+                    c = 1;
+                }
+            } else if (str.equals("navigateBack")) {
+                c = 0;
+            }
+        } else if (str.equals("hideModalPage")) {
+            c = 2;
+        }
+        if (c != 0) {
+            if (c == 1 || c == 2) {
+                return;
+            }
+            od4Var.i(i, i2);
+            return;
+        }
+        bz1 V = fl2.U().V();
+        yy1 j = V.j(V.k() - 1);
+        if (j == null || !j.D0) {
+            od4Var.i(i, i2);
         }
     }
 }

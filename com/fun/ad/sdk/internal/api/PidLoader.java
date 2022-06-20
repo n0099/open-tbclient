@@ -11,10 +11,10 @@ import com.fun.ad.sdk.FunNativeAdInflater;
 import com.fun.ad.sdk.FunSplashAd;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import com.repackage.zg9;
+import com.repackage.hh9;
 /* loaded from: classes4.dex */
 public interface PidLoader {
-    void addListener(zg9 zg9Var);
+    void addListener(hh9 hh9Var);
 
     void destroy();
 
@@ -37,7 +37,7 @@ public interface PidLoader {
 
     boolean load(Context context, FunAdSlot funAdSlot);
 
-    void removeListener(zg9 zg9Var);
+    void removeListener(hh9 hh9Var);
 
     boolean show(Activity activity, ViewGroup viewGroup, String str, FunNativeAdInflater funNativeAdInflater);
 

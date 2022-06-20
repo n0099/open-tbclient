@@ -6,19 +6,23 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.pushservice.PushManager;
 import com.baidu.android.pushservice.PushMessageReceiver;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.mutiprocess.push.PushRecevierEvent;
+import com.baidu.tieba.push.PushGeneralData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cx4;
-import com.repackage.jg;
-import com.repackage.ys4;
+import com.repackage.ht4;
+import com.repackage.ng;
+import com.repackage.p55;
+import com.repackage.px4;
 import java.net.URISyntaxException;
 import java.util.List;
 import org.json.JSONException;
@@ -50,7 +54,8 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, Integer.valueOf(i), str, str2, str3, str4}) == null) {
             String str5 = "onBind errorCode=" + i;
             if (i == 0) {
-                ys4.k().u(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
+                PushManager.setPushBackStatus(TbadkCoreApplication.getInst(), false);
+                ht4.k().u(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
                 TbadkCoreApplication.getInst().setYunpushChannelId(str3);
             }
         }
@@ -73,7 +78,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     @Override // com.baidu.android.pushservice.PushMessageReceiver
     public void onMessage(Context context, String str, String str2, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(1048579, this, context, str, str2, i) == null) || TextUtils.isEmpty(str) || cx4.K()) {
+        if (!(interceptable == null || interceptable.invokeLLLI(1048579, this, context, str, str2, i) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         try {
@@ -88,20 +93,29 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
                 }
             }
             String str4 = "";
-            if (!TextUtils.isEmpty(str3) && str3.contains(YunPushProxyActivity.PUSH_BODY)) {
-                JSONObject jSONObject3 = new JSONObject(str3.substring(str3.indexOf(YunPushProxyActivity.PUSH_BODY) + 20));
+            if (!TextUtils.isEmpty(str3) && str3.contains("tbyunpushnotifybody=")) {
+                JSONObject jSONObject3 = new JSONObject(str3.substring(str3.indexOf("tbyunpushnotifybody=") + 20));
                 if (!jSONObject3.isNull("task_id")) {
                     str4 = jSONObject3.getString("task_id");
                 }
             }
-            int e = jg.e(str4, 2500);
-            if (e < 2500) {
-                e += 2500;
+            if (!jSONObject.isNull("st_ext")) {
+                PushGeneralData pushGeneralData = new PushGeneralData();
+                pushGeneralData.parseData(jSONObject.optString("st_ext"));
+                PushRecevierEvent pushRecevierEvent = new PushRecevierEvent();
+                pushRecevierEvent.generalData = pushGeneralData;
+                p55.i(pushRecevierEvent);
+            } else if (px4.K()) {
+            } else {
+                int e = ng.e(str4, 2500);
+                if (e < 2500) {
+                    e += 2500;
+                }
+                int i2 = e;
+                Intent parseUri = Intent.parseUri(str3, 1);
+                parseUri.setFlags(276824064);
+                NotificationHelper.showNotification(context, i2, string, string2, string2, PendingIntent.getActivity(context, i2, parseUri, 134217728), false);
             }
-            int i2 = e;
-            Intent parseUri = Intent.parseUri(str3, 1);
-            parseUri.setFlags(276824064);
-            NotificationHelper.showNotification(context, i2, string, string2, string2, PendingIntent.getActivity(context, i2, parseUri, 134217728), false);
         } catch (Exception unused) {
         }
     }

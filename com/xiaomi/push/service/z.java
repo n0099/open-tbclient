@@ -1,69 +1,62 @@
 package com.xiaomi.push.service;
 
-import android.content.Context;
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.hf;
-import com.xiaomi.push.hp;
-import com.xiaomi.push.ie;
-import com.xiaomi.push.ip;
-import com.xiaomi.push.service.bk;
-import java.util.HashMap;
+import com.xiaomi.push.Cif;
+import com.xiaomi.push.gh;
+import com.xiaomi.push.service.XMPushService;
 /* loaded from: classes8.dex */
-public final class z extends bk.a {
+public final class z extends XMPushService.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ XMPushService a;
+    public final /* synthetic */ Cif a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ l f965a;
+    public final /* synthetic */ XMPushService f1004a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z(String str, long j, XMPushService xMPushService, l lVar) {
-        super(str, j);
+    public z(int i, XMPushService xMPushService, Cif cif) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j), xMPushService, lVar};
+            Object[] objArr = {Integer.valueOf(i), xMPushService, cif};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Long) objArr2[1]).longValue());
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = xMPushService;
-        this.f965a = lVar;
+        this.f1004a = xMPushService;
+        this.a = cif;
     }
 
-    @Override // com.xiaomi.push.service.bk.a
-    public void a(bk bkVar) {
+    @Override // com.xiaomi.push.service.XMPushService.j
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bkVar) == null) {
-            String a = bkVar.a("GAID", "gaid");
-            String a2 = com.xiaomi.push.i.a((Context) this.a);
-            com.xiaomi.channel.commonutils.logger.b.c("gaid :" + a2);
-            if (TextUtils.isEmpty(a2) || TextUtils.equals(a, a2)) {
-                return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "send app absent message." : (String) invokeV.objValue;
+    }
+
+    @Override // com.xiaomi.push.service.XMPushService.j
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            try {
+                ah.a(this.f1004a, ah.a(this.a.b(), this.a.m461a()));
+            } catch (gh e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
+                this.f1004a.a(10, e);
             }
-            bkVar.a("GAID", "gaid", a2);
-            ie ieVar = new ie();
-            ieVar.b(this.f965a.d);
-            ieVar.c(hp.g.f490a);
-            ieVar.a(at.a());
-            ieVar.a(new HashMap());
-            ieVar.m504a().put("gaid", a2);
-            byte[] a3 = ip.a(y.a(this.a.getPackageName(), this.f965a.d, ieVar, hf.i));
-            XMPushService xMPushService = this.a;
-            xMPushService.a(xMPushService.getPackageName(), a3, true);
         }
     }
 }

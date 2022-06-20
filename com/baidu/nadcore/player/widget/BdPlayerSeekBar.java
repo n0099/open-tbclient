@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jw0;
-import com.repackage.op0;
+import com.repackage.nw0;
+import com.repackage.sp0;
 import kotlin.Metadata;
 import kotlin.jvm.JvmField;
 import kotlin.jvm.JvmOverloads;
@@ -28,7 +28,7 @@ public class BdPlayerSeekBar extends FrameLayout {
     public BdThumbSeekBarView a;
     public BdPlayerProgressView b;
     public BdPlayerProgressView c;
-    public op0 d;
+    public sp0 d;
     @JvmField
     public boolean e;
 
@@ -63,7 +63,7 @@ public class BdPlayerSeekBar extends FrameLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, bdThumbSeekBarView) == null) {
                 BdPlayerSeekBar bdPlayerSeekBar = this.a;
                 bdPlayerSeekBar.e = true;
-                op0 seekBarListener = bdPlayerSeekBar.getSeekBarListener();
+                sp0 seekBarListener = bdPlayerSeekBar.getSeekBarListener();
                 if (seekBarListener != null) {
                     seekBarListener.a(bdThumbSeekBarView);
                 }
@@ -75,7 +75,7 @@ public class BdPlayerSeekBar extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bdThumbSeekBarView, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
                 this.a.setPosition(i);
-                op0 seekBarListener = this.a.getSeekBarListener();
+                sp0 seekBarListener = this.a.getSeekBarListener();
                 if (seekBarListener != null) {
                     seekBarListener.b(bdThumbSeekBarView, i, z);
                 }
@@ -88,7 +88,7 @@ public class BdPlayerSeekBar extends FrameLayout {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdThumbSeekBarView) == null) {
                 BdPlayerSeekBar bdPlayerSeekBar = this.a;
                 bdPlayerSeekBar.e = false;
-                op0 seekBarListener = bdPlayerSeekBar.getSeekBarListener();
+                sp0 seekBarListener = bdPlayerSeekBar.getSeekBarListener();
                 if (seekBarListener != null) {
                     seekBarListener.c(this.a.getSeekBarView());
                 }
@@ -147,10 +147,10 @@ public class BdPlayerSeekBar extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0586, this);
-            this.b = (BdPlayerProgressView) findViewById(R.id.obfuscated_res_0x7f0914a7);
-            this.c = (BdPlayerProgressView) findViewById(R.id.obfuscated_res_0x7f0914a6);
-            BdThumbSeekBarView bdThumbSeekBarView = (BdThumbSeekBarView) findViewById(R.id.obfuscated_res_0x7f09134e);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0583, this);
+            this.b = (BdPlayerProgressView) findViewById(R.id.obfuscated_res_0x7f091499);
+            this.c = (BdPlayerProgressView) findViewById(R.id.obfuscated_res_0x7f091498);
+            BdThumbSeekBarView bdThumbSeekBarView = (BdThumbSeekBarView) findViewById(R.id.obfuscated_res_0x7f091344);
             this.a = bdThumbSeekBarView;
             if (bdThumbSeekBarView != null) {
                 bdThumbSeekBarView.setOnSeekBarChangeListener(new a(this));
@@ -158,10 +158,10 @@ public class BdPlayerSeekBar extends FrameLayout {
         }
     }
 
-    public final op0 getSeekBarListener() {
+    public final sp0 getSeekBarListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (op0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (sp0) invokeV.objValue;
     }
 
     public final BdThumbSeekBarView getSeekBarView() {
@@ -188,7 +188,7 @@ public class BdPlayerSeekBar extends FrameLayout {
                 bdThumbSeekBarView.setMax(i);
             }
             if (this.c != null) {
-                String b = jw0.b(i, false);
+                String b = nw0.b(i, false);
                 if (b != null) {
                     if (!(!(b.length() == 0))) {
                         b = null;
@@ -213,7 +213,7 @@ public class BdPlayerSeekBar extends FrameLayout {
                     z = true;
                 }
             }
-            String b = jw0.b(i, z);
+            String b = nw0.b(i, z);
             BdPlayerProgressView bdPlayerProgressView = this.b;
             if (bdPlayerProgressView != null) {
                 if (!(true ^ TextUtils.isEmpty(b))) {
@@ -226,10 +226,10 @@ public class BdPlayerSeekBar extends FrameLayout {
         }
     }
 
-    public final void setSeekBarListener(op0 op0Var) {
+    public final void setSeekBarListener(sp0 sp0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, op0Var) == null) {
-            this.d = op0Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, sp0Var) == null) {
+            this.d = sp0Var;
         }
     }
 

@@ -36,7 +36,7 @@ public class GroupImageView extends TbClipImageView {
         }
     }
 
-    public final void w() {
+    public final void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setDrawerType(1);
@@ -87,8 +87,8 @@ public class GroupImageView extends TbClipImageView {
                 return;
             }
         }
-        this.w0 = R.drawable.obfuscated_res_0x7f081233;
+        this.w0 = R.drawable.obfuscated_res_0x7f081224;
         this.x0 = R.color.CAM_X0205;
-        w();
+        v();
     }
 }

@@ -1,125 +1,43 @@
 package com.repackage;
 
-import android.view.View;
-import android.widget.AbsListView;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.enterForum.tabfeed.EnterForumTabFeedFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class l56 implements AbsListView.OnScrollListener {
+public class l56 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-    public int b;
-    public c c;
+    public EnterForumTabFeedFragment a;
+    public BdTypeRecyclerView b;
+    public x56 c;
+    public o56 d;
+    public q56 e;
+    public p56 f;
+    public r56 g;
+    public y56 h;
+    public t56 i;
+    public v56 j;
+    public u56 k;
+    public s56 l;
+    public w56 m;
+    public n56 n;
+    public z56 o;
+    public List<an> p;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public List<d> a;
-
-        public /* synthetic */ b(l56 l56Var, AbsListView absListView, int i, a aVar) {
-            this(l56Var, absListView, i);
-        }
-
-        public final int b(b bVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
-                if (bVar == null) {
-                    return 0;
-                }
-                for (d dVar : this.a) {
-                    for (d dVar2 : bVar.a) {
-                        if (dVar.a == dVar2.a) {
-                            return dVar.b - dVar2.b;
-                        }
-                    }
-                }
-                return 0;
-            }
-            return invokeL.intValue;
-        }
-
-        public b(l56 l56Var, AbsListView absListView, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l56Var, absListView, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new ArrayList();
-            int childCount = absListView.getChildCount();
-            for (int i4 = 0; i4 < childCount; i4++) {
-                View childAt = absListView.getChildAt(i4);
-                if (childAt != null) {
-                    this.a.add(new d(l56Var, childAt, i + i4, null));
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a(AbsListView absListView, int i, int i2);
-    }
-
-    /* loaded from: classes6.dex */
-    public class d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-
-        public /* synthetic */ d(l56 l56Var, View view2, int i, a aVar) {
-            this(l56Var, view2, i);
-        }
-
-        public d(l56 l56Var, View view2, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l56Var, view2, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = view2.getTop();
-            view2.getBottom();
-        }
-    }
-
-    public l56() {
+    public l56(EnterForumTabFeedFragment enterForumTabFeedFragment, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {enterForumTabFeedFragment, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -129,60 +47,100 @@ public class l56 implements AbsListView.OnScrollListener {
                 return;
             }
         }
-        this.b = 0;
+        this.p = new LinkedList();
+        this.a = enterForumTabFeedFragment;
+        this.b = bdTypeRecyclerView;
+        a();
     }
 
-    public void a(c cVar) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            this.c = cVar;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            x56 x56Var = new x56(this.a.getPageContext(), ThreadData.TYPE_USER_NORMAL, this.a.getUniqueId(), this.a.t1());
+            this.c = x56Var;
+            x56Var.d0(this.b);
+            this.p.add(this.c);
+            o56 o56Var = new o56(this.a.getPageContext(), ThreadData.TYPE_CONTENT_FEED_PIC_NORMMAL, this.a.getUniqueId(), this.a.t1());
+            this.d = o56Var;
+            o56Var.e0(this.b);
+            this.p.add(this.d);
+            q56 q56Var = new q56(this.a.getPageContext(), ThreadData.TYPE_CONTENT_SINGLE_V_NORMAL, this.a.getUniqueId(), this.a.t1());
+            this.e = q56Var;
+            q56Var.d0(this.b);
+            this.p.add(this.e);
+            p56 p56Var = new p56(this.a.getPageContext(), ThreadData.TYPE_CONTENT_MULTI_PIC_NORMMAL, this.a.getUniqueId(), this.a.t1());
+            this.f = p56Var;
+            p56Var.d0(this.b);
+            this.p.add(this.f);
+            r56 r56Var = new r56(this.a.getPageContext(), ThreadData.TYPE_CONTENT_TEXT_NORMAL, this.a.getUniqueId(), this.a.t1());
+            this.g = r56Var;
+            r56Var.d0(this.b);
+            this.p.add(this.g);
+            y56 y56Var = new y56(this.a.getPageContext(), ThreadData.TYPE_VIDEO, this.a.getUniqueId(), this.a.t1());
+            this.h = y56Var;
+            y56Var.g0(this.b);
+            this.p.add(this.h);
+            t56 t56Var = new t56(this.a.getPageContext(), ThreadData.TYPE_ITEM, this.a.getUniqueId(), this.a.t1());
+            this.i = t56Var;
+            t56Var.b0(this.b);
+            this.p.add(this.i);
+            v56 v56Var = new v56(this.a.getPageContext(), ThreadData.TYPE_SINGLE_LINK, this.a.getUniqueId(), this.a.t1());
+            this.j = v56Var;
+            v56Var.d0(this.b);
+            this.p.add(this.j);
+            u56 u56Var = new u56(this.a.getPageContext(), ThreadData.TYPE_MULTI_LINK, this.a.getUniqueId(), this.a.t1());
+            this.k = u56Var;
+            u56Var.b0(this.b);
+            this.p.add(this.k);
+            s56 s56Var = new s56(this.a.getPageContext(), ThreadData.TYPE_ENTER_FORUM, this.a.getUniqueId(), this.a.t1());
+            this.l = s56Var;
+            s56Var.d0(this.b);
+            this.p.add(this.l);
+            w56 w56Var = new w56(this.a.getPageContext(), ThreadData.TYPE_BOTTOM_NORMAL, this.a.getUniqueId(), this.a.t1());
+            this.m = w56Var;
+            w56Var.d0(this.b);
+            this.p.add(this.m);
+            n56 n56Var = new n56(this.a.getPageContext(), ThreadData.TYPE_ARTICLE, this.a.getUniqueId(), this.a.t1());
+            this.n = n56Var;
+            n56Var.e0(this.b);
+            this.p.add(this.n);
+            z56 z56Var = new z56(this.a.getPageContext(), up4.d, this.a.getUniqueId(), this.a.t1());
+            this.o = z56Var;
+            z56Var.c0(this.b);
+            this.p.add(this.o);
+            this.b.a(this.p);
         }
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        View childAt;
-        c cVar;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i, i2, i3) == null) || absListView == null || i < 0 || absListView.getChildCount() <= 0 || (childAt = absListView.getChildAt(0)) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.getAdapter().notifyDataSetChanged();
         }
-        if (i == 0 && childAt.getTop() == absListView.getPaddingTop()) {
-            int i4 = this.b;
-            if (i4 != 0 && (cVar = this.c) != null) {
-                cVar.a(absListView, 0, -i4);
+    }
+
+    public void c(ArrayList<nn> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
+            this.b.setData(arrayList);
+        }
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            o56 o56Var = this.d;
+            if (o56Var != null) {
+                o56Var.setFromCDN(z);
             }
-            this.b = 0;
-            this.a = null;
-            return;
-        }
-        b bVar = new b(this, absListView, i, null);
-        b bVar2 = this.a;
-        if (bVar2 != null) {
-            int b2 = bVar2.b(bVar);
-            this.a = bVar;
-            int i5 = this.b + b2;
-            this.b = i5;
-            c cVar2 = this.c;
-            if (cVar2 != null) {
-                cVar2.a(absListView, i5, b2);
-                return;
+            p56 p56Var = this.f;
+            if (p56Var != null) {
+                p56Var.setFromCDN(z);
             }
-            return;
-        }
-        this.a = bVar;
-        int paddingTop = absListView.getPaddingTop() - childAt.getTop();
-        this.b = paddingTop;
-        c cVar3 = this.c;
-        if (cVar3 != null) {
-            cVar3.a(absListView, paddingTop, 0);
-        }
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, absListView, i) == null) {
+            q56 q56Var = this.e;
+            if (q56Var != null) {
+                q56Var.setFromCDN(z);
+            }
         }
     }
 }

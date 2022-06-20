@@ -1,120 +1,192 @@
 package com.repackage;
 
-import android.database.Cursor;
-import com.baidu.swan.apps.model.SwanAppBearInfo;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class ql3 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String b = "ql3";
+    public static final boolean c;
+    public static SharedPreferences d;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    public static HashMap<String, PMSAppInfo> a() {
-        InterceptResult invokeV;
-        HashMap<String, PMSAppInfo> hashMap;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            Cursor query = v74.a().getReadableDatabase().query("swan_app", null, null, null, null, null, null);
-            HashMap<String, PMSAppInfo> hashMap2 = new HashMap<>();
-            if (query == null || !query.moveToFirst()) {
-                hashMap = hashMap2;
-            } else {
-                int columnIndex = query.getColumnIndex("app_id");
-                int columnIndex2 = query.getColumnIndex(GameGuideConfigInfo.KEY_APP_KEY);
-                int columnIndex3 = query.getColumnIndex("app_sign");
-                int columnIndex4 = query.getColumnIndex("version_code");
-                int columnIndex5 = query.getColumnIndex("version_name");
-                int columnIndex6 = query.getColumnIndex("description");
-                int columnIndex7 = query.getColumnIndex("app_status");
-                int columnIndex8 = query.getColumnIndex("status_detail");
-                int columnIndex9 = query.getColumnIndex("status_desc");
-                int columnIndex10 = query.getColumnIndex("resume_date");
-                int columnIndex11 = query.getColumnIndex("icon_url");
-                int columnIndex12 = query.getColumnIndex("app_name");
-                int columnIndex13 = query.getColumnIndex("service_category");
-                int columnIndex14 = query.getColumnIndex("subject_info");
-                HashMap<String, PMSAppInfo> hashMap3 = hashMap2;
-                int columnIndex15 = query.getColumnIndex("type");
-                int columnIndex16 = query.getColumnIndex("pkg_size");
-                int columnIndex17 = query.getColumnIndex("pending_err_code");
-                int columnIndex18 = query.getColumnIndex("app_category");
-                int columnIndex19 = query.getColumnIndex("orientation");
-                int columnIndex20 = query.getColumnIndex("max_age");
-                int columnIndex21 = query.getColumnIndex("create_time");
-                int columnIndex22 = query.getColumnIndex("webview_domains");
-                int columnIndex23 = query.getColumnIndex("web_action");
-                int columnIndex24 = query.getColumnIndex("domains");
-                int columnIndex25 = query.getColumnIndex(SwanAppBearInfo.BEAR_INFO);
-                int columnIndex26 = query.getColumnIndex("server_ext");
-                int columnIndex27 = query.getColumnIndex("pay_protected");
-                while (true) {
-                    PMSAppInfo pMSAppInfo = new PMSAppInfo();
-                    int i = columnIndex14;
-                    pMSAppInfo.appId = query.getString(columnIndex);
-                    pMSAppInfo.appKey = query.getString(columnIndex2);
-                    int i2 = columnIndex;
-                    int i3 = columnIndex2;
-                    pMSAppInfo.appSign = query.getLong(columnIndex3);
-                    pMSAppInfo.versionCode = query.getInt(columnIndex4);
-                    pMSAppInfo.versionName = query.getString(columnIndex5);
-                    pMSAppInfo.description = query.getString(columnIndex6);
-                    pMSAppInfo.appStatus = query.getInt(columnIndex7);
-                    pMSAppInfo.statusDetail = query.getString(columnIndex8);
-                    pMSAppInfo.statusDesc = query.getString(columnIndex9);
-                    pMSAppInfo.resumeDate = query.getString(columnIndex10);
-                    pMSAppInfo.iconUrl = query.getString(columnIndex11);
-                    pMSAppInfo.appName = query.getString(columnIndex12);
-                    pMSAppInfo.serviceCategory = query.getString(columnIndex13);
-                    pMSAppInfo.subjectInfo = query.getString(i);
-                    int i4 = columnIndex15;
-                    pMSAppInfo.type = query.getInt(i4);
-                    int i5 = columnIndex3;
-                    int i6 = columnIndex16;
-                    pMSAppInfo.pkgSize = query.getLong(i6);
-                    int i7 = columnIndex17;
-                    pMSAppInfo.pendingErrCode = query.getInt(i7);
-                    int i8 = columnIndex18;
-                    pMSAppInfo.appCategory = query.getInt(i8);
-                    int i9 = columnIndex19;
-                    pMSAppInfo.setOrientation(query.getInt(i9));
-                    int i10 = columnIndex4;
-                    int i11 = columnIndex20;
-                    pMSAppInfo.maxAge = query.getLong(i11);
-                    int i12 = columnIndex21;
-                    pMSAppInfo.createTime = query.getLong(i12);
-                    pMSAppInfo.webViewDomains = query.getString(columnIndex22);
-                    pMSAppInfo.webAction = query.getString(columnIndex23);
-                    pMSAppInfo.domains = query.getString(columnIndex24);
-                    pMSAppInfo.bearInfo = query.getString(columnIndex25);
-                    pMSAppInfo.serverExt = query.getString(columnIndex26);
-                    pMSAppInfo.payProtected = query.getInt(columnIndex27);
-                    hashMap = hashMap3;
-                    hashMap.put(pMSAppInfo.appId, pMSAppInfo);
-                    if (!query.moveToNext()) {
-                        break;
-                    }
-                    hashMap3 = hashMap;
-                    columnIndex = i2;
-                    columnIndex14 = i;
-                    columnIndex2 = i3;
-                    columnIndex21 = i12;
-                    columnIndex3 = i5;
-                    columnIndex15 = i4;
-                    columnIndex16 = i6;
-                    columnIndex17 = i7;
-                    columnIndex18 = i8;
-                    columnIndex20 = i11;
-                    columnIndex19 = i9;
-                    columnIndex4 = i10;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755376327, "Lcom/repackage/ql3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            kf4.d(query);
-            return hashMap;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755376327, "Lcom/repackage/ql3;");
+                return;
+            }
         }
-        return (HashMap) invokeV.objValue;
+        c = cg1.a;
+        d = null;
+    }
+
+    public ql3(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        this.a = context;
+    }
+
+    public static int a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
+            } catch (PackageManager.NameNotFoundException e) {
+                if (c) {
+                    String str = b;
+                    Log.e(str, "error:" + e.getMessage());
+                    return -1;
+                }
+                return -1;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public static SharedPreferences c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (d == null) {
+                d = context.getSharedPreferences("downgradefile", 0);
+            }
+            return d;
+        }
+        return (SharedPreferences) invokeL.objValue;
+    }
+
+    public static ql3 d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? new ql3(context) : (ql3) invokeL.objValue;
+    }
+
+    public static void j(Context context, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65541, null, context, i) == null) {
+            if (c) {
+                String str = b;
+                Log.d(str, "set last version code:" + i);
+            }
+            SharedPreferences.Editor edit = c(context).edit();
+            edit.putInt("last_versioncode_key", i);
+            edit.apply();
+        }
+    }
+
+    public final int b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            int i = c(context).getInt("old_versioncode_key", 0);
+            if (c) {
+                String str = b;
+                Log.d(str, "get old versioncode:" + i);
+            }
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
+    public final void e(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+        }
+    }
+
+    public final void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            tb3.d(0, i);
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && c) {
+            String str = b;
+            Log.d(str, "新旧版本一样:" + b(this.a));
+        }
+    }
+
+    public final void h(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            tb3.d(i2, i);
+            h92.d.u();
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            int a = a(this.a);
+            int b2 = b(this.a);
+            if (c) {
+                String str = b;
+                Log.d(str, "处理升级逻辑：newVersionCode=" + a + " /oldVersionCode=" + b2);
+            }
+            if (b2 == 0) {
+                f(a);
+                k(this.a, a);
+                j(this.a, b2);
+            } else if (a > b2) {
+                h(a, b2);
+                k(this.a, a);
+                j(this.a, b2);
+            } else if (a < b2) {
+                e(a, b2);
+                k(this.a, a);
+                j(this.a, b2);
+            } else {
+                g();
+            }
+        }
+    }
+
+    public final void k(Context context, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048582, this, context, i) == null) {
+            if (c) {
+                String str = b;
+                Log.d(str, "set new versioncode:" + i);
+            }
+            SharedPreferences.Editor edit = c(context).edit();
+            edit.putInt("old_versioncode_key", i);
+            edit.apply();
+        }
     }
 }

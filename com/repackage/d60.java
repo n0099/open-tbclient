@@ -1,39 +1,41 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.util.DisplayMetrics;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.zip.GZIPOutputStream;
 /* loaded from: classes5.dex */
 public final class d60 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static DisplayMetrics a(Context context) {
+    public static byte[] a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (context == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            byte[] bArr2 = null;
+            if (bArr != null) {
+                try {
+                    if (bArr.length > 0) {
+                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                        GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
+                        gZIPOutputStream.write(bArr);
+                        gZIPOutputStream.finish();
+                        gZIPOutputStream.close();
+                        bArr2 = byteArrayOutputStream.toByteArray();
+                        byteArrayOutputStream.close();
+                        return bArr2;
+                    }
+                    return null;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    return bArr2;
+                }
             }
-            return context.getResources().getDisplayMetrics();
+            return null;
         }
-        return (DisplayMetrics) invokeL.objValue;
-    }
-
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return "unknown";
-            }
-        }
-        return (String) invokeL.objValue;
+        return (byte[]) invokeL.objValue;
     }
 }

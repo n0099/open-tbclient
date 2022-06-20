@@ -33,38 +33,38 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fi8;
-import com.repackage.jg;
-import com.repackage.ki;
-import com.repackage.li;
-import com.repackage.mg;
-import com.repackage.nu5;
-import com.repackage.wa;
-import com.repackage.yu5;
+import com.repackage.mv5;
+import com.repackage.ng;
+import com.repackage.oi;
+import com.repackage.pi;
+import com.repackage.qg;
+import com.repackage.xi8;
+import com.repackage.xv5;
+import com.repackage.za;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class CandidateSearchActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<nu5> dataList;
-    public CandidateSearchAdapter mAdapter;
-    public TextView mButtonCancelSearch;
-    public ImageView mButtonDel;
-    public wa mDataResListener;
-    public String mForumId;
-    public yu5 mModel;
-    public NavigationBar mNavigationBar;
-    public View mNavigationCustomView;
-    public View mNoDataView;
-    public View.OnClickListener mOnClickListener;
-    public TextView.OnEditorActionListener mOnEditorActionListener;
-    public BdRecyclerView mRecyclerView;
-    public ImageView mSearchIcon;
-    public EditText mSearchbox;
-    public Runnable mShowKeyboardRunnable;
-    public TextWatcher mTextWatcher;
-    public HttpMessageListener mVoteListener;
+    public NavigationBar a;
+    public BdRecyclerView b;
+    public CandidateSearchAdapter c;
+    public xv5 d;
+    public String e;
+    public View f;
+    public View g;
+    public ImageView h;
+    public EditText i;
+    public ImageView j;
+    public TextView k;
+    public List<mv5> l;
+    public View.OnClickListener m;
+    public za n;
+    public TextView.OnEditorActionListener o;
+    public HttpMessageListener p;
+    public TextWatcher q;
+    public Runnable r;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -94,12 +94,12 @@ public class CandidateSearchActivity extends BaseActivity {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() != this.a.mButtonCancelSearch.getId()) {
-                    if (view2.getId() == this.a.mButtonDel.getId()) {
-                        this.a.mSearchbox.setText("");
-                        this.a.mRecyclerView.setVisibility(0);
-                        this.a.mNoDataView.setVisibility(8);
-                        this.a.mAdapter.setData(new ArrayList());
+                if (view2.getId() != this.a.k.getId()) {
+                    if (view2.getId() == this.a.j.getId()) {
+                        this.a.i.setText("");
+                        this.a.b.setVisibility(0);
+                        this.a.f.setVisibility(8);
+                        this.a.c.setData(new ArrayList());
                         return;
                     }
                     return;
@@ -110,7 +110,7 @@ public class CandidateSearchActivity extends BaseActivity {
     }
 
     /* loaded from: classes3.dex */
-    public class b extends wa {
+    public class b extends za {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CandidateSearchActivity a;
@@ -137,35 +137,35 @@ public class CandidateSearchActivity extends BaseActivity {
             this.a = candidateSearchActivity;
         }
 
-        @Override // com.repackage.wa
+        @Override // com.repackage.za
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
                 return;
             }
-            nu5 nu5Var = null;
+            mv5 mv5Var = null;
             if (responsedMessage instanceof CandidateSearchHttpResMsg) {
-                nu5Var = ((CandidateSearchHttpResMsg) responsedMessage).candidateData;
+                mv5Var = ((CandidateSearchHttpResMsg) responsedMessage).candidateData;
             } else if (responsedMessage instanceof CandidateSearchSocketResMsg) {
-                nu5Var = ((CandidateSearchSocketResMsg) responsedMessage).candidateData;
+                mv5Var = ((CandidateSearchSocketResMsg) responsedMessage).candidateData;
             }
-            if (responsedMessage.getError() != 0 || nu5Var == null) {
-                this.a.mRecyclerView.setVisibility(8);
-                this.a.mNoDataView.setVisibility(0);
+            if (responsedMessage.getError() != 0 || mv5Var == null) {
+                this.a.b.setVisibility(8);
+                this.a.f.setVisibility(0);
                 return;
             }
-            this.a.mRecyclerView.setVisibility(0);
-            this.a.mNoDataView.setVisibility(8);
-            if (this.a.mSearchbox.getText() != null) {
-                nu5Var.j = this.a.mSearchbox.getText().toString();
+            this.a.b.setVisibility(0);
+            this.a.f.setVisibility(8);
+            if (this.a.i.getText() != null) {
+                mv5Var.j = this.a.i.getText().toString();
             }
-            if (this.a.dataList != null) {
-                this.a.dataList.clear();
+            if (this.a.l != null) {
+                this.a.l.clear();
             } else {
-                this.a.dataList = new ArrayList();
+                this.a.l = new ArrayList();
             }
-            this.a.dataList.add(nu5Var);
-            this.a.mAdapter.setData(this.a.dataList);
+            this.a.l.add(mv5Var);
+            this.a.c.setData(this.a.l);
         }
     }
 
@@ -199,8 +199,8 @@ public class CandidateSearchActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i, keyEvent)) == null) {
                 if (i == 3) {
-                    if (this.a.mSearchbox.getText() != null && !TextUtils.isEmpty(this.a.mSearchbox.getText().toString()) && !TextUtils.isEmpty(this.a.mForumId)) {
-                        this.a.mModel.a(jg.e(this.a.mSearchbox.getText().toString(), 0), jg.g(this.a.mForumId, 0L));
+                    if (this.a.i.getText() != null && !TextUtils.isEmpty(this.a.i.getText().toString()) && !TextUtils.isEmpty(this.a.e)) {
+                        this.a.d.a(ng.e(this.a.i.getText().toString(), 0), ng.g(this.a.e, 0L));
                     }
                     return true;
                 }
@@ -246,25 +246,25 @@ public class CandidateSearchActivity extends BaseActivity {
             }
             int error = httpResponsedMessage.getError();
             if (error == 0) {
-                li.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f02e3);
-                if (this.a.dataList != null) {
-                    for (nu5 nu5Var : this.a.dataList) {
-                        nu5Var.k = true;
+                pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f02e3);
+                if (this.a.l != null) {
+                    for (mv5 mv5Var : this.a.l) {
+                        mv5Var.k = true;
                     }
                 }
             } else if (error == 3250023) {
-                fi8.b(error, "", null);
+                xi8.b(error, "", null);
             } else if (error == 3250021) {
                 if (httpResponsedMessage instanceof CommitVoteResMsg) {
-                    fi8.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
+                    xi8.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
                 }
             } else if (error != 3250002 && error != 3250004) {
-                li.O(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
+                pi.O(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
             } else {
                 BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
-                blockPopInfoData.block_info = ki.isEmpty(httpResponsedMessage.getErrorString()) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f031c) : httpResponsedMessage.getErrorString();
-                blockPopInfoData.ahead_info = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f031a);
-                blockPopInfoData.ok_info = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f098e);
+                blockPopInfoData.block_info = oi.isEmpty(httpResponsedMessage.getErrorString()) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f031a) : httpResponsedMessage.getErrorString();
+                blockPopInfoData.ahead_info = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0318);
+                blockPopInfoData.ok_info = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0993);
                 blockPopInfoData.ahead_url = "http://tieba.baidu.com/mo/q/userappeal";
                 AntiHelper.s(this.a, blockPopInfoData);
             }
@@ -299,7 +299,7 @@ public class CandidateSearchActivity extends BaseActivity {
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                this.a.setDelButtonVisible(!StringUtils.isNull(editable.toString()));
+                this.a.L1(!StringUtils.isNull(editable.toString()));
             }
         }
 
@@ -345,12 +345,12 @@ public class CandidateSearchActivity extends BaseActivity {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.mSearchbox == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.i == null) {
                 return;
             }
-            this.a.mSearchbox.requestFocus();
+            this.a.i.requestFocus();
             CandidateSearchActivity candidateSearchActivity = this.a;
-            li.M(candidateSearchActivity, candidateSearchActivity.mSearchbox);
+            pi.M(candidateSearchActivity, candidateSearchActivity.i);
         }
     }
 
@@ -367,88 +367,88 @@ public class CandidateSearchActivity extends BaseActivity {
                 return;
             }
         }
-        this.mOnClickListener = new a(this);
-        this.mDataResListener = new b(this, CmdConfigHttp.CMD_CANDIDATE_SEARCH, 309641);
-        this.mOnEditorActionListener = new c(this);
-        this.mVoteListener = new d(this, CmdConfigHttp.CMD_BAR_VOTE);
-        this.mTextWatcher = new e(this);
-        this.mShowKeyboardRunnable = new f(this);
+        this.m = new a(this);
+        this.n = new b(this, CmdConfigHttp.CMD_CANDIDATE_SEARCH, 309641);
+        this.o = new c(this);
+        this.p = new d(this, CmdConfigHttp.CMD_BAR_VOTE);
+        this.q = new e(this);
+        this.r = new f(this);
     }
 
-    private void initNavigationBar() {
+    public final void K1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0914f2);
-            this.mNavigationBar = navigationBar;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0914e4);
+            this.a = navigationBar;
             navigationBar.showBottomLine();
-            View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0170, (View.OnClickListener) null);
-            this.mNavigationCustomView = addCustomView;
-            this.mSearchIcon = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091c07);
-            this.mSearchbox = (EditText) this.mNavigationCustomView.findViewById(R.id.obfuscated_res_0x7f090d32);
-            ImageView imageView = (ImageView) this.mNavigationCustomView.findViewById(R.id.obfuscated_res_0x7f090d22);
-            this.mButtonDel = imageView;
-            imageView.setOnClickListener(this.mOnClickListener);
-            this.mButtonCancelSearch = (TextView) this.mNavigationCustomView.findViewById(R.id.obfuscated_res_0x7f090d21);
-            setDelButtonVisible(false);
-            this.mButtonCancelSearch.setText(getString(R.string.obfuscated_res_0x7f0f0376));
-            this.mButtonCancelSearch.setOnClickListener(this.mOnClickListener);
-            this.mSearchbox.setOnEditorActionListener(this.mOnEditorActionListener);
-            this.mSearchbox.addTextChangedListener(this.mTextWatcher);
+            View addCustomView = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d016d, (View.OnClickListener) null);
+            this.g = addCustomView;
+            this.h = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091bff);
+            this.i = (EditText) this.g.findViewById(R.id.obfuscated_res_0x7f090d23);
+            ImageView imageView = (ImageView) this.g.findViewById(R.id.obfuscated_res_0x7f090d13);
+            this.j = imageView;
+            imageView.setOnClickListener(this.m);
+            this.k = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f090d12);
+            L1(false);
+            this.k.setText(getString(R.string.obfuscated_res_0x7f0f0366));
+            this.k.setOnClickListener(this.m);
+            this.i.setOnEditorActionListener(this.o);
+            this.i.addTextChangedListener(this.q);
+        }
+    }
+
+    public void L1(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.j.setVisibility(z ? 0 : 8);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-            SkinManager.setViewTextColor(this.mNoDataView, (int) R.color.CAM_X0109);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mSearchIcon, R.drawable.icon_pure_topbar_search44_svg, R.color.CAM_X0109, null);
-            this.mSearchbox.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
-            SkinManager.setNavbarTitleColor(this.mSearchbox, R.color.CAM_X0105, R.color.s_navbar_title_color);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mButtonDel, R.drawable.obfuscated_res_0x7f0809aa, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            SkinManager.setViewTextColor(this.mButtonCancelSearch, R.color.CAM_X0302, 1);
+            this.a.onChangeSkinType(getPageContext(), i);
+            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0109);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.icon_pure_topbar_search44_svg, R.color.CAM_X0109, null);
+            this.i.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
+            SkinManager.setNavbarTitleColor(this.i, R.color.CAM_X0105, R.color.s_navbar_title_color);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.j, R.drawable.obfuscated_res_0x7f080995, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SkinManager.setViewTextColor(this.k, R.color.CAM_X0302, 1);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d002e);
             if (getIntent() != null) {
-                this.mForumId = getIntent().getStringExtra("forum_id");
+                this.e = getIntent().getStringExtra("forum_id");
             }
-            initNavigationBar();
-            BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f091a1b);
-            this.mRecyclerView = bdRecyclerView;
+            K1();
+            BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f091a12);
+            this.b = bdRecyclerView;
             bdRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-            this.mNoDataView = findViewById(R.id.obfuscated_res_0x7f091f2d);
+            this.f = findViewById(R.id.obfuscated_res_0x7f091f2d);
             CandidateSearchAdapter candidateSearchAdapter = new CandidateSearchAdapter();
-            this.mAdapter = candidateSearchAdapter;
-            this.mRecyclerView.setAdapter(candidateSearchAdapter);
-            registerListener(this.mDataResListener);
-            registerListener(this.mVoteListener);
-            this.mModel = new yu5(getPageContext());
-            mg.a().postDelayed(this.mShowKeyboardRunnable, 100L);
+            this.c = candidateSearchAdapter;
+            this.b.setAdapter(candidateSearchAdapter);
+            registerListener(this.n);
+            registerListener(this.p);
+            this.d = new xv5(getPageContext());
+            qg.a().postDelayed(this.r, 100L);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            mg.a().removeCallbacks(this.mShowKeyboardRunnable);
-        }
-    }
-
-    public void setDelButtonVisible(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.mButtonDel.setVisibility(z ? 0 : 8);
+            qg.a().removeCallbacks(this.r);
         }
     }
 }

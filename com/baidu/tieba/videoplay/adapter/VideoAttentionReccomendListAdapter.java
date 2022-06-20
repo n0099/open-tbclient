@@ -23,8 +23,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ki;
-import com.repackage.wq4;
+import com.repackage.fr4;
+import com.repackage.oi;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -68,17 +68,17 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
                 }
             }
             this.a = view2;
-            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eb0);
-            this.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091867);
-            this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091869);
+            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ea3);
+            this.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09185e);
+            this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091860);
             this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091f32);
             this.f = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091f3c);
-            this.g = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e9a);
-            this.h = view2.findViewById(R.id.obfuscated_res_0x7f090e8c);
+            this.g = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e8d);
+            this.h = view2.findViewById(R.id.obfuscated_res_0x7f090e7e);
             this.b.setRadiusById(R.string.J_X05);
             this.b.setConrers(3);
-            wq4.d(this.h).s(R.array.Mask_X003);
-            wq4 d = wq4.d(view2);
+            fr4.d(this.h).s(R.array.Mask_X003);
+            fr4 d = fr4.d(view2);
             d.n(R.string.J_X05);
             d.f(R.color.CAM_X0613);
         }
@@ -214,7 +214,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
             return;
         }
         forumViewHolder.e.setText(StringHelper.numberUniformFormatExtra(videoItemData.play_count));
-        wq4 d = wq4.d(forumViewHolder.e);
+        fr4 d = fr4.d(forumViewHolder.e);
         d.z(R.dimen.T_X09);
         d.v(R.color.CAM_X0101);
     }
@@ -254,7 +254,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         } else {
             sb.append("00");
         }
-        wq4 d = wq4.d(forumViewHolder.d);
+        fr4 d = fr4.d(forumViewHolder.d);
         d.z(R.dimen.T_X09);
         d.v(R.color.CAM_X0101);
         forumViewHolder.d.setText(sb.toString());
@@ -265,12 +265,12 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         if (!(interceptable == null || interceptable.invokeLL(1048582, this, videoItemData, forumViewHolder) == null) || videoItemData == null || forumViewHolder == null) {
             return;
         }
-        if (!ki.isEmpty(videoItemData.title)) {
+        if (!oi.isEmpty(videoItemData.title)) {
             forumViewHolder.f.setText(videoItemData.title);
-        } else if (!ki.isEmpty(videoItemData.abstext)) {
+        } else if (!oi.isEmpty(videoItemData.abstext)) {
             forumViewHolder.f.setText(videoItemData.abstext);
         } else {
-            forumViewHolder.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d09));
+            forumViewHolder.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d0e));
         }
     }
 
@@ -279,7 +279,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         if (!(interceptable == null || interceptable.invokeLL(1048583, this, videoItemData, forumViewHolder) == null) || videoItemData == null || forumViewHolder == null) {
             return;
         }
-        forumViewHolder.b.K(videoItemData.thumbnail_url, 10, false);
+        forumViewHolder.b.J(videoItemData.thumbnail_url, 10, false);
     }
 
     public void setData(List<VideoItemData> list) {

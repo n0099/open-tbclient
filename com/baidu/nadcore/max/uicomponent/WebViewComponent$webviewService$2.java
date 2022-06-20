@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vl0;
+import com.repackage.zl0;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
@@ -19,7 +19,7 @@ public final class WebViewComponent$webviewService$2 extends Lambda implements F
     public final /* synthetic */ WebViewComponent this$0;
 
     /* loaded from: classes2.dex */
-    public static final class a implements vl0 {
+    public static final class a implements zl0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WebViewComponent$webviewService$2 a;
@@ -43,18 +43,18 @@ public final class WebViewComponent$webviewService$2 extends Lambda implements F
             this.a = webViewComponent$webviewService$2;
         }
 
-        @Override // com.repackage.vl0
+        @Override // com.repackage.zl0
         public AbsContainer b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.this$0.n() : (AbsContainer) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.this$0.p() : (AbsContainer) invokeV.objValue;
         }
 
-        @Override // com.repackage.vl0
+        @Override // com.repackage.zl0
         public void e(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                this.a.this$0.t(i);
+                this.a.this$0.v(i);
             }
         }
     }

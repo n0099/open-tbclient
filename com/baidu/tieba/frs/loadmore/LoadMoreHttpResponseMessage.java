@@ -14,9 +14,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b98;
-import com.repackage.eo4;
-import com.repackage.jn;
+import com.repackage.ia8;
+import com.repackage.nn;
+import com.repackage.oo4;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,7 +32,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BannerListData bannerListData;
-    public ArrayList<jn> threadList;
+    public ArrayList<nn> threadList;
     public HashMap<String, MetaData> userMap;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -61,7 +61,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.bannerListData : (BannerListData) invokeV.objValue;
     }
 
-    public ArrayList<jn> getThreadList() {
+    public ArrayList<nn> getThreadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.threadList : (ArrayList) invokeV.objValue;
@@ -122,18 +122,18 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                             threadData.parser_title();
                             threadData.isFromBrandForum = z;
                             if (!TextUtils.isEmpty(threadData.getLegoCard())) {
-                                eo4 eo4Var = new eo4();
-                                eo4Var.i(threadData.getLegoCard());
-                                this.threadList.add(eo4Var);
+                                oo4 oo4Var = new oo4();
+                                oo4Var.h(threadData.getLegoCard());
+                                this.threadList.add(oo4Var);
                             } else {
                                 this.threadList.add(threadData);
-                                JSONObject b = b98.b(threadInfo);
+                                JSONObject b = ia8.b(threadInfo);
                                 if (b != null) {
                                     arrayList.add(b);
                                 }
                             }
                         }
-                        b98.f().h("FRS", arrayList);
+                        ia8.f().h("FRS", arrayList);
                     }
                 }
                 this.bannerListData = null;

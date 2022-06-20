@@ -1,13 +1,12 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import com.baidu.swan.pms.model.PMSPkgStatus;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.ETAG;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,7 +31,7 @@ public class yb4 {
         }
     }
 
-    public static yb4 a() {
+    public static yb4 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
@@ -48,144 +47,71 @@ public class yb4 {
         return (yb4) invokeV.objValue;
     }
 
-    public static void b(d84 d84Var, nc4 nc4Var) {
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, d84Var, nc4Var) == null) || d84Var == null) {
-            return;
-        }
-        nc4Var.a(d84Var, PMSPkgStatus.WAIT);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b74.b().i().getString("web_mode_version", "0") : (String) invokeV.objValue;
     }
 
-    public void c(JSONArray jSONArray, a74 a74Var, a74 a74Var2, a74 a74Var3) {
-        char c;
+    public static boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, jSONArray, a74Var, a74Var2, a74Var3) == null) || jSONArray == null || jSONArray.length() == 0) {
-            return;
-        }
-        xb4 xb4Var = new xb4();
-        xb4 xb4Var2 = new xb4();
-        xb4 xb4Var3 = new xb4();
-        nc4 nc4Var = new nc4();
-        nc4 nc4Var2 = new nc4();
-        nc4 nc4Var3 = new nc4();
-        zb4 x = a74Var3 != null ? a74Var3.x("so") : null;
-        for (int i = 0; i < jSONArray.length(); i++) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b74.b().i().getInt("web_mode_switch", 1) == 1 : invokeV.booleanValue;
+    }
+
+    public ArrayList<String> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String string = b74.b().i().getString("web_mode_degrade_list", "");
+            JSONArray jSONArray = null;
+            if (TextUtils.isEmpty(string)) {
+                return null;
+            }
             try {
-                JSONObject jSONObject = jSONArray.getJSONObject(i);
-                String string = jSONObject.getString("type");
-                if (!TextUtils.isEmpty(string)) {
-                    JSONObject jSONObject2 = jSONObject.getJSONObject("data");
-                    if (!TextUtils.isEmpty(jSONObject2.getString("version_name"))) {
-                        switch (string.hashCode()) {
-                            case -612557761:
-                                if (string.equals(ETAG.KEY_EXTENSION)) {
-                                    c = 2;
-                                    break;
-                                }
-                                c = 65535;
-                                break;
-                            case 3676:
-                                if (string.equals("so")) {
-                                    c = 4;
-                                    break;
-                                }
-                                c = 65535;
-                                break;
-                            case 99308:
-                                if (string.equals("ddl")) {
-                                    c = 5;
-                                    break;
-                                }
-                                c = 65535;
-                                break;
-                            case 54573042:
-                                if (string.equals("extension_game")) {
-                                    c = 3;
-                                    break;
-                                }
-                                c = 65535;
-                                break;
-                            case 714512640:
-                                if (string.equals("bbasp_core")) {
-                                    c = 0;
-                                    break;
-                                }
-                                c = 65535;
-                                break;
-                            case 714618195:
-                                if (string.equals("bbasp_game")) {
-                                    c = 1;
-                                    break;
-                                }
-                                c = 65535;
-                                break;
-                            default:
-                                c = 65535;
-                                break;
-                        }
-                        if (c == 0) {
-                            c84 c84Var = (c84) mc4.j(jSONObject2, new c84());
-                            if (c84Var != null) {
-                                b(c84Var, nc4Var);
-                                xb4Var.b = c84Var;
-                            }
-                        } else if (c == 1) {
-                            c84 c84Var2 = (c84) mc4.j(jSONObject2, new c84());
-                            if (c84Var2 != null) {
-                                b(c84Var2, nc4Var2);
-                                xb4Var2.a = c84Var2;
-                            }
-                        } else if (c == 2) {
-                            a84 a84Var = (a84) mc4.j(jSONObject2, new a84());
-                            if (a84Var != null) {
-                                b(a84Var, nc4Var);
-                                xb4Var.c = a84Var;
-                            }
-                        } else if (c == 3) {
-                            a84 a84Var2 = (a84) mc4.j(jSONObject2, new a84());
-                            if (a84Var2 != null) {
-                                b(a84Var2, nc4Var2);
-                                xb4Var2.c = a84Var2;
-                            }
-                        } else if (c != 4) {
-                            if (c == 5) {
-                                if (xb4Var3.e == null) {
-                                    xb4Var3.e = new ArrayList();
-                                }
-                                g84 g84Var = (g84) mc4.j(jSONObject2, new g84());
-                                b(g84Var, nc4Var3);
-                                xb4Var3.e.add(g84Var);
-                            }
-                        } else if (x != null) {
-                            x.l(jSONObject2);
-                        }
-                    }
-                }
+                jSONArray = new JSONArray(string);
             } catch (JSONException unused) {
             }
-        }
-        if (a74Var != null) {
-            if (nc4Var.n() == 0) {
-                a74Var.G();
-            } else {
-                a74Var.H(nc4Var);
-                q84.e(xb4Var, a74Var);
+            ArrayList<String> arrayList = new ArrayList<>();
+            if (jSONArray != null && jSONArray.length() > 0) {
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    arrayList.add(jSONArray.optString(i));
+                }
             }
+            return arrayList;
         }
-        if (a74Var2 != null) {
-            if (nc4Var2.n() == 0) {
-                a74Var2.G();
-            } else {
-                a74Var2.H(nc4Var2);
-                q84.e(xb4Var2, a74Var2);
-            }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public final String e(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            JSONArray optJSONArray = jSONObject.optJSONArray("errno_list");
+            return optJSONArray != null ? optJSONArray.toString() : "";
         }
-        if (x != null) {
-            x.p();
-        }
-        if (nc4Var3.n() <= 0 || q64.b() == null) {
+        return (String) invokeL.objValue;
+    }
+
+    public void f(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        q64.b().t(xb4Var3, nc4Var3);
+        String optString = jSONObject.optString("version");
+        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("host_use_weburl_degrade")) {
+            return;
+        }
+        int optInt = optJSONObject.optInt("host_use_weburl_degrade", 0);
+        String e = e(optJSONObject);
+        z64 b = b74.b();
+        if (b == null) {
+            return;
+        }
+        sf4 i = b.i();
+        i.putInt("web_mode_switch", optInt);
+        i.putString("web_mode_degrade_list", e);
+        i.putString("web_mode_version", optString);
     }
 }

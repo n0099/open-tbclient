@@ -71,11 +71,11 @@ public class g54 {
                     this.a.c.remove();
                     this.a.c = null;
                 }
-                MarkerOptions anchor = new MarkerOptions().position(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude())).zIndex(66).icon(this.a.d).anchor(0.5f, 0.5f);
+                MarkerOptions icon = new MarkerOptions().position(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude())).zIndex(66).icon(this.a.d);
                 g54 g54Var = this.a;
-                g54Var.c = (Marker) g54Var.b.addOverlay(anchor);
+                g54Var.c = (Marker) g54Var.b.addOverlay(icon);
                 if (this.a.g == null) {
-                    MapStatusUpdateFactory.newLatLng(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude()));
+                    this.a.b.setMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude())));
                     if (this.a.e != null) {
                         this.a.e.a(bDLocation);
                     }
@@ -127,7 +127,7 @@ public class g54 {
             locationClientOption.setCoorType(CoordType.GCJ02.name());
             locationClientOption.setScanSpan(1000);
             this.f.setLocOption(locationClientOption);
-            this.d = BitmapDescriptorFactory.fromResource(R.drawable.obfuscated_res_0x7f08018c);
+            this.d = BitmapDescriptorFactory.fromResource(R.drawable.obfuscated_res_0x7f080191);
         }
     }
 

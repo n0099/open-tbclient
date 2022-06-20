@@ -1,39 +1,27 @@
 package com.repackage;
 
-import java.util.List;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface l09 {
-    boolean a();
+public class l09 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile k09 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    int b();
-
-    boolean c(String str);
-
-    boolean d();
-
-    boolean e();
-
-    int f();
-
-    int g();
-
-    String h();
-
-    boolean i();
-
-    List<String> j();
-
-    boolean k();
-
-    boolean l();
-
-    boolean m();
-
-    boolean n();
-
-    boolean o();
-
-    boolean p();
-
-    boolean q();
+    public static synchronized k09 a() {
+        InterceptResult invokeV;
+        k09 k09Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (l09.class) {
+                if (a == null) {
+                    a = new k09();
+                }
+                k09Var = a;
+            }
+            return k09Var;
+        }
+        return (k09) invokeV.objValue;
+    }
 }

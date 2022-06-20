@@ -8,9 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.q9;
+import com.repackage.t9;
 /* loaded from: classes.dex */
-public abstract class MessageListener<T extends ResponsedMessage<?>> extends q9 {
+public abstract class MessageListener<T extends ResponsedMessage<?>> extends t9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int mCmd;

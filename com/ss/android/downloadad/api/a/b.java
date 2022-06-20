@@ -1,5 +1,6 @@
 package com.ss.android.downloadad.api.a;
 
+import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
 import com.ss.android.download.api.download.DownloadController;
 import com.ss.android.download.api.download.DownloadEventConfig;
 import com.ss.android.download.api.download.DownloadModel;
@@ -262,7 +263,7 @@ public class b implements a {
             jSONObject.put("clickDownloadSize", this.S);
             jSONObject.put("installAfterCleanSpace", this.O);
             jSONObject.put("funnelType", this.Q);
-            jSONObject.put("webUrl", this.l);
+            jSONObject.put(DeepLinkItem.DEEPLINK_WEBURL_KEY, this.l);
             jSONObject.put("enableShowComplianceDialog", this.T);
             jSONObject.put("isAutoDownloadOnCardShow", this.U);
             int i = 1;
@@ -682,7 +683,7 @@ public class b implements a {
             bVar.i(jSONObject.optBoolean("mIsPatchApplyHandled"));
             bVar.f(jSONObject.optBoolean("installAfterCleanSpace"));
             bVar.i(jSONObject.optInt("funnelType", 1));
-            bVar.e(jSONObject.optString("webUrl"));
+            bVar.e(jSONObject.optString(DeepLinkItem.DEEPLINK_WEBURL_KEY));
             bVar.p(jSONObject.optBoolean("enableShowComplianceDialog", true));
             bVar.q(jSONObject.optBoolean("isAutoDownloadOnCardShow"));
             bVar.r(jSONObject.optInt("enable_new_activity", 1) == 1);

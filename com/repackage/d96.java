@@ -1,74 +1,81 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.faceshop.forumpackage.adapter.ForumEmotionEmptyViewHolder;
+import com.baidu.tieba.faceshop.forumpackage.view.ForumEmotionEmptyView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qe;
 /* loaded from: classes5.dex */
-public class d96 {
+public class d96 extends an<e96, ForumEmotionEmptyViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qe<byte[]> a;
+    public TbPageContext i;
+    public a96 j;
+    public f96 k;
 
-    public d96() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d96(TbPageContext<?> tbPageContext, f96 f96Var, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, f96Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b();
+        this.i = tbPageContext;
+        this.k = f96Var;
     }
 
-    public byte[] a(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.an
+    /* renamed from: Z */
+    public ForumEmotionEmptyViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
-        byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            String str2 = str + "/" + TbadkCoreApplication.getCurrentAccount();
-            qe<byte[]> qeVar = this.a;
-            qe.b<byte[]> h = qeVar != null ? qeVar.h(str2) : null;
-            if (h == null || (bArr = h.b) == null) {
-                return null;
-            }
-            return bArr;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            ForumEmotionEmptyView forumEmotionEmptyView = new ForumEmotionEmptyView(this.i);
+            forumEmotionEmptyView.b(TbadkCoreApplication.getInst().getSkinType());
+            return new ForumEmotionEmptyViewHolder(this.i, forumEmotionEmptyView);
         }
-        return (byte[]) invokeL.objValue;
+        return (ForumEmotionEmptyViewHolder) invokeL.objValue;
     }
 
-    public void b() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.an
+    /* renamed from: a0 */
+    public View S(int i, View view2, ViewGroup viewGroup, e96 e96Var, ForumEmotionEmptyViewHolder forumEmotionEmptyViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
-            cq4.f();
-            this.a = cq4.d("tb.forum_member_info");
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, e96Var, forumEmotionEmptyViewHolder})) == null) {
+            forumEmotionEmptyViewHolder.d(e96Var, i, this.k, this.j);
+            return forumEmotionEmptyViewHolder.b();
         }
+        return (View) invokeCommon.objValue;
     }
 
-    public void c(String str, byte[] bArr) {
+    public void b0(a96 a96Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (StringUtils.isNull(str)) {
-                return;
-            }
-            b();
-            qe<byte[]> qeVar = this.a;
-            qeVar.e(str + "/" + currentAccount, bArr, TbConfig.MILLS_7DAYS);
+        if (interceptable == null || interceptable.invokeL(1048580, this, a96Var) == null) {
+            this.j = a96Var;
         }
     }
 }

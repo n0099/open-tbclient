@@ -1,19 +1,50 @@
 package com.repackage;
-/* loaded from: classes5.dex */
-public interface fm2 {
-    String b();
 
-    String c();
+import android.graphics.Color;
+import android.text.TextUtils;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes6.dex */
+public class fm2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String f();
+    public static int a(String str, int i) {
+        InterceptResult invokeLI;
+        long parseLong;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                sw1.o("map", "color string is empty, use default " + Integer.toHexString(i));
+                return i;
+            }
+            try {
+                if (str.charAt(0) == '#') {
+                    String substring = str.substring(1);
+                    if (substring.length() != 6 && substring.length() != 8) {
+                        throw new IllegalArgumentException("char count not right");
+                    }
+                    if (substring.length() == 6) {
+                        parseLong = Long.parseLong(substring, 16) | (-16777216);
+                    } else {
+                        parseLong = Long.parseLong(substring.substring(6) + substring.substring(0, 6), 16);
+                    }
+                    return (int) parseLong;
+                }
+                return Color.parseColor(str);
+            } catch (IllegalArgumentException unused) {
+                sw1.o("map", "parse color error, use default " + Integer.toHexString(i));
+                return i;
+            }
+        }
+        return invokeLI.intValue;
+    }
 
-    Object i();
-
-    void j(boolean z);
-
-    void k(boolean z);
-
-    boolean onBackPressed();
-
-    void onDestroy();
+    public static float b(double d) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d)})) == null) ? (float) (d * jd3.l(AppRuntime.getAppContext())) : invokeCommon.floatValue;
+    }
 }

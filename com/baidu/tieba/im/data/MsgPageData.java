@@ -65,16 +65,25 @@ public class MsgPageData extends OrmObject implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.newAddNum : invokeV.intValue;
     }
 
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.isNewAdd = false;
+            this.newAddNum = 0;
+            clear();
+        }
+    }
+
     public void setIsNewAdd(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             this.isNewAdd = z;
         }
     }
 
     public void setNewAddNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             this.newAddNum = i;
         }
     }
@@ -82,7 +91,7 @@ public class MsgPageData extends OrmObject implements Serializable {
     public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             List<ChatMessage> list = this.mChatMessages;
             if (list != null) {
                 return list.size();

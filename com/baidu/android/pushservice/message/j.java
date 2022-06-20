@@ -200,7 +200,7 @@ public class j extends c {
                 } else if (a != com.baidu.android.pushservice.message.a.k.i) {
                     com.baidu.android.pushservice.c.c.a(this.a, kVar.e(), kVar.i(), kVar.g(), null, null, 0L, gVar3.a(), kVar.b());
                 }
-                m.o(this.a);
+                m.A(this.a);
                 a(this.a, a, kVar.h(), gVar3.a());
                 return gVar3;
             } catch (IOException e3) {

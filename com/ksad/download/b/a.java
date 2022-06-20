@@ -23,16 +23,16 @@ public class a extends c {
     public d a;
     public final Map<String, Integer> b;
     public Service c;
-    public final HandlerC0278a d;
+    public final HandlerC0286a d;
 
     /* renamed from: com.ksad.download.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class HandlerC0278a extends Handler {
+    public static class HandlerC0286a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final WeakReference<a> a;
 
-        public HandlerC0278a(a aVar) {
+        public HandlerC0286a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,7 +78,7 @@ public class a extends c {
             }
         }
         this.b = new ConcurrentHashMap();
-        this.d = new HandlerC0278a(this);
+        this.d = new HandlerC0286a(this);
     }
 
     private void a(Intent intent) {

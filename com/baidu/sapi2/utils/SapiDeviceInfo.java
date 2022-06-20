@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.nps.pm.provider.BundleOpProvider;
 import com.baidu.pass.common.SecurityUtil;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.sapi2.NoProguard;
@@ -290,7 +289,7 @@ public class SapiDeviceInfo implements NoProguard {
             try {
                 String buildIV = buildIV();
                 String base64Encode = SecurityUtil.base64Encode(SecurityUtil.aesEncrypt(str, buildIV, AES_KEY));
-                return TextUtils.join("_", new String[]{buildIV, base64Encode, SecurityUtil.md5(TextUtils.join("_", new String[]{buildIV, base64Encode, BundleOpProvider.METHOD_BUNDLE_CHECK}).getBytes(), false).substring(0, 6)});
+                return TextUtils.join("_", new String[]{buildIV, base64Encode, SecurityUtil.md5(TextUtils.join("_", new String[]{buildIV, base64Encode, "check"}).getBytes(), false).substring(0, 6)});
             } catch (Throwable th) {
                 Log.e(th);
                 return "";

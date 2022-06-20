@@ -1,76 +1,37 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.RouterService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetVipInfo.VipTaskItem;
-import tbclient.GetVipInfo.VipTaskList;
 /* loaded from: classes5.dex */
-public class dh7 implements jn {
+public class dh7 extends ob1<RouterService> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public qg7 a;
-    public List<eh7> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755767330, "Lcom/repackage/dh7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755767330, "Lcom/repackage/dh7;");
-                return;
-            }
-        }
-        c = BdUniqueId.gen();
-    }
-
-    public dh7(VipTaskList vipTaskList) {
+    public dh7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vipTaskList};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-        if (vipTaskList == null || vipTaskList.item == null) {
-            return;
-        }
-        String str = vipTaskList.card_id;
-        qg7 qg7Var = new qg7();
-        this.a = qg7Var;
-        qg7Var.e(3);
-        this.a.d(vipTaskList.class_name);
-        this.a.f(vipTaskList.class_url_name);
-        this.a.g(vipTaskList.class_url);
-        this.b = new ArrayList();
-        for (VipTaskItem vipTaskItem : vipTaskList.item) {
-            this.b.add(new eh7(vipTaskItem));
         }
     }
 
-    @Override // com.repackage.jn
-    public BdUniqueId getType() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.ob1
+    /* renamed from: a */
+    public RouterService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new eh7() : (RouterService) invokeV.objValue;
     }
 }

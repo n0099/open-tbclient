@@ -24,9 +24,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fn4;
-import com.repackage.ki;
-import com.repackage.li;
+import com.repackage.oi;
+import com.repackage.pi;
+import com.repackage.pn4;
 import java.util.ArrayList;
 import tbclient.VideoInfo;
 /* loaded from: classes3.dex */
@@ -35,7 +35,7 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public AbsPbActivity b;
-    public fn4 c;
+    public pn4 c;
     public String d;
     public boolean e;
     public int f;
@@ -94,7 +94,7 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
                 int i = 3;
-                if (id == R.id.obfuscated_res_0x7f091ed1) {
+                if (id == R.id.obfuscated_res_0x7f091ec7) {
                     VideoInfo threadVideoInfo = this.a.c.getThreadVideoInfo();
                     if (threadVideoInfo != null) {
                         if (threadVideoInfo.is_vertical.intValue() == 1) {
@@ -135,7 +135,7 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig2));
                         }
                     }
-                } else if (id == R.id.obfuscated_res_0x7f09134b || id == R.id.obfuscated_res_0x7f090375 || id == R.id.obfuscated_res_0x7f090374) {
+                } else if (id == R.id.obfuscated_res_0x7f091342 || id == R.id.obfuscated_res_0x7f090375 || id == R.id.obfuscated_res_0x7f090374) {
                     String tid = this.a.c.getTid();
                     if (this.a.f == 2) {
                         i = 1;
@@ -146,21 +146,21 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
                     }
                     if (i != 0) {
                         if (this.a.c.threadType == 40) {
-                            StatisticItem.make("c13535").param("tid", tid).param("fid", this.a.c.getFid()).param("obj_source", i).param("obj_locate", this.a.c.e()).param("obj_id", this.a.d).param("obj_type", this.a.c.isBjhDynamicThread() ? 1 : 0).eventStat();
+                            StatisticItem.make("c13535").param("tid", tid).param("fid", this.a.c.getFid()).param("obj_source", i).param("obj_locate", this.a.c.c()).param("obj_id", this.a.d).param("obj_type", this.a.c.isBjhDynamicThread() ? 1 : 0).eventStat();
                         } else {
-                            StatisticItem.make("c13534").param("tid", tid).param("fid", this.a.c.getFid()).param("obj_source", i).param("obj_locate", this.a.c.e()).param("obj_id", this.a.d).eventStat();
+                            StatisticItem.make("c13534").param("tid", tid).param("fid", this.a.c.getFid()).param("obj_source", i).param("obj_locate", this.a.c.c()).param("obj_id", this.a.d).eventStat();
                         }
                     }
                     if (this.a.e) {
                         StatisticItem statisticItem = new StatisticItem("c13589");
                         statisticItem.param("tid", this.a.c.getTid());
                         if (this.a.c.getForumData() != null) {
-                            statisticItem.param("fid", this.a.c.getForumData().b());
+                            statisticItem.param("fid", this.a.c.getForumData().d());
                         }
                         statisticItem.param("obj_param1", this.a.c.mRecomWeight);
                         statisticItem.param("obj_source", this.a.c.mRecomSource);
                         statisticItem.param("obj_id", this.a.d);
-                        statisticItem.param("obj_locate", this.a.c.e());
+                        statisticItem.param("obj_locate", this.a.c.c());
                         statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, System.currentTimeMillis());
                         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
                         if (this.a.c.getThreadData().getBaijiahaoData() != null) {
@@ -210,8 +210,8 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
         this.a = 3;
         this.y = new a(this);
         this.b = absPbActivity;
-        this.h = view2.findViewById(R.id.obfuscated_res_0x7f09134b);
-        this.i = view2.findViewById(R.id.obfuscated_res_0x7f090988);
+        this.h = view2.findViewById(R.id.obfuscated_res_0x7f091342);
+        this.i = view2.findViewById(R.id.obfuscated_res_0x7f090976);
         this.j = view2.findViewById(R.id.obfuscated_res_0x7f090377);
         this.k = view2.findViewById(R.id.obfuscated_res_0x7f090372);
         this.l = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090375);
@@ -220,53 +220,53 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
         this.o = view2.findViewById(R.id.obfuscated_res_0x7f090379);
         this.p = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09037c);
         this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09037a);
-        this.r = view2.findViewById(R.id.obfuscated_res_0x7f091173);
-        this.u = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ed1);
-        this.s = view2.findViewById(R.id.obfuscated_res_0x7f091171);
-        this.t = view2.findViewById(R.id.obfuscated_res_0x7f091172);
+        this.r = view2.findViewById(R.id.obfuscated_res_0x7f091168);
+        this.u = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ec7);
+        this.s = view2.findViewById(R.id.obfuscated_res_0x7f091166);
+        this.t = view2.findViewById(R.id.obfuscated_res_0x7f091167);
         this.v = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090378);
         this.w = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09037b);
         this.x = view2.findViewById(R.id.obfuscated_res_0x7f090376);
     }
 
-    public void i(fn4 fn4Var) {
+    public void i(pn4 pn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, fn4Var) == null) {
-            this.c = fn4Var;
-            this.i.setVisibility(fn4Var.g() ? 0 : 8);
-            this.t.setVisibility(fn4Var.k() ? 0 : 8);
-            this.j.setVisibility(fn4Var.i() ? 8 : 0);
-            this.r.setVisibility(fn4Var.i() ? 0 : 8);
+        if (interceptable == null || interceptable.invokeL(1048576, this, pn4Var) == null) {
+            this.c = pn4Var;
+            this.i.setVisibility(pn4Var.f() ? 0 : 8);
+            this.t.setVisibility(pn4Var.j() ? 0 : 8);
+            this.j.setVisibility(pn4Var.h() ? 8 : 0);
+            this.r.setVisibility(pn4Var.h() ? 0 : 8);
             this.u.setOnClickListener(this.y);
             this.m.setOnClickListener(this.y);
             this.l.setOnClickListener(this.y);
             this.l.setConrers(15);
-            this.l.setRadius(li.f(TbadkCoreApplication.getInst(), R.dimen.tbds21));
+            this.l.setRadius(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds21));
             this.l.setDrawCorner(true);
             this.l.setPlaceHolder(2);
-            if (fn4Var.getThreadVideoInfo() != null) {
-                this.n.setText(fn4Var.getTitle());
-                this.l.K(fn4Var.getThreadVideoInfo().thumbnail_url, 10, false);
+            if (pn4Var.getThreadVideoInfo() != null) {
+                this.n.setText(pn4Var.getTitle());
+                this.l.J(pn4Var.getThreadVideoInfo().thumbnail_url, 10, false);
                 this.m.setVisibility(0);
                 this.m.setAlpha(0.5f);
                 this.o.setVisibility(0);
-                this.q.setText(StringUtils.translateSecondsToString(fn4Var.getThreadVideoInfo().video_duration.intValue()));
+                this.q.setText(StringUtils.translateSecondsToString(pn4Var.getThreadVideoInfo().video_duration.intValue()));
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.w.getLayoutParams();
-                if (fn4Var.getAuthor() != null && !ki.isEmpty(fn4Var.getAuthor().getName_show())) {
-                    this.v.setText(fn4Var.getAuthor().getName_show());
+                if (pn4Var.getAuthor() != null && !oi.isEmpty(pn4Var.getAuthor().getName_show())) {
+                    this.v.setText(pn4Var.getAuthor().getName_show());
                     this.v.setVisibility(0);
-                    layoutParams.leftMargin = li.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
+                    layoutParams.leftMargin = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
                 } else {
                     this.v.setVisibility(8);
                     layoutParams.leftMargin = 0;
                 }
                 this.w.setLayoutParams(layoutParams);
-                this.w.setText(String.format(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f030a), StringHelper.numFormatOverWan(fn4Var.getThreadVideoInfo().play_count.intValue())));
+                this.w.setText(String.format(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0308), StringHelper.numFormatOverWan(pn4Var.getThreadVideoInfo().play_count.intValue())));
             } else {
                 this.o.setVisibility(8);
                 this.m.setVisibility(8);
-                this.l.K(fn4Var.getArticeCover(), 10, false);
-                this.n.setText(fn4Var.getTitle());
+                this.l.J(pn4Var.getArticeCover(), 10, false);
+                this.n.setText(pn4Var.getTitle());
             }
             this.h.setOnClickListener(this.y);
         }

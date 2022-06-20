@@ -13,11 +13,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.util.ContextDelegate;
 import com.vivo.push.util.g;
 import com.vivo.push.util.p;
-import com.vivo.push.util.x;
-import com.vivo.push.util.z;
+import com.vivo.push.util.w;
+import com.vivo.push.util.y;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class c<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final Object a;
@@ -60,7 +60,7 @@ public abstract class c<T> {
         }
         this.b = new ArrayList();
         this.c = ContextDelegate.getContext(context);
-        x b = x.b();
+        w b = w.b();
         b.a(this.c);
         this.d = b.c();
         this.e = b.d();
@@ -70,13 +70,13 @@ public abstract class c<T> {
     private String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? z.b(this.c).a(a(), null) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? y.b(this.c).a(a(), null) : (String) invokeV.objValue;
     }
 
     private void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) {
-            z.b(this.c).b(a(), str);
+            y.b(this.c).b(a(), str);
         }
     }
 
@@ -102,7 +102,7 @@ public abstract class c<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             byte[] bArr = this.d;
-            return (bArr == null || bArr.length <= 0) ? x.b().c() : bArr;
+            return (bArr == null || bArr.length <= 0) ? w.b().c() : bArr;
         }
         return (byte[]) invokeV.objValue;
     }
@@ -112,7 +112,7 @@ public abstract class c<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             byte[] bArr = this.e;
-            return (bArr == null || bArr.length <= 0) ? x.b().d() : bArr;
+            return (bArr == null || bArr.length <= 0) ? w.b().d() : bArr;
         }
         return (byte[]) invokeV.objValue;
     }

@@ -1,72 +1,77 @@
 package com.repackage;
 
-import android.content.Context;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.editortools.RawLayout;
-import com.baidu.tieba.R;
-import com.baidu.tieba.location.editortool.PbLocationInfoContainer;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class uc7 extends e05 {
+public class uc7 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public int b;
+    public int c;
+    public boolean d;
+    public ad7 e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uc7(Context context) {
-        super(context, (String) null, 8);
+    public uc7(ad7 ad7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {ad7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.o = false;
-        this.n = 3;
-        this.m = new PbLocationInfoContainer(context);
-        this.p = new int[]{20, 19};
+        this.d = false;
+        this.e = ad7Var;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uc7(Context context, boolean z) {
-        super(context, (String) null, 8);
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.b = i;
         }
-        this.o = false;
-        this.n = 3;
-        this.m = new PbLocationInfoContainer(context);
-        RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(-2, li.f(getContext(), R.dimen.obfuscated_res_0x7f0702ce));
-        ((LinearLayout.LayoutParams) layoutParams).leftMargin = li.f(getContext(), R.dimen.obfuscated_res_0x7f070207);
-        ((LinearLayout.LayoutParams) layoutParams).rightMargin = li.f(getContext(), R.dimen.obfuscated_res_0x7f070207);
-        ((LinearLayout.LayoutParams) layoutParams).bottomMargin = li.f(getContext(), R.dimen.obfuscated_res_0x7f070276);
-        ((LinearLayout.LayoutParams) layoutParams).topMargin = li.f(getContext(), R.dimen.obfuscated_res_0x7f070276);
-        ((PbLocationInfoContainer) this.m).setLayoutParams(layoutParams);
-        this.p = new int[]{20, 19};
+    }
+
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        ad7 ad7Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (ad7Var = this.e) == null) {
+            return;
+        }
+        if (!this.d) {
+            ad7Var.j(this.b, this.c, this.a, 2);
+        }
+        this.e.j(this.b, this.c, this.a, 1);
     }
 }

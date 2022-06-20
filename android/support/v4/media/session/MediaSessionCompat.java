@@ -1,14 +1,20 @@
 package android.support.v4.media.session;
 
+import android.annotation.SuppressLint;
 import android.app.PendingIntent;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.media.AudioAttributes;
 import android.media.AudioManager;
+import android.media.MediaDescription;
+import android.media.MediaMetadata;
 import android.media.Rating;
 import android.media.RemoteControlClient;
+import android.media.VolumeProvider;
 import android.media.session.MediaSession;
+import android.media.session.PlaybackState;
 import android.net.Uri;
 import android.os.BadParcelableException;
 import android.os.Binder;
@@ -28,15 +34,13 @@ import android.support.v4.media.MediaDescriptionCompat;
 import android.support.v4.media.MediaMetadataCompat;
 import android.support.v4.media.RatingCompat;
 import android.support.v4.media.session.IMediaSession;
-import android.support.v4.media.session.MediaSessionCompatApi21;
-import android.support.v4.media.session.MediaSessionCompatApi23;
-import android.support.v4.media.session.MediaSessionCompatApi24;
 import android.support.v4.media.session.PlaybackStateCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.ViewConfiguration;
+import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -46,6 +50,8 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.media.MediaSessionManager;
 import androidx.media.VolumeProviderCompat;
 import androidx.media.session.MediaButtonReceiver;
+import androidx.versionedparcelable.ParcelUtils;
+import androidx.versionedparcelable.VersionedParcelable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -54,8 +60,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -69,6 +73,8 @@ public class MediaSessionCompat {
     public static final String ACTION_ARGUMENT_EXTRAS = "android.support.v4.media.session.action.ARGUMENT_EXTRAS";
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static final String ACTION_ARGUMENT_MEDIA_ID = "android.support.v4.media.session.action.ARGUMENT_MEDIA_ID";
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public static final String ACTION_ARGUMENT_PLAYBACK_SPEED = "android.support.v4.media.session.action.ARGUMENT_PLAYBACK_SPEED";
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static final String ACTION_ARGUMENT_QUERY = "android.support.v4.media.session.action.ARGUMENT_QUERY";
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -94,6 +100,8 @@ public class MediaSessionCompat {
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static final String ACTION_SET_CAPTIONING_ENABLED = "android.support.v4.media.session.action.SET_CAPTIONING_ENABLED";
     @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public static final String ACTION_SET_PLAYBACK_SPEED = "android.support.v4.media.session.action.SET_PLAYBACK_SPEED";
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static final String ACTION_SET_RATING = "android.support.v4.media.session.action.SET_RATING";
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static final String ACTION_SET_REPEAT_MODE = "android.support.v4.media.session.action.SET_REPEAT_MODE";
@@ -107,14 +115,16 @@ public class MediaSessionCompat {
     public static final String DATA_CALLING_PID = "data_calling_pid";
     public static final String DATA_CALLING_UID = "data_calling_uid";
     public static final String DATA_EXTRAS = "data_extras";
+    @Deprecated
     public static final int FLAG_HANDLES_MEDIA_BUTTONS = 1;
     public static final int FLAG_HANDLES_QUEUE_COMMANDS = 4;
+    @Deprecated
     public static final int FLAG_HANDLES_TRANSPORT_CONTROLS = 2;
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static final String KEY_EXTRA_BINDER = "android.support.v4.media.session.EXTRA_BINDER";
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public static final String KEY_SESSION_TOKEN2_BUNDLE = "android.support.v4.media.session.SESSION_TOKEN2_BUNDLE";
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public static final String KEY_SESSION2_TOKEN = "android.support.v4.media.session.SESSION_TOKEN2";
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static final String KEY_TOKEN = "android.support.v4.media.session.TOKEN";
     public static final int MAX_BITMAP_SIZE_IN_DP = 320;
     public static final int MEDIA_ATTRIBUTE_ALBUM = 1;
@@ -131,9 +141,12 @@ public class MediaSessionCompat {
     public static abstract class Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final MediaSession.Callback mCallbackFwk;
+        @GuardedBy("mLock")
         public CallbackHandler mCallbackHandler;
-        public final Object mCallbackObj;
-        public boolean mMediaPlayPauseKeyPending;
+        public final Object mLock;
+        public boolean mMediaPlayPausePendingOnHandler;
+        @GuardedBy("mLock")
         public WeakReference<MediaSessionImpl> mSessionImpl;
 
         /* loaded from: classes.dex */
@@ -166,21 +179,32 @@ public class MediaSessionCompat {
 
             @Override // android.os.Handler
             public void handleMessage(Message message) {
+                MediaSessionImpl mediaSessionImpl;
+                CallbackHandler callbackHandler;
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
-                    this.this$0.handleMediaPlayPauseKeySingleTapIfPending((MediaSessionManager.RemoteUserInfo) message.obj);
+                    synchronized (this.this$0.mLock) {
+                        mediaSessionImpl = this.this$0.mSessionImpl.get();
+                        callbackHandler = this.this$0.mCallbackHandler;
+                    }
+                    if (mediaSessionImpl == null || this.this$0 != mediaSessionImpl.getCallback() || callbackHandler == null) {
+                        return;
+                    }
+                    mediaSessionImpl.setCurrentControllerInfo((MediaSessionManager.RemoteUserInfo) message.obj);
+                    this.this$0.handleMediaPlayPauseIfPendingOnHandler(mediaSessionImpl, callbackHandler);
+                    mediaSessionImpl.setCurrentControllerInfo(null);
                 }
             }
         }
 
         @RequiresApi(21)
         /* loaded from: classes.dex */
-        public class StubApi21 implements MediaSessionCompatApi21.Callback {
+        public class MediaSessionCallbackApi21 extends MediaSession.Callback {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Callback this$0;
 
-            public StubApi21(Callback callback) {
+            public MediaSessionCallbackApi21(Callback callback) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -198,70 +222,119 @@ public class MediaSessionCompat {
                 this.this$0 = callback;
             }
 
-            @Override // android.support.v4.media.session.MediaSessionCompatApi21.Callback
-            public void onCommand(String str, Bundle bundle, ResultReceiver resultReceiver) {
+            private void clearCurrentControllerInfo(MediaSessionImpl mediaSessionImpl) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLLL(1048576, this, str, bundle, resultReceiver) == null) {
-                    try {
-                        QueueItem queueItem = null;
-                        IBinder asBinder = null;
-                        queueItem = null;
-                        if (str.equals(MediaControllerCompat.COMMAND_GET_EXTRA_BINDER)) {
-                            MediaSessionImplApi21 mediaSessionImplApi21 = (MediaSessionImplApi21) this.this$0.mSessionImpl.get();
-                            if (mediaSessionImplApi21 != null) {
-                                Bundle bundle2 = new Bundle();
-                                Token sessionToken = mediaSessionImplApi21.getSessionToken();
-                                IMediaSession extraBinder = sessionToken.getExtraBinder();
-                                if (extraBinder != null) {
-                                    asBinder = extraBinder.asBinder();
-                                }
-                                BundleCompat.putBinder(bundle2, MediaSessionCompat.KEY_EXTRA_BINDER, asBinder);
-                                bundle2.putBundle(MediaSessionCompat.KEY_SESSION_TOKEN2_BUNDLE, sessionToken.getSessionToken2Bundle());
-                                resultReceiver.send(0, bundle2);
-                            }
-                        } else if (str.equals(MediaControllerCompat.COMMAND_ADD_QUEUE_ITEM)) {
-                            this.this$0.onAddQueueItem((MediaDescriptionCompat) bundle.getParcelable(MediaControllerCompat.COMMAND_ARGUMENT_MEDIA_DESCRIPTION));
-                        } else if (str.equals(MediaControllerCompat.COMMAND_ADD_QUEUE_ITEM_AT)) {
-                            this.this$0.onAddQueueItem((MediaDescriptionCompat) bundle.getParcelable(MediaControllerCompat.COMMAND_ARGUMENT_MEDIA_DESCRIPTION), bundle.getInt(MediaControllerCompat.COMMAND_ARGUMENT_INDEX));
-                        } else if (str.equals(MediaControllerCompat.COMMAND_REMOVE_QUEUE_ITEM)) {
-                            this.this$0.onRemoveQueueItem((MediaDescriptionCompat) bundle.getParcelable(MediaControllerCompat.COMMAND_ARGUMENT_MEDIA_DESCRIPTION));
-                        } else if (str.equals(MediaControllerCompat.COMMAND_REMOVE_QUEUE_ITEM_AT)) {
-                            MediaSessionImplApi21 mediaSessionImplApi212 = (MediaSessionImplApi21) this.this$0.mSessionImpl.get();
-                            if (mediaSessionImplApi212 == null || mediaSessionImplApi212.mQueue == null) {
-                                return;
-                            }
+                if (interceptable == null || interceptable.invokeL(65537, this, mediaSessionImpl) == null) {
+                    mediaSessionImpl.setCurrentControllerInfo(null);
+                }
+            }
+
+            private MediaSessionImplApi21 getSessionImplIfCallbackIsSet() {
+                InterceptResult invokeV;
+                MediaSessionImplApi21 mediaSessionImplApi21;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+                    synchronized (this.this$0.mLock) {
+                        mediaSessionImplApi21 = (MediaSessionImplApi21) this.this$0.mSessionImpl.get();
+                    }
+                    if (this.this$0 == mediaSessionImplApi21.getCallback()) {
+                        return mediaSessionImplApi21;
+                    }
+                    return null;
+                }
+                return (MediaSessionImplApi21) invokeV.objValue;
+            }
+
+            private void setCurrentControllerInfo(MediaSessionImpl mediaSessionImpl) {
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeL(65539, this, mediaSessionImpl) == null) || Build.VERSION.SDK_INT >= 28) {
+                    return;
+                }
+                String callingPackage = mediaSessionImpl.getCallingPackage();
+                if (TextUtils.isEmpty(callingPackage)) {
+                    callingPackage = MediaSessionManager.RemoteUserInfo.LEGACY_CONTROLLER;
+                }
+                mediaSessionImpl.setCurrentControllerInfo(new MediaSessionManager.RemoteUserInfo(callingPackage, -1, -1));
+            }
+
+            @Override // android.media.session.MediaSession.Callback
+            public void onCommand(String str, Bundle bundle, ResultReceiver resultReceiver) {
+                MediaSessionImplApi21 sessionImplIfCallbackIsSet;
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeLLL(1048576, this, str, bundle, resultReceiver) == null) || (sessionImplIfCallbackIsSet = getSessionImplIfCallbackIsSet()) == null) {
+                    return;
+                }
+                MediaSessionCompat.ensureClassLoader(bundle);
+                setCurrentControllerInfo(sessionImplIfCallbackIsSet);
+                try {
+                    QueueItem queueItem = null;
+                    IBinder asBinder = null;
+                    queueItem = null;
+                    if (str.equals(MediaControllerCompat.COMMAND_GET_EXTRA_BINDER)) {
+                        Bundle bundle2 = new Bundle();
+                        Token sessionToken = sessionImplIfCallbackIsSet.getSessionToken();
+                        IMediaSession extraBinder = sessionToken.getExtraBinder();
+                        if (extraBinder != null) {
+                            asBinder = extraBinder.asBinder();
+                        }
+                        BundleCompat.putBinder(bundle2, MediaSessionCompat.KEY_EXTRA_BINDER, asBinder);
+                        ParcelUtils.putVersionedParcelable(bundle2, MediaSessionCompat.KEY_SESSION2_TOKEN, sessionToken.getSession2Token());
+                        resultReceiver.send(0, bundle2);
+                    } else if (str.equals(MediaControllerCompat.COMMAND_ADD_QUEUE_ITEM)) {
+                        this.this$0.onAddQueueItem((MediaDescriptionCompat) bundle.getParcelable(MediaControllerCompat.COMMAND_ARGUMENT_MEDIA_DESCRIPTION));
+                    } else if (str.equals(MediaControllerCompat.COMMAND_ADD_QUEUE_ITEM_AT)) {
+                        this.this$0.onAddQueueItem((MediaDescriptionCompat) bundle.getParcelable(MediaControllerCompat.COMMAND_ARGUMENT_MEDIA_DESCRIPTION), bundle.getInt(MediaControllerCompat.COMMAND_ARGUMENT_INDEX));
+                    } else if (str.equals(MediaControllerCompat.COMMAND_REMOVE_QUEUE_ITEM)) {
+                        this.this$0.onRemoveQueueItem((MediaDescriptionCompat) bundle.getParcelable(MediaControllerCompat.COMMAND_ARGUMENT_MEDIA_DESCRIPTION));
+                    } else if (str.equals(MediaControllerCompat.COMMAND_REMOVE_QUEUE_ITEM_AT)) {
+                        if (sessionImplIfCallbackIsSet.mQueue != null) {
                             int i = bundle.getInt(MediaControllerCompat.COMMAND_ARGUMENT_INDEX, -1);
-                            if (i >= 0 && i < mediaSessionImplApi212.mQueue.size()) {
-                                queueItem = mediaSessionImplApi212.mQueue.get(i);
+                            if (i >= 0 && i < sessionImplIfCallbackIsSet.mQueue.size()) {
+                                queueItem = sessionImplIfCallbackIsSet.mQueue.get(i);
                             }
                             if (queueItem != null) {
                                 this.this$0.onRemoveQueueItem(queueItem.getDescription());
                             }
-                        } else {
-                            this.this$0.onCommand(str, bundle, resultReceiver);
                         }
-                    } catch (BadParcelableException unused) {
-                        Log.e(MediaSessionCompat.TAG, "Could not unparcel the extra data.");
+                    } else {
+                        this.this$0.onCommand(str, bundle, resultReceiver);
                     }
+                } catch (BadParcelableException unused) {
+                    Log.e(MediaSessionCompat.TAG, "Could not unparcel the extra data.");
                 }
+                clearCurrentControllerInfo(sessionImplIfCallbackIsSet);
             }
 
-            @Override // android.support.v4.media.session.MediaSessionCompatApi21.Callback
+            @Override // android.media.session.MediaSession.Callback
             public void onCustomAction(String str, Bundle bundle) {
+                MediaSessionImplApi21 sessionImplIfCallbackIsSet;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bundle) == null) {
-                    Bundle bundle2 = bundle.getBundle(MediaSessionCompat.ACTION_ARGUMENT_EXTRAS);
-                    MediaSessionCompat.ensureClassLoader(bundle2);
+                if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bundle) == null) || (sessionImplIfCallbackIsSet = getSessionImplIfCallbackIsSet()) == null) {
+                    return;
+                }
+                MediaSessionCompat.ensureClassLoader(bundle);
+                setCurrentControllerInfo(sessionImplIfCallbackIsSet);
+                try {
                     if (str.equals(MediaSessionCompat.ACTION_PLAY_FROM_URI)) {
+                        Bundle bundle2 = bundle.getBundle(MediaSessionCompat.ACTION_ARGUMENT_EXTRAS);
+                        MediaSessionCompat.ensureClassLoader(bundle2);
                         this.this$0.onPlayFromUri((Uri) bundle.getParcelable(MediaSessionCompat.ACTION_ARGUMENT_URI), bundle2);
                     } else if (str.equals(MediaSessionCompat.ACTION_PREPARE)) {
                         this.this$0.onPrepare();
                     } else if (str.equals(MediaSessionCompat.ACTION_PREPARE_FROM_MEDIA_ID)) {
-                        this.this$0.onPrepareFromMediaId(bundle.getString(MediaSessionCompat.ACTION_ARGUMENT_MEDIA_ID), bundle2);
+                        String string = bundle.getString(MediaSessionCompat.ACTION_ARGUMENT_MEDIA_ID);
+                        Bundle bundle3 = bundle.getBundle(MediaSessionCompat.ACTION_ARGUMENT_EXTRAS);
+                        MediaSessionCompat.ensureClassLoader(bundle3);
+                        this.this$0.onPrepareFromMediaId(string, bundle3);
                     } else if (str.equals(MediaSessionCompat.ACTION_PREPARE_FROM_SEARCH)) {
-                        this.this$0.onPrepareFromSearch(bundle.getString(MediaSessionCompat.ACTION_ARGUMENT_QUERY), bundle2);
+                        String string2 = bundle.getString(MediaSessionCompat.ACTION_ARGUMENT_QUERY);
+                        Bundle bundle4 = bundle.getBundle(MediaSessionCompat.ACTION_ARGUMENT_EXTRAS);
+                        MediaSessionCompat.ensureClassLoader(bundle4);
+                        this.this$0.onPrepareFromSearch(string2, bundle4);
                     } else if (str.equals(MediaSessionCompat.ACTION_PREPARE_FROM_URI)) {
-                        this.this$0.onPrepareFromUri((Uri) bundle.getParcelable(MediaSessionCompat.ACTION_ARGUMENT_URI), bundle2);
+                        Bundle bundle5 = bundle.getBundle(MediaSessionCompat.ACTION_ARGUMENT_EXTRAS);
+                        MediaSessionCompat.ensureClassLoader(bundle5);
+                        this.this$0.onPrepareFromUri((Uri) bundle.getParcelable(MediaSessionCompat.ACTION_ARGUMENT_URI), bundle5);
                     } else if (str.equals(MediaSessionCompat.ACTION_SET_CAPTIONING_ENABLED)) {
                         this.this$0.onSetCaptioningEnabled(bundle.getBoolean(MediaSessionCompat.ACTION_ARGUMENT_CAPTIONING_ENABLED));
                     } else if (str.equals(MediaSessionCompat.ACTION_SET_REPEAT_MODE)) {
@@ -269,219 +342,269 @@ public class MediaSessionCompat {
                     } else if (str.equals(MediaSessionCompat.ACTION_SET_SHUFFLE_MODE)) {
                         this.this$0.onSetShuffleMode(bundle.getInt(MediaSessionCompat.ACTION_ARGUMENT_SHUFFLE_MODE));
                     } else if (str.equals(MediaSessionCompat.ACTION_SET_RATING)) {
-                        this.this$0.onSetRating((RatingCompat) bundle.getParcelable(MediaSessionCompat.ACTION_ARGUMENT_RATING), bundle2);
+                        Bundle bundle6 = bundle.getBundle(MediaSessionCompat.ACTION_ARGUMENT_EXTRAS);
+                        MediaSessionCompat.ensureClassLoader(bundle6);
+                        this.this$0.onSetRating((RatingCompat) bundle.getParcelable(MediaSessionCompat.ACTION_ARGUMENT_RATING), bundle6);
+                    } else if (str.equals(MediaSessionCompat.ACTION_SET_PLAYBACK_SPEED)) {
+                        this.this$0.onSetPlaybackSpeed(bundle.getFloat(MediaSessionCompat.ACTION_ARGUMENT_PLAYBACK_SPEED, 1.0f));
                     } else {
                         this.this$0.onCustomAction(str, bundle);
                     }
+                } catch (BadParcelableException unused) {
+                    Log.e(MediaSessionCompat.TAG, "Could not unparcel the data.");
                 }
+                clearCurrentControllerInfo(sessionImplIfCallbackIsSet);
             }
 
-            @Override // android.support.v4.media.session.MediaSessionCompatApi21.Callback
+            @Override // android.media.session.MediaSession.Callback
             public void onFastForward() {
+                MediaSessionImplApi21 sessionImplIfCallbackIsSet;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    this.this$0.onFastForward();
+                if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (sessionImplIfCallbackIsSet = getSessionImplIfCallbackIsSet()) == null) {
+                    return;
                 }
+                setCurrentControllerInfo(sessionImplIfCallbackIsSet);
+                this.this$0.onFastForward();
+                clearCurrentControllerInfo(sessionImplIfCallbackIsSet);
             }
 
-            @Override // android.support.v4.media.session.MediaSessionCompatApi21.Callback
+            @Override // android.media.session.MediaSession.Callback
             public boolean onMediaButtonEvent(Intent intent) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, intent)) == null) ? this.this$0.onMediaButtonEvent(intent) : invokeL.booleanValue;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, intent)) == null) {
+                    MediaSessionImplApi21 sessionImplIfCallbackIsSet = getSessionImplIfCallbackIsSet();
+                    if (sessionImplIfCallbackIsSet == null) {
+                        return false;
+                    }
+                    setCurrentControllerInfo(sessionImplIfCallbackIsSet);
+                    boolean onMediaButtonEvent = this.this$0.onMediaButtonEvent(intent);
+                    clearCurrentControllerInfo(sessionImplIfCallbackIsSet);
+                    return onMediaButtonEvent || super.onMediaButtonEvent(intent);
+                }
+                return invokeL.booleanValue;
             }
 
-            @Override // android.support.v4.media.session.MediaSessionCompatApi21.Callback
+            @Override // android.media.session.MediaSession.Callback
             public void onPause() {
+                MediaSessionImplApi21 sessionImplIfCallbackIsSet;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                    this.this$0.onPause();
+                if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (sessionImplIfCallbackIsSet = getSessionImplIfCallbackIsSet()) == null) {
+                    return;
                 }
+                setCurrentControllerInfo(sessionImplIfCallbackIsSet);
+                this.this$0.onPause();
+                clearCurrentControllerInfo(sessionImplIfCallbackIsSet);
             }
 
-            @Override // android.support.v4.media.session.MediaSessionCompatApi21.Callback
+            @Override // android.media.session.MediaSession.Callback
             public void onPlay() {
+                MediaSessionImplApi21 sessionImplIfCallbackIsSet;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                    this.this$0.onPlay();
+                if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (sessionImplIfCallbackIsSet = getSessionImplIfCallbackIsSet()) == null) {
+                    return;
                 }
+                setCurrentControllerInfo(sessionImplIfCallbackIsSet);
+                this.this$0.onPlay();
+                clearCurrentControllerInfo(sessionImplIfCallbackIsSet);
             }
 
-            @Override // android.support.v4.media.session.MediaSessionCompatApi21.Callback
+            @Override // android.media.session.MediaSession.Callback
             public void onPlayFromMediaId(String str, Bundle bundle) {
+                MediaSessionImplApi21 sessionImplIfCallbackIsSet;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(1048582, this, str, bundle) == null) {
-                    this.this$0.onPlayFromMediaId(str, bundle);
+                if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, bundle) == null) || (sessionImplIfCallbackIsSet = getSessionImplIfCallbackIsSet()) == null) {
+                    return;
                 }
+                MediaSessionCompat.ensureClassLoader(bundle);
+                setCurrentControllerInfo(sessionImplIfCallbackIsSet);
+                this.this$0.onPlayFromMediaId(str, bundle);
+                clearCurrentControllerInfo(sessionImplIfCallbackIsSet);
             }
 
-            @Override // android.support.v4.media.session.MediaSessionCompatApi21.Callback
+            @Override // android.media.session.MediaSession.Callback
             public void onPlayFromSearch(String str, Bundle bundle) {
+                MediaSessionImplApi21 sessionImplIfCallbackIsSet;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(1048583, this, str, bundle) == null) {
-                    this.this$0.onPlayFromSearch(str, bundle);
+                if (!(interceptable == null || interceptable.invokeLL(1048583, this, str, bundle) == null) || (sessionImplIfCallbackIsSet = getSessionImplIfCallbackIsSet()) == null) {
+                    return;
                 }
+                MediaSessionCompat.ensureClassLoader(bundle);
+                setCurrentControllerInfo(sessionImplIfCallbackIsSet);
+                this.this$0.onPlayFromSearch(str, bundle);
+                clearCurrentControllerInfo(sessionImplIfCallbackIsSet);
             }
 
-            @Override // android.support.v4.media.session.MediaSessionCompatApi21.Callback
-            public void onRewind() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                    this.this$0.onRewind();
-                }
-            }
-
-            @Override // android.support.v4.media.session.MediaSessionCompatApi21.Callback
-            public void onSeekTo(long j) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-                    this.this$0.onSeekTo(j);
-                }
-            }
-
-            @Override // android.support.v4.media.session.MediaSessionCompatApi21.Callback
-            public void onSetRating(Object obj) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048586, this, obj) == null) {
-                    this.this$0.onSetRating(RatingCompat.fromRating(obj));
-                }
-            }
-
-            @Override // android.support.v4.media.session.MediaSessionCompatApi21.Callback
-            public void onSetRating(Object obj, Bundle bundle) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(1048587, this, obj, bundle) == null) {
-                }
-            }
-
-            @Override // android.support.v4.media.session.MediaSessionCompatApi21.Callback
-            public void onSkipToNext() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-                    this.this$0.onSkipToNext();
-                }
-            }
-
-            @Override // android.support.v4.media.session.MediaSessionCompatApi21.Callback
-            public void onSkipToPrevious() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-                    this.this$0.onSkipToPrevious();
-                }
-            }
-
-            @Override // android.support.v4.media.session.MediaSessionCompatApi21.Callback
-            public void onSkipToQueueItem(long j) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
-                    this.this$0.onSkipToQueueItem(j);
-                }
-            }
-
-            @Override // android.support.v4.media.session.MediaSessionCompatApi21.Callback
-            public void onStop() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-                    this.this$0.onStop();
-                }
-            }
-        }
-
-        @RequiresApi(23)
-        /* loaded from: classes.dex */
-        public class StubApi23 extends StubApi21 implements MediaSessionCompatApi23.Callback {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Callback this$0;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public StubApi23(Callback callback) {
-                super(callback);
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {callback};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        super((Callback) newInitContext.callArgs[0]);
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = callback;
-            }
-
-            @Override // android.support.v4.media.session.MediaSessionCompatApi23.Callback
+            @Override // android.media.session.MediaSession.Callback
+            @RequiresApi(23)
             public void onPlayFromUri(Uri uri, Bundle bundle) {
+                MediaSessionImplApi21 sessionImplIfCallbackIsSet;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(1048576, this, uri, bundle) == null) {
-                    this.this$0.onPlayFromUri(uri, bundle);
+                if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, uri, bundle) == null) || (sessionImplIfCallbackIsSet = getSessionImplIfCallbackIsSet()) == null) {
+                    return;
                 }
-            }
-        }
-
-        @RequiresApi(24)
-        /* loaded from: classes.dex */
-        public class StubApi24 extends StubApi23 implements MediaSessionCompatApi24.Callback {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Callback this$0;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public StubApi24(Callback callback) {
-                super(callback);
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {callback};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        super((Callback) newInitContext.callArgs[0]);
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = callback;
+                MediaSessionCompat.ensureClassLoader(bundle);
+                setCurrentControllerInfo(sessionImplIfCallbackIsSet);
+                this.this$0.onPlayFromUri(uri, bundle);
+                clearCurrentControllerInfo(sessionImplIfCallbackIsSet);
             }
 
-            @Override // android.support.v4.media.session.MediaSessionCompatApi24.Callback
+            @Override // android.media.session.MediaSession.Callback
+            @RequiresApi(24)
             public void onPrepare() {
+                MediaSessionImplApi21 sessionImplIfCallbackIsSet;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.this$0.onPrepare();
+                if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (sessionImplIfCallbackIsSet = getSessionImplIfCallbackIsSet()) == null) {
+                    return;
                 }
+                setCurrentControllerInfo(sessionImplIfCallbackIsSet);
+                this.this$0.onPrepare();
+                clearCurrentControllerInfo(sessionImplIfCallbackIsSet);
             }
 
-            @Override // android.support.v4.media.session.MediaSessionCompatApi24.Callback
+            @Override // android.media.session.MediaSession.Callback
+            @RequiresApi(24)
             public void onPrepareFromMediaId(String str, Bundle bundle) {
+                MediaSessionImplApi21 sessionImplIfCallbackIsSet;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bundle) == null) {
-                    this.this$0.onPrepareFromMediaId(str, bundle);
+                if (!(interceptable == null || interceptable.invokeLL(1048586, this, str, bundle) == null) || (sessionImplIfCallbackIsSet = getSessionImplIfCallbackIsSet()) == null) {
+                    return;
                 }
+                MediaSessionCompat.ensureClassLoader(bundle);
+                setCurrentControllerInfo(sessionImplIfCallbackIsSet);
+                this.this$0.onPrepareFromMediaId(str, bundle);
+                clearCurrentControllerInfo(sessionImplIfCallbackIsSet);
             }
 
-            @Override // android.support.v4.media.session.MediaSessionCompatApi24.Callback
+            @Override // android.media.session.MediaSession.Callback
+            @RequiresApi(24)
             public void onPrepareFromSearch(String str, Bundle bundle) {
+                MediaSessionImplApi21 sessionImplIfCallbackIsSet;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bundle) == null) {
-                    this.this$0.onPrepareFromSearch(str, bundle);
+                if (!(interceptable == null || interceptable.invokeLL(1048587, this, str, bundle) == null) || (sessionImplIfCallbackIsSet = getSessionImplIfCallbackIsSet()) == null) {
+                    return;
+                }
+                MediaSessionCompat.ensureClassLoader(bundle);
+                setCurrentControllerInfo(sessionImplIfCallbackIsSet);
+                this.this$0.onPrepareFromSearch(str, bundle);
+                clearCurrentControllerInfo(sessionImplIfCallbackIsSet);
+            }
+
+            @Override // android.media.session.MediaSession.Callback
+            @RequiresApi(24)
+            public void onPrepareFromUri(Uri uri, Bundle bundle) {
+                MediaSessionImplApi21 sessionImplIfCallbackIsSet;
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeLL(1048588, this, uri, bundle) == null) || (sessionImplIfCallbackIsSet = getSessionImplIfCallbackIsSet()) == null) {
+                    return;
+                }
+                MediaSessionCompat.ensureClassLoader(bundle);
+                setCurrentControllerInfo(sessionImplIfCallbackIsSet);
+                this.this$0.onPrepareFromUri(uri, bundle);
+                clearCurrentControllerInfo(sessionImplIfCallbackIsSet);
+            }
+
+            @Override // android.media.session.MediaSession.Callback
+            public void onRewind() {
+                MediaSessionImplApi21 sessionImplIfCallbackIsSet;
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (sessionImplIfCallbackIsSet = getSessionImplIfCallbackIsSet()) == null) {
+                    return;
+                }
+                setCurrentControllerInfo(sessionImplIfCallbackIsSet);
+                this.this$0.onRewind();
+                clearCurrentControllerInfo(sessionImplIfCallbackIsSet);
+            }
+
+            @Override // android.media.session.MediaSession.Callback
+            public void onSeekTo(long j) {
+                MediaSessionImplApi21 sessionImplIfCallbackIsSet;
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeJ(1048590, this, j) == null) || (sessionImplIfCallbackIsSet = getSessionImplIfCallbackIsSet()) == null) {
+                    return;
+                }
+                setCurrentControllerInfo(sessionImplIfCallbackIsSet);
+                this.this$0.onSeekTo(j);
+                clearCurrentControllerInfo(sessionImplIfCallbackIsSet);
+            }
+
+            @Override // android.media.session.MediaSession.Callback
+            @RequiresApi(29)
+            public void onSetPlaybackSpeed(float f) {
+                MediaSessionImplApi21 sessionImplIfCallbackIsSet;
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeF(1048591, this, f) == null) || (sessionImplIfCallbackIsSet = getSessionImplIfCallbackIsSet()) == null) {
+                    return;
+                }
+                setCurrentControllerInfo(sessionImplIfCallbackIsSet);
+                this.this$0.onSetPlaybackSpeed(f);
+                clearCurrentControllerInfo(sessionImplIfCallbackIsSet);
+            }
+
+            @Override // android.media.session.MediaSession.Callback
+            public void onSetRating(Rating rating) {
+                MediaSessionImplApi21 sessionImplIfCallbackIsSet;
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeL(1048592, this, rating) == null) || (sessionImplIfCallbackIsSet = getSessionImplIfCallbackIsSet()) == null) {
+                    return;
+                }
+                setCurrentControllerInfo(sessionImplIfCallbackIsSet);
+                this.this$0.onSetRating(RatingCompat.fromRating(rating));
+                clearCurrentControllerInfo(sessionImplIfCallbackIsSet);
+            }
+
+            public void onSetRating(Rating rating, Bundle bundle) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLL(1048593, this, rating, bundle) == null) {
                 }
             }
 
-            @Override // android.support.v4.media.session.MediaSessionCompatApi24.Callback
-            public void onPrepareFromUri(Uri uri, Bundle bundle) {
+            @Override // android.media.session.MediaSession.Callback
+            public void onSkipToNext() {
+                MediaSessionImplApi21 sessionImplIfCallbackIsSet;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(1048579, this, uri, bundle) == null) {
-                    this.this$0.onPrepareFromUri(uri, bundle);
+                if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (sessionImplIfCallbackIsSet = getSessionImplIfCallbackIsSet()) == null) {
+                    return;
                 }
+                setCurrentControllerInfo(sessionImplIfCallbackIsSet);
+                this.this$0.onSkipToNext();
+                clearCurrentControllerInfo(sessionImplIfCallbackIsSet);
+            }
+
+            @Override // android.media.session.MediaSession.Callback
+            public void onSkipToPrevious() {
+                MediaSessionImplApi21 sessionImplIfCallbackIsSet;
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || (sessionImplIfCallbackIsSet = getSessionImplIfCallbackIsSet()) == null) {
+                    return;
+                }
+                setCurrentControllerInfo(sessionImplIfCallbackIsSet);
+                this.this$0.onSkipToPrevious();
+                clearCurrentControllerInfo(sessionImplIfCallbackIsSet);
+            }
+
+            @Override // android.media.session.MediaSession.Callback
+            public void onSkipToQueueItem(long j) {
+                MediaSessionImplApi21 sessionImplIfCallbackIsSet;
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeJ(1048596, this, j) == null) || (sessionImplIfCallbackIsSet = getSessionImplIfCallbackIsSet()) == null) {
+                    return;
+                }
+                setCurrentControllerInfo(sessionImplIfCallbackIsSet);
+                this.this$0.onSkipToQueueItem(j);
+                clearCurrentControllerInfo(sessionImplIfCallbackIsSet);
+            }
+
+            @Override // android.media.session.MediaSession.Callback
+            public void onStop() {
+                MediaSessionImplApi21 sessionImplIfCallbackIsSet;
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeV(1048597, this) == null) || (sessionImplIfCallbackIsSet = getSessionImplIfCallbackIsSet()) == null) {
+                    return;
+                }
+                setCurrentControllerInfo(sessionImplIfCallbackIsSet);
+                this.this$0.onStop();
+                clearCurrentControllerInfo(sessionImplIfCallbackIsSet);
             }
         }
 
@@ -498,40 +621,31 @@ public class MediaSessionCompat {
                     return;
                 }
             }
-            this.mCallbackHandler = null;
-            int i3 = Build.VERSION.SDK_INT;
-            if (i3 >= 24) {
-                this.mCallbackObj = MediaSessionCompatApi24.createCallback(new StubApi24(this));
-            } else if (i3 >= 23) {
-                this.mCallbackObj = MediaSessionCompatApi23.createCallback(new StubApi23(this));
-            } else if (i3 >= 21) {
-                this.mCallbackObj = MediaSessionCompatApi21.createCallback(new StubApi21(this));
+            this.mLock = new Object();
+            if (Build.VERSION.SDK_INT >= 21) {
+                this.mCallbackFwk = new MediaSessionCallbackApi21(this);
             } else {
-                this.mCallbackObj = null;
+                this.mCallbackFwk = null;
             }
+            this.mSessionImpl = new WeakReference<>(null);
         }
 
-        public void handleMediaPlayPauseKeySingleTapIfPending(MediaSessionManager.RemoteUserInfo remoteUserInfo) {
+        public void handleMediaPlayPauseIfPendingOnHandler(MediaSessionImpl mediaSessionImpl, Handler handler) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, remoteUserInfo) == null) && this.mMediaPlayPauseKeyPending) {
-                this.mMediaPlayPauseKeyPending = false;
-                this.mCallbackHandler.removeMessages(1);
-                MediaSessionImpl mediaSessionImpl = this.mSessionImpl.get();
-                if (mediaSessionImpl == null) {
-                    return;
-                }
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, mediaSessionImpl, handler) == null) && this.mMediaPlayPausePendingOnHandler) {
+                this.mMediaPlayPausePendingOnHandler = false;
+                handler.removeMessages(1);
                 PlaybackStateCompat playbackState = mediaSessionImpl.getPlaybackState();
                 long actions = playbackState == null ? 0L : playbackState.getActions();
                 boolean z = playbackState != null && playbackState.getState() == 3;
                 boolean z2 = (516 & actions) != 0;
                 boolean z3 = (actions & 514) != 0;
-                mediaSessionImpl.setCurrentControllerInfo(remoteUserInfo);
                 if (z && z3) {
                     onPause();
-                } else if (!z && z2) {
+                } else if (z || !z2) {
+                } else {
                     onPlay();
                 }
-                mediaSessionImpl.setCurrentControllerInfo(null);
             }
         }
 
@@ -568,31 +682,40 @@ public class MediaSessionCompat {
         public boolean onMediaButtonEvent(Intent intent) {
             InterceptResult invokeL;
             MediaSessionImpl mediaSessionImpl;
+            CallbackHandler callbackHandler;
             KeyEvent keyEvent;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, intent)) == null) {
-                if (Build.VERSION.SDK_INT >= 27 || (mediaSessionImpl = this.mSessionImpl.get()) == null || this.mCallbackHandler == null || (keyEvent = (KeyEvent) intent.getParcelableExtra("android.intent.extra.KEY_EVENT")) == null || keyEvent.getAction() != 0) {
+                if (Build.VERSION.SDK_INT >= 27) {
+                    return false;
+                }
+                synchronized (this.mLock) {
+                    mediaSessionImpl = this.mSessionImpl.get();
+                    callbackHandler = this.mCallbackHandler;
+                }
+                if (mediaSessionImpl == null || callbackHandler == null || (keyEvent = (KeyEvent) intent.getParcelableExtra("android.intent.extra.KEY_EVENT")) == null || keyEvent.getAction() != 0) {
                     return false;
                 }
                 MediaSessionManager.RemoteUserInfo currentControllerInfo = mediaSessionImpl.getCurrentControllerInfo();
                 int keyCode = keyEvent.getKeyCode();
                 if (keyCode != 79 && keyCode != 85) {
-                    handleMediaPlayPauseKeySingleTapIfPending(currentControllerInfo);
+                    handleMediaPlayPauseIfPendingOnHandler(mediaSessionImpl, callbackHandler);
                     return false;
                 }
-                if (keyEvent.getRepeatCount() > 0) {
-                    handleMediaPlayPauseKeySingleTapIfPending(currentControllerInfo);
-                } else if (this.mMediaPlayPauseKeyPending) {
-                    this.mCallbackHandler.removeMessages(1);
-                    this.mMediaPlayPauseKeyPending = false;
-                    PlaybackStateCompat playbackState = mediaSessionImpl.getPlaybackState();
-                    if (((playbackState == null ? 0L : playbackState.getActions()) & 32) != 0) {
-                        onSkipToNext();
+                if (keyEvent.getRepeatCount() == 0) {
+                    if (this.mMediaPlayPausePendingOnHandler) {
+                        callbackHandler.removeMessages(1);
+                        this.mMediaPlayPausePendingOnHandler = false;
+                        PlaybackStateCompat playbackState = mediaSessionImpl.getPlaybackState();
+                        if (((playbackState == null ? 0L : playbackState.getActions()) & 32) != 0) {
+                            onSkipToNext();
+                        }
+                    } else {
+                        this.mMediaPlayPausePendingOnHandler = true;
+                        callbackHandler.sendMessageDelayed(callbackHandler.obtainMessage(1, currentControllerInfo), ViewConfiguration.getDoubleTapTimeout());
                     }
                 } else {
-                    this.mMediaPlayPauseKeyPending = true;
-                    CallbackHandler callbackHandler = this.mCallbackHandler;
-                    callbackHandler.sendMessageDelayed(callbackHandler.obtainMessage(1, currentControllerInfo), ViewConfiguration.getDoubleTapTimeout());
+                    handleMediaPlayPauseIfPendingOnHandler(mediaSessionImpl, callbackHandler);
                 }
                 return true;
             }
@@ -684,69 +807,82 @@ public class MediaSessionCompat {
             }
         }
 
+        public void onSetPlaybackSpeed(float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(1048597, this, f) == null) {
+            }
+        }
+
         public void onSetRating(RatingCompat ratingCompat) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048597, this, ratingCompat) == null) {
+            if (interceptable == null || interceptable.invokeL(1048598, this, ratingCompat) == null) {
             }
         }
 
         public void onSetRating(RatingCompat ratingCompat, Bundle bundle) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048598, this, ratingCompat, bundle) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048599, this, ratingCompat, bundle) == null) {
             }
         }
 
         public void onSetRepeatMode(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
             }
         }
 
         public void onSetShuffleMode(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
             }
         }
 
         public void onSkipToNext() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
             }
         }
 
         public void onSkipToPrevious() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+            if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
             }
         }
 
         public void onSkipToQueueItem(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048603, this, j) == null) {
+            if (interceptable == null || interceptable.invokeJ(1048604, this, j) == null) {
             }
         }
 
         public void onStop() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+            if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
             }
         }
 
         public void setSessionImpl(MediaSessionImpl mediaSessionImpl, Handler handler) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048605, this, mediaSessionImpl, handler) == null) {
-                this.mSessionImpl = new WeakReference<>(mediaSessionImpl);
-                CallbackHandler callbackHandler = this.mCallbackHandler;
-                if (callbackHandler != null) {
-                    callbackHandler.removeCallbacksAndMessages(null);
+            if (interceptable == null || interceptable.invokeLL(1048606, this, mediaSessionImpl, handler) == null) {
+                synchronized (this.mLock) {
+                    this.mSessionImpl = new WeakReference<>(mediaSessionImpl);
+                    CallbackHandler callbackHandler = null;
+                    if (this.mCallbackHandler != null) {
+                        this.mCallbackHandler.removeCallbacksAndMessages(null);
+                    }
+                    if (mediaSessionImpl != null && handler != null) {
+                        callbackHandler = new CallbackHandler(this, handler.getLooper());
+                    }
+                    this.mCallbackHandler = callbackHandler;
                 }
-                this.mCallbackHandler = new CallbackHandler(this, handler.getLooper());
             }
         }
     }
 
     /* loaded from: classes.dex */
     public interface MediaSessionImpl {
+        Callback getCallback();
+
         String getCallingPackage();
 
         MediaSessionManager.RemoteUserInfo getCurrentControllerInfo();
@@ -823,19 +959,19 @@ public class MediaSessionCompat {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public MediaSessionImplApi18(Context context, String str, ComponentName componentName, PendingIntent pendingIntent) {
-            super(context, str, componentName, pendingIntent);
+        public MediaSessionImplApi18(Context context, String str, ComponentName componentName, PendingIntent pendingIntent, Bundle bundle) {
+            super(context, str, componentName, pendingIntent, bundle);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, str, componentName, pendingIntent};
+                Object[] objArr = {context, str, componentName, pendingIntent, bundle};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (String) objArr2[1], (ComponentName) objArr2[2], (PendingIntent) objArr2[3]);
+                    super((Context) objArr2[0], (String) objArr2[1], (ComponentName) objArr2[2], (PendingIntent) objArr2[3], (Bundle) objArr2[4]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -960,19 +1096,19 @@ public class MediaSessionCompat {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public MediaSessionImplApi19(Context context, String str, ComponentName componentName, PendingIntent pendingIntent) {
-            super(context, str, componentName, pendingIntent);
+        public MediaSessionImplApi19(Context context, String str, ComponentName componentName, PendingIntent pendingIntent, Bundle bundle) {
+            super(context, str, componentName, pendingIntent, bundle);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, str, componentName, pendingIntent};
+                Object[] objArr = {context, str, componentName, pendingIntent, bundle};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (String) objArr2[1], (ComponentName) objArr2[2], (PendingIntent) objArr2[3]);
+                    super((Context) objArr2[0], (String) objArr2[1], (ComponentName) objArr2[2], (PendingIntent) objArr2[3], (Bundle) objArr2[4]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -993,14 +1129,14 @@ public class MediaSessionCompat {
                 if (bundle == null) {
                     return buildRccMetadata;
                 }
-                if (bundle.containsKey(MediaMetadataCompat.METADATA_KEY_YEAR)) {
-                    buildRccMetadata.putLong(8, bundle.getLong(MediaMetadataCompat.METADATA_KEY_YEAR));
+                if (bundle.containsKey("android.media.metadata.YEAR")) {
+                    buildRccMetadata.putLong(8, bundle.getLong("android.media.metadata.YEAR"));
                 }
-                if (bundle.containsKey(MediaMetadataCompat.METADATA_KEY_RATING)) {
-                    buildRccMetadata.putObject(101, (Object) bundle.getParcelable(MediaMetadataCompat.METADATA_KEY_RATING));
+                if (bundle.containsKey("android.media.metadata.RATING")) {
+                    buildRccMetadata.putObject(101, (Object) bundle.getParcelable("android.media.metadata.RATING"));
                 }
-                if (bundle.containsKey(MediaMetadataCompat.METADATA_KEY_USER_RATING)) {
-                    buildRccMetadata.putObject(268435457, (Object) bundle.getParcelable(MediaMetadataCompat.METADATA_KEY_USER_RATING));
+                if (bundle.containsKey("android.media.metadata.USER_RATING")) {
+                    buildRccMetadata.putObject(268435457, (Object) bundle.getParcelable("android.media.metadata.USER_RATING"));
                 }
                 return buildRccMetadata;
             }
@@ -1069,19 +1205,19 @@ public class MediaSessionCompat {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public MediaSessionImplApi28(Context context, String str, Bundle bundle) {
-            super(context, str, bundle);
+        public MediaSessionImplApi28(MediaSession mediaSession, VersionedParcelable versionedParcelable, Bundle bundle) {
+            super(mediaSession, versionedParcelable, bundle);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, str, bundle};
+                Object[] objArr = {mediaSession, versionedParcelable, bundle};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (String) objArr2[1], (Bundle) objArr2[2]);
+                    super((MediaSession) objArr2[0], (VersionedParcelable) objArr2[1], (Bundle) objArr2[2]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -1094,7 +1230,7 @@ public class MediaSessionCompat {
         public final MediaSessionManager.RemoteUserInfo getCurrentControllerInfo() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new MediaSessionManager.RemoteUserInfo(((MediaSession) this.mSessionObj).getCurrentControllerInfo()) : (MediaSessionManager.RemoteUserInfo) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new MediaSessionManager.RemoteUserInfo(this.mSessionFwk.getCurrentControllerInfo()) : (MediaSessionManager.RemoteUserInfo) invokeV.objValue;
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImplApi21, android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
@@ -1125,6 +1261,55 @@ public class MediaSessionCompat {
         }
     }
 
+    @RequiresApi(29)
+    /* loaded from: classes.dex */
+    public static class MediaSessionImplApi29 extends MediaSessionImplApi28 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public MediaSessionImplApi29(MediaSession mediaSession, VersionedParcelable versionedParcelable, Bundle bundle) {
+            super(mediaSession, versionedParcelable, bundle);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mediaSession, versionedParcelable, bundle};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((MediaSession) objArr2[0], (VersionedParcelable) objArr2[1], (Bundle) objArr2[2]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public MediaSessionImplApi29(Object obj) {
+            super(obj);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {obj};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.mSessionInfo = ((MediaSession) obj).getController().getSessionInfo();
+        }
+    }
+
     /* loaded from: classes.dex */
     public static class MediaSessionImplBase implements MediaSessionImpl {
         public static /* synthetic */ Interceptable $ic;
@@ -1140,8 +1325,6 @@ public class MediaSessionCompat {
         public int mFlags;
         public MessageHandler mHandler;
         public boolean mIsActive;
-        public boolean mIsMbrRegistered;
-        public boolean mIsRccRegistered;
         public int mLocalStream;
         public final Object mLock;
         public final ComponentName mMediaButtonReceiverComponentName;
@@ -1155,6 +1338,7 @@ public class MediaSessionCompat {
         public MediaSessionManager.RemoteUserInfo mRemoteUserInfo;
         public int mRepeatMode;
         public PendingIntent mSessionActivity;
+        public final Bundle mSessionInfo;
         public int mShuffleMode;
         public PlaybackStateCompat mState;
         public final MediaSessionStub mStub;
@@ -1357,17 +1541,30 @@ public class MediaSessionCompat {
             }
 
             @Override // android.support.v4.media.session.IMediaSession
+            public Bundle getSessionInfo() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+                    if (this.this$0.mSessionInfo == null) {
+                        return null;
+                    }
+                    return new Bundle(this.this$0.mSessionInfo);
+                }
+                return (Bundle) invokeV.objValue;
+            }
+
+            @Override // android.support.v4.media.session.IMediaSession
             public int getShuffleMode() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.this$0.mShuffleMode : invokeV.intValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.this$0.mShuffleMode : invokeV.intValue;
             }
 
             @Override // android.support.v4.media.session.IMediaSession
             public String getTag() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.this$0.mTag : (String) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.this$0.mTag : (String) invokeV.objValue;
             }
 
             @Override // android.support.v4.media.session.IMediaSession
@@ -1379,7 +1576,7 @@ public class MediaSessionCompat {
                 int streamVolume;
                 int i3;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
                     synchronized (this.this$0.mLock) {
                         i = this.this$0.mVolumeType;
                         i2 = this.this$0.mLocalStream;
@@ -1405,14 +1602,14 @@ public class MediaSessionCompat {
             public boolean isCaptioningEnabled() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.this$0.mCaptioningEnabled : invokeV.booleanValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.this$0.mCaptioningEnabled : invokeV.booleanValue;
             }
 
             @Override // android.support.v4.media.session.IMediaSession
             public boolean isShuffleModeEnabledRemoved() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
                     return false;
                 }
                 return invokeV.booleanValue;
@@ -1422,13 +1619,16 @@ public class MediaSessionCompat {
             public boolean isTransportControlEnabled() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? (this.this$0.mFlags & 2) != 0 : invokeV.booleanValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+                    return true;
+                }
+                return invokeV.booleanValue;
             }
 
             @Override // android.support.v4.media.session.IMediaSession
             public void next() throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+                if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
                     postToHandler(14);
                 }
             }
@@ -1436,7 +1636,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void pause() throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+                if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
                     postToHandler(12);
                 }
             }
@@ -1444,7 +1644,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void play() throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+                if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
                     postToHandler(7);
                 }
             }
@@ -1452,7 +1652,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void playFromMediaId(String str, Bundle bundle) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(1048599, this, str, bundle) == null) {
+                if (interceptable == null || interceptable.invokeLL(1048600, this, str, bundle) == null) {
                     postToHandler(8, str, bundle);
                 }
             }
@@ -1460,7 +1660,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void playFromSearch(String str, Bundle bundle) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(1048600, this, str, bundle) == null) {
+                if (interceptable == null || interceptable.invokeLL(1048601, this, str, bundle) == null) {
                     postToHandler(9, str, bundle);
                 }
             }
@@ -1468,14 +1668,14 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void playFromUri(Uri uri, Bundle bundle) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(1048601, this, uri, bundle) == null) {
+                if (interceptable == null || interceptable.invokeLL(1048602, this, uri, bundle) == null) {
                     postToHandler(10, uri, bundle);
                 }
             }
 
             public void postToHandler(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+                if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
                     this.this$0.postToHandler(i, 0, 0, null, null);
                 }
             }
@@ -1483,7 +1683,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void prepare() throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
+                if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
                     postToHandler(3);
                 }
             }
@@ -1491,7 +1691,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void prepareFromMediaId(String str, Bundle bundle) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(1048608, this, str, bundle) == null) {
+                if (interceptable == null || interceptable.invokeLL(1048609, this, str, bundle) == null) {
                     postToHandler(4, str, bundle);
                 }
             }
@@ -1499,7 +1699,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void prepareFromSearch(String str, Bundle bundle) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(1048609, this, str, bundle) == null) {
+                if (interceptable == null || interceptable.invokeLL(1048610, this, str, bundle) == null) {
                     postToHandler(5, str, bundle);
                 }
             }
@@ -1507,7 +1707,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void prepareFromUri(Uri uri, Bundle bundle) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(1048610, this, uri, bundle) == null) {
+                if (interceptable == null || interceptable.invokeLL(1048611, this, uri, bundle) == null) {
                     postToHandler(6, uri, bundle);
                 }
             }
@@ -1515,7 +1715,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void previous() throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
+                if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
                     postToHandler(15);
                 }
             }
@@ -1523,7 +1723,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void rate(RatingCompat ratingCompat) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048612, this, ratingCompat) == null) {
+                if (interceptable == null || interceptable.invokeL(1048613, this, ratingCompat) == null) {
                     postToHandler(19, ratingCompat);
                 }
             }
@@ -1531,7 +1731,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void rateWithExtras(RatingCompat ratingCompat, Bundle bundle) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(1048613, this, ratingCompat, bundle) == null) {
+                if (interceptable == null || interceptable.invokeLL(1048614, this, ratingCompat, bundle) == null) {
                     postToHandler(31, ratingCompat, bundle);
                 }
             }
@@ -1539,7 +1739,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void registerCallbackListener(IMediaControllerCallback iMediaControllerCallback) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048614, this, iMediaControllerCallback) == null) {
+                if (interceptable == null || interceptable.invokeL(1048615, this, iMediaControllerCallback) == null) {
                     if (this.this$0.mDestroyed) {
                         try {
                             iMediaControllerCallback.onSessionDestroyed();
@@ -1548,14 +1748,14 @@ public class MediaSessionCompat {
                             return;
                         }
                     }
-                    this.this$0.mControllerCallbacks.register(iMediaControllerCallback, new MediaSessionManager.RemoteUserInfo(MediaSessionManager.RemoteUserInfo.LEGACY_CONTROLLER, Binder.getCallingPid(), Binder.getCallingUid()));
+                    this.this$0.mControllerCallbacks.register(iMediaControllerCallback, new MediaSessionManager.RemoteUserInfo(this.this$0.getPackageNameForUid(Binder.getCallingUid()), Binder.getCallingPid(), Binder.getCallingUid()));
                 }
             }
 
             @Override // android.support.v4.media.session.IMediaSession
             public void removeQueueItem(MediaDescriptionCompat mediaDescriptionCompat) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048615, this, mediaDescriptionCompat) == null) {
+                if (interceptable == null || interceptable.invokeL(1048616, this, mediaDescriptionCompat) == null) {
                     postToHandler(27, mediaDescriptionCompat);
                 }
             }
@@ -1563,7 +1763,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void removeQueueItemAt(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
+                if (interceptable == null || interceptable.invokeI(1048617, this, i) == null) {
                     postToHandler(28, i);
                 }
             }
@@ -1571,7 +1771,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void rewind() throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
+                if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
                     postToHandler(17);
                 }
             }
@@ -1579,7 +1779,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void seekTo(long j) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeJ(1048618, this, j) == null) {
+                if (interceptable == null || interceptable.invokeJ(1048619, this, j) == null) {
                     postToHandler(18, Long.valueOf(j));
                 }
             }
@@ -1587,15 +1787,15 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void sendCommand(String str, Bundle bundle, ResultReceiverWrapper resultReceiverWrapper) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLLL(1048619, this, str, bundle, resultReceiverWrapper) == null) {
-                    postToHandler(1, new Command(str, bundle, resultReceiverWrapper.mResultReceiver));
+                if (interceptable == null || interceptable.invokeLLL(1048620, this, str, bundle, resultReceiverWrapper) == null) {
+                    postToHandler(1, new Command(str, bundle, resultReceiverWrapper == null ? null : resultReceiverWrapper.mResultReceiver));
                 }
             }
 
             @Override // android.support.v4.media.session.IMediaSession
             public void sendCustomAction(String str, Bundle bundle) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(1048620, this, str, bundle) == null) {
+                if (interceptable == null || interceptable.invokeLL(1048621, this, str, bundle) == null) {
                     postToHandler(20, str, bundle);
                 }
             }
@@ -1604,12 +1804,9 @@ public class MediaSessionCompat {
             public boolean sendMediaButton(KeyEvent keyEvent) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048621, this, keyEvent)) == null) {
-                    boolean z = (this.this$0.mFlags & 1) != 0;
-                    if (z) {
-                        postToHandler(21, keyEvent);
-                    }
-                    return z;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048622, this, keyEvent)) == null) {
+                    postToHandler(21, keyEvent);
+                    return true;
                 }
                 return invokeL.booleanValue;
             }
@@ -1617,15 +1814,23 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void setCaptioningEnabled(boolean z) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeZ(1048622, this, z) == null) {
+                if (interceptable == null || interceptable.invokeZ(1048623, this, z) == null) {
                     postToHandler(29, Boolean.valueOf(z));
+                }
+            }
+
+            @Override // android.support.v4.media.session.IMediaSession
+            public void setPlaybackSpeed(float f) throws RemoteException {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeF(1048624, this, f) == null) {
+                    postToHandler(32, Float.valueOf(f));
                 }
             }
 
             @Override // android.support.v4.media.session.IMediaSession
             public void setRepeatMode(int i) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048623, this, i) == null) {
+                if (interceptable == null || interceptable.invokeI(1048625, this, i) == null) {
                     postToHandler(23, i);
                 }
             }
@@ -1633,7 +1838,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void setShuffleMode(int i) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048624, this, i) == null) {
+                if (interceptable == null || interceptable.invokeI(1048626, this, i) == null) {
                     postToHandler(30, i);
                 }
             }
@@ -1641,14 +1846,14 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void setShuffleModeEnabledRemoved(boolean z) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeZ(1048625, this, z) == null) {
+                if (interceptable == null || interceptable.invokeZ(1048627, this, z) == null) {
                 }
             }
 
             @Override // android.support.v4.media.session.IMediaSession
             public void setVolumeTo(int i, int i2, String str) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeIIL(1048626, this, i, i2, str) == null) {
+                if (interceptable == null || interceptable.invokeIIL(1048628, this, i, i2, str) == null) {
                     this.this$0.setVolumeTo(i, i2);
                 }
             }
@@ -1656,7 +1861,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void skipToQueueItem(long j) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeJ(1048627, this, j) == null) {
+                if (interceptable == null || interceptable.invokeJ(1048629, this, j) == null) {
                     postToHandler(11, Long.valueOf(j));
                 }
             }
@@ -1664,7 +1869,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void stop() throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048628, this) == null) {
+                if (interceptable == null || interceptable.invokeV(1048630, this) == null) {
                     postToHandler(13);
                 }
             }
@@ -1672,35 +1877,35 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void unregisterCallbackListener(IMediaControllerCallback iMediaControllerCallback) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048629, this, iMediaControllerCallback) == null) {
+                if (interceptable == null || interceptable.invokeL(1048631, this, iMediaControllerCallback) == null) {
                     this.this$0.mControllerCallbacks.unregister(iMediaControllerCallback);
                 }
             }
 
             public void postToHandler(int i, int i2) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeII(1048603, this, i, i2) == null) {
+                if (interceptable == null || interceptable.invokeII(1048604, this, i, i2) == null) {
                     this.this$0.postToHandler(i, i2, 0, null, null);
                 }
             }
 
             public void postToHandler(int i, Object obj) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeIL(1048604, this, i, obj) == null) {
+                if (interceptable == null || interceptable.invokeIL(1048605, this, i, obj) == null) {
                     this.this$0.postToHandler(i, 0, 0, obj, null);
                 }
             }
 
             public void postToHandler(int i, Object obj, int i2) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{Integer.valueOf(i), obj, Integer.valueOf(i2)}) == null) {
+                if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{Integer.valueOf(i), obj, Integer.valueOf(i2)}) == null) {
                     this.this$0.postToHandler(i, i2, 0, obj, null);
                 }
             }
 
             public void postToHandler(int i, Object obj, Bundle bundle) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeILL(1048606, this, i, obj, bundle) == null) {
+                if (interceptable == null || interceptable.invokeILL(1048607, this, i, obj, bundle) == null) {
                     this.this$0.postToHandler(i, 0, 0, obj, bundle);
                 }
             }
@@ -1736,6 +1941,7 @@ public class MediaSessionCompat {
             public static final int MSG_REWIND = 17;
             public static final int MSG_SEEK_TO = 18;
             public static final int MSG_SET_CAPTIONING_ENABLED = 29;
+            public static final int MSG_SET_PLAYBACK_SPEED = 32;
             public static final int MSG_SET_REPEAT_MODE = 23;
             public static final int MSG_SET_SHUFFLE_MODE = 30;
             public static final int MSG_SET_VOLUME = 22;
@@ -1944,6 +2150,9 @@ public class MediaSessionCompat {
                         case 31:
                             callback.onSetRating((RatingCompat) message.obj, bundle);
                             break;
+                        case 32:
+                            callback.onSetPlaybackSpeed(((Float) message.obj).floatValue());
+                            break;
                     }
                 } finally {
                     this.this$0.setCurrentControllerInfo(null);
@@ -1951,12 +2160,12 @@ public class MediaSessionCompat {
             }
         }
 
-        public MediaSessionImplBase(Context context, String str, ComponentName componentName, PendingIntent pendingIntent) {
+        public MediaSessionImplBase(Context context, String str, ComponentName componentName, PendingIntent pendingIntent, Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, str, componentName, pendingIntent};
+                Object[] objArr = {context, str, componentName, pendingIntent, bundle};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -1970,8 +2179,7 @@ public class MediaSessionCompat {
             this.mControllerCallbacks = new RemoteCallbackList<>();
             this.mDestroyed = false;
             this.mIsActive = false;
-            this.mIsMbrRegistered = false;
-            this.mIsRccRegistered = false;
+            this.mFlags = 3;
             this.mVolumeCallback = new VolumeProviderCompat.Callback(this) { // from class: android.support.v4.media.session.MediaSessionCompat.MediaSessionImplBase.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -2007,6 +2215,7 @@ public class MediaSessionCompat {
             if (componentName != null) {
                 this.mContext = context;
                 this.mPackageName = context.getPackageName();
+                this.mSessionInfo = bundle;
                 this.mAudioManager = (AudioManager) context.getSystemService("audio");
                 this.mTag = str;
                 this.mMediaButtonReceiverComponentName = componentName;
@@ -2019,7 +2228,7 @@ public class MediaSessionCompat {
                 this.mRcc = new RemoteControlClient(pendingIntent);
                 return;
             }
-            throw new IllegalArgumentException("MediaButtonReceiver component may not be null.");
+            throw new IllegalArgumentException("MediaButtonReceiver component may not be null");
         }
 
         private void sendCaptioningEnabled(boolean z) {
@@ -2176,57 +2385,57 @@ public class MediaSessionCompat {
                 if (bundle == null) {
                     return editMetadata;
                 }
-                if (bundle.containsKey(MediaMetadataCompat.METADATA_KEY_ART)) {
-                    Bitmap bitmap = (Bitmap) bundle.getParcelable(MediaMetadataCompat.METADATA_KEY_ART);
+                if (bundle.containsKey("android.media.metadata.ART")) {
+                    Bitmap bitmap = (Bitmap) bundle.getParcelable("android.media.metadata.ART");
                     if (bitmap != null) {
                         bitmap = bitmap.copy(bitmap.getConfig(), false);
                     }
                     editMetadata.putBitmap(100, bitmap);
-                } else if (bundle.containsKey(MediaMetadataCompat.METADATA_KEY_ALBUM_ART)) {
-                    Bitmap bitmap2 = (Bitmap) bundle.getParcelable(MediaMetadataCompat.METADATA_KEY_ALBUM_ART);
+                } else if (bundle.containsKey("android.media.metadata.ALBUM_ART")) {
+                    Bitmap bitmap2 = (Bitmap) bundle.getParcelable("android.media.metadata.ALBUM_ART");
                     if (bitmap2 != null) {
                         bitmap2 = bitmap2.copy(bitmap2.getConfig(), false);
                     }
                     editMetadata.putBitmap(100, bitmap2);
                 }
-                if (bundle.containsKey(MediaMetadataCompat.METADATA_KEY_ALBUM)) {
-                    editMetadata.putString(1, bundle.getString(MediaMetadataCompat.METADATA_KEY_ALBUM));
+                if (bundle.containsKey("android.media.metadata.ALBUM")) {
+                    editMetadata.putString(1, bundle.getString("android.media.metadata.ALBUM"));
                 }
-                if (bundle.containsKey(MediaMetadataCompat.METADATA_KEY_ALBUM_ARTIST)) {
-                    editMetadata.putString(13, bundle.getString(MediaMetadataCompat.METADATA_KEY_ALBUM_ARTIST));
+                if (bundle.containsKey("android.media.metadata.ALBUM_ARTIST")) {
+                    editMetadata.putString(13, bundle.getString("android.media.metadata.ALBUM_ARTIST"));
                 }
-                if (bundle.containsKey(MediaMetadataCompat.METADATA_KEY_ARTIST)) {
-                    editMetadata.putString(2, bundle.getString(MediaMetadataCompat.METADATA_KEY_ARTIST));
+                if (bundle.containsKey("android.media.metadata.ARTIST")) {
+                    editMetadata.putString(2, bundle.getString("android.media.metadata.ARTIST"));
                 }
-                if (bundle.containsKey(MediaMetadataCompat.METADATA_KEY_AUTHOR)) {
-                    editMetadata.putString(3, bundle.getString(MediaMetadataCompat.METADATA_KEY_AUTHOR));
+                if (bundle.containsKey("android.media.metadata.AUTHOR")) {
+                    editMetadata.putString(3, bundle.getString("android.media.metadata.AUTHOR"));
                 }
-                if (bundle.containsKey(MediaMetadataCompat.METADATA_KEY_COMPILATION)) {
-                    editMetadata.putString(15, bundle.getString(MediaMetadataCompat.METADATA_KEY_COMPILATION));
+                if (bundle.containsKey("android.media.metadata.COMPILATION")) {
+                    editMetadata.putString(15, bundle.getString("android.media.metadata.COMPILATION"));
                 }
-                if (bundle.containsKey(MediaMetadataCompat.METADATA_KEY_COMPOSER)) {
-                    editMetadata.putString(4, bundle.getString(MediaMetadataCompat.METADATA_KEY_COMPOSER));
+                if (bundle.containsKey("android.media.metadata.COMPOSER")) {
+                    editMetadata.putString(4, bundle.getString("android.media.metadata.COMPOSER"));
                 }
-                if (bundle.containsKey(MediaMetadataCompat.METADATA_KEY_DATE)) {
-                    editMetadata.putString(5, bundle.getString(MediaMetadataCompat.METADATA_KEY_DATE));
+                if (bundle.containsKey("android.media.metadata.DATE")) {
+                    editMetadata.putString(5, bundle.getString("android.media.metadata.DATE"));
                 }
-                if (bundle.containsKey(MediaMetadataCompat.METADATA_KEY_DISC_NUMBER)) {
-                    editMetadata.putLong(14, bundle.getLong(MediaMetadataCompat.METADATA_KEY_DISC_NUMBER));
+                if (bundle.containsKey("android.media.metadata.DISC_NUMBER")) {
+                    editMetadata.putLong(14, bundle.getLong("android.media.metadata.DISC_NUMBER"));
                 }
-                if (bundle.containsKey(MediaMetadataCompat.METADATA_KEY_DURATION)) {
-                    editMetadata.putLong(9, bundle.getLong(MediaMetadataCompat.METADATA_KEY_DURATION));
+                if (bundle.containsKey("android.media.metadata.DURATION")) {
+                    editMetadata.putLong(9, bundle.getLong("android.media.metadata.DURATION"));
                 }
-                if (bundle.containsKey(MediaMetadataCompat.METADATA_KEY_GENRE)) {
-                    editMetadata.putString(6, bundle.getString(MediaMetadataCompat.METADATA_KEY_GENRE));
+                if (bundle.containsKey("android.media.metadata.GENRE")) {
+                    editMetadata.putString(6, bundle.getString("android.media.metadata.GENRE"));
                 }
-                if (bundle.containsKey(MediaMetadataCompat.METADATA_KEY_TITLE)) {
-                    editMetadata.putString(7, bundle.getString(MediaMetadataCompat.METADATA_KEY_TITLE));
+                if (bundle.containsKey("android.media.metadata.TITLE")) {
+                    editMetadata.putString(7, bundle.getString("android.media.metadata.TITLE"));
                 }
-                if (bundle.containsKey(MediaMetadataCompat.METADATA_KEY_TRACK_NUMBER)) {
-                    editMetadata.putLong(0, bundle.getLong(MediaMetadataCompat.METADATA_KEY_TRACK_NUMBER));
+                if (bundle.containsKey("android.media.metadata.TRACK_NUMBER")) {
+                    editMetadata.putLong(0, bundle.getLong("android.media.metadata.TRACK_NUMBER"));
                 }
-                if (bundle.containsKey(MediaMetadataCompat.METADATA_KEY_WRITER)) {
-                    editMetadata.putString(11, bundle.getString(MediaMetadataCompat.METADATA_KEY_WRITER));
+                if (bundle.containsKey("android.media.metadata.WRITER")) {
+                    editMetadata.putString(11, bundle.getString("android.media.metadata.WRITER"));
                 }
                 return editMetadata;
             }
@@ -2234,10 +2443,24 @@ public class MediaSessionCompat {
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
+        public Callback getCallback() {
+            InterceptResult invokeV;
+            Callback callback;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                synchronized (this.mLock) {
+                    callback = this.mCallback;
+                }
+                return callback;
+            }
+            return (Callback) invokeV.objValue;
+        }
+
+        @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public String getCallingPackage() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 return null;
             }
             return (String) invokeV.objValue;
@@ -2248,7 +2471,7 @@ public class MediaSessionCompat {
             InterceptResult invokeV;
             MediaSessionManager.RemoteUserInfo remoteUserInfo;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                 synchronized (this.mLock) {
                     remoteUserInfo = this.mRemoteUserInfo;
                 }
@@ -2261,10 +2484,20 @@ public class MediaSessionCompat {
         public Object getMediaSession() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
                 return null;
             }
             return invokeV.objValue;
+        }
+
+        public String getPackageNameForUid(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+                String nameForUid = this.mContext.getPackageManager().getNameForUid(i);
+                return TextUtils.isEmpty(nameForUid) ? MediaSessionManager.RemoteUserInfo.LEGACY_CONTROLLER : nameForUid;
+            }
+            return (String) invokeI.objValue;
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
@@ -2272,7 +2505,7 @@ public class MediaSessionCompat {
             InterceptResult invokeV;
             PlaybackStateCompat playbackStateCompat;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
                 synchronized (this.mLock) {
                     playbackStateCompat = this.mState;
                 }
@@ -2284,7 +2517,7 @@ public class MediaSessionCompat {
         public int getRccStateFromState(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
                 switch (i) {
                     case 0:
                         return 0;
@@ -2318,7 +2551,7 @@ public class MediaSessionCompat {
         public int getRccTransportControlFlagsFromActions(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
                 int i = (1 & j) != 0 ? 32 : 0;
                 if ((2 & j) != 0) {
                     i |= 16;
@@ -2347,7 +2580,7 @@ public class MediaSessionCompat {
         public Object getRemoteControlClient() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
                 return null;
             }
             return invokeV.objValue;
@@ -2357,26 +2590,32 @@ public class MediaSessionCompat {
         public Token getSessionToken() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mToken : (Token) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mToken : (Token) invokeV.objValue;
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public boolean isActive() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mIsActive : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mIsActive : invokeV.booleanValue;
         }
 
         public void postToHandler(int i, int i2, int i3, Object obj, Bundle bundle) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), obj, bundle}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), obj, bundle}) == null) {
                 synchronized (this.mLock) {
                     if (this.mHandler != null) {
                         Message obtainMessage = this.mHandler.obtainMessage(i, i2, i3, obj);
                         Bundle bundle2 = new Bundle();
-                        bundle2.putString(MediaSessionCompat.DATA_CALLING_PACKAGE, MediaSessionManager.RemoteUserInfo.LEGACY_CONTROLLER);
-                        bundle2.putInt("data_calling_pid", Binder.getCallingPid());
-                        bundle2.putInt("data_calling_uid", Binder.getCallingUid());
+                        int callingUid = Binder.getCallingUid();
+                        bundle2.putInt("data_calling_uid", callingUid);
+                        bundle2.putString(MediaSessionCompat.DATA_CALLING_PACKAGE, getPackageNameForUid(callingUid));
+                        int callingPid = Binder.getCallingPid();
+                        if (callingPid > 0) {
+                            bundle2.putInt("data_calling_pid", callingPid);
+                        } else {
+                            bundle2.putInt("data_calling_pid", -1);
+                        }
                         if (bundle != null) {
                             bundle2.putBundle(MediaSessionCompat.DATA_EXTRAS, bundle);
                         }
@@ -2389,7 +2628,7 @@ public class MediaSessionCompat {
 
         public void registerMediaButtonEventReceiver(PendingIntent pendingIntent, ComponentName componentName) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048588, this, pendingIntent, componentName) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048590, this, pendingIntent, componentName) == null) {
                 this.mAudioManager.registerMediaButtonEventReceiver(componentName);
             }
         }
@@ -2397,25 +2636,26 @@ public class MediaSessionCompat {
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void release() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
                 this.mIsActive = false;
                 this.mDestroyed = true;
-                update();
+                updateMbrAndRcc();
                 sendSessionDestroyed();
+                setCallback(null, null);
             }
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void sendSessionEvent(String str, Bundle bundle) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048590, this, str, bundle) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048592, this, str, bundle) == null) {
                 sendEvent(str, bundle);
             }
         }
 
         public void sendVolumeInfoChanged(ParcelableVolumeInfo parcelableVolumeInfo) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048591, this, parcelableVolumeInfo) == null) {
+            if (interceptable == null || interceptable.invokeL(1048593, this, parcelableVolumeInfo) == null) {
                 for (int beginBroadcast = this.mControllerCallbacks.beginBroadcast() - 1; beginBroadcast >= 0; beginBroadcast--) {
                     try {
                         this.mControllerCallbacks.getBroadcastItem(beginBroadcast).onVolumeInfoChanged(parcelableVolumeInfo);
@@ -2429,31 +2669,44 @@ public class MediaSessionCompat {
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setActive(boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048592, this, z) == null) || z == this.mIsActive) {
+            if (!(interceptable == null || interceptable.invokeZ(1048594, this, z) == null) || z == this.mIsActive) {
                 return;
             }
             this.mIsActive = z;
-            if (update()) {
-                setMetadata(this.mMetadata);
-                setPlaybackState(this.mState);
-            }
+            updateMbrAndRcc();
         }
 
+        /* JADX WARN: Removed duplicated region for block: B:21:0x0036 A[Catch: all -> 0x003d, TryCatch #0 {, blocks: (B:6:0x0007, B:8:0x000c, B:12:0x0016, B:14:0x0021, B:16:0x0027, B:18:0x002b, B:19:0x0030, B:21:0x0036, B:22:0x003b), top: B:30:0x0007 }] */
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
         public void setCallback(Callback callback, Handler handler) {
+            MessageHandler messageHandler;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048593, this, callback, handler) == null) {
-                this.mCallback = callback;
-                if (callback != null) {
-                    if (handler == null) {
-                        handler = new Handler();
+            if (interceptable == null || interceptable.invokeLL(1048595, this, callback, handler) == null) {
+                synchronized (this.mLock) {
+                    if (this.mHandler != null) {
+                        this.mHandler.removeCallbacksAndMessages(null);
                     }
-                    synchronized (this.mLock) {
-                        if (this.mHandler != null) {
-                            this.mHandler.removeCallbacksAndMessages(null);
+                    if (callback != null && handler != null) {
+                        messageHandler = new MessageHandler(this, handler.getLooper());
+                        this.mHandler = messageHandler;
+                        if (this.mCallback != callback && this.mCallback != null) {
+                            this.mCallback.setSessionImpl(null, null);
                         }
-                        this.mHandler = new MessageHandler(this, handler.getLooper());
-                        this.mCallback.setSessionImpl(this, handler);
+                        this.mCallback = callback;
+                        if (this.mCallback != null) {
+                            this.mCallback.setSessionImpl(this, handler);
+                        }
+                    }
+                    messageHandler = null;
+                    this.mHandler = messageHandler;
+                    if (this.mCallback != callback) {
+                        this.mCallback.setSessionImpl(null, null);
+                    }
+                    this.mCallback = callback;
+                    if (this.mCallback != null) {
                     }
                 }
             }
@@ -2462,7 +2715,7 @@ public class MediaSessionCompat {
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setCaptioningEnabled(boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048594, this, z) == null) || this.mCaptioningEnabled == z) {
+            if (!(interceptable == null || interceptable.invokeZ(1048596, this, z) == null) || this.mCaptioningEnabled == z) {
                 return;
             }
             this.mCaptioningEnabled = z;
@@ -2472,7 +2725,7 @@ public class MediaSessionCompat {
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setCurrentControllerInfo(MediaSessionManager.RemoteUserInfo remoteUserInfo) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048595, this, remoteUserInfo) == null) {
+            if (interceptable == null || interceptable.invokeL(1048597, this, remoteUserInfo) == null) {
                 synchronized (this.mLock) {
                     this.mRemoteUserInfo = remoteUserInfo;
                 }
@@ -2482,7 +2735,7 @@ public class MediaSessionCompat {
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setExtras(Bundle bundle) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048596, this, bundle) == null) {
+            if (interceptable == null || interceptable.invokeL(1048598, this, bundle) == null) {
                 this.mExtras = bundle;
                 sendExtras(bundle);
             }
@@ -2491,25 +2744,24 @@ public class MediaSessionCompat {
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setFlags(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
                 synchronized (this.mLock) {
-                    this.mFlags = i;
+                    this.mFlags = i | 1 | 2;
                 }
-                update();
             }
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setMediaButtonReceiver(PendingIntent pendingIntent) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048598, this, pendingIntent) == null) {
+            if (interceptable == null || interceptable.invokeL(1048600, this, pendingIntent) == null) {
             }
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setMetadata(MediaMetadataCompat mediaMetadataCompat) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048599, this, mediaMetadataCompat) == null) {
+            if (interceptable == null || interceptable.invokeL(1048601, this, mediaMetadataCompat) == null) {
                 if (mediaMetadataCompat != null) {
                     mediaMetadataCompat = new MediaMetadataCompat.Builder(mediaMetadataCompat, MediaSessionCompat.sMaxBitmapSize).build();
                 }
@@ -2526,7 +2778,7 @@ public class MediaSessionCompat {
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setPlaybackState(PlaybackStateCompat playbackStateCompat) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048600, this, playbackStateCompat) == null) {
+            if (interceptable == null || interceptable.invokeL(1048602, this, playbackStateCompat) == null) {
                 synchronized (this.mLock) {
                     this.mState = playbackStateCompat;
                 }
@@ -2546,7 +2798,7 @@ public class MediaSessionCompat {
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setPlaybackToLocal(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+            if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
                 VolumeProviderCompat volumeProviderCompat = this.mVolumeProvider;
                 if (volumeProviderCompat != null) {
                     volumeProviderCompat.setCallback(null);
@@ -2562,7 +2814,7 @@ public class MediaSessionCompat {
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setPlaybackToRemote(VolumeProviderCompat volumeProviderCompat) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048602, this, volumeProviderCompat) == null) {
+            if (interceptable == null || interceptable.invokeL(1048604, this, volumeProviderCompat) == null) {
                 if (volumeProviderCompat != null) {
                     VolumeProviderCompat volumeProviderCompat2 = this.mVolumeProvider;
                     if (volumeProviderCompat2 != null) {
@@ -2581,7 +2833,7 @@ public class MediaSessionCompat {
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setQueue(List<QueueItem> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048603, this, list) == null) {
+            if (interceptable == null || interceptable.invokeL(1048605, this, list) == null) {
                 this.mQueue = list;
                 sendQueue(list);
             }
@@ -2590,7 +2842,7 @@ public class MediaSessionCompat {
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setQueueTitle(CharSequence charSequence) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048604, this, charSequence) == null) {
+            if (interceptable == null || interceptable.invokeL(1048606, this, charSequence) == null) {
                 this.mQueueTitle = charSequence;
                 sendQueueTitle(charSequence);
             }
@@ -2599,14 +2851,14 @@ public class MediaSessionCompat {
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setRatingType(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+            if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
                 this.mRatingType = i;
             }
         }
 
         public void setRccState(PlaybackStateCompat playbackStateCompat) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048606, this, playbackStateCompat) == null) {
+            if (interceptable == null || interceptable.invokeL(1048608, this, playbackStateCompat) == null) {
                 this.mRcc.setPlaybackState(getRccStateFromState(playbackStateCompat.getState()));
             }
         }
@@ -2614,7 +2866,7 @@ public class MediaSessionCompat {
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setRepeatMode(int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048607, this, i) == null) || this.mRepeatMode == i) {
+            if (!(interceptable == null || interceptable.invokeI(1048609, this, i) == null) || this.mRepeatMode == i) {
                 return;
             }
             this.mRepeatMode = i;
@@ -2624,7 +2876,7 @@ public class MediaSessionCompat {
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setSessionActivity(PendingIntent pendingIntent) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048608, this, pendingIntent) == null) {
+            if (interceptable == null || interceptable.invokeL(1048610, this, pendingIntent) == null) {
                 synchronized (this.mLock) {
                     this.mSessionActivity = pendingIntent;
                 }
@@ -2634,7 +2886,7 @@ public class MediaSessionCompat {
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setShuffleMode(int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048609, this, i) == null) || this.mShuffleMode == i) {
+            if (!(interceptable == null || interceptable.invokeI(1048611, this, i) == null) || this.mShuffleMode == i) {
                 return;
             }
             this.mShuffleMode = i;
@@ -2643,7 +2895,7 @@ public class MediaSessionCompat {
 
         public void setVolumeTo(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048610, this, i, i2) == null) {
+            if (interceptable == null || interceptable.invokeII(1048612, this, i, i2) == null) {
                 if (this.mVolumeType == 2) {
                     VolumeProviderCompat volumeProviderCompat = this.mVolumeProvider;
                     if (volumeProviderCompat != null) {
@@ -2658,46 +2910,25 @@ public class MediaSessionCompat {
 
         public void unregisterMediaButtonEventReceiver(PendingIntent pendingIntent, ComponentName componentName) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048611, this, pendingIntent, componentName) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048613, this, pendingIntent, componentName) == null) {
                 this.mAudioManager.unregisterMediaButtonEventReceiver(componentName);
             }
         }
 
-        public boolean update() {
-            InterceptResult invokeV;
+        public void updateMbrAndRcc() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+            if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
                 if (this.mIsActive) {
-                    if (!this.mIsMbrRegistered && (this.mFlags & 1) != 0) {
-                        registerMediaButtonEventReceiver(this.mMediaButtonReceiverIntent, this.mMediaButtonReceiverComponentName);
-                        this.mIsMbrRegistered = true;
-                    } else if (this.mIsMbrRegistered && (this.mFlags & 1) == 0) {
-                        unregisterMediaButtonEventReceiver(this.mMediaButtonReceiverIntent, this.mMediaButtonReceiverComponentName);
-                        this.mIsMbrRegistered = false;
-                    }
-                    if (!this.mIsRccRegistered && (this.mFlags & 2) != 0) {
-                        this.mAudioManager.registerRemoteControlClient(this.mRcc);
-                        this.mIsRccRegistered = true;
-                        return true;
-                    } else if (this.mIsRccRegistered && (this.mFlags & 2) == 0) {
-                        this.mRcc.setPlaybackState(0);
-                        this.mAudioManager.unregisterRemoteControlClient(this.mRcc);
-                        this.mIsRccRegistered = false;
-                    }
-                } else {
-                    if (this.mIsMbrRegistered) {
-                        unregisterMediaButtonEventReceiver(this.mMediaButtonReceiverIntent, this.mMediaButtonReceiverComponentName);
-                        this.mIsMbrRegistered = false;
-                    }
-                    if (this.mIsRccRegistered) {
-                        this.mRcc.setPlaybackState(0);
-                        this.mAudioManager.unregisterRemoteControlClient(this.mRcc);
-                        this.mIsRccRegistered = false;
-                    }
+                    registerMediaButtonEventReceiver(this.mMediaButtonReceiverIntent, this.mMediaButtonReceiverComponentName);
+                    this.mAudioManager.registerRemoteControlClient(this.mRcc);
+                    setMetadata(this.mMetadata);
+                    setPlaybackState(this.mState);
+                    return;
                 }
-                return false;
+                unregisterMediaButtonEventReceiver(this.mMediaButtonReceiverIntent, this.mMediaButtonReceiverComponentName);
+                this.mRcc.setPlaybackState(0);
+                this.mAudioManager.unregisterRemoteControlClient(this.mRcc);
             }
-            return invokeV.booleanValue;
         }
     }
 
@@ -2706,6 +2937,7 @@ public class MediaSessionCompat {
         void onActiveChanged();
     }
 
+    @SuppressLint({"BanParcelableUsage"})
     /* loaded from: classes.dex */
     public static final class QueueItem implements Parcelable {
         public static /* synthetic */ Interceptable $ic = null;
@@ -2714,7 +2946,7 @@ public class MediaSessionCompat {
         public transient /* synthetic */ FieldHolder $fh;
         public final MediaDescriptionCompat mDescription;
         public final long mId;
-        public Object mItem;
+        public MediaSession.QueueItem mItemFwk;
 
         static {
             InterceptResult invokeClinit;
@@ -2775,14 +3007,14 @@ public class MediaSessionCompat {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {mediaDescriptionCompat, Long.valueOf(j)};
-                interceptable.invokeUnInit(65538, newInitContext);
+                interceptable.invokeUnInit(65539, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    this(objArr2[0], (MediaDescriptionCompat) objArr2[1], ((Long) objArr2[2]).longValue());
+                    this((MediaSession.QueueItem) objArr2[0], (MediaDescriptionCompat) objArr2[1], ((Long) objArr2[2]).longValue());
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
+                    interceptable.invokeInitBody(65539, newInitContext);
                     return;
                 }
             }
@@ -2795,7 +3027,8 @@ public class MediaSessionCompat {
                 if (obj == null || Build.VERSION.SDK_INT < 21) {
                     return null;
                 }
-                return new QueueItem(obj, MediaDescriptionCompat.fromMediaDescription(MediaSessionCompatApi21.QueueItem.getDescription(obj)), MediaSessionCompatApi21.QueueItem.getQueueId(obj));
+                MediaSession.QueueItem queueItem = (MediaSession.QueueItem) obj;
+                return new QueueItem(queueItem, MediaDescriptionCompat.fromMediaDescription(queueItem.getDescription()), queueItem.getQueueId());
             }
             return (QueueItem) invokeL.objValue;
         }
@@ -2843,12 +3076,12 @@ public class MediaSessionCompat {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (this.mItem == null && Build.VERSION.SDK_INT >= 21) {
-                    Object createItem = MediaSessionCompatApi21.QueueItem.createItem(this.mDescription.getMediaDescription(), this.mId);
-                    this.mItem = createItem;
-                    return createItem;
+                if (this.mItemFwk == null && Build.VERSION.SDK_INT >= 21) {
+                    MediaSession.QueueItem queueItem = new MediaSession.QueueItem((MediaDescription) this.mDescription.getMediaDescription(), this.mId);
+                    this.mItemFwk = queueItem;
+                    return queueItem;
                 }
-                return this.mItem;
+                return this.mItemFwk;
             }
             return invokeV.objValue;
         }
@@ -2871,28 +3104,28 @@ public class MediaSessionCompat {
             }
         }
 
-        public QueueItem(Object obj, MediaDescriptionCompat mediaDescriptionCompat, long j) {
+        public QueueItem(MediaSession.QueueItem queueItem, MediaDescriptionCompat mediaDescriptionCompat, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {obj, mediaDescriptionCompat, Long.valueOf(j)};
-                interceptable.invokeUnInit(65539, newInitContext);
+                Object[] objArr = {queueItem, mediaDescriptionCompat, Long.valueOf(j)};
+                interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65539, newInitContext);
+                    interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
             if (mediaDescriptionCompat == null) {
-                throw new IllegalArgumentException("Description cannot be null.");
+                throw new IllegalArgumentException("Description cannot be null");
             }
             if (j != -1) {
                 this.mDescription = mediaDescriptionCompat;
                 this.mId = j;
-                this.mItem = obj;
+                this.mItemFwk = queueItem;
                 return;
             }
             throw new IllegalArgumentException("Id cannot be QueueItem.UNKNOWN_ID");
@@ -2904,12 +3137,12 @@ public class MediaSessionCompat {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcel};
-                interceptable.invokeUnInit(65537, newInitContext);
+                interceptable.invokeUnInit(65538, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                    interceptable.invokeInitBody(65538, newInitContext);
                     return;
                 }
             }
@@ -2918,20 +3151,18 @@ public class MediaSessionCompat {
         }
     }
 
-    @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes.dex */
-    public @interface SessionFlags {
-    }
-
+    @SuppressLint({"BanParcelableUsage"})
     /* loaded from: classes.dex */
     public static final class Token implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<Token> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
+        @GuardedBy("mLock")
         public IMediaSession mExtraBinder;
         public final Object mInner;
-        public Bundle mSessionToken2Bundle;
+        public final Object mLock;
+        @GuardedBy("mLock")
+        public VersionedParcelable mSession2Token;
 
         static {
             InterceptResult invokeClinit;
@@ -3006,7 +3237,7 @@ public class MediaSessionCompat {
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    this(objArr2[0], (IMediaSession) objArr2[1], (Bundle) objArr2[2]);
+                    this(objArr2[0], (IMediaSession) objArr2[1], (VersionedParcelable) objArr2[2]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -3014,7 +3245,7 @@ public class MediaSessionCompat {
             }
         }
 
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
         public static Token fromBundle(Bundle bundle) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -3023,12 +3254,12 @@ public class MediaSessionCompat {
                     return null;
                 }
                 IMediaSession asInterface = IMediaSession.Stub.asInterface(BundleCompat.getBinder(bundle, MediaSessionCompat.KEY_EXTRA_BINDER));
-                Bundle bundle2 = bundle.getBundle(MediaSessionCompat.KEY_SESSION_TOKEN2_BUNDLE);
+                VersionedParcelable versionedParcelable = ParcelUtils.getVersionedParcelable(bundle, MediaSessionCompat.KEY_SESSION2_TOKEN);
                 Token token = (Token) bundle.getParcelable(MediaSessionCompat.KEY_TOKEN);
                 if (token == null) {
                     return null;
                 }
-                return new Token(token.mInner, asInterface, bundle2);
+                return new Token(token.mInner, asInterface, versionedParcelable);
             }
             return (Token) invokeL.objValue;
         }
@@ -3073,18 +3304,32 @@ public class MediaSessionCompat {
             return invokeL.booleanValue;
         }
 
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+        @RestrictTo({RestrictTo.Scope.LIBRARY})
         public IMediaSession getExtraBinder() {
             InterceptResult invokeV;
+            IMediaSession iMediaSession;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mExtraBinder : (IMediaSession) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                synchronized (this.mLock) {
+                    iMediaSession = this.mExtraBinder;
+                }
+                return iMediaSession;
+            }
+            return (IMediaSession) invokeV.objValue;
         }
 
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-        public Bundle getSessionToken2Bundle() {
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+        public VersionedParcelable getSession2Token() {
             InterceptResult invokeV;
+            VersionedParcelable versionedParcelable;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mSessionToken2Bundle : (Bundle) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                synchronized (this.mLock) {
+                    versionedParcelable = this.mSession2Token;
+                }
+                return versionedParcelable;
+            }
+            return (VersionedParcelable) invokeV.objValue;
         }
 
         public Object getToken() {
@@ -3106,36 +3351,40 @@ public class MediaSessionCompat {
             return invokeV.intValue;
         }
 
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+        @RestrictTo({RestrictTo.Scope.LIBRARY})
         public void setExtraBinder(IMediaSession iMediaSession) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, iMediaSession) == null) {
-                this.mExtraBinder = iMediaSession;
+                synchronized (this.mLock) {
+                    this.mExtraBinder = iMediaSession;
+                }
             }
         }
 
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-        public void setSessionToken2Bundle(Bundle bundle) {
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+        public void setSession2Token(VersionedParcelable versionedParcelable) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
-                this.mSessionToken2Bundle = bundle;
+            if (interceptable == null || interceptable.invokeL(1048583, this, versionedParcelable) == null) {
+                synchronized (this.mLock) {
+                    this.mSession2Token = versionedParcelable;
+                }
             }
         }
 
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
         public Bundle toBundle() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
                 Bundle bundle = new Bundle();
                 bundle.putParcelable(MediaSessionCompat.KEY_TOKEN, this);
-                IMediaSession iMediaSession = this.mExtraBinder;
-                if (iMediaSession != null) {
-                    BundleCompat.putBinder(bundle, MediaSessionCompat.KEY_EXTRA_BINDER, iMediaSession.asBinder());
-                }
-                Bundle bundle2 = this.mSessionToken2Bundle;
-                if (bundle2 != null) {
-                    bundle.putBundle(MediaSessionCompat.KEY_SESSION_TOKEN2_BUNDLE, bundle2);
+                synchronized (this.mLock) {
+                    if (this.mExtraBinder != null) {
+                        BundleCompat.putBinder(bundle, MediaSessionCompat.KEY_EXTRA_BINDER, this.mExtraBinder.asBinder());
+                    }
+                    if (this.mSession2Token != null) {
+                        ParcelUtils.putVersionedParcelable(bundle, MediaSessionCompat.KEY_SESSION2_TOKEN, this.mSession2Token);
+                    }
                 }
                 return bundle;
             }
@@ -3167,7 +3416,7 @@ public class MediaSessionCompat {
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    this(objArr2[0], (IMediaSession) objArr2[1], (Bundle) objArr2[2]);
+                    this(objArr2[0], (IMediaSession) objArr2[1], (VersionedParcelable) objArr2[2]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;
@@ -3175,7 +3424,7 @@ public class MediaSessionCompat {
             }
         }
 
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+        @RestrictTo({RestrictTo.Scope.LIBRARY})
         public static Token fromToken(Object obj, IMediaSession iMediaSession) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -3183,17 +3432,20 @@ public class MediaSessionCompat {
                 if (obj == null || Build.VERSION.SDK_INT < 21) {
                     return null;
                 }
-                return new Token(MediaSessionCompatApi21.verifyToken(obj), iMediaSession);
+                if (obj instanceof MediaSession.Token) {
+                    return new Token(obj, iMediaSession);
+                }
+                throw new IllegalArgumentException("token is not a valid MediaSession.Token object");
             }
             return (Token) invokeLL.objValue;
         }
 
-        public Token(Object obj, IMediaSession iMediaSession, Bundle bundle) {
+        public Token(Object obj, IMediaSession iMediaSession, VersionedParcelable versionedParcelable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {obj, iMediaSession, bundle};
+                Object[] objArr = {obj, iMediaSession, versionedParcelable};
                 interceptable.invokeUnInit(65539, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -3203,14 +3455,15 @@ public class MediaSessionCompat {
                     return;
                 }
             }
+            this.mLock = new Object();
             this.mInner = obj;
             this.mExtraBinder = iMediaSession;
-            this.mSessionToken2Bundle = bundle;
+            this.mSession2Token = versionedParcelable;
         }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MediaSessionCompat(Context context, String str) {
+    public MediaSessionCompat(@NonNull Context context, @NonNull String str) {
         this(context, str, null, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -3230,10 +3483,23 @@ public class MediaSessionCompat {
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RequiresApi(21)
+    private MediaSession createFwkMediaSession(Context context, String str, Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, this, context, str, bundle)) == null) {
+            if (Build.VERSION.SDK_INT >= 29) {
+                return new MediaSession(context, str, bundle);
+            }
+            return new MediaSession(context, str);
+        }
+        return (MediaSession) invokeLLL.objValue;
+    }
+
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static void ensureClassLoader(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, bundle) == null) || bundle == null) {
+        if (!(interceptable == null || interceptable.invokeL(65542, null, bundle) == null) || bundle == null) {
             return;
         }
         bundle.setClassLoader(MediaSessionCompat.class.getClassLoader());
@@ -3241,12 +3507,21 @@ public class MediaSessionCompat {
 
     public static MediaSessionCompat fromMediaSession(Context context, Object obj) {
         InterceptResult invokeLL;
+        MediaSessionImpl mediaSessionImplApi21;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, obj)) == null) {
-            if (context == null || obj == null || Build.VERSION.SDK_INT < 21) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, obj)) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i < 21 || context == null || obj == null) {
                 return null;
             }
-            return new MediaSessionCompat(context, new MediaSessionImplApi21(obj));
+            if (i >= 29) {
+                mediaSessionImplApi21 = new MediaSessionImplApi29(obj);
+            } else if (i >= 28) {
+                mediaSessionImplApi21 = new MediaSessionImplApi28(obj);
+            } else {
+                mediaSessionImplApi21 = new MediaSessionImplApi21(obj);
+            }
+            return new MediaSessionCompat(context, mediaSessionImplApi21);
         }
         return (MediaSessionCompat) invokeLL.objValue;
     }
@@ -3254,7 +3529,7 @@ public class MediaSessionCompat {
     public static PlaybackStateCompat getStateWithUpdatedPosition(PlaybackStateCompat playbackStateCompat, MediaMetadataCompat mediaMetadataCompat) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, playbackStateCompat, mediaMetadataCompat)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, playbackStateCompat, mediaMetadataCompat)) == null) {
             if (playbackStateCompat != null) {
                 long j = -1;
                 if (playbackStateCompat.getPosition() == -1) {
@@ -3265,8 +3540,8 @@ public class MediaSessionCompat {
                     if (lastPositionUpdateTime > 0) {
                         long elapsedRealtime = SystemClock.elapsedRealtime();
                         long playbackSpeed = (playbackStateCompat.getPlaybackSpeed() * ((float) (elapsedRealtime - lastPositionUpdateTime))) + playbackStateCompat.getPosition();
-                        if (mediaMetadataCompat != null && mediaMetadataCompat.containsKey(MediaMetadataCompat.METADATA_KEY_DURATION)) {
-                            j = mediaMetadataCompat.getLong(MediaMetadataCompat.METADATA_KEY_DURATION);
+                        if (mediaMetadataCompat != null && mediaMetadataCompat.containsKey("android.media.metadata.DURATION")) {
+                            j = mediaMetadataCompat.getLong("android.media.metadata.DURATION");
                         }
                         return new PlaybackStateCompat.Builder(playbackStateCompat).setState(playbackStateCompat.getState(), (j < 0 || playbackSpeed <= j) ? playbackSpeed < 0 ? 0L : playbackSpeed : j, playbackStateCompat.getPlaybackSpeed(), elapsedRealtime).build();
                     }
@@ -3277,6 +3552,27 @@ public class MediaSessionCompat {
             return playbackStateCompat;
         }
         return (PlaybackStateCompat) invokeLL.objValue;
+    }
+
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public static Bundle unparcelWithClassLoader(@Nullable Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, bundle)) == null) {
+            if (bundle == null) {
+                return null;
+            }
+            ensureClassLoader(bundle);
+            try {
+                bundle.isEmpty();
+                return bundle;
+            } catch (BadParcelableException unused) {
+                Log.e(TAG, "Could not unparcel the data.");
+                return null;
+            }
+        }
+        return (Bundle) invokeL.objValue;
     }
 
     public void addOnActiveChangeListener(OnActiveChangeListener onActiveChangeListener) {
@@ -3290,7 +3586,7 @@ public class MediaSessionCompat {
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public String getCallingPackage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -3483,7 +3779,7 @@ public class MediaSessionCompat {
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    @SuppressLint({"BanParcelableUsage"})
     /* loaded from: classes.dex */
     public static final class ResultReceiverWrapper implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
@@ -3542,7 +3838,7 @@ public class MediaSessionCompat {
             };
         }
 
-        public ResultReceiverWrapper(ResultReceiver resultReceiver) {
+        public ResultReceiverWrapper(@NonNull ResultReceiver resultReceiver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -3598,7 +3894,7 @@ public class MediaSessionCompat {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MediaSessionCompat(Context context, String str, ComponentName componentName, PendingIntent pendingIntent) {
+    public MediaSessionCompat(@NonNull Context context, @NonNull String str, @Nullable ComponentName componentName, @Nullable PendingIntent pendingIntent) {
         this(context, str, componentName, pendingIntent, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -3634,28 +3930,8 @@ public class MediaSessionCompat {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public MediaSessionCompat(Context context, String str, Bundle bundle) {
-        this(context, str, null, null, bundle);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, bundle};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (String) objArr2[1], (ComponentName) objArr2[2], (PendingIntent) objArr2[3], (Bundle) objArr2[4]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public MediaSessionCompat(Context context, String str, ComponentName componentName, PendingIntent pendingIntent, Bundle bundle) {
+    public MediaSessionCompat(@NonNull Context context, @NonNull String str, @Nullable ComponentName componentName, @Nullable PendingIntent pendingIntent, @Nullable Bundle bundle) {
+        this(context, str, componentName, pendingIntent, bundle, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -3665,8 +3941,28 @@ public class MediaSessionCompat {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (String) objArr2[1], (ComponentName) objArr2[2], (PendingIntent) objArr2[3], (Bundle) objArr2[4], (VersionedParcelable) objArr2[5]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public MediaSessionCompat(@NonNull Context context, @NonNull String str, @Nullable ComponentName componentName, @Nullable PendingIntent pendingIntent, @Nullable Bundle bundle, @Nullable VersionedParcelable versionedParcelable) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, componentName, pendingIntent, bundle, versionedParcelable};
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }
@@ -3676,14 +3972,24 @@ public class MediaSessionCompat {
                 if (componentName == null && (componentName = MediaButtonReceiver.getMediaButtonReceiverComponent(context)) == null) {
                     Log.w(TAG, "Couldn't find a unique registered media button receiver in the given context.");
                 }
-                if (componentName != null && pendingIntent == null) {
+                ComponentName componentName2 = componentName;
+                if (componentName2 != null && pendingIntent == null) {
                     Intent intent = new Intent("android.intent.action.MEDIA_BUTTON");
-                    intent.setComponent(componentName);
+                    intent.setComponent(componentName2);
                     pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
                 }
+                PendingIntent pendingIntent2 = pendingIntent;
                 int i3 = Build.VERSION.SDK_INT;
-                if (i3 >= 28) {
-                    this.mImpl = new MediaSessionImplApi28(context, str, bundle);
+                if (i3 >= 21) {
+                    MediaSession createFwkMediaSession = createFwkMediaSession(context, str, bundle);
+                    int i4 = Build.VERSION.SDK_INT;
+                    if (i4 >= 29) {
+                        this.mImpl = new MediaSessionImplApi29(createFwkMediaSession, versionedParcelable, bundle);
+                    } else if (i4 >= 28) {
+                        this.mImpl = new MediaSessionImplApi28(createFwkMediaSession, versionedParcelable, bundle);
+                    } else {
+                        this.mImpl = new MediaSessionImplApi21(createFwkMediaSession, versionedParcelable, bundle);
+                    }
                     setCallback(new Callback(this) { // from class: android.support.v4.media.session.MediaSessionCompat.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
@@ -3696,9 +4002,9 @@ public class MediaSessionCompat {
                                 newInitContext2.initArgs = r2;
                                 Object[] objArr2 = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext2);
-                                int i4 = newInitContext2.flag;
-                                if ((i4 & 1) != 0) {
-                                    int i5 = i4 & 2;
+                                int i5 = newInitContext2.flag;
+                                if ((i5 & 1) != 0) {
+                                    int i6 = i5 & 2;
                                     newInitContext2.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext2);
                                     return;
@@ -3706,40 +4012,14 @@ public class MediaSessionCompat {
                             }
                             this.this$0 = this;
                         }
-                    });
-                    this.mImpl.setMediaButtonReceiver(pendingIntent);
-                } else if (i3 >= 21) {
-                    this.mImpl = new MediaSessionImplApi21(context, str, bundle);
-                    setCallback(new Callback(this) { // from class: android.support.v4.media.session.MediaSessionCompat.2
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ MediaSessionCompat this$0;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext2 = TitanRuntime.newInitContext();
-                                newInitContext2.initArgs = r2;
-                                Object[] objArr2 = {this};
-                                interceptable2.invokeUnInit(65536, newInitContext2);
-                                int i4 = newInitContext2.flag;
-                                if ((i4 & 1) != 0) {
-                                    int i5 = i4 & 2;
-                                    newInitContext2.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext2);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                        }
-                    });
-                    this.mImpl.setMediaButtonReceiver(pendingIntent);
+                    }, new Handler(Looper.myLooper() != null ? Looper.myLooper() : Looper.getMainLooper()));
+                    this.mImpl.setMediaButtonReceiver(pendingIntent2);
                 } else if (i3 >= 19) {
-                    this.mImpl = new MediaSessionImplApi19(context, str, componentName, pendingIntent);
+                    this.mImpl = new MediaSessionImplApi19(context, str, componentName2, pendingIntent2, bundle);
                 } else if (i3 >= 18) {
-                    this.mImpl = new MediaSessionImplApi18(context, str, componentName, pendingIntent);
+                    this.mImpl = new MediaSessionImplApi18(context, str, componentName2, pendingIntent2, bundle);
                 } else {
-                    this.mImpl = new MediaSessionImplBase(context, str, componentName, pendingIntent);
+                    this.mImpl = new MediaSessionImplBase(context, str, componentName2, pendingIntent2, bundle);
                 }
                 this.mController = new MediaControllerCompat(context, this);
                 if (sMaxBitmapSize == 0) {
@@ -3758,15 +4038,21 @@ public class MediaSessionCompat {
     public static class MediaSessionImplApi21 implements MediaSessionImpl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @GuardedBy("mLock")
+        public Callback mCallback;
         public boolean mCaptioningEnabled;
         public boolean mDestroyed;
         public final RemoteCallbackList<IMediaControllerCallback> mExtraControllerCallbacks;
+        public final Object mLock;
         public MediaMetadataCompat mMetadata;
         public PlaybackStateCompat mPlaybackState;
         public List<QueueItem> mQueue;
         public int mRatingType;
+        @GuardedBy("mLock")
+        public MediaSessionManager.RemoteUserInfo mRemoteUserInfo;
         public int mRepeatMode;
-        public final Object mSessionObj;
+        public final MediaSession mSessionFwk;
+        public Bundle mSessionInfo;
         public int mShuffleMode;
         public final Token mToken;
 
@@ -3922,17 +4208,30 @@ public class MediaSessionCompat {
             }
 
             @Override // android.support.v4.media.session.IMediaSession
+            public Bundle getSessionInfo() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+                    if (this.this$0.mSessionInfo == null) {
+                        return null;
+                    }
+                    return new Bundle(this.this$0.mSessionInfo);
+                }
+                return (Bundle) invokeV.objValue;
+            }
+
+            @Override // android.support.v4.media.session.IMediaSession
             public int getShuffleMode() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.this$0.mShuffleMode : invokeV.intValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.this$0.mShuffleMode : invokeV.intValue;
             }
 
             @Override // android.support.v4.media.session.IMediaSession
             public String getTag() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
                     throw new AssertionError();
                 }
                 return (String) invokeV.objValue;
@@ -3942,7 +4241,7 @@ public class MediaSessionCompat {
             public ParcelableVolumeInfo getVolumeAttributes() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
                     throw new AssertionError();
                 }
                 return (ParcelableVolumeInfo) invokeV.objValue;
@@ -3952,14 +4251,14 @@ public class MediaSessionCompat {
             public boolean isCaptioningEnabled() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.this$0.mCaptioningEnabled : invokeV.booleanValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.this$0.mCaptioningEnabled : invokeV.booleanValue;
             }
 
             @Override // android.support.v4.media.session.IMediaSession
             public boolean isShuffleModeEnabledRemoved() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
                     return false;
                 }
                 return invokeV.booleanValue;
@@ -3969,7 +4268,7 @@ public class MediaSessionCompat {
             public boolean isTransportControlEnabled() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
                     throw new AssertionError();
                 }
                 return invokeV.booleanValue;
@@ -3978,7 +4277,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void next() throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+                if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
                     throw new AssertionError();
                 }
             }
@@ -3986,7 +4285,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void pause() throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+                if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
                     throw new AssertionError();
                 }
             }
@@ -3994,7 +4293,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void play() throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+                if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
                     throw new AssertionError();
                 }
             }
@@ -4002,7 +4301,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void playFromMediaId(String str, Bundle bundle) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(1048599, this, str, bundle) == null) {
+                if (interceptable == null || interceptable.invokeLL(1048600, this, str, bundle) == null) {
                     throw new AssertionError();
                 }
             }
@@ -4010,7 +4309,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void playFromSearch(String str, Bundle bundle) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(1048600, this, str, bundle) == null) {
+                if (interceptable == null || interceptable.invokeLL(1048601, this, str, bundle) == null) {
                     throw new AssertionError();
                 }
             }
@@ -4018,7 +4317,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void playFromUri(Uri uri, Bundle bundle) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(1048601, this, uri, bundle) == null) {
+                if (interceptable == null || interceptable.invokeLL(1048602, this, uri, bundle) == null) {
                     throw new AssertionError();
                 }
             }
@@ -4026,7 +4325,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void prepare() throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+                if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
                     throw new AssertionError();
                 }
             }
@@ -4034,7 +4333,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void prepareFromMediaId(String str, Bundle bundle) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(1048603, this, str, bundle) == null) {
+                if (interceptable == null || interceptable.invokeLL(1048604, this, str, bundle) == null) {
                     throw new AssertionError();
                 }
             }
@@ -4042,7 +4341,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void prepareFromSearch(String str, Bundle bundle) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(1048604, this, str, bundle) == null) {
+                if (interceptable == null || interceptable.invokeLL(1048605, this, str, bundle) == null) {
                     throw new AssertionError();
                 }
             }
@@ -4050,7 +4349,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void prepareFromUri(Uri uri, Bundle bundle) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(1048605, this, uri, bundle) == null) {
+                if (interceptable == null || interceptable.invokeLL(1048606, this, uri, bundle) == null) {
                     throw new AssertionError();
                 }
             }
@@ -4058,7 +4357,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void previous() throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
+                if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
                     throw new AssertionError();
                 }
             }
@@ -4066,7 +4365,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void rate(RatingCompat ratingCompat) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048607, this, ratingCompat) == null) {
+                if (interceptable == null || interceptable.invokeL(1048608, this, ratingCompat) == null) {
                     throw new AssertionError();
                 }
             }
@@ -4074,7 +4373,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void rateWithExtras(RatingCompat ratingCompat, Bundle bundle) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(1048608, this, ratingCompat, bundle) == null) {
+                if (interceptable == null || interceptable.invokeLL(1048609, this, ratingCompat, bundle) == null) {
                     throw new AssertionError();
                 }
             }
@@ -4082,23 +4381,16 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void registerCallbackListener(IMediaControllerCallback iMediaControllerCallback) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048609, this, iMediaControllerCallback) == null) {
-                    MediaSessionImplApi21 mediaSessionImplApi21 = this.this$0;
-                    if (mediaSessionImplApi21.mDestroyed) {
-                        return;
-                    }
-                    String callingPackage = mediaSessionImplApi21.getCallingPackage();
-                    if (callingPackage == null) {
-                        callingPackage = MediaSessionManager.RemoteUserInfo.LEGACY_CONTROLLER;
-                    }
-                    this.this$0.mExtraControllerCallbacks.register(iMediaControllerCallback, new MediaSessionManager.RemoteUserInfo(callingPackage, Binder.getCallingPid(), Binder.getCallingUid()));
+                if (!(interceptable == null || interceptable.invokeL(1048610, this, iMediaControllerCallback) == null) || this.this$0.mDestroyed) {
+                    return;
                 }
+                this.this$0.mExtraControllerCallbacks.register(iMediaControllerCallback, new MediaSessionManager.RemoteUserInfo(MediaSessionManager.RemoteUserInfo.LEGACY_CONTROLLER, Binder.getCallingPid(), Binder.getCallingUid()));
             }
 
             @Override // android.support.v4.media.session.IMediaSession
             public void removeQueueItem(MediaDescriptionCompat mediaDescriptionCompat) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048610, this, mediaDescriptionCompat) == null) {
+                if (interceptable == null || interceptable.invokeL(1048611, this, mediaDescriptionCompat) == null) {
                     throw new AssertionError();
                 }
             }
@@ -4106,7 +4398,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void removeQueueItemAt(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
+                if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
                     throw new AssertionError();
                 }
             }
@@ -4114,7 +4406,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void rewind() throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
+                if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
                     throw new AssertionError();
                 }
             }
@@ -4122,7 +4414,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void seekTo(long j) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeJ(1048613, this, j) == null) {
+                if (interceptable == null || interceptable.invokeJ(1048614, this, j) == null) {
                     throw new AssertionError();
                 }
             }
@@ -4130,7 +4422,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void sendCommand(String str, Bundle bundle, ResultReceiverWrapper resultReceiverWrapper) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLLL(1048614, this, str, bundle, resultReceiverWrapper) == null) {
+                if (interceptable == null || interceptable.invokeLLL(1048615, this, str, bundle, resultReceiverWrapper) == null) {
                     throw new AssertionError();
                 }
             }
@@ -4138,7 +4430,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void sendCustomAction(String str, Bundle bundle) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(1048615, this, str, bundle) == null) {
+                if (interceptable == null || interceptable.invokeLL(1048616, this, str, bundle) == null) {
                     throw new AssertionError();
                 }
             }
@@ -4147,7 +4439,7 @@ public class MediaSessionCompat {
             public boolean sendMediaButton(KeyEvent keyEvent) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, keyEvent)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048617, this, keyEvent)) == null) {
                     throw new AssertionError();
                 }
                 return invokeL.booleanValue;
@@ -4156,7 +4448,15 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void setCaptioningEnabled(boolean z) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeZ(1048617, this, z) == null) {
+                if (interceptable == null || interceptable.invokeZ(1048618, this, z) == null) {
+                    throw new AssertionError();
+                }
+            }
+
+            @Override // android.support.v4.media.session.IMediaSession
+            public void setPlaybackSpeed(float f) throws RemoteException {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeF(1048619, this, f) == null) {
                     throw new AssertionError();
                 }
             }
@@ -4164,7 +4464,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void setRepeatMode(int i) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048618, this, i) == null) {
+                if (interceptable == null || interceptable.invokeI(1048620, this, i) == null) {
                     throw new AssertionError();
                 }
             }
@@ -4172,7 +4472,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void setShuffleMode(int i) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
+                if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
                     throw new AssertionError();
                 }
             }
@@ -4180,14 +4480,14 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void setShuffleModeEnabledRemoved(boolean z) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeZ(1048620, this, z) == null) {
+                if (interceptable == null || interceptable.invokeZ(1048622, this, z) == null) {
                 }
             }
 
             @Override // android.support.v4.media.session.IMediaSession
             public void setVolumeTo(int i, int i2, String str) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeIIL(1048621, this, i, i2, str) == null) {
+                if (interceptable == null || interceptable.invokeIIL(1048623, this, i, i2, str) == null) {
                     throw new AssertionError();
                 }
             }
@@ -4195,7 +4495,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void skipToQueueItem(long j) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeJ(1048622, this, j) == null) {
+                if (interceptable == null || interceptable.invokeJ(1048624, this, j) == null) {
                     throw new AssertionError();
                 }
             }
@@ -4203,7 +4503,7 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void stop() throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048623, this) == null) {
+                if (interceptable == null || interceptable.invokeV(1048625, this) == null) {
                     throw new AssertionError();
                 }
             }
@@ -4211,18 +4511,18 @@ public class MediaSessionCompat {
             @Override // android.support.v4.media.session.IMediaSession
             public void unregisterCallbackListener(IMediaControllerCallback iMediaControllerCallback) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048624, this, iMediaControllerCallback) == null) {
+                if (interceptable == null || interceptable.invokeL(1048626, this, iMediaControllerCallback) == null) {
                     this.this$0.mExtraControllerCallbacks.unregister(iMediaControllerCallback);
                 }
             }
         }
 
-        public MediaSessionImplApi21(Context context, String str, Bundle bundle) {
+        public MediaSessionImplApi21(MediaSession mediaSession, VersionedParcelable versionedParcelable, Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, str, bundle};
+                Object[] objArr = {mediaSession, versionedParcelable, bundle};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -4232,21 +4532,43 @@ public class MediaSessionCompat {
                     return;
                 }
             }
+            this.mLock = new Object();
             this.mDestroyed = false;
             this.mExtraControllerCallbacks = new RemoteCallbackList<>();
-            this.mSessionObj = MediaSessionCompatApi21.createSession(context, str);
-            this.mToken = new Token(MediaSessionCompatApi21.getSessionToken(this.mSessionObj), new ExtraSession(this), bundle);
+            this.mSessionFwk = mediaSession;
+            this.mToken = new Token(this.mSessionFwk.getSessionToken(), new ExtraSession(this), versionedParcelable);
+            this.mSessionInfo = bundle;
+            setFlags(3);
+        }
+
+        @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
+        public Callback getCallback() {
+            InterceptResult invokeV;
+            Callback callback;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                synchronized (this.mLock) {
+                    callback = this.mCallback;
+                }
+                return callback;
+            }
+            return (Callback) invokeV.objValue;
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public String getCallingPackage() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 if (Build.VERSION.SDK_INT < 24) {
                     return null;
                 }
-                return MediaSessionCompatApi24.getCallingPackage(this.mSessionObj);
+                try {
+                    return (String) this.mSessionFwk.getClass().getMethod("getCallingPackage", new Class[0]).invoke(this.mSessionFwk, new Object[0]);
+                } catch (Exception e) {
+                    Log.e(MediaSessionCompat.TAG, "Cannot execute MediaSession.getCallingPackage()", e);
+                    return null;
+                }
             }
             return (String) invokeV.objValue;
         }
@@ -4254,9 +4576,13 @@ public class MediaSessionCompat {
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public MediaSessionManager.RemoteUserInfo getCurrentControllerInfo() {
             InterceptResult invokeV;
+            MediaSessionManager.RemoteUserInfo remoteUserInfo;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return null;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                synchronized (this.mLock) {
+                    remoteUserInfo = this.mRemoteUserInfo;
+                }
+                return remoteUserInfo;
             }
             return (MediaSessionManager.RemoteUserInfo) invokeV.objValue;
         }
@@ -4265,21 +4591,21 @@ public class MediaSessionCompat {
         public Object getMediaSession() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mSessionObj : invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mSessionFwk : invokeV.objValue;
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public PlaybackStateCompat getPlaybackState() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mPlaybackState : (PlaybackStateCompat) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mPlaybackState : (PlaybackStateCompat) invokeV.objValue;
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public Object getRemoteControlClient() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
                 return null;
             }
             return invokeV.objValue;
@@ -4289,29 +4615,31 @@ public class MediaSessionCompat {
         public Token getSessionToken() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mToken : (Token) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mToken : (Token) invokeV.objValue;
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public boolean isActive() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? MediaSessionCompatApi21.isActive(this.mSessionObj) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mSessionFwk.isActive() : invokeV.booleanValue;
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void release() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
                 this.mDestroyed = true;
-                MediaSessionCompatApi21.release(this.mSessionObj);
+                this.mExtraControllerCallbacks.kill();
+                this.mSessionFwk.setCallback(null);
+                this.mSessionFwk.release();
             }
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void sendSessionEvent(String str, Bundle bundle) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, bundle) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048585, this, str, bundle) == null) {
                 if (Build.VERSION.SDK_INT < 23) {
                     for (int beginBroadcast = this.mExtraControllerCallbacks.beginBroadcast() - 1; beginBroadcast >= 0; beginBroadcast--) {
                         try {
@@ -4321,25 +4649,28 @@ public class MediaSessionCompat {
                     }
                     this.mExtraControllerCallbacks.finishBroadcast();
                 }
-                MediaSessionCompatApi21.sendSessionEvent(this.mSessionObj, str, bundle);
+                this.mSessionFwk.sendSessionEvent(str, bundle);
             }
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setActive(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-                MediaSessionCompatApi21.setActive(this.mSessionObj, z);
+            if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+                this.mSessionFwk.setActive(z);
             }
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setCallback(Callback callback, Handler handler) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048586, this, callback, handler) == null) {
-                MediaSessionCompatApi21.setCallback(this.mSessionObj, callback == null ? null : callback.mCallbackObj, handler);
-                if (callback != null) {
-                    callback.setSessionImpl(this, handler);
+            if (interceptable == null || interceptable.invokeLL(1048587, this, callback, handler) == null) {
+                synchronized (this.mLock) {
+                    this.mCallback = callback;
+                    this.mSessionFwk.setCallback(callback == null ? null : callback.mCallbackFwk, handler);
+                    if (callback != null) {
+                        callback.setSessionImpl(this, handler);
+                    }
                 }
             }
         }
@@ -4347,7 +4678,7 @@ public class MediaSessionCompat {
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setCaptioningEnabled(boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048587, this, z) == null) || this.mCaptioningEnabled == z) {
+            if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || this.mCaptioningEnabled == z) {
                 return;
             }
             this.mCaptioningEnabled = z;
@@ -4363,47 +4694,51 @@ public class MediaSessionCompat {
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setCurrentControllerInfo(MediaSessionManager.RemoteUserInfo remoteUserInfo) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048588, this, remoteUserInfo) == null) {
+            if (interceptable == null || interceptable.invokeL(1048589, this, remoteUserInfo) == null) {
+                synchronized (this.mLock) {
+                    this.mRemoteUserInfo = remoteUserInfo;
+                }
             }
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setExtras(Bundle bundle) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) {
-                MediaSessionCompatApi21.setExtras(this.mSessionObj, bundle);
+            if (interceptable == null || interceptable.invokeL(1048590, this, bundle) == null) {
+                this.mSessionFwk.setExtras(bundle);
             }
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
+        @SuppressLint({"WrongConstant"})
         public void setFlags(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-                MediaSessionCompatApi21.setFlags(this.mSessionObj, i);
+            if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+                this.mSessionFwk.setFlags(i | 1 | 2);
             }
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setMediaButtonReceiver(PendingIntent pendingIntent) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048591, this, pendingIntent) == null) {
-                MediaSessionCompatApi21.setMediaButtonReceiver(this.mSessionObj, pendingIntent);
+            if (interceptable == null || interceptable.invokeL(1048592, this, pendingIntent) == null) {
+                this.mSessionFwk.setMediaButtonReceiver(pendingIntent);
             }
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setMetadata(MediaMetadataCompat mediaMetadataCompat) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048592, this, mediaMetadataCompat) == null) {
+            if (interceptable == null || interceptable.invokeL(1048593, this, mediaMetadataCompat) == null) {
                 this.mMetadata = mediaMetadataCompat;
-                MediaSessionCompatApi21.setMetadata(this.mSessionObj, mediaMetadataCompat == null ? null : mediaMetadataCompat.getMediaMetadata());
+                this.mSessionFwk.setMetadata(mediaMetadataCompat == null ? null : (MediaMetadata) mediaMetadataCompat.getMediaMetadata());
             }
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setPlaybackState(PlaybackStateCompat playbackStateCompat) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048593, this, playbackStateCompat) == null) {
+            if (interceptable == null || interceptable.invokeL(1048594, this, playbackStateCompat) == null) {
                 this.mPlaybackState = playbackStateCompat;
                 for (int beginBroadcast = this.mExtraControllerCallbacks.beginBroadcast() - 1; beginBroadcast >= 0; beginBroadcast--) {
                     try {
@@ -4412,60 +4747,61 @@ public class MediaSessionCompat {
                     }
                 }
                 this.mExtraControllerCallbacks.finishBroadcast();
-                MediaSessionCompatApi21.setPlaybackState(this.mSessionObj, playbackStateCompat == null ? null : playbackStateCompat.getPlaybackState());
+                this.mSessionFwk.setPlaybackState(playbackStateCompat == null ? null : (PlaybackState) playbackStateCompat.getPlaybackState());
             }
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setPlaybackToLocal(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-                MediaSessionCompatApi21.setPlaybackToLocal(this.mSessionObj, i);
+            if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+                AudioAttributes.Builder builder = new AudioAttributes.Builder();
+                builder.setLegacyStreamType(i);
+                this.mSessionFwk.setPlaybackToLocal(builder.build());
             }
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setPlaybackToRemote(VolumeProviderCompat volumeProviderCompat) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048595, this, volumeProviderCompat) == null) {
-                MediaSessionCompatApi21.setPlaybackToRemote(this.mSessionObj, volumeProviderCompat.getVolumeProvider());
+            if (interceptable == null || interceptable.invokeL(1048596, this, volumeProviderCompat) == null) {
+                this.mSessionFwk.setPlaybackToRemote((VolumeProvider) volumeProviderCompat.getVolumeProvider());
             }
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setQueue(List<QueueItem> list) {
-            ArrayList arrayList;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048596, this, list) == null) {
+            if (interceptable == null || interceptable.invokeL(1048597, this, list) == null) {
                 this.mQueue = list;
-                if (list != null) {
-                    arrayList = new ArrayList();
-                    for (QueueItem queueItem : list) {
-                        arrayList.add(queueItem.getQueueItem());
-                    }
-                } else {
-                    arrayList = null;
+                if (list == null) {
+                    this.mSessionFwk.setQueue(null);
+                    return;
                 }
-                MediaSessionCompatApi21.setQueue(this.mSessionObj, arrayList);
+                ArrayList arrayList = new ArrayList();
+                for (QueueItem queueItem : list) {
+                    arrayList.add((MediaSession.QueueItem) queueItem.getQueueItem());
+                }
+                this.mSessionFwk.setQueue(arrayList);
             }
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setQueueTitle(CharSequence charSequence) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048597, this, charSequence) == null) {
-                MediaSessionCompatApi21.setQueueTitle(this.mSessionObj, charSequence);
+            if (interceptable == null || interceptable.invokeL(1048598, this, charSequence) == null) {
+                this.mSessionFwk.setQueueTitle(charSequence);
             }
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setRatingType(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
                 if (Build.VERSION.SDK_INT < 22) {
                     this.mRatingType = i;
                 } else {
-                    MediaSessionCompatApi22.setRatingType(this.mSessionObj, i);
+                    this.mSessionFwk.setRatingType(i);
                 }
             }
         }
@@ -4473,7 +4809,7 @@ public class MediaSessionCompat {
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setRepeatMode(int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048599, this, i) == null) || this.mRepeatMode == i) {
+            if (!(interceptable == null || interceptable.invokeI(1048600, this, i) == null) || this.mRepeatMode == i) {
                 return;
             }
             this.mRepeatMode = i;
@@ -4489,15 +4825,15 @@ public class MediaSessionCompat {
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setSessionActivity(PendingIntent pendingIntent) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048600, this, pendingIntent) == null) {
-                MediaSessionCompatApi21.setSessionActivity(this.mSessionObj, pendingIntent);
+            if (interceptable == null || interceptable.invokeL(1048601, this, pendingIntent) == null) {
+                this.mSessionFwk.setSessionActivity(pendingIntent);
             }
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setShuffleMode(int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048601, this, i) == null) || this.mShuffleMode == i) {
+            if (!(interceptable == null || interceptable.invokeI(1048602, this, i) == null) || this.mShuffleMode == i) {
                 return;
             }
             this.mShuffleMode = i;
@@ -4525,10 +4861,17 @@ public class MediaSessionCompat {
                     return;
                 }
             }
+            this.mLock = new Object();
             this.mDestroyed = false;
             this.mExtraControllerCallbacks = new RemoteCallbackList<>();
-            this.mSessionObj = MediaSessionCompatApi21.verifySession(obj);
-            this.mToken = new Token(MediaSessionCompatApi21.getSessionToken(this.mSessionObj), new ExtraSession(this));
+            if (obj instanceof MediaSession) {
+                this.mSessionFwk = (MediaSession) obj;
+                this.mToken = new Token(this.mSessionFwk.getSessionToken(), new ExtraSession(this));
+                this.mSessionInfo = null;
+                setFlags(3);
+                return;
+            }
+            throw new IllegalArgumentException("mediaSession is not a valid MediaSession object");
         }
     }
 
@@ -4549,31 +4892,6 @@ public class MediaSessionCompat {
         }
         this.mActiveListeners = new ArrayList<>();
         this.mImpl = mediaSessionImpl;
-        if (Build.VERSION.SDK_INT >= 21 && !MediaSessionCompatApi21.hasCallback(mediaSessionImpl.getMediaSession())) {
-            setCallback(new Callback(this) { // from class: android.support.v4.media.session.MediaSessionCompat.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaSessionCompat this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext2 = TitanRuntime.newInitContext();
-                        newInitContext2.initArgs = r2;
-                        Object[] objArr2 = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i3 = newInitContext2.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
-                            newInitContext2.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext2);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-            });
-        }
         this.mController = new MediaControllerCompat(context, this);
     }
 }

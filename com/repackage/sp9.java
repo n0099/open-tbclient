@@ -4,19 +4,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.image.gif2.GifImageView;
 /* loaded from: classes7.dex */
 public class sp9 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ GifImageView a;
+    public final /* synthetic */ wp9 a;
 
-    public sp9(GifImageView gifImageView) {
+    public sp9(wp9 wp9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {gifImageView};
+            Object[] objArr = {wp9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,18 +25,16 @@ public class sp9 implements Runnable {
                 return;
             }
         }
-        this.a = gifImageView;
+        this.a = wp9Var;
     }
 
     @Override // java.lang.Runnable
     public void run() {
+        aq9 aq9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            GifImageView gifImageView = this.a;
-            gifImageView.b = null;
-            gifImageView.a = null;
-            gifImageView.g = null;
-            gifImageView.f = false;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aq9Var = this.a.g) == null) {
+            return;
         }
+        aq9Var.a();
     }
 }

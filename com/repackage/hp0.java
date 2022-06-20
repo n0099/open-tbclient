@@ -1,85 +1,86 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URL;
-import java.util.List;
-import java.util.regex.Pattern;
-import kotlin.jvm.JvmName;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
-@JvmName(name = "AuthStrategyHelper")
 /* loaded from: classes6.dex */
 public final class hp0 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ep0 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final jp0 b;
 
-    public static final String a() {
-        InterceptResult invokeV;
+    public hp0(String host, jp0 jp0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                JSONArray jSONArray = new JSONArray();
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("host", "vdept3.bdstatic.com");
-                jSONObject2.put("auth", "1_1_1_3");
-                jSONArray.put(jSONObject2);
-                jSONObject.put("hosts", jSONArray);
-            } catch (Exception e) {
-                ph0.c("AuthStrategyHelper", e.toString());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {host, jp0Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            String jSONObject3 = jSONObject.toString();
-            Intrinsics.checkNotNullExpressionValue(jSONObject3, "defaultHostAuthConfig.toString()");
-            return jSONObject3;
         }
-        return (String) invokeV.objValue;
+        Intrinsics.checkNotNullParameter(host, "host");
+        this.a = host;
+        this.b = jp0Var;
     }
 
-    public static final List<dp0> b() {
+    public final jp0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                a = gp0.a(yw0.l().getString("host_auth_config", a()));
-            }
-            ep0 ep0Var = a;
-            if (ep0Var != null) {
-                return ep0Var.a();
-            }
-            return null;
-        }
-        return (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (jp0) invokeV.objValue;
     }
 
-    public static final synchronized dp0 c(String str) {
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            synchronized (hp0.class) {
-                if (str != null) {
-                    List<dp0> b = b();
-                    if (b != null) {
-                        try {
-                            String host = new URL(str).getHost();
-                            for (dp0 dp0Var : b) {
-                                if (Pattern.matches(dp0Var.b(), host)) {
-                                    return dp0Var;
-                                }
-                            }
-                        } catch (Exception e) {
-                            ph0.a("AuthStrategyHelper", e.getMessage());
-                        }
-                        return null;
-                    }
-                    return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof hp0) {
+                    hp0 hp0Var = (hp0) obj;
+                    return Intrinsics.areEqual(this.a, hp0Var.a) && Intrinsics.areEqual(this.b, hp0Var.b);
                 }
-                return null;
+                return false;
             }
+            return true;
         }
-        return (dp0) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String str = this.a;
+            int hashCode = (str != null ? str.hashCode() : 0) * 31;
+            jp0 jp0Var = this.b;
+            return hashCode + (jp0Var != null ? jp0Var.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "AuthHostItemModel(host=" + this.a + ", auth=" + this.b + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
     }
 }

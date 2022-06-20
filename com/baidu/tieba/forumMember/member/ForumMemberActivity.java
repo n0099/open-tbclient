@@ -9,33 +9,33 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e96;
-import com.repackage.ft4;
-import com.repackage.ib6;
-import com.repackage.ji;
-import com.repackage.jn;
-import com.repackage.oc6;
-import com.repackage.q96;
-import com.repackage.uc6;
-import com.repackage.yc6;
+import com.repackage.ea6;
+import com.repackage.ic6;
+import com.repackage.ni;
+import com.repackage.nn;
+import com.repackage.od6;
+import com.repackage.ot4;
+import com.repackage.qa6;
+import com.repackage.ud6;
+import com.repackage.yd6;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> implements ft4.g {
+public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> implements ot4.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public oc6 mCallback;
-    public String mForumId;
-    public String mForumName;
-    public List<jn> mListViewData;
-    public e96 mModel;
-    public NoNetworkView.b mNetworkChangeListener;
-    public uc6 mPageInfo;
-    public q96 mView;
+    public ud6 a;
+    public String b;
+    public String c;
+    public List<nn> d;
+    public qa6 e;
+    public ea6 f;
+    public od6 g;
+    public NoNetworkView.b h;
 
     /* loaded from: classes3.dex */
-    public class a implements oc6 {
+    public class a implements od6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumMemberActivity a;
@@ -58,27 +58,27 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
             this.a = forumMemberActivity;
         }
 
-        @Override // com.repackage.oc6
-        public void a(int i, int i2, yc6 yc6Var, ArrayList<jn> arrayList) {
+        @Override // com.repackage.od6
+        public void a(int i, int i2, yd6 yd6Var, ArrayList<nn> arrayList) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), yc6Var, arrayList}) == null) {
-                this.a.mView.d();
-                this.a.mView.c();
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), yd6Var, arrayList}) == null) {
+                this.a.e.d();
+                this.a.e.c();
                 if (arrayList != null) {
-                    Iterator<jn> it = arrayList.iterator();
+                    Iterator<nn> it = arrayList.iterator();
                     while (it.hasNext()) {
-                        if (it.next() instanceof ib6) {
+                        if (it.next() instanceof ic6) {
                             it.remove();
                         }
                     }
                 }
                 if (!ListUtils.isEmpty(arrayList)) {
-                    this.a.mView.e();
-                    this.a.mListViewData = arrayList;
-                    this.a.mView.f(this.a.mListViewData);
-                } else if (!ListUtils.isEmpty(this.a.mListViewData) || yc6Var == null) {
+                    this.a.e.e();
+                    this.a.d = arrayList;
+                    this.a.e.f(this.a.d);
+                } else if (!ListUtils.isEmpty(this.a.d) || yd6Var == null) {
                 } else {
-                    this.a.mView.l(yc6Var.f);
+                    this.a.e.l(yd6Var.f);
                 }
             }
         }
@@ -109,15 +109,15 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
-        public void d(boolean z) {
+        public void g(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.a.mView.b(z);
+                this.a.e.b(z);
                 if (z) {
-                    if (ListUtils.isEmpty(this.a.mListViewData)) {
-                        this.a.startFirstTimeLoad();
+                    if (ListUtils.isEmpty(this.a.d)) {
+                        this.a.F1();
                     } else {
-                        this.a.mView.m();
+                        this.a.e.m();
                     }
                 }
             }
@@ -137,103 +137,102 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                 return;
             }
         }
-        this.mListViewData = null;
-        this.mCallback = new a(this);
-        this.mNetworkChangeListener = new b(this);
+        this.d = null;
+        this.g = new a(this);
+        this.h = new b(this);
     }
 
-    private void initBundle(Bundle bundle) {
+    public final void E1(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             if (bundle == null) {
                 if (getIntent() == null) {
                     return;
                 }
-                this.mForumId = getIntent().getStringExtra("forum_id");
-                this.mForumName = getIntent().getStringExtra("forum_name");
+                this.c = getIntent().getStringExtra("forum_id");
+                this.b = getIntent().getStringExtra("forum_name");
             } else {
-                this.mForumId = bundle.getString("forum_id", "");
-                this.mForumName = bundle.getString("forum_name", "");
+                this.c = bundle.getString("forum_id", "");
+                this.b = bundle.getString("forum_name", "");
             }
-            uc6 uc6Var = new uc6();
-            this.mPageInfo = uc6Var;
-            uc6Var.b = this.mForumId;
-            uc6Var.a = this.mForumName;
+            ud6 ud6Var = new ud6();
+            this.a = ud6Var;
+            ud6Var.b = this.c;
+            ud6Var.a = this.b;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void startFirstTimeLoad() {
+    public final void F1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            this.mView.k();
-            this.mModel.s(3, 0, this.mPageInfo);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.e.k();
+            this.f.t(3, 0, this.a);
+        }
+    }
+
+    @Override // com.repackage.ot4.g
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.f.t(3, 0, this.a);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            this.mView.h(i);
+            this.e.h(i);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            initBundle(bundle);
-            q96 q96Var = new q96(this);
-            this.mView = q96Var;
-            q96Var.j(this.mNetworkChangeListener);
-            e96 e96Var = new e96();
-            this.mModel = e96Var;
-            e96Var.E(getUniqueId());
-            this.mModel.init();
-            this.mModel.v(this.mCallback);
-            startFirstTimeLoad();
+            E1(bundle);
+            qa6 qa6Var = new qa6(this);
+            this.e = qa6Var;
+            qa6Var.j(this.h);
+            ea6 ea6Var = new ea6();
+            this.f = ea6Var;
+            ea6Var.E(getUniqueId());
+            this.f.init();
+            this.f.w(this.g);
+            F1();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            this.mModel.i();
-            q96 q96Var = this.mView;
-            if (q96Var != null) {
-                q96Var.i();
+            this.f.j();
+            qa6 qa6Var = this.e;
+            if (qa6Var != null) {
+                qa6Var.i();
             }
-        }
-    }
-
-    @Override // com.repackage.ft4.g
-    public void onListPullRefresh(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.mModel.s(3, 0, this.mPageInfo);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && ji.A()) {
-            startFirstTimeLoad();
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && ni.A()) {
+            F1();
         }
     }
 
     @Override // android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
-            bundle.putString("forum_id", this.mForumId);
-            bundle.putString("forum_name", this.mForumName);
+            bundle.putString("forum_id", this.c);
+            bundle.putString("forum_name", this.b);
         }
     }
 }

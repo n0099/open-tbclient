@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
+import com.repackage.pi;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsPage.AgreeBanner;
@@ -95,11 +95,11 @@ public class FrsHeaderPraiseView extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = findViewById(R.id.obfuscated_res_0x7f0907e8);
-            this.b = findViewById(R.id.obfuscated_res_0x7f0907cf);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090b8b);
-            this.d = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090b8a);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b88);
+            this.a = findViewById(R.id.obfuscated_res_0x7f0907d3);
+            this.b = findViewById(R.id.obfuscated_res_0x7f0907ba);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090b7a);
+            this.d = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090b79);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b77);
             this.e = imageView;
             SkinManager.setImageResource(imageView, R.drawable.icon_arrow_more_gray_n);
         }
@@ -132,8 +132,8 @@ public class FrsHeaderPraiseView extends RelativeLayout {
                     headImageView.setDefaultBgResource(R.color.CAM_X0205);
                     headImageView.setIsRound(true);
                     headImageView.setBorderColor(SkinManager.getColor(R.color.CAM_X0201));
-                    headImageView.setBorderWidth(li.f(getContext(), R.dimen.obfuscated_res_0x7f0701d4));
-                    headImageView.K(((SimpleUser) arrayList.get(size)).portrait, 12, false);
+                    headImageView.setBorderWidth(pi.f(getContext(), R.dimen.obfuscated_res_0x7f0701d4));
+                    headImageView.J(((SimpleUser) arrayList.get(size)).portrait, 12, false);
                     if (size != arrayList.size() - 1) {
                         layoutParams.rightMargin = (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070225)) - (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070305));
                     }
@@ -185,7 +185,7 @@ public class FrsHeaderPraiseView extends RelativeLayout {
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0313, this);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0311, this);
         a();
     }
 }

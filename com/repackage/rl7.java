@@ -1,24 +1,26 @@
 package com.repackage;
 
-import com.baidu.tieba.newfaceshop.facemake.FaceGroupDraft;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class rl7 {
+public class rl7 implements nn {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public List<oz4> b;
+    public boolean c;
 
     static {
         InterceptResult invokeClinit;
@@ -33,139 +35,45 @@ public class rl7 {
                 return;
             }
         }
-        a = jl7.c + "draft/";
-        b = a + "upload_draft";
+        d = BdUniqueId.gen();
     }
 
-    public static void a() {
+    public rl7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            File file = new File(b);
-            if (file.exists()) {
-                file.delete();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0010 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v1 */
-    /* JADX WARN: Type inference failed for: r2v2, types: [java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r2v6, types: [com.baidu.tieba.newfaceshop.facemake.FaceGroupDraft] */
-    public static FaceGroupDraft b() {
+    public void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optInt("need_profile", 0) == 1;
+        JSONArray optJSONArray = jSONObject.optJSONArray("nearby_person_list");
+        if (optJSONArray != null && optJSONArray.length() > 0) {
+            this.b = new ArrayList();
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                oz4 oz4Var = new oz4();
+                oz4Var.a(optJSONArray.optJSONObject(i));
+                this.b.add(oz4Var);
+            }
+        }
+        this.c = jSONObject.optInt("has_more", 0) == 1;
+    }
+
+    @Override // com.repackage.nn
+    public BdUniqueId getType() {
         InterceptResult invokeV;
-        FaceGroupDraft faceGroupDraft;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65538, null)) != null) {
-            return (FaceGroupDraft) invokeV.objValue;
-        }
-        File file = new File(b);
-        ?? r2 = 0;
-        r2 = null;
-        r2 = null;
-        r2 = null;
-        r2 = null;
-        FaceGroupDraft faceGroupDraft2 = null;
-        r2 = null;
-        r2 = null;
-        ObjectInputStream objectInputStream = null;
-        try {
-            if (!file.exists()) {
-                return null;
-            }
-            try {
-                ObjectInputStream objectInputStream2 = new ObjectInputStream(new FileInputStream(file));
-                try {
-                    Object readObject = objectInputStream2.readObject();
-                    if (readObject != null && (readObject instanceof FaceGroupDraft)) {
-                        faceGroupDraft2 = (FaceGroupDraft) readObject;
-                    }
-                    objectInputStream2.close();
-                    ig.c(objectInputStream2);
-                    return faceGroupDraft2;
-                } catch (IOException e) {
-                    e = e;
-                    FaceGroupDraft faceGroupDraft3 = faceGroupDraft2;
-                    objectInputStream = objectInputStream2;
-                    faceGroupDraft = faceGroupDraft3;
-                    e.printStackTrace();
-                    ig.c(objectInputStream);
-                    r2 = faceGroupDraft;
-                    return r2;
-                } catch (ClassNotFoundException e2) {
-                    e = e2;
-                    FaceGroupDraft faceGroupDraft4 = faceGroupDraft2;
-                    objectInputStream = objectInputStream2;
-                    faceGroupDraft = faceGroupDraft4;
-                    e.printStackTrace();
-                    ig.c(objectInputStream);
-                    r2 = faceGroupDraft;
-                    return r2;
-                } catch (Throwable th) {
-                    th = th;
-                    FaceGroupDraft faceGroupDraft5 = faceGroupDraft2;
-                    objectInputStream = objectInputStream2;
-                    faceGroupDraft = faceGroupDraft5;
-                    th.printStackTrace();
-                    ig.c(objectInputStream);
-                    r2 = faceGroupDraft;
-                    return r2;
-                }
-            } catch (IOException e3) {
-                e = e3;
-                faceGroupDraft = null;
-            } catch (ClassNotFoundException e4) {
-                e = e4;
-                faceGroupDraft = null;
-            } catch (Throwable th2) {
-                th = th2;
-                faceGroupDraft = null;
-            }
-        } catch (Throwable th3) {
-            ig.c(r2);
-            throw th3;
-        }
-    }
-
-    public static void c(FaceGroupDraft faceGroupDraft) {
-        ObjectOutputStream objectOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, faceGroupDraft) == null) {
-            ObjectOutputStream objectOutputStream2 = null;
-            try {
-                try {
-                    File file = new File(a);
-                    if (!file.exists()) {
-                        file.mkdirs();
-                    }
-                    a();
-                    objectOutputStream = new ObjectOutputStream(new FileOutputStream(b));
-                } finally {
-                    ig.d(objectOutputStream2);
-                }
-            } catch (FileNotFoundException e) {
-                e = e;
-            } catch (IOException e2) {
-                e = e2;
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                objectOutputStream.writeObject(faceGroupDraft);
-                ig.d(objectOutputStream);
-            } catch (FileNotFoundException e3) {
-                e = e3;
-                objectOutputStream2 = objectOutputStream;
-                e.printStackTrace();
-            } catch (IOException e4) {
-                e = e4;
-                objectOutputStream2 = objectOutputStream;
-                e.printStackTrace();
-            } catch (Throwable th2) {
-                th = th2;
-                objectOutputStream2 = objectOutputStream;
-                th.printStackTrace();
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? d : (BdUniqueId) invokeV.objValue;
     }
 }

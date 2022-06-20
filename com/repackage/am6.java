@@ -1,108 +1,156 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.MembercenterActivityConfig;
+import com.baidu.tbadk.mvc.message.MvcHttpMessage;
+import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
+import com.baidu.tbadk.mvc.message.MvcNetMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import com.baidu.tbadk.mvc.model.NetModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.shrinkhead.LogicField;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.frs.profession.permission.FrsProfessionPermissionModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ThemeElement;
+import com.repackage.nq4;
 /* loaded from: classes5.dex */
-public class am6 implements zl6 {
+public class am6 implements NetModel.k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b a;
-    public final Context b;
-    @Nullable
-    public Boolean c;
+    public TbPageContext<?> a;
+    public FrsProfessionPermissionModel b;
+    public yl6 c;
+    public d d;
+    public int e;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-524249782, "Lcom/repackage/am6$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-524249782, "Lcom/repackage/am6$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[LogicField.values().length];
-            a = iArr;
-            try {
-                iArr[LogicField.LIKE_BTN.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[LogicField.SIGN_BTN.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
+    public class a implements nq4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public View a;
-        public TBSpecificationBtn b;
-        public TBSpecificationBtn c;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ nq4 b;
+        public final /* synthetic */ am6 c;
 
-        public b() {
+        public a(am6 am6Var, String str, nq4 nq4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {am6Var, str, nq4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.c = am6Var;
+            this.a = str;
+            this.b = nq4Var;
         }
 
-        @NonNull
-        public static b a(View view2) {
-            InterceptResult invokeL;
+        @Override // com.repackage.nq4.e
+        public void onClick(nq4 nq4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-                b bVar = new b();
-                bVar.a = view2;
-                bVar.b = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f091211);
-                bVar.c = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f091cec);
-                return bVar;
+            if (interceptable == null || interceptable.invokeL(1048576, this, nq4Var) == null) {
+                MembercenterActivityConfig membercenterActivityConfig = new MembercenterActivityConfig(this.c.a.getPageActivity());
+                membercenterActivityConfig.setUrl("https://tieba.baidu.com/mo/q/prozone/view?fid=" + this.a);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, membercenterActivityConfig));
+                this.b.dismiss();
             }
-            return (b) invokeL.objValue;
         }
     }
 
-    public am6(@NonNull FrsFragment frsFragment, @NonNull View view2) {
+    /* loaded from: classes5.dex */
+    public class b implements nq4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nq4 a;
+
+        public b(am6 am6Var, nq4 nq4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {am6Var, nq4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nq4Var;
+        }
+
+        @Override // com.repackage.nq4.e
+        public void onClick(nq4 nq4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, nq4Var) == null) {
+                this.a.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements nq4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nq4 a;
+
+        public c(am6 am6Var, nq4 nq4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {am6Var, nq4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nq4Var;
+        }
+
+        @Override // com.repackage.nq4.e
+        public void onClick(nq4 nq4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, nq4Var) == null) {
+                this.a.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface d {
+        void a(boolean z, int i);
+
+        void b(boolean z);
+
+        void c(boolean z);
+    }
+
+    public am6(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment, view2};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -112,101 +160,195 @@ public class am6 implements zl6 {
                 return;
             }
         }
-        this.b = view2.getContext();
-        b a2 = b.a(view2);
-        this.a = a2;
-        a2.b.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f02a4));
-        this.a.b.setTextSize(R.dimen.T_X08);
-        ot4 ot4Var = new ot4();
-        ot4Var.p(R.color.CAM_X0901, R.color.CAM_X0105);
-        this.a.b.setConfig(ot4Var);
-        this.a.b.setTag(R.id.obfuscated_res_0x7f09063c, LogicField.LIKE_BTN);
-        this.a.c.setTextSize(R.dimen.T_X08);
-        ot4 ot4Var2 = new ot4();
-        ot4Var2.u(R.color.CAM_X0105);
-        ot4Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds39));
-        ot4Var2.i(R.drawable.obfuscated_res_0x7f08092a, 0, TBSpecificationButtonConfig.IconType.WEBP);
-        this.a.c.setConfig(ot4Var2);
-        this.a.c.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f118d));
-        this.a.c.setTag(R.id.obfuscated_res_0x7f09063c, LogicField.SIGN_BTN);
+        this.a = tbPageContext;
+        yl6 yl6Var = new yl6();
+        this.c = yl6Var;
+        FrsProfessionPermissionModel frsProfessionPermissionModel = new FrsProfessionPermissionModel(tbPageContext, yl6Var);
+        this.b = frsProfessionPermissionModel;
+        frsProfessionPermissionModel.b0(this);
     }
 
-    @Override // com.repackage.zl6
-    @Nullable
-    public <T> T a(@NonNull LogicField logicField) {
-        InterceptResult invokeL;
+    public final void b(zl6 zl6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, logicField)) == null) {
-            int i = a.a[logicField.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    return null;
-                }
-                return (T) this.a.c;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, zl6Var) == null) && zl6Var != null && zl6Var.b == 0) {
+            if (!zl6Var.a && zl6Var.d == 2) {
+                l(zl6Var.e);
             }
-            return (T) this.a.b;
+            d dVar = this.d;
+            if (dVar != null) {
+                dVar.c(zl6Var.a);
+            }
         }
-        return (T) invokeL.objValue;
     }
 
-    @NonNull
-    public View b() {
-        InterceptResult invokeV;
+    public final void c(zl6 zl6Var, String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.a : (View) invokeV.objValue;
-    }
-
-    @Override // com.repackage.zl6
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            if (z) {
-                this.a.b.setVisibility(8);
-                this.a.c.setVisibility(0);
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zl6Var, str) == null) || zl6Var == null) {
+            return;
+        }
+        if (zl6Var.b != 0) {
+            if (StringUtils.isNull(zl6Var.c)) {
+                this.a.showToast((int) R.string.obfuscated_res_0x7f0f0c37);
+                return;
+            } else {
+                this.a.showToast(zl6Var.c);
                 return;
             }
-            this.a.b.setVisibility(0);
-            this.a.c.setVisibility(8);
+        }
+        if (!zl6Var.a) {
+            int i = zl6Var.d;
+            if (i == 1) {
+                k(zl6Var.e, str);
+            } else if (i == 3) {
+                l(zl6Var.e);
+            }
+        }
+        d dVar = this.d;
+        if (dVar != null) {
+            dVar.b(zl6Var.a);
         }
     }
 
-    @Override // com.repackage.zl6
-    public void d(View.OnClickListener onClickListener) {
+    public final void d(zl6 zl6Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.a.b.setOnClickListener(onClickListener);
-            this.a.c.setOnClickListener(onClickListener);
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, zl6Var, i) == null) || zl6Var == null) {
+            return;
+        }
+        if (zl6Var.b != 0) {
+            if (StringUtils.isNull(zl6Var.c)) {
+                this.a.showToast((int) R.string.obfuscated_res_0x7f0f0c37);
+                return;
+            } else {
+                this.a.showToast(zl6Var.c);
+                return;
+            }
+        }
+        d dVar = this.d;
+        if (dVar != null) {
+            dVar.a(zl6Var.a, i);
         }
     }
 
-    public void e(boolean z, @NonNull ThemeElement themeElement) {
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048580, this, z, themeElement) == null) {
-            Boolean bool = this.c;
-            if (bool == null || bool.booleanValue() != z) {
-                this.c = Boolean.valueOf(z);
-                ot4 ot4Var = (ot4) this.a.b.getStyleConfig();
-                if (z) {
-                    ot4Var.p(R.color.CAM_X0901, R.color.CAM_X0105);
-                } else if (UtilHelper.isNightOrDarkMode()) {
-                    ot4Var.t(R.color.CAM_X0105);
-                } else {
-                    ot4Var.s(ef8.e(themeElement.common_color));
-                }
-                this.a.b.setConfig(ot4Var);
-                this.a.b.setTag(R.id.obfuscated_res_0x7f090f73, Boolean.valueOf(!z));
-                ot4 ot4Var2 = (ot4) this.a.c.getStyleConfig();
-                if (z) {
-                    ot4Var2.u(R.color.CAM_X0105);
-                } else {
-                    Object tag = this.a.c.getTag(R.id.obfuscated_res_0x7f090f73);
-                    if (((tag instanceof Boolean) && ((Boolean) tag).booleanValue()) || UtilHelper.isNightOrDarkMode()) {
-                        ot4Var2.t(R.color.CAM_X0105);
-                    } else {
-                        ot4Var2.s(ef8.e(themeElement.common_color));
-                    }
-                }
-                this.a.c.setConfig(ot4Var2);
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.b.T()) {
+            return;
+        }
+        this.b.loadData();
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            yl6 yl6Var = this.c;
+            yl6Var.d = 1;
+            yl6Var.c = str;
+            e();
+        }
+    }
+
+    public void g(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048581, this, str, j) == null) {
+            yl6 yl6Var = this.c;
+            yl6Var.c = str;
+            yl6Var.b = j;
+            yl6Var.d = 3;
+            e();
+        }
+    }
+
+    public void h(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048582, this, str, i) == null) {
+            yl6 yl6Var = this.c;
+            yl6Var.a = i;
+            yl6Var.c = str;
+            yl6Var.d = 2;
+            e();
+        }
+    }
+
+    public void i(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, dVar) == null) {
+            this.d = dVar;
+        }
+    }
+
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.e = i;
+            this.c.e = i;
+        }
+    }
+
+    public final void k(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
+            nq4 nq4Var = new nq4(this.a.getPageActivity());
+            nq4Var.setCanceledOnTouchOutside(false);
+            nq4Var.setCancelable(false);
+            nq4Var.setMessage(str);
+            nq4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f03f4, new a(this, str2, nq4Var));
+            nq4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03f3, new b(this, nq4Var));
+            nq4Var.create(this.a);
+            nq4Var.show();
+        }
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            nq4 nq4Var = new nq4(this.a.getPageActivity());
+            nq4Var.setCanceledOnTouchOutside(false);
+            nq4Var.setCancelable(false);
+            nq4Var.setMessage(str);
+            nq4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0993, new c(this, nq4Var));
+            nq4Var.create(this.a);
+            nq4Var.show();
+        }
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel.m
+    public void n(MvcSocketResponsedMessage mvcSocketResponsedMessage, MvcSocketMessage mvcSocketMessage, MvcNetMessage mvcNetMessage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048587, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) == null) && mvcNetMessage != null && (mvcNetMessage.getRequestData() instanceof yl6) && mvcSocketResponsedMessage != null && (mvcSocketResponsedMessage.getData() instanceof zl6)) {
+            yl6 yl6Var = (yl6) mvcNetMessage.getRequestData();
+            zl6 zl6Var = (zl6) mvcSocketResponsedMessage.getData();
+            if (yl6Var.e != this.e) {
+                return;
+            }
+            int i = yl6Var.d;
+            if (i == 1) {
+                b(zl6Var);
+            } else if (i == 2) {
+                d(zl6Var, yl6Var.a);
+            } else if (i != 3) {
+            } else {
+                c(zl6Var, yl6Var.c);
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel.l
+    public void s(MvcHttpResponsedMessage mvcHttpResponsedMessage, MvcHttpMessage mvcHttpMessage, MvcNetMessage mvcNetMessage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048588, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) && mvcNetMessage != null && (mvcNetMessage.getRequestData() instanceof yl6) && mvcHttpResponsedMessage != null && (mvcHttpResponsedMessage.getData() instanceof zl6)) {
+            yl6 yl6Var = (yl6) mvcNetMessage.getRequestData();
+            zl6 zl6Var = (zl6) mvcHttpResponsedMessage.getData();
+            if (yl6Var.e != this.e) {
+                return;
+            }
+            int i = yl6Var.d;
+            if (i == 1) {
+                b(zl6Var);
+            } else if (i == 2) {
+                d(zl6Var, yl6Var.a);
+            } else if (i != 3) {
+            } else {
+                c(zl6Var, yl6Var.c);
             }
         }
     }

@@ -1,12 +1,13 @@
 package com.baidu.tieba.interestlabel.message;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.r97;
+import com.repackage.cb7;
 import com.squareup.wire.Wire;
 import tbclient.GetTagList.GetTagListResIdl;
 /* loaded from: classes3.dex */
@@ -32,23 +33,28 @@ public class ResponseSocketGetLabelMessage extends SocketResponsedMessage {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        GetTagListResIdl getTagListResIdl;
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getTagListResIdl = (GetTagListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetTagListResIdl.class)) == null) {
-            return;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            GetTagListResIdl getTagListResIdl = (GetTagListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetTagListResIdl.class);
+            if (getTagListResIdl == null) {
+                return null;
+            }
+            setError(getTagListResIdl.error.errorno.intValue());
+            setErrorString(getTagListResIdl.error.usermsg);
+            if (getError() != 0) {
+                return getTagListResIdl;
+            }
+            RequestGetLabelMessage requestGetLabelMessage = getOrginalMessage().getExtra() instanceof RequestGetLabelMessage ? (RequestGetLabelMessage) getOrginalMessage().getExtra() : null;
+            cb7 labelDataSet = requestGetLabelMessage != null ? requestGetLabelMessage.getLabelDataSet() : null;
+            if (labelDataSet != null) {
+                labelDataSet.c(getTagListResIdl.data);
+            }
+            return getTagListResIdl;
         }
-        setError(getTagListResIdl.error.errorno.intValue());
-        setErrorString(getTagListResIdl.error.usermsg);
-        if (getError() != 0) {
-            return;
-        }
-        RequestGetLabelMessage requestGetLabelMessage = getOrginalMessage().getExtra() instanceof RequestGetLabelMessage ? (RequestGetLabelMessage) getOrginalMessage().getExtra() : null;
-        r97 labelDataSet = requestGetLabelMessage != null ? requestGetLabelMessage.getLabelDataSet() : null;
-        if (labelDataSet != null) {
-            labelDataSet.c(getTagListResIdl.data);
-        }
+        return invokeIL.objValue;
     }
 }

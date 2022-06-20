@@ -112,21 +112,19 @@ public class i {
                 jSONObject2.put(HttpConstants.DEVICE_TYPE, "3");
                 jSONObject2.put("sdk_int", Build.VERSION.SDK_INT + "");
                 jSONObject2.put("push_sdk_version", ((int) a.a()) + "");
-                String m = m.m(c);
-                if (!TextUtils.isEmpty(m)) {
-                    jSONObject2.put("app_version", m);
+                String y = m.y(c);
+                if (!TextUtils.isEmpty(y)) {
+                    jSONObject2.put("app_version", y);
                 }
-                if (m.n()) {
+                if (m.x(c)) {
                     jSONObject2.put(Config.ROM, m.l(c));
                 }
-                int i2 = m.o(c) ? 3 : 2;
+                int i2 = m.A(c) ? 3 : 2;
                 jSONObject2.put("connect_version", i2 + "");
-                jSONObject2.put("bind_name", Build.MODEL);
                 if (!TextUtils.isEmpty(str)) {
                     jSONObject2.put("push_proxy", str);
                 }
-                jSONObject2.put(HttpConstants.OS_VERSION, Build.DISPLAY);
-                jSONObject2.put(HttpConstants.HTTP_MANUFACTURER, m.a(false));
+                jSONObject2.put(HttpConstants.HTTP_MANUFACTURER, m.c(c, false));
                 jSONObject2.put("bind_notify_status", com.baidu.android.pushservice.i.h.b(c));
                 if (i == 1) {
                     jSONObject2.put("iid", str2);

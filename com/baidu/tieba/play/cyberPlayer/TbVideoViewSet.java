@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ki;
+import com.repackage.oi;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -167,7 +167,7 @@ public class TbVideoViewSet {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (ki.isEmpty(str) || !this.a.containsKey(str)) {
+            if (oi.isEmpty(str) || !this.a.containsKey(str)) {
                 return null;
             }
             return this.a.get(str);
@@ -205,7 +205,7 @@ public class TbVideoViewSet {
                         break;
                     }
                 }
-                if (!this.b && !ki.isEmpty(str2)) {
+                if (!this.b && !oi.isEmpty(str2)) {
                     this.a.remove(str2);
                 }
             }

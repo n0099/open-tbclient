@@ -367,12 +367,14 @@ public class SpeedStatsManager extends AbstractSpeedStats {
     public void setTaskRunTime(String str, long j) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLJ(1048614, this, str, j) == null) && this.mIsMainProcess) {
-            if (str != null && str.startsWith(SpeedStatsMainTable.APP_CREATE_FLAG)) {
-                this.mAppCreateSpeedStats.addStatsDuration(str, j);
-            } else if (str != null && str.startsWith(SpeedStatsMainTable.AD_FLAG)) {
-                this.mAdSpeedStats.addStatsDuration(str, j);
-            } else {
-                this.mAsyncTaskSpeedStats.addStatsDuration(str, j);
+            if (str == null || !str.startsWith(SpeedStatsMainTable.IGNORE_FLAG)) {
+                if (str != null && str.startsWith(SpeedStatsMainTable.APP_CREATE_FLAG)) {
+                    this.mAppCreateSpeedStats.addStatsDuration(str, j);
+                } else if (str != null && str.startsWith(SpeedStatsMainTable.AD_FLAG)) {
+                    this.mAdSpeedStats.addStatsDuration(str, j);
+                } else {
+                    this.mAsyncTaskSpeedStats.addStatsDuration(str, j);
+                }
             }
         }
     }

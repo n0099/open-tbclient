@@ -7,22 +7,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a5;
-import com.repackage.i3;
-import com.repackage.y6;
+import com.repackage.a7;
+import com.repackage.c5;
+import com.repackage.k3;
 /* loaded from: classes.dex */
 public class ModelMaterial {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public i3 b;
-    public i3 c;
-    public i3 d;
-    public i3 e;
-    public i3 f;
+    public k3 b;
+    public k3 c;
+    public k3 d;
+    public k3 e;
+    public k3 f;
     public float g;
     public float h;
-    public y6<a5> i;
+    public a7<c5> i;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */

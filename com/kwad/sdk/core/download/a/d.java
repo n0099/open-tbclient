@@ -98,7 +98,7 @@ public class d {
     }
 
     public static void b(final Context context, final String str, String str2, final AdTemplate adTemplate) {
-        g.a a2 = new g.a(Wrapper.wrapContextIfNeed(context)).a(String.format(Wrapper.wrapContextIfNeed(context).getString(R.string.obfuscated_res_0x7f0f0997), str2)).a(new g.b() { // from class: com.kwad.sdk.core.download.a.d.2
+        g.a a2 = new g.a(Wrapper.wrapContextIfNeed(context)).a(String.format(Wrapper.wrapContextIfNeed(context).getString(R.string.obfuscated_res_0x7f0f099c), str2)).a(new g.b() { // from class: com.kwad.sdk.core.download.a.d.2
             @Override // com.kwad.sdk.core.download.kwai.g.b
             public void a(DialogInterface dialogInterface) {
                 com.kwad.sdk.core.report.a.f(AdTemplate.this, 159);

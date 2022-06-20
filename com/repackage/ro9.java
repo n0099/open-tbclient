@@ -1,25 +1,23 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.core.Info;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class ro9 {
+public class ro9 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List a;
+    public final /* synthetic */ uo9 a;
 
-    public ro9() {
+    public ro9(uo9 uo9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {uo9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,54 +27,21 @@ public class ro9 {
                 return;
             }
         }
-        this.a = Collections.synchronizedList(new ArrayList());
+        this.a = uo9Var;
     }
 
-    public void a() {
+    @Override // java.lang.Runnable
+    public void run() {
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            HashMap b = dq9.b(this.a.a);
             try {
-                this.a.clear();
-            } catch (Exception unused) {
+                str = this.a.d() + dq9.a(b);
+            } catch (UnsupportedEncodingException unused) {
+                str = "";
             }
+            sl9.s(str, null, new no9(this));
         }
-    }
-
-    public void b(List list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            synchronized (this.a) {
-                this.a.clear();
-                this.a.addAll(list);
-            }
-        }
-    }
-
-    public Info c() {
-        InterceptResult invokeV;
-        Info info;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this.a) {
-                info = null;
-                while (this.a.size() > 0 && ((info = (Info) this.a.remove(0)) == null || !info.isEffective())) {
-                }
-            }
-            return info;
-        }
-        return (Info) invokeV.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        boolean isEmpty;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this.a) {
-                isEmpty = this.a.isEmpty();
-            }
-            return isEmpty;
-        }
-        return invokeV.booleanValue;
     }
 }

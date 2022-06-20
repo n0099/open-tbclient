@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dc5;
+import com.repackage.qc5;
 import tbclient.ThreadPublish.DataReq;
 import tbclient.ThreadPublish.ThreadPublishReqIdl;
 /* loaded from: classes3.dex */
@@ -46,7 +46,7 @@ public class ThreadPublishReqMessage extends NetMessage {
             builder.forum_id = Long.valueOf(this.fid);
             builder.thread_id = Long.valueOf(this.tid);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                dc5.a(builder, true);
+                qc5.a(builder, true);
             }
             ThreadPublishReqIdl.Builder builder2 = new ThreadPublishReqIdl.Builder();
             builder2.data = builder.build(false);

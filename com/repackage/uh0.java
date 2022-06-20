@@ -1,7 +1,9 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.text.TextUtils;
+import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,13 +11,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.concurrent.TimeUnit;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class uh0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, ei0> a;
 
     /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
@@ -46,22 +46,6 @@ public class uh0 {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755261100, "Lcom/repackage/uh0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755261100, "Lcom/repackage/uh0;");
-                return;
-            }
-        }
-        TimeUnit.DAYS.toMillis(10L);
-    }
-
     public /* synthetic */ uh0(a aVar) {
         this();
     }
@@ -69,50 +53,50 @@ public class uh0 {
     public static uh0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (uh0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (uh0) invokeV.objValue;
     }
 
-    public void b() {
+    public void b(ii0 ii0Var) {
+        li0 li0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            wh0.d().a(this.a);
-        }
-    }
-
-    public void c(@NonNull ei0 ei0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ei0Var) == null) {
-            wh0.d().b(xh0.a(ei0Var));
-        }
-    }
-
-    public ei0 query(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? (ei0) ix0.b(this.a, str) : (ei0) invokeL.objValue;
-    }
-
-    public void update(ei0 ei0Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, ei0Var) == null) || ei0Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, ii0Var) == null) || ii0Var == null || (li0Var = ii0Var.p) == null || ii0Var.q == null || TextUtils.isEmpty(li0Var.a)) {
             return;
         }
-        ix0.e(this.a, ei0Var.d(), ei0Var);
+        ji0 ji0Var = ii0Var.q;
+        long j = ji0Var.o;
+        if (j < 0) {
+            return;
+        }
+        String str = ii0Var.d;
+        ji0Var.n = c01.b(j, System.currentTimeMillis());
+        ClogBuilder l = new ClogBuilder().w(ClogBuilder.LogType.DOWNLOAD_KEEP).n(ii0Var.p.a).i(str).l(String.valueOf(ii0Var.q.n));
+        JSONObject jSONObject = new JSONObject();
+        try {
+            PackageInfo packageInfo = bh0.b().getPackageManager().getPackageInfo(str, 0);
+            l.j(packageInfo.versionName).k(String.valueOf(packageInfo.versionCode));
+            lx0.d(jSONObject, "installed", 1);
+        } catch (PackageManager.NameNotFoundException unused) {
+            lx0.d(jSONObject, "installed", 0);
+            ii0Var.q.o = -2L;
+        } catch (Throwable unused2) {
+            return;
+        }
+        l.m(jSONObject.toString());
+        vx0.c(l);
+        yh0.a().c(ii0Var);
     }
 
     public uh0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new HashMap<>();
     }
 }

@@ -1,10 +1,8 @@
 package com.repackage;
 
-import android.content.ContentValues;
-import androidx.annotation.Nullable;
-import java.util.List;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes7.dex */
 public interface xj1 {
-    @Nullable
-    List<ContentValues> a();
+    InputStream a(InputStream inputStream) throws IOException;
 }

@@ -1,18 +1,20 @@
 package com.repackage;
 
-import android.app.Application;
+import android.app.Activity;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes6.dex */
-public final class qf0 implements pk0 {
+public final class qf0 extends zk0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public long b;
+    public long c;
 
     public qf0() {
         Interceptable interceptable = $ic;
@@ -24,28 +26,38 @@ public final class qf0 implements pk0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = true;
+        this.b = 0L;
+        this.c = 0L;
     }
 
-    @Override // com.repackage.pk0
-    public void a(@NonNull Application application) {
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, application) == null) {
-            of0.a().b(pf0.e());
-            application.registerActivityLifecycleCallbacks(of0.a());
-            pf0.e().b(new kf0());
-            pf0.e().h(new lf0());
-            uk0.c(pf0.e());
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            vx0.c(new ClogBuilder().w(ClogBuilder.LogType.CHECK).s(ClogBuilder.Page.NA_SPLASH).i("4").j(this.a ? "4003" : "4002").k(String.valueOf(this.c)));
         }
     }
 
-    @Override // com.repackage.pk0
-    public void b() {
+    @Override // com.repackage.zk0, com.repackage.cl0
+    public void onBackgroundToForeground(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && g01.b()) {
-            ck0.b().request().a(false);
-            sk0.a().request();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+            if (!this.a) {
+                this.c = System.currentTimeMillis() - this.b;
+            }
+            e();
+        }
+    }
+
+    @Override // com.repackage.zk0, com.repackage.cl0
+    public void onForegroundToBackground(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            this.a = false;
+            this.b = System.currentTimeMillis();
         }
     }
 }

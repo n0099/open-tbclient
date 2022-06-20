@@ -1,5 +1,5 @@
 package com.repackage;
 /* loaded from: classes7.dex */
 public interface vg0 {
-    String a();
+    void onResult(boolean z);
 }

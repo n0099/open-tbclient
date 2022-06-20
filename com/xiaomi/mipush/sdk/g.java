@@ -5,10 +5,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.hk;
-import com.xiaomi.push.service.aq;
+import com.xiaomi.push.ho;
+import com.xiaomi.push.service.ba;
 /* loaded from: classes8.dex */
-public class g extends aq.a {
+public class g extends ba.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ f a;
@@ -35,19 +35,19 @@ public class g extends aq.a {
         this.a = fVar;
     }
 
-    @Override // com.xiaomi.push.service.aq.a
+    @Override // com.xiaomi.push.service.ba.a
     public void onCallback() {
         Context context;
         boolean z;
         Context context2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            context = this.a.f70a;
-            boolean a = com.xiaomi.push.service.aq.a(context).a(hk.ao.a(), true);
-            z = this.a.f73a;
+            context = this.a.f71a;
+            boolean a = ba.a(context).a(ho.ao.a(), true);
+            z = this.a.f74a;
             if (z != a) {
-                this.a.f73a = a;
-                context2 = this.a.f70a;
+                this.a.f74a = a;
+                context2 = this.a.f71a;
                 i.b(context2);
             }
         }

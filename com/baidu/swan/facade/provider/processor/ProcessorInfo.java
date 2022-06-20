@@ -9,10 +9,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ml3;
-import com.repackage.nl3;
-import com.repackage.ol3;
-import com.repackage.pl3;
+import com.repackage.am3;
+import com.repackage.xl3;
+import com.repackage.yl3;
+import com.repackage.zl3;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes2.dex */
 public final class ProcessorInfo {
@@ -22,7 +22,7 @@ public final class ProcessorInfo {
     public static final ProcessorInfo HISTORY;
     public static final ProcessorInfo PARAMS;
     public transient /* synthetic */ FieldHolder $fh;
-    public Class<? extends ml3> mClass;
+    public Class<? extends xl3> mClass;
     public int mMatcherCode;
     public String mPath;
 
@@ -39,9 +39,9 @@ public final class ProcessorInfo {
                 return;
             }
         }
-        PARAMS = new ProcessorInfo("PARAMS", 0, pl3.class, "params");
-        FAVORITE = new ProcessorInfo("FAVORITE", 1, nl3.class, "favorite");
-        ProcessorInfo processorInfo = new ProcessorInfo("HISTORY", 2, ol3.class, "history");
+        PARAMS = new ProcessorInfo("PARAMS", 0, am3.class, "params");
+        FAVORITE = new ProcessorInfo("FAVORITE", 1, yl3.class, "favorite");
+        ProcessorInfo processorInfo = new ProcessorInfo("HISTORY", 2, zl3.class, "history");
         HISTORY = processorInfo;
         $VALUES = new ProcessorInfo[]{PARAMS, FAVORITE, processorInfo};
     }
@@ -69,7 +69,7 @@ public final class ProcessorInfo {
         this.mMatcherCode = ordinal();
     }
 
-    public static Class<? extends ml3> getProcessorClass(int i) {
+    public static Class<? extends xl3> getProcessorClass(int i) {
         InterceptResult invokeI;
         ProcessorInfo[] values;
         Interceptable interceptable = $ic;
@@ -108,7 +108,7 @@ public final class ProcessorInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mPath : (String) invokeV.objValue;
     }
 
-    private Class<? extends ml3> getProcessorClass() {
+    private Class<? extends xl3> getProcessorClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.mClass : (Class) invokeV.objValue;

@@ -46,10 +46,10 @@ public class LoadingLayout extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07b7, (ViewGroup) null);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07b6, (ViewGroup) null);
             inflate.setBackgroundColor(-1);
-            this.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090238);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090239);
+            this.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090236);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090237);
             addView(inflate);
         }
     }
@@ -59,8 +59,8 @@ public class LoadingLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             if (z) {
                 setVisibility(0);
-                Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010134);
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f081181);
+                Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010136);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f081172);
                 this.a.startAnimation(loadAnimation);
                 return;
             }

@@ -15,23 +15,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jg;
-import com.repackage.mw8;
-import com.repackage.nw8;
-import com.repackage.ow8;
-import com.repackage.ts4;
-import com.repackage.ww4;
+import com.repackage.ct4;
+import com.repackage.hx4;
+import com.repackage.ng;
+import com.repackage.uw8;
+import com.repackage.vw8;
+import com.repackage.ww8;
 /* loaded from: classes4.dex */
 public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NewWriteModel.e mDragVcodePresenterCallback;
-    public boolean mNeedFeedBackButton;
-    public NewVcodeView mNewVcodeView;
-    public int mPageType;
-    public nw8 mPresenter;
-    public WriteData mWriteData;
-    public NewWriteModel mWriteModel;
+    public NewWriteModel a;
+    public NewVcodeView b;
+    public vw8 c;
+    public WriteData d;
+    public int e;
+    public NewWriteModel.e f;
+    public boolean g;
 
     public NewVcodeActivity() {
         Interceptable interceptable = $ic;
@@ -46,9 +46,9 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                 return;
             }
         }
-        this.mWriteData = null;
-        this.mPageType = 0;
-        this.mDragVcodePresenterCallback = new NewWriteModel.e(this) { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeActivity.1
+        this.d = null;
+        this.e = 0;
+        this.f = new NewWriteModel.e(this) { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeActivity.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ NewVcodeActivity a;
@@ -72,9 +72,9 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
             }
 
             @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.e
-            public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, ww4 ww4Var, WriteData writeData, AntiData antiData) {
+            public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, hx4 hx4Var, WriteData writeData, AntiData antiData) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, ww4Var, writeData, antiData}) == null) || postWriteCallBackData == null || z) {
+                if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, hx4Var, writeData, antiData}) == null) || postWriteCallBackData == null || z) {
                     return;
                 }
                 if (postWriteCallBackData.getErrorCode() == 220015) {
@@ -92,55 +92,54 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                     intent2.putExtras(bundle2);
                     this.a.setResult(0, intent2);
                     this.a.finish();
-                } else if (ww4Var == null || writeData == null) {
+                } else if (hx4Var == null || writeData == null) {
                 } else {
-                    this.a.mPageType = jg.e("4", 0);
-                    this.a.mPresenter.d();
-                    this.a.mPresenter.onDestroy();
-                    this.a.mWriteData = writeData;
-                    this.a.mWriteData.setVcodeMD5(ww4Var.b());
-                    this.a.mWriteData.setVcodeUrl(ww4Var.c());
-                    this.a.mWriteData.setVcodeExtra(ww4Var.a());
-                    this.a.mWriteModel.setWriteData(this.a.mWriteData);
+                    this.a.e = ng.e("4", 0);
+                    this.a.c.d();
+                    this.a.c.onDestroy();
+                    this.a.d = writeData;
+                    this.a.d.setVcodeMD5(hx4Var.b());
+                    this.a.d.setVcodeUrl(hx4Var.c());
+                    this.a.d.setVcodeExtra(hx4Var.a());
+                    this.a.a.setWriteData(this.a.d);
                     NewVcodeActivity newVcodeActivity = this.a;
-                    newVcodeActivity.mPresenter = newVcodeActivity.getVcodePresenterFromType();
-                    this.a.mPresenter.e(true, postWriteCallBackData.getErrorString());
-                    this.a.mNewVcodeView.setPresenter(this.a.mPresenter);
-                    this.a.mPresenter.a(this.a.mNeedFeedBackButton);
+                    newVcodeActivity.c = newVcodeActivity.J1();
+                    this.a.c.e(true, postWriteCallBackData.getErrorString());
+                    this.a.b.setPresenter(this.a.c);
+                    this.a.c.a(this.a.g);
                 }
             }
         };
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public nw8 getVcodePresenterFromType() {
+    public final vw8 J1() {
         InterceptResult invokeV;
-        nw8 ow8Var;
+        vw8 ww8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
-            if (this.mPageType == jg.e("5", 0)) {
-                ow8Var = new mw8(this.mNewVcodeView, this.mWriteModel);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.e == ng.e("5", 0)) {
+                ww8Var = new uw8(this.b, this.a);
             } else {
-                ow8Var = new ow8(this.mNewVcodeView, this.mWriteModel);
+                ww8Var = new ww8(this.b, this.a);
             }
-            ow8Var.c(this.mDragVcodePresenterCallback);
-            return ow8Var;
+            ww8Var.c(this.f);
+            return ww8Var;
         }
-        return (nw8) invokeV.objValue;
+        return (vw8) invokeV.objValue;
     }
 
-    private void gotoMainTab() {
+    public final void K1() {
         WriteData writeData;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65547, this) == null) && (writeData = this.mWriteData) != null && writeData.getType() == 3) {
-            ts4.g(getPageContext().getPageActivity(), 200, false);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (writeData = this.d) != null && writeData.getType() == 3) {
+            ct4.g(getPageContext().getPageActivity(), 200, false);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void closeAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 4);
         }
     }
@@ -148,7 +147,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void enterExitAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
         }
     }
@@ -156,7 +155,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048580, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
             if (i2 == -1) {
                 if (i == 12006) {
@@ -172,56 +171,56 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            this.mNewVcodeView = new NewVcodeView(this);
+            this.b = new NewVcodeView(this);
             if (bundle != null) {
-                this.mWriteData = WriteData.fromDraftString(bundle.getString("model"));
-                this.mNeedFeedBackButton = bundle.getBoolean(NewVcodeActivityConfig.NEED_FEED_BACK_BUTTON);
-                this.mPageType = bundle.getInt("page_type");
+                this.d = WriteData.fromDraftString(bundle.getString("model"));
+                this.g = bundle.getBoolean(NewVcodeActivityConfig.NEED_FEED_BACK_BUTTON);
+                this.e = bundle.getInt("page_type");
             } else {
                 Intent intent = getIntent();
-                this.mWriteData = (WriteData) intent.getSerializableExtra("model");
-                this.mNeedFeedBackButton = intent.getBooleanExtra(NewVcodeActivityConfig.NEED_FEED_BACK_BUTTON, true);
-                this.mPageType = intent.getIntExtra("page_type", 0);
+                this.d = (WriteData) intent.getSerializableExtra("model");
+                this.g = intent.getBooleanExtra(NewVcodeActivityConfig.NEED_FEED_BACK_BUTTON, true);
+                this.e = intent.getIntExtra("page_type", 0);
             }
-            if (this.mWriteData == null) {
+            if (this.d == null) {
                 finish();
                 return;
             }
             NewWriteModel newWriteModel = new NewWriteModel(this);
-            this.mWriteModel = newWriteModel;
-            newWriteModel.setWriteData(this.mWriteData);
-            if (this.mWriteData.getWriteImagesInfo() != null) {
-                this.mWriteModel.Z(this.mWriteData.getWriteImagesInfo().size() > 0);
+            this.a = newWriteModel;
+            newWriteModel.setWriteData(this.d);
+            if (this.d.getWriteImagesInfo() != null) {
+                this.a.a0(this.d.getWriteImagesInfo().size() > 0);
             }
-            nw8 vcodePresenterFromType = getVcodePresenterFromType();
-            this.mPresenter = vcodePresenterFromType;
-            this.mNewVcodeView.setPresenter(vcodePresenterFromType);
-            this.mPresenter.a(this.mNeedFeedBackButton);
+            vw8 J1 = J1();
+            this.c = J1;
+            this.b.setPresenter(J1);
+            this.c.a(this.g);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            gotoMainTab();
-            this.mPresenter.onDestroy();
+            K1();
+            this.c.onDestroy();
         }
     }
 
     @Override // android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
-            WriteData writeData = this.mWriteData;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
+            WriteData writeData = this.d;
             if (writeData != null) {
                 bundle.putString("model", writeData.toDraftString());
             }
-            bundle.putBoolean(NewVcodeActivityConfig.NEED_FEED_BACK_BUTTON, this.mNeedFeedBackButton);
-            bundle.putInt("page_type", this.mPageType);
+            bundle.putBoolean(NewVcodeActivityConfig.NEED_FEED_BACK_BUTTON, this.g);
+            bundle.putInt("page_type", this.e);
             super.onSaveInstanceState(bundle);
         }
     }

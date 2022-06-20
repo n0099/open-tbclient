@@ -61,9 +61,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.io.Writer;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -99,9 +96,301 @@ public final class m {
     }
 
     public static boolean A(Context context) {
+        PackageInfo a2;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                if (Build.VERSION.SDK_INT < 24 || (a2 = a(context, context.getPackageName())) == null) {
+                    return false;
+                }
+                return a2.applicationInfo.targetSdkVersion >= 24;
+            } catch (Exception e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean B(Context context) {
+        PackageInfo a2;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                if (Build.VERSION.SDK_INT < 26 || (a2 = a(context, context.getPackageName())) == null) {
+                    return false;
+                }
+                return a2.applicationInfo.targetSdkVersion >= 26;
+            } catch (Exception unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean C(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            while (true) {
+                boolean z = true;
+                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
+                    if (runningAppProcessInfo.processName.equals(context.getPackageName())) {
+                        String str = runningAppProcessInfo.processName;
+                        int i = runningAppProcessInfo.importance;
+                        if (i != 400 && (i == 100 || i == 200)) {
+                            z = false;
+                        }
+                    }
+                }
+                return z;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String D(Context context) {
+        String[] strArr;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            try {
+                PackageManager packageManager = context.getPackageManager();
+                if (packageManager == null) {
+                    return "pm is null";
+                }
+                String[] strArr2 = packageManager.getPackageInfo(context.getPackageName(), 4096).requestedPermissions;
+                if (strArr2 == null) {
+                    Log.e("BDPushSDK-Utility", "Permissions Push-SDK need are not exist !");
+                    return "Permissions Push-SDK need are not exist !";
+                } else if (a(context, packageManager, strArr2)) {
+                    Log.e("BDPushSDK-Utility", "permission Push-SDK for xiaomi proxy need is not exist !");
+                    return "permission Push-SDK for xiaomi proxy need is not exist !";
+                } else if (a(context, strArr2)) {
+                    Log.e("BDPushSDK-Utility", "permission Push-SDK for oppo proxy need is not exist !");
+                    return "permission Push-SDK for oppo proxy need is not exist !";
+                } else {
+                    for (String str : b) {
+                        if (!a(str, strArr2)) {
+                            String str2 = str + " permission Push-SDK need is not exist !";
+                            Log.e("BDPushSDK-Utility", str2);
+                            return str2;
+                        }
+                    }
+                    return "com.baidu.android.pushservice.CHECK_SDK_RESULT_OK";
+                }
+            } catch (Exception e) {
+                return "checkSDKPermissions exception " + e.getMessage();
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean E(Context context) {
+        InterceptResult invokeL;
+        PackageManager packageManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            Intent intent = new Intent("com.meizu.cloud.pushservice.action.PUSH_SERVICE_START");
+            intent.addCategory("android.intent.category.DEFAULT");
+            intent.setPackage(context.getPackageName());
+            try {
+                packageManager = context.getPackageManager();
+            } catch (Exception e) {
+                com.baidu.android.pushservice.f.a.b("Utility", "error  " + e.getMessage(), context);
+            }
+            if (packageManager == null) {
+                return false;
+            }
+            List<ResolveInfo> queryBroadcastReceivers = packageManager.queryBroadcastReceivers(intent, 576);
+            if (queryBroadcastReceivers.size() < 1) {
+                return false;
+            }
+            for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
+                if ("com.meizu.cloud.pushsdk.SystemReceiver".equals(resolveInfo.activityInfo.name)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean F(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            try {
+                ServiceInfo serviceInfo = context.getPackageManager().getServiceInfo(new ComponentName(context, "com.baidu.android.pushservice.CommandService"), 128);
+                if (TextUtils.isEmpty(serviceInfo.name)) {
+                    return false;
+                }
+                boolean z = serviceInfo.exported;
+                return true;
+            } catch (Exception e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String G(Context context) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            if (!a(context, "com.baidu.android.pushservice.action.notification.SHOW", "com.baidu.android.pushservice.PushServiceReceiver", true)) {
+                str = "com.baidu.android.pushservice.PushServiceReceiver is not exist or did not declared com.baidu.android.pushservice.action.notification.SHOW";
+            } else if (a(context, "com.baidu.android.pushservice.action.METHOD", "com.baidu.android.pushservice.RegistrationReceiver", true)) {
+                return "com.baidu.android.pushservice.CHECK_SDK_RESULT_OK";
+            } else {
+                str = "com.baidu.android.pushservice.RegistrationReceiver is not exist or did not declared com.baidu.android.pushservice.action.METHOD";
+            }
+            Log.e("BDPushSDK-Utility", str);
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String H(Context context) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            if (I(context)) {
+                str = "xiaomi service is not found or wrong  declared, please check!";
+            } else if (K(context)) {
+                str = "oppo service is not found or wrong  declared, please check!";
+            } else if (J(context)) {
+                str = "meizu service is not found or wrong  declared, please check!";
+            } else if (!L(context)) {
+                return a(context, "com.baidu.android.pushservice.action.PUSH_SERVICE", "com.baidu.android.pushservice.PushService", false) ? "com.baidu.android.pushservice.CHECK_SDK_RESULT_OK" : "com.baidu.android.pushservice.PushService is not exist or did not declared com.baidu.android.pushservice.action.PUSH_SERVICE";
+            } else {
+                str = "vivo service is not found or wrong  declared, please check!";
+            }
+            Log.e("BDPushSDK-Utility", str);
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean I(Context context) {
+        InterceptResult invokeL;
+        ServiceInfo[] serviceInfoArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            try {
+                if (m(context) && PushSettings.g(context)) {
+                    PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 4);
+                    if (packageInfo.services != null) {
+                        boolean z = false;
+                        boolean z2 = false;
+                        for (ServiceInfo serviceInfo : packageInfo.services) {
+                            if (serviceInfo.name.equals("com.xiaomi.mipush.sdk.PushMessageHandler")) {
+                                z2 = true;
+                            }
+                            if (serviceInfo.name.equals("com.xiaomi.mipush.sdk.MessageHandleService")) {
+                                z = true;
+                            }
+                        }
+                        return (z && z2) ? false : true;
+                    }
+                    return false;
+                }
+                return false;
+            } catch (Exception unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean J(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
+            try {
+                if (n(context) && PushSettings.h(context)) {
+                    PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 4);
+                    if (packageInfo.services != null) {
+                        boolean z = false;
+                        for (ServiceInfo serviceInfo : packageInfo.services) {
+                            if (serviceInfo.name.equals("com.meizu.cloud.pushsdk.NotificationService")) {
+                                z = true;
+                            }
+                        }
+                        return !z;
+                    }
+                }
+            } catch (Exception unused) {
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean K(Context context) {
+        InterceptResult invokeL;
+        ServiceInfo[] serviceInfoArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
+            try {
+                if ((p(context) || q(context) || r(context)) && PushSettings.i(context)) {
+                    PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 4);
+                    if (packageInfo.services != null) {
+                        boolean z = false;
+                        boolean z2 = false;
+                        for (ServiceInfo serviceInfo : packageInfo.services) {
+                            if (serviceInfo.name.equals("com.heytap.mcssdk.PushService")) {
+                                z = true;
+                            }
+                            if (serviceInfo.name.equals("com.heytap.mcssdk.AppPushService")) {
+                                z2 = true;
+                            }
+                        }
+                        return (z && z2) ? false : true;
+                    }
+                    return false;
+                }
+                return false;
+            } catch (Exception unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean L(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
+            try {
+                if (s(context) && PushSettings.j(context)) {
+                    PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 4);
+                    if (packageInfo.services != null) {
+                        boolean z = false;
+                        for (ServiceInfo serviceInfo : packageInfo.services) {
+                            if (serviceInfo.name.equals("com.vivo.push.sdk.service.CommandClientService")) {
+                                z = true;
+                            }
+                        }
+                        return !z;
+                    }
+                }
+            } catch (Exception unused) {
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean M(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
             try {
                 PackageManager packageManager = context.getPackageManager();
                 ComponentName componentName = new ComponentName(context, "com.baidu.android.pushservice.PushInfoProvider");
@@ -134,37 +423,10 @@ public final class m {
         return invokeL.booleanValue;
     }
 
-    public static boolean B(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                String str = Build.DISPLAY;
-                if (TextUtils.isEmpty(str) || !str.contains("VIBEUI_V3.1_1614_5.294.1_ST_K50-T5")) {
-                    String str2 = Build.MODEL;
-                    if (TextUtils.isEmpty(str2)) {
-                        return false;
-                    }
-                    if (!str2.contains("Lenovo K50-t5") && !str2.contains("Lenovo_K50-t5") && !str2.contains("Lenovo X3c50")) {
-                        if (!str2.contains("Lenovo_X3c50")) {
-                            return false;
-                        }
-                    }
-                    return true;
-                }
-                return true;
-            } catch (Exception e) {
-                new b.c(context).a(Log.getStackTraceString(e)).a();
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
     public static int a(Context context, Intent intent, String str, String str2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, context, intent, str, str2)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65550, null, context, intent, str, str2)) == null) {
             intent.setFlags(32);
             if (!TextUtils.isEmpty(str)) {
                 intent.setAction(str);
@@ -180,7 +442,7 @@ public final class m {
     public static PackageInfo a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, context, str)) == null) {
             try {
                 PackageManager packageManager = context.getPackageManager();
                 if (packageManager != null) {
@@ -197,7 +459,7 @@ public final class m {
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) {
             PackageInfo a2 = a(context, context.getPackageName());
             return a2 != null ? a2.versionName : "";
         }
@@ -207,7 +469,7 @@ public final class m {
     public static String a(Context context, InputStream inputStream) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, inputStream)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, context, inputStream)) == null) {
             if (inputStream == null) {
                 return null;
             }
@@ -234,39 +496,10 @@ public final class m {
         return (String) invokeLL.objValue;
     }
 
-    public static String a(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, th)) == null) {
-            StringWriter stringWriter = new StringWriter();
-            PrintWriter printWriter = new PrintWriter((Writer) stringWriter, true);
-            th.printStackTrace(printWriter);
-            printWriter.flush();
-            stringWriter.flush();
-            return stringWriter.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String a(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65544, null, z)) == null) {
-            String str = "";
-            try {
-                str = z ? Build.MANUFACTURER.toUpperCase() : Build.MANUFACTURER;
-                return "CMDC,LIANTONG,TIANYI,TDTECH".contains(str.toUpperCase()) ? e() ? "HUAWEI" : str : str;
-            } catch (Exception unused) {
-                return str;
-            }
-        }
-        return (String) invokeZ.objValue;
-    }
-
     public static String a(byte[] bArr, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, bArr, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, bArr, str)) == null) {
             String str2 = null;
             if (bArr != null && bArr.length != 0) {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -304,14 +537,14 @@ public final class m {
 
     public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65555, null) == null) {
             PushManager.getInstance().requestNotificationPermission();
         }
     }
 
     public static void a(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65547, null, context, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65556, null, context, j) == null) {
             Context applicationContext = context.getApplicationContext();
             Intent a2 = l.a(applicationContext);
             String packageName = applicationContext.getPackageName();
@@ -325,7 +558,7 @@ public final class m {
 
     public static void a(Context context, Intent intent, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{context, intent, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65557, null, new Object[]{context, intent, Long.valueOf(j)}) == null) {
             PendingIntent broadcast = PendingIntent.getBroadcast(context, 0, intent, LaunchTaskConstants.OTHER_PROCESS);
             AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
             alarmManager.cancel(broadcast);
@@ -336,7 +569,7 @@ public final class m {
     public static void a(Context context, Intent intent, String str) {
         String action;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65549, null, context, intent, str) == null) || context == null || intent == null || str == null || (action = intent.getAction()) == null || !action.startsWith("com.baidu.android.pushservice.action")) {
+        if (!(interceptable == null || interceptable.invokeLLL(65558, null, context, intent, str) == null) || context == null || intent == null || str == null || (action = intent.getAction()) == null || !action.startsWith("com.baidu.android.pushservice.action")) {
             return;
         }
         String b2 = b(context, str, action);
@@ -352,7 +585,7 @@ public final class m {
 
     public static void a(Context context, String str, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65550, null, context, str, i) == null) || context == null) {
+        if (!(interceptable == null || interceptable.invokeLLI(65559, null, context, str, i) == null) || context == null) {
             return;
         }
         Intent a2 = l.a(context);
@@ -369,7 +602,7 @@ public final class m {
 
     public static void a(Context context, String str, String str2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65551, null, context, str, str2, intent) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65560, null, context, str, str2, intent) == null) {
             try {
                 Class<?> cls = Class.forName(str2);
                 Object newInstance = cls.getConstructor(new Class[0]).newInstance(new Object[0]);
@@ -389,7 +622,7 @@ public final class m {
 
     public static void a(Context context, String str, String str2, PushCallback pushCallback) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65552, null, context, str, str2, pushCallback) == null) || context == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(65561, null, context, str, str2, pushCallback) == null) || context == null) {
             return;
         }
         try {
@@ -400,7 +633,7 @@ public final class m {
 
     public static synchronized void a(Context context, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLZ(65553, null, context, z) != null) {
+        if (interceptable != null && interceptable.invokeLZ(65562, null, context, z) != null) {
             return;
         }
         synchronized (m.class) {
@@ -416,7 +649,7 @@ public final class m {
 
     public static void a(Context context, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65554, null, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65563, null, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             com.baidu.android.pushservice.f.a.a("Utility", context.getPackageName() + ": updateServiceInfo isForce = " + z + ",isSend = " + z2, context.getApplicationContext());
             if (z) {
                 com.baidu.android.pushservice.c.c.a(context, 0L);
@@ -460,7 +693,7 @@ public final class m {
 
     public static void a(Intent intent, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65555, null, intent, context) == null) {
+        if (interceptable == null || interceptable.invokeLL(65564, null, intent, context) == null) {
             a(context, context.getPackageName(), b(context, context.getPackageName(), "com.baidu.android.pushservice.action.MESSAGE"), intent);
         }
     }
@@ -468,7 +701,7 @@ public final class m {
     public static boolean a(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65556, null, i, i2, i3, i4)) == null) {
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65565, null, i, i2, i3, i4)) == null) {
             int i5 = Calendar.getInstance(Locale.CHINA).get(11);
             int i6 = Calendar.getInstance(Locale.CHINA).get(12);
             if (i < i3) {
@@ -496,8 +729,8 @@ public final class m {
     public static boolean a(Context context, PackageManager packageManager, String[] strArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65557, null, context, packageManager, strArr)) == null) {
-            if (b() && PushSettings.g(context)) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65566, null, context, packageManager, strArr)) == null) {
+            if (m(context) && PushSettings.g(context)) {
                 try {
                     String str = context.getPackageName() + ".permission.MIPUSH_RECEIVE";
                     if (!a(str, strArr)) {
@@ -531,7 +764,7 @@ public final class m {
     public static boolean a(Context context, PublicMsg publicMsg) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, context, publicMsg)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65567, null, context, publicMsg)) == null) {
             return com.baidu.android.pushservice.c.c.a(context, new com.baidu.android.pushservice.c.f(publicMsg.mMsgId, f.a((publicMsg.mAppId + publicMsg.mMsgId + publicMsg.mUrl + publicMsg.mDescription + publicMsg.mTitle + publicMsg.mOpenType).getBytes(), false), publicMsg.mAppId));
         }
         return invokeLL.booleanValue;
@@ -543,7 +776,7 @@ public final class m {
         Bundle bundle;
         PackageManager packageManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65559, null, context, str, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65568, null, context, str, str2)) == null) {
             try {
                 packageManager = context.getPackageManager();
             } catch (Exception unused) {
@@ -564,7 +797,7 @@ public final class m {
     public static boolean a(Context context, String str, String str2, String str3, String str4, String str5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65560, null, new Object[]{context, str, str2, str3, str4, str5})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65569, null, new Object[]{context, str, str2, str3, str4, str5})) == null) {
             String d = PushSettings.d(context);
             if (!TextUtils.isEmpty(d)) {
                 str2 = d;
@@ -590,7 +823,7 @@ public final class m {
         InterceptResult invokeCommon;
         PackageManager packageManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65561, null, new Object[]{context, str, str2, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65570, null, new Object[]{context, str, str2, Boolean.valueOf(z)})) == null) {
             Intent intent = new Intent(str);
             intent.setPackage(context.getPackageName());
             try {
@@ -633,7 +866,7 @@ public final class m {
     public static boolean a(Context context, byte[] bArr, String str, byte[] bArr2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65562, null, context, bArr, str, bArr2)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65571, null, context, bArr, str, bArr2)) == null) {
             if (bArr == null || str == null || bArr2 == null) {
                 return false;
             }
@@ -646,8 +879,8 @@ public final class m {
     public static boolean a(Context context, String[] strArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65563, null, context, strArr)) == null) {
-            if ((f() || g() || h()) && PushSettings.i(context)) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65572, null, context, strArr)) == null) {
+            if ((p(context) || q(context) || r(context)) && PushSettings.i(context)) {
                 try {
                     if (a("com.coloros.mcs.permission.RECIEVE_MCS_MESSAGE", strArr)) {
                         return !a("com.heytap.mcs.permission.RECIEVE_MCS_MESSAGE", strArr);
@@ -664,7 +897,7 @@ public final class m {
     public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, str)) == null) {
             if (TextUtils.isEmpty(str) || str.contains(" ")) {
                 Log.e("BDPushSDK-Utility", "api_key is  incorrect, please check ! ");
                 return false;
@@ -677,7 +910,7 @@ public final class m {
     public static boolean a(String str, String[] strArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65565, null, str, strArr)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65574, null, str, strArr)) == null) {
             for (String str2 : strArr) {
                 if (str.equals(str2)) {
                     return true;
@@ -691,7 +924,7 @@ public final class m {
     public static byte[] a(byte[] bArr, byte[] bArr2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65566, null, bArr, bArr2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65575, null, bArr, bArr2)) == null) {
             byte[] bArr3 = new byte[bArr.length + bArr2.length];
             System.arraycopy(bArr, 0, bArr3, 0, bArr.length);
             System.arraycopy(bArr2, 0, bArr3, bArr.length, bArr2.length);
@@ -705,7 +938,7 @@ public final class m {
         List<ResolveInfo> list;
         PackageManager packageManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65567, null, context, str, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65576, null, context, str, str2)) == null) {
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 return null;
             }
@@ -732,7 +965,7 @@ public final class m {
     public static String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65577, null, str)) == null) {
             try {
                 if (TextUtils.isEmpty(str)) {
                     return "";
@@ -748,7 +981,7 @@ public final class m {
 
     public static void b(Context context, Intent intent, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65569, null, context, intent, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65578, null, context, intent, str, str2) == null) {
             intent.setFlags(32);
             try {
                 if (!TextUtils.isEmpty(str)) {
@@ -765,7 +998,7 @@ public final class m {
 
     public static void b(Context context, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65570, null, context, z) == null) || context == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(65579, null, context, z) == null) || context == null) {
             return;
         }
         try {
@@ -821,7 +1054,7 @@ public final class m {
                                 return;
                             }
                         }
-                        com.baidu.android.pushservice.e.k(this.a);
+                        com.baidu.android.pushservice.e.l(this.a);
                     }
                 }
             });
@@ -832,12 +1065,11 @@ public final class m {
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) {
-            try {
-                return Build.MANUFACTURER.toUpperCase().contains("XIAOMI");
-            } catch (Exception unused) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65580, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                return (TextUtils.isEmpty(e("ro.build.version.emui")) && TextUtils.isEmpty(e("hw_sc.build.platform.version"))) ? false : true;
             }
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -845,7 +1077,7 @@ public final class m {
     public static boolean b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65572, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65581, null, context)) == null) {
             String a2 = com.baidu.android.pushservice.a.a(context);
             if (SapiOptions.KEY_CACHE_ENABLED.equals(a2)) {
                 return false;
@@ -861,7 +1093,7 @@ public final class m {
     public static boolean b(Context context, PublicMsg publicMsg) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65573, null, context, publicMsg)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65582, null, context, publicMsg)) == null) {
             if (publicMsg != null) {
                 String a2 = f.a((publicMsg.mAppId + publicMsg.mMsgId + publicMsg.mUrl + publicMsg.mDescription + publicMsg.mTitle + publicMsg.mOpenType).getBytes(), false);
                 if (TextUtils.isEmpty(a2)) {
@@ -878,7 +1110,7 @@ public final class m {
     public static boolean b(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65574, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65583, null, context, str)) == null) {
             if (context != null && !TextUtils.isEmpty(str)) {
                 try {
                     context.getPackageManager().getApplicationInfo(str, 8192);
@@ -894,7 +1126,7 @@ public final class m {
     public static int c(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65575, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65584, null, context, str)) == null) {
             PackageInfo a2 = a(context, str);
             if (a2 != null) {
                 return a2.versionCode;
@@ -904,10 +1136,32 @@ public final class m {
         return invokeLL.intValue;
     }
 
+    public static String c(Context context, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65585, null, context, z)) == null) {
+            String str = "";
+            try {
+                str = i.a(context, "bd_push_device_manufacturer");
+                if (TextUtils.isEmpty(str)) {
+                    str = Build.MANUFACTURER;
+                    i.a(context, "bd_push_device_manufacturer", str);
+                }
+                if (z) {
+                    str = str.toUpperCase();
+                }
+                return "CMDC,LIANTONG,TIANYI,TDTECH".contains(str.toUpperCase()) ? b() ? "HUAWEI" : str : str;
+            } catch (Exception unused) {
+                return str;
+            }
+        }
+        return (String) invokeLZ.objValue;
+    }
+
     public static String c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65576, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65586, null, str)) == null) {
             try {
                 return new String(Base64.encode(BaiduAppSSOJni.encryptAES(str, 0), 2), IMAudioTransRequest.CHARSET);
             } catch (Exception | UnsatisfiedLinkError unused) {
@@ -919,14 +1173,14 @@ public final class m {
 
     public static void c(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65577, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65587, null, context) == null) {
             a(context, 300000L);
         }
     }
 
     public static void c(Context context, Intent intent, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65578, null, context, intent, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65588, null, context, intent, str, str2) == null) {
             try {
                 Uri data = intent.getData();
                 if (data != null) {
@@ -952,7 +1206,7 @@ public final class m {
 
     public static void c(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65579, null, context, str, str2) == null) || context == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65589, null, context, str, str2) == null) || context == null) {
             return;
         }
         try {
@@ -961,22 +1215,9 @@ public final class m {
         }
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65580, null)) == null) {
-            try {
-                return Build.MANUFACTURER.toUpperCase().contains("MEIZU");
-            } catch (Exception unused) {
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
     public static void d(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65581, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65590, null, context) == null) {
             Intent a2 = l.a(context);
             a2.putExtra("method", "pushservice_quit");
             a2.setPackage(context.getPackageName());
@@ -990,7 +1231,7 @@ public final class m {
 
     public static void d(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65582, null, context, str, str2) == null) || context == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65591, null, context, str, str2) == null) || context == null) {
             return;
         }
         try {
@@ -999,30 +1240,13 @@ public final class m {
         }
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65583, null)) == null) {
-            try {
-                String a2 = a(true);
-                if (a2.contains("HUAWEI") || a2.contains("HONOR")) {
-                    return !j();
-                }
-                return false;
-            } catch (Exception unused) {
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
     public static boolean d(Context context, String str) {
         InterceptResult invokeLL;
         ApplicationInfo applicationInfo;
         Bundle bundle;
         PackageManager packageManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65584, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65592, null, context, str)) == null) {
             try {
                 packageManager = context.getPackageManager();
             } catch (Exception unused) {
@@ -1043,13 +1267,13 @@ public final class m {
     public static boolean d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65585, null, str)) == null) ? (str == null || str.isEmpty() || !str.matches("^(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|[1-9])\\.(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\.(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\.(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)$")) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65593, null, str)) == null) ? (str == null || str.isEmpty() || !str.matches("^(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|[1-9])\\.(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\.(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\.(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)$")) ? false : true : invokeL.booleanValue;
     }
 
     public static String e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65586, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65594, null, str)) == null) {
             try {
                 return (String) Class.forName("android.os.SystemProperties").getDeclaredMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(null, str);
             } catch (Exception unused) {
@@ -1059,23 +1283,11 @@ public final class m {
         return (String) invokeL.objValue;
     }
 
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65587, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                return (TextUtils.isEmpty(e("ro.build.version.emui")) && TextUtils.isEmpty(e("hw_sc.build.platform.version"))) ? false : true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     public static boolean e(Context context) {
         InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65588, null, context)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(65595, null, context)) != null) {
             return invokeL.booleanValue;
         }
         try {
@@ -1094,7 +1306,7 @@ public final class m {
             if (a(context, "com.baidu.android.pushservice.action.MESSAGE", str, true)) {
                 try {
                     if (a(context, "com.baidu.android.pushservice.action.RECEIVE", str, true)) {
-                        if (d() && PushSettings.k(context)) {
+                        if (o(context) && PushSettings.k(context)) {
                             if (!a(context, "com.huawei.android.push.intent.RECEIVE", str, true)) {
                                 Log.e("BDPushSDK-Utility", str + " did not declared com.huawei.android.push.intent.RECEIVE");
                                 return false;
@@ -1107,7 +1319,7 @@ public final class m {
                                     return false;
                                 }
                             }
-                        } else if (b() && PushSettings.g(context)) {
+                        } else if (m(context) && PushSettings.g(context)) {
                             if (!a(context, "com.xiaomi.mipush.RECEIVE_MESSAGE", "com.baidu.android.pushservice.PushPatchMessageReceiver", true)) {
                                 Log.e("BDPushSDK-Utility", "com.baidu.android.pushservice.PushPatchMessageReceiver did not declared com.xiaomi.mipush.RECEIVE_MESSAGE");
                                 return false;
@@ -1118,7 +1330,7 @@ public final class m {
                                 Log.e("BDPushSDK-Utility", "com.baidu.android.pushservice.PushPatchMessageReceiver did not declared com.xiaomi.mipush.ERROR");
                                 return false;
                             }
-                        } else if (c() && PushSettings.h(context)) {
+                        } else if (n(context) && PushSettings.h(context)) {
                             if (!a(context, PushConstants.MZ_PUSH_ON_MESSAGE_ACTION, "com.baidu.android.pushservice.MzPushPatchMessageReceiver", true)) {
                                 Log.e("BDPushSDK-Utility", "com.baidu.android.pushservice.MzPushPatchMessageReceiver did not declared " + PushConstants.MZ_PUSH_ON_MESSAGE_ACTION);
                                 return false;
@@ -1128,11 +1340,11 @@ public final class m {
                             } else if (!a(context, PushConstants.MZ_PUSH_ON_UNREGISTER_ACTION, "com.baidu.android.pushservice.MzPushPatchMessageReceiver", true)) {
                                 Log.e("BDPushSDK-Utility", "com.baidu.android.pushservice.MzPushPatchMessageReceiver did not declared " + PushConstants.MZ_PUSH_ON_UNREGISTER_ACTION);
                                 return false;
-                            } else if (!s(context)) {
+                            } else if (!E(context)) {
                                 Log.e("BDPushSDK-Utility", "com.meizu.cloud.pushsdk.SystemReceiver did not declared com.meizu.cloud.pushservice.action.PUSH_SERVICE_START");
                                 return false;
                             }
-                        } else if ((f() || g() || h()) && PushSettings.i(context)) {
+                        } else if ((p(context) || q(context) || r(context)) && PushSettings.i(context)) {
                             if (!a(context, "com.coloros.mcs.action.RECEIVE_MCS_MESSAGE", "com.heytap.mcssdk.PushService", false)) {
                                 Log.e("BDPushSDK-Utility", "com.heytap.mcssdk.PushService did not declared com.coloros.mcs.action.RECEIVE_MCS_MESSAGE");
                                 return false;
@@ -1140,7 +1352,7 @@ public final class m {
                                 Log.e("BDPushSDK-Utility", "com.heytap.mcssdk.AppPushService did not declared com.heytap.mcs.action.RECEIVE_MCS_MESSAGE");
                                 return false;
                             }
-                        } else if (i() && PushSettings.j(context) && !a(context, "com.vivo.pushclient.action.RECEIVE", "com.baidu.android.pushservice.viproxy.ViPushMessageReceiver", true)) {
+                        } else if (s(context) && PushSettings.j(context) && !a(context, "com.vivo.pushclient.action.RECEIVE", "com.baidu.android.pushservice.viproxy.ViPushMessageReceiver", true)) {
                             Log.e("BDPushSDK-Utility", "com.baidu.android.pushservice.viproxy.ViPushMessageReceiver did not declared com.vivo.pushclient.action.RECEIVE");
                             return false;
                         }
@@ -1178,7 +1390,7 @@ public final class m {
         List<ResolveInfo> list;
         PackageManager packageManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65589, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65596, null, context, str)) == null) {
             Intent intent = new Intent("com.baidu.android.pushservice.action.PUSH_SERVICE");
             intent.setPackage(str);
             try {
@@ -1199,17 +1411,17 @@ public final class m {
     public static String f(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65590, null, context)) == null) {
-            String r = r(context);
-            if (TextUtils.equals("com.baidu.android.pushservice.CHECK_SDK_RESULT_OK", r)) {
-                String u = u(context);
-                if (TextUtils.equals("com.baidu.android.pushservice.CHECK_SDK_RESULT_OK", u)) {
-                    String v = v(context);
-                    return (TextUtils.equals("com.baidu.android.pushservice.CHECK_SDK_RESULT_OK", v) || B(context)) ? "com.baidu.android.pushservice.CHECK_SDK_RESULT_OK" : v;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65597, null, context)) == null) {
+            String D = D(context);
+            if (TextUtils.equals("com.baidu.android.pushservice.CHECK_SDK_RESULT_OK", D)) {
+                String G = G(context);
+                if (TextUtils.equals("com.baidu.android.pushservice.CHECK_SDK_RESULT_OK", G)) {
+                    String H = H(context);
+                    return !TextUtils.equals("com.baidu.android.pushservice.CHECK_SDK_RESULT_OK", H) ? H : "com.baidu.android.pushservice.CHECK_SDK_RESULT_OK";
                 }
-                return u;
+                return G;
             }
-            return r;
+            return D;
         }
         return (String) invokeL.objValue;
     }
@@ -1218,7 +1430,7 @@ public final class m {
         InterceptResult invokeLL;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65591, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65598, null, context, str)) == null) {
             if (PushSocket.a()) {
                 String f = f(context);
                 if (!TextUtils.equals("com.baidu.android.pushservice.CHECK_SDK_RESULT_OK", f)) {
@@ -1228,13 +1440,13 @@ public final class m {
                     if (!e(context)) {
                         Log.e("BDPushSDK-Utility", "check SelfConfiged Receiver failed");
                     }
-                    if (i()) {
+                    if (s(context)) {
                         return "com.baidu.android.pushservice.CHECK_SDK_RESULT_OK";
                     }
-                    if (!t(context) && !B(context)) {
+                    if (!F(context)) {
                         Log.e("BDPushSDK-Utility", "check CommandService Enable failed");
                         return "check CommandService Enable failed";
-                    } else if (A(context)) {
+                    } else if (M(context)) {
                         return "com.baidu.android.pushservice.CHECK_SDK_RESULT_OK";
                     } else {
                         Log.e("BDPushSDK-Utility", "check CommandService Enable failed");
@@ -1252,24 +1464,11 @@ public final class m {
         return (String) invokeLL.objValue;
     }
 
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65592, null)) == null) {
-            try {
-                return Build.MANUFACTURER.toUpperCase().contains("OPPO");
-            } catch (Exception unused) {
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
     public static int g(Context context, String str) {
         InterceptResult invokeLL;
         int a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65593, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65599, null, context, str)) == null) {
             if (context == null || TextUtils.isEmpty(str)) {
                 return 0;
             }
@@ -1291,23 +1490,10 @@ public final class m {
         return invokeLL.intValue;
     }
 
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65594, null)) == null) {
-            try {
-                return Build.MANUFACTURER.toUpperCase().contains(RomTypeUtil.ROM_ONEPLUS);
-            } catch (Exception unused) {
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
     public static boolean g(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65595, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65600, null, context)) == null) {
             boolean z = false;
             try {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 4);
@@ -1338,9 +1524,9 @@ public final class m {
     public static String h(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65596, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65601, null, context)) == null) {
             String deviceID = DeviceId.getDeviceID(context);
-            if (o(context)) {
+            if (A(context)) {
                 return f.a(("com.baidu.pushservice.single_conn" + context.getPackageName() + "v3" + deviceID).getBytes(), false);
             }
             return f.a(("com.baidu.pushservice.single_conn" + context.getPackageName() + DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX + deviceID).getBytes(), false);
@@ -1348,24 +1534,11 @@ public final class m {
         return (String) invokeL.objValue;
     }
 
-    public static boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65597, null)) == null) {
-            try {
-                return Build.MANUFACTURER.toUpperCase().contains("REALME");
-            } catch (Exception unused) {
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
     public static boolean h(Context context, String str) {
         InterceptResult invokeLL;
         int[] b2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65598, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65602, null, context, str)) == null) {
             if (context == null || TextUtils.isEmpty(str) || (b2 = com.baidu.android.pushservice.c.a.b(context, str)) == null || 4 != b2.length) {
                 return false;
             }
@@ -1378,7 +1551,7 @@ public final class m {
         long parseLong;
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65599, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65603, null, context, str)) == null) {
             try {
                 parseLong = Long.parseLong(str);
             } catch (Exception e) {
@@ -1397,24 +1570,11 @@ public final class m {
         return invokeLL.intValue;
     }
 
-    public static boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65600, null)) == null) {
-            try {
-                return Build.MANUFACTURER.toUpperCase().contains("VIVO");
-            } catch (Exception unused) {
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
     public static synchronized boolean i(Context context) {
         InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65601, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65604, null, context)) == null) {
             synchronized (m.class) {
                 if (a == -1) {
                     try {
@@ -1431,7 +1591,7 @@ public final class m {
 
     public static void j(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65602, null, context) == null) || context == null) {
+        if (!(interceptable == null || interceptable.invokeL(65605, null, context) == null) || context == null) {
             return;
         }
         Context applicationContext = context.getApplicationContext();
@@ -1442,27 +1602,10 @@ public final class m {
         applicationContext.sendBroadcast(intent);
     }
 
-    public static boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65603, null)) == null) {
-            try {
-                String upperCase = Build.MODEL.toUpperCase();
-                if (TextUtils.isEmpty(upperCase)) {
-                    return false;
-                }
-                return upperCase.contains("NEXUS");
-            } catch (Exception unused) {
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
     public static boolean j(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65604, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65606, null, context, str)) == null) {
             String a2 = i.a(context, "com.baidu.android.pushservice.MESSAGE_IDS_RECEIVED");
             if (!TextUtils.isEmpty(a2)) {
                 if (a2.contains(str)) {
@@ -1481,30 +1624,17 @@ public final class m {
 
     public static void k(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65605, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65607, null, context) == null) {
             Intent intent = new Intent("com.baidu.android.pushservice.action.METHOD");
             intent.putExtra("method", "com.baidu.android.pushservice.action.SEND_APPSTAT");
             com.baidu.android.pushservice.h.a(context.getApplicationContext()).a(intent);
         }
     }
 
-    public static boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65606, null)) == null) {
-            try {
-                return Build.MANUFACTURER.toUpperCase().contains(com.kuaishou.weapon.un.g.j);
-            } catch (Exception unused) {
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
     public static boolean k(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65607, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65608, null, context, str)) == null) {
             try {
                 return context.getPackageManager().checkPermission(str, context.getPackageName()) == 0;
             } catch (Exception e) {
@@ -1519,42 +1649,23 @@ public final class m {
         InterceptResult invokeL;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65608, null, context)) == null) {
-            String a2 = a(true);
-            if (a2.contains("XIAOMI")) {
-                str = RomUtils.PROP_RO_BUILD_VERSION_INCREMENTAL;
-            } else if (a2.contains("HUAWEI") || a2.contains("HONOR")) {
-                str = "ro.build.version.emui";
-            } else if (a2.contains("MEIZU")) {
-                return Build.DISPLAY;
-            } else {
-                str = (a2.contains("OPPO") || a2.contains("REALME")) ? "ro.build.version.opporom" : a2.contains("VIVO") ? "ro.vivo.os.version" : a2.contains(RomTypeUtil.ROM_ONEPLUS) ? "ro.rom.version" : "";
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65609, null, context)) == null) {
+            String c2 = c(context, true);
+            String str2 = c2.contains("XIAOMI") ? RomUtils.PROP_RO_BUILD_VERSION_INCREMENTAL : (c2.contains("HUAWEI") || c2.contains("HONOR")) ? "ro.build.version.emui" : c2.contains("MEIZU") ? "ro.build.flyme.version" : (c2.contains("OPPO") || c2.contains("REALME")) ? "ro.build.version.opporom" : c2.contains("VIVO") ? "ro.vivo.os.version" : c2.contains(RomTypeUtil.ROM_ONEPLUS) ? "ro.rom.version" : "";
             try {
                 if (Build.VERSION.SDK_INT >= 28) {
-                    return SystemProperties.get(str);
+                    str = SystemProperties.get(str2);
+                } else {
+                    Class<?> cls = Class.forName("android.os.SystemProperties");
+                    str = (String) cls.getDeclaredMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(cls, str2);
                 }
-                Class<?> cls = Class.forName("android.os.SystemProperties");
-                return (String) cls.getDeclaredMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(cls, str);
+                return str;
             } catch (Throwable th) {
                 new b.c(context).a(Log.getStackTraceString(th)).a();
-                return (Build.VERSION.SDK_INT < 21 || !(a2.contains("HUAWEI") || a2.contains("HONOR"))) ? a2.contains("XIAOMI") ? "MIUI_notfound" : (a2.contains("OPPO") || a2.contains("REALME")) ? "ColorOS_notfound" : a2.contains("VIVO") ? "FuntouchOS_notfound" : "" : "EmotionUI_notfound";
+                return (Build.VERSION.SDK_INT < 21 || !(c2.contains("HUAWEI") || c2.contains("HONOR"))) ? c2.contains("XIAOMI") ? "MIUI_notfound" : (c2.contains("OPPO") || c2.contains("REALME")) ? "ColorOS_notfound" : c2.contains("VIVO") ? "FuntouchOS_notfound" : c2.contains("MEIZU") ? "FlymeOS_notfound" : "" : "EmotionUI_notfound";
             }
         }
         return (String) invokeL.objValue;
-    }
-
-    public static boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65609, null)) == null) {
-            try {
-                return Build.MANUFACTURER.toUpperCase().contains(RomUtils.ROM_NUBIA);
-            } catch (Exception unused) {
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
     }
 
     public static boolean l(Context context, String str) {
@@ -1605,108 +1716,23 @@ public final class m {
         return invokeLL.intValue;
     }
 
-    public static String m(Context context) {
+    public static boolean m(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65612, null, context)) == null) {
             try {
-                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (PackageManager.NameNotFoundException unused) {
-                return "";
+                return c(context, true).contains("XIAOMI");
+            } catch (Exception unused) {
+                return false;
             }
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65613, null)) == null) ? l() : invokeV.booleanValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:54:0x00e3, code lost:
-        if (r0.find() != false) goto L24;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String n(Context context) {
-        InterceptResult invokeL;
-        String substring;
-        Matcher matcher;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65614, null, context)) == null) {
-            String str = "";
-            if (n()) {
-                String a2 = a(true);
-                String str2 = a2.contains("XIAOMI") ? "ro.miui.ui.version.code" : (a2.contains("HUAWEI") || a2.contains("HONOR")) ? "ro.build.version.emui" : a2.contains("MEIZU") ? RomUtils.PROP_RO_BUILD_DISPLAY_ID : (a2.contains("OPPO") || a2.contains("REALME")) ? "ro.build.version.opporom" : a2.contains("VIVO") ? "ro.vivo.os.version" : a2.contains(RomTypeUtil.ROM_ONEPLUS) ? "ro.rom.version" : "";
-                try {
-                    if (Build.VERSION.SDK_INT >= 28) {
-                        str = SystemProperties.get(str2);
-                    } else {
-                        Class<?> cls = Class.forName("android.os.SystemProperties");
-                        str = (String) cls.getDeclaredMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(cls, str2);
-                    }
-                    if ((a2.contains("HUAWEI") || a2.contains("HONOR")) && !TextUtils.isEmpty(str)) {
-                        substring = str.substring(str.indexOf("_") + 1, str.length());
-                        if (!substring.matches("\\d+\\.\\d+$") && Build.VERSION.SDK_INT >= 21) {
-                            return Constants.SDK_VER;
-                        }
-                    } else {
-                        if (a2.contains("MEIZU")) {
-                            if (TextUtils.isEmpty(str)) {
-                                str = Build.DISPLAY;
-                            }
-                            matcher = Pattern.compile("\\d+(\\.\\d+)?").matcher(str);
-                        } else if ((a2.contains("OPPO") || a2.contains("REALME")) && !TextUtils.isEmpty(str)) {
-                            Matcher matcher2 = Pattern.compile("^V(\\d+\\.?\\d*)").matcher(str);
-                            if (matcher2.find()) {
-                                str = matcher2.group(1);
-                            }
-                        } else if (a2.contains("VIVO") && !TextUtils.isEmpty(str)) {
-                            matcher = Pattern.compile("^\\d+(\\.\\d+)?").matcher(str);
-                            if (matcher.find()) {
-                            }
-                        } else if (a2.contains(RomTypeUtil.ROM_ONEPLUS) && !TextUtils.isEmpty(str)) {
-                            Matcher matcher3 = Pattern.compile("\\d+(\\.\\d+)?").matcher(str);
-                            if (matcher3.find()) {
-                                substring = matcher3.group();
-                            }
-                        }
-                        str = matcher.group();
-                    }
-                    return substring;
-                } catch (Throwable th) {
-                    new b.c(context).a(Log.getStackTraceString(th)).a();
-                    if (Build.VERSION.SDK_INT >= 21 && (a2.contains("HUAWEI") || a2.contains("HONOR"))) {
-                        return Constants.SDK_VER;
-                    }
-                    if (a2.contains("HUAWEI") || a2.contains("HONOR")) {
-                        return "1.0";
-                    }
-                    if (a2.contains("XIAOMI")) {
-                        return "4.0";
-                    }
-                    if (a2.contains("MEIZU")) {
-                        return "6.0";
-                    }
-                    if (a2.contains("OPPO") || a2.contains("REALME")) {
-                        return "3.0";
-                    }
-                    if (a2.contains("VIVO")) {
-                        return "3.2";
-                    }
-                }
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
     public static String n(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65615, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65613, null, context, str)) == null) {
             if (context == null) {
                 return null;
             }
@@ -1735,17 +1761,24 @@ public final class m {
         return (String) invokeLL.objValue;
     }
 
-    public static boolean n() {
-        InterceptResult invokeV;
+    public static boolean n(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65616, null)) == null) ? d() || f() || i() || b() || c() || g() || h() : invokeV.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65614, null, context)) == null) {
+            try {
+                return c(context, true).contains("MEIZU");
+            } catch (Exception unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
     }
 
     public static int o(Context context, String str) {
         InterceptResult invokeLL;
         int indexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65617, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65615, null, context, str)) == null) {
             int i = 0;
             do {
                 try {
@@ -1767,17 +1800,18 @@ public final class m {
     }
 
     public static boolean o(Context context) {
-        PackageInfo a2;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65618, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65616, null, context)) == null) {
             try {
-                if (Build.VERSION.SDK_INT < 24 || (a2 = a(context, context.getPackageName())) == null) {
-                    return false;
+                String c2 = c(context, true);
+                if (!c2.contains("HUAWEI") && !b()) {
+                    if (!c2.contains("HONOR")) {
+                        return false;
+                    }
                 }
-                return a2.applicationInfo.targetSdkVersion >= 24;
-            } catch (Exception e) {
-                new b.c(context).a(Log.getStackTraceString(e)).a();
+                return true;
+            } catch (Exception unused) {
                 return false;
             }
         }
@@ -1787,7 +1821,7 @@ public final class m {
     public static int p(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65619, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65617, null, context, str)) == null) {
             try {
                 String d = com.baidu.android.pushservice.c.c.d(context);
                 if (TextUtils.isEmpty(d)) {
@@ -1814,15 +1848,11 @@ public final class m {
     }
 
     public static boolean p(Context context) {
-        PackageInfo a2;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65620, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65618, null, context)) == null) {
             try {
-                if (Build.VERSION.SDK_INT < 26 || (a2 = a(context, context.getPackageName())) == null) {
-                    return false;
-                }
-                return a2.applicationInfo.targetSdkVersion >= 26;
+                return c(context, true).contains("OPPO");
             } catch (Exception unused) {
                 return false;
             }
@@ -1833,7 +1863,7 @@ public final class m {
     public static String q(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65621, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65619, null, context, str)) == null) {
             String str2 = null;
             try {
                 if (!TextUtils.isEmpty(str) && str.contains("baidupush://bdpush/hwnotify?bdpush_hwmsgbody=")) {
@@ -1856,87 +1886,38 @@ public final class m {
     public static boolean q(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65622, null, context)) == null) {
-            while (true) {
-                boolean z = true;
-                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
-                    if (runningAppProcessInfo.processName.equals(context.getPackageName())) {
-                        String str = runningAppProcessInfo.processName;
-                        int i = runningAppProcessInfo.importance;
-                        if (i != 400 && (i == 100 || i == 200)) {
-                            z = false;
-                        }
-                    }
-                }
-                return z;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65620, null, context)) == null) {
+            try {
+                return c(context, true).contains(RomTypeUtil.ROM_ONEPLUS);
+            } catch (Exception unused) {
+                return false;
             }
         }
         return invokeL.booleanValue;
     }
 
-    public static String r(Context context) {
-        String[] strArr;
+    public static boolean r(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65623, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65621, null, context)) == null) {
             try {
-                PackageManager packageManager = context.getPackageManager();
-                if (packageManager == null) {
-                    return "pm is null";
-                }
-                String[] strArr2 = packageManager.getPackageInfo(context.getPackageName(), 4096).requestedPermissions;
-                if (strArr2 == null) {
-                    Log.e("BDPushSDK-Utility", "Permissions Push-SDK need are not exist !");
-                    return "Permissions Push-SDK need are not exist !";
-                } else if (a(context, packageManager, strArr2)) {
-                    Log.e("BDPushSDK-Utility", "permission Push-SDK for xiaomi proxy need is not exist !");
-                    return "permission Push-SDK for xiaomi proxy need is not exist !";
-                } else if (a(context, strArr2)) {
-                    Log.e("BDPushSDK-Utility", "permission Push-SDK for oppo proxy need is not exist !");
-                    return "permission Push-SDK for oppo proxy need is not exist !";
-                } else {
-                    for (String str : b) {
-                        if (!a(str, strArr2)) {
-                            String str2 = str + " permission Push-SDK need is not exist !";
-                            Log.e("BDPushSDK-Utility", str2);
-                            return str2;
-                        }
-                    }
-                    return "com.baidu.android.pushservice.CHECK_SDK_RESULT_OK";
-                }
-            } catch (Exception e) {
-                return "checkSDKPermissions exception " + e.getMessage();
+                return c(context, true).contains("REALME");
+            } catch (Exception unused) {
+                return false;
             }
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
     public static boolean s(Context context) {
         InterceptResult invokeL;
-        PackageManager packageManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65624, null, context)) == null) {
-            Intent intent = new Intent("com.meizu.cloud.pushservice.action.PUSH_SERVICE_START");
-            intent.addCategory("android.intent.category.DEFAULT");
-            intent.setPackage(context.getPackageName());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65622, null, context)) == null) {
             try {
-                packageManager = context.getPackageManager();
-            } catch (Exception e) {
-                com.baidu.android.pushservice.f.a.b("Utility", "error  " + e.getMessage(), context);
-            }
-            if (packageManager == null) {
+                return c(context, true).contains("VIVO");
+            } catch (Exception unused) {
                 return false;
             }
-            List<ResolveInfo> queryBroadcastReceivers = packageManager.queryBroadcastReceivers(intent, 576);
-            if (queryBroadcastReceivers.size() < 1) {
-                return false;
-            }
-            for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
-                if ("com.meizu.cloud.pushsdk.SystemReceiver".equals(resolveInfo.activityInfo.name)) {
-                    return true;
-                }
-            }
-            return false;
         }
         return invokeL.booleanValue;
     }
@@ -1944,169 +1925,155 @@ public final class m {
     public static boolean t(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65625, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65623, null, context)) == null) {
             try {
-                ServiceInfo serviceInfo = context.getPackageManager().getServiceInfo(new ComponentName(context, "com.baidu.android.pushservice.CommandService"), 128);
-                if (TextUtils.isEmpty(serviceInfo.name)) {
+                String c2 = c(context, true);
+                if (TextUtils.isEmpty(c2)) {
                     return false;
                 }
-                boolean z = serviceInfo.exported;
-                return true;
-            } catch (Exception e) {
-                new b.c(context).a(Log.getStackTraceString(e)).a();
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String u(Context context) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65626, null, context)) == null) {
-            if (!a(context, "com.baidu.android.pushservice.action.notification.SHOW", "com.baidu.android.pushservice.PushServiceReceiver", true)) {
-                str = "com.baidu.android.pushservice.PushServiceReceiver is not exist or did not declared com.baidu.android.pushservice.action.notification.SHOW";
-            } else if (a(context, "com.baidu.android.pushservice.action.METHOD", "com.baidu.android.pushservice.RegistrationReceiver", true)) {
-                return "com.baidu.android.pushservice.CHECK_SDK_RESULT_OK";
-            } else {
-                str = "com.baidu.android.pushservice.RegistrationReceiver is not exist or did not declared com.baidu.android.pushservice.action.METHOD";
-            }
-            Log.e("BDPushSDK-Utility", str);
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String v(Context context) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65627, null, context)) == null) {
-            if (w(context)) {
-                str = "xiaomi service is not found or wrong  declared, please check!";
-            } else if (y(context)) {
-                str = "oppo service is not found or wrong  declared, please check!";
-            } else if (x(context)) {
-                str = "meizu service is not found or wrong  declared, please check!";
-            } else if (!z(context)) {
-                return a(context, "com.baidu.android.pushservice.action.PUSH_SERVICE", "com.baidu.android.pushservice.PushService", false) ? "com.baidu.android.pushservice.CHECK_SDK_RESULT_OK" : "com.baidu.android.pushservice.PushService is not exist or did not declared com.baidu.android.pushservice.action.PUSH_SERVICE";
-            } else {
-                str = "vivo service is not found or wrong  declared, please check!";
-            }
-            Log.e("BDPushSDK-Utility", str);
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean w(Context context) {
-        InterceptResult invokeL;
-        ServiceInfo[] serviceInfoArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65628, null, context)) == null) {
-            try {
-                if (b() && PushSettings.g(context)) {
-                    PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 4);
-                    if (packageInfo.services != null) {
-                        boolean z = false;
-                        boolean z2 = false;
-                        for (ServiceInfo serviceInfo : packageInfo.services) {
-                            if (serviceInfo.name.equals("com.xiaomi.mipush.sdk.PushMessageHandler")) {
-                                z2 = true;
-                            }
-                            if (serviceInfo.name.equals("com.xiaomi.mipush.sdk.MessageHandleService")) {
-                                z = true;
-                            }
-                        }
-                        return (z && z2) ? false : true;
-                    }
-                    return false;
-                }
-                return false;
+                return c2.contains("NEXUS");
             } catch (Exception unused) {
                 return false;
             }
         }
         return invokeL.booleanValue;
+    }
+
+    public static boolean u(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65624, null, context)) == null) {
+            try {
+                return c(context, true).contains(com.kuaishou.weapon.un.g.j);
+            } catch (Exception unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean v(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65625, null, context)) == null) {
+            try {
+                return c(context, true).contains(RomUtils.ROM_NUBIA);
+            } catch (Exception unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean w(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65626, null, context)) == null) ? v(context) || q(context) : invokeL.booleanValue;
     }
 
     public static boolean x(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65627, null, context)) == null) ? o(context) || p(context) || s(context) || m(context) || n(context) || q(context) || r(context) : invokeL.booleanValue;
+    }
+
+    public static String y(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65628, null, context)) == null) {
+            try {
+                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            } catch (PackageManager.NameNotFoundException unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x00e9, code lost:
+        if (r0.find() != false) goto L24;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String z(Context context) {
+        InterceptResult invokeL;
+        String str;
+        String substring;
+        Matcher matcher;
+        Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65629, null, context)) == null) {
-            try {
-                if (c() && PushSettings.h(context)) {
-                    PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 4);
-                    if (packageInfo.services != null) {
-                        boolean z = false;
-                        for (ServiceInfo serviceInfo : packageInfo.services) {
-                            if (serviceInfo.name.equals("com.meizu.cloud.pushsdk.NotificationService")) {
-                                z = true;
+            String str2 = "";
+            if (x(context)) {
+                String c2 = c(context, true);
+                String str3 = c2.contains("XIAOMI") ? "ro.miui.ui.version.code" : (c2.contains("HUAWEI") || c2.contains("HONOR")) ? "ro.build.version.emui" : c2.contains("MEIZU") ? "ro.build.flyme.version" : (c2.contains("OPPO") || c2.contains("REALME")) ? "ro.build.version.opporom" : c2.contains("VIVO") ? "ro.vivo.os.version" : c2.contains(RomTypeUtil.ROM_ONEPLUS) ? "ro.rom.version" : "";
+                try {
+                    if (Build.VERSION.SDK_INT >= 28) {
+                        str2 = SystemProperties.get(str3);
+                        str = Constants.SDK_VER;
+                    } else {
+                        Class<?> cls = Class.forName("android.os.SystemProperties");
+                        str = Constants.SDK_VER;
+                        try {
+                            str2 = (String) cls.getDeclaredMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(cls, str3);
+                        } catch (Throwable th) {
+                            th = th;
+                            new b.c(context).a(Log.getStackTraceString(th)).a();
+                            if (Build.VERSION.SDK_INT < 21 || (!c2.contains("HUAWEI") && !c2.contains("HONOR"))) {
+                                if (c2.contains("HUAWEI") || c2.contains("HONOR")) {
+                                    return "1.0";
+                                }
+                                if (c2.contains("XIAOMI")) {
+                                    return "4.0";
+                                }
+                                if (c2.contains("MEIZU")) {
+                                    return "6.0";
+                                }
+                                if (c2.contains("OPPO") || c2.contains("REALME")) {
+                                    return "3.0";
+                                }
+                                if (c2.contains("VIVO")) {
+                                    return "3.2";
+                                }
+                                return str2;
                             }
+                            return str;
                         }
-                        return !z;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    str = Constants.SDK_VER;
+                }
+                if ((c2.contains("HUAWEI") || c2.contains("HONOR")) && !TextUtils.isEmpty(str2)) {
+                    substring = str2.substring(str2.indexOf("_") + 1, str2.length());
+                    if (!substring.matches("\\d+\\.\\d+$") && Build.VERSION.SDK_INT >= 21) {
+                        return str;
+                    }
+                } else if (c2.contains("MEIZU")) {
+                    if (TextUtils.isEmpty(str2)) {
+                        str2 = Build.DISPLAY;
+                    }
+                    matcher = Pattern.compile("\\d+(\\.\\d+)?").matcher(str2);
+                } else if ((c2.contains("OPPO") || c2.contains("REALME")) && !TextUtils.isEmpty(str2)) {
+                    Matcher matcher2 = Pattern.compile("^V(\\d+\\.?\\d*)").matcher(str2);
+                    if (matcher2.find()) {
+                        str2 = matcher2.group(1);
+                    }
+                } else if (c2.contains("VIVO") && !TextUtils.isEmpty(str2)) {
+                    matcher = Pattern.compile("^\\d+(\\.\\d+)?").matcher(str2);
+                    if (matcher.find()) {
+                        str2 = matcher.group();
+                    }
+                } else if (c2.contains(RomTypeUtil.ROM_ONEPLUS) && !TextUtils.isEmpty(str2)) {
+                    Matcher matcher3 = Pattern.compile("\\d+(\\.\\d+)?").matcher(str2);
+                    if (matcher3.find()) {
+                        substring = matcher3.group();
                     }
                 }
-            } catch (Exception unused) {
+                return substring;
             }
-            return false;
+            return str2;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean y(Context context) {
-        InterceptResult invokeL;
-        ServiceInfo[] serviceInfoArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65630, null, context)) == null) {
-            try {
-                if ((f() || g() || h()) && PushSettings.i(context)) {
-                    PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 4);
-                    if (packageInfo.services != null) {
-                        boolean z = false;
-                        boolean z2 = false;
-                        for (ServiceInfo serviceInfo : packageInfo.services) {
-                            if (serviceInfo.name.equals("com.heytap.mcssdk.PushService")) {
-                                z = true;
-                            }
-                            if (serviceInfo.name.equals("com.heytap.mcssdk.AppPushService")) {
-                                z2 = true;
-                            }
-                        }
-                        return (z && z2) ? false : true;
-                    }
-                    return false;
-                }
-                return false;
-            } catch (Exception unused) {
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean z(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65631, null, context)) == null) {
-            try {
-                if (i() && PushSettings.j(context)) {
-                    PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 4);
-                    if (packageInfo.services != null) {
-                        boolean z = false;
-                        for (ServiceInfo serviceInfo : packageInfo.services) {
-                            if (serviceInfo.name.equals("com.vivo.push.sdk.service.CommandClientService")) {
-                                z = true;
-                            }
-                        }
-                        return !z;
-                    }
-                }
-            } catch (Exception unused) {
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 }

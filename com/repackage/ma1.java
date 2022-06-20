@@ -1,200 +1,168 @@
 package com.repackage;
 
-import android.net.Uri;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URLDecoder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.regex.Pattern;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class ma1 {
+public class ma1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(int i) {
-        InterceptResult invokeI;
+    public static int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i != 0) {
-                if (i != 101) {
-                    if (i != 201) {
-                        if (i != 202) {
-                            if (i != 301) {
-                                if (i != 302) {
-                                    switch (i) {
-                                        case 401:
-                                            return fa1.a().getString(R.string.obfuscated_res_0x7f0f0f08);
-                                        case 402:
-                                            return fa1.a().getString(R.string.obfuscated_res_0x7f0f0f05);
-                                        case 403:
-                                            return fa1.a().getString(R.string.obfuscated_res_0x7f0f0f06);
-                                        default:
-                                            return fa1.a().getString(R.string.obfuscated_res_0x7f0f0f0d);
-                                    }
-                                }
-                                return fa1.a().getString(R.string.obfuscated_res_0x7f0f0f07);
-                            }
-                            return fa1.a().getString(R.string.obfuscated_res_0x7f0f0f09);
-                        }
-                        return fa1.a().getString(R.string.obfuscated_res_0x7f0f0f0c);
-                    }
-                    return fa1.a().getString(R.string.obfuscated_res_0x7f0f0f0d);
-                }
-                return fa1.a().getString(R.string.obfuscated_res_0x7f0f0f0a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            String b = b();
+            if (TextUtils.isEmpty(b)) {
+                return 0;
             }
-            return fa1.a().getString(R.string.obfuscated_res_0x7f0f0f0b);
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public static HashMap<String, String> b(String str) {
-        InterceptResult invokeL;
-        String substring;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            HashMap<String, String> hashMap = new HashMap<>();
-            if (TextUtils.isEmpty(str)) {
-                return hashMap;
-            }
-            int indexOf = str.indexOf("?");
-            int indexOf2 = str.indexOf("#");
-            if (indexOf < 0) {
-                return hashMap;
-            }
-            if (indexOf2 < 0) {
-                substring = str.substring(indexOf + 1);
-            } else {
-                substring = str.substring(indexOf + 1, indexOf2);
-            }
-            String[] split = substring.split("&");
-            if (split == null) {
-                return hashMap;
-            }
-            for (String str2 : split) {
-                int indexOf3 = str2.indexOf("=");
-                if (indexOf3 > 0) {
-                    try {
-                        hashMap.put(URLDecoder.decode(str2.substring(0, indexOf3)), URLDecoder.decode(str2.substring(indexOf3 + 1)));
-                    } catch (IllegalArgumentException unused) {
-                    }
-                }
-            }
-            return hashMap;
-        }
-        return (HashMap) invokeL.objValue;
-    }
-
-    public static String[] c(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, uri)) == null) {
-            if (uri == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList(uri.getPathSegments());
-            if (!d(uri)) {
-                arrayList.add(0, uri.getHost());
-            }
-            if (arrayList.size() <= 0) {
-                return null;
-            }
-            return (String[]) arrayList.toArray(new String[0]);
-        }
-        return (String[]) invokeL.objValue;
-    }
-
-    public static boolean d(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, uri)) == null) {
-            if (uri == null) {
-                return false;
-            }
-            String host = uri.getHost();
-            return !TextUtils.isEmpty(host) && host.startsWith("v") && e(host);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? Pattern.compile("[0-9]").matcher(str).find() : invokeL.booleanValue;
-    }
-
-    public static boolean f(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, uri)) == null) {
-            if (uri == null) {
-                return false;
-            }
-            return TextUtils.equals(ia1.a, uri.getScheme()) && !TextUtils.isEmpty(uri.getHost());
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return f(Uri.parse(str));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static JSONObject h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) ? j(null, i) : (JSONObject) invokeI.objValue;
-    }
-
-    public static JSONObject i(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65544, null, i, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("status", String.valueOf(i));
-                jSONObject.put("message", str);
+                long currentTimeMillis = System.currentTimeMillis();
+                JSONArray jSONArray = new JSONArray();
+                JSONArray jSONArray2 = new JSONArray(b);
+                for (int i = 0; i < jSONArray2.length(); i++) {
+                    long optLong = jSONArray2.optLong(i);
+                    if (c01.c(optLong, currentTimeMillis)) {
+                        jSONArray.put(optLong);
+                    }
+                }
+                g(jSONArray.toString());
+                return jSONArray.length();
             } catch (JSONException e) {
                 e.printStackTrace();
+                return 0;
             }
-            return jSONObject;
         }
-        return (JSONObject) invokeIL.objValue;
+        return invokeV.intValue;
     }
 
-    public static JSONObject j(JSONObject jSONObject, int i) {
-        InterceptResult invokeLI;
+    @NonNull
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, jSONObject, i)) == null) ? k(jSONObject, i, a(i)) : (JSONObject) invokeLI.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? sx0.a().b("splash_sp_name").getString("today_cpc_show_list", "") : (String) invokeV.objValue;
     }
 
-    public static JSONObject k(JSONObject jSONObject, int i, String str) {
-        InterceptResult invokeLIL;
+    public static long c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65546, null, jSONObject, i, str)) == null) {
-            JSONObject i2 = i(i, str);
-            if (jSONObject != null) {
-                try {
-                    i2.put("data", jSONObject);
-                } catch (JSONException e) {
-                    e.printStackTrace();
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? sx0.a().b("splash_sp_name").getLong("last_show_time", 0L) : invokeV.longValue;
+    }
+
+    public static JSONArray d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String string = sx0.a().b("splash_sp_name").getString("today_show_list", "");
+            JSONArray jSONArray = new JSONArray();
+            if (TextUtils.isEmpty(string)) {
+                return jSONArray;
+            }
+            try {
+                JSONArray jSONArray2 = new JSONArray(string);
+                for (int i = 0; i < jSONArray2.length(); i++) {
+                    JSONObject optJSONObject = jSONArray2.optJSONObject(i);
+                    try {
+                        if (c01.c(Long.valueOf(optJSONObject.optString("t").split("_")[0]).longValue() * 1000, System.currentTimeMillis())) {
+                            jSONArray.put(optJSONObject);
+                        }
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
+                    }
+                }
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            sx0.a().b("splash_sp_name").j("today_show_list", jSONArray.toString(), false);
+            return jSONArray;
+        }
+        return (JSONArray) invokeV.objValue;
+    }
+
+    public static void e(ka1 ka1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, ka1Var) == null) {
+            sx0.a().b("splash_sp_name").h("last_show_time", System.currentTimeMillis() / 1000);
+            h(ka1Var);
+        }
+    }
+
+    public static void f() {
+        JSONArray jSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            String b = b();
+            try {
+                if (TextUtils.isEmpty(b)) {
+                    jSONArray = new JSONArray();
+                } else {
+                    jSONArray = new JSONArray(b);
+                }
+                jSONArray.put(System.currentTimeMillis());
+                g(jSONArray.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void g(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
+            sx0.a().b("splash_sp_name").j("today_cpc_show_list", str, false);
+        }
+    }
+
+    public static void h(ka1 ka1Var) {
+        JSONArray jSONArray;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65543, null, ka1Var) == null) || ka1Var == null) {
+            return;
+        }
+        if (ka1Var.f()) {
+            f();
+            return;
+        }
+        String valueOf = String.valueOf(System.currentTimeMillis() / 1000);
+        String string = sx0.a().b("splash_sp_name").getString("today_show_list", "");
+        try {
+            if (TextUtils.isEmpty(string)) {
+                jSONArray = new JSONArray();
+            } else {
+                jSONArray = new JSONArray(string);
+            }
+            boolean z = true;
+            if (jSONArray.length() > 0) {
+                int i = 0;
+                while (true) {
+                    if (i >= jSONArray.length()) {
+                        break;
+                    }
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                    if (TextUtils.equals(optJSONObject.optString("k"), ka1Var.c)) {
+                        optJSONObject.put("t", TextUtils.concat(valueOf, "_", optJSONObject.optString("t")).toString());
+                        jSONArray.put(i, optJSONObject);
+                        z = false;
+                        break;
+                    }
+                    i++;
                 }
             }
-            return i2;
+            if (z) {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("k", ka1Var.c);
+                jSONObject.put("t", valueOf);
+                jSONArray.put(jSONObject);
+            }
+            sx0.a().b("splash_sp_name").j("today_show_list", jSONArray.toString(), false);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        return (JSONObject) invokeLIL.objValue;
     }
 }

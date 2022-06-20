@@ -6,6 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import java.io.IOException;
 import java.security.Principal;
 import java.security.cert.Certificate;
@@ -59,7 +60,7 @@ public final class Handshake {
                     CipherSuite forJavaName = CipherSuite.forJavaName(cipherSuite);
                     String protocol = sSLSession.getProtocol();
                     if (protocol != null) {
-                        if (!"NONE".equals(protocol)) {
+                        if (!HlsPlaylistParser.METHOD_NONE.equals(protocol)) {
                             TlsVersion forJavaName2 = TlsVersion.forJavaName(protocol);
                             try {
                                 certificateArr = sSLSession.getPeerCertificates();

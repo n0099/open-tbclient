@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -20,30 +21,30 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a9;
-import com.repackage.ea8;
-import com.repackage.ha8;
-import com.repackage.ma8;
-import com.repackage.mx4;
-import com.repackage.na8;
-import com.repackage.sk4;
-import com.repackage.x97;
-import com.repackage.ys4;
+import com.repackage.c9;
+import com.repackage.cl4;
+import com.repackage.ht4;
+import com.repackage.ib7;
+import com.repackage.lb8;
+import com.repackage.ob8;
+import com.repackage.tb8;
+import com.repackage.ub8;
+import com.repackage.zx4;
 import java.util.Date;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AboutActivity extends BaseActivity<AboutActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int REQUEST_WRITE_EXTERNAL_STORGE_PERMISSON;
-    public na8 collectorManager;
-    public String functionIntroUrl;
-    public AboutModel mModel;
-    public ea8 mView;
-    public ma8 mVisitPreviewServerDialog;
-    public c receiver;
+    public lb8 a;
+    public AboutModel b;
+    public c c;
+    public String d;
+    public tb8 e;
+    public ub8 f;
+    public int g;
 
-    /* loaded from: classes3.dex */
-    public class a implements ha8 {
+    /* loaded from: classes4.dex */
+    public class a implements ob8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AboutActivity a;
@@ -66,7 +67,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             this.a = aboutActivity;
         }
 
-        @Override // com.repackage.ha8
+        @Override // com.repackage.ob8
         public void a(int i) {
             String str;
             String fileDireciory;
@@ -75,27 +76,27 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 if (i == 0) {
                     this.a.finish();
                 } else if (i == 1) {
-                    this.a.checkUpdata();
+                    this.a.I1();
                 } else if (i == 2) {
                     this.a.sendMessage(new CustomMessage(2015001, new GuildActivityConfig(this.a.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_ABOUT_PAGE, false)));
                 } else if (i == 3) {
-                    ys4.k().u(SettingTextFunctionIntroView.h, true);
-                    sk4.s(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0784), this.a.functionIntroUrl, true, false, false);
+                    ht4.k().u(SettingTextFunctionIntroView.h, true);
+                    cl4.s(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0779), this.a.d, true, false, false);
                 } else if (i != 4) {
                     if (i == 5) {
-                        if (this.a.mVisitPreviewServerDialog == null) {
+                        if (this.a.e == null) {
                             AboutActivity aboutActivity = this.a;
-                            aboutActivity.mVisitPreviewServerDialog = new ma8(aboutActivity.getActivity());
-                            this.a.mVisitPreviewServerDialog.create(this.a.getPageContext());
+                            aboutActivity.e = new tb8(aboutActivity.getActivity());
+                            this.a.e.create(this.a.getPageContext());
                         }
-                        this.a.mVisitPreviewServerDialog.show();
+                        this.a.e.show();
                     } else if (i == 6) {
                         if (PermissionUtil.checkWriteExternalStorage(this.a)) {
-                            this.a.startCollectLog();
+                            this.a.L1();
                             return;
                         }
                         AboutActivity aboutActivity2 = this.a;
-                        PermissionUtil.requestWriteExternalStorgePermission(aboutActivity2, aboutActivity2.REQUEST_WRITE_EXTERNAL_STORGE_PERMISSON);
+                        PermissionUtil.requestWriteExternalStorgePermission(aboutActivity2, aboutActivity2.g);
                     }
                 } else {
                     if (TbConfig.getDebugSwitch()) {
@@ -115,8 +116,8 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class b extends a9 {
+    /* loaded from: classes4.dex */
+    public class b extends c9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AboutActivity a;
@@ -139,16 +140,16 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             this.a = aboutActivity;
         }
 
-        @Override // com.repackage.a9
+        @Override // com.repackage.c9
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                this.a.handlCallBack(obj);
+                this.a.J1(obj);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -175,10 +176,10 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || this.this$0.mView == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || this.this$0.a == null) {
                 return;
             }
-            this.this$0.mView.v();
+            this.this$0.a.x();
         }
 
         public /* synthetic */ c(AboutActivity aboutActivity, a aVar) {
@@ -199,86 +200,83 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 return;
             }
         }
-        this.receiver = null;
-        this.functionIntroUrl = TbConfig.SERVER_ADDRESS_WEB_VIEW + TbConfig.FUNCTION_INTRO_WEBVIEW;
-        this.REQUEST_WRITE_EXTERNAL_STORGE_PERMISSON = 1;
+        this.c = null;
+        this.d = TbConfig.SERVER_ADDRESS_WEB_VIEW + TbConfig.FUNCTION_INTRO_WEBVIEW;
+        this.g = 1;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void checkUpdata() {
+    public final void I1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            x97.b().a(true);
-            AboutModel aboutModel = this.mModel;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ib7.b().a(true);
+            AboutModel aboutModel = this.b;
             if (aboutModel == null) {
-                this.mModel = new AboutModel(this, new b(this));
+                this.b = new AboutModel(this, new b(this));
             } else {
                 aboutModel.cancelLoadData();
             }
-            this.mModel.C();
-            ea8 ea8Var = this.mView;
-            if (ea8Var != null) {
-                ea8Var.q();
+            this.b.D();
+            lb8 lb8Var = this.a;
+            if (lb8Var != null) {
+                lb8Var.s();
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void handlCallBack(Object obj) {
+    public final void J1(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, this, obj) == null) {
-            ea8 ea8Var = this.mView;
-            if (ea8Var != null) {
-                ea8Var.r();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            lb8 lb8Var = this.a;
+            if (lb8Var != null) {
+                lb8Var.t();
             }
-            mx4 mx4Var = obj != null ? (mx4) obj : null;
-            if (mx4Var != null) {
-                TbadkCoreApplication.getInst().setVersionData(mx4Var.s());
+            zx4 zx4Var = obj != null ? (zx4) obj : null;
+            if (zx4Var != null) {
+                TbadkCoreApplication.getInst().setVersionData(zx4Var.s());
                 TbadkCoreApplication.getInst().refreshNewVersion(false);
-                if (mx4Var.s().hasNewVer() && TbConfig.COULD_UPDATE) {
-                    if (mx4Var.s().forceUpdate()) {
-                        sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), mx4Var.s(), mx4Var.j())));
+                if (zx4Var.s().hasNewVer() && TbConfig.COULD_UPDATE) {
+                    if (zx4Var.s().forceUpdate()) {
+                        sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), zx4Var.s(), zx4Var.j())));
                     } else {
                         Long valueOf = Long.valueOf(new Date().getTime());
-                        CustomMessage customMessage = new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), mx4Var.s(), mx4Var.j()));
+                        CustomMessage customMessage = new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), zx4Var.s(), zx4Var.j()));
                         TbadkCoreApplication.getInst().setUpdateNotifyTime(valueOf.longValue());
                         sendMessage(customMessage);
                     }
                 }
-                ea8 ea8Var2 = this.mView;
-                if (ea8Var2 != null) {
-                    ea8Var2.v();
+                lb8 lb8Var2 = this.a;
+                if (lb8Var2 != null) {
+                    lb8Var2.x();
                     return;
                 }
                 return;
             }
-            showToast(getResources().getString(R.string.obfuscated_res_0x7f0f0c33));
+            showToast(getResources().getString(R.string.obfuscated_res_0x7f0f0c37));
         }
     }
 
-    private void regReceiver() {
+    public final void K1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            this.receiver = new c(this, null);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c = new c(this, null);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(TbConfig.getBroadcastActionNewVersion());
-            registerReceiver(this.receiver, intentFilter);
+            registerReceiver(this.c, intentFilter);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void startCollectLog() {
+    public final void L1() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65548, this) == null) || this.collectorManager.d()) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f.d()) {
             return;
         }
-        this.collectorManager.g();
+        this.f.g();
     }
 
-    private void unregReceiver() {
+    public final void M1() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65549, this) == null) || (cVar = this.receiver) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (cVar = this.c) == null) {
             return;
         }
         unregisterReceiver(cVar);
@@ -287,11 +285,11 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            ea8 ea8Var = this.mView;
-            if (ea8Var != null) {
-                ea8Var.x(i);
+            lb8 lb8Var = this.a;
+            if (lb8Var != null) {
+                lb8Var.z(i);
             }
         }
     }
@@ -299,38 +297,38 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            this.collectorManager = new na8(this);
-            ea8 ea8Var = new ea8(this, new a(this));
-            this.mView = ea8Var;
-            ea8Var.v();
-            regReceiver();
+            this.f = new ub8(this);
+            lb8 lb8Var = new lb8(this, new a(this));
+            this.a = lb8Var;
+            lb8Var.x();
+            K1();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            unregReceiver();
-            AboutModel aboutModel = this.mModel;
+            M1();
+            AboutModel aboutModel = this.b;
             if (aboutModel != null) {
                 aboutModel.cancelLoadData();
             }
-            ea8 ea8Var = this.mView;
-            if (ea8Var != null) {
-                ea8Var.r();
+            lb8 lb8Var = this.a;
+            if (lb8Var != null) {
+                lb8Var.t();
             }
-            ma8 ma8Var = this.mVisitPreviewServerDialog;
-            if (ma8Var != null) {
-                ma8Var.dismiss();
+            tb8 tb8Var = this.e;
+            if (tb8Var != null) {
+                tb8Var.dismiss();
             }
-            na8 na8Var = this.collectorManager;
-            if (na8Var != null) {
-                na8Var.i();
-                this.collectorManager = null;
+            ub8 ub8Var = this.f;
+            if (ub8Var != null) {
+                ub8Var.i();
+                this.f = null;
             }
         }
     }
@@ -338,11 +336,11 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeILL(1048579, this, i, strArr, iArr) == null) && i == this.REQUEST_WRITE_EXTERNAL_STORGE_PERMISSON) {
+        if ((interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, strArr, iArr) == null) && i == this.g) {
             if (PermissionUtil.checkWriteExternalStorage(getActivity().getApplicationContext())) {
-                startCollectLog();
+                L1();
             } else {
-                showToast(R.string.obfuscated_res_0x7f0f15c8);
+                showToast(R.string.obfuscated_res_0x7f0f15d1);
             }
         }
     }
@@ -350,11 +348,11 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onResume();
-            ea8 ea8Var = this.mView;
-            if (ea8Var != null) {
-                ea8Var.v();
+            lb8 lb8Var = this.a;
+            if (lb8Var != null) {
+                lb8Var.x();
             }
         }
     }

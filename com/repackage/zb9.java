@@ -1,156 +1,402 @@
 package com.repackage;
 
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.LaunchStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.internal.api.http.PostRequest;
+import com.fun.ad.sdk.internal.api.http.RequestParams;
+import com.fun.ad.sdk.internal.api.http.Response;
+import com.fun.ad.sdk.internal.api.reporter.Reporter;
+import com.fun.ad.sdk.internal.api.utils.HostAppInfo;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
+import java.io.IOException;
+import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class zb9 extends BaseAdRipper {
+public class zb9 implements Reporter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Handler a;
+    public final String b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zb9(Ssp.Pid pid) {
-        super(pid);
+    /* loaded from: classes7.dex */
+    public class a extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zb9 e;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(zb9 zb9Var, JSONObject jSONObject) {
+            super(zb9Var, jSONObject);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zb9Var, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((zb9) objArr2[0], (JSONObject) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = zb9Var;
+            tb9.j();
+        }
+
+        @Override // com.repackage.zb9.b
+        public void c() {
+            d dVar;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                tb9.e("key_rpt_suc_c", tb9.h() + 1);
+                zb9 zb9Var = this.e;
+                zb9Var.getClass();
+                int a = tb9.a();
+                int f = tb9.f();
+                if (a > 0 || f > 0) {
+                    int h = tb9.h();
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("fai", a);
+                        jSONObject.put("suc", h);
+                        jSONObject.put("mis", f);
+                    } catch (JSONException unused) {
+                    }
+                    dVar = new d(zb9Var, HostAppInfo.buildReportJson("k_rpt", jSONObject, System.currentTimeMillis()), a, h, f);
+                } else {
+                    dVar = null;
+                }
+                if (dVar != null) {
+                    dVar.d();
+                }
+            }
+        }
+
+        @Override // com.repackage.zb9.e
+        public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                tb9.e("key_rpt_fai_c", tb9.a() + 1);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final JSONObject a;
+        public final /* synthetic */ zb9 b;
+
+        public b(zb9 zb9Var, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zb9Var, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = zb9Var;
+            this.a = jSONObject;
+            if (FunAdSdk.isLogEnabled()) {
+                LogPrinter.v("report Event:" + this, new Object[0]);
+            }
+        }
+
+        @Override // com.repackage.zb9.c
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d() : invokeV.booleanValue;
+        }
+
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            }
+        }
+
+        /* JADX WARN: Removed duplicated region for block: B:14:0x002b  */
+        /* JADX WARN: Removed duplicated region for block: B:15:0x002f  */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public final boolean d() {
+            boolean z;
+            Response perform;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                try {
+                    perform = new PostRequest(this.b.b, new RequestParams(this.a)).perform();
+                } catch (IOException e) {
+                    LogPrinter.e(e);
+                }
+                if (perform != null) {
+                    if (perform.getResponseCode() == 200) {
+                        z = true;
+                        if (z) {
+                            b();
+                        } else {
+                            c();
+                        }
+                        return z;
+                    }
+                }
+                z = false;
+                if (z) {
+                }
+                return z;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                try {
+                    return "Event{key=" + this.a.getString("key") + ", content=" + this.a.getString("content") + '}';
+                } catch (JSONException unused) {
+                    return "Unknown Event";
+                }
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public interface c {
+        boolean a();
+    }
+
+    /* loaded from: classes7.dex */
+    public class d extends b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final int c;
+        public final int d;
+        public final int e;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(zb9 zb9Var, JSONObject jSONObject, int i, int i2, int i3) {
+            super(zb9Var, jSONObject);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zb9Var, jSONObject, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((zb9) objArr2[0], (JSONObject) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = i;
+            this.d = i2;
+            this.e = i3;
+        }
+
+        @Override // com.repackage.zb9.b
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                tb9.d(this.c, this.d, this.e);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class e extends b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int c;
+        public final /* synthetic */ zb9 d;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public e(zb9 zb9Var, JSONObject jSONObject) {
+            super(zb9Var, jSONObject);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zb9Var, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((zb9) objArr2[0], (JSONObject) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = zb9Var;
+            this.c = 0;
+        }
+
+        @Override // com.repackage.zb9.b
+        public final void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int i = this.c;
+                int i2 = i + 1;
+                this.c = i2;
+                if (i < 3) {
+                    try {
+                        this.a.put(HostAppInfo.RETRY_I, i2);
+                    } catch (JSONException unused) {
+                    }
+                    zb9 zb9Var = this.d;
+                    zb9Var.a.sendMessageDelayed(zb9Var.a.obtainMessage(102, this), 2000L);
+                    return;
+                }
+                LogPrinter.e("Give up report event:" + this, new Object[0]);
+                e();
+            }
+        }
+
+        public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class f extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public f(@NonNull Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(@NonNull Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                int i = message.what;
+                if (i != 101) {
+                    if (i != 102) {
+                        return;
+                    }
+                    ((c) message.obj).a();
+                    return;
+                }
+                int i2 = message.arg1;
+                int h = tb9.h();
+                int a = tb9.a();
+                int i3 = (i2 - h) - a;
+                LogPrinter.d("ReportCount: req:%d suc:%d fai:%d mis:%d", Integer.valueOf(i2), Integer.valueOf(h), Integer.valueOf(a), Integer.valueOf(i3));
+                if (i3 > 0) {
+                    tb9.e("key_rpt_mis_c", i3);
+                }
+            }
+        }
+    }
+
+    public zb9(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        HandlerThread handlerThread = new HandlerThread("rep");
+        handlerThread.start();
+        f fVar = new f(handlerThread.getLooper());
+        this.a = fVar;
+        this.b = str;
+        fVar.obtainMessage(101, tb9.g(), 0).sendToTarget();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:47:0x00cb A[Catch: Exception -> 0x0130, TryCatch #1 {Exception -> 0x0130, blocks: (B:5:0x0007, B:7:0x0010, B:14:0x001f, B:25:0x004a, B:27:0x005b, B:29:0x0063, B:31:0x0077, B:33:0x0086, B:39:0x0098, B:41:0x00a0, B:47:0x00cb, B:49:0x00d3, B:50:0x00db, B:42:0x00b2, B:44:0x00ba, B:17:0x0028, B:19:0x0030, B:20:0x0037, B:22:0x0041), top: B:62:0x0007, inners: #0 }] */
-    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public RippedAd getRippedAdInternal(Object obj) {
-        InterceptResult invokeL;
-        boolean z;
-        Object invoke;
-        String str;
-        String str2;
-        String str3;
-        String str4;
-        String optString;
-        String str5;
-        JSONObject optJSONObject;
-        JSONObject optJSONObject2;
+    @Override // com.fun.ad.sdk.internal.api.reporter.Reporter
+    public void logEvent(String str, String str2, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, obj) == null) {
+            JSONObject jSONObject = new JSONObject();
             try {
-                Object findField = ReflectionUtils.findField("com.bytedance.sdk.openadsdk.core.o.r", obj);
-                if (findField == null) {
-                    findField = ReflectionUtils.findField("com.bytedance.sdk.openadsdk.core.q.v", obj);
-                    z = true;
-                    if (findField == null) {
-                        return null;
-                    }
-                } else {
-                    z = false;
-                }
-                if (z) {
-                    try {
-                        invoke = ReflectionUtils.invoke(findField, "bI", null, new Object[0]);
-                        if (invoke == null) {
-                            invoke = ReflectionUtils.invoke(findField, "bO", null, new Object[0]);
-                        } else {
-                            new JSONObject(invoke.toString());
-                        }
-                    } catch (JSONException unused) {
-                        invoke = ReflectionUtils.invoke(findField, "bO", null, new Object[0]);
-                    }
-                } else {
-                    invoke = ReflectionUtils.invoke(findField, "bt", null, new Object[0]);
-                }
-                if (invoke == null) {
-                    return null;
-                }
-                JSONObject jSONObject = new JSONObject(invoke.toString());
-                JSONObject optJSONObject3 = jSONObject.optJSONObject("icon");
-                String optString2 = optJSONObject3 != null ? optJSONObject3.optString("url") : null;
-                String combineStrWithComma = RippedAd.combineStrWithComma(jSONObject.optJSONArray("image"), xb9.a);
-                JSONObject optJSONObject4 = jSONObject.optJSONObject("video");
-                if (optJSONObject4 != null) {
-                    str2 = optJSONObject4.optString("video_url");
-                    str = optJSONObject4.optString("cover_url");
-                } else {
-                    str = null;
-                    str2 = null;
-                }
-                int optInt = jSONObject.optInt("interaction_type", -1);
-                if (optInt == 3) {
-                    JSONObject optJSONObject5 = jSONObject.optJSONObject("deep_link");
-                    if (optJSONObject5 != null) {
-                        str3 = null;
-                        str4 = null;
-                        optString = optJSONObject5.optString("deeplink_url");
-                        str5 = null;
-                        if (str3 == null) {
-                        }
-                        RippedAd.Builder builder = new RippedAd.Builder();
-                        builder.setCorporation(jSONObject.optString("source")).setTitle(jSONObject.optString("title")).setDescription(jSONObject.optString("description")).setAppName(str3).setAppPkg(str4).setAppUrl(str5).setIconUrl(optString2).setImageUrl(combineStrWithComma).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(jSONObject.optString("target_url")).setDeepLinkUrl(optString).setConvUrl(null);
-                        return builder.build();
-                    }
-                    str5 = null;
-                    optString = null;
-                    str3 = null;
-                    str4 = null;
-                    if (str3 == null) {
-                    }
-                    RippedAd.Builder builder2 = new RippedAd.Builder();
-                    builder2.setCorporation(jSONObject.optString("source")).setTitle(jSONObject.optString("title")).setDescription(jSONObject.optString("description")).setAppName(str3).setAppPkg(str4).setAppUrl(str5).setIconUrl(optString2).setImageUrl(combineStrWithComma).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(jSONObject.optString("target_url")).setDeepLinkUrl(optString).setConvUrl(null);
-                    return builder2.build();
-                }
-                if (optInt == 4 && (optJSONObject2 = jSONObject.optJSONObject("app")) != null) {
-                    String optString3 = optJSONObject2.optString("app_name");
-                    String optString4 = optJSONObject2.optString("package_name");
-                    str5 = optJSONObject2.optString("download_url");
-                    str4 = optString4;
-                    str3 = optString3;
-                    optString = null;
-                    if (str3 == null && (optJSONObject = jSONObject.optJSONObject("app_manage")) != null) {
-                        str3 = optJSONObject.optString("app_name");
-                        str4 = optJSONObject.optString("package_name");
-                    }
-                    RippedAd.Builder builder22 = new RippedAd.Builder();
-                    builder22.setCorporation(jSONObject.optString("source")).setTitle(jSONObject.optString("title")).setDescription(jSONObject.optString("description")).setAppName(str3).setAppPkg(str4).setAppUrl(str5).setIconUrl(optString2).setImageUrl(combineStrWithComma).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(jSONObject.optString("target_url")).setDeepLinkUrl(optString).setConvUrl(null);
-                    return builder22.build();
-                }
-                str5 = null;
-                optString = null;
-                str3 = null;
-                str4 = null;
-                if (str3 == null) {
-                    str3 = optJSONObject.optString("app_name");
-                    str4 = optJSONObject.optString("package_name");
-                }
-                RippedAd.Builder builder222 = new RippedAd.Builder();
-                builder222.setCorporation(jSONObject.optString("source")).setTitle(jSONObject.optString("title")).setDescription(jSONObject.optString("description")).setAppName(str3).setAppPkg(str4).setAppUrl(str5).setIconUrl(optString2).setImageUrl(combineStrWithComma).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(jSONObject.optString("target_url")).setDeepLinkUrl(optString).setConvUrl(null);
-                return builder222.build();
-            } catch (Exception e) {
-                LogPrinter.e(e);
-                return null;
+                jSONObject.put(str2, obj);
+            } catch (JSONException unused) {
             }
+            logEvent(str, jSONObject);
         }
-        return (RippedAd) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.reporter.Reporter
+    public void logEvent(String str, Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map) == null) {
+            logEvent(str, new JSONObject(map));
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.reporter.Reporter
+    public void logEvent(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject) == null) {
+            JSONObject buildReportJson = HostAppInfo.buildReportJson(str, jSONObject, System.currentTimeMillis());
+            this.a.sendMessageDelayed(this.a.obtainMessage(102, LaunchStatsUtils.AD.equals(str) ? new a(this, buildReportJson) : new e(this, buildReportJson)), 0L);
+        }
     }
 }

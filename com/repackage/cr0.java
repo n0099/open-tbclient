@@ -1,15 +1,16 @@
 package com.repackage;
 
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cr0 extends er0 {
+public abstract class cr0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public pu0 a;
 
     public cr0() {
         Interceptable interceptable = $ic;
@@ -25,9 +26,26 @@ public class cr0 extends er0 {
         }
     }
 
-    public static er0 w(@NonNull String str) {
-        InterceptResult invokeL;
+    public void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? er0.m(str, 1) : (er0) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = null;
+        }
+    }
+
+    public void b(@NonNull pu0 pu0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pu0Var) == null) {
+            this.a = pu0Var;
+        }
+    }
+
+    public void c(@NonNull ir0 ir0Var) {
+        pu0 pu0Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ir0Var) == null) || (pu0Var = this.a) == null) {
+            return;
+        }
+        pu0Var.d(ir0Var);
     }
 }

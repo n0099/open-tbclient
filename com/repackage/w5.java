@@ -1,124 +1,92 @@
 package com.repackage;
 
-import com.badlogic.gdx.utils.BufferUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.badlogic.gdx.Application;
+import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.utils.GdxRuntimeException;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.Buffer;
-import java.nio.ByteBuffer;
-import java.nio.FloatBuffer;
 /* loaded from: classes7.dex */
-public class w5 implements y5 {
-    public static /* synthetic */ Interceptable $ic;
+public class w5 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = true;
     public transient /* synthetic */ FieldHolder $fh;
-    public r3 a;
-    public FloatBuffer b;
-    public ByteBuffer c;
-    public boolean d;
-    public int e;
-    public boolean f;
 
-    public w5(boolean z, int i, r3 r3Var) {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1964025561, "Lcom/repackage/w5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), r3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1964025561, "Lcom/repackage/w5;");
+        }
+    }
+
+    public static void a(int i, Pixmap pixmap, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), pixmap, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            if (!a) {
+                b(i, pixmap, i2, i3);
+            } else if (e1.a.getType() != Application.ApplicationType.Android && e1.a.getType() != Application.ApplicationType.WebGL && e1.a.getType() != Application.ApplicationType.iOS) {
+                c(i, pixmap, i2, i3);
+            } else {
+                d(i, pixmap);
+            }
+        }
+    }
+
+    public static void b(int i, Pixmap pixmap, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), pixmap, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            e1.e.q(i, 0, pixmap.j(), pixmap.n(), pixmap.l(), 0, pixmap.i(), pixmap.k(), pixmap.m());
+            if (e1.f == null && i2 != i3) {
+                throw new GdxRuntimeException("texture width and height must be square when using mipmapping.");
+            }
+            int n = pixmap.n() / 2;
+            int l = pixmap.l() / 2;
+            int i4 = 1;
+            Pixmap pixmap2 = pixmap;
+            while (n > 0 && l > 0) {
+                Pixmap pixmap3 = new Pixmap(n, l, pixmap2.h());
+                pixmap3.o(Pixmap.Blending.None);
+                pixmap3.f(pixmap2, 0, 0, pixmap2.n(), pixmap2.l(), 0, 0, n, l);
+                if (i4 > 1) {
+                    pixmap2.dispose();
+                }
+                pixmap2 = pixmap3;
+                e1.e.q(i, i4, pixmap3.j(), pixmap3.n(), pixmap3.l(), 0, pixmap3.i(), pixmap3.k(), pixmap3.m());
+                n = pixmap2.n() / 2;
+                l = pixmap2.l() / 2;
+                i4++;
+            }
+        }
+    }
+
+    public static void c(int i, Pixmap pixmap, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), pixmap, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            if (!e1.b.a("GL_ARB_framebuffer_object") && !e1.b.a("GL_EXT_framebuffer_object") && e1.g == null) {
+                b(i, pixmap, i2, i3);
                 return;
             }
-        }
-        this.f = false;
-        this.e = b1.f.n();
-        ByteBuffer e = BufferUtils.e(r3Var.b * i);
-        e.limit(0);
-        a(e, true, r3Var);
-        f(z ? 35044 : 35048);
-    }
-
-    public void a(Buffer buffer, boolean z, r3 r3Var) {
-        ByteBuffer byteBuffer;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{buffer, Boolean.valueOf(z), r3Var}) == null) {
-            if (!this.f) {
-                if (this.d && (byteBuffer = this.c) != null) {
-                    BufferUtils.b(byteBuffer);
-                }
-                this.a = r3Var;
-                if (buffer instanceof ByteBuffer) {
-                    ByteBuffer byteBuffer2 = (ByteBuffer) buffer;
-                    this.c = byteBuffer2;
-                    this.d = z;
-                    int limit = byteBuffer2.limit();
-                    ByteBuffer byteBuffer3 = this.c;
-                    byteBuffer3.limit(byteBuffer3.capacity());
-                    this.b = this.c.asFloatBuffer();
-                    this.c.limit(limit);
-                    this.b.limit(limit / 4);
-                    return;
-                }
-                throw new GdxRuntimeException("Only ByteBuffer is currently supported");
-            }
-            throw new GdxRuntimeException("Cannot change attributes while VBO is bound");
+            e1.e.q(i, 0, pixmap.j(), pixmap.n(), pixmap.l(), 0, pixmap.i(), pixmap.k(), pixmap.m());
+            e1.f.F(i);
         }
     }
 
-    @Override // com.repackage.y5
-    public r3 b() {
-        InterceptResult invokeV;
+    public static void d(int i, Pixmap pixmap) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (r3) invokeV.objValue;
-    }
-
-    @Override // com.repackage.y5
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.b.limit() * 4) / this.a.b : invokeV.intValue;
-    }
-
-    @Override // com.repackage.y5, com.repackage.f7
-    public void dispose() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            k3 k3Var = b1.f;
-            k3Var.E(34962, 0);
-            k3Var.b(this.e);
-            this.e = 0;
-            if (this.d) {
-                BufferUtils.b(this.c);
-            }
-        }
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && this.f) {
-            throw new GdxRuntimeException("Cannot change usage while VBO is bound");
-        }
-    }
-
-    @Override // com.repackage.y5
-    public FloatBuffer getBuffer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (FloatBuffer) invokeV.objValue;
-    }
-
-    @Override // com.repackage.y5
-    public void invalidate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.e = b1.f.n();
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, pixmap) == null) {
+            e1.e.q(i, 0, pixmap.j(), pixmap.n(), pixmap.l(), 0, pixmap.i(), pixmap.k(), pixmap.m());
+            e1.f.F(i);
         }
     }
 }

@@ -323,7 +323,7 @@ public class EventAnalysis {
         return invokeLI.booleanValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:78:0x0167, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:78:0x0166, code lost:
         if (r4.equalsIgnoreCase(r23) != false) goto L88;
      */
     /* JADX WARN: Code restructure failed: missing block: B:7:0x001e, code lost:

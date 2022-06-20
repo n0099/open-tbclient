@@ -14,23 +14,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kv8;
-import com.repackage.lv8;
+import com.repackage.sv8;
+import com.repackage.tv8;
 /* loaded from: classes4.dex */
 public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String ACCOUNT_ACCESS_CANCEL = "http://tieba.baidu.com/account/access/cancel";
-    public static final String ACCOUNT_ACCESS_FEEDBACK_HTTP = "http://tieba.baidu.com/account/access/feedback";
-    public static final String ACCOUNT_ACCESS_FEEDBACK_HTTPS = "https://tieba.baidu.com/account/access/feedback";
-    public static final String ACCOUNT_ACCESS_INPUT_FOCUS = "http://tieba.baidu.com/account/access/input_focus";
-    public static final String ACCOUNT_ACCESS_URL = "http://tieba.baidu.com/mo/q/account/access";
-    public static final String ACCOUNT_ACCESS_VALID_SUCCESS = "http://tieba.baidu.com/account/access/valid_success";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AccessState mAccessState;
-    public kv8 mPresenter;
-    public lv8 mView;
-    public WriteData mWriteData;
-    public NewWriteModel mWriteModel;
+    public tv8 a;
+    public sv8 b;
+    public NewWriteModel c;
+    public AccessState d;
+    public WriteData e;
 
     public AccountAccessActivity() {
         Interceptable interceptable = $ic;
@@ -46,10 +40,23 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
         }
     }
 
+    public String A1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            AccessState accessState = this.d;
+            if (accessState == null || accessState.getUserInfo() == null) {
+                return null;
+            }
+            return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", "http://tieba.baidu.com/mo/q/account/access", this.d.getToken(), this.d.getType(), this.d.getUserInfo().strMobile, this.d.getUserInfo().strEmail);
+        }
+        return (String) invokeV.objValue;
+    }
+
     @Override // com.baidu.tbadk.BaseActivity
     public void closeAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 4);
         }
     }
@@ -57,22 +64,9 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void enterExitAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
         }
-    }
-
-    public String joinStrsForH5() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            AccessState accessState = this.mAccessState;
-            if (accessState == null || accessState.getUserInfo() == null) {
-                return null;
-            }
-            return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", ACCOUNT_ACCESS_URL, this.mAccessState.getToken(), this.mAccessState.getType(), this.mAccessState.getUserInfo().strMobile, this.mAccessState.getUserInfo().strEmail);
-        }
-        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
@@ -96,25 +90,25 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            this.mView = new lv8(this);
+            this.a = new tv8(this);
             Intent intent = getIntent();
             if (intent == null) {
                 return;
             }
-            this.mAccessState = (AccessState) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_ACCESS_STATE);
+            this.d = (AccessState) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_ACCESS_STATE);
             WriteData writeData = (WriteData) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_WRITE_DATA);
-            this.mWriteData = writeData;
-            if (writeData != null && this.mAccessState != null) {
+            this.e = writeData;
+            if (writeData != null && this.d != null) {
                 NewWriteModel newWriteModel = new NewWriteModel(this);
-                this.mWriteModel = newWriteModel;
-                newWriteModel.setWriteData(this.mWriteData);
-                if (this.mWriteData.getWriteImagesInfo() != null) {
-                    this.mWriteModel.Z(this.mWriteData.getWriteImagesInfo().size() > 0);
+                this.c = newWriteModel;
+                newWriteModel.setWriteData(this.e);
+                if (this.e.getWriteImagesInfo() != null) {
+                    this.c.a0(this.e.getWriteImagesInfo().size() > 0);
                 }
-                kv8 kv8Var = new kv8(this.mView, this.mWriteModel);
-                this.mPresenter = kv8Var;
-                this.mView.l(kv8Var);
-                this.mPresenter.h(joinStrsForH5());
+                sv8 sv8Var = new sv8(this.a, this.c);
+                this.b = sv8Var;
+                this.a.l(sv8Var);
+                this.b.h(A1());
                 return;
             }
             finish();
@@ -126,7 +120,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            this.mView.k();
+            this.a.k();
         }
     }
 }

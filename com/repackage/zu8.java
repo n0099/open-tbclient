@@ -1,7 +1,9 @@
 package com.repackage;
 /* loaded from: classes7.dex */
 public interface zu8 {
-    void a();
+    void c(int i, int i2);
 
-    void b();
+    void f();
+
+    void setDragMode(int i, int i2);
 }

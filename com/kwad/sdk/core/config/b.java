@@ -227,7 +227,7 @@ public class b {
         public static j cm = new j("rewardActiveAppTaskMinSecond", 15);
 
         /* renamed from: cn  reason: collision with root package name */
-        public static j f1028cn = new j("viewLandingPageTaskDuration", 15);
+        public static j f1067cn = new j("viewLandingPageTaskDuration", 15);
         public static q co = new q("splashBtnText", "点击跳过详情页或第三方应用");
         public static q cp = new q("kwaiLogoUrl", null);
         public static q cq = new q("attentionTips", "去关注TA");
@@ -473,7 +473,7 @@ public class b {
     }
 
     public static int aA() {
-        return a.f1028cn.a().intValue();
+        return a.f1067cn.a().intValue();
     }
 
     public static String aB() {

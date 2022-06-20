@@ -10,11 +10,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.en4;
+import com.repackage.on4;
 import com.tencent.open.SocialConstants;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class AlaBroadcastGiftToastData extends en4 implements Parcelable {
+/* loaded from: classes3.dex */
+public class AlaBroadcastGiftToastData extends on4 implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<AlaBroadcastGiftToastData> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public class AlaBroadcastGiftToastData extends en4 implements Parcelable {
     public String sender_portrait;
     public String thumbnail_url;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<AlaBroadcastGiftToastData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,7 +105,7 @@ public class AlaBroadcastGiftToastData extends en4 implements Parcelable {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.en4
+    @Override // com.repackage.on4
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {

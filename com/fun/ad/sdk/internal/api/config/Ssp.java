@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.utils.NumberUtils;
-import com.repackage.og9;
+import com.repackage.wg9;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
 import java.util.Collections;
@@ -18,7 +18,7 @@ import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class Ssp extends og9 {
+public final class Ssp extends wg9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Set<Pid> pids;
@@ -26,7 +26,7 @@ public final class Ssp extends og9 {
     public final String type;
 
     /* loaded from: classes4.dex */
-    public static class Pid extends og9 {
+    public static class Pid extends wg9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final double basePrice;
@@ -133,7 +133,7 @@ public final class Ssp extends og9 {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(Long.valueOf(this.id), this.pid, this.type, Integer.valueOf(this.tmout), Float.valueOf(this.sample), Integer.valueOf(this.width), Integer.valueOf(this.height), Integer.valueOf(this.interval), Boolean.valueOf(this.isHorizontal)) : invokeV.intValue;
         }
 
-        @Override // com.repackage.og9
+        @Override // com.repackage.wg9
         public void srzableInternal(ObjectOutput objectOutput) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objectOutput) == null) {
@@ -238,7 +238,7 @@ public final class Ssp extends og9 {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(this.sspId, this.type, this.pids) : invokeV.intValue;
     }
 
-    @Override // com.repackage.og9
+    @Override // com.repackage.wg9
     public void srzableInternal(ObjectOutput objectOutput) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objectOutput) == null) {

@@ -29,7 +29,7 @@ public class b extends Presenter {
         super.a();
         com.kwad.sdk.splashscreen.g gVar = (com.kwad.sdk.splashscreen.g) p();
         this.a = gVar;
-        KsLogoView ksLogoView = (KsLogoView) gVar.e.findViewById(R.id.obfuscated_res_0x7f091110);
+        KsLogoView ksLogoView = (KsLogoView) gVar.e.findViewById(R.id.obfuscated_res_0x7f091100);
         this.b = ksLogoView;
         a((ViewGroup) ksLogoView);
         if (this.a.d.adInfoList.isEmpty() || (adSplashInfo = this.a.d.adInfoList.get(0).adSplashInfo) == null) {

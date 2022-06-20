@@ -8,7 +8,6 @@ import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.download.center.clearcache.UserSettingForceListListener;
-import com.baidu.tieba.aiapps.apps.guide.AiAppGuideActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -130,7 +129,7 @@ public final class EANManufacturerOrgSupport {
                     add(new int[]{PassBiometricUtil.k}, "MX");
                     add(new int[]{754, 755}, "CA");
                     add(new int[]{759}, "VE");
-                    add(new int[]{AiAppGuideActivity.GIF_WIDTH, ApkSignatureSchemeV2Verifier.SIGNATURE_DSA_WITH_SHA256}, "CH");
+                    add(new int[]{760, ApkSignatureSchemeV2Verifier.SIGNATURE_DSA_WITH_SHA256}, "CH");
                     add(new int[]{770}, "CO");
                     add(new int[]{773}, "UY");
                     add(new int[]{775}, "PE");

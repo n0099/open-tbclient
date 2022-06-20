@@ -1,16 +1,21 @@
 package com.repackage;
 
+import android.util.SparseArray;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Field;
+import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class q9 {
+public class q9 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile q9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int mPriority;
+    public SparseArray<String> a;
 
     public q9() {
         Interceptable interceptable = $ic;
@@ -25,19 +30,77 @@ public abstract class q9 {
                 return;
             }
         }
-        this.mPriority = 0;
+        this.a = null;
+        this.a = new SparseArray<>();
     }
 
-    public int getPriority() {
+    public static q9 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mPriority : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (q9.class) {
+                    if (b == null) {
+                        b = new q9();
+                    }
+                }
+            }
+            return b;
+        }
+        return (q9) invokeV.objValue;
     }
 
-    public void setPriority(int i) {
+    public String b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.mPriority = i;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            String str = this.a.get(i);
+            if (str != null) {
+                return str;
+            }
+            return null;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public void c(List<String> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || !BdBaseApplication.getInst().isDebugMode() || list == null || list.size() == 0) {
+            return;
+        }
+        for (String str : list) {
+            d(str);
+        }
+    }
+
+    public final void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            try {
+                Class<?> loadClass = q9.class.getClassLoader().loadClass(str);
+                Object newInstance = loadClass.newInstance();
+                Field[] fields = loadClass.getFields();
+                if (fields == null || fields.length <= 0) {
+                    return;
+                }
+                for (Field field : fields) {
+                    int i = field.getInt(newInstance);
+                    String name = field.getName();
+                    if (this.a.get(i) == null) {
+                        this.a.put(i, name);
+                    } else {
+                        throw new Error("cmd " + str + " " + name + " 和 " + this.a.get(i) + " 重复");
+                    }
+                }
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e2) {
+                e2.printStackTrace();
+            } catch (IllegalArgumentException e3) {
+                e3.printStackTrace();
+            } catch (InstantiationException e4) {
+                e4.printStackTrace();
+            }
         }
     }
 }

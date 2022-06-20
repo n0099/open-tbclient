@@ -5,15 +5,14 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.Window;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hz8;
-import com.repackage.iz8;
+import com.repackage.pz8;
+import com.repackage.qz8;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -21,13 +20,10 @@ import java.lang.reflect.Proxy;
 import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class BaseChromiumApplication extends Application {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String TAG = "cr.base";
-    public static final String TOOLBAR_CALLBACK_INTERNAL_WRAPPER_CLASS = "androidx.appcompat.internal.app.ToolbarActionBar$ToolbarCallbackWrapper";
-    public static final String TOOLBAR_CALLBACK_WRAPPER_CLASS = "androidx.appcompat.app.ToolbarActionBar$ToolbarCallbackWrapper";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean mShouldInitializeApplicationStatusTracking;
-    public hz8<c> mWindowFocusListeners;
+    public final boolean a;
+    public pz8<c> b;
 
     /* loaded from: classes4.dex */
     public class a implements Application.ActivityLifecycleCallbacks {
@@ -136,7 +132,7 @@ public class BaseChromiumApplication extends Application {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 this.a.onWindowFocusChanged(z);
-                Iterator it = this.c.mWindowFocusListeners.iterator();
+                Iterator it = this.c.b.iterator();
                 while (it.hasNext()) {
                     ((c) it.next()).a(this.b, z);
                 }
@@ -188,58 +184,38 @@ public class BaseChromiumApplication extends Application {
         }
     }
 
-    public static void initCommandLine(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            ((BaseChromiumApplication) context.getApplicationContext()).initCommandLine();
-        }
-    }
-
-    private void startTrackingApplicationStatus() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            ApplicationStatus.i(this);
-            registerActivityLifecycleCallbacks(new a(this));
-        }
-    }
-
     @Override // android.content.ContextWrapper
     public void attachBaseContext(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             super.attachBaseContext(context);
-            iz8.b(this);
+            qz8.b(this);
         }
     }
 
-    public void initCommandLine() {
+    public void b(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
+            this.b.e(cVar);
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ApplicationStatus.i(this);
+            registerActivityLifecycleCallbacks(new a(this));
         }
     }
 
     @Override // android.app.Application
     public void onCreate() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onCreate();
-            if (this.mShouldInitializeApplicationStatusTracking) {
-                startTrackingApplicationStatus();
+            if (this.a) {
+                c();
             }
-        }
-    }
-
-    public void registerWindowFocusChangedListener(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            this.mWindowFocusListeners.e(cVar);
-        }
-    }
-
-    public void unregisterWindowFocusChangedListener(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.mWindowFocusListeners.k(cVar);
         }
     }
 
@@ -258,7 +234,7 @@ public class BaseChromiumApplication extends Application {
                 return;
             }
         }
-        this.mWindowFocusListeners = new hz8<>();
-        this.mShouldInitializeApplicationStatusTracking = z;
+        this.b = new pz8<>();
+        this.a = z;
     }
 }

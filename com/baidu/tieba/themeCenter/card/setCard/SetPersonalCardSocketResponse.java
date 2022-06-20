@@ -1,5 +1,6 @@
 package com.baidu.tieba.themeCenter.card.setCard;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,38 +36,43 @@ public class SetPersonalCardSocketResponse extends SocketResponsedMessage {
         }
     }
 
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            SetCardResIdl setCardResIdl = (SetCardResIdl) new Wire(new Class[0]).parseFrom(bArr, SetCardResIdl.class);
+            SetPersonalCardRequest setPersonalCardRequest = null;
+            if (setCardResIdl == null) {
+                return null;
+            }
+            Error error = setCardResIdl.error;
+            if (error != null) {
+                setError(error.errorno.intValue());
+                setErrorString(setCardResIdl.error.usermsg);
+            }
+            if (getOrginalMessage() != null && getOrginalMessage().getExtra() != null) {
+                setPersonalCardRequest = (SetPersonalCardRequest) getOrginalMessage().getExtra();
+            }
+            if (setPersonalCardRequest != null) {
+                this.cardId = setPersonalCardRequest.getCardId();
+                this.type = setPersonalCardRequest.getType();
+            }
+            return setCardResIdl;
+        }
+        return invokeIL.objValue;
+    }
+
     public long getCardId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.cardId : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.cardId : invokeV.longValue;
     }
 
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.type : invokeV.intValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        SetCardResIdl setCardResIdl;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (setCardResIdl = (SetCardResIdl) new Wire(new Class[0]).parseFrom(bArr, SetCardResIdl.class)) == null) {
-            return;
-        }
-        Error error = setCardResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(setCardResIdl.error.usermsg);
-        }
-        SetPersonalCardRequest setPersonalCardRequest = null;
-        if (getOrginalMessage() != null && getOrginalMessage().getExtra() != null) {
-            setPersonalCardRequest = (SetPersonalCardRequest) getOrginalMessage().getExtra();
-        }
-        if (setPersonalCardRequest != null) {
-            this.cardId = setPersonalCardRequest.getCardId();
-            this.type = setPersonalCardRequest.getType();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.type : invokeV.intValue;
     }
 }

@@ -120,8 +120,8 @@ public class f extends Presenter implements com.kwad.sdk.core.j.d {
         super.a();
         com.kwad.sdk.splashscreen.g gVar = (com.kwad.sdk.splashscreen.g) p();
         this.a = gVar;
-        this.e = (ImageView) gVar.e.findViewById(R.id.obfuscated_res_0x7f09110c);
-        this.d = (ImageView) this.a.e.findViewById(R.id.obfuscated_res_0x7f09110e);
+        this.e = (ImageView) gVar.e.findViewById(R.id.obfuscated_res_0x7f0910fc);
+        this.d = (ImageView) this.a.e.findViewById(R.id.obfuscated_res_0x7f0910fe);
         AdInfo j = com.kwad.sdk.core.response.a.d.j(this.a.d);
         this.b = j;
         String str = com.kwad.sdk.core.response.a.a.I(j).materialUrl;

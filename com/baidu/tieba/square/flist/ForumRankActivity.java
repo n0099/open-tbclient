@@ -30,33 +30,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a9;
-import com.repackage.ft4;
-import com.repackage.gt4;
-import com.repackage.kd8;
-import com.repackage.li;
+import com.repackage.c9;
+import com.repackage.ot4;
+import com.repackage.pi;
+import com.repackage.pt4;
+import com.repackage.re8;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int FORUM_MAX_NUM = 100;
-    public static final int FORUM_NUM = 100;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kd8 mAdapter;
-    public final a9 mCallback;
-    public final ImageProvider mHeadImageProvider;
-    public TbImageView mImage;
-    public String mImageUrl;
-    public boolean mIsFirst;
-    public LikeModel mLikeModel;
-    public BdListView mListView;
-    public ForumRankModel mModel;
-    public NavigationBar mNavigationBar;
-    public FrameLayout mNoDataView;
-    public gt4 mPullView;
-    public LinearLayout mRecommendListFooter;
+    public BdListView a;
+    public ForumRankModel b;
+    public re8 c;
+    public NavigationBar d;
+    public TbImageView e;
+    public LikeModel f;
+    public LinearLayout g;
+    public pt4 h;
+    public FrameLayout i;
+    public String j;
+    public boolean k;
+    public final c9 l;
+    public final ImageProvider m;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,14 +82,14 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.mListView.removeFooterView(this.a.mRecommendListFooter);
-                this.a.mAdapter.e(100);
+                this.a.a.removeFooterView(this.a.g);
+                this.a.c.e(100);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class b implements ft4.g {
+    /* loaded from: classes4.dex */
+    public class b implements ot4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumRankActivity a;
@@ -114,18 +112,18 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
             this.a = forumRankActivity;
         }
 
-        @Override // com.repackage.ft4.g
-        public void onListPullRefresh(boolean z) {
+        @Override // com.repackage.ot4.g
+        public void e(boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.mModel.loadData()) {
+            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.b.loadData()) {
                 return;
             }
-            this.a.mListView.A(0L);
+            this.a.a.A(0L);
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class c extends a9 {
+    /* loaded from: classes4.dex */
+    public class c extends c9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumRankActivity a;
@@ -148,67 +146,67 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
             this.a = forumRankActivity;
         }
 
-        @Override // com.repackage.a9
+        @Override // com.repackage.c9
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 this.a.hideProgressBar();
-                this.a.mListView.A(0L);
+                this.a.a.A(0L);
                 if (obj == null || !(obj instanceof ForumRankData)) {
-                    this.a.mListView.setVisibility(8);
+                    this.a.a.setVisibility(8);
                     ForumRankActivity forumRankActivity = this.a;
-                    forumRankActivity.showNetRefreshView(forumRankActivity.findViewById(R.id.obfuscated_res_0x7f091adb), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f88), true);
+                    forumRankActivity.showNetRefreshView(forumRankActivity.findViewById(R.id.obfuscated_res_0x7f091ad3), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f93), true);
                     this.a.setNetRefreshLayoutMarginTopWhenIsNoNetworkViewDismiss(false);
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c33);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c37);
                     return;
                 }
                 ForumRankData forumRankData = (ForumRankData) obj;
                 if (forumRankData.error_code == 0) {
-                    this.a.mListView.setVisibility(0);
+                    this.a.a.setVisibility(0);
                     String str = forumRankData.pic_url;
                     if (str != null && str.length() > 0) {
-                        if (this.a.mIsFirst) {
-                            this.a.mListView.addHeaderView(this.a.mImage, this.a.mHeadImageProvider, false);
-                            this.a.mIsFirst = false;
+                        if (this.a.k) {
+                            this.a.a.addHeaderView(this.a.e, this.a.m, false);
+                            this.a.k = false;
                         }
-                        this.a.mImage.setVisibility(0);
-                        this.a.mImage.setTag(forumRankData.pic_url);
-                        ViewGroup.LayoutParams layoutParams = this.a.mImage.getLayoutParams();
+                        this.a.e.setVisibility(0);
+                        this.a.e.setTag(forumRankData.pic_url);
+                        ViewGroup.LayoutParams layoutParams = this.a.e.getLayoutParams();
                         layoutParams.width = -1;
-                        layoutParams.height = (int) ((li.k(this.a.getPageContext().getPageActivity()) * 15.0f) / 32.0f);
-                        this.a.mImageUrl = forumRankData.pic_url;
+                        layoutParams.height = (int) ((pi.k(this.a.getPageContext().getPageActivity()) * 15.0f) / 32.0f);
+                        this.a.j = forumRankData.pic_url;
                     }
-                    this.a.mAdapter.f(forumRankData.forumsquare_list);
-                    this.a.mAdapter.h(Boolean.valueOf(forumRankData.is_order != 0));
-                    this.a.mNavigationBar.setTitleText(forumRankData.title);
+                    this.a.c.f(forumRankData.forumsquare_list);
+                    this.a.c.h(Boolean.valueOf(forumRankData.is_order != 0));
+                    this.a.d.setTitleText(forumRankData.title);
                     ForumInfoData[] forumInfoDataArr = forumRankData.forumsquare_list;
-                    if (forumInfoDataArr != null && forumInfoDataArr.length > 100 && this.a.mListView.getAdapter2().l() <= 0) {
-                        this.a.mListView.addFooterView(this.a.mRecommendListFooter);
+                    if (forumInfoDataArr != null && forumInfoDataArr.length > 100 && this.a.a.getAdapter2().l() <= 0) {
+                        this.a.a.addFooterView(this.a.g);
                     }
                     ForumInfoData[] forumInfoDataArr2 = forumRankData.forumsquare_list;
                     if (forumInfoDataArr2 == null || forumInfoDataArr2.length == 0) {
-                        this.a.mNoDataView.setVisibility(0);
+                        this.a.i.setVisibility(0);
                         return;
                     } else {
-                        this.a.mNoDataView.setVisibility(8);
+                        this.a.i.setVisibility(8);
                         return;
                     }
                 }
-                this.a.mListView.setVisibility(8);
+                this.a.a.setVisibility(8);
                 ForumRankActivity forumRankActivity2 = this.a;
-                forumRankActivity2.showNetRefreshView(forumRankActivity2.findViewById(R.id.obfuscated_res_0x7f091adb), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f88), true);
+                forumRankActivity2.showNetRefreshView(forumRankActivity2.findViewById(R.id.obfuscated_res_0x7f091ad3), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f93), true);
                 this.a.setNetRefreshLayoutMarginTopWhenIsNoNetworkViewDismiss(false);
                 NewErrorData newErrorData = forumRankData.error;
                 if (newErrorData != null) {
                     this.a.showToast(newErrorData.usermsg);
                 } else {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c33);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c37);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d extends AbstractImageProvider {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -237,9 +235,9 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.a.mImageUrl != null) {
+                if (this.a.j != null) {
                     ArrayList<String> arrayList = new ArrayList<>();
-                    arrayList.add(this.a.mImageUrl);
+                    arrayList.add(this.a.j);
                     return arrayList;
                 }
                 return null;
@@ -261,79 +259,79 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
                 return;
             }
         }
-        this.mListView = null;
-        this.mModel = null;
-        this.mAdapter = null;
-        this.mNavigationBar = null;
-        this.mImage = null;
-        this.mLikeModel = null;
-        this.mRecommendListFooter = null;
-        this.mPullView = null;
-        this.mNoDataView = null;
-        this.mImageUrl = null;
-        this.mIsFirst = false;
-        this.mCallback = new c(this);
-        this.mHeadImageProvider = new d(this);
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        this.h = null;
+        this.i = null;
+        this.j = null;
+        this.k = false;
+        this.l = new c(this);
+        this.m = new d(this);
     }
 
-    private void initData(Bundle bundle) {
+    public final void O1(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65551, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             if (bundle != null) {
-                this.mModel = new ForumRankModel(bundle);
+                this.b = new ForumRankModel(bundle);
             } else {
-                this.mModel = new ForumRankModel(getIntent());
+                this.b = new ForumRankModel(getIntent());
             }
-            this.mIsFirst = true;
-            this.mModel.setLoadDataCallBack(this.mCallback);
-            kd8 kd8Var = new kd8(getPageContext(), 0);
-            this.mAdapter = kd8Var;
-            kd8Var.e(100);
-            this.mAdapter.h(Boolean.TRUE);
-            this.mAdapter.g(ForumDetailActivityConfig.FromType.BAR_RANK);
-            this.mListView.setAdapter((ListAdapter) this.mAdapter);
-            if (this.mModel.loadData()) {
-                this.mAdapter.e(100);
+            this.k = true;
+            this.b.setLoadDataCallBack(this.l);
+            re8 re8Var = new re8(getPageContext(), 0);
+            this.c = re8Var;
+            re8Var.e(100);
+            this.c.h(Boolean.TRUE);
+            this.c.g(ForumDetailActivityConfig.FromType.BAR_RANK);
+            this.a.setAdapter((ListAdapter) this.c);
+            if (this.b.loadData()) {
+                this.c.e(100);
                 showProgressBar();
             }
             LikeModel likeModel = new LikeModel(getPageContext());
-            this.mLikeModel = likeModel;
-            this.mAdapter.j(likeModel);
+            this.f = likeModel;
+            this.c.j(likeModel);
         }
     }
 
-    private void initUI() {
+    public final void P1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65552, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d02b7);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            setContentView(R.layout.obfuscated_res_0x7f0d02b4);
             TbImageView tbImageView = new TbImageView(getPageContext().getPageActivity());
-            this.mImage = tbImageView;
+            this.e = tbImageView;
             tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923a2);
-            this.mNavigationBar = navigationBar;
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09238f);
+            this.d = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.mNavigationBar.setTitleText("");
-            this.mListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f09123c);
-            this.mImage.setLayoutParams(new AbsListView.LayoutParams(li.k(getPageContext().getPageActivity()), (int) (li.k(getPageContext().getPageActivity()) * 0.5d)));
-            this.mImage.setVisibility(8);
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02b0, (ViewGroup) null);
-            this.mRecommendListFooter = linearLayout;
+            this.d.setTitleText("");
+            this.a = (BdListView) findViewById(R.id.obfuscated_res_0x7f091231);
+            this.e.setLayoutParams(new AbsListView.LayoutParams(pi.k(getPageContext().getPageActivity()), (int) (pi.k(getPageContext().getPageActivity()) * 0.5d)));
+            this.e.setVisibility(8);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02ad, (ViewGroup) null);
+            this.g = linearLayout;
             linearLayout.setOnClickListener(new a(this));
-            gt4 gt4Var = new gt4(getPageContext());
-            this.mPullView = gt4Var;
-            this.mListView.setPullRefresh(gt4Var);
+            pt4 pt4Var = new pt4(getPageContext());
+            this.h = pt4Var;
+            this.a.setPullRefresh(pt4Var);
             TextView textView = new TextView(getActivity());
-            textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + li.f(getActivity(), R.dimen.obfuscated_res_0x7f070282)));
-            this.mListView.x(textView, 0);
-            this.mPullView.e(new b(this));
-            this.mNoDataView = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0908a7);
+            textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + pi.f(getActivity(), R.dimen.obfuscated_res_0x7f070282)));
+            this.a.x(textView, 0);
+            this.h.f(new b(this));
+            this.i = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090892);
         }
     }
 
-    private void updateLike() {
+    public final void Q1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            ForumInfoData[] a2 = this.mAdapter.a();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ForumInfoData[] a2 = this.c.a();
             for (int i = 0; i < a2.length; i++) {
                 int hasLikeForum = TbadkCoreApplication.getInst().hasLikeForum(a2[i].forum_name);
                 if (hasLikeForum == 1) {
@@ -342,36 +340,36 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
                     a2[i].is_like = 0;
                 }
             }
-            this.mAdapter.f(a2);
+            this.c.f(a2);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.d.onChangeSkinType(getPageContext(), i);
             if (i != 1 && i != 4) {
-                this.mListView.setBackgroundColor(getResources().getColor(R.color.common_color_10163));
-                this.mAdapter.d(false);
+                this.a.setBackgroundColor(getResources().getColor(R.color.common_color_10163));
+                this.c.d(false);
             } else {
-                this.mListView.setBackgroundColor(getResources().getColor(R.color.common_color_10150));
-                this.mAdapter.d(true);
+                this.a.setBackgroundColor(getResources().getColor(R.color.common_color_10150));
+                this.c.d(true);
             }
-            SkinManager.setFrsPBBgColor(findViewById(R.id.obfuscated_res_0x7f091adb), i);
-            this.mPullView.H(i);
-            this.mAdapter.i(R.drawable.btn_add_end, R.drawable.btn_add);
-            SkinManager.setBackgroundResource(this.mRecommendListFooter, R.drawable.bg_black_banner_down);
+            SkinManager.setFrsPBBgColor(findViewById(R.id.obfuscated_res_0x7f091ad3), i);
+            this.h.H(i);
+            this.c.i(R.drawable.btn_add_end, R.drawable.btn_add);
+            SkinManager.setBackgroundResource(this.g, R.drawable.bg_black_banner_down);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            initUI();
-            initData(bundle);
+            P1();
+            O1(bundle);
         }
     }
 
@@ -379,28 +377,28 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
     public void onNetRefreshButtonClicked() {
         ForumRankModel forumRankModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (forumRankModel = this.mModel) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (forumRankModel = this.b) == null) {
             return;
         }
         forumRankModel.loadData();
-        hideNetRefreshView(findViewById(R.id.obfuscated_res_0x7f091adb));
+        hideNetRefreshView(findViewById(R.id.obfuscated_res_0x7f091ad3));
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onResume();
-            updateLike();
+            Q1();
         }
     }
 
     @Override // android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
-            this.mModel.F(bundle);
+            this.b.G(bundle);
         }
     }
 }

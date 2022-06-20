@@ -1,27 +1,26 @@
 package com.repackage;
 
-import android.content.Intent;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: LikeSign.java */
 /* loaded from: classes5.dex */
-public class bn6 {
+public final /* synthetic */ class bn6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static an6 a(fn6 fn6Var, Intent intent) {
-        InterceptResult invokeLL;
+    public static void a(@NonNull TBSpecificationBtn tBSpecificationBtn) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, fn6Var, intent)) == null) {
-            int intExtra = intent.getIntExtra("transition_type", 0);
-            if (intExtra == 1) {
-                return new gn6(fn6Var, intent);
+        if ((interceptable == null || interceptable.invokeL(65536, null, tBSpecificationBtn) == null) && UbsABTestHelper.isFrsModifyABTestA()) {
+            Object tag = tBSpecificationBtn.getTag(R.id.obfuscated_res_0x7f090f62);
+            if ((tag instanceof Boolean) && ((Boolean) tag).booleanValue()) {
+                xt4 xt4Var = (xt4) tBSpecificationBtn.getStyleConfig();
+                xt4Var.t(R.color.CAM_X0105);
+                tBSpecificationBtn.setConfig(xt4Var);
             }
-            if (intExtra == 2) {
-                return new zm6(fn6Var, intent);
-            }
-            return null;
         }
-        return (an6) invokeLL.objValue;
     }
 }

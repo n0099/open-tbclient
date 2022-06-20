@@ -1,56 +1,19 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.player.helper.NetUtils;
+import com.baidu.searchbox.player.event.SystemEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.kr0;
 /* loaded from: classes6.dex */
-public abstract class hr0 implements lr0 {
+public class hr0 extends tq0 implements kr0.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final a a;
-    public int b;
-
-    /* loaded from: classes6.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hr0 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(hr0 hr0Var, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hr0Var, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hr0Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
-                this.a.doTask();
-                sendMessageDelayed(obtainMessage(1), this.a.b);
-            }
-        }
-    }
+    public final kr0 b;
 
     public hr0() {
         Interceptable interceptable = $ic;
@@ -65,24 +28,97 @@ public abstract class hr0 implements lr0 {
                 return;
             }
         }
-        this.a = new a(this, Looper.getMainLooper());
-        this.b = 500;
+        this.b = new kr0(this);
     }
 
-    @Override // com.repackage.lr0
-    public void cancel() {
+    @Override // com.repackage.kr0.a
+    public void a(NetUtils.NetStatus netStatus, NetUtils.NetStatus netStatus2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.removeMessages(1);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, netStatus, netStatus2) == null) {
+            ir0 w = gr0.w(SystemEvent.ACTION_CONNECT_CHANGED);
+            w.n(1, netStatus2);
+            c(w);
         }
     }
 
-    @Override // com.repackage.lr0
-    public void start() {
+    @Override // com.repackage.kr0.a
+    public void onBatteryChanged(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            cancel();
-            this.a.obtainMessage(1).sendToTarget();
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            ir0 w = gr0.w(SystemEvent.ACTION_BATTERY_CHANGED);
+            w.r(1);
+            w.n(4, Integer.valueOf(i));
+            c(w);
+        }
+    }
+
+    @Override // com.repackage.kr0.a
+    public void onBluetoothHeadsetChanged(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            ir0 w = gr0.w(SystemEvent.ACTION_BLUETOOTH_HEADSET);
+            w.n(6, Boolean.valueOf(z));
+            c(w);
+        }
+    }
+
+    @Override // com.repackage.kr0.a
+    public void onConfigurationChanged() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            c(gr0.w(SystemEvent.ACTION_CONFIGURATION_CHANGED));
+        }
+    }
+
+    @Override // com.repackage.kr0.a
+    public void onHeadsetPlug(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            ir0 w = gr0.w(SystemEvent.ACTION_HEADSET_PLUG);
+            w.n(3, Boolean.valueOf(z));
+            c(w);
+        }
+    }
+
+    @Override // com.repackage.kr0.a
+    public void onScreenStatusChanged(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            ir0 w = gr0.w(z ? SystemEvent.ACTION_SCREEN_OFF : SystemEvent.ACTION_SCREEN_ON);
+            w.n(2, Boolean.valueOf(z));
+            c(w);
+        }
+    }
+
+    @Override // com.repackage.kr0.a
+    public void onVolumeChanged(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            ir0 w = gr0.w(SystemEvent.ACTION_VOLUME_CHANGED);
+            w.n(5, Integer.valueOf(i));
+            c(w);
+        }
+    }
+
+    public void registerReceiver() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            try {
+                this.b.registerReceiver();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void unregisterReceiver() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            try {
+                this.b.unregisterReceiver();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }

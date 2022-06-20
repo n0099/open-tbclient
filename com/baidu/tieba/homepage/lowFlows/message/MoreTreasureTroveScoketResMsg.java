@@ -1,5 +1,6 @@
 package com.baidu.tieba.homepage.lowFlows.message;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,18 +8,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jn;
-import com.repackage.uu6;
-import com.repackage.zu6;
+import com.repackage.cw6;
+import com.repackage.hw6;
+import com.repackage.nn;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
 import tbclient.MoreTreasureTrove.MoreTreasureTroveResIdl;
 /* loaded from: classes3.dex */
-public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implements uu6 {
+public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implements cw6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<jn> mMoreTreasureTroveDataList;
+    public List<nn> mMoreTreasureTroveDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MoreTreasureTroveScoketResMsg() {
@@ -38,26 +39,33 @@ public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implem
         }
     }
 
-    @Override // com.repackage.uu6
-    public List<jn> getDataList() {
-        InterceptResult invokeV;
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mMoreTreasureTroveDataList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            if (bArr == null) {
+                return null;
+            }
+            MoreTreasureTroveResIdl moreTreasureTroveResIdl = (MoreTreasureTroveResIdl) new Wire(new Class[0]).parseFrom(bArr, MoreTreasureTroveResIdl.class);
+            if (moreTreasureTroveResIdl != null) {
+                Error error = moreTreasureTroveResIdl.error;
+                if (error != null) {
+                    setError(error.errorno.intValue());
+                    setErrorString(moreTreasureTroveResIdl.error.usermsg);
+                }
+                this.mMoreTreasureTroveDataList = hw6.b(moreTreasureTroveResIdl);
+            }
+            return moreTreasureTroveResIdl;
+        }
+        return invokeIL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        MoreTreasureTroveResIdl moreTreasureTroveResIdl;
+    @Override // com.repackage.cw6
+    public List<nn> getDataList() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || bArr == null || (moreTreasureTroveResIdl = (MoreTreasureTroveResIdl) new Wire(new Class[0]).parseFrom(bArr, MoreTreasureTroveResIdl.class)) == null) {
-            return;
-        }
-        Error error = moreTreasureTroveResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(moreTreasureTroveResIdl.error.usermsg);
-        }
-        this.mMoreTreasureTroveDataList = zu6.b(moreTreasureTroveResIdl);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mMoreTreasureTroveDataList : (List) invokeV.objValue;
     }
 }

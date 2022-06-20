@@ -1,12 +1,48 @@
 package com.repackage;
 
+import android.app.Activity;
 import android.content.Context;
-import org.json.JSONArray;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
 /* loaded from: classes6.dex */
 public interface pj1 {
-    long a(Context context);
 
-    void b(Context context, String str, ae3<String> ae3Var);
+    /* loaded from: classes6.dex */
+    public interface a {
+        void onFinish();
+    }
 
-    void c(Context context, JSONArray jSONArray, ae3<String> ae3Var);
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(boolean z);
+
+        void b(Exception exc);
+    }
+
+    /* loaded from: classes6.dex */
+    public interface c {
+        void a(boolean z);
+
+        void b();
+    }
+
+    void a(a aVar);
+
+    void b(Activity activity, Bundle bundle, eg1 eg1Var);
+
+    void c(gg1 gg1Var);
+
+    String d(@NonNull Context context);
+
+    boolean e(Context context);
+
+    String f(@NonNull Context context);
+
+    void g(c cVar);
+
+    String h(Context context);
+
+    String i(@NonNull Context context);
+
+    void j(eg1 eg1Var);
 }

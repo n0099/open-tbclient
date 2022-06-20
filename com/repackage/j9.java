@@ -1,7 +1,18 @@
 package com.repackage;
 
-import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteAbortException;
+import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteDatabaseCorruptException;
+import android.database.sqlite.SQLiteDiskIOException;
+import android.database.sqlite.SQLiteDoneException;
+import android.database.sqlite.SQLiteException;
+import android.database.sqlite.SQLiteFullException;
+import android.database.sqlite.SQLiteMisuseException;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,149 +20,205 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g9;
-import java.io.File;
+import com.repackage.i9;
+import java.sql.SQLException;
 /* loaded from: classes6.dex */
-public abstract class j9 implements g9 {
+public class j9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g9.a callback;
-    public SQLiteDatabase database;
-    public final String dbFileFullPath;
-    public int mVersion;
+    public SQLiteDatabase a;
+    public i9.a b;
+    public i9 c;
 
-    public j9(String str, int i) {
+    public j9(i9 i9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i)};
+            Object[] objArr = {i9Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mVersion = 1;
-        this.database = null;
-        this.mVersion = i;
-        this.dbFileFullPath = str;
+        this.a = null;
+        this.b = null;
+        this.c = i9Var;
     }
 
-    private void exeCallback(SQLiteDatabase sQLiteDatabase) {
-        g9.a aVar;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, sQLiteDatabase) == null) || (aVar = this.callback) == null) {
-            return;
-        }
-        aVar.onDatabaseCreated(sQLiteDatabase);
-    }
-
-    private void onCreateDatabase(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, sQLiteDatabase) == null) {
-            onCreate(sQLiteDatabase);
-            exeCallback(sQLiteDatabase);
-        }
-    }
-
-    private void onUpdateDatabase(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65539, this, sQLiteDatabase, i, i2) == null) {
-            if (i2 > i) {
-                onUpgrade(sQLiteDatabase, i, i2);
-            } else {
-                onDowngrade(sQLiteDatabase, i, i2);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                if (this.a != null) {
+                    this.a.close();
+                    this.a = null;
+                }
+            } catch (Exception e) {
+                BdLog.e("closeDatabase：" + e.getMessage());
             }
-            exeCallback(sQLiteDatabase);
         }
     }
 
-    public abstract void clearAllTables(SQLiteDatabase sQLiteDatabase);
+    public boolean b() {
+        InterceptResult invokeV;
+        boolean dropDatabase;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (j9.class) {
+                a();
+                try {
+                    dropDatabase = this.c.dropDatabase(BdBaseApplication.getInst().getContext());
+                } catch (Exception e) {
+                    BdLog.e("deleteDatabase：" + e.getMessage());
+                    this.a = null;
+                    return false;
+                }
+            }
+            return dropDatabase;
+        }
+        return invokeV.booleanValue;
+    }
 
-    public abstract void createAllTables(SQLiteDatabase sQLiteDatabase);
+    public final void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            synchronized (j9.class) {
+                if (this.a == null || !this.a.isOpen()) {
+                    try {
+                        this.c.setOnCreateCallback(this.b);
+                        this.a = this.c.getWritableDatabase();
+                    } catch (RuntimeException e) {
+                        if (z) {
+                            i(e, "ensureDatabaseReady");
+                        } else {
+                            throw e;
+                        }
+                    }
+                }
+            }
+        }
+    }
 
-    @Override // com.repackage.g9
-    public boolean dropDatabase(Context context) {
+    public boolean d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            File file = new File(this.dbFileFullPath);
-            if (file.exists()) {
-                return file.delete();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            SQLiteDatabase f = f();
+            if (f != null) {
+                try {
+                    f.execSQL(str);
+                    return true;
+                } catch (Throwable th) {
+                    i(th, "execSQLNoException:" + str);
+                    return false;
+                }
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    public boolean executeDDLSqlIgnoreAnyErrors(SQLiteDatabase sQLiteDatabase, String str) {
+    public boolean e(String str, Object[] objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, sQLiteDatabase, str)) == null) {
-            try {
-                sQLiteDatabase.execSQL(str);
-                return true;
-            } catch (Throwable th) {
-                BdLog.e(str + ":" + th);
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, objArr)) == null) {
+            SQLiteDatabase f = f();
+            if (f != null) {
+                try {
+                    f.execSQL(str, objArr);
+                    return true;
+                } catch (Throwable th) {
+                    i(th, "execSQLNoException:" + str);
+                    return false;
+                }
             }
+            return false;
         }
         return invokeLL.booleanValue;
     }
 
-    @Override // com.repackage.g9
-    public SQLiteDatabase getWritableDatabase() {
+    public SQLiteDatabase f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            File file = new File(this.dbFileFullPath);
-            if (file.getParentFile() != null && (file.getParentFile().exists() || file.getParentFile().mkdirs())) {
-                boolean exists = file.exists();
-                SQLiteDatabase openOrCreateDatabase = SQLiteDatabase.openOrCreateDatabase(this.dbFileFullPath, (SQLiteDatabase.CursorFactory) null);
-                this.database = openOrCreateDatabase;
-                if (openOrCreateDatabase != null) {
-                    if (!exists) {
-                        onCreateDatabase(openOrCreateDatabase);
-                        this.database.setVersion(this.mVersion);
-                    } else {
-                        int version = openOrCreateDatabase.getVersion();
-                        int i = this.mVersion;
-                        if (version != i) {
-                            onUpdateDatabase(this.database, version, i);
-                            this.database.setVersion(this.mVersion);
-                        }
-                    }
-                }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? g(true) : (SQLiteDatabase) invokeV.objValue;
+    }
+
+    public SQLiteDatabase g(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
+            c(z);
+            return this.a;
+        }
+        return (SQLiteDatabase) invokeZ.objValue;
+    }
+
+    public void h(String str, int i, String str2, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(1048583, this, str, i, str2, objArr) == null) {
+            try {
+                BdStatisticsManager.getInstance().db(str, "", i, str2, objArr);
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
-            return this.database;
-        }
-        return (SQLiteDatabase) invokeV.objValue;
-    }
-
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, sQLiteDatabase) == null) {
-            createAllTables(sQLiteDatabase);
         }
     }
 
-    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+    public void i(Throwable th, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048582, this, sQLiteDatabase, i, i2) == null) {
-            clearAllTables(sQLiteDatabase);
-            createAllTables(sQLiteDatabase);
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, th, str) == null) && th != null && (th instanceof SQLiteException)) {
+            int i = -17;
+            if (((SQLiteException) th) instanceof SQLiteDatabaseCorruptException) {
+                BdLog.w("database corrupted. recreate!");
+                try {
+                    b();
+                } catch (Throwable th2) {
+                    BdLog.detailException("failed to drop database. msg:", th2);
+                }
+                i = -14;
+                this.a = null;
+            } else if (th instanceof SQLiteAbortException) {
+                i = -11;
+            } else if (th instanceof SQLiteConstraintException) {
+                i = -12;
+            } else if (th instanceof SQLiteDiskIOException) {
+                i = -15;
+                this.a = null;
+            } else if (th instanceof SQLiteFullException) {
+                i = -16;
+                this.a = null;
+            } else if (th instanceof SQLiteDoneException) {
+                i = -19;
+                this.a = null;
+            } else if (!(th instanceof SQLiteMisuseException)) {
+                this.a = null;
+            }
+            h(str, i, th.getMessage(), new Object[0]);
         }
     }
 
-    @Override // com.repackage.g9
-    public void setOnCreateCallback(g9.a aVar) {
+    public Cursor j(String str, String[] strArr) throws Exception {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.callback = aVar;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, strArr)) == null) {
+            SQLiteDatabase g = g(false);
+            if (g != null) {
+                return g.rawQuery(str, strArr);
+            }
+            throw new SQLException("unable to open database.");
+        }
+        return (Cursor) invokeLL.objValue;
+    }
+
+    public void k(i9.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
+            this.b = aVar;
         }
     }
 }

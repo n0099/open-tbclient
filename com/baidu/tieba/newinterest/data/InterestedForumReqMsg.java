@@ -1,7 +1,6 @@
 package com.baidu.tieba.newinterest.data;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dc5;
+import com.repackage.qc5;
 import java.util.List;
 import tbclient.GetVerticalForumList.DataReq;
 import tbclient.GetVerticalForumList.GetVerticalForumListReqIdl;
@@ -45,11 +44,7 @@ public class InterestedForumReqMsg extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                dc5.a(builder, true);
-            }
-            if (!UbsABTestHelper.isInterestGuideStyleAOrB()) {
-                builder.begin_id = 1;
-                builder.pn = 0;
+                qc5.a(builder, true);
             }
             builder.classid_list = this.classidList;
             GetVerticalForumListReqIdl.Builder builder2 = new GetVerticalForumListReqIdl.Builder();

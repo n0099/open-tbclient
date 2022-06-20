@@ -31,28 +31,9 @@ public class PersonPrivateData extends OrmObject {
         this.a = 1;
     }
 
-    public void parserJson(JSONObject jSONObject) {
+    public void A(PrivSets privSets) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        jSONObject.optInt("location", 1);
-        this.a = jSONObject.optInt("like", 1);
-        jSONObject.optInt("group", 1);
-        jSONObject.optInt("post", 1);
-        jSONObject.optInt("friend", 1);
-        jSONObject.optInt("live", 1);
-    }
-
-    public int y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public void z(PrivSets privSets) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, privSets) == null) || privSets == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, privSets) == null) || privSets == null) {
             return;
         }
         try {
@@ -65,5 +46,24 @@ public class PersonPrivateData extends OrmObject {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        jSONObject.optInt("location", 1);
+        this.a = jSONObject.optInt("like", 1);
+        jSONObject.optInt("group", 1);
+        jSONObject.optInt("post", 1);
+        jSONObject.optInt("friend", 1);
+        jSONObject.optInt("live", 1);
+    }
+
+    public int z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
     }
 }

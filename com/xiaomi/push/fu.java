@@ -1,61 +1,238 @@
 package com.xiaomi.push;
 
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tieba.video.VideoItemModel;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.service.XMPushService;
+import com.xiaomi.push.dx;
+import com.xiaomi.push.fw;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class fu extends XMPushService.i {
+public class fu implements gi {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ fs a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ Exception f395a;
-    public final /* synthetic */ int b;
+    public a f389a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fu(fs fsVar, int i, int i2, Exception exc) {
-        super(i);
+    /* renamed from: a  reason: collision with other field name */
+    public fw f390a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public fz f391a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public final String f392a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public SimpleDateFormat f393a;
+    public a b;
+
+    /* loaded from: classes8.dex */
+    public class a implements gb, gj {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fu a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public String f394a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public boolean f395a;
+
+        public a(fu fuVar, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fuVar, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fuVar;
+            this.f395a = true;
+            this.f395a = z;
+            this.f394a = z ? " RCV " : " Sent ";
+        }
+
+        @Override // com.xiaomi.push.gb
+        public void a(fl flVar) {
+            StringBuilder sb;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, flVar) == null) {
+                if (fu.a) {
+                    sb = new StringBuilder();
+                    sb.append("[Slim] ");
+                    sb.append(this.a.f393a.format(new Date()));
+                    sb.append(this.f394a);
+                    str = flVar.toString();
+                } else {
+                    sb = new StringBuilder();
+                    sb.append("[Slim] ");
+                    sb.append(this.a.f393a.format(new Date()));
+                    sb.append(this.f394a);
+                    sb.append(" Blob [");
+                    sb.append(flVar.m330a());
+                    sb.append(",");
+                    sb.append(flVar.a());
+                    sb.append(",");
+                    sb.append(flVar.e());
+                    str = PreferencesUtil.RIGHT_MOUNT;
+                }
+                sb.append(str);
+                com.xiaomi.channel.commonutils.logger.b.c(sb.toString());
+                if (flVar == null || flVar.a() != 99999) {
+                    return;
+                }
+                String m330a = flVar.m330a();
+                fl flVar2 = null;
+                if (!this.f395a) {
+                    if ("BIND".equals(m330a)) {
+                        com.xiaomi.channel.commonutils.logger.b.m84a("build binded result for loopback.");
+                        dx.d dVar = new dx.d();
+                        dVar.a(true);
+                        dVar.c("login success.");
+                        dVar.b("success");
+                        dVar.a("success");
+                        fl flVar3 = new fl();
+                        flVar3.a(dVar.m298a(), (String) null);
+                        flVar3.a((short) 2);
+                        flVar3.a(VideoItemModel.TYPE_LOADING);
+                        flVar3.a("BIND", (String) null);
+                        flVar3.a(flVar.e());
+                        flVar3.b((String) null);
+                        flVar3.c(flVar.g());
+                        flVar2 = flVar3;
+                    } else if (!"UBND".equals(m330a) && "SECMSG".equals(m330a)) {
+                        fl flVar4 = new fl();
+                        flVar4.a(VideoItemModel.TYPE_LOADING);
+                        flVar4.a("SECMSG", (String) null);
+                        flVar4.c(flVar.g());
+                        flVar4.a(flVar.e());
+                        flVar4.a(flVar.m332a());
+                        flVar4.b(flVar.f());
+                        flVar4.a(flVar.m335a(com.xiaomi.push.service.bg.a().a(String.valueOf((int) VideoItemModel.TYPE_LOADING), flVar.g()).h), (String) null);
+                        flVar2 = flVar4;
+                    }
+                }
+                if (flVar2 != null) {
+                    for (Map.Entry<gb, fw.a> entry : this.a.f390a.m350a().entrySet()) {
+                        if (this.a.f389a != entry.getKey()) {
+                            entry.getValue().a(flVar2);
+                        }
+                    }
+                }
+            }
+        }
+
+        @Override // com.xiaomi.push.gb, com.xiaomi.push.gj
+        public void a(gn gnVar) {
+            StringBuilder sb;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gnVar) == null) {
+                if (fu.a) {
+                    sb = new StringBuilder();
+                    sb.append("[Slim] ");
+                    sb.append(this.a.f393a.format(new Date()));
+                    sb.append(this.f394a);
+                    sb.append(" PKT ");
+                    str = gnVar.m366a();
+                } else {
+                    sb = new StringBuilder();
+                    sb.append("[Slim] ");
+                    sb.append(this.a.f393a.format(new Date()));
+                    sb.append(this.f394a);
+                    sb.append(" PKT [");
+                    sb.append(gnVar.k());
+                    sb.append(",");
+                    sb.append(gnVar.j());
+                    str = PreferencesUtil.RIGHT_MOUNT;
+                }
+                sb.append(str);
+                com.xiaomi.channel.commonutils.logger.b.c(sb.toString());
+            }
+        }
+
+        @Override // com.xiaomi.push.gb, com.xiaomi.push.gj
+        public boolean a(gn gnVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gnVar)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-56374447, "Lcom/xiaomi/push/fu;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-56374447, "Lcom/xiaomi/push/fu;");
+        }
+    }
+
+    public fu(fw fwVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fsVar, Integer.valueOf(i), Integer.valueOf(i2), exc};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            Object[] objArr = {fwVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = fsVar;
-        this.b = i2;
-        this.f395a = exc;
+        this.f393a = new SimpleDateFormat("hh:mm:ss aaa");
+        this.f390a = null;
+        this.f389a = null;
+        this.b = null;
+        this.f391a = null;
+        this.f392a = "[Slim] ";
+        this.f390a = fwVar;
+        a();
     }
 
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public String a() {
-        InterceptResult invokeV;
+    private void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "shutdown the connection. " + this.b + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f395a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.b.a(this.b, this.f395a);
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+            this.f389a = new a(this, true);
+            this.b = new a(this, false);
+            fw fwVar = this.f390a;
+            a aVar = this.f389a;
+            fwVar.a(aVar, aVar);
+            fw fwVar2 = this.f390a;
+            a aVar2 = this.b;
+            fwVar2.b(aVar2, aVar2);
+            this.f391a = new fv(this);
         }
     }
 }

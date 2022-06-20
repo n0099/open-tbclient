@@ -1,5 +1,6 @@
 package com.baidu.tieba.enterForum.message;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cq4;
+import com.repackage.mq4;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
@@ -51,106 +52,142 @@ public class ForumGuideSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
+        DataRes dataRes;
+        String str;
+        Integer num;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bArr)) == null) {
+            ForumGuideResIdl forumGuideResIdl = (ForumGuideResIdl) new Wire(new Class[0]).parseFrom(bArr, ForumGuideResIdl.class);
+            if (forumGuideResIdl == null) {
+                return null;
+            }
+            Error error = forumGuideResIdl.error;
+            if (error != null && (num = error.errorno) != null) {
+                setError(num.intValue());
+            }
+            Error error2 = forumGuideResIdl.error;
+            if (error2 != null && (str = error2.usermsg) != null && str.length() > 0) {
+                setErrorString(forumGuideResIdl.error.usermsg);
+            }
+            if (getError() == 0 && (dataRes = forumGuideResIdl.data) != null) {
+                this.likeForum = dataRes.like_forum;
+                this.hotSearches = dataRes.hot_search;
+                this.forumCreateInfo = dataRes.forum_create_info;
+                this.isLogin = dataRes.is_login;
+                this.msignValid = dataRes.msign_valid;
+                this.msignText = dataRes.msign_text;
+                this.msignLevel = dataRes.msign_level;
+                this.voiceRoomList = dataRes.voice_room_list;
+            }
+            return forumGuideResIdl;
+        }
+        return invokeIL.objValue;
+    }
+
     public ForumCreateInfo getForumCreateInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.forumCreateInfo : (ForumCreateInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.forumCreateInfo : (ForumCreateInfo) invokeV.objValue;
     }
 
     public List<HotSearch> getHotSearches() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.hotSearches : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.hotSearches : (List) invokeV.objValue;
     }
 
     public Integer getIsLogin() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.isLogin : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.isLogin : (Integer) invokeV.objValue;
     }
 
     public List<LikeForum> getLikeForum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.likeForum : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.likeForum : (List) invokeV.objValue;
     }
 
     public Integer getMsignLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.msignLevel : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.msignLevel : (Integer) invokeV.objValue;
     }
 
     public String getMsignText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.msignText : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.msignText : (String) invokeV.objValue;
     }
 
     public Integer getMsignValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.msignValid : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.msignValid : (Integer) invokeV.objValue;
     }
 
     public List<ThreadInfo> getVoiceRoomList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.voiceRoomList : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.voiceRoomList : (List) invokeV.objValue;
     }
 
     public void setForumCreateInfo(ForumCreateInfo forumCreateInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, forumCreateInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, forumCreateInfo) == null) {
             this.forumCreateInfo = forumCreateInfo;
         }
     }
 
     public void setHotSearches(List<HotSearch> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
             this.hotSearches = list;
         }
     }
 
     public void setIsLogin(Integer num) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, num) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, num) == null) {
             this.isLogin = num;
         }
     }
 
     public void setLikeForum(List<LikeForum> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, list) == null) {
             this.likeForum = list;
         }
     }
 
     public void setMsignLevel(Integer num) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, num) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, num) == null) {
             this.msignLevel = num;
         }
     }
 
     public void setMsignText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
             this.msignText = str;
         }
     }
 
     public void setMsignValid(Integer num) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, num) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, num) == null) {
             this.msignValid = num;
         }
     }
 
     public void setVoiceRoomList(List<ThreadInfo> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, list) == null) {
             this.voiceRoomList = list;
         }
     }
@@ -162,38 +199,7 @@ public class ForumGuideSocketResponseMessage extends SocketResponsedMessage {
         if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || bArr == null || bArr.length <= 0 || getError() != 0) {
             return;
         }
-        cq4.f();
-        cq4.e("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).a(EnterForumModel.FORUMRGUIDE_CACHE_KEY, bArr);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        ForumGuideResIdl forumGuideResIdl;
-        DataRes dataRes;
-        String str;
-        Integer num;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) || (forumGuideResIdl = (ForumGuideResIdl) new Wire(new Class[0]).parseFrom(bArr, ForumGuideResIdl.class)) == null) {
-            return;
-        }
-        Error error = forumGuideResIdl.error;
-        if (error != null && (num = error.errorno) != null) {
-            setError(num.intValue());
-        }
-        Error error2 = forumGuideResIdl.error;
-        if (error2 != null && (str = error2.usermsg) != null && str.length() > 0) {
-            setErrorString(forumGuideResIdl.error.usermsg);
-        }
-        if (getError() == 0 && (dataRes = forumGuideResIdl.data) != null) {
-            this.likeForum = dataRes.like_forum;
-            this.hotSearches = dataRes.hot_search;
-            this.forumCreateInfo = dataRes.forum_create_info;
-            this.isLogin = dataRes.is_login;
-            this.msignValid = dataRes.msign_valid;
-            this.msignText = dataRes.msign_text;
-            this.msignLevel = dataRes.msign_level;
-            this.voiceRoomList = dataRes.voice_room_list;
-        }
+        mq4.f();
+        mq4.e("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).a(EnterForumModel.FORUMRGUIDE_CACHE_KEY, bArr);
     }
 }

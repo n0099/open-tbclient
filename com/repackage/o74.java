@@ -1,13 +1,18 @@
 package com.repackage;
 
+import android.content.ContentProviderOperation;
+import android.content.ContentProviderResult;
+import android.content.ContentUris;
+import android.content.ContentValues;
 import android.database.Cursor;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.model.SwanAppBearInfo;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.swan.pms.PMSConstants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,13 +21,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class o74 implements n74<PMSAppInfo> {
+public class o74 extends n74 {
     public static /* synthetic */ Interceptable $ic;
-    public static final hc4 a;
-    public static final int b;
+    public static final sc4 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public r74 b;
 
     static {
         InterceptResult invokeClinit;
@@ -37,8 +46,7 @@ public class o74 implements n74<PMSAppInfo> {
                 return;
             }
         }
-        a = hc4.c();
-        b = PMSConstants.PayProtected.NO_PAY_PROTECTED.type;
+        c = sc4.c();
     }
 
     public o74() {
@@ -51,212 +59,844 @@ public class o74 implements n74<PMSAppInfo> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = new r74();
+    }
+
+    public final <T extends o84> boolean A(T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
+            try {
+                sc4 sc4Var = c;
+                sc4Var.i("PMSDBImpl", "#addPackage bundleId=" + t);
+                Uri insert = AppRuntime.getAppContext().getContentResolver().insert(this.b.b(t.getClass()), this.b.a(t.getClass()).c(t));
+                if (insert != null) {
+                    return ContentUris.parseId(insert) > 0;
+                }
+                return false;
+            } catch (Exception e) {
+                c.g("PMSDBImpl", "#addPackage error", e);
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final PMSAppInfo B(String str) {
+        InterceptResult invokeL;
+        Throwable th;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            try {
+                q74 a = this.b.a(PMSAppInfo.class);
+                cursor = AppRuntime.getAppContext().getContentResolver().query(this.b.b(PMSAppInfo.class), null, "app_id =? ", new String[]{str}, "version_code DESC");
+                if (cursor != null) {
+                    try {
+                        try {
+                            PMSAppInfo pMSAppInfo = (PMSAppInfo) a.d(cursor);
+                            vc4.a(cursor);
+                            return pMSAppInfo;
+                        } catch (Exception e) {
+                            e = e;
+                            c.g("PMSDBImpl", "#queryAppInfo error", e);
+                            vc4.a(cursor);
+                            return null;
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                        vc4.a(cursor);
+                        throw th;
+                    }
+                }
+            } catch (Exception e2) {
+                e = e2;
+                cursor = null;
+            } catch (Throwable th3) {
+                th = th3;
+                cursor = null;
+                vc4.a(cursor);
+                throw th;
+            }
+            vc4.a(cursor);
+            return null;
+        }
+        return (PMSAppInfo) invokeL.objValue;
+    }
+
+    public final <T> List<T> C(Class<T> cls, String str, String[] strArr, String str2) {
+        InterceptResult invokeLLLL;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, cls, str, strArr, str2)) == null) {
+            Cursor cursor2 = null;
+            try {
+                q74<T> a = this.b.a(cls);
+                cursor = AppRuntime.getAppContext().getContentResolver().query(this.b.b(cls), null, str, strArr, str2);
+                if (cursor != null) {
+                    try {
+                        try {
+                            List<T> e = a.e(cursor);
+                            vc4.a(cursor);
+                            return e;
+                        } catch (Exception e2) {
+                            e = e2;
+                            c.g("PMSDBImpl", "#queryAppInfoList error", e);
+                            vc4.a(cursor);
+                            return null;
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        cursor2 = cursor;
+                        vc4.a(cursor2);
+                        throw th;
+                    }
+                }
+            } catch (Exception e3) {
+                e = e3;
+                cursor = null;
+            } catch (Throwable th2) {
+                th = th2;
+                vc4.a(cursor2);
+                throw th;
+            }
+            vc4.a(cursor);
+            return null;
+        }
+        return (List) invokeLLLL.objValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:12:0x0034 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v2 */
+    /* JADX WARN: Type inference failed for: r0v3, types: [java.io.Closeable] */
+    /* JADX WARN: Type inference failed for: r0v4 */
+    public final <T> T D(Class<T> cls, String str) {
+        InterceptResult invokeLL;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, cls, str)) == null) {
+            ?? r0 = 0;
+            try {
+                try {
+                    q74<T> a = this.b.a(cls);
+                    cursor = AppRuntime.getAppContext().getContentResolver().query(this.b.b(cls), null, "bundle_id =? ", new String[]{str}, "version_code DESC");
+                    if (cursor != null) {
+                        try {
+                            T d = a.d(cursor);
+                            vc4.a(cursor);
+                            return d;
+                        } catch (Exception e) {
+                            e = e;
+                            c.g("PMSDBImpl", "#queryPackage error", e);
+                            vc4.a(cursor);
+                            return null;
+                        }
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    r0 = cls;
+                    vc4.a(r0);
+                    throw th;
+                }
+            } catch (Exception e2) {
+                e = e2;
+                cursor = null;
+            } catch (Throwable th2) {
+                th = th2;
+                vc4.a(r0);
+                throw th;
+            }
+            vc4.a(cursor);
+            return null;
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    public final <T> List<T> E(Class<T> cls, String str, String[] strArr, String str2) {
+        InterceptResult invokeLLLL;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, cls, str, strArr, str2)) == null) {
+            Cursor cursor2 = null;
+            try {
+                q74<T> a = this.b.a(cls);
+                cursor = AppRuntime.getAppContext().getContentResolver().query(this.b.b(cls), null, str, strArr, str2);
+                if (cursor != null) {
+                    try {
+                        try {
+                            List<T> e = a.e(cursor);
+                            vc4.a(cursor);
+                            return e;
+                        } catch (Exception e2) {
+                            e = e2;
+                            c.g("PMSDBImpl", "#queryPackageList error", e);
+                            vc4.a(cursor);
+                            return null;
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        cursor2 = cursor;
+                        vc4.a(cursor2);
+                        throw th;
+                    }
+                }
+            } catch (Exception e3) {
+                e = e3;
+                cursor = null;
+            } catch (Throwable th2) {
+                th = th2;
+                vc4.a(cursor2);
+                throw th;
+            }
+            vc4.a(cursor);
+            return null;
+        }
+        return (List) invokeLLLL.objValue;
+    }
+
+    public List<r84> F(String str, long j, long j2, boolean z) {
+        InterceptResult invokeCommon;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
+            Cursor cursor2 = null;
+            try {
+                q74 a = this.b.a(r84.class);
+                cursor = AppRuntime.getAppContext().getContentResolver().query(this.b.b(r84.class), null, "bundle_id = ? AND version_code >= ? AND version_code <= ? ", new String[]{str, String.valueOf(j), String.valueOf(j2)}, "version_code DESC");
+                if (cursor != null) {
+                    try {
+                        List<r84> singletonList = z ? Collections.singletonList(a.d(cursor)) : a.e(cursor);
+                        vc4.a(cursor);
+                        return singletonList;
+                    } catch (Exception unused) {
+                    } catch (Throwable th) {
+                        th = th;
+                        cursor2 = cursor;
+                        vc4.a(cursor2);
+                        throw th;
+                    }
+                }
+            } catch (Exception unused2) {
+                cursor = null;
+            } catch (Throwable th2) {
+                th = th2;
+            }
+            vc4.a(cursor);
+            return null;
+        }
+        return (List) invokeCommon.objValue;
+    }
+
+    @Override // com.repackage.n74
+    public boolean a(p84 p84Var, PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, p84Var, pMSAppInfo)) == null) ? b(p84Var, null, null, null, pMSAppInfo) : invokeLL.booleanValue;
+    }
+
+    @Override // com.repackage.n74
+    public boolean b(p84 p84Var, List<q84> list, n84 n84Var, l84 l84Var, PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeLLLLL;
+        ContentProviderResult[] applyBatch;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048583, this, p84Var, list, n84Var, l84Var, pMSAppInfo)) == null) {
+            c.i("PMSDBImpl", "#bulkInsert");
+            ArrayList<ContentProviderOperation> arrayList = new ArrayList<>();
+            if (p84Var != null) {
+                arrayList.add(ContentProviderOperation.newInsert(this.b.b(p84.class)).withValues(this.b.a(p84.class).c(p84Var)).build());
+            }
+            if (list != null && !list.isEmpty()) {
+                q74 a = this.b.a(q84.class);
+                for (q84 q84Var : list) {
+                    arrayList.add(ContentProviderOperation.newInsert(this.b.b(q84.class)).withValues(a.c(q84Var)).build());
+                }
+            }
+            if (n84Var != null) {
+                arrayList.add(ContentProviderOperation.newInsert(this.b.b(n84.class)).withValues(this.b.a(n84.class).c(n84Var)).build());
+            }
+            if (l84Var != null) {
+                arrayList.add(ContentProviderOperation.newInsert(this.b.b(l84.class)).withValues(this.b.a(l84.class).c(l84Var)).build());
+            }
+            if (pMSAppInfo != null) {
+                arrayList.add(ContentProviderOperation.newInsert(this.b.b(PMSAppInfo.class)).withValues(this.b.a(PMSAppInfo.class).c(pMSAppInfo)).build());
+            }
+            try {
+                for (ContentProviderResult contentProviderResult : AppRuntime.getAppContext().getContentResolver().applyBatch(h84.c, arrayList)) {
+                    if (contentProviderResult == null || (contentProviderResult.uri == null && contentProviderResult.count == null)) {
+                        return false;
+                    }
+                }
+                return true;
+            } catch (Exception e) {
+                c.g("PMSDBImpl", "#bulkInsert error", e);
+                return false;
+            }
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    @Override // com.repackage.n74
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            sc4 sc4Var = c;
+            sc4Var.i("PMSDBImpl", "#clearSubPackage appId=" + str);
+            if (TextUtils.isEmpty(str)) {
+                return;
+            }
+            try {
+                AppRuntime.getAppContext().getContentResolver().delete(this.b.b(q84.class), "app_id=?", new String[]{str});
+            } catch (Exception e) {
+                c.g("PMSDBImpl", "#clearSubPackage error", e);
             }
         }
     }
 
     @Override // com.repackage.n74
-    public void a(SQLiteDatabase sQLiteDatabase) {
+    public void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            sQLiteDatabase.execSQL(c());
+        if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
+            sc4 sc4Var = c;
+            sc4Var.i("PMSDBImpl", "#clearSubPackage appId=" + str + " versionCode=" + str2);
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return;
+            }
+            try {
+                AppRuntime.getAppContext().getContentResolver().delete(this.b.b(q84.class), "app_id=? AND version_code=?", new String[]{str, str2});
+            } catch (Exception e) {
+                c.g("PMSDBImpl", "#clearSubPackage error", e);
+            }
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, IF, INVOKE] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x004d, code lost:
-        if (r0.isClosed() == false) goto L15;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final boolean b(SQLiteDatabase sQLiteDatabase, String str) {
+    @Override // com.repackage.n74
+    public <T extends o84> boolean e(Class<T> cls, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, str)) == null) {
-            Cursor cursor = null;
-            boolean z = false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, cls, str)) == null) {
             try {
-                try {
-                    cursor = sQLiteDatabase.rawQuery("SELECT * FROM " + d() + " LIMIT 0", null);
-                    if (cursor != null) {
-                        if (cursor.getColumnIndex(str) != -1) {
-                            z = true;
-                        }
-                    }
-                } catch (Exception e) {
-                    a.g("PMSDBHelperAppInfo", "#checkColumnExist error", e);
-                    if (cursor != null) {
-                    }
-                }
-                return z;
-            } finally {
-                if (cursor != null && !cursor.isClosed()) {
-                    cursor.close();
-                }
+                sc4 sc4Var = c;
+                sc4Var.i("PMSDBImpl", "#deletePkg bundleId=" + str);
+            } catch (Exception e) {
+                c.g("PMSDBImpl", "#deletePkg error", e);
             }
+            return AppRuntime.getAppContext().getContentResolver().delete(this.b.b(cls), "bundle_id =? ", new String[]{str}) > 0;
         }
         return invokeLL.booleanValue;
     }
 
-    public final String c() {
-        InterceptResult invokeV;
+    @Override // com.repackage.n74
+    public boolean f(@NonNull r84 r84Var) {
+        InterceptResult invokeL;
+        Uri b;
+        String str;
+        String[] strArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "CREATE TABLE " + d() + "(_id INTEGER PRIMARY KEY AUTOINCREMENT,app_id TEXT UNIQUE," + GameGuideConfigInfo.KEY_APP_KEY + " TEXT NOT NULL,app_sign LONG DEFAULT 0,version_code INTEGER DEFAULT 0,version_name TEXT,description TEXT,app_status INTEGER,status_detail TEXT,status_desc TEXT,resume_date TEXT,icon_url TEXT,app_name TEXT NOT NULL,service_category TEXT,subject_info TEXT,type INTEGER,pkg_size LONG,pending_err_code INTEGER,app_category INTEGER,orientation INTEGER,max_age LONG,create_time LONG,webview_domains TEXT,web_action TEXT,domains TEXT," + SwanAppBearInfo.BEAR_INFO + " TEXT,server_ext TEXT,pay_protected INTEGER,customer_service INTEGER,global_notice INTEGER,global_private INTEGER,pa_number TEXT," + com.xiaomi.mipush.sdk.Constants.PHONE_BRAND + " TEXT,last_launch_time LONG DEFAULT 0,launch_count INTEGER DEFAULT 0,install_src INTEGER DEFAULT 0,web_url TEXT,quick_app_key TEXT,cs_protocol_version INTEGER DEFAULT 0,web_permit INTEGER DEFAULT 0,user_action_apis TEXT,rank INTEGER DEFAULT 0);";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "swan_app" : (String) invokeV.objValue;
-    }
-
-    public final void e(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, sQLiteDatabase) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, r84Var)) == null) {
             try {
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD customer_service INTEGER default " + PMSConstants.PayProtected.NO_PAY_PROTECTED.type + ParamableElem.DIVIDE_PARAM);
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD global_notice INTEGER default " + PMSConstants.CloudSwitch.NO_DISPLAY.value + ParamableElem.DIVIDE_PARAM);
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD global_private INTEGER default " + PMSConstants.CloudSwitch.NO_DISPLAY.value + ParamableElem.DIVIDE_PARAM);
-                StringBuilder sb = new StringBuilder();
-                sb.append("ALTER TABLE ");
-                sb.append(d());
-                sb.append(" ADD ");
-                sb.append("pa_number");
-                sb.append(" TEXT;");
-                sQLiteDatabase.execSQL(sb.toString());
-            } catch (SQLException e) {
-                a.g("PMSDBHelperAppInfo", "#updateSwanAppTableV1115 error", e);
-            }
-        }
-    }
-
-    public final void f(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD " + com.xiaomi.mipush.sdk.Constants.PHONE_BRAND + " TEXT;");
-            } catch (SQLException e) {
-                a.g("PMSDBHelperAppInfo", "#updateSwanAppTableV1117 error", e);
-            }
-        }
-    }
-
-    public final void g(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, sQLiteDatabase) == null) {
-            try {
-                String d = d();
-                sQLiteDatabase.execSQL("ALTER TABLE " + d + " ADD last_launch_time LONG DEFAULT 0;");
-                sQLiteDatabase.execSQL("ALTER TABLE " + d + " ADD launch_count INTEGER DEFAULT 0;");
-                sQLiteDatabase.execSQL("ALTER TABLE " + d + " ADD install_src INTEGER DEFAULT 0;");
-            } catch (SQLException e) {
-                a.g("PMSDBHelperAppInfo", "#updateSwanAppTableV1122 error", e);
-            }
-        }
-    }
-
-    public final void h(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD web_url TEXT;");
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD quick_app_key TEXT;");
-            } catch (SQLException e) {
-                a.g("PMSDBHelperAppInfo", "#updateSwanAppTableV1124 error", e);
-            }
-        }
-    }
-
-    public final void i(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD cs_protocol_version INTEGER DEFAULT 0;");
-            } catch (SQLException e) {
-                a.g("PMSDBHelperAppInfo", "#updateSwanAppTableV1125 error", e);
-            }
-        }
-    }
-
-    public final void j(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD pay_protected INTEGER default " + b + ParamableElem.DIVIDE_PARAM);
-            } catch (SQLException e) {
-                a.g("PMSDBHelperAppInfo", "#updateSwanAppTableV1180 error", e);
-            }
-        }
-    }
-
-    public final void k(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD web_permit INTEGER DEFAULT 0;");
-            } catch (SQLException e) {
-                a.g("PMSDBHelperAppInfo", "#updateSwanAppTableV1215 error", e);
-            }
-        }
-    }
-
-    public final void l(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, sQLiteDatabase) == null) {
-            try {
-                if (!b(sQLiteDatabase, "rank")) {
-                    sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD rank INTEGER DEFAULT 0;");
+                sc4 sc4Var = c;
+                sc4Var.i("PMSDBImpl", "#deletePlugin bundleId=" + r84Var.g + " versionCode=" + r84Var.i);
+                b = this.b.b(r84Var.getClass());
+                if (r84Var.i >= 0) {
+                    str = "bundle_id = ?  and version_code < ? ";
+                    strArr = new String[]{r84Var.g, String.valueOf(r84Var.i)};
+                } else {
+                    str = "bundle_id = ? ";
+                    strArr = new String[]{r84Var.g};
                 }
-                if (!b(sQLiteDatabase, "web_permit")) {
-                    sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD web_permit INTEGER DEFAULT 0;");
-                }
-                if (b(sQLiteDatabase, "user_action_apis")) {
-                    return;
-                }
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD user_action_apis TEXT;");
-            } catch (SQLException e) {
-                a.g("PMSDBHelperAppInfo", "#updateSwanAppTableV1217 error", e);
+            } catch (Exception e) {
+                c.g("PMSDBImpl", "#deletePlugin error", e);
             }
+            return AppRuntime.getAppContext().getContentResolver().delete(b, str, strArr) > 0;
         }
+        return invokeL.booleanValue;
     }
 
     @Override // com.repackage.n74
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+    public boolean g(List<r84> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048588, this, sQLiteDatabase, i, i2) == null) {
-            while (i < i2) {
-                if (i == 1) {
-                    j(sQLiteDatabase);
-                } else if (i != 4) {
-                    switch (i) {
-                        case 6:
-                            f(sQLiteDatabase);
-                            continue;
-                        case 7:
-                            g(sQLiteDatabase);
-                            continue;
-                        case 8:
-                            h(sQLiteDatabase);
-                            continue;
-                        case 9:
-                            i(sQLiteDatabase);
-                            continue;
-                        case 10:
-                            k(sQLiteDatabase);
-                            continue;
-                        case 11:
-                            l(sQLiteDatabase);
-                            continue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, list)) == null) {
+            if (list != null && !list.isEmpty()) {
+                try {
+                    Uri b = this.b.b(r84.class);
+                    StringBuilder sb = new StringBuilder();
+                    ArrayList arrayList = new ArrayList();
+                    boolean z = true;
+                    for (r84 r84Var : list) {
+                        if (z) {
+                            z = false;
+                        } else {
+                            sb.append(" or ");
+                        }
+                        sb.append("( ");
+                        sb.append("bundle_id");
+                        sb.append(" = ? and ");
+                        sb.append("version_code");
+                        sb.append(" = ?");
+                        sb.append(" )");
+                        arrayList.add(r84Var.g);
+                        arrayList.add(String.valueOf(r84Var.i));
                     }
-                } else {
-                    e(sQLiteDatabase);
+                    if (AppRuntime.getAppContext().getContentResolver().delete(b, sb.toString(), (String[]) arrayList.toArray(new String[0])) > 0) {
+                        return true;
+                    }
+                } catch (Exception unused) {
                 }
-                i++;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.n74
+    public boolean h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            sc4 sc4Var = c;
+            sc4Var.i("PMSDBImpl", "#deleteSwanApp appId=" + str);
+            try {
+            } catch (Exception e) {
+                c.g("PMSDBImpl", "#deleteSwanApp error", e);
+            }
+            return AppRuntime.getAppContext().getContentResolver().delete(this.b.b(PMSAppInfo.class), "app_id =? ", new String[]{str}) > 0;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.n74
+    @WorkerThread
+    public int j(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+            Cursor cursor = null;
+            int i = -1;
+            try {
+                try {
+                    cursor = AppRuntime.getAppContext().getContentResolver().query(this.b.b(q84.class), new String[]{"version_code"}, "app_id=?", new String[]{str}, "version_code DESC limit 1");
+                    if (cursor != null && cursor.moveToFirst()) {
+                        i = cursor.getInt(0);
+                    }
+                } catch (Exception e) {
+                    c.g("PMSDBImpl", "#getNewestSubPkgVersion fail", e);
+                }
+                return i;
+            } finally {
+                vc4.a(cursor);
             }
         }
+        return invokeL.intValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:26:0x007f  */
+    /* JADX WARN: Removed duplicated region for block: B:42:? A[RETURN, SYNTHETIC] */
+    @Override // com.repackage.n74
+    @NonNull
+    @WorkerThread
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public List<q84> k(@NonNull String str, int i) {
+        InterceptResult invokeLI;
+        Cursor cursor;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048591, this, str, i)) == null) {
+            Cursor cursor2 = null;
+            r1 = null;
+            r1 = null;
+            List<q84> list = null;
+            try {
+                if (i >= 0) {
+                    str2 = "app_id=? and version_code=?";
+                } else {
+                    str2 = "app_id=? and version_code>?";
+                }
+                Uri b = this.b.b(q84.class);
+                q74 a = this.b.a(q84.class);
+                Cursor query = AppRuntime.getAppContext().getContentResolver().query(b, null, str2, new String[]{str, String.valueOf(i)}, null);
+                if (query != null && a != null) {
+                    try {
+                        list = a.e(query);
+                    } catch (Exception e) {
+                        cursor = query;
+                        e = e;
+                        try {
+                            c.g("PMSDBImpl", "#getSubPackageByAppId fail", e);
+                            vc4.a(cursor);
+                            if (list != null) {
+                            }
+                        } catch (Throwable th) {
+                            th = th;
+                            cursor2 = cursor;
+                            vc4.a(cursor2);
+                            throw th;
+                        }
+                    } catch (Throwable th2) {
+                        cursor2 = query;
+                        th = th2;
+                        vc4.a(cursor2);
+                        throw th;
+                    }
+                }
+                vc4.a(query);
+            } catch (Exception e2) {
+                e = e2;
+                cursor = null;
+            } catch (Throwable th3) {
+                th = th3;
+            }
+            return list != null ? Collections.emptyList() : list;
+        }
+        return (List) invokeLI.objValue;
+    }
+
+    @Override // com.repackage.n74
+    public boolean l(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, pMSAppInfo)) == null) {
+            try {
+                sc4 sc4Var = c;
+                sc4Var.i("PMSDBImpl", "#insertOrUpdateSwanApp appId=" + pMSAppInfo.appId);
+                Class<?> cls = pMSAppInfo.getClass();
+                Uri insert = AppRuntime.getAppContext().getContentResolver().insert(this.b.b(cls), this.b.a(cls).c(pMSAppInfo));
+                if (insert != null) {
+                    return ContentUris.parseId(insert) > 0;
+                }
+                return false;
+            } catch (Exception e) {
+                c.g("PMSDBImpl", "#insertOrUpdateSwanApp error", e);
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.n74
+    public <T extends o84> boolean m(T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, t)) == null) {
+            c.i("PMSDBImpl", "#insertPkg");
+            return A(t);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.n74
+    public boolean n(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048594, this, str, str2, str3)) == null) {
+            Cursor cursor = null;
+            try {
+                try {
+                    Uri b = this.b.b(q84.class);
+                    q74 a = this.b.a(q84.class);
+                    cursor = AppRuntime.getAppContext().getContentResolver().query(b, null, "app_id=? AND version_code=? AND sub_pkg_name=?", new String[]{str, str2, str3}, null);
+                    if (cursor != null) {
+                        return a.d(cursor) != null;
+                    }
+                } catch (Exception e) {
+                    c.g("PMSDBImpl", "#isSubPackageExist error", e);
+                }
+                return false;
+            } finally {
+                vc4.a(cursor);
+            }
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    @Override // com.repackage.n74
+    public <T extends o84> T o(Class<T> cls, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, cls, str)) == null) ? (T) D(cls, str) : (T) invokeLL.objValue;
+    }
+
+    @Override // com.repackage.n74
+    public Map<String, p84> p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            HashMap hashMap = new HashMap();
+            List<p84> E = E(p84.class, "state =? ", new String[]{"10"}, "version_code ASC");
+            if (E != null && E.size() > 0) {
+                for (p84 p84Var : E) {
+                    if (p84Var != null) {
+                        hashMap.put(p84Var.g, p84Var);
+                    }
+                }
+            }
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // com.repackage.n74
+    public r84 q(String str, long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            List<r84> F = F(str, j, j2, true);
+            if (F == null || F.isEmpty()) {
+                return null;
+            }
+            return F.get(0);
+        }
+        return (r84) invokeCommon.objValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:12:0x0030 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v2 */
+    /* JADX WARN: Type inference failed for: r1v3, types: [java.io.Closeable] */
+    /* JADX WARN: Type inference failed for: r1v4 */
+    @Override // com.repackage.n74
+    public List<r84> r(String str, String[] strArr) {
+        InterceptResult invokeLL;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, str, strArr)) == null) {
+            ?? r1 = 0;
+            try {
+                try {
+                    q74 a = this.b.a(r84.class);
+                    cursor = AppRuntime.getAppContext().getContentResolver().query(this.b.b(r84.class), null, str, strArr, "update_time DESC");
+                    if (cursor != null) {
+                        try {
+                            List<r84> e = a.e(cursor);
+                            vc4.a(cursor);
+                            return e;
+                        } catch (Exception e2) {
+                            e = e2;
+                            c.g("PMSDBImpl", "#queryPlugin error", e);
+                            vc4.a(cursor);
+                            return null;
+                        }
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    r1 = str;
+                    vc4.a(r1);
+                    throw th;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                cursor = null;
+            } catch (Throwable th2) {
+                th = th2;
+                vc4.a(r1);
+                throw th;
+            }
+            vc4.a(cursor);
+            return null;
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    @Override // com.repackage.n74
+    public List<r84> s(String str, long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)})) == null) ? F(str, j, j2, false) : (List) invokeCommon.objValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:12:0x0038 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v2 */
+    /* JADX WARN: Type inference failed for: r1v3, types: [java.io.Closeable] */
+    /* JADX WARN: Type inference failed for: r1v4 */
+    @Override // com.repackage.n74
+    @Nullable
+    public s84 t(String str) {
+        InterceptResult invokeL;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, str)) == null) {
+            ?? r1 = 0;
+            try {
+                try {
+                    q74 a = this.b.a(s84.class);
+                    cursor = AppRuntime.getAppContext().getContentResolver().query(this.b.b(s84.class), null, "lib_name =? ", new String[]{str}, "version_code DESC");
+                    if (cursor != null) {
+                        try {
+                            s84 s84Var = (s84) a.d(cursor);
+                            vc4.a(cursor);
+                            return s84Var;
+                        } catch (Exception e) {
+                            e = e;
+                            c.g("PMSDBImpl", "#querySoLib error", e);
+                            vc4.a(cursor);
+                            return null;
+                        }
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    r1 = str;
+                    vc4.a(r1);
+                    throw th;
+                }
+            } catch (Exception e2) {
+                e = e2;
+                cursor = null;
+            } catch (Throwable th2) {
+                th = th2;
+                vc4.a(r1);
+                throw th;
+            }
+            vc4.a(cursor);
+            return null;
+        }
+        return (s84) invokeL.objValue;
+    }
+
+    @Override // com.repackage.n74
+    public PMSAppInfo u(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) ? B(str) : (PMSAppInfo) invokeL.objValue;
+    }
+
+    @Override // com.repackage.n74
+    public Map<String, PMSAppInfo> v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            HashMap hashMap = new HashMap();
+            List<PMSAppInfo> C = C(PMSAppInfo.class, null, null, null);
+            if (C != null && C.size() > 0) {
+                for (PMSAppInfo pMSAppInfo : C) {
+                    if (pMSAppInfo != null && !TextUtils.isEmpty(pMSAppInfo.appId)) {
+                        hashMap.put(pMSAppInfo.appId, pMSAppInfo);
+                    }
+                }
+            }
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // com.repackage.n74
+    public List<r84> w(String str) {
+        InterceptResult invokeL;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, str)) == null) {
+            Cursor cursor2 = null;
+            try {
+                q74 a = this.b.a(r84.class);
+                Uri.Builder buildUpon = this.b.b(r84.class).buildUpon();
+                buildUpon.appendQueryParameter("rawQuery", "");
+                cursor = AppRuntime.getAppContext().getContentResolver().query(buildUpon.build(), null, str, null, null);
+                if (cursor != null) {
+                    try {
+                        try {
+                            List<r84> e = a.e(cursor);
+                            vc4.a(cursor);
+                            return e;
+                        } catch (Exception e2) {
+                            e = e2;
+                            c.g("PMSDBImpl", "#rawQueryPlugins error", e);
+                            vc4.a(cursor);
+                            return null;
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        cursor2 = cursor;
+                        vc4.a(cursor2);
+                        throw th;
+                    }
+                }
+            } catch (Exception e3) {
+                e = e3;
+                cursor = null;
+            } catch (Throwable th2) {
+                th = th2;
+                vc4.a(cursor2);
+                throw th;
+            }
+            vc4.a(cursor);
+            return null;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    @Override // com.repackage.n74
+    public boolean x(@NonNull r84 r84Var) {
+        InterceptResult invokeL;
+        Uri b;
+        ContentValues c2;
+        String str;
+        String[] strArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, r84Var)) == null) {
+            try {
+                sc4 sc4Var = c;
+                sc4Var.i("PMSDBImpl", "#deletePlugin bundleId=" + r84Var.g + " versionCode=" + r84Var.i);
+                q74 a = this.b.a(r84Var.getClass());
+                b = this.b.b(r84Var.getClass());
+                c2 = a.c(r84Var);
+                if (r84Var.i >= 0) {
+                    str = "bundle_id = ?  and version_code = ? ";
+                    strArr = new String[]{r84Var.g, String.valueOf(r84Var.i)};
+                } else {
+                    str = "bundle_id = ?  and version_name = ? ";
+                    strArr = new String[]{r84Var.g, r84Var.j};
+                }
+            } catch (Exception e) {
+                c.g("PMSDBImpl", "#updatePlugin error", e);
+            }
+            return AppRuntime.getAppContext().getContentResolver().update(b, c2, str, strArr) > 0;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.n74
+    public boolean y(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, pMSAppInfo)) == null) {
+            try {
+                sc4 sc4Var = c;
+                sc4Var.i("PMSDBImpl", "#updateSwanApp appId=" + pMSAppInfo.appId);
+            } catch (Exception e) {
+                c.g("PMSDBImpl", "#updateSwanApp error", e);
+            }
+            return AppRuntime.getAppContext().getContentResolver().update(this.b.b(pMSAppInfo.getClass()), this.b.a(pMSAppInfo.getClass()).c(pMSAppInfo), "app_id =? ", new String[]{pMSAppInfo.appId}) > 0;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.n74
+    public boolean z(String str, int i) {
+        InterceptResult invokeLI;
+        Uri b;
+        ContentValues contentValues;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048606, this, str, i)) == null) {
+            sc4 sc4Var = c;
+            sc4Var.i("PMSDBImpl", "#updateSwanAppPendingErrCode appId=" + str + " errCode=" + i);
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                b = this.b.b(PMSAppInfo.class);
+                contentValues = new ContentValues();
+                contentValues.put("pending_err_code", Integer.valueOf(i));
+            } catch (Exception e) {
+                c.g("PMSDBImpl", "#updateSwanAppPendingErrCode error", e);
+            }
+            return AppRuntime.getAppContext().getContentResolver().update(b, contentValues, "app_id =? ", new String[]{str}) > 0;
+        }
+        return invokeLI.booleanValue;
     }
 }

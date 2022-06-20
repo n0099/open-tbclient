@@ -25,14 +25,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActivity> {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String BAR_NAME_STRING = "barname";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String mBarName;
-    public LinearLayout mContainer;
-    public NavigationBar mNavigationBar;
-    public TextView mTextView;
-    public TextView mTextViewMore;
+    public String a;
+    public TextView b;
+    public TextView c;
+    public LinearLayout d;
+    public NavigationBar e;
 
     public CreateBarSuccessActivity() {
         Interceptable interceptable = $ic;
@@ -47,45 +46,15 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
                 return;
             }
         }
-        this.mBarName = null;
-        this.mTextView = null;
-        this.mTextViewMore = null;
-        this.mContainer = null;
-    }
-
-    private void initData() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            String stringExtra = getIntent().getStringExtra("barname");
-            this.mBarName = stringExtra;
-            if (stringExtra == null) {
-                this.mBarName = "";
-            }
-        }
-    }
-
-    private void initUi() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.mContainer = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906b0);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092017);
-            if (UtilHelper.canUseStyleImmersiveSticky()) {
-                ViewGroup.LayoutParams layoutParams = relativeLayout.getLayoutParams();
-                layoutParams.height = UtilHelper.getStatusBarHeight() + layoutParams.height;
-                relativeLayout.setLayoutParams(layoutParams);
-            }
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923a2);
-            this.mNavigationBar = navigationBar;
-            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.mNavigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0466));
-            this.mTextView = (TextView) findViewById(R.id.obfuscated_res_0x7f091f06);
-            this.mTextViewMore = (TextView) findViewById(R.id.obfuscated_res_0x7f091f2b);
-        }
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
     }
 
     public static void startActivity(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) || str == null || str.length() <= 0) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) || str == null || str.length() <= 0) {
             return;
         }
         Intent intent = new Intent(context, CreateBarSuccessActivity.class);
@@ -96,49 +65,79 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         context.startActivity(intent);
     }
 
+    public final void A1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09069b);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092017);
+            if (UtilHelper.canUseStyleImmersiveSticky()) {
+                ViewGroup.LayoutParams layoutParams = relativeLayout.getLayoutParams();
+                layoutParams.height = UtilHelper.getStatusBarHeight() + layoutParams.height;
+                relativeLayout.setLayoutParams(layoutParams);
+            }
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09238f);
+            this.e = navigationBar;
+            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.e.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0457));
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091f05);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091f2a);
+        }
+    }
+
+    public final void initData() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            String stringExtra = getIntent().getStringExtra("barname");
+            this.a = stringExtra;
+            if (stringExtra == null) {
+                this.a = "";
+            }
+        }
+    }
+
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         StringBuilder sb;
         TbPageContext<CreateBarSuccessActivity> pageContext;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
             getLayoutMode().k(i == 1);
-            getLayoutMode().j(this.mContainer);
+            getLayoutMode().j(this.d);
             boolean isOn = new CreateBarTipSwitch().isOn();
-            String string = getPageContext().getString(isOn ? R.string.obfuscated_res_0x7f0f046a : R.string.obfuscated_res_0x7f0f0467);
+            String string = getPageContext().getString(isOn ? R.string.obfuscated_res_0x7f0f045b : R.string.obfuscated_res_0x7f0f0458);
             int length = string.length();
             if (isOn) {
                 sb = new StringBuilder();
                 sb.append(string);
-                sb.append(this.mBarName);
+                sb.append(this.a);
                 pageContext = getPageContext();
-                i2 = R.string.obfuscated_res_0x7f0f046b;
+                i2 = R.string.obfuscated_res_0x7f0f045c;
             } else {
                 sb = new StringBuilder();
                 sb.append(string);
-                sb.append(this.mBarName);
+                sb.append(this.a);
                 pageContext = getPageContext();
-                i2 = R.string.obfuscated_res_0x7f0f0468;
+                i2 = R.string.obfuscated_res_0x7f0f0459;
             }
             sb.append(pageContext.getString(i2));
             SpannableString spannableString = new SpannableString(sb.toString());
-            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.common_color_10252)), length, this.mBarName.length() + length, 33);
-            this.mTextView.setText(spannableString);
-            this.mTextViewMore.setVisibility(isOn ? 0 : 8);
-            this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.common_color_10252)), length, this.a.length() + length, 33);
+            this.b.setText(spannableString);
+            this.c.setVisibility(isOn ? 0 : 8);
+            this.e.onChangeSkinType(getPageContext(), i);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d01ff);
+            setContentView(R.layout.obfuscated_res_0x7f0d01fc);
             initData();
-            initUi();
+            A1();
         }
     }
 }

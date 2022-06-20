@@ -54,7 +54,7 @@ public class TailFramePortraitVertical extends LinearLayout implements d {
         if (com.kwad.sdk.core.response.a.d.v(this.e)) {
             this.k.a(getContext(), z ? 1 : 153, 1);
         } else {
-            com.kwad.sdk.core.download.a.a.a(new a.C0296a(view2.getContext()).a(this.e).a(this.h).a(view2 == this.i).a(view2 == this.i ? 1 : 2).a(new a.b() { // from class: com.kwad.sdk.reward.widget.tailframe.TailFramePortraitVertical.2
+            com.kwad.sdk.core.download.a.a.a(new a.C0304a(view2.getContext()).a(this.e).a(this.h).a(view2 == this.i).a(view2 == this.i ? 1 : 2).a(new a.b() { // from class: com.kwad.sdk.reward.widget.tailframe.TailFramePortraitVertical.2
                 @Override // com.kwad.sdk.core.download.a.a.b
                 public void a() {
                     if (TailFramePortraitVertical.this.d != null) {
@@ -66,20 +66,20 @@ public class TailFramePortraitVertical extends LinearLayout implements d {
     }
 
     private void b() {
-        this.l = LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d046c, this);
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09114e);
-        this.j = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09114b);
+        this.l = LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0466, this);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09113e);
+        this.j = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09113b);
     }
 
     private void c() {
         if (!com.kwad.sdk.core.response.a.a.B(this.f) && !com.kwad.sdk.core.response.a.d.v(this.e)) {
-            TailFrameBarH5PortraitVertical tailFrameBarH5PortraitVertical = (TailFrameBarH5PortraitVertical) findViewById(R.id.obfuscated_res_0x7f09113a);
+            TailFrameBarH5PortraitVertical tailFrameBarH5PortraitVertical = (TailFrameBarH5PortraitVertical) findViewById(R.id.obfuscated_res_0x7f09112a);
             this.c = tailFrameBarH5PortraitVertical;
             tailFrameBarH5PortraitVertical.a(this.e);
             this.c.setVisibility(0);
             return;
         }
-        TailFrameBarAppPortraitVertical tailFrameBarAppPortraitVertical = (TailFrameBarAppPortraitVertical) findViewById(R.id.obfuscated_res_0x7f091124);
+        TailFrameBarAppPortraitVertical tailFrameBarAppPortraitVertical = (TailFrameBarAppPortraitVertical) findViewById(R.id.obfuscated_res_0x7f091114);
         this.b = tailFrameBarAppPortraitVertical;
         tailFrameBarAppPortraitVertical.a(this.e);
         this.b.setVisibility(0);
@@ -152,7 +152,7 @@ public class TailFramePortraitVertical extends LinearLayout implements d {
     public void a(@NonNull AdTemplate adTemplate, JSONObject jSONObject, a aVar) {
         this.e = adTemplate;
         if (com.kwad.sdk.core.response.a.d.v(adTemplate)) {
-            this.l.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f060767));
+            this.l.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f060765));
             this.a.setVisibility(8);
             this.j.setVisibility(8);
         }

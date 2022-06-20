@@ -252,21 +252,26 @@ public class HttpClient {
         return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x0091 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x0090 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:75:0x013d */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v10, types: [java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r1v12, types: [int] */
-    /* JADX WARN: Type inference failed for: r1v19, types: [java.io.InputStream] */
+    /* JADX WARN: Removed duplicated region for block: B:81:0x014c A[Catch: Exception -> 0x0152, TryCatch #6 {Exception -> 0x0152, blocks: (B:16:0x003b, B:28:0x0079, B:29:0x007f, B:31:0x0083, B:70:0x012d, B:71:0x0133, B:73:0x0137, B:78:0x0142, B:79:0x0148, B:81:0x014c, B:82:0x0151, B:55:0x00f9, B:57:0x00fd), top: B:96:0x003b }] */
+    /* JADX WARN: Type inference failed for: r1v11, types: [java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r1v13, types: [int] */
+    /* JADX WARN: Type inference failed for: r1v20, types: [java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r1v4 */
     /* JADX WARN: Type inference failed for: r1v6 */
-    /* JADX WARN: Type inference failed for: r2v9, types: [java.lang.StringBuilder] */
+    /* JADX WARN: Type inference failed for: r1v7, types: [java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r2v10, types: [java.lang.StringBuilder] */
     /* JADX WARN: Type inference failed for: r3v6, types: [java.lang.StringBuilder] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void request(String str) {
         BufferedReader bufferedReader;
         Throwable th;
-        InputStream inputStream;
-        BufferedReader bufferedReader2;
-        Exception e;
         ?? r1;
+        Exception e;
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) {
             return;
@@ -287,11 +292,7 @@ public class HttpClient {
             try {
                 this.a.connect();
                 try {
-                    try {
-                        r1 = this.a.getResponseCode();
-                    } catch (Throwable th2) {
-                        th = th2;
-                    }
+                    r1 = this.a.getResponseCode();
                     try {
                         if (200 != r1) {
                             Log.e("HttpClient", "responseCode is: " + r1);
@@ -309,68 +310,78 @@ public class HttpClient {
                             return;
                         }
                         r1 = this.a.getInputStream();
-                        bufferedReader2 = new BufferedReader(new InputStreamReader((InputStream) r1, "UTF-8"));
+                        bufferedReader = new BufferedReader(new InputStreamReader((InputStream) r1, "UTF-8"));
                         try {
-                            StringBuffer stringBuffer = new StringBuffer();
-                            while (true) {
-                                int read = bufferedReader2.read();
-                                if (read == -1) {
-                                    break;
+                            try {
+                                StringBuffer stringBuffer = new StringBuffer();
+                                while (true) {
+                                    int read = bufferedReader.read();
+                                    if (read == -1) {
+                                        break;
+                                    }
+                                    stringBuffer.append((char) read);
                                 }
-                                stringBuffer.append((char) read);
+                                String stringBuffer2 = stringBuffer.toString();
+                                this.c = stringBuffer2;
+                                a(stringBuffer2);
+                                if (r1 != 0) {
+                                    bufferedReader.close();
+                                    r1.close();
+                                }
+                                if (this.a != null) {
+                                    this.a.disconnect();
+                                }
+                                this.g.onSuccess(this.c);
+                            } catch (Exception e2) {
+                                e = e2;
+                                if (Logger.debugEnable()) {
+                                    e.printStackTrace();
+                                } else {
+                                    Logger.logW("HttpClient", e.getMessage());
+                                }
+                                Log.e("HttpClient", "Catch exception. INNER_ERROR", e);
+                                this.g.onFailed(HttpStateError.INNER_ERROR);
+                                if (r1 != 0 && bufferedReader != null) {
+                                    bufferedReader.close();
+                                    r1.close();
+                                }
+                                if (this.a != null) {
+                                    this.a.disconnect();
+                                }
                             }
-                            String stringBuffer2 = stringBuffer.toString();
-                            this.c = stringBuffer2;
-                            a(stringBuffer2);
-                            if (r1 != 0) {
-                                bufferedReader2.close();
+                        } catch (Throwable th2) {
+                            th = th2;
+                            if (r1 != 0 && bufferedReader != null) {
+                                bufferedReader.close();
                                 r1.close();
                             }
                             if (this.a != null) {
                                 this.a.disconnect();
                             }
-                            this.g.onSuccess(this.c);
-                        } catch (Exception e2) {
-                            e = e2;
-                            if (Logger.debugEnable()) {
-                                e.printStackTrace();
-                            } else {
-                                Logger.logW("HttpClient", e.getMessage());
-                            }
-                            Log.e("HttpClient", "Catch exception. INNER_ERROR", e);
-                            this.g.onFailed(HttpStateError.INNER_ERROR);
-                            if (r1 != 0 && bufferedReader2 != null) {
-                                bufferedReader2.close();
-                                r1.close();
-                            }
-                            if (this.a != null) {
-                                this.a.disconnect();
-                            }
+                            throw th;
                         }
                     } catch (Exception e3) {
-                        bufferedReader2 = null;
+                        bufferedReader = null;
                         e = e3;
                     } catch (Throwable th3) {
                         bufferedReader = null;
                         th = th3;
-                        inputStream = r1;
-                        if (inputStream != null && bufferedReader != null) {
+                        if (r1 != 0) {
                             bufferedReader.close();
-                            inputStream.close();
+                            r1.close();
                         }
                         if (this.a != null) {
-                            this.a.disconnect();
                         }
                         throw th;
                     }
                 } catch (Exception e4) {
-                    bufferedReader2 = null;
+                    bufferedReader = null;
                     e = e4;
                     r1 = 0;
                 } catch (Throwable th4) {
                     bufferedReader = null;
                     th = th4;
-                    inputStream = null;
+                    r1 = 0;
                 }
             } catch (Exception e5) {
                 if (Logger.debugEnable()) {

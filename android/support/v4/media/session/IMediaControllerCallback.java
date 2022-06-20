@@ -21,6 +21,127 @@ import java.util.List;
 public interface IMediaControllerCallback extends IInterface {
 
     /* loaded from: classes.dex */
+    public static class Default implements IMediaControllerCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public Default() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.os.IInterface
+        public IBinder asBinder() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return null;
+            }
+            return (IBinder) invokeV.objValue;
+        }
+
+        @Override // android.support.v4.media.session.IMediaControllerCallback
+        public void onCaptioningEnabledChanged(boolean z) throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            }
+        }
+
+        @Override // android.support.v4.media.session.IMediaControllerCallback
+        public void onEvent(String str, Bundle bundle) throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bundle) == null) {
+            }
+        }
+
+        @Override // android.support.v4.media.session.IMediaControllerCallback
+        public void onExtrasChanged(Bundle bundle) throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            }
+        }
+
+        @Override // android.support.v4.media.session.IMediaControllerCallback
+        public void onMetadataChanged(MediaMetadataCompat mediaMetadataCompat) throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, mediaMetadataCompat) == null) {
+            }
+        }
+
+        @Override // android.support.v4.media.session.IMediaControllerCallback
+        public void onPlaybackStateChanged(PlaybackStateCompat playbackStateCompat) throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, playbackStateCompat) == null) {
+            }
+        }
+
+        @Override // android.support.v4.media.session.IMediaControllerCallback
+        public void onQueueChanged(List<MediaSessionCompat.QueueItem> list) throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
+            }
+        }
+
+        @Override // android.support.v4.media.session.IMediaControllerCallback
+        public void onQueueTitleChanged(CharSequence charSequence) throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, charSequence) == null) {
+            }
+        }
+
+        @Override // android.support.v4.media.session.IMediaControllerCallback
+        public void onRepeatModeChanged(int i) throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            }
+        }
+
+        @Override // android.support.v4.media.session.IMediaControllerCallback
+        public void onSessionDestroyed() throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            }
+        }
+
+        @Override // android.support.v4.media.session.IMediaControllerCallback
+        public void onSessionReady() throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            }
+        }
+
+        @Override // android.support.v4.media.session.IMediaControllerCallback
+        public void onShuffleModeChanged(int i) throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            }
+        }
+
+        @Override // android.support.v4.media.session.IMediaControllerCallback
+        public void onShuffleModeChangedRemoved(boolean z) throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            }
+        }
+
+        @Override // android.support.v4.media.session.IMediaControllerCallback
+        public void onVolumeInfoChanged(ParcelableVolumeInfo parcelableVolumeInfo) throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048589, this, parcelableVolumeInfo) == null) {
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
     public static abstract class Stub extends Binder implements IMediaControllerCallback {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "android.support.v4.media.session.IMediaControllerCallback";
@@ -42,6 +163,7 @@ public interface IMediaControllerCallback extends IInterface {
         /* loaded from: classes.dex */
         public static class Proxy implements IMediaControllerCallback {
             public static /* synthetic */ Interceptable $ic;
+            public static IMediaControllerCallback sDefaultImpl;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder mRemote;
 
@@ -84,7 +206,10 @@ public interface IMediaControllerCallback extends IInterface {
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                         obtain.writeInt(z ? 1 : 0);
-                        this.mRemote.transact(11, obtain, null, 1);
+                        if (this.mRemote.transact(11, obtain, null, 1) || Stub.getDefaultImpl() == null) {
+                            return;
+                        }
+                        Stub.getDefaultImpl().onCaptioningEnabledChanged(z);
                     } finally {
                         obtain.recycle();
                     }
@@ -105,7 +230,10 @@ public interface IMediaControllerCallback extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        this.mRemote.transact(1, obtain, null, 1);
+                        if (this.mRemote.transact(1, obtain, null, 1) || Stub.getDefaultImpl() == null) {
+                            return;
+                        }
+                        Stub.getDefaultImpl().onEvent(str, bundle);
                     } finally {
                         obtain.recycle();
                     }
@@ -125,7 +253,10 @@ public interface IMediaControllerCallback extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        this.mRemote.transact(7, obtain, null, 1);
+                        if (this.mRemote.transact(7, obtain, null, 1) || Stub.getDefaultImpl() == null) {
+                            return;
+                        }
+                        Stub.getDefaultImpl().onExtrasChanged(bundle);
                     } finally {
                         obtain.recycle();
                     }
@@ -145,7 +276,10 @@ public interface IMediaControllerCallback extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        this.mRemote.transact(4, obtain, null, 1);
+                        if (this.mRemote.transact(4, obtain, null, 1) || Stub.getDefaultImpl() == null) {
+                            return;
+                        }
+                        Stub.getDefaultImpl().onMetadataChanged(mediaMetadataCompat);
                     } finally {
                         obtain.recycle();
                     }
@@ -165,7 +299,10 @@ public interface IMediaControllerCallback extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        this.mRemote.transact(3, obtain, null, 1);
+                        if (this.mRemote.transact(3, obtain, null, 1) || Stub.getDefaultImpl() == null) {
+                            return;
+                        }
+                        Stub.getDefaultImpl().onPlaybackStateChanged(playbackStateCompat);
                     } finally {
                         obtain.recycle();
                     }
@@ -180,7 +317,10 @@ public interface IMediaControllerCallback extends IInterface {
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                         obtain.writeTypedList(list);
-                        this.mRemote.transact(5, obtain, null, 1);
+                        if (this.mRemote.transact(5, obtain, null, 1) || Stub.getDefaultImpl() == null) {
+                            return;
+                        }
+                        Stub.getDefaultImpl().onQueueChanged(list);
                     } finally {
                         obtain.recycle();
                     }
@@ -200,7 +340,10 @@ public interface IMediaControllerCallback extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        this.mRemote.transact(6, obtain, null, 1);
+                        if (this.mRemote.transact(6, obtain, null, 1) || Stub.getDefaultImpl() == null) {
+                            return;
+                        }
+                        Stub.getDefaultImpl().onQueueTitleChanged(charSequence);
                     } finally {
                         obtain.recycle();
                     }
@@ -215,7 +358,10 @@ public interface IMediaControllerCallback extends IInterface {
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                         obtain.writeInt(i);
-                        this.mRemote.transact(9, obtain, null, 1);
+                        if (this.mRemote.transact(9, obtain, null, 1) || Stub.getDefaultImpl() == null) {
+                            return;
+                        }
+                        Stub.getDefaultImpl().onRepeatModeChanged(i);
                     } finally {
                         obtain.recycle();
                     }
@@ -229,7 +375,10 @@ public interface IMediaControllerCallback extends IInterface {
                     Parcel obtain = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                        this.mRemote.transact(2, obtain, null, 1);
+                        if (this.mRemote.transact(2, obtain, null, 1) || Stub.getDefaultImpl() == null) {
+                            return;
+                        }
+                        Stub.getDefaultImpl().onSessionDestroyed();
                     } finally {
                         obtain.recycle();
                     }
@@ -243,7 +392,10 @@ public interface IMediaControllerCallback extends IInterface {
                     Parcel obtain = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                        this.mRemote.transact(13, obtain, null, 1);
+                        if (this.mRemote.transact(13, obtain, null, 1) || Stub.getDefaultImpl() == null) {
+                            return;
+                        }
+                        Stub.getDefaultImpl().onSessionReady();
                     } finally {
                         obtain.recycle();
                     }
@@ -258,7 +410,10 @@ public interface IMediaControllerCallback extends IInterface {
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                         obtain.writeInt(i);
-                        this.mRemote.transact(12, obtain, null, 1);
+                        if (this.mRemote.transact(12, obtain, null, 1) || Stub.getDefaultImpl() == null) {
+                            return;
+                        }
+                        Stub.getDefaultImpl().onShuffleModeChanged(i);
                     } finally {
                         obtain.recycle();
                     }
@@ -273,7 +428,10 @@ public interface IMediaControllerCallback extends IInterface {
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                         obtain.writeInt(z ? 1 : 0);
-                        this.mRemote.transact(10, obtain, null, 1);
+                        if (this.mRemote.transact(10, obtain, null, 1) || Stub.getDefaultImpl() == null) {
+                            return;
+                        }
+                        Stub.getDefaultImpl().onShuffleModeChangedRemoved(z);
                     } finally {
                         obtain.recycle();
                     }
@@ -293,7 +451,10 @@ public interface IMediaControllerCallback extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        this.mRemote.transact(8, obtain, null, 1);
+                        if (this.mRemote.transact(8, obtain, null, 1) || Stub.getDefaultImpl() == null) {
+                            return;
+                        }
+                        Stub.getDefaultImpl().onVolumeInfoChanged(parcelableVolumeInfo);
                     } finally {
                         obtain.recycle();
                     }
@@ -331,6 +492,25 @@ public interface IMediaControllerCallback extends IInterface {
                 return new Proxy(iBinder);
             }
             return (IMediaControllerCallback) invokeL.objValue;
+        }
+
+        public static IMediaControllerCallback getDefaultImpl() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Proxy.sDefaultImpl : (IMediaControllerCallback) invokeV.objValue;
+        }
+
+        public static boolean setDefaultImpl(IMediaControllerCallback iMediaControllerCallback) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iMediaControllerCallback)) == null) {
+                if (Proxy.sDefaultImpl != null || iMediaControllerCallback == null) {
+                    return false;
+                }
+                Proxy.sDefaultImpl = iMediaControllerCallback;
+                return true;
+            }
+            return invokeL.booleanValue;
         }
 
         @Override // android.os.IInterface

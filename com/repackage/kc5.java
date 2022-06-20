@@ -1,459 +1,133 @@
 package com.repackage;
 
-import android.content.Context;
-import android.database.ContentObserver;
-import android.database.Cursor;
+import android.content.res.AssetManager;
 import android.graphics.BitmapFactory;
-import android.graphics.Point;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Handler;
-import android.os.Looper;
-import android.provider.MediaStore;
-import android.text.TextUtils;
-import android.view.Display;
-import android.view.WindowManager;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.statistic.StatisticConstants;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.switchs.AsyncGetClipboardSwitch;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.tbadk.TbadkSettings;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.switchs.WebpForceSwitch;
+import com.baidu.tbadk.switchs.WebpSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes6.dex */
 public class kc5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] g;
-    public static final String[] h;
-    public static final String[] i;
-    public static Point j;
-    public static final List<String> k;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public d b;
-    public long c;
-    public c d;
-    public c e;
-    public final Handler f;
 
-    /* loaded from: classes6.dex */
-    public class a extends mc5<Cursor> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Uri a;
-        public final /* synthetic */ kc5 b;
-
-        public a(kc5 kc5Var, Uri uri) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kc5Var, uri};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = kc5Var;
-            this.a = uri;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.mc5
-        /* renamed from: a */
-        public Cursor doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                try {
-                    return this.b.a.getContentResolver().query(this.a, Build.VERSION.SDK_INT < 16 ? kc5.g : kc5.h, null, null, "date_added desc limit 1");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
-                }
-            }
-            return (Cursor) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements tb5<Cursor> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kc5 a;
-
-        public b(kc5 kc5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kc5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = kc5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.tb5
-        /* renamed from: a */
-        public void onReturnDataInUI(Cursor cursor) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cursor) == null) {
-                this.a.k(cursor);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends ContentObserver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Uri a;
-        public final /* synthetic */ kc5 b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(kc5 kc5Var, Uri uri, Handler handler) {
-            super(handler);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kc5Var, uri, handler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Handler) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = kc5Var;
-            this.a = uri;
-        }
-
-        @Override // android.database.ContentObserver
-        public void onChange(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                super.onChange(z);
-                this.b.j(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface d {
-        void onShot(String str);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755563660, "Lcom/repackage/kc5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755563660, "Lcom/repackage/kc5;");
-                return;
-            }
-        }
-        g = new String[]{"_data", "datetaken"};
-        h = new String[]{"_data", "datetaken", "width", "height"};
-        i = new String[]{StatisticConstants.SCREENSHOT, "screen_shot", "screen-shot", "screen shot", "screencapture", "screen_capture", "screen-capture", "screen capture", "screencap", "screen_cap", "screen-cap", "screen cap"};
-        k = new ArrayList();
-    }
-
-    public kc5(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.f = new Handler(Looper.getMainLooper());
-        this.a = context;
-        if (j == null) {
-            Point i4 = i();
-            j = i4;
-            if (i4 != null) {
-                BdLog.d("ScreenShotListenManager: Screen Real Size: " + j.x + " * " + j.y);
-                return;
-            }
-            BdLog.d("ScreenShotListenManager: Get screen real size failed.");
-        }
-    }
-
-    public static boolean m() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? Looper.myLooper() == Looper.getMainLooper() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? TbadkCoreApplication.getInst().getCapabilityOfWebp() : invokeV.booleanValue;
     }
 
-    public final boolean f(String str) {
-        InterceptResult invokeL;
+    public static void b(@Nullable String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (k.contains(str)) {
-                BdLog.d("ScreenShotListenManager: ScreenShot: imgPath has done; imagePath = " + str);
-                return true;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            int loadInt = TbadkSettings.getInst().loadInt("webp_failure_count", 0) + 1;
+            if (loadInt > 5) {
+                TbadkCoreApplication.getInst().setCapableOfWebp(false);
+                TbadkSettings.getInst().saveBoolean("capable_of_webp_format", false);
+                return;
             }
-            if (k.size() >= 20) {
-                for (int i2 = 0; i2 < 5; i2++) {
-                    k.remove(0);
-                }
-            }
-            k.add(str);
-            return false;
+            TbadkSettings.getInst().saveInt("webp_failure_count", loadInt);
         }
-        return invokeL.booleanValue;
     }
 
-    public final boolean g(String str, long j2, int i2, int i3) {
-        InterceptResult invokeCommon;
+    /* JADX WARN: Removed duplicated region for block: B:19:0x003b  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void c() {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            if (j2 >= this.c && System.currentTimeMillis() - j2 <= 10000) {
-                Point point = j;
-                if (point != null && (i2 > point.x || i3 > point.y)) {
-                    Point point2 = j;
-                    if (i3 > point2.x || i2 > point2.y) {
-                        return false;
-                    }
-                }
-                if (TextUtils.isEmpty(str)) {
-                    return false;
-                }
-                String lowerCase = str.toLowerCase();
-                for (String str2 : i) {
-                    if (lowerCase.contains(str2)) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public final Point h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            BitmapFactory.decodeFile(str, options);
-            return new Point(options.outWidth, options.outHeight);
-        }
-        return (Point) invokeL.objValue;
-    }
-
-    public final Point i() {
-        InterceptResult invokeV;
-        Exception e;
-        Point point;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!m() || this.a == null) {
-                return null;
-            }
-            try {
-                point = new Point();
-            } catch (Exception e2) {
-                e = e2;
-                point = null;
-            }
-            try {
-                Display defaultDisplay = ((WindowManager) this.a.getSystemService("window")).getDefaultDisplay();
-                if (Build.VERSION.SDK_INT >= 17) {
-                    defaultDisplay.getRealSize(point);
-                } else {
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            int i = 0;
+            if (TbadkSettings.getInst().loadInt("webp_failure_count", -1) == -1) {
+                AssetManager assets = TbadkCoreApplication.getInst().getContext().getAssets();
+                if (assets != null) {
+                    InputStream inputStream = null;
                     try {
-                        point.set(((Integer) Display.class.getMethod("getRawWidth", new Class[0]).invoke(defaultDisplay, new Object[0])).intValue(), ((Integer) Display.class.getMethod("getRawHeight", new Class[0]).invoke(defaultDisplay, new Object[0])).intValue());
-                    } catch (Exception e3) {
-                        point.set(defaultDisplay.getWidth(), defaultDisplay.getHeight());
-                        BdLog.e(e3);
+                        inputStream = assets.open("webp_test/test.webp");
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
-                }
-            } catch (Exception e4) {
-                e = e4;
-                BdLog.e(e);
-                return point;
-            }
-            return point;
-        }
-        return (Point) invokeV.objValue;
-    }
-
-    public final void j(Uri uri) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, uri) == null) {
-            if (AsyncGetClipboardSwitch.isOn()) {
-                pc5.b(new a(this, uri), new b(this));
-                return;
-            }
-            Cursor cursor = null;
-            try {
-                cursor = this.a.getContentResolver().query(uri, Build.VERSION.SDK_INT < 16 ? g : h, null, null, "date_added desc limit 1");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            k(cursor);
-        }
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, IF, INVOKE] complete} */
-    public final void k(Cursor cursor) {
-        int i2;
-        int i3;
-        int i4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cursor) == null) {
-            try {
-                if (cursor == null) {
-                    if (cursor == null || cursor.isClosed()) {
-                        return;
-                    }
-                    cursor.close();
-                    return;
-                }
-                try {
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    if (cursor == null || cursor.isClosed()) {
+                    if (inputStream != null && BitmapFactory.decodeStream(inputStream) != null) {
+                        z = true;
+                        if (!z) {
+                            TiebaStatic.log("LocalWebpUnSupport");
+                            i = 6;
+                        }
+                        TbadkCoreApplication.getInst().setCapableOfWebp(z);
+                        TbadkSettings.getInst().saveInt("webp_failure_count", i);
+                        TbadkSettings.getInst().saveBoolean("capable_of_webp_format", z);
                         return;
                     }
                 }
-                if (!cursor.moveToFirst()) {
-                    if (cursor == null || cursor.isClosed()) {
-                        return;
-                    }
-                    cursor.close();
-                    return;
+                z = false;
+                if (!z) {
                 }
-                int columnIndex = cursor.getColumnIndex("_data");
-                int columnIndex2 = cursor.getColumnIndex("datetaken");
-                int i5 = -1;
-                if (Build.VERSION.SDK_INT >= 16) {
-                    i5 = cursor.getColumnIndex("width");
-                    i2 = cursor.getColumnIndex("height");
-                } else {
-                    i2 = -1;
-                }
-                String string = cursor.getString(columnIndex);
-                long j2 = cursor.getLong(columnIndex2);
-                if (i5 >= 0 && i2 >= 0) {
-                    i4 = cursor.getInt(i5);
-                    i3 = cursor.getInt(i2);
-                } else {
-                    Point h2 = h(string);
-                    int i6 = h2.x;
-                    i3 = h2.y;
-                    i4 = i6;
-                }
-                l(string, j2, i4, i3);
-                if (cursor == null || cursor.isClosed()) {
-                    return;
-                }
-                cursor.close();
-            } catch (Throwable th) {
-                if (cursor != null && !cursor.isClosed()) {
-                    cursor.close();
-                }
-                throw th;
-            }
-        }
-    }
-
-    public final void l(String str, long j2, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            if (g(str, j2, i2, i3)) {
-                BdLog.d("ScreenShotListenManager: ScreenShot: path = " + str + "; size = " + i2 + " * " + i3 + "; date = " + j2);
-                if (this.b == null || f(str)) {
-                    return;
-                }
-                this.b.onShot(str);
+                TbadkCoreApplication.getInst().setCapableOfWebp(z);
+                TbadkSettings.getInst().saveInt("webp_failure_count", i);
+                TbadkSettings.getInst().saveBoolean("capable_of_webp_format", z);
                 return;
             }
-            BdLog.d("ScreenShotListenManager: Media content changed, but not screenshot: path = " + str + "; size = " + i2 + " * " + i3 + "; date = " + j2);
+            TbadkCoreApplication.getInst().setCapableOfWebp(TbadkSettings.getInst().loadBoolean("capable_of_webp_format", false));
         }
     }
 
-    public void n(d dVar) {
+    @NonNull
+    public static Pair<Boolean, String> d(@Nullable String str) {
+        InterceptResult invokeL;
+        int lastIndexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, dVar) == null) {
-            this.b = dVar;
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && m() && PermissionUtil.isAgreePrivacyPolicy()) {
-            this.c = System.currentTimeMillis();
-            this.d = new c(this, MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.f);
-            this.e = new c(this, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.f);
-            if (Build.VERSION.SDK_INT >= 29) {
-                this.a.getContentResolver().registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, true, this.d);
-                this.a.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.e);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (!f()) {
+                return new Pair<>(Boolean.FALSE, str);
             }
-            this.a.getContentResolver().registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, false, this.d);
-            this.a.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, false, this.e);
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && m()) {
-            if (this.d != null) {
-                try {
-                    this.a.getContentResolver().unregisterContentObserver(this.d);
-                } catch (Exception e) {
-                    e.printStackTrace();
+            if (str != null && str.length() != 0) {
+                int indexOf = str.indexOf("hiphotos.baidu.com");
+                if (indexOf <= 0) {
+                    indexOf = str.indexOf("tiebapic.baidu.com");
                 }
-                this.d = null;
-            }
-            if (this.e != null) {
-                try {
-                    this.a.getContentResolver().unregisterContentObserver(this.e);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                if (indexOf > 0 && (lastIndexOf = str.lastIndexOf(".jpg")) > 0) {
+                    return new Pair<>(Boolean.TRUE, str.substring(0, lastIndexOf) + ".webp" + str.substring(lastIndexOf + 4));
                 }
-                this.e = null;
+                return new Pair<>(Boolean.FALSE, str);
             }
-            this.c = 0L;
-            this.b = null;
+            return new Pair<>(Boolean.FALSE, str);
         }
+        return (Pair) invokeL.objValue;
+    }
+
+    public static void e(boolean z, @Nullable String str, @Nullable String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Boolean.valueOf(z), str, str2}) == null) {
+        }
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? WebpForceSwitch.isOn() || (a() && h()) : invokeV.booleanValue;
+    }
+
+    public static void g(@NonNull String str, @Nullable String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) {
+        }
+    }
+
+    public static boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? SwitchManager.getInstance().findType(WebpSwitch.WEBP_ENABLE) == 1 : invokeV.booleanValue;
     }
 }

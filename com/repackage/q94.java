@@ -1,61 +1,115 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import com.baidu.searchbox.http.request.HttpRequestBuilder;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidubce.AbstractBceClient;
-import java.util.Map;
-import okhttp3.MediaType;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class q94 extends i84 {
+public class q94 {
     public static /* synthetic */ Interceptable $ic;
+    public static q94 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public g94 a;
 
-    public static void a(String str, Map<String, String> map, Map<String, String> map2, m84<String> m84Var) {
+    public q94() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65536, null, str, map, map2, m84Var) == null) || d(str, m84Var)) {
-            return;
-        }
-        c(j64.g().getRequest(), str, map, map2, m84Var);
-    }
-
-    public static void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, m84<String> m84Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(65537, null, str, map, map2, jSONObject, m84Var) == null) || d(str, m84Var)) {
-            return;
-        }
-        f64 postStringRequest = j64.g().postStringRequest();
-        r64.a(postStringRequest, map);
-        postStringRequest.content(jSONObject.toString()).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE)).requestFrom(6);
-        c(postStringRequest, str, map, map2, m84Var);
-    }
-
-    /* JADX WARN: Type inference failed for: r4v1, types: [com.baidu.searchbox.http.request.HttpRequestBuilder] */
-    public static void c(HttpRequestBuilder<?> httpRequestBuilder, String str, Map<String, String> map, Map<String, String> map2, m84<String> m84Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65538, null, httpRequestBuilder, str, map, map2, m84Var) == null) {
-            httpRequestBuilder.url(n84.j(str, map)).requestSubFrom(10).addHeaders(map2).userAgent(i84.b).cookieManager(i84.a).enableStat(true).build().executeStat(m84Var);
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static boolean d(String str, m84<String> m84Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, m84Var)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (m84Var != null) {
-                m84Var.onStart();
-                return false;
-            }
-            return false;
         }
-        return invokeLL.booleanValue;
+        this.a = new g94();
+    }
+
+    public static q94 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            q94 q94Var = b;
+            if (q94Var != null) {
+                return q94Var;
+            }
+            synchronized (q94.class) {
+                if (b == null) {
+                    b = new q94();
+                }
+            }
+            return b;
+        }
+        return (q94) invokeV.objValue;
+    }
+
+    public c94 a(s94 s94Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, s94Var)) == null) {
+            if (s94Var == null) {
+                return null;
+            }
+            return new x94(s94Var, false);
+        }
+        return (c94) invokeL.objValue;
+    }
+
+    public synchronized boolean c(String str) {
+        InterceptResult invokeL;
+        boolean e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            synchronized (this) {
+                e = this.a.e(str);
+            }
+            return e;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized boolean d(String str) {
+        InterceptResult invokeL;
+        boolean f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            synchronized (this) {
+                f = this.a.f(str);
+            }
+            return f;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized void e(o94 o94Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, o94Var) == null) {
+            synchronized (this) {
+                this.a.c(o94Var);
+            }
+        }
+    }
+
+    public synchronized <T> void f(s94<T> s94Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, s94Var) == null) {
+            synchronized (this) {
+                s94Var.s(false);
+                this.a.h(s94Var);
+            }
+        }
+    }
+
+    public synchronized void g(o94 o94Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, o94Var) == null) {
+            synchronized (this) {
+                this.a.i(o94Var);
+            }
+        }
     }
 }

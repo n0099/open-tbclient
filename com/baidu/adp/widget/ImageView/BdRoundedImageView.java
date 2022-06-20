@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vm;
+import com.repackage.zm;
 /* loaded from: classes.dex */
 public class BdRoundedImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
@@ -132,16 +132,16 @@ public class BdRoundedImageView extends ImageView {
             return;
         }
         int i2 = 0;
-        if (drawable instanceof vm) {
-            vm vmVar = (vm) drawable;
-            vmVar.g(this.h);
-            vmVar.e((this.d || !z) ? this.a : 0.0f);
+        if (drawable instanceof zm) {
+            zm zmVar = (zm) drawable;
+            zmVar.g(this.h);
+            zmVar.e((this.d || !z) ? this.a : 0.0f);
             if (this.d || !z) {
                 i2 = this.b;
             }
-            vmVar.d(i2);
-            vmVar.c(this.c);
-            vmVar.f(this.e);
+            zmVar.d(i2);
+            zmVar.c(this.c);
+            zmVar.f(this.e);
         } else if (drawable instanceof LayerDrawable) {
             LayerDrawable layerDrawable = (LayerDrawable) drawable;
             int numberOfLayers = layerDrawable.getNumberOfLayers();
@@ -210,7 +210,7 @@ public class BdRoundedImageView extends ImageView {
     public void setBackgroundDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, drawable) == null) {
-            this.g = vm.b(drawable);
+            this.g = zm.b(drawable);
             b();
             super.setBackgroundDrawable(this.g);
         }
@@ -265,7 +265,7 @@ public class BdRoundedImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, bitmap) == null) {
             if (bitmap != null && !bitmap.isRecycled()) {
-                this.f = new vm(bitmap);
+                this.f = new zm(bitmap);
                 c();
             } else {
                 this.f = null;
@@ -279,7 +279,7 @@ public class BdRoundedImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, drawable) == null) {
             if (drawable != null) {
-                this.f = vm.b(drawable);
+                this.f = zm.b(drawable);
                 c();
             } else {
                 this.f = null;

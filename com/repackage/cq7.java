@@ -1,56 +1,61 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.pb.data.ThreadPublishHttpResMeesage;
-import com.baidu.tieba.pb.data.ThreadPublishReqMessage;
-import com.baidu.tieba.pb.data.ThreadPublishSocketResMessage;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tieba.pb.chosen.cache.ReadChosenPbCacheResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Wire;
+import tbclient.ExcPbPage.DataRes;
+import tbclient.ExcPbPage.ExcPbPageResIdl;
 /* loaded from: classes5.dex */
-public class cq7 {
+public class cq7 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
 
-    public cq7(TbPageContext tbPageContext) {
+    public cq7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = tbPageContext;
-        SocketMessageTask socketMessageTask = new SocketMessageTask(309644);
-        socketMessageTask.setResponsedClass(ThreadPublishSocketResMessage.class);
-        MessageManager.getInstance().registerTask(socketMessageTask);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VOTE_THREAD_PULISH, ig8.a(TbConfig.URL_THREAD_PUBLISH, 309644));
-        tbHttpMessageTask.setResponsedClass(ThreadPublishHttpResMeesage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void a(long j, long j2) {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        InterceptResult invokeL;
+        ExcPbPageResIdl excPbPageResIdl;
+        DataRes dataRes;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            ThreadPublishReqMessage threadPublishReqMessage = new ThreadPublishReqMessage();
-            threadPublishReqMessage.tid = j;
-            threadPublishReqMessage.fid = j2;
-            threadPublishReqMessage.setTag(this.a.getUniqueId());
-            MessageManager.getInstance().sendMessage(threadPublishReqMessage);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            bq7 bq7Var = null;
+            if (customMessage != null && customMessage.getCmd() == 2001314) {
+                mq4.f();
+                byte[] bArr = mq4.d("tb.pb_normal").get("chosen_pb_page_cache");
+                if (bArr != null) {
+                    try {
+                        excPbPageResIdl = (ExcPbPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcPbPageResIdl.class);
+                    } catch (Exception unused) {
+                        excPbPageResIdl = null;
+                    }
+                    if (excPbPageResIdl != null && (dataRes = excPbPageResIdl.data) != null) {
+                        bq7Var = new bq7(dataRes.user_info, dataRes.thread_info, dataRes.post_list, dataRes.user_list);
+                    }
+                }
+                return new ReadChosenPbCacheResponse(bq7Var);
+            }
+            return null;
         }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

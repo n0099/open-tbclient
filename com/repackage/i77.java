@@ -1,29 +1,118 @@
 package com.repackage;
 
+import android.content.Context;
 import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ListView;
+import android.view.Window;
+import android.view.WindowManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.im.chat.emoji.ImEmojiUtil;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.share.ImShareDialogView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import com.repackage.g77;
 /* loaded from: classes6.dex */
-public class i77 implements g77 {
+public class i77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, Integer> a;
+    public ImShareDialogView a;
+    public g77 b;
+    public h77 c;
+    public ThreadData d;
+    public ForumData e;
+    public MetaData f;
+    public b g;
 
-    public i77() {
+    /* loaded from: classes6.dex */
+    public class a implements h77 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ i77 b;
+
+        public a(i77 i77Var, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i77Var, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = i77Var;
+            this.a = context;
+        }
+
+        @Override // com.repackage.h77
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.b == null) {
+                return;
+            }
+            pi.x(this.a, this.b.a);
+            this.b.b.dismiss();
+            if (this.b.g != null) {
+                this.b.g.onCancel();
+            }
+        }
+
+        @Override // com.repackage.h77
+        public void b(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                if (this.b.d == null) {
+                    if (this.b.e != null) {
+                        l87.a(this.b.e, str, this.b.f.getUserIdLong(), this.b.f.getUserName(), this.b.f.getName_show(), this.b.f.getPortrait(), this.b.f.getIsMyFriend() == 1);
+                        i77 i77Var = this.b;
+                        i77Var.q(1, 0, 3, String.valueOf(i77Var.f.getUserIdLong()));
+                    }
+                } else {
+                    l87.b(this.b.d, str, this.b.f.getUserIdLong(), this.b.f.getUserName(), this.b.f.getName_show(), this.b.f.getPortrait(), this.b.f.getIsMyFriend() == 1);
+                    ky4.e(this.b.f.getUserIdLong());
+                    int i = this.b.d.threadType == 40 ? 2 : 1;
+                    i77 i77Var2 = this.b;
+                    i77Var2.q(1, 0, i, String.valueOf(i77Var2.f.getUserIdLong()));
+                }
+                if (this.b.b != null) {
+                    pi.x(this.a, this.b.a);
+                    this.b.b.dismiss();
+                    if (this.b.g != null) {
+                        this.b.g.a();
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a();
+
+        void onCancel();
+    }
+
+    public i77(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,43 +122,113 @@ public class i77 implements g77 {
                 return;
             }
         }
-        HashMap<String, Integer> hashMap = new HashMap<>(3);
-        this.a = hashMap;
-        hashMap.put("#(滑稽)", Integer.valueOf(ImEmojiUtil.a));
-        this.a.put("#(香槟)", Integer.valueOf(ImEmojiUtil.b));
-        this.a.put("#(炸药)", Integer.valueOf(ImEmojiUtil.c));
+        i(context);
+        j(context);
     }
 
-    @Override // com.repackage.g77
-    public boolean a(ChatMessage... chatMessageArr) {
-        InterceptResult invokeL;
+    public final boolean h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chatMessageArr)) == null) ? this.a.containsKey(c(chatMessageArr)) : invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.d == null && this.e == null) ? false : true : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.g77
-    public void b(ListView listView, ChatMessage... chatMessageArr) {
-        View childAt;
+    public final void i(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, listView, chatMessageArr) == null) || listView == null || (childAt = listView.getChildAt(listView.getLastVisiblePosition() - listView.getFirstVisiblePosition())) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            this.c = new a(this, context);
         }
-        TbRichTextView tbRichTextView = (TbRichTextView) childAt.findViewById(R.id.obfuscated_res_0x7f091f02);
-        if (chatMessageArr == null || chatMessageArr.length <= 1) {
-            return;
-        }
-        ImEmojiUtil.m(listView.getContext(), (FrameLayout) listView.getRootView().findViewById(16908290), this.a.get(c(chatMessageArr)).intValue(), tbRichTextView, null);
     }
 
-    public final String c(ChatMessage... chatMessageArr) {
-        InterceptResult invokeL;
+    public final void j(final Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessageArr)) == null) {
-            if (chatMessageArr == null || chatMessageArr.length <= 0 || chatMessageArr[0] == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            ImShareDialogView imShareDialogView = new ImShareDialogView(context);
+            this.a = imShareDialogView;
+            imShareDialogView.setShareClickCallBack(this.c);
+            g77 g77Var = new g77(context, R.style.obfuscated_res_0x7f100104);
+            this.b = g77Var;
+            g77Var.setContentView(this.a);
+            this.b.a(new g77.a() { // from class: com.repackage.d77
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.repackage.g77.a
+                public final void onClick() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        i77.this.l(context);
+                    }
+                }
+            });
+            Window window = this.b.getWindow();
+            window.addFlags(512);
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            attributes.y = pi.f(TbadkCoreApplication.getInst(), R.dimen._bottom_enter_anim_place_holder_height);
+            window.setAttributes(attributes);
+            window.setWindowAnimations(R.style.obfuscated_res_0x7f1003ee);
+            window.setGravity(80);
+            window.setLayout(-1, -2);
+        }
+    }
+
+    public final boolean k(Context context, View view2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, view2)) == null) {
+            if (view2 == null) {
+                return false;
             }
-            return chatMessageArr[0].getContent();
+            int[] iArr = new int[2];
+            view2.getLocationOnScreen(iArr);
+            return iArr[1] < context.getResources().getDisplayMetrics().heightPixels / 2;
         }
-        return (String) invokeL.objValue;
+        return invokeLL.booleanValue;
+    }
+
+    public /* synthetic */ void l(Context context) {
+        if (k(context, this.b.getWindow().getDecorView().findViewById(16908290))) {
+            pi.x(context, this.a);
+        } else {
+            this.b.dismiss();
+        }
+    }
+
+    public void m(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            this.g = bVar;
+        }
+    }
+
+    public void n(ForumData forumData, MetaData metaData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, forumData, metaData) == null) {
+            this.e = forumData;
+            this.f = metaData;
+            this.a.l(forumData, metaData);
+        }
+    }
+
+    public void o(ThreadData threadData, MetaData metaData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, threadData, metaData) == null) {
+            this.d = threadData;
+            this.f = metaData;
+            this.a.m(threadData, metaData);
+        }
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.b != null && h()) {
+            this.b.show();
+        }
+    }
+
+    public final void q(int i, int i2, int i3, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) {
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SEND_MSG).addParam("obj_source", i).addParam("obj_param1", i3).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam(TiebaStatic.Params.FRIEND_UID, str));
+        }
     }
 }

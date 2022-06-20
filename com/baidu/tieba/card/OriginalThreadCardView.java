@@ -43,9 +43,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
-import com.repackage.re5;
-import com.repackage.wq4;
+import com.repackage.fr4;
+import com.repackage.of5;
+import com.repackage.pi;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class OriginalThreadCardView extends RelativeLayout {
@@ -137,11 +137,11 @@ public class OriginalThreadCardView extends RelativeLayout {
                 return;
             }
         }
-        s = li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
-        t = li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
-        u = li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
-        v = li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
-        w = li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
+        s = pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
+        t = pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
+        u = pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
+        v = pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
+        w = pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -181,7 +181,7 @@ public class OriginalThreadCardView extends RelativeLayout {
             setPadding(i, i, i, u);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f.getLayoutParams();
             if (this.c.getVisibility() == 0) {
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f090e57);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f090e48);
             } else {
                 layoutParams.addRule(3, R.id.obfuscated_res_0x7f091f5f);
             }
@@ -218,19 +218,19 @@ public class OriginalThreadCardView extends RelativeLayout {
                 this.c.setDefaultBgResource(R.color.CAM_X0209);
             }
             this.c.setVisibility(0);
-            this.c.K(shareInfo.showPicUrl, 10, false);
+            this.c.J(shareInfo.showPicUrl, 10, false);
         } else if (i == 2) {
             this.k = 0;
             this.c.setDefaultResource(R.drawable.icon_card_url_n);
             this.c.setDefaultBgResource(R.color.CAM_X0209);
             this.c.setVisibility(0);
-            this.c.K(shareInfo.showPicUrl, 10, false);
+            this.c.J(shareInfo.showPicUrl, 10, false);
         } else if (i == 3) {
             this.k = R.drawable.icon_share_play_n;
             this.c.setDefaultResource(R.color.CAM_X0204);
             this.c.setDefaultBgResource(R.color.CAM_X0209);
             this.c.setVisibility(0);
-            this.c.K(shareInfo.showPicUrl, 10, false);
+            this.c.J(shareInfo.showPicUrl, 10, false);
         } else if (i != 4) {
             this.k = 0;
             this.c.setVisibility(8);
@@ -239,7 +239,7 @@ public class OriginalThreadCardView extends RelativeLayout {
             this.c.setDefaultResource(R.color.CAM_X0204);
             this.c.setDefaultBgResource(R.color.CAM_X0209);
             this.c.setVisibility(0);
-            this.c.K(shareInfo.showPicUrl, 10, false);
+            this.c.J(shareInfo.showPicUrl, 10, false);
         }
         if (this.k != 0) {
             this.d.setVisibility(0);
@@ -277,19 +277,19 @@ public class OriginalThreadCardView extends RelativeLayout {
                         this.c.setDefaultBgResource(R.color.CAM_X0209);
                     }
                     this.c.setVisibility(0);
-                    this.c.K(originalThreadInfo.c, 10, false);
+                    this.c.J(originalThreadInfo.c, 10, false);
                 } else if (i == 2) {
                     this.k = 0;
                     this.c.setDefaultResource(R.drawable.icon_card_url_n);
                     this.c.setDefaultBgResource(R.color.CAM_X0209);
                     this.c.setVisibility(0);
-                    this.c.K(originalThreadInfo.c, 10, false);
+                    this.c.J(originalThreadInfo.c, 10, false);
                 } else if (i == 3) {
                     this.k = R.drawable.icon_share_play_n;
                     this.c.setDefaultResource(R.color.CAM_X0204);
                     this.c.setDefaultBgResource(R.color.CAM_X0209);
                     this.c.setVisibility(0);
-                    this.c.K(originalThreadInfo.c, 10, false);
+                    this.c.J(originalThreadInfo.c, 10, false);
                 } else if (i != 4) {
                     this.k = 0;
                     this.c.setVisibility(8);
@@ -298,7 +298,7 @@ public class OriginalThreadCardView extends RelativeLayout {
                     this.c.setDefaultResource(R.color.CAM_X0204);
                     this.c.setDefaultBgResource(R.color.CAM_X0209);
                     this.c.setVisibility(0);
-                    this.c.K(originalThreadInfo.c, 10, false);
+                    this.c.J(originalThreadInfo.c, 10, false);
                 }
                 if (this.k != 0) {
                     this.d.setVisibility(0);
@@ -344,7 +344,7 @@ public class OriginalThreadCardView extends RelativeLayout {
                     TextView textView = this.i;
                     textView.setText(itemData.mScore + "");
                 } else {
-                    this.i.setText(R.string.obfuscated_res_0x7f0f06cc);
+                    this.i.setText(R.string.obfuscated_res_0x7f0f06c1);
                 }
                 if (this.c.getVisibility() == 8) {
                     RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.b.getLayoutParams();
@@ -378,27 +378,27 @@ public class OriginalThreadCardView extends RelativeLayout {
             return;
         }
         this.a = context;
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01a9, (ViewGroup) this, true);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01a6, (ViewGroup) this, true);
         this.p = inflate;
         this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f5f);
-        this.c = (TbImageView) this.p.findViewById(R.id.obfuscated_res_0x7f090e57);
-        this.d = (ImageView) this.p.findViewById(R.id.obfuscated_res_0x7f090dd7);
+        this.c = (TbImageView) this.p.findViewById(R.id.obfuscated_res_0x7f090e48);
+        this.d = (ImageView) this.p.findViewById(R.id.obfuscated_res_0x7f090dc8);
         this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091fae);
         this.c.setLongIconSupport(false);
         this.c.setGifIconSupport(false);
-        this.c.setRadius(li.f(context, R.dimen.tbds10));
+        this.c.setRadius(pi.f(context, R.dimen.tbds10));
         this.c.setConrers(15);
-        this.c.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706e9));
+        this.c.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706e5));
         this.c.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
         this.c.setBorderSurroundContent(true);
         this.c.setDrawBorder(true);
-        int k = (((li.k(context) - (li.f(context, R.dimen.tbds44) * 2)) - (li.f(getContext(), R.dimen.tbds26) * 2)) - (li.f(getContext(), R.dimen.tbds10) * 4)) / 5;
+        int k = (((pi.k(context) - (pi.f(context, R.dimen.tbds44) * 2)) - (pi.f(getContext(), R.dimen.tbds26) * 2)) - (pi.f(getContext(), R.dimen.tbds10) * 4)) / 5;
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
         layoutParams.width = k;
         layoutParams.height = k;
         this.c.setLayoutParams(layoutParams);
         this.e.setLayoutParams(layoutParams);
-        int f = li.f(context, R.dimen.tbds52);
+        int f = pi.f(context, R.dimen.tbds52);
         RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.d.getLayoutParams();
         layoutParams2.leftMargin = (k - f) / 2;
         this.d.setLayoutParams(layoutParams2);
@@ -406,12 +406,12 @@ public class OriginalThreadCardView extends RelativeLayout {
         layoutParams3.height = k;
         this.b.setLayoutParams(layoutParams3);
         this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090111);
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090f77);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090f66);
         this.g = textView;
-        textView.setMaxWidth(li.q(context)[0] / 2);
-        this.h = (RankStarView) findViewById(R.id.obfuscated_res_0x7f090f6e);
-        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090f6a);
-        VoteView voteView = (VoteView) findViewById(R.id.obfuscated_res_0x7f09240f);
+        textView.setMaxWidth(pi.q(context)[0] / 2);
+        this.h = (RankStarView) findViewById(R.id.obfuscated_res_0x7f090f5d);
+        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090f59);
+        VoteView voteView = (VoteView) findViewById(R.id.obfuscated_res_0x7f0923fc);
         this.j = voteView;
         voteView.setBgColor(R.color.CAM_X0207);
         setOnClickListener(new a(this));
@@ -421,7 +421,7 @@ public class OriginalThreadCardView extends RelativeLayout {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, itemStarData)) == null) {
-            SpannableStringBuilder d = re5.d(itemStarData);
+            SpannableStringBuilder d = of5.d(itemStarData);
             d.append((CharSequence) str);
             return d;
         }
@@ -535,8 +535,8 @@ public class OriginalThreadCardView extends RelativeLayout {
         if (i4 != 0) {
             SkinManager.setImageResource(this.d, i4);
         }
-        setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(li.f(this.a, R.dimen.tbds10), SkinManager.getColor(i)));
-        this.f.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(li.f(this.a, R.dimen.tbds10), SkinManager.getColor(R.color.CAM_X0205)));
+        setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(pi.f(this.a, R.dimen.tbds10), SkinManager.getColor(i)));
+        this.f.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(pi.f(this.a, R.dimen.tbds10), SkinManager.getColor(R.color.CAM_X0205)));
         this.j.C(skinType);
         SkinManager.setViewTextColor(this.g, i2, 1);
         SkinManager.setViewTextColor(this.b, R.color.CAM_X0107, 1);
@@ -556,11 +556,11 @@ public class OriginalThreadCardView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
             View view2 = this.p;
             if (view2 != null) {
-                wq4.d(view2).f(i);
+                fr4.d(view2).f(i);
             }
             TextView textView = this.b;
             if (textView != null) {
-                wq4.d(textView).f(i);
+                fr4.d(textView).f(i);
             }
         }
     }

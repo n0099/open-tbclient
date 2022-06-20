@@ -9,9 +9,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.x1a;
+import com.repackage.e2a;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PayAmountGridItemDecoration extends RecyclerView.ItemDecoration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +55,7 @@ public class PayAmountGridItemDecoration extends RecyclerView.ItemDecoration {
             if (childAdapterPosition == i2) {
                 rect.left = 0;
                 rect.right = 0;
-                rect.top = z ? x1a.a(2.0f) : 0;
+                rect.top = z ? e2a.a(2.0f) : 0;
             } else if (childAdapterPosition < i2) {
                 int i3 = this.a;
                 int i4 = childAdapterPosition % i3;
@@ -70,7 +70,7 @@ public class PayAmountGridItemDecoration extends RecyclerView.ItemDecoration {
                 int i7 = this.c;
                 rect.left = (i * i7) / i6;
                 rect.right = i7 - (((i + 1) * i7) / i6);
-                rect.top = z ? x1a.a(2.0f) : this.b;
+                rect.top = z ? e2a.a(2.0f) : this.b;
             }
             RLog.debug("PayAmountGridItemDecoration", "position:" + childAdapterPosition + "    columnIndex: " + i + "    left,right ->" + rect.left + "," + rect.right + " isCampaignItemVisible:" + z);
         }

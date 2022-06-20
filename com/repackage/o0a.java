@@ -1,14 +1,42 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.app.Dialog;
-import com.yy.mobile.framework.revenuesdk.baseapi.PurchaseStatus;
-import tv.athena.revenue.payui.view.IYYPayWayView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payservice.IH5PayActivityVisit;
+import tv.athena.revenue.payui.model.PayFlowType;
 /* loaded from: classes6.dex */
-public interface o0a {
-    void f(Activity activity, p1a p1aVar, Dialog dialog, IYYPayWayView iYYPayWayView);
+public class o0a implements IH5PayActivityVisit {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void l(Activity activity, Dialog dialog, IYYPayWayView iYYPayWayView, PurchaseStatus purchaseStatus);
+    public o0a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void o(int i, String str, Activity activity, Dialog dialog, IYYPayWayView iYYPayWayView, IYYPayWayView.b bVar);
+    @Override // com.yy.mobile.framework.revenuesdk.payservice.IH5PayActivityVisit
+    public void notifyPayFlowActivityVisit(String str, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(1048576, this, str, i, i2, i3) == null) {
+            RLog.info("H5PayActivityVisitImpl", "notifyPayFlowActivityVisit mAppId:" + i + " mUserChannel:" + i2 + " name:" + str);
+            PayFlowType a = k2a.a(i3);
+            if (a == null) {
+                RLog.error("H5PayActivityVisitImpl", "notifyPayFlowActivityVisit mAppId:" + i + " mUserChannel:" + i2 + " name:" + str + " payFlowType null", new Object[0]);
+                return;
+            }
+            e0a.b(str, i, i2, a);
+        }
+    }
 }

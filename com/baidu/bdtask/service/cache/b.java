@@ -17,9 +17,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
-import com.repackage.fv;
-import com.repackage.gv;
-import com.repackage.wq;
+import com.repackage.ar;
+import com.repackage.jv;
+import com.repackage.kv;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
@@ -32,7 +32,7 @@ public final class b {
     public static final a e;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
-    public final fv<Function0<Unit>> b;
+    public final jv<Function0<Unit>> b;
     public String c;
 
     /* loaded from: classes.dex */
@@ -67,12 +67,12 @@ public final class b {
 
     /* renamed from: com.baidu.bdtask.service.cache.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class RunnableC0073b implements Runnable {
+    public static final class RunnableC0075b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
-        public RunnableC0073b(b bVar) {
+        public RunnableC0075b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,7 +132,7 @@ public final class b {
             }
         }
         this.a = TaskState.key;
-        this.b = new gv();
+        this.b = new kv();
         this.c = "";
     }
 
@@ -140,7 +140,7 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String a2 = wq.c.c().a(this.a);
+            String a2 = ar.c.c().a(this.a);
             return a2 != null ? a2 : "";
         }
         return (String) invokeV.objValue;
@@ -165,7 +165,7 @@ public final class b {
             }
             this.b.b();
             this.b.a(new TaskCacheManager$cacheTasks$3(this, bVar));
-            ExecutorUtilsExt.postOnSerial(new RunnableC0073b(this), "storageSync");
+            ExecutorUtilsExt.postOnSerial(new RunnableC0075b(this), "storageSync");
         }
     }
 

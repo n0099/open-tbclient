@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
-import com.repackage.kc0;
-import com.repackage.nc0;
+import com.repackage.oc0;
+import com.repackage.rc0;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
-public class FFmpegCmdExecutor implements kc0.a, kc0.b, kc0.c, kc0.d, kc0.e {
+public class FFmpegCmdExecutor implements oc0.a, oc0.b, oc0.c, oc0.d, oc0.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Map<Integer, Integer> a;
@@ -174,27 +174,27 @@ public class FFmpegCmdExecutor implements kc0.a, kc0.b, kc0.c, kc0.d, kc0.e {
         }
     }
 
-    @Override // com.repackage.kc0.e
-    public void a(kc0 kc0Var) {
+    @Override // com.repackage.oc0.e
+    public void a(oc0 oc0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, kc0Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, oc0Var) == null) {
         }
     }
 
-    @Override // com.repackage.kc0.a
-    public void b(kc0 kc0Var) {
+    @Override // com.repackage.oc0.a
+    public void b(oc0 oc0Var) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kc0Var) == null) || (bVar = this.e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oc0Var) == null) || (bVar = this.e) == null) {
             return;
         }
         bVar.onCompletion();
     }
 
-    @Override // com.repackage.kc0.d
-    public void c(kc0 kc0Var) {
+    @Override // com.repackage.oc0.d
+    public void c(oc0 oc0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kc0Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oc0Var) == null) {
             synchronized (this.b) {
                 f(32);
             }
@@ -210,11 +210,11 @@ public class FFmpegCmdExecutor implements kc0.a, kc0.b, kc0.c, kc0.d, kc0.e {
         }
     }
 
-    @Override // com.repackage.kc0.b
-    public boolean d(kc0 kc0Var, int i, int i2) {
+    @Override // com.repackage.oc0.b
+    public boolean d(oc0 oc0Var, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, kc0Var, i, i2)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, oc0Var, i, i2)) == null) {
             synchronized (this.b) {
                 f(2);
             }
@@ -227,11 +227,11 @@ public class FFmpegCmdExecutor implements kc0.a, kc0.b, kc0.c, kc0.d, kc0.e {
         return invokeLII.booleanValue;
     }
 
-    @Override // com.repackage.kc0.c
-    public boolean e(kc0 kc0Var, int i, int i2, Object obj) {
+    @Override // com.repackage.oc0.c
+    public boolean e(oc0 oc0Var, int i, int i2, Object obj) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{kc0Var, Integer.valueOf(i), Integer.valueOf(i2), obj})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{oc0Var, Integer.valueOf(i), Integer.valueOf(i2), obj})) == null) {
             b bVar = this.e;
             if (bVar != null) {
                 return bVar.onInfo(i, i2, obj);
@@ -286,7 +286,7 @@ public class FFmpegCmdExecutor implements kc0.a, kc0.b, kc0.c, kc0.d, kc0.e {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList) == null) {
             synchronized (this.b) {
                 if (this.c != 8) {
-                    nc0.e("FFmpegCmdExecutor", "setSource() called on an error status:" + this.c);
+                    rc0.e("FFmpegCmdExecutor", "setSource() called on an error status:" + this.c);
                 } else if (arrayList != null && arrayList.size() > 0) {
                     this.d.a(arrayList);
                 }
@@ -299,7 +299,7 @@ public class FFmpegCmdExecutor implements kc0.a, kc0.b, kc0.c, kc0.d, kc0.e {
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             synchronized (this.b) {
                 if (f(16) <= 0) {
-                    nc0.e("FFmpegCmdExecutor", "start() called on an error status:" + this.c);
+                    rc0.e("FFmpegCmdExecutor", "start() called on an error status:" + this.c);
                 } else if (this.d != null) {
                     for (int i = 0; i < this.f.size(); i++) {
                         this.d.setDataSource(this.f.get(i));
@@ -321,9 +321,9 @@ public class FFmpegCmdExecutor implements kc0.a, kc0.b, kc0.c, kc0.d, kc0.e {
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             synchronized (this.b) {
                 if (f(128) > 0 && this.d != null) {
-                    nc0.c("FFmpegCmdExecutor", "stop in");
+                    rc0.c("FFmpegCmdExecutor", "stop in");
                     this.d.stop();
-                    nc0.c("FFmpegCmdExecutor", "stop out");
+                    rc0.c("FFmpegCmdExecutor", "stop out");
                 }
             }
         }

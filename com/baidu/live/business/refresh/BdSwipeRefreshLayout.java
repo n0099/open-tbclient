@@ -366,7 +366,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
 
         void d();
 
-        void f();
+        void e();
 
         long getCompleteAnimTime();
 
@@ -978,7 +978,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
             this.a = 2;
-            this.u.f();
+            this.u.e();
             if (!this.C || (jVar = this.c) == null) {
                 return;
             }

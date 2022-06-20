@@ -1,336 +1,103 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.util.SparseArray;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.sina.weibo.sdk.utils.ResourceManager;
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
-import java.util.AbstractMap;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.i9;
 /* loaded from: classes6.dex */
-public class k9 {
+public abstract class k9 extends SQLiteOpenHelper implements i9 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
+    public i9.a callback;
+    public final String databaseName;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1964036969, "Lcom/repackage/k9;")) == null) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k9(Context context, String str, int i) {
+        super(context, str, (SQLiteDatabase.CursorFactory) null, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.databaseName = str;
+    }
+
+    private void exeCallback(SQLiteDatabase sQLiteDatabase) {
+        i9.a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, this, sQLiteDatabase) == null) || (aVar = this.callback) == null) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1964036969, "Lcom/repackage/k9;");
-        }
+        aVar.onDatabaseCreated(sQLiteDatabase);
     }
 
-    public static String a(String str, Object obj, List list) {
-        InterceptResult invokeLLL;
-        int i;
-        Map map;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, obj, list)) == null) {
-            StringBuffer stringBuffer = new StringBuffer("");
-            if (obj == null) {
-                stringBuffer.append(str + "[] = null\n");
-                return stringBuffer.toString();
-            }
-            int i2 = 0;
-            if (obj.getClass().isArray()) {
-                if (Array.getLength(obj) <= 0) {
-                    stringBuffer.append(str + "[] = empty\n");
-                } else if (!f(Array.get(obj, 0))) {
-                    stringBuffer.append(str + " = [");
-                    while (i2 < Array.getLength(obj) - 1) {
-                        Object c = c(Array.get(obj, i2));
-                        stringBuffer.append(c + ",");
-                        i2++;
-                    }
-                    stringBuffer.append(Array.get(obj, Array.getLength(obj) - 1) + "]\n");
-                } else {
-                    while (i2 < Array.getLength(obj)) {
-                        Object obj2 = Array.get(obj, i2);
-                        stringBuffer.append(k(str + PreferencesUtil.LEFT_MOUNT + i2 + PreferencesUtil.RIGHT_MOUNT, obj2, list));
-                        i2++;
-                    }
-                }
-            } else {
-                boolean z = obj instanceof Collection;
-                boolean z2 = obj instanceof HashSet;
-                boolean z3 = obj instanceof SparseArray;
-                if ((obj instanceof AbstractMap) || (obj instanceof HashMap) || (obj instanceof Hashtable)) {
-                    Map map2 = (Map) obj;
-                    Set keySet = map2.keySet();
-                    int size = keySet.size();
-                    if (size > 0) {
-                        int i3 = 0;
-                        for (Object obj3 : keySet) {
-                            Object obj4 = map2.get(obj3);
-                            Object c2 = c(obj3);
-                            Object c3 = c(obj4);
-                            if (f(c3) || f(c2)) {
-                                map = map2;
-                                stringBuffer.append(k(str + PreferencesUtil.LEFT_MOUNT + c2 + PreferencesUtil.RIGHT_MOUNT, c3, list));
-                            } else if (i3 == 0) {
-                                stringBuffer.append(str + " = [");
-                                map = map2;
-                            } else {
-                                map = map2;
-                                if (i3 == size - 1) {
-                                    stringBuffer.append(c2 + " = " + c3 + "]\n");
-                                } else {
-                                    stringBuffer.append(c2 + " = " + c3 + StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                                }
-                            }
-                            i3++;
-                            map2 = map;
-                        }
-                    } else {
-                        stringBuffer.append(str + "[] = empty\n");
-                    }
-                } else if (z || z2) {
-                    Iterator it = null;
-                    if (z) {
-                        Collection collection = (Collection) obj;
-                        it = collection.iterator();
-                        i = collection.size();
-                    } else if (z2) {
-                        HashSet hashSet = (HashSet) obj;
-                        it = hashSet.iterator();
-                        i = hashSet.size();
-                    } else {
-                        i = 0;
-                    }
-                    if (i > 0) {
-                        int i4 = 0;
-                        while (it.hasNext()) {
-                            Object c4 = c(it.next());
-                            if (f(c4)) {
-                                stringBuffer.append(k(str + PreferencesUtil.LEFT_MOUNT + i4 + PreferencesUtil.RIGHT_MOUNT, c4, list));
-                            } else if (i4 == 0) {
-                                stringBuffer.append(str + " = [");
-                            } else if (i4 == i - 1) {
-                                stringBuffer.append(c4 + "]\n");
-                            } else {
-                                stringBuffer.append(c4 + StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                            }
-                            i4++;
-                        }
-                    } else {
-                        stringBuffer.append(str + "[] = empty\n");
-                    }
-                } else if (z3) {
-                    SparseArray sparseArray = (SparseArray) obj;
-                    int size2 = sparseArray.size();
-                    if (size2 > 0) {
-                        for (int i5 = 0; i5 < size2; i5++) {
-                            Integer valueOf = Integer.valueOf(sparseArray.keyAt(i5));
-                            Object valueAt = sparseArray.valueAt(i5);
-                            Object c5 = c(valueOf);
-                            Object c6 = c(valueAt);
-                            if (f(c6) || f(c5)) {
-                                stringBuffer.append(k(str + PreferencesUtil.LEFT_MOUNT + c5 + PreferencesUtil.RIGHT_MOUNT, c6, list));
-                            } else if (i5 == 0) {
-                                stringBuffer.append(str + " = [");
-                            } else if (i5 == size2 - 1) {
-                                stringBuffer.append(c5 + " = " + c6 + "]\n");
-                            } else {
-                                stringBuffer.append(c5 + " = " + c6 + StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                            }
-                        }
-                    } else {
-                        stringBuffer.append(str + "[] = empty\n");
-                    }
-                }
-            }
-            return stringBuffer.toString();
-        }
-        return (String) invokeLLL.objValue;
-    }
+    public abstract void clearAllTables(SQLiteDatabase sQLiteDatabase);
 
-    /* JADX WARN: Removed duplicated region for block: B:18:0x005e A[Catch: IllegalAccessException -> 0x008f, TryCatch #0 {IllegalAccessException -> 0x008f, blocks: (B:5:0x000b, B:8:0x0013, B:11:0x001a, B:14:0x004c, B:16:0x0052, B:18:0x005e, B:19:0x0071, B:20:0x0076, B:12:0x002d), top: B:30:0x000b }] */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x0071 A[SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String b(String str, Object obj, List list) {
-        InterceptResult invokeLLL;
-        Class<?> cls;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, obj, list)) == null) {
-            StringBuffer stringBuffer = new StringBuffer("");
-            try {
-                cls = obj.getClass();
-            } catch (IllegalAccessException e) {
-                stringBuffer.append(e.toString());
-            }
-            if (str != null && !str.equals("")) {
-                stringBuffer.append(str + " = {\n");
-                while (cls != null && g(cls)) {
-                    if (cls.getSimpleName().equals("Object")) {
-                        a++;
-                        i(cls.getDeclaredFields(), obj, stringBuffer, list);
-                        a--;
-                    }
-                    cls = cls.getSuperclass();
-                }
-                stringBuffer.append(d() + "}\n");
-                return stringBuffer.toString();
-            }
-            stringBuffer.append(d() + cls.getSimpleName() + " = {\n");
-            while (cls != null) {
-                if (cls.getSimpleName().equals("Object")) {
-                }
-                cls = cls.getSuperclass();
-            }
-            stringBuffer.append(d() + "}\n");
-            return stringBuffer.toString();
-        }
-        return (String) invokeLLL.objValue;
-    }
+    public abstract void createAllTables(SQLiteDatabase sQLiteDatabase);
 
-    public static Object c(Object obj) {
+    @Override // com.repackage.i9
+    public boolean dropDatabase(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) {
-            if (obj == null || obj.getClass() != String.class) {
-                return obj;
-            }
-            return "\"" + obj + "\"";
-        }
-        return invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) ? context.deleteDatabase(this.databaseName) : invokeL.booleanValue;
     }
 
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            StringBuffer stringBuffer = new StringBuffer("");
-            for (int i = 0; i < a; i++) {
-                stringBuffer.append("    ");
-            }
-            return stringBuffer.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean e(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) ? obj.getClass().isArray() || (obj instanceof Collection) || (obj instanceof Hashtable) || (obj instanceof HashMap) || (obj instanceof SparseArray) || (obj instanceof HashSet) || (obj instanceof List) || (obj instanceof AbstractMap) : invokeL.booleanValue;
-    }
-
-    public static boolean f(Object obj) {
-        InterceptResult invokeL;
-        Class<?> cls;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, obj)) == null) ? (obj == null || (obj instanceof Boolean) || (obj instanceof Short) || (obj instanceof Byte) || (obj instanceof Integer) || (obj instanceof Long) || (obj instanceof Float) || (obj instanceof Character) || (obj instanceof Double) || (obj instanceof String) || (cls = obj.getClass()) == Boolean.TYPE || cls == Boolean.class || cls == Short.TYPE || cls == Short.class || cls == Byte.TYPE || cls == Byte.class || cls == Integer.TYPE || cls == Integer.class || cls == Long.TYPE || cls == Long.class || cls == Float.TYPE || cls == Float.class || cls == Character.TYPE || cls == Character.class || cls == Double.TYPE || cls == Double.class || cls == String.class) ? false : true : invokeL.booleanValue;
-    }
-
-    @SuppressLint({"DefaultLocale"})
-    public static boolean g(Class<?> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, cls)) == null) {
-            String[] strArr = {"activity", "content", "listener", NativeConstants.TYPE_VIEW, ResourceManager.DRAWABLE};
-            for (int i = 0; i < 5; i++) {
-                if (cls.getSimpleName().toLowerCase().endsWith(strArr[i])) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void h(String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, str, obj) == null) {
-            StringBuffer stringBuffer = new StringBuffer("");
-            if (m9.a) {
-                stringBuffer.append("Message_Type: " + str + "\n");
-                stringBuffer.append(j("", obj));
-                stringBuffer.append("----------------------------------------------------------\n");
-                String[] split = stringBuffer.toString().split("\n");
-                for (String str2 : split) {
-                    BdLog.i(str2);
-                }
-            }
-        }
-    }
-
-    public static void i(Field[] fieldArr, Object obj, StringBuffer stringBuffer, List list) throws IllegalAccessException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65545, null, fieldArr, obj, stringBuffer, list) == null) {
-            for (int i = 0; i < fieldArr.length; i++) {
-                fieldArr[i].setAccessible(true);
-                if (!Modifier.isStatic(fieldArr[i].getModifiers())) {
-                    stringBuffer.append(k(d() + fieldArr[i].getName(), fieldArr[i].get(obj), list));
-                }
-            }
-        }
-    }
-
-    public static String j(String str, Object obj) {
+    public boolean executeDDLSqlIgnoreAnyErrors(SQLiteDatabase sQLiteDatabase, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, str, obj)) == null) {
-            if (obj == null) {
-                return str + ": null\n";
-            } else if (e(obj)) {
-                return a(str, obj, new ArrayList());
-            } else {
-                if (f(obj)) {
-                    return b(str, obj, new ArrayList());
-                }
-                return str + " = " + obj.toString() + "\n\r";
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, sQLiteDatabase, str)) == null) {
+            try {
+                sQLiteDatabase.execSQL(str);
+                return true;
+            } catch (Throwable th) {
+                BdLog.e(str + ":" + th.getMessage());
+                return false;
             }
         }
-        return (String) invokeLL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public static String k(String str, Object obj, List list) {
-        InterceptResult invokeLLL;
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, str, obj, list)) == null) {
-            if (obj == null) {
-                return str + " = null\n";
-            } else if (e(obj)) {
-                return a(str, obj, list);
-            } else {
-                if (f(obj)) {
-                    if (!list.contains(obj)) {
-                        list.add(obj);
-                        return b(str, obj, list);
-                    }
-                    return str + " = <already visited>\n";
-                }
-                return str + " = " + c(obj) + "\n";
-            }
+        if (interceptable == null || interceptable.invokeL(1048580, this, sQLiteDatabase) == null) {
+            createAllTables(sQLiteDatabase);
+            exeCallback(sQLiteDatabase);
         }
-        return (String) invokeLLL.objValue;
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048581, this, sQLiteDatabase, i, i2) == null) {
+            clearAllTables(sQLiteDatabase);
+            createAllTables(sQLiteDatabase);
+        }
+    }
+
+    @Override // com.repackage.i9
+    public void setOnCreateCallback(i9.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
+            this.callback = aVar;
+        }
     }
 }

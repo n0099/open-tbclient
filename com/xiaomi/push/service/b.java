@@ -6,29 +6,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.ai;
-import com.xiaomi.push.hf;
-import com.xiaomi.push.ie;
-import com.xiaomi.push.ip;
+import com.xiaomi.push.al;
+import com.xiaomi.push.hj;
+import com.xiaomi.push.ii;
+import com.xiaomi.push.it;
 import java.lang.ref.WeakReference;
 /* loaded from: classes8.dex */
-public class b extends ai.a {
+public class b extends al.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ie a;
+    public ii a;
 
     /* renamed from: a  reason: collision with other field name */
-    public WeakReference<XMPushService> f901a;
+    public WeakReference<XMPushService> f911a;
 
     /* renamed from: a  reason: collision with other field name */
-    public boolean f902a;
+    public boolean f912a;
 
-    public b(ie ieVar, WeakReference<XMPushService> weakReference, boolean z) {
+    public b(ii iiVar, WeakReference<XMPushService> weakReference, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ieVar, weakReference, Boolean.valueOf(z)};
+            Object[] objArr = {iiVar, weakReference, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,15 +38,15 @@ public class b extends ai.a {
                 return;
             }
         }
-        this.f902a = false;
-        this.a = ieVar;
-        this.f901a = weakReference;
-        this.f902a = z;
+        this.f912a = false;
+        this.a = iiVar;
+        this.f911a = weakReference;
+        this.f912a = z;
     }
 
-    @Override // com.xiaomi.push.ai.a
+    @Override // com.xiaomi.push.al.a
     /* renamed from: a */
-    public String mo222a() {
+    public String mo202a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "22" : (String) invokeV.objValue;
@@ -57,15 +57,15 @@ public class b extends ai.a {
         WeakReference<XMPushService> weakReference;
         XMPushService xMPushService;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (weakReference = this.f901a) == null || this.a == null || (xMPushService = weakReference.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (weakReference = this.f911a) == null || this.a == null || (xMPushService = weakReference.get()) == null) {
             return;
         }
-        this.a.a(at.a());
+        this.a.a(bd.a());
         this.a.a(false);
-        com.xiaomi.channel.commonutils.logger.b.c("MoleInfo aw_ping : send aw_Ping msg " + this.a.m503a());
+        com.xiaomi.channel.commonutils.logger.b.c("MoleInfo aw_ping : send aw_Ping msg " + this.a.m475a());
         try {
             String c = this.a.c();
-            xMPushService.a(c, ip.a(y.a(c, this.a.b(), this.a, hf.i)), this.f902a);
+            xMPushService.a(c, it.a(ah.a(c, this.a.b(), this.a, hj.i)), this.f912a);
         } catch (Exception e) {
             com.xiaomi.channel.commonutils.logger.b.d("MoleInfo aw_ping : send help app ping error" + e.toString());
         }

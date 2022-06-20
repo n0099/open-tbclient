@@ -195,9 +195,9 @@ public class g extends Presenter implements View.OnClickListener, com.kwad.sdk.c
         if (q != null) {
             this.g = (Vibrator) q.getSystemService("vibrator");
         }
-        this.c = a(R.id.obfuscated_res_0x7f091100);
-        this.e = (TextView) a(R.id.obfuscated_res_0x7f0910ff);
-        KsShakeView ksShakeView = (KsShakeView) a(R.id.obfuscated_res_0x7f091102);
+        this.c = a(R.id.obfuscated_res_0x7f0910f0);
+        this.e = (TextView) a(R.id.obfuscated_res_0x7f0910ef);
+        KsShakeView ksShakeView = (KsShakeView) a(R.id.obfuscated_res_0x7f0910f2);
         this.d = ksShakeView;
         ksShakeView.setOnClickListener(this);
     }

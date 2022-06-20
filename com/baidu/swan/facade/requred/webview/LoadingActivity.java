@@ -20,50 +20,43 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ae3;
-import com.repackage.bd3;
-import com.repackage.bm3;
-import com.repackage.gz2;
-import com.repackage.lz2;
-import com.repackage.w82;
-import com.repackage.x82;
-import com.repackage.y82;
-import com.repackage.yc3;
+import com.repackage.h92;
+import com.repackage.i92;
+import com.repackage.j92;
+import com.repackage.jd3;
+import com.repackage.le3;
+import com.repackage.md3;
+import com.repackage.mm3;
+import com.repackage.rz2;
+import com.repackage.wz2;
 /* loaded from: classes2.dex */
-public class LoadingActivity extends Activity implements ae3<lz2.a> {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String EVENT_ID_HIDE = "loading_hide";
-    public static final String EXT_SO_LIB_NAME = "so_lib_name";
-    public static final String LOTTIE_ANIM_FIRST_NAME = "swan-loading/aiapps_so_download_anim_first.json";
-    public static final String LOTTIE_ANIM_SECOND_NAME = "swan-loading/aiapps_so_download_anim_second.json";
-    public static final String LOTTIE_ASSETS_PATH = "swan-loading/images/";
-    public static final int PROGRESS_MAX = 100;
-    public static final int PROGRESS_MIN = 0;
+public class LoadingActivity extends Activity implements le3<wz2.a> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ae3<y82> mFinishCallback;
-    public boolean mFirstAnimIsLoaded;
-    public LottieAnimationView mFirstLottieAnimationView;
-    public ImageView mLogoView;
-    public final ae3<y82> mProgressCallback;
-    public TextView mProgressView;
-    public LottieAnimationView mSecondLottieAnimationView;
-    public SwanAppActionBar mSwanAppActionBar;
-    public y82 mUpdating;
+    public SwanAppActionBar a;
+    public LottieAnimationView b;
+    public LottieAnimationView c;
+    public ImageView d;
+    public TextView e;
+    public j92 f;
+    public boolean g;
+    public final le3<j92> h;
+    public final le3<j92> i;
 
     /* loaded from: classes2.dex */
-    public class a implements ae3<y82> {
+    public class a implements le3<j92> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LoadingActivity a;
 
         /* renamed from: com.baidu.swan.facade.requred.webview.LoadingActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0165a implements Runnable {
+        public class RunnableC0168a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0165a(a aVar) {
+            public RunnableC0168a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -85,7 +78,7 @@ public class LoadingActivity extends Activity implements ae3<lz2.a> {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.updateUiProgress();
+                    this.a.a.j();
                 }
             }
         }
@@ -109,18 +102,18 @@ public class LoadingActivity extends Activity implements ae3<lz2.a> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ae3
-        /* renamed from: a */
-        public void onCallback(y82 y82Var) {
+        @Override // com.repackage.le3
+        /* renamed from: b */
+        public void a(j92 j92Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, y82Var) == null) {
-                bd3.e0(new RunnableC0165a(this));
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j92Var) == null) {
+                md3.e0(new RunnableC0168a(this));
             }
         }
     }
 
     /* loaded from: classes2.dex */
-    public class b implements ae3<y82> {
+    public class b implements le3<j92> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LoadingActivity a;
@@ -144,11 +137,11 @@ public class LoadingActivity extends Activity implements ae3<lz2.a> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ae3
-        /* renamed from: a */
-        public void onCallback(y82 y82Var) {
+        @Override // com.repackage.le3
+        /* renamed from: b */
+        public void a(j92 j92Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, y82Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j92Var) == null) {
                 this.a.finish();
             }
         }
@@ -183,7 +176,7 @@ public class LoadingActivity extends Activity implements ae3<lz2.a> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
                 super.onAnimationEnd(animator);
-                this.a.startSecondAnim();
+                this.a.h();
             }
         }
     }
@@ -234,137 +227,112 @@ public class LoadingActivity extends Activity implements ae3<lz2.a> {
                 return;
             }
         }
-        this.mUpdating = null;
-        this.mFirstAnimIsLoaded = false;
-        this.mProgressCallback = new a(this);
-        this.mFinishCallback = new b(this);
+        this.f = null;
+        this.g = false;
+        this.h = new a(this);
+        this.i = new b(this);
     }
 
-    private void init() {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.mProgressView.setText(getString(R.string.obfuscated_res_0x7f0f0196, new Object[]{0}));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.e.setText(getString(R.string.obfuscated_res_0x7f0f0196, new Object[]{0}));
             Intent intent = getIntent();
-            Bitmap d2 = bm3.b().d();
+            Bitmap d2 = mm3.b().d();
             if (d2 == null) {
-                this.mLogoView.setImageResource(R.drawable.obfuscated_res_0x7f0801c0);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f0801bf);
             } else {
-                this.mLogoView.setImageBitmap(d2);
+                this.d.setImageBitmap(d2);
             }
-            String stringExtra = intent == null ? "" : intent.getStringExtra(EXT_SO_LIB_NAME);
-            y82 j = w82.d.j(TextUtils.isEmpty(stringExtra) ? "" : stringExtra);
-            this.mUpdating = j;
+            String stringExtra = intent == null ? "" : intent.getStringExtra("so_lib_name");
+            j92 j = h92.d.j(TextUtils.isEmpty(stringExtra) ? "" : stringExtra);
+            this.f = j;
             if (j != null && !j.n()) {
-                this.mUpdating.v(this.mProgressCallback);
-                this.mUpdating.u(this.mFinishCallback);
-                updateUiProgress();
+                this.f.v(this.h);
+                this.f.u(this.i);
+                j();
                 return;
             }
             finish();
         }
     }
 
-    private void initActionBar() {
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             SwanAppActionBar swanAppActionBar = (SwanAppActionBar) findViewById(R.id.obfuscated_res_0x7f090179);
-            this.mSwanAppActionBar = swanAppActionBar;
+            this.a = swanAppActionBar;
             swanAppActionBar.f(-16777216, false);
-            this.mSwanAppActionBar.setRightExitOnClickListener(new d(this));
+            this.a.setRightExitOnClickListener(new d(this));
         }
     }
 
-    private void initViews() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.mProgressView = (TextView) findViewById(R.id.obfuscated_res_0x7f0901a3);
-            this.mLogoView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901a0);
-            LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0901a1);
-            this.mFirstLottieAnimationView = lottieAnimationView;
-            lottieAnimationView.setImageAssetsFolder(LOTTIE_ASSETS_PATH);
-            this.mFirstLottieAnimationView.setAnimation(LOTTIE_ANIM_FIRST_NAME);
-            LottieAnimationView lottieAnimationView2 = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0901a2);
-            this.mSecondLottieAnimationView = lottieAnimationView2;
-            lottieAnimationView2.setImageAssetsFolder(LOTTIE_ASSETS_PATH);
-            this.mSecondLottieAnimationView.setAnimation(LOTTIE_ANIM_SECOND_NAME);
-            this.mSecondLottieAnimationView.setRepeatCount(-1);
-            this.mSecondLottieAnimationView.setVisibility(4);
-            this.mFirstLottieAnimationView.addAnimatorListener(new c(this));
-            this.mFirstLottieAnimationView.playAnimation();
-        }
-    }
-
-    private void registerListener() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            gz2.J().v(this);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void startSecondAnim() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65542, this) == null) || this.mFirstAnimIsLoaded) {
-            return;
-        }
-        this.mFirstLottieAnimationView.cancelAnimation();
-        this.mFirstLottieAnimationView.setVisibility(4);
-        this.mSecondLottieAnimationView.setVisibility(0);
-        this.mSecondLottieAnimationView.playAnimation();
-        this.mFirstAnimIsLoaded = true;
-    }
-
-    private void unregisterListener() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            gz2.J().p(this);
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            int c0 = bd3.c0(this);
-            super.onCreate(bundle);
-            bd3.g(this, c0);
-            setContentView(R.layout.obfuscated_res_0x7f0d0040);
-            initViews();
-            initActionBar();
-            yc3.a(this);
-            registerListener();
-            init();
-            LogUtil.logActivity(this, "onCreate");
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onDestroy() {
+    public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.mFirstLottieAnimationView.removeAllAnimatorListeners();
-            this.mFirstLottieAnimationView.cancelAnimation();
-            this.mSecondLottieAnimationView.cancelAnimation();
-            y82 y82Var = this.mUpdating;
-            if (y82Var != null) {
-                y82Var.g(this.mFinishCallback);
-                y82Var.h(this.mProgressCallback);
-            }
-            unregisterListener();
-            super.onDestroy();
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0901a3);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901a0);
+            LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0901a1);
+            this.b = lottieAnimationView;
+            lottieAnimationView.setImageAssetsFolder("swan-loading/images/");
+            this.b.setAnimation("swan-loading/aiapps_so_download_anim_first.json");
+            LottieAnimationView lottieAnimationView2 = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0901a2);
+            this.c = lottieAnimationView2;
+            lottieAnimationView2.setImageAssetsFolder("swan-loading/images/");
+            this.c.setAnimation("swan-loading/aiapps_so_download_anim_second.json");
+            this.c.setRepeatCount(-1);
+            this.c.setVisibility(4);
+            this.b.addAnimatorListener(new c(this));
+            this.b.playAnimation();
         }
     }
 
-    public void updateUiProgress() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.le3
+    /* renamed from: f */
+    public void a(wz2.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            y82 y82Var = this.mUpdating;
-            x82.b m = y82Var == null ? null : y82Var.m();
+        if ((interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) && TextUtils.equals(aVar.b, "loading_hide")) {
+            finish();
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            rz2.K().v(this);
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.g) {
+            return;
+        }
+        this.b.cancelAnimation();
+        this.b.setVisibility(4);
+        this.c.setVisibility(0);
+        this.c.playAnimation();
+        this.g = true;
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            rz2.K().p(this);
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            j92 j92Var = this.f;
+            i92.b m = j92Var == null ? null : j92Var.m();
             if (m == null || !m.a()) {
                 return;
             }
             int min = (int) ((Math.min(Math.max(m.a, 0L), m.b) / m.b) * 100.0d);
-            TextView textView = this.mProgressView;
+            TextView textView = this.e;
             if (textView == null || min <= 0) {
                 return;
             }
@@ -372,12 +340,37 @@ public class LoadingActivity extends Activity implements ae3<lz2.a> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ae3
-    public void onCallback(lz2.a aVar) {
+    @Override // android.app.Activity
+    public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && TextUtils.equals(aVar.b, EVENT_ID_HIDE)) {
-            finish();
+        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
+            int c0 = md3.c0(this);
+            super.onCreate(bundle);
+            md3.g(this, c0);
+            setContentView(R.layout.obfuscated_res_0x7f0d0040);
+            e();
+            d();
+            jd3.a(this);
+            g();
+            c();
+            LogUtil.logActivity(this, "onCreate");
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.b.removeAllAnimatorListeners();
+            this.b.cancelAnimation();
+            this.c.cancelAnimation();
+            j92 j92Var = this.f;
+            if (j92Var != null) {
+                j92Var.g(this.i);
+                j92Var.h(this.h);
+            }
+            i();
+            super.onDestroy();
         }
     }
 }

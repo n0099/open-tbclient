@@ -1,131 +1,86 @@
 package com.repackage;
 
+import com.badlogic.gdx.math.Matrix3;
+import com.badlogic.gdx.math.Matrix4;
+import com.badlogic.gdx.math.Quaternion;
+import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.utils.JsonValue;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f5;
-import com.repackage.u7;
-import com.repackage.y6;
+import com.repackage.o7;
 /* loaded from: classes5.dex */
-public class e5 extends l1<d5, a> {
+public abstract class e5 implements h7, o7.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public y6<u7.b<String, f5<d5>>> b;
 
-    /* loaded from: classes5.dex */
-    public static class a extends h1<d5> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public y6<g5<?>> b;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e5(o1 o1Var) {
-        super(o1Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {o1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((o1) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964042859, "Lcom/repackage/e5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1964042859, "Lcom/repackage/e5;");
                 return;
             }
         }
-        this.b = new y6<>();
+        new Vector3();
+        new Vector3();
+        new Vector3();
+        new Vector3();
+        new Vector3();
+        new Vector3();
+        new Quaternion();
+        new Quaternion();
+        new Matrix3();
+        new Matrix4();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: java.lang.String */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v4, types: [V, com.repackage.f5] */
-    @Override // com.repackage.k1
-    /* renamed from: f */
-    public y6<f1> a(String str, h3 h3Var, a aVar) {
-        InterceptResult invokeLLL;
-        y6<f5.a> b;
+    public e5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, h3Var, aVar)) == null) {
-            ?? r0 = (f5) new m7().d(f5.class, h3Var);
-            synchronized (this.b) {
-                u7.b<String, f5<d5>> bVar = new u7.b<>();
-                bVar.a = str;
-                bVar.b = r0;
-                this.b.a(bVar);
-                b = r0.b();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            y6<f1> y6Var = new y6<>();
-            y6.b<f5.a> it = b.iterator();
-            while (it.hasNext()) {
-                f5.a next = it.next();
-                if (!b(next.a).c()) {
-                    next.a = h3Var.i().a(b1.d.a(next.a).g()).j();
-                }
-                Class<T> cls = next.b;
-                if (cls == d5.class) {
-                    y6Var.a(new f1(next.a, cls, aVar));
-                } else {
-                    y6Var.a(new f1(next.a, cls));
-                }
-            }
-            return y6Var;
-        }
-        return (y6) invokeLLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.l1
-    /* renamed from: g */
-    public void c(j1 j1Var, String str, h3 h3Var, a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, j1Var, str, h3Var, aVar) == null) {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.l1
-    /* renamed from: h */
-    public d5 d(j1 j1Var, String str, h3 h3Var, a aVar) {
-        InterceptResult invokeLLLL;
-        f5<d5> f5Var;
+    @Override // com.repackage.o7.c
+    public void a(o7 o7Var, JsonValue jsonValue) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, j1Var, str, h3Var, aVar)) == null) {
-            synchronized (this.b) {
-                int i = 0;
-                while (true) {
-                    if (i >= this.b.b) {
-                        f5Var = null;
-                        break;
-                    }
-                    u7.b<String, f5<d5>> bVar = this.b.get(i);
-                    if (bVar.a.equals(str)) {
-                        f5Var = bVar.b;
-                        this.b.i(i);
-                        break;
-                    }
-                    i++;
-                }
-            }
-            f5Var.d.a(j1Var, f5Var);
-            if (aVar != null) {
-                y6<g5<?>> y6Var = aVar.b;
-                if (y6Var != null) {
-                    y6.b<g5<?>> it = y6Var.iterator();
-                    while (it.hasNext()) {
-                        it.next().b(j1Var, f5Var);
-                    }
-                }
-                f5Var.d.f(aVar.b);
-            }
-            return f5Var.d;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, o7Var, jsonValue) == null) {
         }
-        return (d5) invokeLLLL.objValue;
+    }
+
+    @Override // com.repackage.h7
+    public void dispose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    public void f(m1 m1Var, h5 h5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, m1Var, h5Var) == null) {
+        }
+    }
+
+    public void update() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
     }
 }

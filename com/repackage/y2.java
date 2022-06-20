@@ -1,9 +1,43 @@
 package com.repackage;
+
+import android.media.AudioManager;
+import android.media.SoundPool;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface y2 {
-    void a(float f, float f2, float f3, float f4, int i, int i2);
+public final class y2 implements f2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final SoundPool a;
+    public final int b;
 
-    void b(int i, int i2);
+    public y2(SoundPool soundPool, AudioManager audioManager, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {soundPool, audioManager, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        new l7(8);
+        this.a = soundPool;
+        this.b = i;
+    }
 
-    void c(boolean z);
+    @Override // com.repackage.h7
+    public void dispose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.unload(this.b);
+        }
+    }
 }

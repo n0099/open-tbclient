@@ -1,176 +1,41 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.widget.RemoteViews;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class em extends ep {
+public class em extends com.xiaomi.clientreport.processor.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public Bitmap b;
-    public Bitmap c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public em(Context context, String str) {
-        super(context, str);
+    public em(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1]);
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 16777216;
     }
 
-    @Override // com.xiaomi.push.ep
-    public em a(Bitmap bitmap) {
-        InterceptResult invokeL;
+    @Override // com.xiaomi.clientreport.processor.b
+    public void a(List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitmap)) == null) {
-            if (m333b() && bitmap != null) {
-                if (bitmap.getWidth() != 984 || 184 > bitmap.getHeight() || bitmap.getHeight() > 1678) {
-                    com.xiaomi.channel.commonutils.logger.b.m108a("colorful notification banner image resolution error, must belong to [984*184, 984*1678]");
-                } else {
-                    this.b = bitmap;
-                }
-            }
-            return this;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            en.a(((com.xiaomi.clientreport.processor.b) this).a, list);
         }
-        return (em) invokeL.objValue;
-    }
-
-    public em a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (m333b() && !TextUtils.isEmpty(str)) {
-                try {
-                    this.a = Color.parseColor(str);
-                } catch (Exception unused) {
-                    com.xiaomi.channel.commonutils.logger.b.m108a("parse banner notification image text color error");
-                }
-            }
-            return this;
-        }
-        return (em) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.xiaomi.push.ep, android.app.Notification.Builder
-    /* renamed from: a */
-    public ep setLargeIcon(Bitmap bitmap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap)) == null) ? this : (ep) invokeL.objValue;
-    }
-
-    @Override // com.xiaomi.push.en
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "notification_banner" : (String) invokeV.objValue;
-    }
-
-    @Override // com.xiaomi.push.en
-    public void a() {
-        RemoteViews a;
-        Bitmap bitmap;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (!m333b() || this.b == null) {
-                m332b();
-                return;
-            }
-            super.a();
-            Resources resources = a().getResources();
-            String packageName = a().getPackageName();
-            int a2 = a(resources, "bg", "id", packageName);
-            if (l.a(a()) >= 10) {
-                a = a();
-                bitmap = a(this.b, 30.0f);
-            } else {
-                a = a();
-                bitmap = this.b;
-            }
-            a.setImageViewBitmap(a2, bitmap);
-            int a3 = a(resources, "icon", "id", packageName);
-            if (this.c != null) {
-                a().setImageViewBitmap(a3, this.c);
-            } else {
-                a(a3);
-            }
-            int a4 = a(resources, "title", "id", packageName);
-            a().setTextViewText(a4, ((ep) this).f308a);
-            Map<String, String> map = ((ep) this).f310a;
-            if (map != null && this.a == 16777216) {
-                a(map.get("notification_image_text_color"));
-            }
-            RemoteViews a5 = a();
-            int i = this.a;
-            a5.setTextColor(a4, (i == 16777216 || !m331a(i)) ? -1 : -16777216);
-            setCustomContentView(a());
-            Bundle bundle = new Bundle();
-            bundle.putBoolean("miui.customHeight", true);
-            addExtras(bundle);
-        }
-    }
-
-    @Override // com.xiaomi.push.en
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (l.m574a(a())) {
-                Resources resources = a().getResources();
-                String packageName = a().getPackageName();
-                return (a(a().getResources(), "bg", "id", a().getPackageName()) == 0 || a(resources, "icon", "id", packageName) == 0 || a(resources, "title", "id", packageName) == 0 || l.a(a()) < 9) ? false : true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public em b(Bitmap bitmap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bitmap)) == null) {
-            if (m333b() && bitmap != null) {
-                this.c = bitmap;
-            }
-            return this;
-        }
-        return (em) invokeL.objValue;
-    }
-
-    @Override // com.xiaomi.push.ep
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
     }
 }

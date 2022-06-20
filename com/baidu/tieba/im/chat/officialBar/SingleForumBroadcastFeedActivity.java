@@ -16,24 +16,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b55;
-import com.repackage.c37;
-import com.repackage.k47;
-import com.repackage.v47;
+import com.repackage.f67;
+import com.repackage.l47;
+import com.repackage.q55;
+import com.repackage.u57;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class SingleForumBroadcastFeedActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public OfficialBarFeedMsglistView feedView;
-    public String forumId;
-    public b55 mTopToastEventListener;
-    public c37 model;
-    public c37.d onDataLoadListener;
-    public byte source;
+    public l47 a;
+    public OfficialBarFeedMsglistView b;
+    public String c;
+    public byte d;
+    public q55 e;
+    public l47.d f;
 
     /* loaded from: classes3.dex */
-    public class a extends b55<TopToastEvent> {
+    public class a extends q55<TopToastEvent> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SingleForumBroadcastFeedActivity c;
@@ -57,14 +57,14 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.u45
+        @Override // com.repackage.j55
         /* renamed from: a */
         public boolean onEvent(TopToastEvent topToastEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, topToastEvent)) == null) {
-                if (this.c.feedView != null) {
-                    this.c.feedView.o(topToastEvent.isSuccess(), topToastEvent.getContent());
+                if (this.c.b != null) {
+                    this.c.b.s(topToastEvent.isSuccess(), topToastEvent.getContent());
                     return false;
                 }
                 return false;
@@ -74,7 +74,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements c37.d {
+    public class b implements l47.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SingleForumBroadcastFeedActivity a;
@@ -97,19 +97,19 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
             this.a = singleForumBroadcastFeedActivity;
         }
 
-        @Override // com.repackage.c37.d
-        public void a(List<v47> list) {
+        @Override // com.repackage.l47.d
+        public void a(List<f67> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                this.a.feedView.l(list, null);
+                this.a.b.p(list, null);
             }
         }
 
-        @Override // com.repackage.c37.d
-        public void onReadCountLoad(LongSparseArray<k47> longSparseArray) {
+        @Override // com.repackage.l47.d
+        public void onReadCountLoad(LongSparseArray<u57> longSparseArray) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, longSparseArray) == null) {
-                this.a.feedView.m(longSparseArray);
+                this.a.b.q(longSparseArray);
             }
         }
     }
@@ -127,8 +127,8 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
                 return;
             }
         }
-        this.mTopToastEventListener = new a(this);
-        this.onDataLoadListener = new b(this);
+        this.e = new a(this);
+        this.f = new b(this);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -136,7 +136,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
-            this.feedView.onChangeSkinType(i);
+            this.b.onChangeSkinType(i);
         }
     }
 
@@ -145,17 +145,17 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            c37 c37Var = new c37(getPageContext());
-            this.model = c37Var;
-            c37Var.i(this.onDataLoadListener);
-            this.feedView = new OfficialBarFeedMsglistView(this, true);
+            l47 l47Var = new l47(getPageContext());
+            this.a = l47Var;
+            l47Var.i(this.f);
+            this.b = new OfficialBarFeedMsglistView(this, true);
             if (getIntent() != null) {
-                this.forumId = getIntent().getStringExtra("key_uid");
-                this.source = getIntent().getByteExtra(SingleForumBroadcastFeedActivityConfig.KEY_SOURCE, (byte) 3);
-                this.model.f(this.forumId);
-                this.feedView.q(this.forumId, System.currentTimeMillis());
+                this.c = getIntent().getStringExtra("key_uid");
+                this.d = getIntent().getByteExtra(SingleForumBroadcastFeedActivityConfig.KEY_SOURCE, (byte) 3);
+                this.a.f(this.c);
+                this.b.t(this.c, System.currentTimeMillis());
             }
-            registerResponsedEventListener(TopToastEvent.class, this.mTopToastEventListener);
+            registerResponsedEventListener(TopToastEvent.class, this.e);
         }
     }
 
@@ -164,9 +164,9 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            c37 c37Var = this.model;
-            if (c37Var != null) {
-                c37Var.e();
+            l47 l47Var = this.a;
+            if (l47Var != null) {
+                l47Var.e();
             }
             unRegisterResponsedEventListener();
         }
@@ -177,11 +177,11 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onResume();
-            MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(this.forumId, 4)));
+            MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(this.c, 4)));
             StatisticItem statisticItem = new StatisticItem("c13870");
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("fid", this.forumId);
-            statisticItem.param("obj_source", (int) this.source);
+            statisticItem.param("fid", this.c);
+            statisticItem.param("obj_source", (int) this.d);
             TiebaStatic.log(statisticItem);
         }
     }

@@ -2,9 +2,9 @@ package com.meizu.cloud.pushsdk.handler.a.d;
 
 import android.content.Context;
 import android.content.Intent;
+import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.platform.message.UnRegisterStatus;
-import com.repackage.ni9;
 /* loaded from: classes5.dex */
 public class f extends com.meizu.cloud.pushsdk.handler.a.a<UnRegisterStatus> {
     public f(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
@@ -27,7 +27,7 @@ public class f extends com.meizu.cloud.pushsdk.handler.a.a<UnRegisterStatus> {
 
     @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
-        ni9.d("AbstractMessageHandler", "start UnRegisterStatusHandler match");
+        DebugLogger.i("AbstractMessageHandler", "start UnRegisterStatusHandler match");
         return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_UNREGISTER_STATUS.equals(i(intent));
     }
 

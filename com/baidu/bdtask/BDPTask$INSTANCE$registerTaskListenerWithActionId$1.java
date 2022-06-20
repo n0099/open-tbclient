@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.zo;
+import com.repackage.dp;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
@@ -17,16 +17,16 @@ public final class BDPTask$INSTANCE$registerTaskListenerWithActionId$1 extends L
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ String $actonId;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ zo $taskCallback;
+    public final /* synthetic */ dp $taskCallback;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BDPTask$INSTANCE$registerTaskListenerWithActionId$1(String str, zo zoVar) {
+    public BDPTask$INSTANCE$registerTaskListenerWithActionId$1(String str, dp dpVar) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, zoVar};
+            Object[] objArr = {str, dpVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,7 +38,7 @@ public final class BDPTask$INSTANCE$registerTaskListenerWithActionId$1 extends L
             }
         }
         this.$actonId = str;
-        this.$taskCallback = zoVar;
+        this.$taskCallback = dpVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -1,28 +1,24 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.nadcore.player.constants.PlayerStatus;
-/* loaded from: classes5.dex */
+import android.app.Activity;
+import com.baidu.nadcore.player.helper.BdVideoGesture;
+/* loaded from: classes6.dex */
 public interface fs0 {
-    void a(@NonNull er0 er0Var);
+    void b();
 
-    void d(@NonNull er0 er0Var);
+    void c(int i, int i2);
 
-    int getExpectOrder();
+    void f(float f);
 
-    @Nullable
-    int[] getSubscribeEvent();
+    int getCurrentPosition();
 
-    int getType();
+    void i(float f);
 
-    void h(PlayerStatus playerStatus, PlayerStatus playerStatus2);
+    void l(int i, float f);
 
-    void j(@NonNull er0 er0Var);
+    void m(BdVideoGesture.VideoPluginGesture videoPluginGesture);
 
-    void k(@NonNull er0 er0Var);
+    Activity o();
 
-    void n(@NonNull er0 er0Var);
-
-    void r(@NonNull er0 er0Var);
+    boolean p();
 }

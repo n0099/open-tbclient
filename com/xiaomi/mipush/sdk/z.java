@@ -1,26 +1,22 @@
 package com.xiaomi.mipush.sdk;
 
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.mipush.sdk.MiTinyDataClient;
-import com.xiaomi.push.hj;
 /* loaded from: classes8.dex */
-public class z implements Runnable {
+public final class z implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ MiTinyDataClient.a.C0658a a;
+    public final /* synthetic */ Context a;
 
-    /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ hj f81a;
-
-    public z(MiTinyDataClient.a.C0658a c0658a, hj hjVar) {
+    public z(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c0658a, hjVar};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,16 +26,14 @@ public class z implements Runnable {
                 return;
             }
         }
-        this.a = c0658a;
-        this.f81a = hjVar;
+        this.a = context;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.f35a.add(this.f81a);
-            this.a.a();
+            MessageHandleService.c(this.a);
         }
     }
 }

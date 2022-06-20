@@ -7,9 +7,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cl9;
+import com.repackage.jl9;
 import com.win.opensdk.downloader.WinDReceiver;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PBInitialize {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public class PBInitialize {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            cl9.a().b(context, str);
+            jl9.a().b(context, str);
         }
     }
 }

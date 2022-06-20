@@ -1,28 +1,540 @@
 package com.xiaomi.push.service;
 
-import android.content.Context;
 import android.content.Intent;
-import android.os.Looper;
-import android.util.Pair;
+import android.os.SystemClock;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.xiaomi.push.fw;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.xiaomi.push.service.XMPushService;
+import java.util.concurrent.RejectedExecutionException;
 /* loaded from: classes8.dex */
 public class p {
     public static /* synthetic */ Interceptable $ic;
-    public static ArrayList<Pair<String, byte[]>> a;
+    public static long a;
+    public static long b;
+    public static long c;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Map<String, byte[]> f949a;
-    public transient /* synthetic */ FieldHolder $fh;
+    public final a f984a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public final c f985a;
+
+    /* loaded from: classes8.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final c a;
+
+        public a(c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cVar;
+        }
+
+        public void finalize() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    synchronized (this.a) {
+                        this.a.c = true;
+                        this.a.notify();
+                    }
+                } finally {
+                    super.finalize();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static abstract class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+
+        public b(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class c extends Thread {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public volatile long a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public a f986a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public volatile boolean f987a;
+        public long b;
+
+        /* renamed from: b  reason: collision with other field name */
+        public boolean f988b;
+        public boolean c;
+
+        /* loaded from: classes8.dex */
+        public static final class a {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public int a;
+
+            /* renamed from: a  reason: collision with other field name */
+            public d[] f989a;
+            public int b;
+            public int c;
+
+            public a() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = 256;
+                this.f989a = new d[256];
+                this.b = 0;
+                this.c = 0;
+            }
+
+            public /* synthetic */ a(q qVar) {
+                this();
+            }
+
+            /* JADX INFO: Access modifiers changed from: private */
+            public int a(d dVar) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable != null && (invokeL = interceptable.invokeL(65539, this, dVar)) != null) {
+                    return invokeL.intValue;
+                }
+                int i = 0;
+                while (true) {
+                    d[] dVarArr = this.f989a;
+                    if (i >= dVarArr.length) {
+                        return -1;
+                    }
+                    if (dVarArr[i] == dVar) {
+                        return i;
+                    }
+                    i++;
+                }
+            }
+
+            private void b(d dVar) {
+                Intent a;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, dVar) == null) {
+                    b bVar = dVar.f991a;
+                    int i = bVar.a;
+                    if (i == 8) {
+                        XMPushService.d dVar2 = (XMPushService.d) bVar;
+                        if (dVar2.a().f365a != null) {
+                            dVar2.a().f365a.f895b = System.currentTimeMillis();
+                            dVar2.a().f365a.b = a(dVar);
+                        }
+                    } else if (i == 15 && (a = ((XMPushService.i) bVar).a()) != null && "10".equals(a.getStringExtra("ext_chid"))) {
+                        a.putExtra("enqueue", System.currentTimeMillis());
+                        a.putExtra("num", a(dVar));
+                    }
+                }
+            }
+
+            private void c() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null && interceptable.invokeV(65541, this) != null) {
+                    return;
+                }
+                int i = this.b - 1;
+                int i2 = (i - 1) / 2;
+                while (true) {
+                    d[] dVarArr = this.f989a;
+                    if (dVarArr[i].f990a >= dVarArr[i2].f990a) {
+                        return;
+                    }
+                    d dVar = dVarArr[i];
+                    dVarArr[i] = dVarArr[i2];
+                    dVarArr[i2] = dVar;
+                    int i3 = i2;
+                    i2 = (i2 - 1) / 2;
+                    i = i3;
+                }
+            }
+
+            private void c(int i) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null && interceptable.invokeI(65542, this, i) != null) {
+                    return;
+                }
+                int i2 = (i * 2) + 1;
+                while (true) {
+                    int i3 = this.b;
+                    if (i2 >= i3 || i3 <= 0) {
+                        return;
+                    }
+                    int i4 = i2 + 1;
+                    if (i4 < i3) {
+                        d[] dVarArr = this.f989a;
+                        if (dVarArr[i4].f990a < dVarArr[i2].f990a) {
+                            i2 = i4;
+                        }
+                    }
+                    d[] dVarArr2 = this.f989a;
+                    if (dVarArr2[i].f990a < dVarArr2[i2].f990a) {
+                        return;
+                    }
+                    d dVar = dVarArr2[i];
+                    dVarArr2[i] = dVarArr2[i2];
+                    dVarArr2[i2] = dVar;
+                    int i5 = i2;
+                    i2 = (i2 * 2) + 1;
+                    i = i5;
+                }
+            }
+
+            public d a() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f989a[0] : (d) invokeV.objValue;
+            }
+
+            /* renamed from: a  reason: collision with other method in class */
+            public void m670a() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    this.f989a = new d[this.a];
+                    this.b = 0;
+                }
+            }
+
+            public void a(int i) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+                    for (int i2 = 0; i2 < this.b; i2++) {
+                        d[] dVarArr = this.f989a;
+                        if (dVarArr[i2].a == i) {
+                            dVarArr[i2].a();
+                        }
+                    }
+                    b();
+                }
+            }
+
+            public void a(int i, b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeIL(1048579, this, i, bVar) == null) {
+                    for (int i2 = 0; i2 < this.b; i2++) {
+                        d[] dVarArr = this.f989a;
+                        if (dVarArr[i2].f991a == bVar) {
+                            dVarArr[i2].a();
+                        }
+                    }
+                    b();
+                }
+            }
+
+            /* renamed from: a  reason: collision with other method in class */
+            public void m671a(d dVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
+                    d[] dVarArr = this.f989a;
+                    int length = dVarArr.length;
+                    int i = this.b;
+                    if (length == i) {
+                        d[] dVarArr2 = new d[i * 2];
+                        System.arraycopy(dVarArr, 0, dVarArr2, 0, i);
+                        this.f989a = dVarArr2;
+                    }
+                    d[] dVarArr3 = this.f989a;
+                    int i2 = this.b;
+                    this.b = i2 + 1;
+                    dVarArr3[i2] = dVar;
+                    c();
+                    b(dVar);
+                }
+            }
+
+            /* renamed from: a  reason: collision with other method in class */
+            public boolean m672a() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b == 0 : invokeV.booleanValue;
+            }
+
+            /* renamed from: a  reason: collision with other method in class */
+            public boolean m673a(int i) {
+                InterceptResult invokeI;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+                    for (int i2 = 0; i2 < this.b; i2++) {
+                        if (this.f989a[i2].a == i) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+                return invokeI.booleanValue;
+            }
+
+            public void b() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                    int i = 0;
+                    while (i < this.b) {
+                        if (this.f989a[i].f993a) {
+                            this.c++;
+                            b(i);
+                            i--;
+                        }
+                        i++;
+                    }
+                }
+            }
+
+            public void b(int i) {
+                int i2;
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || i < 0 || i >= (i2 = this.b)) {
+                    return;
+                }
+                d[] dVarArr = this.f989a;
+                int i3 = i2 - 1;
+                this.b = i3;
+                dVarArr[i] = dVarArr[i3];
+                dVarArr[i3] = null;
+                c(i);
+            }
+        }
+
+        public c(String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = 0L;
+            this.f987a = false;
+            this.b = 50L;
+            this.f986a = new a(null);
+            setName(str);
+            setDaemon(z);
+            start();
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public void a(d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65539, this, dVar) == null) {
+                this.f986a.m671a(dVar);
+                notify();
+            }
+        }
+
+        public synchronized void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                synchronized (this) {
+                    this.f988b = true;
+                    this.f986a.m670a();
+                    notify();
+                }
+            }
+        }
+
+        /* renamed from: a  reason: collision with other method in class */
+        public boolean m669a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f987a && SystemClock.uptimeMillis() - this.a > 600000 : invokeV.booleanValue;
+        }
+
+        /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+        /* JADX WARN: Code restructure failed: missing block: B:52:0x0097, code lost:
+            r10.a = android.os.SystemClock.uptimeMillis();
+            r10.f987a = true;
+            r2.f991a.run();
+            r10.f987a = false;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:54:0x00a8, code lost:
+            r1 = move-exception;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:55:0x00a9, code lost:
+            monitor-enter(r10);
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:56:0x00aa, code lost:
+            r10.f988b = true;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:58:0x00ad, code lost:
+            throw r1;
+         */
+        @Override // java.lang.Thread, java.lang.Runnable
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
+                return;
+            }
+            while (true) {
+                synchronized (this) {
+                    if (this.f988b) {
+                        return;
+                    }
+                    if (!this.f986a.m672a()) {
+                        long a2 = p.a();
+                        d a3 = this.f986a.a();
+                        synchronized (a3.f992a) {
+                            if (a3.f993a) {
+                                this.f986a.b(0);
+                            } else {
+                                long j = a3.f990a - a2;
+                                if (j > 0) {
+                                    if (j > this.b) {
+                                        j = this.b;
+                                    }
+                                    long j2 = this.b + 50;
+                                    this.b = j2;
+                                    if (j2 > 500) {
+                                        this.b = 500L;
+                                    }
+                                    wait(j);
+                                } else {
+                                    this.b = 50L;
+                                    synchronized (a3.f992a) {
+                                        int a4 = this.f986a.a().f990a != a3.f990a ? this.f986a.a(a3) : 0;
+                                        if (a3.f993a) {
+                                            this.f986a.b(this.f986a.a(a3));
+                                        } else {
+                                            a3.a(a3.f990a);
+                                            this.f986a.b(a4);
+                                            a3.f990a = 0L;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    } else if (this.c) {
+                        return;
+                    } else {
+                        try {
+                            wait();
+                        } catch (InterruptedException unused) {
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public long f990a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public b f991a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public final Object f992a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public boolean f993a;
+        public long b;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f992a = new Object();
+        }
+
+        public void a(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+                synchronized (this.f992a) {
+                    this.b = j;
+                }
+            }
+        }
+
+        public boolean a() {
+            InterceptResult invokeV;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                synchronized (this.f992a) {
+                    z = !this.f993a && this.f990a > 0;
+                    this.f993a = true;
+                }
+                return z;
+            }
+            return invokeV.booleanValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -37,96 +549,223 @@ public class p {
                 return;
             }
         }
-        f949a = new HashMap();
-        a = new ArrayList<>();
+        long elapsedRealtime = SystemClock.elapsedRealtime() > 0 ? SystemClock.elapsedRealtime() : 0L;
+        a = elapsedRealtime;
+        b = elapsedRealtime;
     }
 
-    public static void a(Context context, int i, String str) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public p() {
+        this(false);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65537, null, context, i, str) == null) {
-            synchronized (f949a) {
-                for (String str2 : f949a.keySet()) {
-                    a(context, str2, f949a.get(str2), i, str);
-                }
-                f949a.clear();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this(((Boolean) newInitContext.callArgs[0]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    public static void a(Context context, String str, byte[] bArr, int i, String str2) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public p(String str) {
+        this(str, false);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, str, bArr, Integer.valueOf(i), str2}) == null) {
-            Intent intent = new Intent("com.xiaomi.mipush.ERROR");
-            intent.setPackage(str);
-            intent.putExtra("mipush_payload", bArr);
-            intent.putExtra("mipush_error_code", i);
-            intent.putExtra("mipush_error_msg", str2);
-            context.sendBroadcast(intent, y.a(str));
-        }
-    }
-
-    public static void a(XMPushService xMPushService) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, xMPushService) == null) {
-            try {
-                synchronized (f949a) {
-                    for (String str : f949a.keySet()) {
-                        y.a(xMPushService, str, f949a.get(str));
-                    }
-                    f949a.clear();
-                }
-            } catch (fw e) {
-                com.xiaomi.channel.commonutils.logger.b.d("fail to deal with pending register request. " + e);
-                xMPushService.a(10, e);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
         }
     }
 
-    public static void a(String str, byte[] bArr) {
+    public p(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, bArr) == null) {
-            synchronized (f949a) {
-                f949a.put(str, bArr);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        if (str == null) {
+            throw new NullPointerException("name == null");
+        }
+        c cVar = new c(str, z);
+        this.f985a = cVar;
+        this.f984a = new a(cVar);
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public p(boolean z) {
+        this("Timer-" + b(), z);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                return;
             }
         }
     }
 
-    public static void b(XMPushService xMPushService) {
-        ArrayList<Pair<String, byte[]>> arrayList;
+    public static synchronized long a() {
+        InterceptResult invokeV;
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, xMPushService) == null) {
-            try {
-                synchronized (a) {
-                    arrayList = a;
-                    a = new ArrayList<>();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            synchronized (p.class) {
+                long elapsedRealtime = SystemClock.elapsedRealtime();
+                if (elapsedRealtime > b) {
+                    a += elapsedRealtime - b;
                 }
-                boolean z = Thread.currentThread() == Looper.getMainLooper().getThread();
-                Iterator<Pair<String, byte[]>> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    Pair<String, byte[]> next = it.next();
-                    y.a(xMPushService, (String) next.first, (byte[]) next.second);
-                    if (!z) {
-                        try {
-                            Thread.sleep(100L);
-                        } catch (InterruptedException unused) {
-                        }
-                    }
+                b = elapsedRealtime;
+                j = a;
+            }
+            return j;
+        }
+        return invokeV.longValue;
+    }
+
+    public static synchronized long b() {
+        InterceptResult invokeV;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            synchronized (p.class) {
+                j = c;
+                c = 1 + j;
+            }
+            return j;
+        }
+        return invokeV.longValue;
+    }
+
+    private void b(b bVar, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65543, this, bVar, j) == null) {
+            synchronized (this.f985a) {
+                if (this.f985a.f988b) {
+                    throw new IllegalStateException("Timer was canceled");
                 }
-            } catch (fw e) {
-                com.xiaomi.channel.commonutils.logger.b.d("meet error when process pending message. " + e);
-                xMPushService.a(10, e);
+                long a2 = j + a();
+                if (a2 < 0) {
+                    throw new IllegalArgumentException("Illegal delay to start the TimerTask: " + a2);
+                }
+                d dVar = new d();
+                dVar.a = bVar.a;
+                dVar.f991a = bVar;
+                dVar.f990a = a2;
+                this.f985a.a(dVar);
             }
         }
     }
 
-    public static void b(String str, byte[] bArr) {
+    /* renamed from: a  reason: collision with other method in class */
+    public void m664a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, str, bArr) == null) {
-            synchronized (a) {
-                a.add(new Pair<>(str, bArr));
-                if (a.size() > 50) {
-                    a.remove(0);
-                }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            com.xiaomi.channel.commonutils.logger.b.m84a("quit. finalizer:" + this.f984a);
+            this.f985a.a();
+        }
+    }
+
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            synchronized (this.f985a) {
+                this.f985a.f986a.a(i);
+            }
+        }
+    }
+
+    public void a(int i, b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bVar) == null) {
+            synchronized (this.f985a) {
+                this.f985a.f986a.a(i, bVar);
+            }
+        }
+    }
+
+    public void a(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+            if (com.xiaomi.channel.commonutils.logger.b.a() >= 1 || Thread.currentThread() == this.f985a) {
+                bVar.run();
+            } else {
+                com.xiaomi.channel.commonutils.logger.b.d("run job outside job job thread");
+                throw new RejectedExecutionException("Run job outside job thread");
+            }
+        }
+    }
+
+    public void a(b bVar, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048580, this, bVar, j) == null) {
+            if (j >= 0) {
+                b(bVar, j);
+                return;
+            }
+            throw new IllegalArgumentException("delay < 0: " + j);
+        }
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public boolean m665a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f985a.m669a() : invokeV.booleanValue;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public boolean m666a(int i) {
+        InterceptResult invokeI;
+        boolean m673a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            synchronized (this.f985a) {
+                m673a = this.f985a.f986a.m673a(i);
+            }
+            return m673a;
+        }
+        return invokeI.booleanValue;
+    }
+
+    /* renamed from: b  reason: collision with other method in class */
+    public void m667b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            synchronized (this.f985a) {
+                this.f985a.f986a.m670a();
             }
         }
     }

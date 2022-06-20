@@ -1,179 +1,76 @@
 package com.repackage;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.ala.widget.multicolumn.BdTypeMultiColumnListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.R;
-import com.baidu.tieba.ala.livecard.holder.FrsPageAlaVideoHolder;
-import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class wr5 extends fb6<rp4, FrsPageAlaVideoHolder> implements lw5, ci5 {
+public class wr5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gs5 t;
-    public String u;
-    public String v;
-    public nw5<ThreadData> w;
+    public d9 a;
+    public final List<an> b;
+    public BdTypeMultiColumnListView c;
+    public xr5 d;
+    public as5 e;
 
-    /* loaded from: classes7.dex */
-    public class a extends nw5<ThreadData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wr5 b;
-
-        public a(wr5 wr5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wr5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = wr5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.nw5
-        /* renamed from: d */
-        public void a(View view2, ThreadData threadData) {
-            CustomMessage customMessage;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f0911bb) {
-                    customMessage = new CustomMessage(2921018);
-                } else if (view2.getId() != R.id.obfuscated_res_0x7f090542 && view2.getId() != R.id.obfuscated_res_0x7f09053e && view2.getId() != R.id.obfuscated_res_0x7f092278) {
-                    customMessage = view2.getId() == R.id.obfuscated_res_0x7f0922f6 ? new CustomMessage(2921019) : null;
-                } else {
-                    customMessage = new CustomMessage(2921016);
-                }
-                if (customMessage == null || this.b.k == null) {
-                    return;
-                }
-                customMessage.setData(threadData);
-                this.b.k.sendMessage(customMessage);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wr5(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId, bdUniqueId2);
+    public wr5(d9 d9Var, BdTypeMultiColumnListView bdTypeMultiColumnListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            Object[] objArr = {d9Var, bdTypeMultiColumnListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.w = new a(this);
+        this.b = new ArrayList();
+        this.a = d9Var;
+        this.c = bdTypeMultiColumnListView;
+        a();
     }
 
-    @Override // com.repackage.lw5
-    public void a(String str) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.u = str;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d = new xr5((TbPageContext) this.a, ds5.b);
+            this.e = new as5((TbPageContext) this.a, ds5.c);
+            this.b.add(this.d);
+            this.b.add(this.e);
+            this.c.addAdapters(this.b);
         }
     }
 
-    @Override // com.repackage.ci5
-    public void g(String str) {
+    public void b(jn5 jn5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.v = str;
-        }
-    }
-
-    @Override // com.repackage.fb6, com.repackage.kw5
-    public void n(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, tbPageContext, bdUniqueId) == null) {
-            super.n(tbPageContext, bdUniqueId);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.wm
-    /* renamed from: n0 */
-    public FrsPageAlaVideoHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
-            TbPageContext<?> tbPageContext = this.k;
-            if (tbPageContext == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jn5Var) == null) {
+            xr5 xr5Var = this.d;
+            if (xr5Var != null) {
+                xr5Var.b0(jn5Var);
             }
-            gs5 gs5Var = new gs5(tbPageContext, this.e);
-            this.t = gs5Var;
-            gs5Var.V(this.e);
-            this.t.a(this.u);
-            this.t.n(this.w);
-            return new FrsPageAlaVideoHolder(this.t);
-        }
-        return (FrsPageAlaVideoHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fb6, com.repackage.wm
-    /* renamed from: o0 */
-    public View S(int i, View view2, ViewGroup viewGroup, rp4 rp4Var, FrsPageAlaVideoHolder frsPageAlaVideoHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rp4Var, frsPageAlaVideoHolder})) == null) {
-            TiebaStatic.log("c11842");
-            CustomMessage customMessage = new CustomMessage(2921017);
-            FrsViewData frsViewData = this.j;
-            int topThreadSize = frsViewData != null ? frsViewData.getTopThreadSize() : 0;
-            ThreadData threadData = rp4Var.s;
-            threadData.statFloor = (i + 1) - topThreadSize;
-            customMessage.setData(threadData);
-            this.k.sendMessage(customMessage);
-            if (rp4Var != null) {
-                gs5 gs5Var = frsPageAlaVideoHolder.b;
-                if (gs5Var instanceof bi5) {
-                    gs5Var.b(this.v);
-                }
-                frsPageAlaVideoHolder.b.a(this.u);
-                frsPageAlaVideoHolder.b.W(b0());
-                frsPageAlaVideoHolder.b.l(rp4Var.s);
-                rp4Var.s.updateShowStatus();
+            as5 as5Var = this.e;
+            if (as5Var != null) {
+                as5Var.b0(jn5Var);
             }
-            this.m = (pn) viewGroup;
-            return frsPageAlaVideoHolder.b();
         }
-        return (View) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.lw5
-    public void r(int i) {
+    public void c(List<nn> list) {
+        BdTypeMultiColumnListView bdTypeMultiColumnListView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || (bdTypeMultiColumnListView = this.c) == null) {
+            return;
         }
+        bdTypeMultiColumnListView.setData(list);
     }
 }

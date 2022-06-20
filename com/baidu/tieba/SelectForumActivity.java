@@ -16,21 +16,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jg5;
-import com.repackage.li;
-import com.repackage.s85;
-import com.repackage.sh5;
-import com.repackage.th5;
+import com.repackage.f95;
+import com.repackage.gh5;
+import com.repackage.pi;
+import com.repackage.pi5;
+import com.repackage.qi5;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class SelectForumActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean isSelectInterestForum;
-    public CustomMessageListener mCloseListener;
-    public CustomMessageListener mPermissionsListener;
-    public ArrayList<SelectForumData> mSelectedForums;
-    public jg5 selectForumView;
+    public gh5 k;
+    public boolean l;
+    public ArrayList<SelectForumData> m;
+    public CustomMessageListener n;
+    public CustomMessageListener o;
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -106,13 +106,13 @@ public class SelectForumActivity extends SuspendedActivity {
                 if (TextUtils.isEmpty(str)) {
                     str = this.a.getString(R.string.obfuscated_res_0x7f0f008f);
                 }
-                li.O(this.a, str);
+                pi.O(this.a, str);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class c implements th5.f {
+    public class c implements qi5.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SelectForumActivity a;
@@ -135,14 +135,14 @@ public class SelectForumActivity extends SuspendedActivity {
             this.a = selectForumActivity;
         }
 
-        @Override // com.repackage.th5.f
+        @Override // com.repackage.qi5.f
         public void a(ArrayList<SelectForumData> arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
                 Intent intent = new Intent();
                 intent.putParcelableArrayListExtra(SelectForumConfig.KEY_SELECTED_INTEREST_FORUMS_RESPONSE, arrayList);
                 this.a.setResult(-1, intent);
-                this.a.close();
+                this.a.o0();
             }
         }
     }
@@ -160,64 +160,54 @@ public class SelectForumActivity extends SuspendedActivity {
                 return;
             }
         }
-        this.isSelectInterestForum = false;
-        this.mCloseListener = new a(this, 2921503);
-        this.mPermissionsListener = new b(this, 2921507);
-    }
-
-    private th5.f getSaveInterestForumListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? new c(this) : (th5.f) invokeV.objValue;
-    }
-
-    private void initData() {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        this.isSelectInterestForum = intent.getBooleanExtra(SelectForumConfig.IS_SELECT_INTEREST_FORUM, false);
-        this.mSelectedForums = intent.getParcelableArrayListExtra(SelectForumConfig.KEY_SELECTED_INTEREST_FORUMS);
+        this.l = false;
+        this.n = new a(this, 2921503);
+        this.o = new b(this, 2921507);
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public s85 getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
-        InterceptResult invokeLL;
+    public void C0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
-            if (this.selectForumView == null) {
-                if (this.isSelectInterestForum) {
-                    this.selectForumView = new th5(getPageContext(), linearLayout, navigationBar, getSaveInterestForumListener(), this.mSelectedForums);
-                } else {
-                    this.selectForumView = new sh5(getPageContext(), linearLayout, navigationBar);
-                }
-            }
-            return this.selectForumView;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
-        return (s85) invokeLL.objValue;
+    }
+
+    public final qi5.f G0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new c(this) : (qi5.f) invokeV.objValue;
+    }
+
+    public final void K0() {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (intent = getIntent()) == null) {
+            return;
+        }
+        this.l = intent.getBooleanExtra(SelectForumConfig.IS_SELECT_INTEREST_FORUM, false);
+        this.m = intent.getParcelableArrayListExtra(SelectForumConfig.KEY_SELECTED_INTEREST_FORUMS);
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            initData();
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            K0();
             super.onCreate(bundle);
-            setCanDragClose(false);
-            registerListener(this.mCloseListener);
-            registerListener(this.mPermissionsListener);
+            D0(false);
+            registerListener(this.n);
+            registerListener(this.o);
         }
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            jg5 jg5Var = this.selectForumView;
-            if (jg5Var != null) {
-                jg5Var.onDestroy();
+            gh5 gh5Var = this.k;
+            if (gh5Var != null) {
+                gh5Var.onDestroy();
             }
         }
     }
@@ -225,19 +215,29 @@ public class SelectForumActivity extends SuspendedActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onResume();
-            jg5 jg5Var = this.selectForumView;
-            if (jg5Var != null) {
-                jg5Var.onResume();
+            gh5 gh5Var = this.k;
+            if (gh5Var != null) {
+                gh5Var.onResume();
             }
         }
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public void requestData() {
+    public f95 r0(LinearLayout linearLayout, NavigationBar navigationBar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, linearLayout, navigationBar)) == null) {
+            if (this.k == null) {
+                if (this.l) {
+                    this.k = new qi5(getPageContext(), linearLayout, navigationBar, G0(), this.m);
+                } else {
+                    this.k = new pi5(getPageContext(), linearLayout, navigationBar);
+                }
+            }
+            return this.k;
         }
+        return (f95) invokeLL.objValue;
     }
 }

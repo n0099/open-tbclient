@@ -1,265 +1,316 @@
 package com.repackage;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
-import java.util.LinkedList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.ByteBuffer;
 /* loaded from: classes7.dex */
-public class yb {
+public class yb extends DiskFileOperate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Bitmap a;
+    public BitmapFactory.Options b;
+    public a c;
+    public boolean d;
+    public long e;
 
-    public static final Field a(Class<?> cls, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, cls, str)) == null) {
-            Field field = null;
-            while (cls != Object.class && field == null) {
-                try {
-                    field = cls.getDeclaredField(str);
-                } catch (NoSuchFieldException unused) {
-                }
-                cls = cls.getSuperclass();
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static byte d = Byte.MIN_VALUE;
+        public static byte e = Byte.MIN_VALUE;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public long b;
+        public boolean c;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1934752577, "Lcom/repackage/yb$a;")) == null) {
+                return;
             }
-            return field;
-        }
-        return (Field) invokeLL.objValue;
-    }
-
-    public static final List<Field> b(Class<?> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cls)) == null) {
-            LinkedList linkedList = new LinkedList();
-            while (cls != Object.class) {
-                Field[] declaredFields = cls.getDeclaredFields();
-                if (declaredFields != null) {
-                    for (Field field : declaredFields) {
-                        if (field != null && !Modifier.isTransient(field.getModifiers())) {
-                            linkedList.add(field);
-                        }
-                    }
-                }
-                cls = cls.getSuperclass();
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return linkedList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static final Method c(Class<?> cls, String str, Object... objArr) {
-        InterceptResult invokeLLL;
-        Method[] declaredMethods;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, cls, str, objArr)) == null) {
-            Method method = null;
-            while (cls != Object.class && method == null) {
-                for (Method method2 : cls.getDeclaredMethods()) {
-                    if (method2 != null && method2.getName().equals(str)) {
-                        Class<?>[] parameterTypes = method2.getParameterTypes();
-                        if (parameterTypes != null || objArr != null) {
-                            if (parameterTypes != null && objArr != null && parameterTypes.length == objArr.length) {
-                                boolean z = true;
-                                for (int i = 0; i < parameterTypes.length; i++) {
-                                    if (parameterTypes[i].isPrimitive()) {
-                                        if (parameterTypes[i] == Integer.TYPE) {
-                                            if (objArr[i].getClass() == Integer.class) {
-                                            }
-                                        }
-                                        if (parameterTypes[i] == Short.TYPE) {
-                                            if (objArr[i].getClass() == Short.class) {
-                                            }
-                                        }
-                                        if (parameterTypes[i] == Long.TYPE) {
-                                            if (objArr[i].getClass() == Long.class) {
-                                            }
-                                        }
-                                        if (parameterTypes[i] == Float.TYPE) {
-                                            if (objArr[i].getClass() == Float.class) {
-                                            }
-                                        }
-                                        if (parameterTypes[i] == Double.TYPE) {
-                                            if (objArr[i].getClass() == Double.class) {
-                                            }
-                                        }
-                                        if (parameterTypes[i] == Boolean.TYPE) {
-                                            if (objArr[i].getClass() == Boolean.class) {
-                                            }
-                                        }
-                                        if (parameterTypes[i] == Byte.TYPE) {
-                                            if (objArr[i].getClass() == Byte.class) {
-                                            }
-                                        }
-                                        if (parameterTypes[i] == Character.TYPE && objArr[i].getClass() == Character.class) {
-                                        }
-                                        z = false;
-                                    } else {
-                                        if (objArr[i].getClass() == parameterTypes[i]) {
-                                        }
-                                        z = false;
-                                    }
-                                }
-                                if (z) {
-                                }
-                            }
-                        }
-                        method = method2;
-                        break;
-                    }
-                }
-                cls = cls.getSuperclass();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1934752577, "Lcom/repackage/yb$a;");
             }
-            return method;
         }
-        return (Method) invokeLLL.objValue;
-    }
 
-    public static final Object d(Object obj, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, obj, str)) == null) {
-            Field a = a(obj.getClass(), str);
-            if (a != null) {
-                try {
-                    a.setAccessible(true);
-                    return a.get(obj);
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                    return null;
-                } catch (IllegalArgumentException e2) {
-                    e2.printStackTrace();
-                    return null;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
                 }
             }
-            return null;
+            this.a = false;
+            this.b = 0L;
+            this.c = true;
         }
-        return invokeLL.objValue;
-    }
 
-    public static final boolean e(Class<?> cls, Class<?> cls2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, cls2)) == null) {
-            if (cls == null || cls2 == null) {
-                return false;
+        public static int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                return 14;
             }
-            if (cls == cls2) {
+            return invokeV.intValue;
+        }
+
+        public boolean b(byte[] bArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
+                if (bArr == null || bArr.length < a()) {
+                    return false;
+                }
+                ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, a());
+                if (wrap.getInt() != 1786600511) {
+                    return false;
+                }
+                if ((wrap.get() & d) != 0) {
+                    this.a = true;
+                }
+                this.b = wrap.getLong();
+                if ((wrap.get() & e) != 0) {
+                    this.c = false;
+                }
                 return true;
             }
-            return cls2.isAssignableFrom(cls);
+            return invokeL.booleanValue;
         }
-        return invokeLL.booleanValue;
+
+        public byte[] c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                ByteBuffer allocate = ByteBuffer.allocate(a());
+                allocate.putInt(1786600511);
+                allocate.put(this.a ? (byte) (d | 0) : (byte) 0);
+                allocate.putLong(this.b);
+                allocate.put(this.c ? (byte) 0 : (byte) (e | 0));
+                allocate.flip();
+                return allocate.array();
+            }
+            return (byte[]) invokeV.objValue;
+        }
     }
 
-    public static final Object f(Class<?> cls) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yb(String str, String str2, DiskFileOperate.Action action) {
+        super(str, str2, action);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, action};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = true;
+        this.c = new a();
+    }
+
+    public static int a(BitmapFactory.Options options, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, options, i, i2)) == null) {
+            int i3 = options.outHeight;
+            int i4 = options.outWidth;
+            int i5 = 1;
+            if (i3 > i2 || i4 > i) {
+                int i6 = i3 / 2;
+                int i7 = i4 / 2;
+                while (i6 / i5 >= i2 && i7 / i5 >= i) {
+                    i5 *= 2;
+                }
+            }
+            return i5;
+        }
+        return invokeLII.intValue;
+    }
+
+    public boolean b(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
+            if (bArr != null && this.c.b(bArr)) {
+                long j = this.c.b;
+                if (j == 0 || j >= System.currentTimeMillis()) {
+                    int a2 = a.a();
+                    try {
+                        if (this.b == null) {
+                            BitmapFactory.Options options = new BitmapFactory.Options();
+                            this.b = options;
+                            options.inPreferredConfig = Bitmap.Config.RGB_565;
+                        }
+                        this.b.inJustDecodeBounds = true;
+                        BitmapFactory.decodeByteArray(bArr, a2, bArr.length - a2, this.b);
+                    } catch (Error e) {
+                        BdLog.e(e.getMessage());
+                    }
+                    if (!this.b.mCancel && this.b.outWidth != -1 && this.b.outHeight != -1) {
+                        this.b.inSampleSize = a(this.b, i, i2);
+                        this.b.inJustDecodeBounds = false;
+                        this.a = BitmapFactory.decodeByteArray(bArr, a2, bArr.length - a2, this.b);
+                        return this.a != null;
+                    }
+                    return false;
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeLII.booleanValue;
+    }
+
+    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+    public byte[] buildFormatData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.mData == null || !this.d) {
+                return null;
+            }
+            return this.c.c();
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    public byte[] c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int a2 = a.a();
+            int length = this.mData.length - a2;
+            byte[] bArr = new byte[length];
+            System.arraycopy(this.mData, a2, bArr, 0, length);
+            return bArr;
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c.c : invokeV.booleanValue;
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.c.c = z;
+        }
+    }
+
+    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+    public void endLog() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            gg.k(isSuccess(), System.currentTimeMillis() - this.e);
+        }
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+    public boolean formatData(byte[] bArr) {
         InterceptResult invokeL;
-        Object newInstance;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, cls)) == null) {
-            try {
-                Constructor<?>[] declaredConstructors = cls.getDeclaredConstructors();
-                if (declaredConstructors.length != 1) {
-                    for (Constructor<?> constructor : declaredConstructors) {
-                        constructor.setAccessible(true);
-                        if (constructor.getParameterTypes().length == 0) {
-                            constructor.setAccessible(true);
-                            newInstance = constructor.newInstance(new Object[0]);
-                        }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bArr)) == null) {
+            if (bArr != null && this.c.b(bArr)) {
+                long j = this.c.b;
+                if (j == 0 || j >= System.currentTimeMillis()) {
+                    if (this.b == null) {
+                        BitmapFactory.Options options = new BitmapFactory.Options();
+                        this.b = options;
+                        options.inPreferredConfig = Bitmap.Config.RGB_565;
                     }
-                    return null;
-                }
-                Constructor<?> constructor2 = declaredConstructors[0];
-                if (constructor2.getParameterTypes().length != 0) {
-                    return null;
-                }
-                constructor2.setAccessible(true);
-                newInstance = constructor2.newInstance(new Object[0]);
-                return newInstance;
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-                return null;
-            } catch (IllegalArgumentException e2) {
-                e2.printStackTrace();
-                return null;
-            } catch (InstantiationException e3) {
-                e3.printStackTrace();
-                return null;
-            } catch (InvocationTargetException e4) {
-                e4.printStackTrace();
-                return null;
-            }
-        }
-        return invokeL.objValue;
-    }
-
-    public static final Object g(Class<?> cls, int i) {
-        InterceptResult invokeLI;
-        Object newInstance;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, cls, i)) == null) {
-            try {
-                Constructor<?>[] declaredConstructors = cls.getDeclaredConstructors();
-                if (declaredConstructors.length != 1) {
-                    for (Constructor<?> constructor : declaredConstructors) {
-                        constructor.setAccessible(true);
-                        if (constructor.getParameterTypes().length == 1) {
-                            constructor.setAccessible(true);
-                            newInstance = constructor.newInstance(Integer.valueOf(i));
-                        }
+                    int a2 = a.a();
+                    try {
+                        this.a = BitmapFactory.decodeByteArray(bArr, a2, bArr.length - a2, this.b);
+                    } catch (Error e) {
+                        BdLog.e(e.getMessage());
                     }
-                    return null;
-                }
-                Constructor<?> constructor2 = declaredConstructors[0];
-                if (constructor2.getParameterTypes().length != 1) {
-                    return null;
-                }
-                constructor2.setAccessible(true);
-                newInstance = constructor2.newInstance(Integer.valueOf(i));
-                return newInstance;
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-                return null;
-            } catch (IllegalArgumentException e2) {
-                e2.printStackTrace();
-                return null;
-            } catch (InstantiationException e3) {
-                e3.printStackTrace();
-                return null;
-            } catch (InvocationTargetException e4) {
-                e4.printStackTrace();
-                return null;
-            }
-        }
-        return invokeLI.objValue;
-    }
-
-    public static final boolean h(Object obj, String str, Object obj2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, obj, str, obj2)) == null) {
-            Field a = a(obj.getClass(), str);
-            if (a != null) {
-                try {
-                    a.setAccessible(true);
-                    a.set(obj, obj2);
-                    return true;
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                    return false;
-                } catch (IllegalArgumentException e2) {
-                    e2.printStackTrace();
-                    return false;
+                    return this.a != null;
                 }
             }
             return false;
         }
-        return invokeLLL.booleanValue;
+        return invokeL.booleanValue;
+    }
+
+    public Bitmap getBitmap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a : (Bitmap) invokeV.objValue;
+    }
+
+    public boolean isGif() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.c.a : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+    public void setData(byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, bArr) == null) {
+            super.setData(bArr);
+            if (isGif() || !pi.B(bArr)) {
+                return;
+            }
+            setGif(true);
+        }
+    }
+
+    public void setGif(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.c.a = z;
+        }
+    }
+
+    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+    public void startLog() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.e = System.currentTimeMillis();
+        }
     }
 }

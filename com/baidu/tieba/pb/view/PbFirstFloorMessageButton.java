@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
-import com.repackage.qt4;
+import com.repackage.pi;
+import com.repackage.zt4;
 /* loaded from: classes3.dex */
 public class PbFirstFloorMessageButton extends TBSpecificationBtn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qt4 o;
+    public zt4 o;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbFirstFloorMessageButton(Context context) {
@@ -43,18 +43,18 @@ public class PbFirstFloorMessageButton extends TBSpecificationBtn {
     private void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            qt4 qt4Var = new qt4();
-            this.o = qt4Var;
-            qt4Var.q(R.color.CAM_X0903);
-            this.o.g(li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X006));
-            this.o.u(R.drawable.obfuscated_res_0x7f0807f3, TBSpecificationButtonConfig.IconType.WEBP);
+            zt4 zt4Var = new zt4();
+            this.o = zt4Var;
+            zt4Var.q(R.color.CAM_X0903);
+            this.o.g(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X006));
+            this.o.u(R.drawable.obfuscated_res_0x7f0807d8, TBSpecificationButtonConfig.IconType.WEBP);
             this.o.o(TBSpecificationButtonConfig.WebpType.PURE);
             this.o.h(R.color.CAM_X0304);
             setConfig(this.o);
         }
     }
 
-    public void s(int i) {
+    public void r(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             k();

@@ -1,61 +1,135 @@
 package com.xiaomi.push;
 
+import android.app.Application;
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.xiaomi.push.al;
 /* loaded from: classes8.dex */
-public class dr extends dq {
+public class dr {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile dr a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dr(Context context, int i) {
-        super(context, i);
+    /* renamed from: a  reason: collision with other field name */
+    public Context f223a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public a f224a;
+
+    /* loaded from: classes8.dex */
+    public interface a {
+        void a();
+    }
+
+    public dr(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.f223a = context;
     }
 
-    @Override // com.xiaomi.push.dq, com.xiaomi.push.ai.a
-    /* renamed from: a */
-    public hh mo222a() {
-        InterceptResult invokeV;
+    public static int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? hh.w : (hh) invokeV.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? Math.max(60, i) : invokeI.intValue;
     }
 
-    @Override // com.xiaomi.push.dq, com.xiaomi.push.ai.a
-    /* renamed from: a */
-    public String mo222a() {
-        InterceptResult invokeV;
+    public static dr a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "23" : (String) invokeV.objValue;
-    }
-
-    @Override // com.xiaomi.push.dq
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "ram:" + i.m473a() + ",rom:" + i.m477b() + "|ramOriginal:" + i.m479c() + ",romOriginal:" + i.d();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (a == null) {
+                synchronized (dr.class) {
+                    if (a == null) {
+                        a = new dr(context);
+                    }
+                }
+            }
+            return a;
         }
-        return (String) invokeV.objValue;
+        return (dr) invokeL.objValue;
+    }
+
+    private void a(com.xiaomi.push.service.ba baVar, al alVar, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, baVar, alVar, z) == null) && baVar.a(ho.a.a(), true)) {
+            dv dvVar = new dv(this.f223a);
+            if (z) {
+                alVar.a((al.a) dvVar, a(baVar.a(ho.b.a(), 86400)));
+            } else {
+                alVar.m161a((al.a) dvVar);
+            }
+        }
+    }
+
+    private boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+            try {
+                ((Application) (this.f223a instanceof Application ? this.f223a : this.f223a.getApplicationContext())).registerActivityLifecycleCallbacks(new dl(this.f223a, String.valueOf(System.currentTimeMillis() / 1000)));
+                return true;
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b() {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+            al a2 = al.a(this.f223a);
+            com.xiaomi.push.service.ba a3 = com.xiaomi.push.service.ba.a(this.f223a);
+            SharedPreferences sharedPreferences = this.f223a.getSharedPreferences("mipush_extra", 0);
+            long currentTimeMillis = System.currentTimeMillis();
+            long j = sharedPreferences.getLong("first_try_ts", currentTimeMillis);
+            if (j == currentTimeMillis) {
+                sharedPreferences.edit().putLong("first_try_ts", currentTimeMillis).commit();
+            }
+            if (Math.abs(currentTimeMillis - j) < 172800000) {
+                return;
+            }
+            a(a3, a2, false);
+            if (a3.a(ho.aI.a(), true)) {
+                int a4 = a(a3.a(ho.aJ.a(), 86400));
+                a2.a(new du(this.f223a, a4), a4, 0);
+            }
+            if (m.m556a(this.f223a) && (aVar = this.f224a) != null) {
+                aVar.a();
+            }
+            if (a3.a(ho.ap.a(), false)) {
+                a();
+            }
+            a(a3, a2, true);
+        }
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public void m265a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            al.a(this.f223a).a(new ds(this));
+        }
     }
 }

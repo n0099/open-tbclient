@@ -18,11 +18,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pl4;
-import com.repackage.y35;
-import com.repackage.z35;
+import com.repackage.n45;
+import com.repackage.o45;
+import com.repackage.zl4;
 /* loaded from: classes3.dex */
-public class ThreadDelegateStatic extends y35 {
+public class ThreadDelegateStatic extends n45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,13 +54,13 @@ public class ThreadDelegateStatic extends y35 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            z35 b;
+            o45 b;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016207 && (customResponsedMessage.getData() instanceof pl4)) {
-                pl4 pl4Var = (pl4) customResponsedMessage.getData();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016207 && (customResponsedMessage.getData() instanceof zl4)) {
+                zl4 zl4Var = (zl4) customResponsedMessage.getData();
                 ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
-                pl4Var.a(threadDelegateStatic);
-                if (pl4Var.getContext() == null || (b = threadDelegateStatic.b()) == null) {
+                zl4Var.a(threadDelegateStatic);
+                if (zl4Var.getContext() == null || (b = threadDelegateStatic.b()) == null) {
                     return;
                 }
                 b.a.setArguments(new Bundle());
@@ -100,33 +100,33 @@ public class ThreadDelegateStatic extends y35 {
         }
     }
 
-    @Override // com.repackage.y35
-    public z35 a() {
+    @Override // com.repackage.n45
+    public o45 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            z35 z35Var = new z35();
-            z35Var.a = ThreadFragment.S0();
-            z35Var.e = 1;
-            z35Var.b = R.string.obfuscated_res_0x7f0f03fa;
-            return z35Var;
+            o45 o45Var = new o45();
+            o45Var.a = ThreadFragment.G1();
+            o45Var.e = 1;
+            o45Var.b = R.string.obfuscated_res_0x7f0f03eb;
+            return o45Var;
         }
-        return (z35) invokeV.objValue;
+        return (o45) invokeV.objValue;
     }
 
-    @Override // com.repackage.y35
+    @Override // com.repackage.n45
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ea, (ViewGroup) null);
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02e4, (ViewGroup) null);
             this.b = fragmentTabIndicator;
             return fragmentTabIndicator;
         }
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // com.repackage.y35
+    @Override // com.repackage.n45
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

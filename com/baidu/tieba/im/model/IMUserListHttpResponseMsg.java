@@ -11,9 +11,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b47;
-import com.repackage.do4;
-import com.repackage.q47;
+import com.repackage.a67;
+import com.repackage.l57;
+import com.repackage.no4;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -50,7 +50,7 @@ public class IMUserListHttpResponseMsg extends JsonHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeL(65537, this, list) == null) {
             this.changedList = new HashMap<>();
             for (UserData userData : list) {
-                if (userData != null && !TextUtils.isEmpty(userData.getUserId()) && (g = b47.f().g(userData.getUserId(), 2)) != null && g.getCustomGroupType() == 2) {
+                if (userData != null && !TextUtils.isEmpty(userData.getUserId()) && (g = l57.f().g(userData.getUserId(), 2)) != null && g.getCustomGroupType() == 2) {
                     boolean z = false;
                     boolean z2 = true;
                     if (!TextUtils.isEmpty(userData.getName_show()) && !userData.getName_show().equals(g.getNameShow())) {
@@ -65,23 +65,23 @@ public class IMUserListHttpResponseMsg extends JsonHttpResponsedMessage {
                         g.setIsFriend(userData.getRelation());
                         z = true;
                     }
-                    do4 do4Var = new do4();
-                    do4Var.b(userData);
+                    no4 no4Var = new no4();
+                    no4Var.b(userData);
                     if (g.getImUserExtraData() == null) {
-                        g.setImUserExtraData(do4Var);
+                        g.setImUserExtraData(no4Var);
                     } else {
-                        String c = do4Var.c();
+                        String c = no4Var.c();
                         String c2 = g.getImUserExtraData().c();
                         if (c == null || c.equals(c2)) {
                             z2 = z;
                         } else {
-                            g.setImUserExtraData(do4Var);
+                            g.setImUserExtraData(no4Var);
                         }
                     }
                     if (z2) {
                         this.changedList.put(userData.getUserId(), g);
-                        b47.f().k(g);
-                        ImMessageCenterPojo i = q47.o().i(g.getGid(), 2);
+                        l57.f().k(g);
+                        ImMessageCenterPojo i = a67.o().i(g.getGid(), 2);
                         if (i != null) {
                             i.setNameShow(g.getNameShow());
                             i.setGroup_head(g.getGroup_head());

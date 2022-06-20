@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import java.nio.ByteBuffer;
 import java.util.Collections;
 import java.util.Iterator;
@@ -47,7 +48,7 @@ public abstract class cd {
                     return;
                 }
             }
-            a = new a("NONE", 0);
+            a = new a(HlsPlaylistParser.METHOD_NONE, 0);
             b = new a("ONEWAY", 1);
             a aVar = new a("TWOWAY", 2);
             c = aVar;

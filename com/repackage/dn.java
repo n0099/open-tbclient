@@ -2,113 +2,300 @@ package com.repackage;
 
 import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes5.dex */
-public class dn<V extends TypeAdapter.ViewHolder> extends wm<cn, V> {
+public class dn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wm<jn, V> i;
+    public ArrayList<c> a;
+    public ArrayList<c> b;
+    public a c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dn(Context context, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(context, bdUniqueId, bdUniqueId2);
+    /* loaded from: classes5.dex */
+    public interface a {
+        void onPreLoad();
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends TypeAdapter.ViewHolder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(dn dnVar, View view2) {
+            super(view2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dnVar, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public int b;
+        public TypeAdapter.ViewHolder c;
+        public Object d;
+        public boolean e;
+
+        public c(dn dnVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dnVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public dn() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.a = new ArrayList<>();
+        this.b = new ArrayList<>();
     }
 
-    @Override // com.repackage.wm
-    public V M(ViewGroup viewGroup) {
+    public void a(View view2, Object obj, boolean z, boolean z2, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, obj, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)}) == null) || view2 == null) {
+            return;
+        }
+        c cVar = new c(this);
+        cVar.c = new TypeAdapter.ViewHolder(view2);
+        cVar.d = obj;
+        cVar.e = z2;
+        int id = BdUniqueId.gen().getId();
+        cVar.b = id;
+        cVar.a = id;
+        view2.setTag("FOOTER");
+        if (i >= 0 && i <= this.b.size()) {
+            this.b.add(i, cVar);
+        } else {
+            this.b.add(cVar);
+        }
+    }
+
+    public void b(View view2, Object obj, boolean z, boolean z2, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, obj, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)}) == null) || view2 == null) {
+            return;
+        }
+        c cVar = new c(this);
+        cVar.c = new TypeAdapter.ViewHolder(view2);
+        cVar.d = obj;
+        cVar.e = z2;
+        int id = BdUniqueId.gen().getId();
+        cVar.b = id;
+        cVar.a = id;
+        view2.setTag("HEADER");
+        if (i >= 0 && i <= this.a.size()) {
+            this.a.add(i, cVar);
+        } else {
+            this.a.add(cVar);
+        }
+    }
+
+    public TypeAdapter.ViewHolder c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) ? N(viewGroup, new cn()) : (V) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.wm
-    /* renamed from: Z */
-    public V N(ViewGroup viewGroup, cn cnVar) {
-        InterceptResult invokeLL;
-        V M;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewGroup, cnVar)) == null) {
-            wm<jn, V> wmVar = this.i;
-            if (wmVar == null) {
-                return null;
-            }
-            if (this.d == wmVar.y()) {
-                M = this.i.L(viewGroup, cnVar.e());
-            } else if (this.d == this.i.w()) {
-                M = this.i.J(viewGroup, cnVar.e());
-            } else if (this.d == this.i.x()) {
-                M = this.i.K(viewGroup, cnVar.e());
-            } else if (this.d == this.i.v()) {
-                M = this.i.I(viewGroup, cnVar.e());
-            } else {
-                M = this.i.M(viewGroup);
-            }
-            if (M != null) {
-                V(this.i.A());
-                return M;
-            }
-            throw new NullPointerException("Order error or holder created is NullPointerException");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            TextView textView = new TextView(context);
+            textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0a3e));
+            int d = pi.d(context, 15.0f);
+            textView.setPadding(d, d, d, d);
+            textView.setHeight(0);
+            return new b(this, textView);
         }
-        return (V) invokeLL.objValue;
+        return (TypeAdapter.ViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.wm
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, cn cnVar, V v) {
-        InterceptResult invokeCommon;
+    public int d(View view2) {
+        InterceptResult invokeL;
+        TypeAdapter.ViewHolder viewHolder;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, cnVar, v})) == null) {
-            wm<jn, V> wmVar = this.i;
-            if (wmVar == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
+            for (int i = 0; i < this.b.size(); i++) {
+                c cVar = this.b.get(i);
+                if (cVar != null && (viewHolder = cVar.c) != null && viewHolder.itemView == view2) {
+                    return i;
+                }
             }
-            if (this.d == wmVar.y()) {
-                return this.i.R(i, view2, viewGroup, cnVar.e(), v);
-            }
-            if (this.d == this.i.w()) {
-                return this.i.P(i, view2, viewGroup, cnVar.e(), v);
-            }
-            if (this.d == this.i.x()) {
-                return this.i.Q(i, view2, viewGroup, cnVar.e(), v);
-            }
-            if (this.d == this.i.v()) {
-                return this.i.O(i, view2, viewGroup, cnVar.e(), v);
-            }
-            return this.i.S(i, view2, viewGroup, cnVar.e(), v);
+            return -1;
         }
-        return (View) invokeCommon.objValue;
+        return invokeL.intValue;
     }
 
-    public void b0(wm wmVar) {
+    public c e(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, wmVar) == null) {
-            this.i = wmVar;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            Iterator<c> it = this.b.iterator();
+            while (it.hasNext()) {
+                c next = it.next();
+                if (next != null && i == next.b) {
+                    return next;
+                }
+            }
+            return null;
+        }
+        return (c) invokeI.objValue;
+    }
+
+    public int f(View view2) {
+        InterceptResult invokeL;
+        TypeAdapter.ViewHolder viewHolder;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view2)) == null) {
+            for (int i = 0; i < this.a.size(); i++) {
+                c cVar = this.a.get(i);
+                if (cVar != null && (viewHolder = cVar.c) != null && viewHolder.itemView == view2) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    @Nullable
+    public View g(@NonNull Object obj) {
+        InterceptResult invokeL;
+        View view2;
+        Object tag;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
+            for (int i = 0; i < this.a.size(); i++) {
+                c cVar = this.a.get(i);
+                if (cVar != null && (tag = (view2 = cVar.c.itemView).getTag(R.id.obfuscated_res_0x7f090f20)) != null && tag.equals(obj)) {
+                    return view2;
+                }
+            }
+            return null;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public c h(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            Iterator<c> it = this.a.iterator();
+            while (it.hasNext()) {
+                c next = it.next();
+                if (next != null && i == next.b) {
+                    return next;
+                }
+            }
+            return null;
+        }
+        return (c) invokeI.objValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b.size() : invokeV.intValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a.size() : invokeV.intValue;
+    }
+
+    public boolean k(View view2) {
+        InterceptResult invokeL;
+        TypeAdapter.ViewHolder viewHolder;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, view2)) == null) {
+            if (view2 == null) {
+                return false;
+            }
+            for (int i = 0; i < this.b.size(); i++) {
+                c cVar = this.b.get(i);
+                if (cVar != null && (viewHolder = cVar.c) != null && viewHolder.itemView == view2) {
+                    this.b.remove(i);
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean l(View view2) {
+        InterceptResult invokeL;
+        TypeAdapter.ViewHolder viewHolder;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, view2)) == null) {
+            if (view2 == null) {
+                return false;
+            }
+            for (int i = 0; i < this.a.size(); i++) {
+                c cVar = this.a.get(i);
+                if (cVar != null && (viewHolder = cVar.c) != null && viewHolder.itemView == view2) {
+                    this.a.remove(i);
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void m(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
+            this.c = aVar;
         }
     }
 }

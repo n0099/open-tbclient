@@ -1,41 +1,42 @@
 package com.repackage;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
-public final class fn9 implements ThreadFactory {
+import java.io.File;
+/* loaded from: classes6.dex */
+public class fn9 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicInteger a;
 
-    public fn9() {
+    public static boolean a() {
+        InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            boolean z = a;
+            if (z) {
+                return z;
             }
+            String[] split = System.getenv("PATH").split(":");
+            int length = split.length;
+            int i = 0;
+            while (true) {
+                if (i >= length) {
+                    str = null;
+                    break;
+                }
+                str = split[i] + "/su";
+                if (new File(str).exists()) {
+                    break;
+                }
+                i++;
+            }
+            boolean z2 = str != null;
+            a = z2;
+            return z2;
         }
-        this.a = new AtomicInteger(1);
-    }
-
-    @Override // java.util.concurrent.ThreadFactory
-    public Thread newThread(Runnable runnable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            return new Thread(runnable, "T#" + this.a.getAndIncrement());
-        }
-        return (Thread) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 }

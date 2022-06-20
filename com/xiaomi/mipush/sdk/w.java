@@ -1,24 +1,24 @@
 package com.xiaomi.mipush.sdk;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class w {
+public final class w implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public final /* synthetic */ Context a;
 
-    /* renamed from: a  reason: collision with other field name */
-    public String f79a;
-
-    public w() {
+    public w(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,20 +28,21 @@ public class w {
                 return;
             }
         }
-        this.a = 0;
-        this.f79a = "";
+        this.a = context;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj == null || !(obj instanceof w)) {
-                return false;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                PackageInfo packageInfo = this.a.getPackageManager().getPackageInfo(this.a.getPackageName(), 4612);
+                v.c(this.a);
+                v.d(this.a, packageInfo);
+                v.c(this.a, packageInfo);
+            } catch (Throwable th) {
+                Log.e("ManifestChecker", "", th);
             }
-            w wVar = (w) obj;
-            return !TextUtils.isEmpty(wVar.f79a) && wVar.f79a.equals(this.f79a);
         }
-        return invokeL.booleanValue;
     }
 }

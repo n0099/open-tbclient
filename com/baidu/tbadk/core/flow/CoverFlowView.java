@@ -19,28 +19,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ar4;
-import com.repackage.br4;
-import com.repackage.cr4;
-import com.repackage.dr4;
-import com.repackage.er4;
-import com.repackage.fr4;
+import com.repackage.jr4;
+import com.repackage.kr4;
+import com.repackage.lr4;
+import com.repackage.mr4;
+import com.repackage.nr4;
+import com.repackage.or4;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class CoverFlowView<T extends br4> extends FrameLayout {
+public class CoverFlowView<T extends kr4> extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ListViewPager a;
     public IndicatorView b;
-    public dr4 c;
+    public mr4 c;
     public View d;
     public CoverFlowAdapter<T> e;
-    public ar4 f;
+    public jr4 f;
     public CoverFlowView<T>.b g;
     public boolean h;
     public boolean i;
     public boolean j;
-    public er4<T> k;
+    public nr4<T> k;
     public CoverFlowView<T>.d l;
     public CoverFlowView<T>.c m;
     public long n;
@@ -133,7 +133,7 @@ public class CoverFlowView<T extends br4> extends FrameLayout {
             }
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r7v25, resolved type: com.repackage.er4 */
+        /* JADX DEBUG: Multi-variable search result rejected for r7v25, resolved type: com.repackage.nr4 */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
@@ -157,7 +157,7 @@ public class CoverFlowView<T extends br4> extends FrameLayout {
             }
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r0v12, resolved type: com.repackage.er4 */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v12, resolved type: com.repackage.nr4 */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
@@ -210,7 +210,7 @@ public class CoverFlowView<T extends br4> extends FrameLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             int intValue;
-            br4 b;
+            kr4 b;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.k == null || !(view2.getTag() instanceof Integer) || (b = this.a.e.b((intValue = ((Integer) view2.getTag()).intValue()))) == null) {
                 return;
@@ -323,7 +323,7 @@ public class CoverFlowView<T extends br4> extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             r(context);
             q(context);
-            setCoverFlowFactory(new cr4());
+            setCoverFlowFactory(new lr4());
             addView(this.a);
             addView(this.b);
             CoverFlowAdapter<T> coverFlowAdapter = new CoverFlowAdapter<>(context);
@@ -351,15 +351,15 @@ public class CoverFlowView<T extends br4> extends FrameLayout {
     }
 
     public void s() {
-        dr4 dr4Var;
+        mr4 mr4Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.e.c();
             IndicatorView indicatorView = this.b;
-            if (indicatorView == null || (dr4Var = this.c) == null) {
+            if (indicatorView == null || (mr4Var = this.c) == null) {
                 return;
             }
-            indicatorView.setDrawable(SkinManager.getDrawable(dr4Var.a()));
+            indicatorView.setDrawable(SkinManager.getDrawable(mr4Var.a()));
             this.b.setSelector(SkinManager.getDrawable(this.c.b()));
         }
     }
@@ -371,24 +371,24 @@ public class CoverFlowView<T extends br4> extends FrameLayout {
         }
     }
 
-    public void setCallback(er4<T> er4Var) {
+    public void setCallback(nr4<T> nr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, er4Var) == null) {
-            this.k = er4Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, nr4Var) == null) {
+            this.k = nr4Var;
         }
     }
 
-    public void setCoverFlowFactory(ar4 ar4Var) {
+    public void setCoverFlowFactory(jr4 jr4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, ar4Var) == null) || ar4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, jr4Var) == null) || jr4Var == null) {
             return;
         }
-        this.f = ar4Var;
-        dr4 a2 = ar4Var.a();
+        this.f = jr4Var;
+        mr4 a2 = jr4Var.a();
         this.c = a2;
         a2.i(this.b);
-        ar4Var.c().b(this.a);
-        View b2 = ar4Var.b();
+        jr4Var.c().b(this.a);
+        View b2 = jr4Var.b();
         this.d = b2;
         if (b2 != null) {
             removeAllViews();
@@ -522,13 +522,13 @@ public class CoverFlowView<T extends br4> extends FrameLayout {
         }
     }
 
-    public void x(fr4 fr4Var) {
+    public void x(or4 or4Var) {
         ListViewPager listViewPager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048599, this, fr4Var) == null) || fr4Var == null || (listViewPager = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048599, this, or4Var) == null) || or4Var == null || (listViewPager = this.a) == null) {
             return;
         }
-        fr4Var.b(listViewPager);
+        or4Var.b(listViewPager);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

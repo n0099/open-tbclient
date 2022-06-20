@@ -35,14 +35,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ht4;
-import com.repackage.li;
-import com.repackage.qg8;
-import com.repackage.qz4;
-import com.repackage.rz4;
-import com.repackage.t68;
-import com.repackage.y45;
-import com.repackage.z65;
+import com.repackage.a88;
+import com.repackage.f05;
+import com.repackage.g05;
+import com.repackage.jh8;
+import com.repackage.n55;
+import com.repackage.n75;
+import com.repackage.pi;
+import com.repackage.qt4;
 /* loaded from: classes3.dex */
 public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorListener {
     public static /* synthetic */ Interceptable $ic;
@@ -58,7 +58,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
     public TBLottieAnimationView f;
     public TextView g;
     public AgreeData h;
-    public qg8 i;
+    public jh8 i;
     public ScaleAnimation j;
     public boolean k;
     public boolean l;
@@ -108,10 +108,10 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof qg8)) {
-                qg8 qg8Var = (qg8) customResponsedMessage.getData();
-                AgreeData agreeData = qg8Var.b;
-                if (this.a.h == null || agreeData == null || this.a.i == null || this.a.h.isInPost || this.a.i.a == qg8Var.a) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof jh8)) {
+                jh8 jh8Var = (jh8) customResponsedMessage.getData();
+                AgreeData agreeData = jh8Var.b;
+                if (this.a.h == null || agreeData == null || this.a.i == null || this.a.h.isInPost || this.a.i.a == jh8Var.a) {
                     return;
                 }
                 String str = agreeData.nid;
@@ -163,9 +163,9 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof qg8)) {
-                qg8 qg8Var = (qg8) customResponsedMessage.getData();
-                AgreeData agreeData = qg8Var.b;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof jh8)) {
+                jh8 jh8Var = (jh8) customResponsedMessage.getData();
+                AgreeData agreeData = jh8Var.b;
                 if (this.a.h == null || TextUtils.isEmpty(this.a.h.postId) || agreeData == null || TextUtils.isEmpty(agreeData.postId) || !this.a.h.postId.equals(agreeData.postId) || this.a.h.isInThread) {
                     return;
                 }
@@ -173,7 +173,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
                     if (this.a.h.indexOfPic == agreeData.indexOfPic) {
                         return;
                     }
-                } else if (this.a.i.a == qg8Var.a) {
+                } else if (this.a.i.a == jh8Var.a) {
                     return;
                 }
                 this.a.p(agreeData);
@@ -182,7 +182,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
     }
 
     /* loaded from: classes3.dex */
-    public class c implements qz4 {
+    public class c implements f05 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FunAdAgreeView a;
@@ -205,7 +205,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
             this.a = funAdAgreeView;
         }
 
-        @Override // com.repackage.qz4
+        @Override // com.repackage.f05
         public void a(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
@@ -218,7 +218,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
             }
         }
 
-        @Override // com.repackage.qz4
+        @Override // com.repackage.f05
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -318,11 +318,11 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             if (z) {
-                l(li.f(getContext(), R.dimen.tbds126), 0, 1, 17);
+                l(pi.f(getContext(), R.dimen.tbds126), 0, 1, 17);
                 setAgreeAlone(this.x);
                 return;
             }
-            l(li.f(getContext(), R.dimen.tbds126), -2, 0, 16);
+            l(pi.f(getContext(), R.dimen.tbds126), -2, 0, 16);
             setAgreeAlone(this.x);
         }
     }
@@ -408,7 +408,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
             long j = agreeData != null ? agreeData.agreeNum : 0L;
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i == 0) {
-                return getContext().getString(R.string.obfuscated_res_0x7f0f0768);
+                return getContext().getString(R.string.obfuscated_res_0x7f0f075d);
             }
             if (i > 0) {
                 return StringHelper.numFormatOverWanNa(j);
@@ -430,28 +430,28 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
             setOrientation(0);
             TBLottieAnimationView tBLottieAnimationView = new TBLottieAnimationView(context);
             this.d = tBLottieAnimationView;
-            tBLottieAnimationView.setId(R.id.obfuscated_res_0x7f090e66);
+            tBLottieAnimationView.setId(R.id.obfuscated_res_0x7f090e57);
             this.d.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             this.d.setOnClickListener(this.C);
             this.d.addAnimatorListener(this);
             TextView textView = new TextView(context);
             this.e = textView;
-            textView.setTextSize(0, li.f(context, R.dimen.T_X09));
+            textView.setTextSize(0, pi.f(context, R.dimen.T_X09));
             this.e.setOnClickListener(this.C);
             TBLottieAnimationView tBLottieAnimationView2 = new TBLottieAnimationView(context);
             this.f = tBLottieAnimationView2;
-            tBLottieAnimationView2.setId(R.id.obfuscated_res_0x7f090e7c);
+            tBLottieAnimationView2.setId(R.id.obfuscated_res_0x7f090e6e);
             this.f.addAnimatorListener(this);
             this.f.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             this.f.setOnClickListener(this.C);
             TextView textView2 = new TextView(context);
             this.g = textView2;
-            textView2.setText(R.string.obfuscated_res_0x7f0f0769);
-            this.g.setTextSize(0, li.f(context, R.dimen.T_X09));
+            textView2.setText(R.string.obfuscated_res_0x7f0f075e);
+            this.g.setTextSize(0, pi.f(context, R.dimen.T_X09));
             this.g.setOnClickListener(this.C);
-            qg8 qg8Var = new qg8();
-            this.i = qg8Var;
-            qg8Var.a = getPageId();
+            jh8 jh8Var = new jh8();
+            this.i = jh8Var;
+            jh8Var.a = getPageId();
             k();
             setAgreeAnimationResource();
             setAgreeAlone(true);
@@ -481,8 +481,8 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
     public final void l(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048589, this, i, i2, i3, i4) == null) {
-            int i5 = -li.f(getContext(), R.dimen.tbds24);
-            int f = li.f(getContext(), R.dimen.tbds34);
+            int i5 = -pi.f(getContext(), R.dimen.tbds24);
+            int f = pi.f(getContext(), R.dimen.tbds34);
             this.w.setGravity(i4);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i2, -1);
             float f2 = i3;
@@ -512,7 +512,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
             this.c = z;
             if (z) {
-                ht4.f(this.d, TbadkCoreApplication.getInst().getSkinType());
+                qt4.f(this.d, TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }
@@ -529,7 +529,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
         } else {
             SkinManager.setLottieAnimation(this.d, this.q);
             if (this.c) {
-                ht4.f(this.d, i);
+                qt4.f(this.d, i);
             }
         }
         q();
@@ -540,7 +540,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
         if (!(interceptable == null || interceptable.invokeL(1048592, this, view2) == null) || this.h == null) {
             return;
         }
-        if (!this.o || y45.a(getContext())) {
+        if (!this.o || n55.a(getContext())) {
             if (this.o || ViewHelper.checkUpIsLogin(getContext())) {
                 if (view2 != this.e || this.y) {
                     if (view2.getId() != this.d.getId() && (!this.y || view2.getId() != this.e.getId())) {
@@ -563,7 +563,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
                                 agreeData.hasAgree = true;
                                 r(false);
                             }
-                            z65 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(this);
+                            n75 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(this);
                             if (findPageExtraByView != null) {
                                 this.h.objSource = findPageExtraByView.a();
                             }
@@ -582,16 +582,16 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
                                 agreeData2.hasAgree = true;
                                 agreeData2.agreeNum++;
                                 r(true);
-                                t68.g().l(getTbPageContext());
+                                a88.g().l(getTbPageContext());
                             }
                         } else {
                             agreeData2.agreeType = 2;
                             agreeData2.hasAgree = true;
                             agreeData2.agreeNum++;
                             r(true);
-                            t68.g().l(getTbPageContext());
+                            a88.g().l(getTbPageContext());
                         }
-                        z65 findPageExtraByView2 = TbPageExtraHelper.findPageExtraByView(this);
+                        n75 findPageExtraByView2 = TbPageExtraHelper.findPageExtraByView(this);
                         if (findPageExtraByView2 != null) {
                             this.h.objSource = findPageExtraByView2.a();
                         }
@@ -682,7 +682,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
                     setTextNormalColor(this.e);
                     this.g.setTextColor(SkinManager.getColor(R.color.CAM_X0107));
                     if (this.c) {
-                        ht4.c(this.e);
+                        qt4.c(this.e);
                     }
                 }
             } else {
@@ -692,7 +692,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
                 setTextNormalColor(this.g);
             }
             if (this.c) {
-                ht4.d(this.e);
+                qt4.d(this.e);
             }
         }
     }
@@ -723,18 +723,18 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
                     setTextNormalColor(this.e);
                     this.g.setTextColor(SkinManager.getColor(R.color.CAM_X0107));
                     if (this.c) {
-                        ht4.c(this.e);
+                        qt4.c(this.e);
                     }
                 }
             } else {
                 setTextNormalColor(this.e);
                 setTextNormalColor(this.g);
                 if (this.c) {
-                    ht4.c(this.e);
+                    qt4.c(this.e);
                 }
             }
             if (this.c) {
-                ht4.d(this.e);
+                qt4.d(this.e);
             }
         }
     }
@@ -742,7 +742,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
     public final void s(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
-            rz4.g().e(this.n, "", this.m, z, new c(this));
+            g05.g().e(this.n, "", this.m, z, new c(this));
         }
     }
 
@@ -776,7 +776,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
             SkinManager.setLottieAnimation(this.d, this.q);
             SkinManager.setLottieAnimation(this.f, this.r);
             if (this.c) {
-                ht4.f(this.d, TbadkCoreApplication.getInst().getSkinType());
+                qt4.f(this.d, TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }

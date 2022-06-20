@@ -1,152 +1,101 @@
 package com.repackage;
 
-import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.ala.atomdata.AlaPersonCenterRealAuthenConfig;
-import com.baidu.ala.data.AlaUserInfoData;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tieba.ala.livecard.holder.FrsPageAlaStageViewHolder;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ts5 extends wm<jt5, CardViewHolder<eu5>> {
+public class ts5 extends fc6<cg8, FrsPageAlaStageViewHolder> implements kx5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
-    public nt5 j;
-
-    /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jt5 a;
-        public final /* synthetic */ ts5 b;
-
-        public a(ts5 ts5Var, jt5 jt5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ts5Var, jt5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ts5Var;
-            this.a = jt5Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b.b0(this.a);
-            }
-        }
-    }
+    public String t;
+    public et5 u;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ts5(TbPageContext tbPageContext, nt5 nt5Var) {
-        super(tbPageContext.getPageActivity(), jt5.b);
+    public ts5(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext, bdUniqueId, bdUniqueId2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, nt5Var};
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = tbPageContext;
-        this.j = nt5Var;
     }
 
-    public final void a0(jt5 jt5Var, eu5 eu5Var) {
-        xs5 e;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jt5Var, eu5Var) == null) || (e = jt5Var.e()) == null || e.b() == null) {
-            return;
-        }
-        eu5Var.x(0);
-        eu5Var.y(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f023c));
-        int i = e.b().certify_status;
-        if (i == 0) {
-            eu5Var.v(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0240));
-            eu5Var.w(0);
-        } else if (1 == i) {
-            eu5Var.v(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f023f));
-            eu5Var.w(4);
-        } else if (2 == i) {
-            eu5Var.v(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f023d));
-            eu5Var.w(4);
-        } else if (3 == i) {
-            eu5Var.v(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f023e));
-            eu5Var.w(0);
-        }
-        eu5Var.m(this.i, TbadkCoreApplication.getInst().getSkinType());
+    @Override // com.repackage.fc6, com.repackage.an
+    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        m0(i, view2, viewGroup, (cg8) obj, (FrsPageAlaStageViewHolder) viewHolder);
+        return view2;
     }
 
-    public final void b0(jt5 jt5Var) {
-        AlaUserInfoData b;
-        int i;
+    @Override // com.repackage.kx5
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, jt5Var) == null) || jt5Var == null || jt5Var.e() == null || jt5Var.e().b() == null || 1 == (i = (b = jt5Var.e().b()).certify_status) || 2 == i) {
-            return;
-        }
-        Context context = this.a;
-        String str = b.user_id;
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterRealAuthenConfig(context, str, b.certify_status + "")));
-        nt5 nt5Var = this.j;
-        if (nt5Var != null) {
-            nt5Var.a(1);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.t = str;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.wm
-    /* renamed from: c0 */
-    public CardViewHolder<eu5> M(ViewGroup viewGroup) {
+    @Override // com.repackage.an
+    /* renamed from: l0 */
+    public FrsPageAlaStageViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new CardViewHolder<>(new eu5(this.i)) : (CardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.wm
-    /* renamed from: d0 */
-    public View S(int i, View view2, ViewGroup viewGroup, jt5 jt5Var, CardViewHolder<eu5> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, jt5Var, cardViewHolder})) == null) {
-            if (cardViewHolder.c() == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            TbPageContext<?> tbPageContext = this.k;
+            if (tbPageContext == null) {
                 return null;
             }
-            a0(jt5Var, cardViewHolder.c());
-            cardViewHolder.c().k().setOnClickListener(new a(this, jt5Var));
-            return cardViewHolder.c().k();
+            et5 et5Var = new et5(tbPageContext);
+            this.u = et5Var;
+            et5Var.a(this.t);
+            return new FrsPageAlaStageViewHolder(this.u);
+        }
+        return (FrsPageAlaStageViewHolder) invokeL.objValue;
+    }
+
+    public View m0(int i, View view2, ViewGroup viewGroup, cg8 cg8Var, FrsPageAlaStageViewHolder frsPageAlaStageViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, cg8Var, frsPageAlaStageViewHolder})) == null) {
+            super.S(i, view2, viewGroup, cg8Var, frsPageAlaStageViewHolder);
+            if (cg8Var != null) {
+                FrsViewData frsViewData = this.j;
+                int topThreadSize = frsViewData != null ? frsViewData.getTopThreadSize() : 0;
+                et5 et5Var = frsPageAlaStageViewHolder.a;
+                et5Var.x = (i + 1) - topThreadSize;
+                et5Var.a(this.t);
+                frsPageAlaStageViewHolder.a.i(cg8Var);
+            }
+            return view2;
         }
         return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.repackage.kx5
+    public void q(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        }
     }
 }

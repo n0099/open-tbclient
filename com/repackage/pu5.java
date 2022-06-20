@@ -1,14 +1,9 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.barselect.data.CommitCardInfoHttpResMsg;
-import com.baidu.tieba.barselect.data.CommitCardInfoReqMsg;
-import com.baidu.tieba.barselect.data.CommitCardInfoSocketResMsg;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
+import com.baidu.tieba.wallet.CurrencyJumpHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -35,23 +30,23 @@ public class pu5 {
             }
         }
         this.a = tbPageContext;
-        SocketMessageTask socketMessageTask = new SocketMessageTask(309643);
-        socketMessageTask.setResponsedClass(CommitCardInfoSocketResMsg.class);
-        MessageManager.getInstance().registerTask(socketMessageTask);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMMIT_CARD_INFO, ig8.a(TbConfig.URL_COMMIT_CARD_INFO, 309643));
-        tbHttpMessageTask.setResponsedClass(CommitCardInfoHttpResMsg.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void a(String str, int i, String str2) {
+    public void a(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
-            CommitCardInfoReqMsg commitCardInfoReqMsg = new CommitCardInfoReqMsg();
-            commitCardInfoReqMsg.resource_id = str;
-            commitCardInfoReqMsg.card_type = i;
-            commitCardInfoReqMsg.image_info = str2;
-            commitCardInfoReqMsg.setTag(this.a.getUniqueId());
-            MessageManager.getInstance().sendMessage(commitCardInfoReqMsg);
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            long j2 = j - TbadkCoreApplication.getInst().currentAccountTdouNum;
+            if (j2 <= 0) {
+                return;
+            }
+            if (j2 > 200000000) {
+                pi.O(TbadkCoreApplication.getInst(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0247, 20L));
+                return;
+            }
+            if (j2 % 1000 != 0) {
+                j2 = ((j2 / 1000) + 1) * 1000;
+            }
+            CurrencyJumpHelper.gotoBuyTBeanPage(this.a.getPageActivity(), j2);
         }
     }
 }

@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fh9;
 import com.repackage.nh9;
+import com.repackage.vh9;
 /* loaded from: classes2.dex */
-public class LooperContextDispatcher extends fh9 {
+public class LooperContextDispatcher extends nh9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -36,19 +36,19 @@ public class LooperContextDispatcher extends fh9 {
         }
     }
 
-    @Override // com.repackage.fh9
+    @Override // com.repackage.nh9
     public boolean displayNotification() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? LooperRuntime.getInstance().getLooperUIContext().displayNotification() : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.fh9, com.repackage.hh9
-    public void onBlock(Context context, nh9 nh9Var) {
+    @Override // com.repackage.nh9, com.repackage.ph9
+    public void onBlock(Context context, vh9 vh9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, nh9Var) == null) {
-            super.onBlock(context, nh9Var);
-            LooperRuntime.getInstance().dispatchBlock(context, nh9Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, vh9Var) == null) {
+            super.onBlock(context, vh9Var);
+            LooperRuntime.getInstance().dispatchBlock(context, vh9Var);
         }
     }
 

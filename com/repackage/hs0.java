@@ -1,11 +1,8 @@
 package com.repackage;
 
-import com.baidu.nadcore.video.videoplayer.ui.full.BdThumbSeekBar;
+import androidx.annotation.NonNull;
 /* loaded from: classes6.dex */
 public interface hs0 {
-    void a(BdThumbSeekBar bdThumbSeekBar, int i, boolean z);
-
-    void b(BdThumbSeekBar bdThumbSeekBar);
-
-    void c(BdThumbSeekBar bdThumbSeekBar);
+    @NonNull
+    is0 a();
 }

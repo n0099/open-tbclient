@@ -1,46 +1,29 @@
 package com.xiaomi.mipush.sdk;
 
+import android.content.Context;
+import android.content.Intent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.xiaomi.clientreport.data.Config;
+import com.xiaomi.push.iu;
 /* loaded from: classes8.dex */
-public class t extends Exception {
+public class t {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public t() {
+    public static <T extends iu<T, ?>> void a(Context context, Config config) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, context, config) == null) || config == null) {
+            return;
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t(String str, Throwable th) {
-        super(str, th);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, th};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (Throwable) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
+        Intent intent = new Intent();
+        intent.setAction("action_cr_config");
+        intent.putExtra("action_cr_event_switch", config.isEventUploadSwitchOpen());
+        intent.putExtra("action_cr_event_frequency", config.getEventUploadFrequency());
+        intent.putExtra("action_cr_perf_switch", config.isPerfUploadSwitchOpen());
+        intent.putExtra("action_cr_perf_frequency", config.getPerfUploadFrequency());
+        intent.putExtra("action_cr_event_en", config.isEventEncrypted());
+        intent.putExtra("action_cr_max_file_size", config.getMaxFileLength());
+        ao.a(context).m118a(intent);
     }
 }

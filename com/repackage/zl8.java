@@ -2,7 +2,7 @@ package com.repackage;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,17 +13,16 @@ public class zl8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final uj8 b;
-    public final hk8 c;
+    public final dk8 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zl8(MainTabActivity mainTabActivity, uj8 uj8Var) {
-        super(2921567);
+    public zl8(MainTabActivity mainTabActivity, dk8 dk8Var) {
+        super(2001374);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, uj8Var};
+            Object[] objArr = {mainTabActivity, dk8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,23 +34,16 @@ public class zl8 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = uj8Var;
-        this.c = mainTabActivity.mLogicController;
+        this.b = dk8Var;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        uj8 uj8Var;
-        hk8 hk8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || (uj8Var = this.b) == null || uj8Var.z() == null || this.b.z().getCurrentTabType() == 22 || (hk8Var = this.c) == null || hk8Var.a() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof PostWriteCallBackData) || ((PostWriteCallBackData) customResponsedMessage.getData()).isDyamicCallback()) {
             return;
         }
-        if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
-            this.c.a().f = true;
-        } else {
-            this.c.a().g();
-        }
+        this.b.Q((PostWriteCallBackData) customResponsedMessage.getData());
     }
 }

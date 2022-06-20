@@ -13,15 +13,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gc3;
-import com.repackage.jl3;
-import com.repackage.qk5;
-import com.repackage.w8;
+import com.repackage.nl5;
+import com.repackage.rc3;
+import com.repackage.ul3;
+import com.repackage.y8;
 /* loaded from: classes3.dex */
 public class SwanEntryActivity extends Activity {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String LAUNCHER_URI = "SWAN_URI";
-    public static final String SWAN_ACTION = "com.baidu.swan.launcher";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -71,15 +69,15 @@ public class SwanEntryActivity extends Activity {
         }
     }
 
-    private void doLaunch() {
+    public final void a() {
         Intent intent;
         String uri;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (intent = getIntent()) == null) {
             return;
         }
-        if (TextUtils.equals(intent.getAction(), SWAN_ACTION)) {
-            uri = intent.getStringExtra(LAUNCHER_URI);
+        if (TextUtils.equals(intent.getAction(), "com.baidu.swan.launcher")) {
+            uri = intent.getStringExtra("SWAN_URI");
         } else {
             Uri data = intent.getData();
             uri = data == null ? null : data.toString();
@@ -91,21 +89,21 @@ public class SwanEntryActivity extends Activity {
             SwanAppAbTestStatic.a = uri;
             return;
         }
-        qk5.a();
-        jl3.a(uri);
+        nl5.a();
+        ul3.a(uri);
     }
 
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            w8.b(this);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            y8.b(this);
             super.onCreate(bundle);
-            if (gc3.a(this)) {
+            if (rc3.a(this)) {
                 LogUtil.logActivity(this, "onCreate");
                 return;
             }
-            doLaunch();
+            a();
             LogUtil.logActivity(this, "onCreate");
         }
     }
@@ -113,16 +111,16 @@ public class SwanEntryActivity extends Activity {
     @Override // android.app.Activity
     public void onNewIntent(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) {
             super.onNewIntent(intent);
-            doLaunch();
+            a();
         }
     }
 
     @Override // android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onResume();
             runOnUiThread(new a(this));
         }
@@ -131,8 +129,8 @@ public class SwanEntryActivity extends Activity {
     @Override // android.app.Activity
     public void setRequestedOrientation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            if (w8.d(this) && w8.a(i)) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            if (y8.d(this) && y8.a(i)) {
                 return;
             }
             super.setRequestedOrientation(i);

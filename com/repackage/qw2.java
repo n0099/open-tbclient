@@ -1,16 +1,17 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.publisher.PublishParams;
-import com.baidu.tieba.R;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.env.launch.SwanLauncher;
+import com.baidu.swan.apps.process.messaging.service.SwanAppMessengerService;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,31 +19,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ly2;
-import com.repackage.qy1;
-import kotlin.jvm.internal.Intrinsics;
+import com.repackage.xs2;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public final class qw2 extends e13 {
+/* loaded from: classes7.dex */
+public final class qw2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean a;
+    public static String b;
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static final class a implements jw2 {
+    /* loaded from: classes7.dex */
+    public static class a implements u52 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ CallbackHandler c;
-        public final /* synthetic */ Context d;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ rw2 b;
+        public final /* synthetic */ Bundle c;
 
-        public a(String str, qw2 qw2Var, hz2 hz2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, Context context) {
+        public a(Context context, rw2 rw2Var, Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, qw2Var, hz2Var, unitedSchemeEntity, callbackHandler, context};
+                Object[] objArr = {context, rw2Var, bundle};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,73 +53,104 @@ public final class qw2 extends e13 {
                     return;
                 }
             }
-            this.a = str;
-            this.b = unitedSchemeEntity;
-            this.c = callbackHandler;
-            this.d = context;
+            this.a = context;
+            this.b = rw2Var;
+            this.c = bundle;
         }
 
-        @Override // com.repackage.jw2
-        public void a(JSONObject jSONObject) {
+        @Override // com.repackage.u52
+        public void onFail() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                if (jSONObject != null) {
-                    UnitedSchemeUtility.safeCallback(this.c, this.b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.a);
-                } else {
-                    UnitedSchemeUtility.safeCallback(this.c, this.b, UnitedSchemeUtility.wrapCallbackParams(1, "empty post data").toString(), this.a);
-                }
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && qw2.a) {
+                Log.d("SwanAppPreloadHelper", "SwanSailor：updateFail");
             }
         }
 
-        @Override // com.repackage.jw2
-        public void onCancel() {
+        @Override // com.repackage.u52
+        public void onSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                UnitedSchemeUtility.safeCallback(this.c, this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "user cancel").toString(), this.a);
+                if (qw2.a) {
+                    Log.d("SwanAppPreloadHelper", "SwanSailor updateSuccess");
+                }
+                qw2.i(this.a, this.b, this.c);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static final class b implements DialogInterface.OnClickListener {
+    /* loaded from: classes7.dex */
+    public static class b implements uy1 {
         public static /* synthetic */ Interceptable $ic;
-        public static final b a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ rw2 b;
+        public final /* synthetic */ Bundle c;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-57067289, "Lcom/repackage/qw2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-57067289, "Lcom/repackage/qw2$b;");
-                    return;
-                }
-            }
-            a = new b();
-        }
-
-        public b() {
+        public b(Context context, rw2 rw2Var, Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, rw2Var, bundle};
+                interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = context;
+            this.b = rw2Var;
+            this.c = bundle;
         }
 
-        @Override // android.content.DialogInterface.OnClickListener
-        public final void onClick(DialogInterface dialogInterface, int i) {
+        @Override // com.repackage.uy1
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                boolean unused = qw2.c = true;
+                qw2.h(this.a, this.b, this.c);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c implements le3<Exception> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ rw2 b;
+        public final /* synthetic */ Bundle c;
+
+        public c(Context context, rw2 rw2Var, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, rw2Var, bundle};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = rw2Var;
+            this.c = bundle;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.le3
+        /* renamed from: b */
+        public void a(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                qw2.g(this.a, this.b, this.c);
             }
         }
     }
@@ -136,106 +168,193 @@ public final class qw2 extends e13 {
                 return;
             }
         }
-        c = rf1.a;
+        a = cg1.a;
+        c = false;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qw2(e03 dispatcher) {
-        super(dispatcher, "/swanAPI/community/openCommunityEditor");
+    @SuppressLint({"BDThrowableCheck"})
+    public static String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dispatcher};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("master", m62.U().k0());
+                jSONObject.put("slave", m62.U().n0());
+            } catch (JSONException e) {
+                if (a) {
+                    throw new RuntimeException(e);
+                }
+            }
+            String jSONObject2 = jSONObject.toString();
+            if (a) {
+                Log.d("SwanAppPreloadHelper", "createPreloadStatus -- preloadStatus : " + jSONObject2);
+            }
+            return TextUtils.isEmpty(jSONObject2) ? "" : jSONObject2;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void g(Context context, rw2 rw2Var, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65543, null, context, rw2Var, bundle) == null) {
+            boolean u = zi2.g0() != null ? zi2.g0().u() : false;
+            boolean isMainProcess = ProcessUtils.isMainProcess();
+            String str = isMainProcess ? "main" : "aiapp";
+            long currentTimeMillis = System.currentTimeMillis();
+            if (u) {
+                if (isMainProcess && TextUtils.isEmpty(b)) {
+                    try {
+                        b = new WebView(context).getSettings().getUserAgentString();
+                    } catch (Exception e) {
+                        b = "exception::" + e.toString();
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("time", currentTimeMillis);
+                    jSONObject.put("process", rw2Var.b.index);
+                    jSONObject.put("ua", b);
+                } catch (JSONException e2) {
+                    if (a) {
+                        e2.printStackTrace();
+                    }
+                }
+                xs2.d dVar = new xs2.d("812");
+                dVar.g("swan");
+                dVar.i("launch");
+                dVar.h(str);
+                dVar.e(jSONObject);
+                xs2.onEvent(dVar);
+            }
+            long currentTimeMillis2 = System.currentTimeMillis();
+            if (u) {
+                JSONObject jSONObject2 = new JSONObject();
+                try {
+                    jSONObject2.put("time", currentTimeMillis2);
+                    jSONObject2.put("process", rw2Var.b.index);
+                    jSONObject2.put("cost", currentTimeMillis2 - currentTimeMillis);
+                } catch (JSONException e3) {
+                    if (a) {
+                        e3.printStackTrace();
+                    }
+                }
+                xs2.d dVar2 = new xs2.d("812");
+                dVar2.g("swan");
+                dVar2.i("swan_updated");
+                dVar2.h(str);
+                dVar2.e(jSONObject2);
+                xs2.onEvent(dVar2);
+            }
+            if (bundle == null) {
+                bundle = new Bundle();
+            }
+            if (x83.j()) {
+                z83.e();
+            }
+            bundle.putParcelable("bundle_key_swan_core", x83.e(0));
+            bundle.putParcelable("bundle_key_extension_core", ba2.c(0));
+            bundle.putInt("bundle_key_preload_switch", zi2.g().a());
+            bundle.putLong("bundle_key_preload_launch_time", currentTimeMillis);
+            bundle.putBoolean("bundle_key_v8_ab", zi2.g0().y());
+            bundle.putLong("bundle_key_preload_swan_updated_time", currentTimeMillis2);
+            bundle.putString("bundle_key_preload_src", str);
+            bundle.putInt("bundle_key_process", rw2Var.b.index);
+            bundle.setClassLoader(SwanCoreVersion.class.getClassLoader());
+            rw2Var.n0(context, bundle);
+        }
+    }
+
+    public static void h(Context context, rw2 rw2Var, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65544, null, context, rw2Var, bundle) == null) {
+            SwanLauncher.j().l(new c(context, rw2Var, bundle));
+        }
+    }
+
+    public static void i(Context context, rw2 rw2Var, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65545, null, context, rw2Var, bundle) == null) {
+            if (w52.a()) {
+                h(context, rw2Var, bundle);
+            } else if (c) {
+                h(context, rw2Var, bundle);
+            } else {
+                im1.a().b().a().b(new b(context, rw2Var, bundle));
+            }
+        }
+    }
+
+    public static void j(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, bundle) == null) {
+            bundle.putBoolean("bundle_key_v8_ab", zi2.g0().y());
+        }
+    }
+
+    public static void k(Context context, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65547, null, context, bundle) == null) {
+            Intent intent = new Intent(context, SwanAppMessengerService.class);
+            intent.setAction(SwanAppMessengerService.ACTION_PRELOAD_NEXT);
+            if (bundle != null) {
+                intent.putExtras(bundle);
+            }
+            try {
+                context.startService(intent);
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public static void l(Context context, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65548, null, context, bundle) == null) {
+            m(context, tw2.k().f(), bundle);
+        }
+    }
+
+    public static void m(Context context, rw2 rw2Var, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65549, null, context, rw2Var, bundle) == null) {
+            if (a) {
+                tw2 k = tw2.k();
+                k.u("b4 tryPreload client=" + rw2Var);
+            }
+            if (!ProcessUtils.isMainProcess() || rw2Var == null || !rw2Var.b.isSwanAppProcess() || rw2Var.E()) {
                 return;
             }
-        }
-        Intrinsics.checkNotNullParameter(dispatcher, "dispatcher");
-    }
-
-    @Override // com.repackage.e13
-    public boolean d(Context context, UnitedSchemeEntity entity, CallbackHandler callbackHandler, hz2 hz2Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, entity, callbackHandler, hz2Var)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(entity, "entity");
-            if (hz2Var != null) {
-                if (hz2Var.m0()) {
-                    if (c) {
-                        Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
-                    }
-                    entity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
-                    return false;
-                }
-                uk2 U = uk2.U();
-                Intrinsics.checkNotNullExpressionValue(U, "SwanAppController.getInstance()");
-                qy1 V = U.V();
-                if (V != null && (V.m() instanceof lw2)) {
-                    entity.result = UnitedSchemeUtility.wrapCallbackParams(0);
-                    return true;
-                }
-                JSONObject d = hc3.d(entity.getParam("params"));
-                Intrinsics.checkNotNullExpressionValue(d, "SwanAppJSONUtils.parseString(params)");
-                String optString = d.optString("cb");
-                if (optString == null || optString.length() == 0) {
-                    entity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                if (c) {
-                    Log.d("OpenPublisherAction", "调起参数:" + d);
-                }
-                a aVar = new a(optString, this, hz2Var, entity, callbackHandler, context);
-                PublishParams a2 = kw2.a(d);
-                if (a2 != null) {
-                    lw2 lw2Var = new lw2();
-                    lw2Var.C3(aVar);
-                    Bundle bundle = new Bundle();
-                    bundle.putParcelable("params", a2);
-                    lw2Var.i1(bundle);
-                    uk2 controller = uk2.U();
-                    Intrinsics.checkNotNullExpressionValue(controller, "controller");
-                    qy1 V2 = controller.V();
-                    if (V2 != null) {
-                        qy1.b i = V2.i("navigateTo");
-                        i.n(qy1.g, qy1.i);
-                        i.j(lw2Var);
-                        i.a();
-                        UnitedSchemeUtility.callCallback(callbackHandler, entity, UnitedSchemeUtility.wrapCallbackParams(0));
-                        return true;
-                    }
-                    UnitedSchemeUtility.safeCallback(callbackHandler, entity, UnitedSchemeUtility.wrapCallbackParams(1, "can get fragment manager").toString(), optString);
-                    return false;
-                }
-                if (c) {
-                    Log.d("OpenPublisherAction", "解析调起参数失败");
-                }
-                j(context);
-                return false;
+            String string = bundle == null ? "" : bundle.getString("bundle_key_preload_preload_scene");
+            if (TextUtils.isEmpty(string)) {
+                string = "0";
             }
-            entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal app info");
-            return false;
+            if (a) {
+                Log.d("SwanAppPreloadHelper", "SwanSailor：preloadScene:" + string);
+            }
+            if (zi2.w0().c()) {
+                i(context, rw2Var, bundle);
+                return;
+            }
+            w52 w52Var = new w52();
+            w52Var.a = TextUtils.equals(string, "0") ? "by_host_launch" : "by_preload";
+            zi2.w0().b(w52Var, new a(context, rw2Var, bundle));
         }
-        return invokeLLLL.booleanValue;
     }
 
-    public final void j(Context context) {
+    public static void n(Context context, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            ly2.a aVar = new ly2.a(context);
-            aVar.m(false);
-            aVar.U(R.string.obfuscated_res_0x7f0f12eb);
-            aVar.v(R.string.obfuscated_res_0x7f0f12ef);
-            aVar.O(R.string.obfuscated_res_0x7f0f0113, b.a);
-            aVar.X();
+        if (interceptable == null || interceptable.invokeLL(65550, null, context, bundle) == null) {
+            oj1 g0 = zi2.g0();
+            if (!rv2.Y()) {
+                g0.getSwitch("swan_preload_keep_alive", true);
+            }
+            l(context, bundle);
         }
     }
 }

@@ -109,6 +109,7 @@ public class CmdConfigHttp {
     public static final int CMD_FRS_VIDEO_TOPIC = 1003405;
     public static final int CMD_FUN_AD_RECORD = 1003494;
     public static final int CMD_GAME_ITEM_ORDER = 1003496;
+    public static final int CMD_GAME_PLAY_ATTENTION_ACCEPT = 1003533;
     public static final int CMD_GAME_VIDEO = 1003443;
     public static final int CMD_GET_ACCELERATOR_INFO = 1003524;
     public static final int CMD_GET_BFB_INFO = 1003100;
@@ -204,11 +205,9 @@ public class CmdConfigHttp {
     public static final int CMD_HTTP_DECRYPT_CODE = 1003421;
     public static final int CMD_HTTP_ET_VIDEO = 1003519;
     public static final int CMD_HTTP_FRS_TAB_AD = 1003411;
-    public static final int CMD_HTTP_GET_BIG_TBEAN_URL = 1003410;
     public static final int CMD_HTTP_GET_HOTFORUM = 1001534;
     public static final int CMD_HTTP_GET_HOTTOPIC_SELECT = 1003186;
     public static final int CMD_HTTP_GET_MSG_REC_FORUM_LIST = 1003507;
-    public static final int CMD_HTTP_GET_YINJI = 1001533;
     public static final int CMD_HTTP_SMART_APP = 1003420;
     public static final int CMD_HTTP_TIEBA_UID_CHECK = 1003493;
     public static final int CMD_HTTP_VIDEO_ATTENTION_FEED = 1003501;
@@ -219,6 +218,7 @@ public class CmdConfigHttp {
     public static final int CMD_ITEM_MANAGE = 1003511;
     public static final int CMD_JUMP_YY_LIVE_IN_VIDEO_LIST = 1003504;
     public static final int CMD_LCS_STATISTICS = 1003422;
+    public static final int CMD_LIVE_REMIND_INFO = 1003534;
     public static final int CMD_LOW_FLOWS_PAGE = 1003486;
     public static final int CMD_MANGA_CHAPTER_ALL = 1003087;
     public static final int CMD_MANGA_CHAPTER_DETAIL = 1003086;

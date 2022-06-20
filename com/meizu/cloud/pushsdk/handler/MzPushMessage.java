@@ -1,8 +1,8 @@
 package com.meizu.cloud.pushsdk.handler;
 
 import android.text.TextUtils;
+import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.c.f.e;
-import com.repackage.ni9;
 import java.io.Serializable;
 import java.util.Map;
 /* loaded from: classes5.dex */
@@ -37,7 +37,7 @@ public class MzPushMessage implements Serializable {
                 str = null;
             }
         }
-        ni9.b(TAG, "self json " + str);
+        DebugLogger.e(TAG, "self json " + str);
         return str;
     }
 

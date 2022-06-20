@@ -1,63 +1,67 @@
 package com.xiaomi.push;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import android.net.Uri;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.ai;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidParameterException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.TreeMap;
 /* loaded from: classes8.dex */
-public class bn extends ai.a {
+public class bn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    public bn(Context context) {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = context;
-    }
-
-    private boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? com.xiaomi.clientreport.manager.a.a(this.a).m113a().isEventUploadSwitchOpen() : invokeV.booleanValue;
-    }
-
-    @Override // com.xiaomi.push.ai.a
-    /* renamed from: a  reason: collision with other method in class */
-    public String mo222a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "100886" : (String) invokeV.objValue;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
             try {
-                if (a()) {
-                    com.xiaomi.channel.commonutils.logger.b.c(this.a.getPackageName() + " begin upload event");
-                    com.xiaomi.clientreport.manager.a.a(this.a).m115b();
-                }
-            } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.a(e);
+                return String.valueOf(bm.a(MessageDigest.getInstance("SHA1").digest(str.getBytes("UTF-8"))));
+            } catch (UnsupportedEncodingException | NoSuchAlgorithmException | Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.a("CloudCoder.hash4SHA1 ", e);
+                throw new IllegalStateException("failed to SHA1");
             }
         }
+        return (String) invokeL.objValue;
+    }
+
+    public static String a(String str, String str2, Map<String, String> map, String str3) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, str, str2, map, str3)) == null) {
+            if (TextUtils.isEmpty(str3)) {
+                throw new InvalidParameterException("security is not nullable");
+            }
+            ArrayList<String> arrayList = new ArrayList();
+            if (str != null) {
+                arrayList.add(str.toUpperCase());
+            }
+            if (str2 != null) {
+                arrayList.add(Uri.parse(str2).getEncodedPath());
+            }
+            boolean z = true;
+            if (map != null && !map.isEmpty()) {
+                for (Map.Entry entry : new TreeMap(map).entrySet()) {
+                    arrayList.add(String.format("%s=%s", entry.getKey(), entry.getValue()));
+                }
+            }
+            arrayList.add(str3);
+            StringBuilder sb = new StringBuilder();
+            for (String str4 : arrayList) {
+                if (!z) {
+                    sb.append('&');
+                }
+                sb.append(str4);
+                z = false;
+            }
+            return a(sb.toString());
+        }
+        return (String) invokeLLLL.objValue;
     }
 }

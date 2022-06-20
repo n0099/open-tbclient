@@ -1,47 +1,34 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jm9 {
+public final class jm9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final jm9 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public double a;
-    public double b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755583717, "Lcom/repackage/jm9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755583717, "Lcom/repackage/jm9;");
-                return;
-            }
-        }
-        c = new jm9();
-    }
-
-    public jm9() {
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            String D = in9.D(context);
+            if (TextUtils.isEmpty(D)) {
+                try {
+                    xl9 a = am9.a(context);
+                    String str = a == null ? null : a.a;
+                    if (TextUtils.isEmpty(str)) {
+                        in9.x(context, str);
+                    }
+                    return str;
+                } catch (Exception unused) {
+                    return null;
+                }
             }
+            return D;
         }
+        return (String) invokeL.objValue;
     }
 }

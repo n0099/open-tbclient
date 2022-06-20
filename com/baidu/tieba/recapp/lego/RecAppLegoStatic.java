@@ -7,8 +7,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l88;
-import com.repackage.ra7;
+import com.repackage.cc7;
+import com.repackage.s98;
 /* loaded from: classes3.dex */
 public class RecAppLegoStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -27,7 +27,7 @@ public class RecAppLegoStatic {
                 return;
             }
         }
-        ra7.h().g(new l88());
+        cc7.h().g(new s98());
     }
 
     public RecAppLegoStatic() {

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import protobuf.PluginUser;
+import tbclient.PluginUser;
 /* loaded from: classes3.dex */
 public class PluginUserPojo extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
@@ -31,28 +31,10 @@ public class PluginUserPojo extends OrmObject {
         }
     }
 
-    public static PluginUserPojo y(PluginUser pluginUser) {
+    public static PluginUserPojo A(PluginUser pluginUser) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, pluginUser)) == null) {
-            if (pluginUser == null) {
-                return null;
-            }
-            PluginUserPojo pluginUserPojo = new PluginUserPojo();
-            pluginUserPojo.userId = pluginUser.userId;
-            pluginUserPojo.userNameShow = pluginUser.userNameShow;
-            pluginUserPojo.userType = pluginUser.userType;
-            pluginUserPojo.userPhoto = pluginUser.userPhoto;
-            pluginUserPojo.isDownloadCardWhiteuser = pluginUser.isDownloadCardWhiteuser;
-            return pluginUserPojo;
-        }
-        return (PluginUserPojo) invokeL.objValue;
-    }
-
-    public static PluginUserPojo z(tbclient.PluginUser pluginUser) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, pluginUser)) == null) {
             if (pluginUser == null) {
                 return null;
             }
@@ -62,6 +44,24 @@ public class PluginUserPojo extends OrmObject {
             pluginUserPojo.userType = pluginUser.user_type;
             pluginUserPojo.userPhoto = pluginUser.user_photo;
             pluginUserPojo.isDownloadCardWhiteuser = pluginUser.is_download_card_whiteuser;
+            return pluginUserPojo;
+        }
+        return (PluginUserPojo) invokeL.objValue;
+    }
+
+    public static PluginUserPojo z(protobuf.PluginUser pluginUser) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, pluginUser)) == null) {
+            if (pluginUser == null) {
+                return null;
+            }
+            PluginUserPojo pluginUserPojo = new PluginUserPojo();
+            pluginUserPojo.userId = pluginUser.userId;
+            pluginUserPojo.userNameShow = pluginUser.userNameShow;
+            pluginUserPojo.userType = pluginUser.userType;
+            pluginUserPojo.userPhoto = pluginUser.userPhoto;
+            pluginUserPojo.isDownloadCardWhiteuser = pluginUser.isDownloadCardWhiteuser;
             return pluginUserPojo;
         }
         return (PluginUserPojo) invokeL.objValue;

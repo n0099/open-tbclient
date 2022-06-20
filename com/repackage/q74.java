@@ -1,6 +1,9 @@
 package com.repackage;
 
-import android.database.sqlite.SQLiteDatabase;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,8 +12,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class q74 implements n74<c84> {
+public abstract class q74<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,33 +32,76 @@ public class q74 implements n74<c84> {
         }
     }
 
-    @Override // com.repackage.n74
-    public void a(SQLiteDatabase sQLiteDatabase) {
+    public ContentValues a(o84 o84Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            sQLiteDatabase.execSQL(b());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, o84Var)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("bundle_id", o84Var.g);
+            contentValues.put("category", Integer.valueOf(o84Var.h));
+            contentValues.put("version_name", o84Var.j);
+            contentValues.put("version_code", Long.valueOf(o84Var.i));
+            contentValues.put("size", Long.valueOf(o84Var.k));
+            contentValues.put(PackageTable.MD5, o84Var.l);
+            contentValues.put("sign", o84Var.m);
+            contentValues.put(TTDownloadField.TT_DOWNLOAD_URL, o84Var.n);
+            contentValues.put(PackageTable.FILE_PATH, o84Var.a);
+            contentValues.put(PackageTable.CURRENT_SIZE, Long.valueOf(o84Var.b));
+            contentValues.put("create_time", Long.valueOf(o84Var.c));
+            contentValues.put("update_time", Long.valueOf(o84Var.d));
+            contentValues.put("state", Integer.valueOf(o84Var.e));
+            return contentValues;
         }
+        return (ContentValues) invokeL.objValue;
     }
 
-    public final String b() {
-        InterceptResult invokeV;
+    public boolean b(Cursor cursor, o84 o84Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "CREATE TABLE " + c() + "(_id INTEGER PRIMARY KEY AUTOINCREMENT,bundle_id TEXT UNIQUE,category INT NOT NULL,version_name TEXT NOT NULL,version_code INT DEFAULT 0,size LONG DEFAULT 0," + PackageTable.MD5 + " TEXT NOT NULL,sign TEXT NOT NULL," + TTDownloadField.TT_DOWNLOAD_URL + " TEXT NOT NULL," + PackageTable.FILE_PATH + " TEXT," + PackageTable.CURRENT_SIZE + " LONG DEFAULT 0,create_time LONG DEFAULT 0,update_time LONG DEFAULT 0,state INT DEFAULT 0);";
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor, o84Var)) == null) {
+            if (cursor != null) {
+                int columnIndex = cursor.getColumnIndex("bundle_id");
+                int columnIndex2 = cursor.getColumnIndex("category");
+                int columnIndex3 = cursor.getColumnIndex("version_name");
+                int columnIndex4 = cursor.getColumnIndex("version_code");
+                int columnIndex5 = cursor.getColumnIndex("size");
+                int columnIndex6 = cursor.getColumnIndex(PackageTable.MD5);
+                int columnIndex7 = cursor.getColumnIndex("sign");
+                int columnIndex8 = cursor.getColumnIndex(TTDownloadField.TT_DOWNLOAD_URL);
+                int columnIndex9 = cursor.getColumnIndex("_id");
+                int columnIndex10 = cursor.getColumnIndex(PackageTable.FILE_PATH);
+                int columnIndex11 = cursor.getColumnIndex(PackageTable.CURRENT_SIZE);
+                int columnIndex12 = cursor.getColumnIndex("create_time");
+                int columnIndex13 = cursor.getColumnIndex("update_time");
+                int columnIndex14 = cursor.getColumnIndex("state");
+                String string = cursor.getString(columnIndex);
+                if (TextUtils.isEmpty(string)) {
+                    return false;
+                }
+                o84Var.g = string;
+                o84Var.h = cursor.getInt(columnIndex2);
+                o84Var.j = cursor.getString(columnIndex3);
+                o84Var.i = cursor.getLong(columnIndex4);
+                o84Var.k = cursor.getLong(columnIndex5);
+                o84Var.l = cursor.getString(columnIndex6);
+                o84Var.m = cursor.getString(columnIndex7);
+                o84Var.n = cursor.getString(columnIndex8);
+                o84Var.a = cursor.getString(columnIndex10);
+                o84Var.b = cursor.getLong(columnIndex11);
+                o84Var.c = cursor.getLong(columnIndex12);
+                o84Var.d = cursor.getLong(columnIndex13);
+                o84Var.f = cursor.getLong(columnIndex9);
+                o84Var.e = cursor.getInt(columnIndex14);
+                return true;
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "framework" : (String) invokeV.objValue;
-    }
+    public abstract ContentValues c(T t);
 
-    @Override // com.repackage.n74
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) {
-        }
-    }
+    public abstract T d(Cursor cursor) throws SQLException;
+
+    public abstract List<T> e(Cursor cursor) throws SQLException;
 }

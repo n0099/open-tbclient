@@ -1,11 +1,9 @@
 package com.repackage;
 
-import java.lang.reflect.Type;
+import java.io.IOException;
 /* loaded from: classes5.dex */
 public interface a59 {
-    String a(Object obj);
+    void close() throws IOException;
 
-    <T> T b(String str, Class<T> cls);
-
-    <T> T c(String str, Type type);
+    int write(byte[] bArr, int i, int i2) throws IOException;
 }

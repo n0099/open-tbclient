@@ -76,7 +76,7 @@ public class PushInfoProvider extends ContentProvider {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             Context context = getContext();
             this.a = context;
-            String str = m.o(context) ? "pushinfo_v3" : "pushinfo";
+            String str = m.A(context) ? "pushinfo_v3" : "pushinfo";
             if (this.b == null) {
                 this.b = new UriMatcher(-1);
             }

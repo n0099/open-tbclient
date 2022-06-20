@@ -1,24 +1,7 @@
 package com.repackage;
-
-import android.app.Activity;
-import com.baidu.nadcore.player.helper.BdVideoGesture;
 /* loaded from: classes5.dex */
 public interface bs0 {
-    void b();
+    boolean b(String str);
 
-    void c(int i, int i2);
-
-    void f(float f);
-
-    int getCurrentPosition();
-
-    void i(float f);
-
-    void l(int i, float f);
-
-    void m(BdVideoGesture.VideoPluginGesture videoPluginGesture);
-
-    Activity o();
-
-    boolean q();
+    void c(ir0 ir0Var);
 }

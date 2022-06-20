@@ -1,21 +1,58 @@
 package com.repackage;
 
+import android.content.Context;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.win.opensdk.L;
+import com.win.opensdk.PBMediaView;
+import com.win.opensdk.core.Info;
+import com.win.opensdk.views.CircleProgressbar;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+/* loaded from: classes7.dex */
 public class qn9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ yn9 a;
+    public Context a;
+    public wp9 b;
+    public Info c;
+    public View d;
+    public List e;
+    public eo9 f;
+    public dp9 g;
+    public long h;
+    public aq9 i;
+    public boolean j;
+    public long k;
+    public float l;
+    public float m;
+    public int n;
+    public int o;
+    public int p;
+    public int q;
+    public int r;
+    public int s;
+    public int t;
+    public int u;
+    public long v;
+    public int w;
+    public int x;
+    public long y;
 
-    public qn9(yn9 yn9Var) {
+    public qn9(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {yn9Var};
+            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -25,6 +62,133 @@ public class qn9 {
                 return;
             }
         }
-        this.a = yn9Var;
+        this.e = Collections.synchronizedList(new ArrayList());
+        this.h = 0L;
+        this.i = new an9(this);
+        this.j = false;
+        this.k = 0L;
+        this.a = context;
+        wp9 wp9Var = new wp9(context, str, L.f);
+        this.b = wp9Var;
+        wp9Var.g = this.i;
+        this.g = new dp9(context);
+    }
+
+    public static /* synthetic */ void c(qn9 qn9Var, View view2) {
+        if (qn9Var.t <= 0 || qn9Var.u <= 0) {
+            qn9Var.u = view2.getHeight();
+            qn9Var.t = view2.getWidth();
+        }
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                f();
+                if (this.b != null) {
+                    this.b.b();
+                    this.b = null;
+                }
+                if (this.f != null) {
+                    this.f = null;
+                }
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    public void b(View view2, PBMediaView pBMediaView, List list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, pBMediaView, list) == null) || view2 == null || list == null || list.size() == 0 || !e()) {
+            return;
+        }
+        this.h = 0L;
+        if (this.d != null) {
+            f();
+        }
+        this.d = view2;
+        try {
+            nn9 nn9Var = new nn9(this);
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                View view3 = (View) it.next();
+                if (view3 != null && !(view3 instanceof PBMediaView)) {
+                    if (!this.e.contains(view3)) {
+                        this.e.add(view3);
+                    }
+                    if (!(view3 instanceof CircleProgressbar)) {
+                        view3.setOnClickListener(nn9Var);
+                        view3.setOnTouchListener(nn9Var);
+                    }
+                }
+            }
+        } catch (Exception unused) {
+        }
+        if (pBMediaView != null) {
+            try {
+                if (pBMediaView.getHtmlWebView() != null) {
+                    fo9 htmlWebView = pBMediaView.getHtmlWebView();
+                    htmlWebView.a(e() ? this.c.getLoad() : "", this.c);
+                    if (this.c.isNat()) {
+                        htmlWebView.c.setOnTouchListener(new jn9(this));
+                    }
+                    htmlWebView.b = new kn9(this);
+                }
+            } catch (Exception unused2) {
+            }
+        }
+        un9 a = yn9.a(this.a);
+        a.o(new co9(this.c));
+        a.m();
+        if (this.c != null) {
+            in9.m(this.a, this.c.getId() + ":" + System.currentTimeMillis(), false);
+        }
+        new tl9().a(view2, this.c, new gn9(this, view2));
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Info info = this.c;
+            return info != null && info.isEffective();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            try {
+                for (View view2 : this.e) {
+                    if (view2 != null) {
+                        view2.setOnClickListener(null);
+                    }
+                }
+                this.e.clear();
+                if (this.d != null) {
+                    this.d = null;
+                }
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    public HashMap g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("dx", Integer.valueOf(this.n));
+            hashMap.put("dy", Integer.valueOf(this.o));
+            hashMap.put("dts", Long.valueOf(this.v));
+            hashMap.put("ux", Integer.valueOf(this.w));
+            hashMap.put("uy", Integer.valueOf(this.x));
+            hashMap.put("uts", Long.valueOf(this.y));
+            sl9.j(hashMap, this.p, this.q, this.r, this.s, this.t, this.u);
+            return hashMap;
+        }
+        return (HashMap) invokeV.objValue;
     }
 }

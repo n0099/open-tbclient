@@ -18,18 +18,18 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a implements SharedPreferences {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ContentResolver a;
     public final String[] b;
     public final HashMap<String, Object> c;
-    public SharedPreferences$EditorC0648a d;
+    public SharedPreferences$EditorC0654a d;
 
     /* renamed from: com.tencent.mm.sdk.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class SharedPreferences$EditorC0648a implements SharedPreferences.Editor {
+    /* loaded from: classes8.dex */
+    public static class SharedPreferences$EditorC0654a implements SharedPreferences.Editor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ContentResolver a;
@@ -37,7 +37,7 @@ public final class a implements SharedPreferences {
         public Set<String> f;
         public boolean g;
 
-        public SharedPreferences$EditorC0648a(ContentResolver contentResolver) {
+        public SharedPreferences$EditorC0654a(ContentResolver contentResolver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -255,7 +255,7 @@ public final class a implements SharedPreferences {
                 if (query == null) {
                     return null;
                 }
-                Object a = query.moveToFirst() ? a.C0652a.a(query.getInt(query.getColumnIndex("type")), query.getString(query.getColumnIndex("value"))) : null;
+                Object a = query.moveToFirst() ? a.C0658a.a(query.getInt(query.getColumnIndex("type")), query.getString(query.getColumnIndex("value"))) : null;
                 query.close();
                 return a;
             } catch (Exception e) {
@@ -279,7 +279,7 @@ public final class a implements SharedPreferences {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (this.d == null) {
-                this.d = new SharedPreferences$EditorC0648a(this.a);
+                this.d = new SharedPreferences$EditorC0654a(this.a);
             }
             return this.d;
         }
@@ -300,7 +300,7 @@ public final class a implements SharedPreferences {
                 int columnIndex2 = query.getColumnIndex("type");
                 int columnIndex3 = query.getColumnIndex("value");
                 while (query.moveToNext()) {
-                    this.c.put(query.getString(columnIndex), a.C0652a.a(query.getInt(columnIndex2), query.getString(columnIndex3)));
+                    this.c.put(query.getString(columnIndex), a.C0658a.a(query.getInt(columnIndex2), query.getString(columnIndex3)));
                 }
                 query.close();
                 return this.c;

@@ -1,5 +1,11 @@
 package com.repackage;
+
+import java.net.MalformedURLException;
 /* loaded from: classes7.dex */
 public interface zg1 {
-    void a();
+    String a();
+
+    boolean b();
+
+    String c(String str) throws MalformedURLException;
 }

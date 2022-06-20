@@ -54,7 +54,7 @@ public class c {
     public TelephonyManager e;
     public com.baidu.location.c.a f;
     public WifiManager g;
-    public C0098c h;
+    public C0100c h;
     public String j;
     public String k;
     public LocationClientOption l;
@@ -174,7 +174,7 @@ public class c {
 
     /* renamed from: com.baidu.location.b.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0098c {
+    public class C0100c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public List<ScanResult> a;
@@ -183,7 +183,7 @@ public class c {
         public long d;
         public String e;
 
-        public C0098c(c cVar, List<ScanResult> list) {
+        public C0100c(c cVar, List<ScanResult> list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -221,7 +221,7 @@ public class c {
         private void b() {
             /*
                 r7 = this;
-                com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.location.b.c.C0098c.$ic
+                com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.location.b.c.C0100c.$ic
                 if (r0 != 0) goto L63
             L4:
                 int r0 = r7.a()
@@ -281,7 +281,7 @@ public class c {
                 if (r0 == 0) goto L4
                 return
             */
-            throw new UnsupportedOperationException("Method not decompiled: com.baidu.location.b.c.C0098c.b():void");
+            throw new UnsupportedOperationException("Method not decompiled: com.baidu.location.b.c.C0100c.b():void");
         }
 
         public int a() {
@@ -297,14 +297,14 @@ public class c {
             return invokeV.intValue;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:20:0x004d  */
-        /* JADX WARN: Removed duplicated region for block: B:45:0x00d1  */
-        /* JADX WARN: Removed duplicated region for block: B:50:0x00dd  */
-        /* JADX WARN: Removed duplicated region for block: B:55:0x00ed  */
-        /* JADX WARN: Removed duplicated region for block: B:57:0x00f7 A[RETURN] */
-        /* JADX WARN: Removed duplicated region for block: B:59:0x00f9  */
-        /* JADX WARN: Removed duplicated region for block: B:90:0x00e7 A[SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:91:0x00e9 A[EDGE_INSN: B:91:0x00e9->B:53:0x00e9 ?: BREAK  , SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:20:0x004c  */
+        /* JADX WARN: Removed duplicated region for block: B:45:0x00d0  */
+        /* JADX WARN: Removed duplicated region for block: B:50:0x00dc  */
+        /* JADX WARN: Removed duplicated region for block: B:55:0x00ec  */
+        /* JADX WARN: Removed duplicated region for block: B:57:0x00f6 A[RETURN] */
+        /* JADX WARN: Removed duplicated region for block: B:59:0x00f8  */
+        /* JADX WARN: Removed duplicated region for block: B:90:0x00e6 A[SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:91:0x00e8 A[EDGE_INSN: B:91:0x00e8->B:53:0x00e8 ?: BREAK  , SYNTHETIC] */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -834,9 +834,9 @@ public class c {
                 str = str + this.f.k;
             }
             this.h = null;
-            C0098c c0098c = new C0098c(this, this.g.getScanResults());
-            this.h = c0098c;
-            str2 = c0098c.a(i2, e());
+            C0100c c0100c = new C0100c(this, this.g.getScanResults());
+            this.h = c0100c;
+            str2 = c0100c.a(i2, e());
             if (str != null && str2 == null) {
                 this.n = null;
                 return null;
@@ -864,9 +864,9 @@ public class c {
             str = str + this.f.k;
         }
         this.h = null;
-        C0098c c0098c2 = new C0098c(this, this.g.getScanResults());
-        this.h = c0098c2;
-        str2 = c0098c2.a(i2, e());
+        C0100c c0100c2 = new C0100c(this, this.g.getScanResults());
+        this.h = c0100c2;
+        str2 = c0100c2.a(i2, e());
         if (str != null) {
         }
         if (str2 != null) {

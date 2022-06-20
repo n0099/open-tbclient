@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
+import com.repackage.pi;
 /* loaded from: classes4.dex */
 public class NewVoteCountDownView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -120,13 +120,13 @@ public class NewVoteCountDownView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0918d7);
-            this.c = findViewById(R.id.obfuscated_res_0x7f090745);
-            this.d = findViewById(R.id.obfuscated_res_0x7f090daf);
-            this.e = findViewById(R.id.obfuscated_res_0x7f0913f8);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090746);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090db0);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0913f9);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0918ce);
+            this.c = findViewById(R.id.obfuscated_res_0x7f090730);
+            this.d = findViewById(R.id.obfuscated_res_0x7f090da0);
+            this.e = findViewById(R.id.obfuscated_res_0x7f0913ea);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090731);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090da1);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0913eb);
         }
     }
 
@@ -138,10 +138,10 @@ public class NewVoteCountDownView extends LinearLayout {
             setClipToPadding(false);
             setClipChildren(false);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.topMargin = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds4);
+            layoutParams.topMargin = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds4);
             layoutParams.gravity = 1;
             setLayoutParams(layoutParams);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05fb, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05f8, (ViewGroup) this, true);
             c();
         }
     }

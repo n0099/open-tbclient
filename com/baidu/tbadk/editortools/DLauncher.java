@@ -19,12 +19,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e05;
-import com.repackage.sz4;
-import com.repackage.wq4;
-import com.repackage.zz4;
+import com.repackage.fr4;
+import com.repackage.h05;
+import com.repackage.o05;
+import com.repackage.t05;
 /* loaded from: classes3.dex */
-public class DLauncher extends RelativeLayout implements zz4 {
+public class DLauncher extends RelativeLayout implements o05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -32,16 +32,16 @@ public class DLauncher extends RelativeLayout implements zz4 {
     public TextView c;
     public int d;
     public String e;
-    public e05 f;
+    public t05 f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DLauncher(Context context, e05 e05Var) {
+    public DLauncher(Context context, t05 t05Var) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, e05Var};
+            Object[] objArr = {context, t05Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,30 +53,43 @@ public class DLauncher extends RelativeLayout implements zz4 {
             }
         }
         this.d = 0;
-        if (e05Var == null) {
+        if (t05Var == null) {
             return;
         }
-        this.f = e05Var;
+        this.f = t05Var;
         setLayoutParams(new AbsListView.LayoutParams(-1, -2));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.topMargin = getResources().getDimensionPixelOffset(R.dimen.M_H_X008);
         layoutParams.leftMargin = getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
         layoutParams.rightMargin = getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
         this.b = new EMTextView(context);
-        setName(e05Var.b);
+        setName(t05Var.b);
         setIcon();
-        setToolId(e05Var.c);
+        setToolId(t05Var.c);
         this.b.setGravity(17);
-        wq4 d = wq4.d(this.b);
+        fr4 d = fr4.d(this.b);
         d.z(R.dimen.T_X09);
         d.v(R.color.CAM_X0106);
         context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023e);
         addView(this.b, layoutParams);
     }
 
+    @Override // com.repackage.i05
+    public void C(h05 h05Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, h05Var) == null) && h05Var != null && h05Var.a == 2) {
+            Object obj = h05Var.c;
+            if (obj == null) {
+                c();
+            } else if (obj instanceof String) {
+                b((String) obj);
+            }
+        }
+    }
+
     public final void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         this.e = str;
@@ -101,7 +114,7 @@ public class DLauncher extends RelativeLayout implements zz4 {
 
     public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             a(str);
             this.c.setVisibility(0);
         }
@@ -109,20 +122,12 @@ public class DLauncher extends RelativeLayout implements zz4 {
 
     public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.e = null;
             TextView textView = this.c;
             if (textView != null) {
                 textView.setVisibility(8);
             }
-        }
-    }
-
-    @Override // com.repackage.zz4
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            setVisibility(0);
         }
     }
 
@@ -132,14 +137,14 @@ public class DLauncher extends RelativeLayout implements zz4 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.zz4
+    @Override // com.repackage.o05
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    @Override // com.repackage.zz4
+    @Override // com.repackage.o05
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -147,35 +152,22 @@ public class DLauncher extends RelativeLayout implements zz4 {
         }
     }
 
-    @Override // com.repackage.zz4
-    public void k() {
+    @Override // com.repackage.o05
+    public void k0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
         }
     }
 
-    @Override // com.repackage.tz4
-    public void onAction(sz4 sz4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sz4Var) == null) && sz4Var != null && sz4Var.a == 2) {
-            Object obj = sz4Var.c;
-            if (obj == null) {
-                c();
-            } else if (obj instanceof String) {
-                b((String) obj);
-            }
-        }
-    }
-
-    @Override // com.repackage.zz4
+    @Override // com.repackage.o05
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             this.d = i;
             if (isEnabled()) {
                 SkinManager.setBackgroundResource(this, R.drawable.btn_editor_selector, i);
             }
-            wq4.d(this.b).v(R.color.CAM_X0106);
+            fr4.d(this.b).v(R.color.CAM_X0106);
             if (this.f == null) {
                 return;
             }
@@ -196,7 +188,7 @@ public class DLauncher extends RelativeLayout implements zz4 {
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             super.onLayout(z, i, i2, i3, i4);
             if (this.c != null) {
                 if (getVisibility() == 0) {
@@ -207,6 +199,14 @@ public class DLauncher extends RelativeLayout implements zz4 {
                 }
                 this.c.layout(0, 0, 0, 0);
             }
+        }
+    }
+
+    @Override // com.repackage.o05
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            setVisibility(0);
         }
     }
 
@@ -234,11 +234,11 @@ public class DLauncher extends RelativeLayout implements zz4 {
         Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            e05 e05Var = this.f;
-            int i = e05Var.h;
-            int i2 = e05Var.r;
+            t05 t05Var = this.f;
+            int i = t05Var.h;
+            int i2 = t05Var.r;
             if (i <= 0) {
-                i = e05Var.d;
+                i = t05Var.d;
             }
             if (this.f.i) {
                 drawable = SvgManager.getInstance().getSeletableDrawableForEditorTools(i, this.f.e, this.d);
@@ -265,7 +265,7 @@ public class DLauncher extends RelativeLayout implements zz4 {
         }
     }
 
-    @Override // com.repackage.zz4
+    @Override // com.repackage.o05
     public void setName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {

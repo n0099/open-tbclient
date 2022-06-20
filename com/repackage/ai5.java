@@ -1,164 +1,173 @@
 package com.repackage;
 
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.os.Build;
+import android.os.Bundle;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.ar.arplay.core.message.ARPMessageType;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.atomData.LogoActivityConfig;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 /* loaded from: classes5.dex */
 public class ai5 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile ai5 e;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean d = true;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<Integer> a;
-    public xh5 b;
-    public zh5 c;
-    public List<StatisticItem> d;
+    public long a;
+    public bi5 b;
+    public BaseFragmentActivity c;
 
-    public ai5() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755855804, "Lcom/repackage/ai5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755855804, "Lcom/repackage/ai5;");
+        }
+    }
+
+    public ai5(BaseFragmentActivity baseFragmentActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragmentActivity};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        ArrayList<Integer> arrayList = new ArrayList<>();
-        this.a = arrayList;
-        arrayList.add(1);
-        this.a.add(2);
-        zh5 zh5Var = new zh5();
-        this.c = zh5Var;
-        this.b = new xh5(zh5Var, this.a);
-        g(ys4.k().l("key_abtest_channel", 0));
+        this.a = -1L;
+        this.c = baseFragmentActivity;
     }
 
-    public static ai5 c() {
-        InterceptResult invokeV;
+    public final void a(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (e == null) {
-                synchronized (zh5.class) {
-                    if (e == null) {
-                        e = new ai5();
-                    }
-                }
-            }
-            return e;
-        }
-        return (ai5) invokeV.objValue;
-    }
-
-    public void a(StatisticItem statisticItem) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, statisticItem) == null) || statisticItem == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, intent) == null) || intent == null) {
             return;
         }
-        if (this.d == null) {
-            this.d = new ArrayList();
+        if (intent.getBooleanExtra(FrsActivityConfig.FROM_SHORT_CUT, false)) {
+            Intent intent2 = new Intent();
+            intent2.putExtra(DealIntentService.KEY_CLASS, 2);
+            intent2.putExtra("fname", intent.getStringExtra("fname"));
+            intent2.putExtra(FrsActivityConfig.FROM_SHORT_CUT, true);
+            intent2.putExtra("back_special", true);
+            intent2.putExtra("from", "short_cut");
+            intent.putExtra(LogoActivityConfig.EXTRAINTENT, intent2);
         }
-        this.d.add(statisticItem);
+        TbadkCoreApplication.setIntent((Intent) intent.getParcelableExtra(LogoActivityConfig.EXTRAINTENT));
     }
 
-    public int b(String str, int i) {
-        InterceptResult invokeLI;
+    public final void b(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
-            xh5 xh5Var = this.b;
-            if (xh5Var == null) {
-                return 0;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            if (yd8.a(this.c.getIntent())) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016560));
             }
-            return xh5Var.a(str, i);
-        }
-        return invokeLI.intValue;
-    }
-
-    public void d(String str) {
-        zh5 zh5Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (ki.isEmpty(str) || (zh5Var = this.c) == null || !zh5Var.g()) {
-                e29.d(str);
+            if (bundle != null) {
+                LogoActivityConfig.isFirst = bundle.getBoolean("is_first", true);
+            } else {
+                LogoActivityConfig.isFirst = true;
             }
         }
     }
 
-    public void e(String str) {
-        zh5 zh5Var;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            if (ki.isEmpty(str) || (zh5Var = this.c) == null || !zh5Var.g()) {
-                e29.e(str);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c.setIsAddSwipeBackLayout(false);
+            this.c.setUseStyleImmersiveSticky(false);
+            this.c.getWindow().setFlags(1024, 1024);
+            if (Build.VERSION.SDK_INT > 16) {
+                this.c.getWindow().getDecorView().setSystemUiVisibility(ARPMessageType.MSG_TYPE_VIDEO_STOP_RES);
             }
+            this.c.setContentView(R.layout.obfuscated_res_0x7f0d0512);
         }
     }
 
-    public void f(String str) {
-        xh5 xh5Var;
+    public void d(Configuration configuration) {
+        bi5 bi5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (xh5Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, configuration) == null) || (bi5Var = this.b) == null) {
             return;
         }
-        xh5Var.b(str);
+        bi5Var.d(configuration);
     }
 
-    public void g(int i) {
-        zh5 zh5Var;
+    public void e(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || (zh5Var = this.c) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+            this.a = System.currentTimeMillis();
+            if ("MuMu".equals(Build.MODEL) && "6.0.1".equals(Build.VERSION.RELEASE)) {
+                this.c.finish();
+                return;
+            }
+            c();
+            b(bundle);
+            if (!yd8.a(this.c.getIntent()) && (yd8.b(this.c.getIntent()) || this.c.isTaskRoot())) {
+                a(this.c.getIntent());
+            }
+            uf8.g().i(this.c.getUniqueId());
+            bi5 bi5Var = new bi5(this.c);
+            this.b = bi5Var;
+            bi5Var.i(d);
         }
-        zh5Var.k(i);
     }
 
-    public void h(String str, String str2) {
-        zh5 zh5Var;
+    public void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) || ListUtils.isEmpty(this.d) || (zh5Var = this.c) == null || !zh5Var.g()) {
-            return;
-        }
-        int i = -1;
-        for (StatisticItem statisticItem : this.d) {
-            if (statisticItem != null) {
-                if (statisticItem.getPosition() == 0) {
-                    i(str, str2, statisticItem);
-                } else if (i != statisticItem.getPosition()) {
-                    i = statisticItem.getPosition();
-                    i(str, str2, statisticItem);
-                }
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            uf8.g().k(this.c.getUniqueId());
+            d = false;
+            bi5 bi5Var = this.b;
+            if (bi5Var != null) {
+                bi5Var.g();
             }
         }
-        this.d.clear();
     }
 
-    public void i(String str, String str2, StatisticItem statisticItem) {
-        zh5 zh5Var;
+    public void g() {
+        bi5 bi5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, statisticItem) == null) || statisticItem == null || (zh5Var = this.c) == null || !zh5Var.g()) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (bi5Var = this.b) == null) {
             return;
         }
-        HashMap hashMap = new HashMap();
-        List<Object> params = statisticItem.getParams();
-        if (params != null) {
-            int size = params.size();
-            for (int i = 0; i < size; i += 2) {
-                Object obj = params.get(i);
-                String obj2 = obj != null ? obj.toString() : "";
-                Object obj3 = params.get(i + 1);
-                hashMap.put(obj2, obj3 != null ? obj3.toString() : "");
+        bi5Var.e();
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            if (LogoActivityConfig.isFirst && this.a >= 0) {
+                q85.b().v(System.currentTimeMillis() - this.a);
+            }
+            bi5 bi5Var = this.b;
+            if (bi5Var != null) {
+                bi5Var.f();
             }
         }
-        e29.c(str2 + statisticItem.getKey(), str, "", hashMap);
     }
 }

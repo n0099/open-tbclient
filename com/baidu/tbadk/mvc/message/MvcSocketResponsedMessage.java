@@ -1,6 +1,7 @@
 package com.baidu.tbadk.mvc.message;
 
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
@@ -9,19 +10,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bi;
-import com.repackage.cq4;
-import com.repackage.d65;
-import com.repackage.ni;
-import com.repackage.qe;
-import com.repackage.z55;
+import com.repackage.fi;
+import com.repackage.mq4;
+import com.repackage.o65;
+import com.repackage.ri;
+import com.repackage.s65;
+import com.repackage.te;
 import com.squareup.wire.Message;
 import com.squareup.wire.Wire;
 import java.lang.reflect.Field;
 import java.util.List;
 import protobuf.Error;
 /* loaded from: classes3.dex */
-public abstract class MvcSocketResponsedMessage<D extends d65, M extends Message> extends TbSocketReponsedMessage {
+public abstract class MvcSocketResponsedMessage<D extends s65, M extends Message> extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public D data;
@@ -66,17 +67,65 @@ public abstract class MvcSocketResponsedMessage<D extends d65, M extends Message
         return invokeL.objValue;
     }
 
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
+        boolean z;
+        List<Field> c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, bArr)) == null) {
+            Message parseFrom = new Wire(new Class[0]).parseFrom(bArr, getProtobufResponseIdlClass());
+            List<Field> c2 = fi.c(parseFrom, Error.class);
+            if (c2 == null || c2.size() <= 0) {
+                z = false;
+            } else {
+                z = true;
+                Object a = ri.a(parseFrom, c2.get(0));
+                if (a instanceof Error) {
+                    Error error = (Error) a;
+                    setError(error.errorno.intValue());
+                    setErrorString(error.usermsg);
+                }
+            }
+            if (!z && (c = fi.c(parseFrom, tbclient.Error.class)) != null && c.size() > 0) {
+                Object a2 = ri.a(parseFrom, c.get(0));
+                if (a2 instanceof tbclient.Error) {
+                    tbclient.Error error2 = (tbclient.Error) a2;
+                    setError(error2.errorno.intValue());
+                    setErrorString(error2.usermsg);
+                }
+            }
+            if (getError() != 0) {
+                return parseFrom;
+            }
+            Object obj = null;
+            if (getOrginalMessage() instanceof MvcSocketMessage) {
+                obj = createData(((MvcSocketMessage) getOrginalMessage()).getResponseDataClass());
+            } else if (getOrginalMessage() != null && (getOrginalMessage().getExtra() instanceof MvcNetMessage)) {
+                obj = createData(((MvcNetMessage) getOrginalMessage().getExtra()).getResponseDataClass());
+            }
+            if (obj instanceof s65) {
+                D d = (D) obj;
+                this.data = d;
+                d.initByProtobuf(parseFrom);
+            }
+            return parseFrom;
+        }
+        return invokeIL.objValue;
+    }
+
     public D getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.data : (D) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.data : (D) invokeV.objValue;
     }
 
     public abstract Class<M> getProtobufResponseIdlClass();
 
     public void setData(D d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, d) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, d) == null) {
             this.data = d;
         }
     }
@@ -84,7 +133,7 @@ public abstract class MvcSocketResponsedMessage<D extends d65, M extends Message
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        z55 z55Var;
+        o65 o65Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.afterDispatchInBackGround(i, (int) bArr);
@@ -93,77 +142,32 @@ public abstract class MvcSocketResponsedMessage<D extends d65, M extends Message
             }
             if (getOrginalMessage() instanceof MvcSocketMessage) {
                 MvcSocketMessage mvcSocketMessage = (MvcSocketMessage) getOrginalMessage();
-                if (mvcSocketMessage.isNeedCache() && (mvcSocketMessage.getData() instanceof z55)) {
-                    z55Var = (z55) mvcSocketMessage.getData();
+                if (mvcSocketMessage.isNeedCache() && (mvcSocketMessage.getData() instanceof o65)) {
+                    o65Var = (o65) mvcSocketMessage.getData();
                 }
-                z55Var = null;
+                o65Var = null;
             } else {
                 if (getOrginalMessage() != null && (getOrginalMessage().getExtra() instanceof MvcNetMessage)) {
                     MvcNetMessage mvcNetMessage = (MvcNetMessage) getOrginalMessage().getExtra();
-                    if (mvcNetMessage.isNeedCache() && (mvcNetMessage.getRequestData() instanceof z55)) {
-                        z55Var = (z55) mvcNetMessage.getRequestData();
+                    if (mvcNetMessage.isNeedCache() && (mvcNetMessage.getRequestData() instanceof o65)) {
+                        o65Var = (o65) mvcNetMessage.getRequestData();
                     }
                 }
-                z55Var = null;
+                o65Var = null;
             }
-            if (z55Var != null) {
-                String cacheKey = z55Var.getCacheKey();
-                String x = z55Var.x();
-                String currentAccount = z55Var.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-                if (cacheKey == null || TextUtils.isEmpty(x) || bArr == null) {
+            if (o65Var != null) {
+                String cacheKey = o65Var.getCacheKey();
+                String y = o65Var.y();
+                String currentAccount = o65Var.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
+                if (cacheKey == null || TextUtils.isEmpty(y) || bArr == null) {
                     return;
                 }
-                cq4.f();
-                qe<byte[]> e = cq4.e(x, currentAccount);
+                mq4.f();
+                te<byte[]> e = mq4.e(y, currentAccount);
                 if (e == null) {
                     return;
                 }
                 e.g(cacheKey, bArr);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.message.websockt.TbSocketReponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        boolean z;
-        List<Field> c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, bArr) == null) {
-            Message parseFrom = new Wire(new Class[0]).parseFrom(bArr, getProtobufResponseIdlClass());
-            List<Field> c2 = bi.c(parseFrom, Error.class);
-            if (c2 == null || c2.size() <= 0) {
-                z = false;
-            } else {
-                z = true;
-                Object a = ni.a(parseFrom, c2.get(0));
-                if (a instanceof Error) {
-                    Error error = (Error) a;
-                    setError(error.errorno.intValue());
-                    setErrorString(error.usermsg);
-                }
-            }
-            if (!z && (c = bi.c(parseFrom, tbclient.Error.class)) != null && c.size() > 0) {
-                Object a2 = ni.a(parseFrom, c.get(0));
-                if (a2 instanceof tbclient.Error) {
-                    tbclient.Error error2 = (tbclient.Error) a2;
-                    setError(error2.errorno.intValue());
-                    setErrorString(error2.usermsg);
-                }
-            }
-            if (getError() != 0) {
-                return;
-            }
-            Object obj = null;
-            if (getOrginalMessage() instanceof MvcSocketMessage) {
-                obj = createData(((MvcSocketMessage) getOrginalMessage()).getResponseDataClass());
-            } else if (getOrginalMessage() != null && (getOrginalMessage().getExtra() instanceof MvcNetMessage)) {
-                obj = createData(((MvcNetMessage) getOrginalMessage().getExtra()).getResponseDataClass());
-            }
-            if (obj instanceof d65) {
-                D d = (D) obj;
-                this.data = d;
-                d.initByProtobuf(parseFrom);
             }
         }
     }

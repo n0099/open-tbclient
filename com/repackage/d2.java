@@ -1,27 +1,33 @@
 package com.repackage;
 
-import android.content.Context;
-import android.os.Handler;
-import android.view.Window;
-import android.view.WindowManager;
-import com.badlogic.gdx.Application;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface d2 extends Application {
-    Window getApplicationWindow();
+public class d2 implements r1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    Context getContext();
+    public d2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    y6<Runnable> getExecutedRunnables();
-
-    Handler getHandler();
-
-    p2 getInput();
-
-    e8<d1> getLifecycleListeners();
-
-    y6<Runnable> getRunnables();
-
-    WindowManager getWindowManager();
-
-    void useImmersiveMode(boolean z);
+    @Override // com.repackage.r1
+    public j3 resolve(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? e1.d.a(str) : (j3) invokeL.objValue;
+    }
 }

@@ -25,33 +25,33 @@ public class AppScoreView extends LinearLayout {
     }
 
     private void a() {
-        LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0409, this);
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910fe);
-        this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910fd);
+        LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0403, this);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910ee);
+        this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910ed);
     }
 
     public void setScore(float f) {
         double d = f;
         if (d > 4.5d) {
-            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080bc4);
-            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080bc4);
+            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080baf);
+            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080baf);
         } else if (d > 4.0d) {
-            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080bc4);
-            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080bc3);
+            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080baf);
+            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080bae);
         } else {
             if (d > 3.5d) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080bc4);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080baf);
             } else {
                 int i = (d > 3.0d ? 1 : (d == 3.0d ? 0 : -1));
                 if (i > 0) {
-                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f080bc3);
+                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f080bae);
                 } else if (i != 0) {
                     return;
                 } else {
-                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f080bc2);
+                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f080bad);
                 }
             }
-            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080bc2);
+            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080bad);
         }
     }
 }

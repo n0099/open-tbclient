@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -74,7 +75,7 @@ public class PersonGroupAdapter extends FragmentPagerAdapter {
         c = this.a.length;
         Iterator<PersonalGroupFragment> it = this.b.iterator();
         while (it.hasNext()) {
-            it.next().getArguments().putInt("page_size", this.b.size());
+            it.next().getArguments().putInt(SuggestAddrField.KEY_PAGE_SIZE, this.b.size());
         }
     }
 

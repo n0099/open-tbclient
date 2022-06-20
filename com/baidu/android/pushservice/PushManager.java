@@ -71,7 +71,7 @@ public class PushManager {
 
     public static void createNotificationChannel(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2) == null) && m.p(context)) {
+        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2) == null) && m.B(context)) {
             com.baidu.android.pushservice.i.h.a(context, str, str2);
         }
     }
@@ -98,7 +98,7 @@ public class PushManager {
 
     public static void deleteNotificationChannel(Context context, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65542, null, context, str) == null) && m.p(context)) {
+        if ((interceptable == null || interceptable.invokeLL(65542, null, context, str) == null) && m.B(context)) {
             com.baidu.android.pushservice.i.h.a(context, str);
         }
     }
@@ -174,19 +174,19 @@ public class PushManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
             if (m.i(context)) {
-                if (com.baidu.android.pushservice.b.d.l(context)) {
+                if (com.baidu.android.pushservice.b.d.m(context)) {
                     return 2;
                 }
-                if (com.baidu.android.pushservice.b.d.k(context)) {
+                if (com.baidu.android.pushservice.b.d.l(context)) {
                     return 3;
                 }
-                if (com.baidu.android.pushservice.b.d.j(context)) {
+                if (com.baidu.android.pushservice.b.d.k(context)) {
                     return 4;
                 }
-                if (com.baidu.android.pushservice.b.d.m(context)) {
+                if (com.baidu.android.pushservice.b.d.n(context)) {
                     return 5;
                 }
-                return com.baidu.android.pushservice.b.d.n(context) ? 6 : 1;
+                return com.baidu.android.pushservice.b.d.o(context) ? 6 : 1;
             }
             return 0;
         }
@@ -215,7 +215,7 @@ public class PushManager {
 
     public static void insertPassThroughMessageClick(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65552, null, context, str, str2) == null) || e.m(context) || str == null || str2 == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65552, null, context, str, str2) == null) || e.n(context) || str == null || str2 == null) {
             return;
         }
         try {
@@ -236,7 +236,7 @@ public class PushManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, context)) == null) {
-            if (e.m(context)) {
+            if (e.n(context)) {
                 return false;
             }
             return !m.b(context.getApplicationContext());
@@ -297,14 +297,14 @@ public class PushManager {
 
     public static void requestOppoNotification(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65556, null, context) == null) && m.f() && com.baidu.android.pushservice.b.d.p(context)) {
+        if ((interceptable == null || interceptable.invokeL(65556, null, context) == null) && m.p(context) && com.baidu.android.pushservice.b.d.q(context)) {
             m.a();
         }
     }
 
     public static void resumeWork(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65557, null, context) == null) || e.m(context)) {
+        if (!(interceptable == null || interceptable.invokeL(65557, null, context) == null) || e.n(context)) {
             return;
         }
         a.a(context, true);
@@ -315,10 +315,11 @@ public class PushManager {
 
     public static void resumeWork(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65558, null, context, i) == null) || e.m(context)) {
+        if (!(interceptable == null || interceptable.invokeLI(65558, null, context, i) == null) || e.n(context)) {
             return;
         }
         a.a(context, true);
+        e.d(context, i);
         l.a(context, i);
     }
 
@@ -331,7 +332,7 @@ public class PushManager {
 
     public static void setDefaultNotificationBuilder(Context context, PushNotificationBuilder pushNotificationBuilder) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65560, null, context, pushNotificationBuilder) == null) || e.m(context)) {
+        if (!(interceptable == null || interceptable.invokeLL(65560, null, context, pushNotificationBuilder) == null) || e.n(context)) {
             return;
         }
         NotificationBuilderManager.a(context, pushNotificationBuilder);
@@ -339,7 +340,7 @@ public class PushManager {
 
     public static void setNoDisturbMode(Context context, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65561, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || e.m(context)) {
+        if (!(interceptable == null || interceptable.invokeCommon(65561, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || e.n(context)) {
             return;
         }
         if (i < 0 || i > 23 || i3 < 0 || i3 > 23) {
@@ -368,7 +369,7 @@ public class PushManager {
 
     public static void setNotificationBuilder(Context context, int i, PushNotificationBuilder pushNotificationBuilder) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65563, null, context, i, pushNotificationBuilder) == null) || e.m(context)) {
+        if (!(interceptable == null || interceptable.invokeLIL(65563, null, context, i, pushNotificationBuilder) == null) || e.n(context)) {
             return;
         }
         if (i < 1 || i > 1000) {
@@ -382,7 +383,7 @@ public class PushManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65564, null, context, z) == null) {
             com.baidu.android.pushservice.b.d.d = 1;
-            if (e.m(context)) {
+            if (e.n(context)) {
                 return;
             }
             if (!z) {
@@ -390,11 +391,11 @@ public class PushManager {
                     a.a(context, true);
                 }
                 reStartWork(context);
-            } else if ((!com.baidu.android.pushservice.b.d.q(context) || com.baidu.android.pushservice.b.d.c(context)) && com.baidu.android.pushservice.b.d.d(context)) {
+            } else if ((!com.baidu.android.pushservice.b.d.r(context) || com.baidu.android.pushservice.b.d.c(context)) && com.baidu.android.pushservice.b.d.d(context)) {
                 a.a(context, false);
                 m.d(context);
                 com.baidu.android.pushservice.job.a.b(context);
-                e.n(context);
+                e.o(context);
             }
         }
     }
@@ -450,7 +451,7 @@ public class PushManager {
 
     public static void startWork(Context context, int i, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65568, null, context, i, str) == null) || e.m(context)) {
+        if (!(interceptable == null || interceptable.invokeLIL(65568, null, context, i, str) == null) || e.n(context)) {
             return;
         }
         e.a = i;
@@ -488,7 +489,7 @@ public class PushManager {
 
     public static void stopWork(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65570, null, context) == null) || e.m(context)) {
+        if (!(interceptable == null || interceptable.invokeL(65570, null, context) == null) || e.n(context)) {
             return;
         }
         com.baidu.android.pushservice.f.a.a(TAG, "stopWork from" + context.getPackageName(), context.getApplicationContext());
@@ -497,7 +498,7 @@ public class PushManager {
         m.a(context, true, false);
         m.d(context);
         com.baidu.android.pushservice.job.a.b(context);
-        e.n(context);
+        e.o(context);
     }
 
     public static void tokenBind(Context context, String str, int i, String str2, TokenBindListener tokenBindListener) {

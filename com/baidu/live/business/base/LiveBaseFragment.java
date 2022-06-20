@@ -2,7 +2,6 @@ package com.baidu.live.business.base;
 
 import android.os.Bundle;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,20 +14,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a80;
-import com.repackage.b80;
-import com.repackage.d80;
-import com.repackage.t90;
+import com.repackage.e80;
+import com.repackage.f80;
+import com.repackage.h80;
+import com.repackage.x90;
 /* loaded from: classes2.dex */
 public abstract class LiveBaseFragment extends Fragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LiveTabEntity a;
     public LiveFeedWrapData b;
-    public d80 c;
+    public h80 c;
     public boolean d;
     public boolean e;
-    public a80 f;
+    public e80 f;
     public int g;
     public String h;
     public String i;
@@ -58,11 +57,61 @@ public abstract class LiveBaseFragment extends Fragment {
         this.m = "";
     }
 
-    public int E0() {
+    public void A1(h80 h80Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, h80Var) == null) {
+            this.c = h80Var;
+        }
+    }
+
+    public void B1(LiveFeedWrapData liveFeedWrapData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, liveFeedWrapData) == null) {
+            this.b = liveFeedWrapData;
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.l = 1;
+            String str = this.m;
+            if (str.equals(this.i + "_" + this.k + "_" + this.l)) {
+                return;
+            }
+            this.m = this.i + "_" + this.k + "_" + this.l;
+            this.g = this.g + 1;
+            f80.b(8);
+            e80 e80Var = this.f;
+            if (e80Var != null) {
+                e80Var.h(f80.a(), this.h, this.l, this.i, this.j, this.k, this.g);
+            }
+        }
+    }
+
+    @Override // androidx.fragment.app.Fragment
+    public void onCreate(@Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            super.onCreate(bundle);
+        }
+    }
+
+    @Override // androidx.fragment.app.Fragment
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onDestroy();
+            this.b = null;
+            x90.a().e(this);
+        }
+    }
+
+    public int r1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            RecyclerView.LayoutManager layoutManager = F0().getLayoutManager();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            RecyclerView.LayoutManager layoutManager = s1().getLayoutManager();
             if (layoutManager instanceof LinearLayoutManager) {
                 return ((LinearLayoutManager) layoutManager).findLastVisibleItemPosition();
             }
@@ -75,12 +124,12 @@ public abstract class LiveBaseFragment extends Fragment {
         return invokeV.intValue;
     }
 
-    public abstract RecyclerView F0();
+    public abstract RecyclerView s1();
 
-    public boolean G0(String str, String str2, int i) {
+    public boolean t1(String str, String str2, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, str, str2, i)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048583, this, str, str2, i)) == null) {
             if (str == null) {
                 str = "";
             }
@@ -92,19 +141,19 @@ public abstract class LiveBaseFragment extends Fragment {
         return invokeLLI.booleanValue;
     }
 
-    public abstract void H0(boolean z);
+    public abstract void u1(boolean z);
 
-    public void I0(boolean z) {
+    public void v1(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            H0(z);
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            u1(z);
         }
     }
 
-    public boolean J0() {
+    public boolean w1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             this.l = 0;
             String str = this.m;
             if (str.equals(this.i + "_" + this.k + "_" + this.l)) {
@@ -113,20 +162,20 @@ public abstract class LiveBaseFragment extends Fragment {
             this.m = this.i + "_" + this.k + "_" + this.l;
             this.h = "";
             this.g = 1;
-            b80.b(8);
-            a80 a80Var = this.f;
-            if (a80Var != null) {
-                a80Var.h(b80.a(), this.h, this.l, this.i, this.j, this.k, this.g);
+            f80.b(8);
+            e80 e80Var = this.f;
+            if (e80Var != null) {
+                e80Var.h(f80.a(), this.h, this.l, this.i, this.j, this.k, this.g);
             }
             return true;
         }
         return invokeV.booleanValue;
     }
 
-    public boolean K0() {
+    public boolean x1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             this.l = 0;
             String str = this.m;
             if (str.equals(this.i + "_" + this.k + "_" + this.l)) {
@@ -135,20 +184,20 @@ public abstract class LiveBaseFragment extends Fragment {
             this.m = this.i + "_" + this.k + "_" + this.l;
             this.h = "";
             this.g = 1;
-            b80.b(10);
-            a80 a80Var = this.f;
-            if (a80Var != null) {
-                a80Var.h(b80.a(), this.h, this.l, this.i, this.j, this.k, this.g);
+            f80.b(10);
+            e80 e80Var = this.f;
+            if (e80Var != null) {
+                e80Var.h(f80.a(), this.h, this.l, this.i, this.j, this.k, this.g);
             }
             return true;
         }
         return invokeV.booleanValue;
     }
 
-    public boolean L0() {
+    public boolean y1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             this.l = 0;
             String str = this.m;
             if (str.equals(this.i + "_" + this.k + "_" + this.l)) {
@@ -157,63 +206,13 @@ public abstract class LiveBaseFragment extends Fragment {
             this.m = this.i + "_" + this.k + "_" + this.l;
             this.h = "";
             this.g = 1;
-            b80.b(11);
-            a80 a80Var = this.f;
-            if (a80Var != null) {
-                a80Var.h(b80.a(), this.h, this.l, this.i, this.j, this.k, this.g);
+            f80.b(11);
+            e80 e80Var = this.f;
+            if (e80Var != null) {
+                e80Var.h(f80.a(), this.h, this.l, this.i, this.j, this.k, this.g);
             }
             return true;
         }
         return invokeV.booleanValue;
-    }
-
-    public void M0(d80 d80Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, d80Var) == null) {
-            this.c = d80Var;
-        }
-    }
-
-    public void N0(LiveFeedWrapData liveFeedWrapData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, liveFeedWrapData) == null) {
-            this.b = liveFeedWrapData;
-        }
-    }
-
-    public void loadMore() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.l = 1;
-            String str = this.m;
-            if (str.equals(this.i + "_" + this.k + "_" + this.l)) {
-                return;
-            }
-            this.m = this.i + "_" + this.k + "_" + this.l;
-            this.g = this.g + 1;
-            b80.b(8);
-            a80 a80Var = this.f;
-            if (a80Var != null) {
-                a80Var.h(b80.a(), this.h, this.l, this.i, this.j, this.k, this.g);
-            }
-        }
-    }
-
-    @Override // androidx.fragment.app.Fragment
-    public void onCreate(@Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
-            super.onCreate(bundle);
-        }
-    }
-
-    @Override // androidx.fragment.app.Fragment
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            super.onDestroy();
-            this.b = null;
-            t90.a().e(this);
-        }
     }
 }

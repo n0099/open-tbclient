@@ -24,10 +24,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b76;
-import com.repackage.li;
-import com.repackage.ul7;
-import com.repackage.wl7;
+import com.repackage.b86;
+import com.repackage.fn7;
+import com.repackage.hn7;
+import com.repackage.pi;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -38,9 +38,9 @@ public class FaceCollectFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdListView a;
-    public wl7 b;
+    public hn7 b;
     public List<EmotionImageData> c;
-    public ul7 d;
+    public fn7 d;
     public NoDataView e;
     public Activity f;
 
@@ -75,7 +75,7 @@ public class FaceCollectFragment extends BaseFragment {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                List<CollectEmotionData> q = b76.o().q(TbadkCoreApplication.getCurrentAccount());
+                List<CollectEmotionData> q = b86.o().q(TbadkCoreApplication.getCurrentAccount());
                 if (q == null) {
                     return null;
                 }
@@ -128,56 +128,25 @@ public class FaceCollectFragment extends BaseFragment {
         }
     }
 
-    public LinkedHashMap<String, EmotionImageData> I0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            wl7 wl7Var = this.b;
-            if (wl7Var != null) {
-                return wl7Var.i();
-            }
-            return null;
-        }
-        return (LinkedHashMap) invokeV.objValue;
-    }
-
-    public final void J0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            new a(this).execute(new Void[0]);
-        }
-    }
-
-    public void K0(ul7 ul7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ul7Var) == null) {
-            this.d = ul7Var;
-            wl7 wl7Var = this.b;
-            if (wl7Var != null) {
-                wl7Var.l(ul7Var);
-            }
-        }
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Serializable serializable;
         EmotionImageData emotionImageData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutInflater, viewGroup, bundle)) == null) {
             this.f = getPageContext().getPageActivity();
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02df, (ViewGroup) null);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02d9, (ViewGroup) null);
             SkinManager.setBackgroundResource(inflate, R.color.CAM_X0201);
-            NoDataView a2 = NoDataViewFactory.a(this.f, inflate, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, li.f(this.f, R.dimen.obfuscated_res_0x7f0702a1)), NoDataViewFactory.e.c(this.f.getText(R.string.obfuscated_res_0x7f0f05e8).toString()), null);
+            NoDataView a2 = NoDataViewFactory.a(this.f, inflate, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, pi.f(this.f, R.dimen.obfuscated_res_0x7f0702a1)), NoDataViewFactory.e.c(this.f.getText(R.string.obfuscated_res_0x7f0f05dc).toString()), null);
             this.e = a2;
             a2.f(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             this.e.setVisibility(8);
-            this.a = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f09124e);
+            this.a = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f091243);
             this.c = new ArrayList();
-            wl7 wl7Var = new wl7(this.c, 20);
-            this.b = wl7Var;
-            wl7Var.l(this.d);
+            hn7 hn7Var = new hn7(this.c, 20);
+            this.b = hn7Var;
+            hn7Var.l(this.d);
             if (getArguments() != null && (serializable = getArguments().getSerializable(PickFaceTabActivityConfig.CHOOSED_LIST)) != null && (serializable instanceof ArrayList)) {
                 LinkedHashMap linkedHashMap = new LinkedHashMap();
                 Iterator it = ((ArrayList) serializable).iterator();
@@ -190,9 +159,40 @@ public class FaceCollectFragment extends BaseFragment {
                 this.b.g(linkedHashMap);
             }
             this.a.setAdapter((ListAdapter) this.b);
-            J0();
+            w1();
             return inflate;
         }
         return (View) invokeLLL.objValue;
+    }
+
+    public LinkedHashMap<String, EmotionImageData> v1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            hn7 hn7Var = this.b;
+            if (hn7Var != null) {
+                return hn7Var.i();
+            }
+            return null;
+        }
+        return (LinkedHashMap) invokeV.objValue;
+    }
+
+    public final void w1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            new a(this).execute(new Void[0]);
+        }
+    }
+
+    public void x1(fn7 fn7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, fn7Var) == null) {
+            this.d = fn7Var;
+            hn7 hn7Var = this.b;
+            if (hn7Var != null) {
+                hn7Var.l(fn7Var);
+            }
+        }
     }
 }

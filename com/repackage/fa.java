@@ -1,6 +1,6 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.BdLog;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,15 +9,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.PublicKey;
-import javax.crypto.SecretKey;
-/* loaded from: classes5.dex */
+import java.nio.ByteBuffer;
+/* loaded from: classes6.dex */
 public class fa {
-    public static /* synthetic */ Interceptable $ic;
-    public static fa c;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static byte g = 4;
+    public static byte h = Byte.MIN_VALUE;
+    public static byte i = 64;
+    public static byte j = 8;
+    public static byte k = 4;
     public transient /* synthetic */ FieldHolder $fh;
-    public SecretKey a;
-    public byte[] b;
+    public boolean a;
+    public boolean b;
+    public boolean c;
+    public int d;
+    public int e;
+    public boolean f;
 
     static {
         InterceptResult invokeClinit;
@@ -39,63 +46,113 @@ public class fa {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
+        this.a = false;
+        this.b = false;
+        this.c = false;
+        this.f = false;
     }
 
-    public static fa a() {
-        InterceptResult invokeV;
+    public static fa a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (fa.class) {
-                    if (c == null) {
-                        c = new fa();
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
+            ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, f());
+            fa faVar = new fa();
+            byte b = wrap.get();
+            if ((h & b) != 0) {
+                faVar.a = true;
             }
-            return c;
-        }
-        return (fa) invokeV.objValue;
-    }
-
-    public SecretKey b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (SecretKey) invokeV.objValue;
-    }
-
-    public byte[] c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (byte[]) invokeV.objValue;
-    }
-
-    public void d(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) {
-            try {
-                PublicKey e = si.e(bArr);
-                String g = si.g(32);
-                byte[] bArr2 = new byte[g.length()];
-                for (int i = 0; i < g.length(); i++) {
-                    bArr2[i] = (byte) g.charAt(i);
-                }
-                this.a = si.f(g);
-                this.b = si.d(e, bArr2);
-            } catch (Throwable th) {
-                BdLog.e(th.getMessage());
-                this.a = null;
-                this.b = new byte[0];
+            if ((i & b) != 0) {
+                faVar.b = true;
             }
+            if ((j & b) != 0) {
+                faVar.c = true;
+            }
+            if ((b & k) != 0) {
+                faVar.f = true;
+            }
+            faVar.d = wrap.getInt();
+            faVar.e = wrap.getInt();
+            return faVar;
         }
+        return (fa) invokeL.objValue;
+    }
+
+    public static int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return 9;
+        }
+        return invokeV.intValue;
+    }
+
+    public static byte[] i(boolean z, boolean z2, int i2, int i3, byte[] bArr, boolean z3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2), Integer.valueOf(i3), bArr, Boolean.valueOf(z3)})) == null) {
+            ByteBuffer allocate = ByteBuffer.allocate(f() + (bArr != null ? bArr.length : 0));
+            byte b = z ? (byte) (h | 0) : (byte) 0;
+            if (z2) {
+                b = (byte) (i | b);
+            }
+            byte b2 = (byte) (j | b);
+            if (z3) {
+                b2 = (byte) (b2 | k);
+            }
+            allocate.put(b2);
+            allocate.putInt(i2);
+            allocate.putInt(i3);
+            if (bArr != null) {
+                allocate.put(bArr);
+            }
+            allocate.flip();
+            return allocate.array();
+        }
+        return (byte[]) invokeCommon.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.intValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.booleanValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.booleanValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : invokeV.booleanValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : invokeV.booleanValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : invokeV.intValue;
     }
 }

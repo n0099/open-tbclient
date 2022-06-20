@@ -1,231 +1,162 @@
 package com.repackage;
 
-import com.baidu.adp.framework.client.socket.coder.CoderException;
-import com.baidu.adp.framework.message.SocketMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Application;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.pass.biometrics.base.result.PassBiometricResult;
+import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.nio.ByteBuffer;
+import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
+import java.util.ArrayList;
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes5.dex */
 public class da {
-    public static /* synthetic */ Interceptable $ic;
-    public static da a;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int A;
+    public static String B = null;
+    public static String C = null;
+    public static int[] D = null;
+    public static ArrayList<BasicNameValuePair> E = null;
+    public static int a = -100000000;
+    public static final int b;
+    public static final int c;
+    public static final int d;
+    public static final int e;
+    public static final int f;
+    public static final int g;
+    public static final int h;
+    public static final int i;
+    public static final int j;
+    public static final int k;
+    public static final int l;
+    public static final int m;
+    public static final int n;
+    public static final int o;
+    public static final int p;
+    public static final int q;
+    public static final int r;
+    public static final int s;
+    public static final int t;
+    public static final int u;
+    public static final int v;
+    public static final int w;
+    public static final int x;
+    public static final int y;
+    public static final int z;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1964042456, "Lcom/repackage/da;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1964042456, "Lcom/repackage/da;");
-        }
-    }
-
-    public da() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964042456, "Lcom/repackage/da;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1964042456, "Lcom/repackage/da;");
+                return;
             }
         }
+        b = (-100000000) - 200;
+        c = (-100000000) + PassBiometricResult.ERROR_CODE_LACK_SO_ERROR;
+        d = (-100000000) - 213;
+        e = (-100000000) - 214;
+        f = (-100000000) - 221;
+        g = (-100000000) - 230;
+        h = (-100000000) - 232;
+        i = (-100000000) - 233;
+        j = (-100000000) - 234;
+        k = (-100000000) - 235;
+        l = (-100000000) - 236;
+        m = (-100000000) - 301;
+        n = (-100000000) - 302;
+        o = (-100000000) + PassFaceRecogResult.ERROR_CODE_FACE_SDK_INIT_FAIL;
+        p = (-100000000) - 306;
+        q = (-100000000) + PassFaceRecogResult.ERROR_CODE_MAY_BE_NO_CAMERA_PERMISSION;
+        r = (-100000000) - 308;
+        s = (-100000000) - 309;
+        t = (-100000000) - 310;
+        u = (-100000000) - 311;
+        v = (-100000000) - 312;
+        w = (-100000000) - 313;
+        x = (-100000000) - 314;
+        y = (-100000000) - 310;
+        z = (-100000000) - 311;
+        A = (-100000000) + ErrorCode.ARGS_ERROR;
+        D = s9.a;
+        E = null;
     }
 
-    public static da f() {
+    public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (da.class) {
-                    if (a == null) {
-                        a = new da();
-                    }
-                }
-            }
-            return a;
-        }
-        return (da) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C : (String) invokeV.objValue;
     }
 
-    public byte[] a(byte[] bArr, int i, int i2) throws Exception {
-        InterceptResult invokeLII;
+    public static ArrayList<BasicNameValuePair> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            try {
-                gi.a(byteArrayInputStream, byteArrayOutputStream);
-                byteArrayOutputStream.flush();
-                return byteArrayOutputStream.toByteArray();
-            } finally {
-                ig.d(byteArrayOutputStream);
-                ig.c(byteArrayInputStream);
-            }
-        }
-        return (byte[]) invokeLII.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? E : (ArrayList) invokeV.objValue;
     }
 
-    public SocketResponsedMessage b(int i, byte[] bArr, SocketMessage socketMessage, SocketMessageTask socketMessageTask, boolean z) throws CoderException {
-        InterceptResult invokeCommon;
-        SocketResponsedMessage newInstance;
+    public static int[] c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), bArr, socketMessage, socketMessageTask, Boolean.valueOf(z)})) == null) {
-            try {
-                Class<? extends SocketResponsedMessage> responsedClass = socketMessageTask.getResponsedClass();
-                try {
-                    newInstance = responsedClass.getConstructor(new Class[0]).newInstance(new Object[0]);
-                } catch (Exception unused) {
-                    newInstance = responsedClass.getConstructor(Integer.TYPE).newInstance(Integer.valueOf(i));
-                }
-                newInstance.setOrginalMessage(socketMessage);
-                if (z) {
-                    try {
-                        newInstance.onDecodeFailedInBackGround(i, bArr, aa.c);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                } else {
-                    newInstance.decodeInBackGround(i, bArr);
-                }
-                return newInstance;
-            } catch (Throwable th) {
-                BdStatisticsManager.getInstance().error("im", socketMessage != null ? socketMessage.getClientLogID() : 0L, (String) null, "cmd", Integer.valueOf(i), "byteslength", Integer.valueOf(bArr != null ? bArr.length : 0), "comment", th.getMessage());
-                throw new CoderException(aa.c);
-            }
-        }
-        return (SocketResponsedMessage) invokeCommon.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? D : (int[]) invokeV.objValue;
     }
 
-    public ea c(byte[] bArr) throws CoderException {
-        InterceptResult invokeL;
+    public static String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
-            int f = ca.f();
-            if (bArr != null && bArr.length >= f) {
-                ca a2 = ca.a(bArr);
-                if (a2 != null) {
-                    ea eaVar = new ea();
-                    eaVar.a = a2;
-                    eaVar.b = bArr;
-                    eaVar.c = f;
-                    eaVar.d = bArr.length - f;
-                    return eaVar;
-                }
-                throw new CoderException(aa.b);
-            }
-            throw new CoderException(aa.b);
-        }
-        return (ea) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? B : (String) invokeV.objValue;
     }
 
-    public ea d(ea eaVar) throws CoderException {
-        InterceptResult invokeL;
-        ca caVar;
-        int i;
+    public static void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, eaVar)) == null) {
-            if (eaVar != null && (caVar = eaVar.a) != null && eaVar.b != null) {
-                if (caVar.d() && eaVar.d > 0) {
-                    if (fa.a().b() != null) {
-                        try {
-                            byte[] a2 = si.a(fa.a().b(), eaVar.b, eaVar.c, eaVar.d);
-                            eaVar.b = a2;
-                            eaVar.c = 0;
-                            eaVar.d = a2.length;
-                        } catch (Exception unused) {
-                            throw new CoderException(aa.h);
-                        }
-                    } else {
-                        throw new CoderException(aa.g);
-                    }
-                }
-                if (caVar.c() && (i = eaVar.d) > 0) {
-                    try {
-                        byte[] g = g(eaVar.b, eaVar.c, i);
-                        eaVar.b = g;
-                        eaVar.c = 0;
-                        eaVar.d = g.length;
-                    } catch (Exception unused2) {
-                        throw new CoderException(aa.f);
-                    }
-                }
-                return eaVar;
-            }
-            throw new CoderException(aa.b);
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            C = str;
         }
-        return (ea) invokeL.objValue;
     }
 
-    public byte[] e(SocketMessage socketMessage, int i, boolean z, boolean z2) throws CoderException {
-        InterceptResult invokeCommon;
-        boolean z3;
+    public static void f(ArrayList<BasicNameValuePair> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{socketMessage, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (socketMessage == null) {
-                return null;
-            }
-            byte[] encodeInBackGround = socketMessage.encodeInBackGround();
-            byte[] encodeExtraDataInBackGround = socketMessage.encodeExtraDataInBackGround();
-            if (encodeExtraDataInBackGround != null) {
-                ByteBuffer allocate = ByteBuffer.allocate(encodeInBackGround.length + encodeExtraDataInBackGround.length + ca.g);
-                if (encodeExtraDataInBackGround.length <= Integer.MAX_VALUE) {
-                    allocate.putInt(encodeExtraDataInBackGround.length);
-                    allocate.put(encodeExtraDataInBackGround);
-                    allocate.put(encodeInBackGround);
-                    encodeInBackGround = allocate.array();
-                    z3 = true;
-                } else {
-                    throw new CoderException(aa.e);
-                }
-            } else {
-                z3 = false;
-            }
-            if (encodeInBackGround != null && z) {
-                encodeInBackGround = a(encodeInBackGround, 0, encodeInBackGround.length);
-            }
-            if (encodeInBackGround != null && z2) {
-                encodeInBackGround = si.c(fa.a().b(), encodeInBackGround);
-            }
-            return ca.i(z2, z, socketMessage.getCmd(), i, encodeInBackGround, z3);
+        if (interceptable == null || interceptable.invokeL(65542, null, arrayList) == null) {
+            E = arrayList;
         }
-        return (byte[]) invokeCommon.objValue;
     }
 
-    public byte[] g(byte[] bArr, int i, int i2) throws Exception {
-        InterceptResult invokeLII;
+    public static void g(int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, bArr, i, i2)) == null) {
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            try {
-                gi.c(byteArrayInputStream, byteArrayOutputStream);
-                byteArrayOutputStream.flush();
-                return byteArrayOutputStream.toByteArray();
-            } finally {
-                ig.d(byteArrayOutputStream);
-                ig.c(byteArrayInputStream);
-            }
+        if (!(interceptable == null || interceptable.invokeL(65543, null, iArr) == null) || iArr == null) {
+            return;
         }
-        return (byte[]) invokeLII.objValue;
+        D = iArr;
+    }
+
+    public static void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
+            B = str;
+        }
+    }
+
+    public static String i(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i2)) == null) {
+            int i3 = a - i2;
+            Application app = BdBaseApplication.getInst().getApp();
+            if (i3 > -300 && i3 <= -200) {
+                return app.getString(R.string.obfuscated_res_0x7f0f08af);
+            }
+            return app.getString(R.string.obfuscated_res_0x7f0f08b0);
+        }
+        return (String) invokeI.objValue;
     }
 }

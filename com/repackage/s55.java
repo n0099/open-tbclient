@@ -1,16 +1,16 @@
 package com.repackage;
 
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.mutiprocess.soloader.SoLoaderEvent;
+import android.content.Intent;
+import com.baidu.tbadk.mutiprocess.DataType;
+import com.baidu.tbadk.mutiprocess.ParcelableEvent;
+import com.baidu.tbadk.mutiprocess.SerializableEvent;
+import com.baidu.tbadk.mutiprocess.StickyEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
-public class s55 implements u45<SoLoaderEvent> {
+public class s55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,24 +28,19 @@ public class s55 implements u45<SoLoaderEvent> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.u45
-    /* renamed from: a */
-    public boolean onEvent(SoLoaderEvent soLoaderEvent) {
-        InterceptResult invokeL;
+    public void a(Intent intent, i55 i55Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, soLoaderEvent)) == null) {
-            if (soLoaderEvent == null || StringUtils.isNull(soLoaderEvent.name)) {
-                return false;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, intent, i55Var) == null) {
+            if (i55Var instanceof StickyEvent) {
+                intent.putExtra("value_type", DataType.ORM.ordinal());
+                intent.putExtra("value", (StickyEvent) i55Var);
+            } else if (i55Var instanceof ParcelableEvent) {
+                intent.putExtra("value_type", DataType.PARCELABLE.ordinal());
+                intent.putExtra("value", (ParcelableEvent) i55Var);
+            } else if (i55Var instanceof SerializableEvent) {
+                intent.putExtra("value_type", DataType.SERIALIZABLE.ordinal());
+                intent.putExtra("value", (SerializableEvent) i55Var);
             }
-            if (cm.a(BdBaseApplication.getInst().getContext(), am.a(soLoaderEvent.name))) {
-                ConcurrentHashMap<String, String> resHashMap = BdBaseApplication.getInst().getResHashMap();
-                String str = soLoaderEvent.name;
-                resHashMap.put(str, am.a(str));
-                return true;
-            }
-            return true;
         }
-        return invokeL.booleanValue;
     }
 }

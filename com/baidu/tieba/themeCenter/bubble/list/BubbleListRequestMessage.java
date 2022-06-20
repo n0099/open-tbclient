@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dc5;
+import com.repackage.qc5;
 import tbclient.GetBubbleList.DataReq;
 import tbclient.GetBubbleList.GetBubbleListReqIdl;
 /* loaded from: classes4.dex */
@@ -47,7 +47,7 @@ public class BubbleListRequestMessage extends NetMessage {
             builder.pn = Integer.valueOf(this.pn);
             builder.rn = Integer.valueOf(this.rn);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                dc5.a(builder, true);
+                qc5.a(builder, true);
             }
             GetBubbleListReqIdl.Builder builder2 = new GetBubbleListReqIdl.Builder();
             builder2.data = builder.build(false);

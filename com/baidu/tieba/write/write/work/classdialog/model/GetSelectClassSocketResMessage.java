@@ -1,5 +1,6 @@
 package com.baidu.tieba.write.write.work.classdialog.model;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.data.VideoCategoryClassData;
@@ -45,63 +46,67 @@ public class GetSelectClassSocketResMessage extends SocketResponsedMessage {
         this.tags = new ArrayList();
     }
 
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            GetWorksTagsResIdl getWorksTagsResIdl = (GetWorksTagsResIdl) new Wire(new Class[0]).parseFrom(bArr, GetWorksTagsResIdl.class);
+            if (getWorksTagsResIdl != null) {
+                Error error = getWorksTagsResIdl.error;
+                if (error != null) {
+                    setError(error.errorno.intValue());
+                    setErrorString(getWorksTagsResIdl.error.usermsg);
+                    if (getError() != 0) {
+                        return getWorksTagsResIdl;
+                    }
+                }
+                DataRes dataRes = getWorksTagsResIdl.data;
+                if (dataRes != null) {
+                    List<Category> list = dataRes.category;
+                    if (list != null) {
+                        for (Category category : list) {
+                            this.firstClass.add(category.first_class);
+                            this.secondClass.add(category.second_class);
+                        }
+                    }
+                    List<Tag> list2 = getWorksTagsResIdl.data.tags;
+                    if (list2 != null) {
+                        for (Tag tag : list2) {
+                            VideoCategoryClassData videoCategoryClassData = new VideoCategoryClassData();
+                            videoCategoryClassData.setFirstClass(tag.first_class);
+                            videoCategoryClassData.setSecondClass(tag.second_class);
+                            videoCategoryClassData.setTags(tag.tags);
+                            this.tags.add(videoCategoryClassData);
+                        }
+                    }
+                }
+                this.firstClass.add(0, "一级分类");
+                ArrayList arrayList = new ArrayList();
+                arrayList.add("二级分类");
+                this.secondClass.add(0, arrayList);
+            }
+            return getWorksTagsResIdl;
+        }
+        return invokeIL.objValue;
+    }
+
     public List<String> getFirstClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.firstClass : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.firstClass : (List) invokeV.objValue;
     }
 
     public List<List<String>> getSecondClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.secondClass : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.secondClass : (List) invokeV.objValue;
     }
 
     public List<VideoCategoryClassData> getTags() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.tags : (List) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        GetWorksTagsResIdl getWorksTagsResIdl;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getWorksTagsResIdl = (GetWorksTagsResIdl) new Wire(new Class[0]).parseFrom(bArr, GetWorksTagsResIdl.class)) == null) {
-            return;
-        }
-        Error error = getWorksTagsResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(getWorksTagsResIdl.error.usermsg);
-            if (getError() != 0) {
-                return;
-            }
-        }
-        DataRes dataRes = getWorksTagsResIdl.data;
-        if (dataRes != null) {
-            List<Category> list = dataRes.category;
-            if (list != null) {
-                for (Category category : list) {
-                    this.firstClass.add(category.first_class);
-                    this.secondClass.add(category.second_class);
-                }
-            }
-            List<Tag> list2 = getWorksTagsResIdl.data.tags;
-            if (list2 != null) {
-                for (Tag tag : list2) {
-                    VideoCategoryClassData videoCategoryClassData = new VideoCategoryClassData();
-                    videoCategoryClassData.setFirstClass(tag.first_class);
-                    videoCategoryClassData.setSecondClass(tag.second_class);
-                    videoCategoryClassData.setTags(tag.tags);
-                    this.tags.add(videoCategoryClassData);
-                }
-            }
-        }
-        this.firstClass.add(0, "一级分类");
-        ArrayList arrayList = new ArrayList();
-        arrayList.add("二级分类");
-        this.secondClass.add(0, arrayList);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.tags : (List) invokeV.objValue;
     }
 }

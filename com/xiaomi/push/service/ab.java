@@ -1,44 +1,64 @@
 package com.xiaomi.push.service;
 
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.mipush.sdk.ErrorCode;
-import com.xiaomi.push.service.av;
+import com.xiaomi.push.Cif;
+import com.xiaomi.push.gh;
+import com.xiaomi.push.service.XMPushService;
 /* loaded from: classes8.dex */
-public final class ab implements av.b.a {
+public final class ab extends XMPushService.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ XMPushService a;
+    public final /* synthetic */ Cif a;
 
-    public ab(XMPushService xMPushService) {
+    /* renamed from: a  reason: collision with other field name */
+    public final /* synthetic */ XMPushService f871a;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ab(int i, XMPushService xMPushService, Cif cif) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xMPushService};
+            Object[] objArr = {Integer.valueOf(i), xMPushService, cif};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = xMPushService;
+        this.f871a = xMPushService;
+        this.a = cif;
     }
 
-    @Override // com.xiaomi.push.service.av.b.a
-    public void a(av.c cVar, av.c cVar2, int i) {
+    @Override // com.xiaomi.push.service.XMPushService.j
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, cVar, cVar2, i) == null) {
-            if (cVar2 == av.c.c) {
-                p.a(this.a);
-                p.b(this.a);
-            } else if (cVar2 == av.c.a) {
-                p.a(this.a, ErrorCode.ERROR_SERVICE_UNAVAILABLE, " the push is not connected.");
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "send ack message for obsleted message." : (String) invokeV.objValue;
+    }
+
+    @Override // com.xiaomi.push.service.XMPushService.j
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            try {
+                Cif a = y.a((Context) this.f871a, this.a);
+                a.m460a().a("message_obsleted", "1");
+                ah.a(this.f871a, a);
+            } catch (gh e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
+                this.f871a.a(10, e);
             }
         }
     }

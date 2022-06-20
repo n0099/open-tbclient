@@ -1,43 +1,25 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.barselect.data.CommitCardInfoHttpResMsg;
+import com.baidu.tieba.barselect.data.CommitCardInfoReqMsg;
+import com.baidu.tieba.barselect.data.CommitCardInfoSocketResMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qw5;
 /* loaded from: classes6.dex */
-public abstract class ov5<T extends qw5> extends nv5<T> {
+public class ov5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout i;
-    public TextView j;
-    public TextView k;
-    public TextView l;
-    public View m;
-    public View n;
-    public View o;
-    public ImageView p;
-    public LinearLayout q;
-    public View r;
-    public View s;
+    public TbPageContext a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ov5(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public ov5(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,133 +29,29 @@ public abstract class ov5<T extends qw5> extends nv5<T> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = null;
-        this.j = null;
-        this.k = null;
-        this.l = null;
-        this.m = null;
-        this.n = null;
-        this.o = null;
-        this.q = null;
-        t(k());
+        this.a = tbPageContext;
+        SocketMessageTask socketMessageTask = new SocketMessageTask(309643);
+        socketMessageTask.setResponsedClass(CommitCardInfoSocketResMsg.class);
+        MessageManager.getInstance().registerTask(socketMessageTask);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMMIT_CARD_INFO, bh8.a(TbConfig.URL_COMMIT_CARD_INFO, 309643));
+        tbHttpMessageTask.setResponsedClass(CommitCardInfoHttpResMsg.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    @Override // com.repackage.nv5
-    public final int d() {
-        InterceptResult invokeV;
+    public void a(String str, int i, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0191 : invokeV.intValue;
-    }
-
-    @Override // com.repackage.nv5
-    public void m(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            if (this.a != i) {
-                s();
-            }
-            this.a = i;
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && this.l == view2 && view2 != null && (view2.getTag() instanceof String)) {
-            String str = (String) view2.getTag();
-            if (StringUtils.isNull(str)) {
-                return;
-            }
-            UrlManager.getInstance().dealOneLink(j(), new String[]{str});
-        }
-    }
-
-    @SuppressLint({"ResourceAsColor"})
-    public final void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (c() != null && c().equals(PersonPolymericActivityConfig.VIDEO_PERSON_FROM_HOME)) {
-                SkinManager.setViewTextColor(this.j, R.color.CAM_X0109, 1);
-                this.p.setVisibility(8);
-            } else {
-                SkinManager.setViewTextColor(this.j, R.color.CAM_X0106, 1);
-                SkinManager.setImageResource(this.p, R.drawable.icon_arrow_tab);
-            }
-            SkinManager.setViewTextColor(this.k, R.color.CAM_X0304, 1);
-            SkinManager.setViewTextColor(this.l, R.color.CAM_X0109, 1);
-            SkinManager.setBackgroundColor(k(), R.color.CAM_X0201);
-            SkinManager.setBackgroundColor(this.m, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(this.n, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(this.o, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(this.r, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(this.s, R.color.CAM_X0204);
-        }
-    }
-
-    public final void t(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
-            this.i = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f4c);
-            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f40);
-            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f67);
-            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f2c);
-            this.m = view2.findViewById(R.id.obfuscated_res_0x7f0907e3);
-            this.n = view2.findViewById(R.id.obfuscated_res_0x7f0907e0);
-            this.o = view2.findViewById(R.id.obfuscated_res_0x7f0907dd);
-            this.q = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0904ef);
-            this.r = view2.findViewById(R.id.obfuscated_res_0x7f0907d1);
-            this.s = view2.findViewById(R.id.obfuscated_res_0x7f0907d2);
-            this.p = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f66);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.nv5
-    /* renamed from: u */
-    public void l(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
-            if (t == null) {
-                k().setVisibility(8);
-                return;
-            }
-            this.j.setText(t.mGroupTitle);
-            int i = t.mRightIconResId;
-            if (i > 0) {
-                this.k.setBackgroundResource(i);
-            }
-            if (t.showTopDivider) {
-                this.s.setVisibility(0);
-            } else {
-                this.s.setVisibility(8);
-            }
-            if (t.showBottomDivider) {
-                this.r.setVisibility(0);
-            } else {
-                this.r.setVisibility(8);
-            }
-            if (!StringUtils.isNull(t.mBottomText)) {
-                this.l.setVisibility(0);
-                this.o.setVisibility(0);
-                this.n.setVisibility(0);
-                this.l.setText(t.mBottomText);
-                String str = t.mBottomLink;
-                if (StringUtils.isNull(str)) {
-                    return;
-                }
-                this.l.setTag(str);
-                this.l.setOnClickListener(this);
-                return;
-            }
-            this.l.setVisibility(8);
-            this.o.setVisibility(8);
-            this.n.setVisibility(8);
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
+            CommitCardInfoReqMsg commitCardInfoReqMsg = new CommitCardInfoReqMsg();
+            commitCardInfoReqMsg.resource_id = str;
+            commitCardInfoReqMsg.card_type = i;
+            commitCardInfoReqMsg.image_info = str2;
+            commitCardInfoReqMsg.setTag(this.a.getUniqueId());
+            MessageManager.getInstance().sendMessage(commitCardInfoReqMsg);
         }
     }
 }

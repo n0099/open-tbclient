@@ -1,24 +1,23 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.content.Context;
+import android.net.Uri;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.service.RouterService;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.browser.WebViewBroadcastReceiver;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetMemberTaskList.PointTaskInfo;
-import tbclient.GetVipInfo.VipTaskItem;
 /* loaded from: classes5.dex */
-public class eh7 {
+public class eh7 implements RouterService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public int d;
-    public int e;
-    public int f;
 
     public eh7() {
         Interceptable interceptable = $ic;
@@ -34,108 +33,90 @@ public class eh7 {
         }
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.live.interfaces.service.RouterService
+    public void invoke(Context context, String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : invokeV.intValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.longValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d == 1 : invokeV.booleanValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f : invokeV.intValue;
-    }
-
-    public void h(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            this.a = j;
-        }
-    }
-
-    public eh7(VipTaskItem vipTaskItem) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vipTaskItem};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = vipTaskItem.task_id.intValue();
-        this.b = vipTaskItem.title;
-        this.c = vipTaskItem.desc;
-        String str = vipTaskItem.img_url;
-        String str2 = vipTaskItem.link;
-        this.d = vipTaskItem.is_finish.intValue();
-    }
-
-    public eh7(PointTaskInfo pointTaskInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pointTaskInfo};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        if (pointTaskInfo == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) || StringUtils.isNull(str)) {
             return;
         }
-        this.a = pointTaskInfo.task_id.longValue();
-        this.b = pointTaskInfo.task_name;
-        this.c = pointTaskInfo.task_intro;
-        this.d = pointTaskInfo.is_finish.intValue();
-        this.e = pointTaskInfo.points_add.intValue();
-        this.f = pointTaskInfo.type.intValue();
+        StringBuilder sb = new StringBuilder();
+        sb.append(str);
+        if (str.indexOf("?") > 0) {
+            sb.append("&");
+        } else {
+            sb.append("?");
+        }
+        sb.append(WebViewBroadcastReceiver.INTENT_LOCALE_RECEV_CLOSE);
+        sb.append("=1");
+        sb.append("&page_from=live");
+        Activity b = z8.g().b();
+        if (b != null) {
+            UrlManager.getInstance().dealOneLink((TbPageContext) h9.a(b), new String[]{sb.toString()}, true);
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.RouterService
+    public void invokeScheme(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str) == null) || StringUtils.isNull(str)) {
+            return;
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append(str);
+        if (str.indexOf("?") > 0) {
+            sb.append("&");
+        } else {
+            sb.append("?");
+        }
+        sb.append(WebViewBroadcastReceiver.INTENT_LOCALE_RECEV_CLOSE);
+        sb.append("=1");
+        sb.append("&page_from=live");
+        Activity b = z8.g().b();
+        if (b != null) {
+            UrlManager.getInstance().dealOneLink((TbPageContext) h9.a(b), new String[]{sb.toString()}, true);
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.RouterService
+    public boolean invokeSchemeWithCallBack(Context context, Uri uri, String str, RouterService.LiveShowSchemeCallBack liveShowSchemeCallBack) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, context, uri, str, liveShowSchemeCallBack)) == null) {
+            return false;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.RouterService
+    public void openScheme(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || StringUtils.isNull(str)) {
+            return;
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append(str);
+        if (str.indexOf("?") > 0) {
+            sb.append("&");
+        } else {
+            sb.append("?");
+        }
+        sb.append(WebViewBroadcastReceiver.INTENT_LOCALE_RECEV_CLOSE);
+        sb.append("=1");
+        sb.append("&page_from=live");
+        Activity b = z8.g().b();
+        if (b != null) {
+            UrlManager.getInstance().dealOneLink((TbPageContext) h9.a(b), new String[]{sb.toString()}, true);
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.RouterService
+    public boolean invokeScheme(Uri uri, String str, RouterService.LiveShowSchemeCallBack liveShowSchemeCallBack) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, uri, str, liveShowSchemeCallBack)) == null) {
+            openScheme(uri.toString());
+            return true;
+        }
+        return invokeLLL.booleanValue;
     }
 }

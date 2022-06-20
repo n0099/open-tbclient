@@ -1,44 +1,95 @@
 package com.repackage;
 
-import android.os.Build;
-import android.view.Window;
-import android.view.WindowManager;
+import android.app.Activity;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
 /* loaded from: classes6.dex */
 public class ho8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
+    public static void a(ar4 ar4Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                return 2038;
-            }
-            return i;
-        }
-        return invokeI.intValue;
-    }
-
-    public static void b(int i, WindowManager.LayoutParams layoutParams, Window window) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeILL(65537, null, i, layoutParams, window) == null) || layoutParams == null || window == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65536, null, ar4Var, i) == null) || ar4Var == null || i < 0) {
             return;
         }
-        try {
-            Field declaredField = layoutParams.getClass().getDeclaredField("layoutInDisplayCutoutMode");
-            if (declaredField != null) {
-                declaredField.set(layoutParams, Integer.valueOf(i));
-                window.setAttributes(layoutParams);
+        int i2 = i + 1;
+        boolean d = ar4Var.d();
+        TiebaStatic.log(new StatisticItem("c14633").param("uid", String.valueOf(TbadkCoreApplication.getCurrentAccountId())).param("obj_locate", i2).param("obj_type", d ? 2 : 1));
+    }
+
+    public static boolean b(Activity activity, int i, String str) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, activity, i, str)) == null) {
+            if (d(i)) {
+                e(activity, str);
+                return true;
             }
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (NoSuchFieldException e2) {
-            e2.printStackTrace();
+            return false;
         }
+        return invokeLIL.booleanValue;
+    }
+
+    public static String c(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            if (view2 == null) {
+                return null;
+            }
+            Object tag = view2.getTag();
+            if (tag instanceof PostData) {
+                PostData postData = (PostData) tag;
+                if (postData.s() != null) {
+                    return postData.s().getUserId();
+                }
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i == 1990059 : invokeI.booleanValue;
+    }
+
+    public static void e(Activity activity, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, str) == null) || activity == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        g((ViewGroup) activity.findViewById(16908290), str, false);
+    }
+
+    public static void f(View view2, PostData postData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, view2, postData) == null) || view2 == null) {
+            return;
+        }
+        view2.setTag(postData);
+    }
+
+    public static void g(ViewGroup viewGroup, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLZ(65542, null, viewGroup, str, z) == null) || viewGroup == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        BdTopToast bdTopToast = new BdTopToast(viewGroup.getContext());
+        bdTopToast.i(z);
+        bdTopToast.h(str);
+        bdTopToast.j(viewGroup);
     }
 }

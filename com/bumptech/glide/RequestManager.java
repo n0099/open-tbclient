@@ -370,7 +370,7 @@ public class RequestManager implements LifecycleListener, ModelTypes<RequestBuil
     public void setRequestOptions(@NonNull RequestOptions requestOptions) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048616, this, requestOptions) == null) {
-            this.requestOptions = requestOptions.m99clone().autoClone();
+            this.requestOptions = requestOptions.m75clone().autoClone();
         }
     }
 

@@ -10,11 +10,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ka;
+import com.repackage.na;
 /* loaded from: classes.dex */
 public abstract class BdBaseService extends Service {
     public static /* synthetic */ Interceptable $ic = null;
-    public static ka sCallBack = null;
+    public static na sCallBack = null;
     public static int serviceStartFlag = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -47,10 +47,10 @@ public abstract class BdBaseService extends Service {
         }
     }
 
-    public static void setServiceOnCreateCallBack(ka kaVar) {
+    public static void setServiceOnCreateCallBack(na naVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, kaVar) == null) {
-            sCallBack = kaVar;
+        if (interceptable == null || interceptable.invokeL(65538, null, naVar) == null) {
+            sCallBack = naVar;
         }
     }
 
@@ -59,9 +59,9 @@ public abstract class BdBaseService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.onCreate();
-            ka kaVar = sCallBack;
-            if (kaVar != null) {
-                kaVar.onServiceCreate();
+            na naVar = sCallBack;
+            if (naVar != null) {
+                naVar.onServiceCreate();
             }
         }
     }

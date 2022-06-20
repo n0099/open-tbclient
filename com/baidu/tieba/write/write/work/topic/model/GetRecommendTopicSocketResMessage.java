@@ -1,5 +1,6 @@
 package com.baidu.tieba.write.write.work.topic.model;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.zy8;
+import com.repackage.hz8;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
@@ -16,7 +17,7 @@ import tbclient.GetRecommendTopic.GetRecommendTopicResIdl;
 import tbclient.GetRecommendTopic.TopicList;
 import tbclient.GetRecommendTopic.TopicListModule;
 /* loaded from: classes4.dex */
-public class GetRecommendTopicSocketResMessage extends SocketResponsedMessage implements zy8 {
+public class GetRecommendTopicSocketResMessage extends SocketResponsedMessage implements hz8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TopicListModule recommendTopic;
@@ -39,11 +40,37 @@ public class GetRecommendTopicSocketResMessage extends SocketResponsedMessage im
         }
     }
 
-    @Override // com.repackage.zy8
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            GetRecommendTopicResIdl getRecommendTopicResIdl = (GetRecommendTopicResIdl) new Wire(new Class[0]).parseFrom(bArr, GetRecommendTopicResIdl.class);
+            if (getRecommendTopicResIdl != null) {
+                Error error = getRecommendTopicResIdl.error;
+                if (error != null) {
+                    setError(error.errorno.intValue());
+                    setErrorString(getRecommendTopicResIdl.error.usermsg);
+                    if (getError() != 0) {
+                        return getRecommendTopicResIdl;
+                    }
+                }
+                DataRes dataRes = getRecommendTopicResIdl.data;
+                if (dataRes != null) {
+                    this.recommendTopic = dataRes.recommend_topic;
+                }
+            }
+            return getRecommendTopicResIdl;
+        }
+        return invokeIL.objValue;
+    }
+
+    @Override // com.repackage.hz8
     public List<TopicList> getTopicList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             TopicListModule topicListModule = this.recommendTopic;
             if (topicListModule != null) {
                 return topicListModule.topic_list;
@@ -51,27 +78,5 @@ public class GetRecommendTopicSocketResMessage extends SocketResponsedMessage im
             return null;
         }
         return (List) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        GetRecommendTopicResIdl getRecommendTopicResIdl;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getRecommendTopicResIdl = (GetRecommendTopicResIdl) new Wire(new Class[0]).parseFrom(bArr, GetRecommendTopicResIdl.class)) == null) {
-            return;
-        }
-        Error error = getRecommendTopicResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(getRecommendTopicResIdl.error.usermsg);
-            if (getError() != 0) {
-                return;
-            }
-        }
-        DataRes dataRes = getRecommendTopicResIdl.data;
-        if (dataRes != null) {
-            this.recommendTopic = dataRes.recommend_topic;
-        }
     }
 }

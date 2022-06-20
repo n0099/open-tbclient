@@ -21,13 +21,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class VideoCoverSelectActivity extends BaseActivity<VideoCoverSelectActivity> implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View mBack;
-    public CoverSelectLayout mCoverSelsctLayout;
-    public String mImagePath;
-    public NavigationBar mNavigationBar;
-    public TextView mSave;
-    public TextView mTitle;
-    public int mType;
+    public CoverSelectLayout a;
+    public NavigationBar b;
+    public View c;
+    public TextView d;
+    public TextView e;
+    public int f;
+    public String g;
 
     public VideoCoverSelectActivity() {
         Interceptable interceptable = $ic;
@@ -43,10 +43,10 @@ public class VideoCoverSelectActivity extends BaseActivity<VideoCoverSelectActiv
         }
     }
 
-    private void generateUriAndReturn() {
+    public final void A1() {
         Bitmap c;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (c = this.mCoverSelsctLayout.c()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (c = this.a.c()) == null) {
             return;
         }
         String str = getIntent().getBooleanExtra(AlbumActivityConfig.KEY_DIRECT_TO_WORK_PUBLISH_PAGE, false) ? "tbNewVideo/temp/" : "tbVideo/temp/";
@@ -57,37 +57,37 @@ public class VideoCoverSelectActivity extends BaseActivity<VideoCoverSelectActiv
         finish();
     }
 
-    public void initView() {
+    public void B1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.mCoverSelsctLayout = (CoverSelectLayout) findViewById(R.id.obfuscated_res_0x7f0906fb);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09238d);
-            this.mNavigationBar = navigationBar;
-            TextView centerTextTitle = navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0e63));
-            this.mTitle = centerTextTitle;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = (CoverSelectLayout) findViewById(R.id.obfuscated_res_0x7f0906e6);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09237a);
+            this.b = navigationBar;
+            TextView centerTextTitle = navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0e6b));
+            this.d = centerTextTitle;
             centerTextTitle.setTextColor(getResources().getColor(R.color.CAM_X0101));
-            View addSystemImageButton = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.mBack = addSystemImageButton;
-            ((ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f092442)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0809ec));
-            TextView addTextButton = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.obfuscated_res_0x7f0f0c3e));
-            this.mSave = addTextButton;
+            View addSystemImageButton = this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.c = addSystemImageButton;
+            ((ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f09242f)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0809d7));
+            TextView addTextButton = this.b.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.obfuscated_res_0x7f0f0c42));
+            this.e = addTextButton;
             addTextButton.setTextColor(getResources().getColor(R.color.CAM_X0101));
-            this.mBack.setOnClickListener(this);
-            this.mSave.setOnClickListener(this);
-            this.mCoverSelsctLayout.setVisibility(0);
-            this.mCoverSelsctLayout.setClipType(this.mType);
-            this.mCoverSelsctLayout.setImagSrc(this.mImagePath);
+            this.c.setOnClickListener(this);
+            this.e.setOnClickListener(this);
+            this.a.setVisibility(0);
+            this.a.setClipType(this.f);
+            this.a.setImagSrc(this.g);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            if (view2 == this.mBack) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            if (view2 == this.c) {
                 finish();
-            } else if (view2 == this.mSave) {
-                generateUriAndReturn();
+            } else if (view2 == this.e) {
+                A1();
             }
         }
     }
@@ -95,16 +95,16 @@ public class VideoCoverSelectActivity extends BaseActivity<VideoCoverSelectActiv
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             setContentView(R.layout.obfuscated_res_0x7f0d0030);
             if (getIntent() != null) {
-                this.mType = getIntent().getIntExtra(VideoCoverSelectActivityConfig.KEY_VIDEO_COVER_TYPE, 1);
-                this.mImagePath = getIntent().getStringExtra(VideoCoverSelectActivityConfig.KEY_VIDEO_COVER_IMAGE_PATH);
+                this.f = getIntent().getIntExtra(VideoCoverSelectActivityConfig.KEY_VIDEO_COVER_TYPE, 1);
+                this.g = getIntent().getStringExtra(VideoCoverSelectActivityConfig.KEY_VIDEO_COVER_IMAGE_PATH);
             }
-            initView();
-            this.mCoverSelsctLayout.setClipType(this.mType);
+            B1();
+            this.a.setClipType(this.f);
         }
     }
 }

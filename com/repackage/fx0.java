@@ -1,12 +1,9 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.nadcore.requester.NadRequester;
-import com.baidu.nadcore.requester.RequestParameters;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface fx0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "adRequester");
-
-    void a(@NonNull RequestParameters requestParameters, @NonNull NadRequester.b bVar);
+public final class fx0 implements gs0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 }

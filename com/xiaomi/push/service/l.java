@@ -1,107 +1,138 @@
 package com.xiaomi.push.service;
 
+import android.content.ComponentName;
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ProviderInfo;
+import android.content.pm.ResolveInfo;
+import android.content.pm.ServiceInfo;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.service.av;
-import java.util.Locale;
+import java.util.List;
 /* loaded from: classes8.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
 
-    /* renamed from: a  reason: collision with other field name */
-    public final String f943a;
-    public final String b;
-    public final String c;
-    public final String d;
-    public final String e;
-    public final String f;
-
-    public l(String str, String str2, String str3, String str4, String str5, String str6, int i) {
+    public static ComponentName a(Context context, Intent intent) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4, str5, str6, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, intent)) == null) {
+            if (intent != null) {
+                try {
+                    ResolveInfo resolveActivity = context.getPackageManager().resolveActivity(intent, 65536);
+                    if (resolveActivity != null) {
+                        return new ComponentName(resolveActivity.activityInfo.packageName, resolveActivity.activityInfo.name);
+                    }
+                    return null;
+                } catch (Exception unused) {
+                    return null;
+                }
             }
+            return null;
         }
-        this.f943a = str;
-        this.b = str2;
-        this.c = str3;
-        this.d = str4;
-        this.e = str5;
-        this.f = str6;
-        this.a = i;
+        return (ComponentName) invokeLL.objValue;
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public static boolean a(Context context, ComponentName componentName) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, componentName)) == null) {
             try {
-                return com.xiaomi.push.t.a(null, "miui.os.Build").getField("IS_ALPHA_BUILD").getBoolean(null);
+                new Intent().setComponent(componentName);
+                context.getPackageManager().getActivityInfo(componentName, 128);
+                return true;
             } catch (Exception unused) {
                 return false;
             }
         }
-        return invokeV.booleanValue;
+        return invokeLL.booleanValue;
     }
 
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
+    public static boolean a(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? "com.xiaomi.xmsf".equals(context.getPackageName()) && a() : invokeL.booleanValue;
-    }
-
-    public static boolean b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? context.getPackageName().equals("com.xiaomi.xmsf") : invokeL.booleanValue;
-    }
-
-    public av.b a(XMPushService xMPushService) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, xMPushService)) == null) {
-            av.b bVar = new av.b(xMPushService);
-            a(bVar, xMPushService, xMPushService.b(), "c");
-            return bVar;
-        }
-        return (av.b) invokeL.objValue;
-    }
-
-    public av.b a(av.b bVar, Context context, e eVar, String str) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, context, eVar, str)) == null) {
-            bVar.f892a = context.getPackageName();
-            bVar.f895b = this.f943a;
-            bVar.h = this.c;
-            bVar.c = this.b;
-            bVar.g = "5";
-            bVar.d = "XMPUSH-PASS";
-            bVar.f894a = false;
-            bVar.e = String.format("%1$s:%2$s,%3$s:%4$s,%5$s:%6$s:%7$s:%8$s,%9$s:%10$s,%11$s:%12$s", "sdk_ver", 43, "cpvn", "3_8_5", "cpvc", 30805, "aapn", b(context) ? com.xiaomi.push.g.b(context) : "", "country_code", a.a(context).b(), "region", a.a(context).a());
-            bVar.f = String.format("%1$s:%2$s,%3$s:%4$s,%5$s:%6$s,sync:1", "appid", b(context) ? "1000271" : this.d, "locale", Locale.getDefault().toString(), com.xiaomi.mipush.sdk.Constants.EXTRA_KEY_MIID, com.xiaomi.push.t.a(context));
-            if (a(context)) {
-                bVar.f += String.format(",%1$s:%2$s", "ab", str);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+            try {
+                ServiceInfo[] serviceInfoArr = context.getPackageManager().getPackageInfo(str, 4).services;
+                if (serviceInfoArr != null) {
+                    for (ServiceInfo serviceInfo : serviceInfoArr) {
+                        if (serviceInfo.exported && serviceInfo.enabled && "com.xiaomi.mipush.sdk.PushMessageHandler".equals(serviceInfo.name) && !context.getPackageName().equals(serviceInfo.packageName)) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+                return false;
+            } catch (PackageManager.NameNotFoundException e) {
+                com.xiaomi.channel.commonutils.logger.b.m84a("checkService " + e);
+                return false;
             }
-            bVar.f891a = eVar;
-            return bVar;
         }
-        return (av.b) invokeLLLL.objValue;
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean a(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, str, str2)) == null) {
+            try {
+                PackageManager packageManager = context.getPackageManager();
+                Intent intent = new Intent(str2);
+                intent.setPackage(str);
+                List<ResolveInfo> queryIntentServices = packageManager.queryIntentServices(intent, 32);
+                if (queryIntentServices != null) {
+                    return !queryIntentServices.isEmpty();
+                }
+                return false;
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.m84a("checkService action: " + str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + e);
+                return false;
+            }
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static boolean b(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            boolean z = false;
+            try {
+                List<ProviderInfo> queryContentProviders = context.getPackageManager().queryContentProviders(null, 0, 8);
+                if (queryContentProviders != null && !queryContentProviders.isEmpty()) {
+                    for (ProviderInfo providerInfo : queryContentProviders) {
+                        if (providerInfo.enabled && providerInfo.exported && providerInfo.authority.equals(str)) {
+                            z = true;
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.m84a("checkProvider " + e);
+            }
+            return z;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean b(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, context, str, str2)) == null) {
+            try {
+                PackageManager packageManager = context.getPackageManager();
+                Intent intent = new Intent(str2);
+                intent.setPackage(str);
+                return packageManager.resolveActivity(intent, 65536) != null;
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.m84a("checkActivity action: " + str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + e);
+                return false;
+            }
+        }
+        return invokeLLL.booleanValue;
     }
 }

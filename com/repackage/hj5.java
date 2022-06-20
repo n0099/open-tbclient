@@ -1,6 +1,5 @@
 package com.repackage;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,16 +7,41 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import tbclient.GetAddressList.DataRes;
-import tbclient.GetAddressList.listData;
-import tbclient.GetAddressList.robotsList;
 /* loaded from: classes6.dex */
 public class hj5 {
     public static /* synthetic */ Interceptable $ic;
+    public static hj5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<lj5> a;
-    public List<lj5> b;
+    public volatile HashMap<String, List<a>> a;
+
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public HashMap<String, Object> b;
+
+        public a(String str, HashMap<String, Object> hashMap) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, hashMap};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = hashMap;
+        }
+    }
 
     public hj5() {
         Interceptable interceptable = $ic;
@@ -29,87 +53,56 @@ public class hj5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new HashMap<>();
     }
 
-    public List<lj5> a() {
+    public static hj5 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a == null) {
-                this.a = new ArrayList();
-            }
-            return this.a;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final boolean b(List<lj5> list, px4 px4Var) {
-        InterceptResult invokeLL;
-        List<px4> a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, px4Var)) == null) {
-            if (list != null && px4Var != null) {
-                for (lj5 lj5Var : list) {
-                    if (lj5Var != null && (a = lj5Var.a()) != null) {
-                        for (px4 px4Var2 : a) {
-                            if (px4Var2 != null && px4Var2.d() == px4Var.d()) {
-                                return true;
-                            }
-                        }
-                        continue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (hj5.class) {
+                    if (b == null) {
+                        b = new hj5();
                     }
                 }
             }
-            return false;
+            return b;
         }
-        return invokeLL.booleanValue;
+        return (hj5) invokeV.objValue;
     }
 
-    public boolean c(DataRes dataRes) {
+    public void a(String str, String str2, HashMap<String, Object> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, hashMap) == null) {
+            List<a> list = this.a.get(str);
+            if (list == null) {
+                list = new ArrayList<>();
+                this.a.put(str, list);
+            }
+            list.add(new a(str2, hashMap));
+        }
+    }
+
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.a.remove(str);
+        }
+    }
+
+    public List<a> d(String str) {
         InterceptResult invokeL;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes)) == null) {
-            if (dataRes == null || dataRes.robots_list == null) {
-                z = false;
-            } else {
-                this.b = new ArrayList();
-                z = false;
-                for (robotsList robotslist : dataRes.robots_list) {
-                    if (TextUtils.isEmpty(robotslist.key)) {
-                        z = true;
-                    } else {
-                        lj5 lj5Var = new lj5();
-                        lj5Var.d(robotslist);
-                        this.b.add(lj5Var);
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (this.a.containsKey(str)) {
+                return this.a.get(str);
             }
-            if (dataRes != null && dataRes.address_list != null) {
-                this.a = new ArrayList();
-                for (listData listdata : dataRes.address_list) {
-                    if (TextUtils.isEmpty(listdata.key)) {
-                        z = true;
-                    } else {
-                        lj5 lj5Var2 = new lj5();
-                        lj5Var2.c(listdata);
-                        if (lj5Var2.a() != null) {
-                            for (px4 px4Var : lj5Var2.a()) {
-                                if (b(this.b, px4Var)) {
-                                    px4Var.q(1);
-                                } else {
-                                    px4Var.q(0);
-                                }
-                            }
-                        }
-                        this.a.add(lj5Var2);
-                    }
-                }
-            }
-            return z;
+            return new ArrayList();
         }
-        return invokeL.booleanValue;
+        return (List) invokeL.objValue;
     }
 }

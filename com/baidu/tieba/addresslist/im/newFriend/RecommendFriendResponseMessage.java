@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.n37;
+import com.repackage.x47;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public class RecommendFriendResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<n37> mDatas;
+    public List<x47> mDatas;
     public int mErrCode;
     public String mErrMsg;
 
@@ -59,25 +59,25 @@ public class RecommendFriendResponseMessage extends JsonHttpResponsedMessage {
                 }
                 this.mDatas = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    n37 n37Var = new n37();
+                    x47 x47Var = new x47();
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
-                    n37Var.h(jSONObject2.optLong("user_id"));
-                    n37Var.j(jSONObject2.optString("user_name"));
-                    n37Var.k(jSONObject2.optString("portrait"));
-                    n37Var.g(jSONObject2.optString("message"));
+                    x47Var.h(jSONObject2.optLong("user_id"));
+                    x47Var.j(jSONObject2.optString("user_name"));
+                    x47Var.k(jSONObject2.optString("portrait"));
+                    x47Var.g(jSONObject2.optString("message"));
                     if (jSONObject2.optInt("type") == 0) {
-                        n37Var.l(0);
+                        x47Var.l(0);
                     } else {
-                        n37Var.l(1);
+                        x47Var.l(1);
                     }
-                    n37Var.i(1);
-                    this.mDatas.add(n37Var);
+                    x47Var.i(1);
+                    this.mDatas.add(x47Var);
                 }
             }
         }
     }
 
-    public List<n37> getDatas() {
+    public List<x47> getDatas() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDatas : (List) invokeV.objValue;

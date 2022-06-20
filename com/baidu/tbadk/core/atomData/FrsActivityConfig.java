@@ -24,13 +24,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jc5;
-import com.repackage.jg;
-import com.repackage.ki;
-import com.repackage.li;
-import com.repackage.q78;
-import com.repackage.xn6;
-/* loaded from: classes2.dex */
+import com.repackage.ap6;
+import com.repackage.ng;
+import com.repackage.oi;
+import com.repackage.pi;
+import com.repackage.x88;
+import com.repackage.xc5;
+/* loaded from: classes3.dex */
 public class FrsActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALA_IS_ONLIVING = "ala_is_living";
@@ -201,55 +201,55 @@ public class FrsActivityConfig extends IntentConfig {
                 i = 6;
             }
             if (UbsABTestHelper.isFrsNewAreaTabSortTestA() && FrsTabTestHelper.HAVE_NOT_RECORD_SORT != FrsTabTestHelper.getFrsNewAreaTabSort()) {
-                frsRequestData.K(xn6.d(FrsTabTestHelper.getFrsNewAreaTabSort()));
+                frsRequestData.L(ap6.d(FrsTabTestHelper.getFrsNewAreaTabSort()));
             }
-            frsRequestData.setSortType(xn6.d(i));
+            frsRequestData.setSortType(ap6.d(i));
             if (i == 5) {
-                frsRequestData.N(1);
+                frsRequestData.O(1);
             } else {
-                frsRequestData.N(0);
+                frsRequestData.O(0);
             }
-            frsRequestData.y("forum_name", ki.getUrlEncode(stringExtra));
-            frsRequestData.y("client_type", "2");
+            frsRequestData.z("forum_name", oi.getUrlEncode(stringExtra));
+            frsRequestData.z("client_type", "2");
             frsRequestData.setPn(1);
             frsRequestData.setCallFrom(intExtra);
-            xn6.e(i, frsRequestData);
-            frsRequestData.V("2");
-            frsRequestData.W("-2");
-            frsRequestData.P(stringExtra);
-            frsRequestData.c0(1);
-            frsRequestData.H(0);
-            frsRequestData.b0(li.k(TbadkCoreApplication.getInst()));
-            frsRequestData.a0(li.i(TbadkCoreApplication.getInst()));
-            frsRequestData.Z(li.h(TbadkCoreApplication.getInst()));
-            frsRequestData.e0(TbImageHelper.getInstance().isShowBigImage() ? 2 : 1);
+            ap6.e(i, frsRequestData);
+            frsRequestData.W("2");
+            frsRequestData.X("-2");
+            frsRequestData.Q(stringExtra);
+            frsRequestData.d0(1);
+            frsRequestData.I(0);
+            frsRequestData.c0(pi.k(TbadkCoreApplication.getInst()));
+            frsRequestData.b0(pi.i(TbadkCoreApplication.getInst()));
+            frsRequestData.a0(pi.h(TbadkCoreApplication.getInst()));
+            frsRequestData.f0(TbImageHelper.getInstance().isShowBigImage() ? 2 : 1);
             if (uri != null) {
-                frsRequestData.Y(uri.toString());
+                frsRequestData.Z(uri.toString());
             }
-            frsRequestData.R(null);
-            frsRequestData.d0(stringExtra3);
-            frsRequestData.Q(jg.g(jc5.a(), 0L));
+            frsRequestData.S(null);
+            frsRequestData.e0(stringExtra3);
+            frsRequestData.R(ng.g(xc5.a(), 0L));
             frsRequestData.setStType(stringExtra2);
-            frsRequestData.M(1);
+            frsRequestData.N(1);
             frsRequestData.setNeedCache(true);
             frsRequestData.setUpdateType(3);
-            frsRequestData.L(longExtra);
-            xn6.e(i, frsRequestData);
-            frsRequestData.T(1);
-            if (ThreadData.isRecAppLoaded.get() && q78.l().b() != null) {
-                int d = q78.l().b().d(stringExtra, false);
-                int e = q78.l().b().e(stringExtra, false);
-                if (frsRequestData.D() == 1) {
+            frsRequestData.M(longExtra);
+            ap6.e(i, frsRequestData);
+            frsRequestData.U(1);
+            if (ThreadData.isRecAppLoaded.get() && x88.l().b() != null) {
+                int d = x88.l().b().d(stringExtra, false);
+                int e = x88.l().b().e(stringExtra, false);
+                if (frsRequestData.E() == 1) {
                     d++;
-                } else if (frsRequestData.D() == 2) {
+                } else if (frsRequestData.E() == 2) {
                     e++;
                 }
-                frsRequestData.X(d);
-                frsRequestData.S(e);
+                frsRequestData.Y(d);
+                frsRequestData.T(e);
             }
             FrsNetModel frsNetModel = new FrsNetModel(null, frsRequestData);
             frsNetModel.setUniqueId(this.mPageId);
-            frsNetModel.a0(frsNetModel);
+            frsNetModel.b0(frsNetModel);
             TbadkCoreApplication.getInst().getFrsModeArray().put(this.mPageId.getId(), frsNetModel);
             frsNetModel.loadData();
         }

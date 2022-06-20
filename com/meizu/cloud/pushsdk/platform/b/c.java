@@ -5,10 +5,10 @@ import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
 import android.text.TextUtils;
+import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
-import com.repackage.ni9;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.ScheduledExecutorService;
@@ -70,7 +70,7 @@ public abstract class c<T extends BasicPushStatus> {
                 }
             }
         }
-        ni9.d("Strategy", "current process packageName " + this.a);
+        DebugLogger.i("Strategy", "current process packageName " + this.a);
         return str2;
     }
 
@@ -80,7 +80,7 @@ public abstract class c<T extends BasicPushStatus> {
             intent.setAction(PushConstants.MZ_PUSH_MANAGER_SERVICE_ACTION);
             this.e.startService(intent);
         } catch (Exception e) {
-            ni9.b("Strategy", "start RemoteService error " + e.getMessage());
+            DebugLogger.e("Strategy", "start RemoteService error " + e.getMessage());
         }
     }
 
@@ -150,13 +150,13 @@ public abstract class c<T extends BasicPushStatus> {
         String str;
         if (a()) {
             if (k()) {
-                ni9.d("Strategy", "send message to remote service");
+                DebugLogger.i("Strategy", "send message to remote service");
                 if (l()) {
                     t = null;
                 } else {
                     t = f();
                     if (t != null) {
-                        ni9.b("Strategy", "local response " + t);
+                        DebugLogger.e("Strategy", "local response " + t);
                         a((c<T>) t);
                     }
                 }
@@ -166,7 +166,7 @@ public abstract class c<T extends BasicPushStatus> {
                 }
                 Intent[] d = d();
                 if (d != null) {
-                    ni9.b("Strategy", "send sendRpcRequests length " + d.length);
+                    DebugLogger.e("Strategy", "send sendRpcRequests length " + d.length);
                     for (Intent intent : d) {
                         a(intent);
                     }
@@ -174,7 +174,7 @@ public abstract class c<T extends BasicPushStatus> {
                 MzSystemUtils.sendMessageFromBroadcast(this.e, new Intent("com.meizu.cloud.pushservice.action.PUSH_SERVICE_START"), null, this.e.getPackageName());
             } else {
                 t = e();
-                ni9.d("Strategy", "real response status " + t);
+                DebugLogger.i("Strategy", "real response status " + t);
                 if (t != null) {
                     if (l() && "20000".equals(t.getCode())) {
                         return true;
@@ -194,16 +194,16 @@ public abstract class c<T extends BasicPushStatus> {
                             str = "service error so notify pushManager invoker code=" + intValue + " message " + t.getMessage();
                         }
                     }
-                    ni9.b("Strategy", str);
+                    DebugLogger.e("Strategy", str);
                 }
             }
             if (t == null) {
-                ni9.b("Strategy", "current status code " + t.getCode());
+                DebugLogger.e("Strategy", "current status code " + t.getCode());
                 return true ^ b((c<T>) t);
             }
             return true;
         }
-        ni9.b("Strategy", "Missing required parameters");
+        DebugLogger.e("Strategy", "Missing required parameters");
         t = b();
         a((c<T>) t);
         if (t == null) {
@@ -213,7 +213,7 @@ public abstract class c<T extends BasicPushStatus> {
     public String o() {
         if (TextUtils.isEmpty(this.i)) {
             this.i = MzSystemUtils.getDeviceId(this.e);
-            ni9.b("Strategy", "deviceId " + this.i);
+            DebugLogger.e("Strategy", "deviceId " + this.i);
         }
         return this.i;
     }

@@ -1,43 +1,22 @@
 package com.repackage;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.math.BigInteger;
-/* loaded from: classes6.dex */
-public class qz {
+import java.nio.ByteBuffer;
+/* loaded from: classes7.dex */
+public final class qz {
     public static /* synthetic */ Interceptable $ic;
-    public static byte[] a;
-    public static byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a() {
-        InterceptResult invokeV;
+    public static void a(ByteBuffer byteBuffer, ByteBuffer byteBuffer2, ByteBuffer byteBuffer3, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            byte[] bArr = b;
-            if (bArr != null) {
-                return bArr;
+        if (interceptable == null || interceptable.invokeLLLI(65536, null, byteBuffer, byteBuffer2, byteBuffer3, i) == null) {
+            if (i < 0 || byteBuffer2.remaining() < i || byteBuffer3.remaining() < i || byteBuffer.remaining() < i) {
+                throw new IllegalArgumentException("That combination of buffers, offsets and length to xor result in out-of-bond accesses.");
             }
-            byte[] byteArray = new BigInteger(pz.c).modPow(new BigInteger(pz.d), new BigInteger(pz.e)).toByteArray();
-            b = byteArray;
-            return byteArray;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public static byte[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            byte[] bArr = a;
-            if (bArr != null) {
-                return bArr;
+            for (int i2 = 0; i2 < i; i2++) {
+                byteBuffer.put((byte) (byteBuffer2.get() ^ byteBuffer3.get()));
             }
-            byte[] byteArray = new BigInteger(pz.a).modPow(new BigInteger(pz.b), new BigInteger(pz.e)).toByteArray();
-            a = byteArray;
-            return byteArray;
         }
-        return (byte[]) invokeV.objValue;
     }
 }

@@ -10,6 +10,7 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
+import com.baidu.sofire.core.ForHostApp;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
@@ -23,25 +24,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ar6;
-import com.repackage.b9;
-import com.repackage.br6;
-import com.repackage.ig8;
-import com.repackage.wy6;
-import com.repackage.xx6;
-import com.repackage.y88;
-import com.repackage.yx6;
+import com.repackage.bh8;
+import com.repackage.d9;
+import com.repackage.ds6;
+import com.repackage.es6;
+import com.repackage.f07;
+import com.repackage.fa8;
+import com.repackage.gz6;
+import com.repackage.hz6;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class ChannelTabNetFeedModel extends BdBaseModel implements yx6 {
+public class ChannelTabNetFeedModel extends BdBaseModel implements hz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public boolean b;
     public int c;
     public String d;
-    public xx6 e;
-    public br6 f;
+    public gz6 e;
+    public es6 f;
     public HttpMessageListener g;
 
     /* loaded from: classes3.dex */
@@ -80,7 +81,7 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements yx6 {
                 if (httpResponsedMessage == null || !(httpResponsedMessage instanceof HomePageChannelTabHttpResponsedMessage)) {
                     return;
                 }
-                ar6 ar6Var = ((HomePageChannelTabHttpResponsedMessage) httpResponsedMessage).channelTabRespData;
+                ds6 ds6Var = ((HomePageChannelTabHttpResponsedMessage) httpResponsedMessage).channelTabRespData;
                 this.a.mErrorCode = httpResponsedMessage.getError();
                 this.a.mErrorString = httpResponsedMessage.getErrorString();
                 ErrorData errorData = new ErrorData();
@@ -89,28 +90,28 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements yx6 {
                 if (this.a.e == null) {
                     return;
                 }
-                if (this.a.mErrorCode != 0 || ar6Var == null) {
-                    this.a.e.onServerError(errorData);
+                if (this.a.mErrorCode != 0 || ds6Var == null) {
+                    this.a.e.f(errorData);
                 } else {
-                    this.a.H(ar6Var);
+                    this.a.I(ds6Var);
                 }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ChannelTabNetFeedModel(TbPageContext tbPageContext, xx6 xx6Var) {
+    public ChannelTabNetFeedModel(TbPageContext tbPageContext, gz6 gz6Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, xx6Var};
+            Object[] objArr = {tbPageContext, gz6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((b9) newInitContext.callArgs[0]);
+                super((d9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -120,12 +121,12 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements yx6 {
         this.b = false;
         this.c = 1;
         this.g = new a(this, CmdConfigHttp.CMD_HOME_CHANNEL_TAB_LIST);
-        ig8.e(CmdConfigHttp.CMD_HOME_CHANNEL_TAB_LIST, TbConfig.CMD_HMEPAGE_CHANNEL_LIST, HomePageChannelTabHttpResponsedMessage.class, true, true, true, true);
-        this.f = new br6();
-        this.e = xx6Var;
+        bh8.e(CmdConfigHttp.CMD_HOME_CHANNEL_TAB_LIST, TbConfig.CMD_HMEPAGE_CHANNEL_LIST, HomePageChannelTabHttpResponsedMessage.class, true, true, true, true);
+        this.f = new es6();
+        this.e = gz6Var;
     }
 
-    public final void G(int i) {
+    public final void H(int i) {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -140,8 +141,8 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements yx6 {
             httpMessage.addParam("tab_code", this.d);
             httpMessage.addParam(Config.PACKAGE_NAME, i2);
             httpMessage.addParam("rn", 20);
-            if ("local".equals(this.d)) {
-                httpMessage.addParam("app_pos", y88.e().b());
+            if (ForHostApp.KEY_NAME_LOCAL.equals(this.d)) {
+                httpMessage.addParam("app_pos", fa8.e().b());
             }
             ChannelIconConfigFinalData c = TbSingleton.getInstance().getChannelConfigModel().c();
             if (c != null && !TextUtils.isEmpty(c.getTid())) {
@@ -153,36 +154,46 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements yx6 {
         }
     }
 
-    public final void H(ar6 ar6Var) {
+    public final void I(ds6 ds6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ar6Var) == null) || this.e == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ds6Var) == null) || this.e == null) {
             return;
         }
-        wy6 b = this.f.b(this.c, this.a, ar6Var);
+        f07 b = this.f.b(this.c, this.a, ds6Var);
         if (b != null) {
             this.c = b.d;
         }
-        this.e.J(b);
+        this.e.m0(b);
     }
 
-    @Override // com.repackage.yx6
+    @Override // com.repackage.hz6
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            br6 br6Var = this.f;
-            if (br6Var == null) {
+            es6 es6Var = this.f;
+            if (es6Var == null) {
                 return false;
             }
-            return br6Var.d();
+            return es6Var.d();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.yx6
-    public void b(BdUniqueId bdUniqueId) {
+    @Override // com.repackage.hz6
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.b) {
+            return;
+        }
+        this.a = false;
+        H(2);
+    }
+
+    @Override // com.repackage.hz6
+    public void c(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
             setUniqueId(bdUniqueId);
             MessageManager.getInstance().unRegisterListener(this.g);
             this.g.setTag(bdUniqueId);
@@ -195,7 +206,7 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements yx6 {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             cancelMessage();
             return false;
         }
@@ -205,32 +216,32 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements yx6 {
     @Override // com.baidu.adp.base.BdBaseModel
     public void cancelMessage() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.cancelMessage();
             this.b = false;
         }
     }
 
-    @Override // com.repackage.yx6
+    @Override // com.repackage.hz6
     public void destory() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.g);
             this.b = false;
             this.a = true;
         }
     }
 
-    @Override // com.repackage.yx6
-    public List<ThreadData> k() {
+    @Override // com.repackage.hz6
+    public List<ThreadData> l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            br6 br6Var = this.f;
-            if (br6Var == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            es6 es6Var = this.f;
+            if (es6Var == null) {
                 return null;
             }
-            return br6Var.c();
+            return es6Var.c();
         }
         return (List) invokeV.objValue;
     }
@@ -239,37 +250,27 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements yx6 {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.yx6
-    public void loadMore() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.b) {
-            return;
-        }
-        this.a = false;
-        G(2);
-    }
-
-    @Override // com.repackage.yx6
-    public void q(String str, String str2, int i) {
+    @Override // com.repackage.hz6
+    public void r(String str, String str2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048586, this, str, str2, i) == null) {
             this.d = str;
         }
     }
 
-    @Override // com.repackage.yx6
+    @Override // com.repackage.hz6
     public void refresh() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.b) {
             return;
         }
         this.a = true;
-        G(1);
+        H(1);
     }
 }

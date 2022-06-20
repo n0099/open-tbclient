@@ -52,7 +52,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
-import com.repackage.gd1;
+import com.repackage.rd1;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -968,7 +968,7 @@ public final class SapiAccountManager implements ISAccountManager {
             return;
         }
         sapiConfiguration2.setAgreeDangerousProtocol(z);
-        gd1.c().h(sapiConfiguration2.context, sapiConfiguration2.isAgreeDangerousProtocol());
+        rd1.c().h(sapiConfiguration2.context, sapiConfiguration2.isAgreeDangerousProtocol());
         sapiConfiguration2.clientIp = SapiUtils.getLocalIpAddress();
         if (sapiConfiguration2.supportFaceLogin) {
             new PassBiometricCall().setFaceModuleAgreeDangerousProtocol(z);

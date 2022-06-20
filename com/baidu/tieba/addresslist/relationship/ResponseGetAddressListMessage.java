@@ -1,5 +1,6 @@
 package com.baidu.tieba.addresslist.relationship;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -8,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hj5;
-import com.repackage.ys4;
+import com.repackage.ek5;
+import com.repackage.ht4;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetAddressList.GetAddressListResIdl;
@@ -17,7 +18,7 @@ import tbclient.GetAddressList.GetAddressListResIdl;
 public class ResponseGetAddressListMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hj5 mAddressListData;
+    public ek5 mAddressListData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseGetAddressListMessage() {
@@ -37,39 +38,43 @@ public class ResponseGetAddressListMessage extends SocketResponsedMessage {
         }
     }
 
-    public hj5 getAddressListData() {
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            GetAddressListResIdl getAddressListResIdl = (GetAddressListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetAddressListResIdl.class);
+            if (getAddressListResIdl != null) {
+                if (getAddressListResIdl.data != null) {
+                    ek5 ek5Var = new ek5();
+                    this.mAddressListData = ek5Var;
+                    if (ek5Var.c(getAddressListResIdl.data)) {
+                        ht4 k = ht4.k();
+                        k.u("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
+                    }
+                }
+                Error error = getAddressListResIdl.error;
+                if (error != null) {
+                    setError(error.errorno.intValue());
+                    setErrorString(getAddressListResIdl.error.errmsg);
+                }
+            }
+            return getAddressListResIdl;
+        }
+        return invokeIL.objValue;
+    }
+
+    public ek5 getAddressListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mAddressListData : (hj5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAddressListData : (ek5) invokeV.objValue;
     }
 
-    public void setAddressListData(hj5 hj5Var) {
+    public void setAddressListData(ek5 ek5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, hj5Var) == null) {
-            this.mAddressListData = hj5Var;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        GetAddressListResIdl getAddressListResIdl;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getAddressListResIdl = (GetAddressListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetAddressListResIdl.class)) == null) {
-            return;
-        }
-        if (getAddressListResIdl.data != null) {
-            hj5 hj5Var = new hj5();
-            this.mAddressListData = hj5Var;
-            if (hj5Var.c(getAddressListResIdl.data)) {
-                ys4 k = ys4.k();
-                k.u("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
-            }
-        }
-        Error error = getAddressListResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(getAddressListResIdl.error.errmsg);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ek5Var) == null) {
+            this.mAddressListData = ek5Var;
         }
     }
 }

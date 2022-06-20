@@ -1,23 +1,30 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class rr0 extends hr0 {
+public class rr0 implements or0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ko0 c;
+    public int a;
+    @NonNull
+    public po0 b;
+    public ViewGroup c;
 
-    public rr0(@NonNull ko0 ko0Var) {
+    public rr0(@NonNull po0 po0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ko0Var};
+            Object[] objArr = {po0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,26 +34,64 @@ public class rr0 extends hr0 {
                 return;
             }
         }
-        this.c = ko0Var;
+        this.a = -1;
+        this.b = po0Var;
     }
 
-    public final void b(int i, int i2, int i3) {
+    public void a(boolean z, @Nullable Activity activity) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) || i2 <= 0) {
+        if (interceptable == null || interceptable.invokeZL(1048576, this, z, activity) == null) {
+            if (z) {
+                int i = this.a;
+                if (i != -1) {
+                    n01.d(activity, i);
+                    return;
+                }
+                return;
+            }
+            n01.f(activity);
+        }
+    }
+
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public void b(@Nullable Activity activity) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) || activity == null) {
             return;
         }
-        this.c.y().p(i, (i3 * 100) / i2, i2);
+        rw0.b("NormalSwitchHelper", "SCREEN_ORIENTATION_PORTRAIT ");
+        activity.setRequestedOrientation(1);
+        activity.getWindow().clearFlags(1024);
+        tw0.l(activity);
     }
 
-    @Override // com.repackage.lr0
-    public void doTask() {
+    @Override // com.repackage.or0
+    public void switchToFullStyle() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int C = this.c.C();
-            int r = this.c.r();
-            int p = this.c.p();
-            this.c.q().j(C, r, p);
-            b(C, r, p);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c = this.b.n();
+            this.b.Y0(true);
+            Activity activity = this.b.getActivity();
+            a(true, activity);
+            sw0.b(activity, this.b.X0());
+            sw0.c(activity, true);
+            tw0.b(activity, this.b.v());
         }
+    }
+
+    @Override // com.repackage.or0
+    public void switchToNormalStyle() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.c == null) {
+            return;
+        }
+        this.c = this.b.n();
+        this.b.Y0(false);
+        Activity activity = this.b.getActivity();
+        a(false, activity);
+        b(activity);
+        tw0.k(this.b.v());
+        tw0.j(this.b.n());
+        tw0.c(this.b.v(), this.c);
     }
 }

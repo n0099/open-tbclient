@@ -29,10 +29,6 @@ public final class R$dimen {
     public static final int notification_subtext_size = 2131166597;
     public static final int notification_top_pad = 2131166598;
     public static final int notification_top_pad_large_text = 2131166599;
-    public static final int subtitle_corner_radius = 2131166717;
-    public static final int subtitle_outline_width = 2131166718;
-    public static final int subtitle_shadow_offset = 2131166719;
-    public static final int subtitle_shadow_radius = 2131166720;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$dimen() {

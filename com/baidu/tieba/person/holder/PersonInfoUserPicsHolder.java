@@ -15,11 +15,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ey7;
-import com.repackage.jn;
-import com.repackage.li;
-import com.repackage.my7;
-import com.repackage.ny7;
+import com.repackage.lz7;
+import com.repackage.nn;
+import com.repackage.pi;
+import com.repackage.tz7;
+import com.repackage.uz7;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -30,7 +30,7 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
     public View b;
     public TextView c;
     public HTypeListView d;
-    public my7 e;
+    public tz7 e;
     public int f;
     public TbPageContext g;
 
@@ -55,19 +55,19 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
         this.f = 3;
         this.a = view2;
         this.g = tbPageContext;
-        this.b = view2.findViewById(R.id.obfuscated_res_0x7f0907ee);
+        this.b = view2.findViewById(R.id.obfuscated_res_0x7f0907d9);
         this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f48);
-        HTypeListView hTypeListView = (HTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f091252);
+        HTypeListView hTypeListView = (HTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f091247);
         this.d = hTypeListView;
-        this.e = new my7(this.g, hTypeListView);
+        this.e = new tz7(this.g, hTypeListView);
     }
 
-    public void c(ny7 ny7Var) {
+    public void c(uz7 uz7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, ny7Var) == null) || ny7Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, uz7Var) == null) || uz7Var == null) {
             return;
         }
-        this.e.c(e(ny7Var.a()));
+        this.e.c(e(uz7Var.a()));
     }
 
     public void d() {
@@ -82,7 +82,7 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
         this.e.b();
     }
 
-    public final List<jn> e(List<jn> list) {
+    public final List<nn> e(List<nn> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
@@ -90,9 +90,9 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
                 return list;
             }
             ArrayList arrayList = new ArrayList(list);
-            ey7 ey7Var = new ey7(li.f(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f070207), li.f(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f07023f));
-            ListUtils.add(arrayList, 0, ey7Var);
-            ListUtils.add(arrayList, ey7Var);
+            lz7 lz7Var = new lz7(pi.f(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f070207), pi.f(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f07023f));
+            ListUtils.add(arrayList, 0, lz7Var);
+            ListUtils.add(arrayList, lz7Var);
             return arrayList;
         }
         return (List) invokeL.objValue;

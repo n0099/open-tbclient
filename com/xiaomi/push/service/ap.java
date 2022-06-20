@@ -1,25 +1,34 @@
 package com.xiaomi.push.service;
 
-import android.app.Notification;
-import android.content.ContentResolver;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Build;
-import android.provider.Settings;
+import android.os.Process;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.xiaomi.push.dw;
+import com.xiaomi.push.fh;
+import com.yy.hiidostatis.inner.FlushManager;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.net.Socket;
+import java.util.List;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
 /* loaded from: classes8.dex */
 public class ap {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
+    public static long a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final String[] f878a;
+    public static ThreadPoolExecutor f897a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public static final Pattern f898a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,114 +44,103 @@ public class ap {
                 return;
             }
         }
-        f878a = new String[]{"com.mi.globalbrowser", "com.android.browser"};
+        f898a = Pattern.compile("([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})");
+        a = 0L;
+        f897a = new ThreadPoolExecutor(1, 1, 20L, TimeUnit.SECONDS, new LinkedBlockingQueue());
     }
 
-    public static int a(ContentResolver contentResolver) {
+    public static String a(String str) {
         InterceptResult invokeL;
+        BufferedReader bufferedReader;
+        Throwable th;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, contentResolver)) == null) {
-            if (Build.VERSION.SDK_INT >= 17) {
-                try {
-                    return Settings.Global.getInt(contentResolver, "user_aggregate", 0);
-                } catch (Exception e) {
-                    com.xiaomi.channel.commonutils.logger.b.m108a("get user aggregate failed, " + e);
-                }
-            }
-            return 0;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, str)) != null) {
+            return (String) invokeL.objValue;
         }
-        return invokeL.intValue;
-    }
-
-    public static int a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) ? com.xiaomi.push.g.b(context, str) : invokeLL.intValue;
-    }
-
-    public static String a(Notification notification) {
-        InterceptResult invokeL;
-        Object a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, notification)) == null) {
-            String str = null;
+        try {
+            bufferedReader = new BufferedReader(new FileReader(new File(str)));
             try {
-                if (Build.VERSION.SDK_INT >= 19 && notification.extras != null) {
-                    str = notification.extras.getString("target_package");
-                }
-                return (!TextUtils.isEmpty(str) || (a2 = com.xiaomi.push.bh.a(notification, "extraNotification")) == null) ? str : (String) com.xiaomi.push.bh.a(a2, "getTargetPkg", new Object[0]);
-            } catch (Exception unused) {
-                return str;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void a(Notification notification, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, notification, str) == null) {
-            try {
-                if (Build.VERSION.SDK_INT >= 19 && notification.extras != null) {
-                    notification.extras.putString("target_package", str);
-                }
-                Object a2 = com.xiaomi.push.bh.a(notification, "extraNotification");
-                if (a2 != null) {
-                    com.xiaomi.push.bh.a(a2, "setTargetPkg", str);
-                }
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    public static void a(Context context, Intent intent) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, context, intent) == null) {
-            int i = -1;
-            while (true) {
-                str = i < 0 ? a : f878a[i];
-                if (!TextUtils.isEmpty(str)) {
-                    intent.setPackage(str);
-                    try {
-                        if (context.getPackageManager().resolveActivity(intent, 65536) != null) {
-                            break;
-                        }
-                    } catch (Exception e) {
-                        com.xiaomi.channel.commonutils.logger.b.m108a("not found xm browser:" + e);
+                StringBuilder sb = new StringBuilder();
+                while (true) {
+                    String readLine = bufferedReader.readLine();
+                    if (readLine == null) {
+                        String sb2 = sb.toString();
+                        com.xiaomi.push.ab.a(bufferedReader);
+                        return sb2;
                     }
+                    sb.append("\n");
+                    sb.append(readLine);
                 }
-                i++;
-                if (i >= f878a.length) {
-                    str = null;
-                    break;
-                }
+            } catch (Exception unused) {
+                com.xiaomi.push.ab.a(bufferedReader);
+                return null;
+            } catch (Throwable th2) {
+                th = th2;
+                com.xiaomi.push.ab.a(bufferedReader);
+                throw th;
             }
-            intent.setPackage(str);
-            a = str;
+        } catch (Exception unused2) {
+            bufferedReader = null;
+        } catch (Throwable th3) {
+            bufferedReader = null;
+            th = th3;
         }
     }
 
-    public static boolean a(Notification.Builder builder, boolean z) {
-        InterceptResult invokeLZ;
+    public static void a() {
+        dw.a m647a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, null, builder, z)) == null) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                builder.setGroupAlertBehavior(z ? 2 : 1);
-                return true;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if ((f897a.getActiveCount() <= 0 || currentTimeMillis - a >= FlushManager.ReportTimer.DEFAULT_INTERVAL) && fh.m323a().m328a() && (m647a = bv.a().m647a()) != null && m647a.e() > 0) {
+                a = currentTimeMillis;
+                a(m647a.a(), true);
             }
-            com.xiaomi.channel.commonutils.logger.b.b("not support setGroupAlertBehavior");
-            return false;
         }
-        return invokeLZ.booleanValue;
     }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public static boolean m636a(ContentResolver contentResolver) {
+    public static void a(List<String> list, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65539, null, list, z) == null) {
+            f897a.execute(new aq(list, z));
+        }
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            String a2 = a("/proc/self/net/tcp");
+            if (!TextUtils.isEmpty(a2)) {
+                com.xiaomi.channel.commonutils.logger.b.m84a("dump tcp for uid = " + Process.myUid());
+                com.xiaomi.channel.commonutils.logger.b.m84a(a2);
+            }
+            String a3 = a("/proc/self/net/tcp6");
+            if (TextUtils.isEmpty(a3)) {
+                return;
+            }
+            com.xiaomi.channel.commonutils.logger.b.m84a("dump tcp6 for uid = " + Process.myUid());
+            com.xiaomi.channel.commonutils.logger.b.m84a(a3);
+        }
+    }
+
+    public static boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, contentResolver)) == null) {
-            int a2 = a(contentResolver);
-            return a2 == 1 || a2 == 2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            try {
+                com.xiaomi.channel.commonutils.logger.b.m84a("ConnectivityTest: begin to connect to " + str);
+                Socket socket = new Socket();
+                socket.connect(com.xiaomi.push.ct.m244a(str, 5222), 5000);
+                socket.setTcpNoDelay(true);
+                long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+                com.xiaomi.channel.commonutils.logger.b.m84a("ConnectivityTest: connect to " + str + " in " + currentTimeMillis2);
+                socket.close();
+                return true;
+            } catch (Throwable th) {
+                com.xiaomi.channel.commonutils.logger.b.d("ConnectivityTest: could not connect to:" + str + " exception: " + th.getClass().getSimpleName() + " description: " + th.getMessage());
+                return false;
+            }
         }
         return invokeL.booleanValue;
     }

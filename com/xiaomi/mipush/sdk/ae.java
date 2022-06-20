@@ -1,43 +1,26 @@
 package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import com.xiaomi.push.al;
+import com.xiaomi.push.hj;
+import com.xiaomi.push.hp;
+import com.xiaomi.push.ht;
+import com.xiaomi.push.hw;
+import com.xiaomi.push.ib;
+import com.xiaomi.push.ii;
+import com.xiaomi.push.it;
+import com.xiaomi.push.service.ba;
+import com.xiaomi.push.service.bb;
 /* loaded from: classes8.dex */
-public class ae {
+public class ae extends al.a {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ae a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with other field name */
-    public Context f40a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public List<w> f41a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1871206941, "Lcom/xiaomi/mipush/sdk/ae;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1871206941, "Lcom/xiaomi/mipush/sdk/ae;");
-        }
-    }
+    public Context a;
 
     public ae(Context context) {
         Interceptable interceptable = $ic;
@@ -45,148 +28,38 @@ public class ae {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f41a = new ArrayList();
-        Context applicationContext = context.getApplicationContext();
-        this.f40a = applicationContext;
-        if (applicationContext == null) {
-            this.f40a = context;
-        }
+        this.a = context;
     }
 
-    public static ae a(Context context) {
-        InterceptResult invokeL;
+    @Override // com.xiaomi.push.al.a
+    /* renamed from: a */
+    public String mo202a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (a == null) {
-                synchronized (ae.class) {
-                    if (a == null) {
-                        a = new ae(context);
-                    }
-                }
-            }
-            return a;
-        }
-        return (ae) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "2" : (String) invokeV.objValue;
     }
 
-    public int a(String str) {
-        InterceptResult invokeL;
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            synchronized (this.f41a) {
-                w wVar = new w();
-                wVar.f79a = str;
-                if (this.f41a.contains(wVar)) {
-                    for (w wVar2 : this.f41a) {
-                        if (wVar2.equals(wVar)) {
-                            return wVar2.a;
-                        }
-                    }
-                }
-                return 0;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public synchronized String a(at atVar) {
-        InterceptResult invokeL;
-        String string;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, atVar)) == null) {
-            synchronized (this) {
-                string = this.f40a.getSharedPreferences("mipush_extra", 0).getString(atVar.name(), "");
-            }
-            return string;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public synchronized void a(at atVar, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, atVar, str) == null) {
-            synchronized (this) {
-                SharedPreferences sharedPreferences = this.f40a.getSharedPreferences("mipush_extra", 0);
-                sharedPreferences.edit().putString(atVar.name(), str).commit();
-            }
-        }
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public void m128a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            synchronized (this.f41a) {
-                w wVar = new w();
-                wVar.a = 0;
-                wVar.f79a = str;
-                if (this.f41a.contains(wVar)) {
-                    this.f41a.remove(wVar);
-                }
-                this.f41a.add(wVar);
-            }
-        }
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public boolean m129a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            synchronized (this.f41a) {
-                w wVar = new w();
-                wVar.f79a = str;
-                return this.f41a.contains(wVar);
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            synchronized (this.f41a) {
-                w wVar = new w();
-                wVar.f79a = str;
-                if (this.f41a.contains(wVar)) {
-                    Iterator<w> it = this.f41a.iterator();
-                    while (true) {
-                        if (!it.hasNext()) {
-                            break;
-                        }
-                        w next = it.next();
-                        if (wVar.equals(next)) {
-                            wVar = next;
-                            break;
-                        }
-                    }
-                }
-                wVar.a++;
-                this.f41a.remove(wVar);
-                this.f41a.add(wVar);
-            }
-        }
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            synchronized (this.f41a) {
-                w wVar = new w();
-                wVar.f79a = str;
-                if (this.f41a.contains(wVar)) {
-                    this.f41a.remove(wVar);
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ba a = ba.a(this.a);
+            ib ibVar = new ib();
+            ibVar.a(bb.a(a, hp.a));
+            ibVar.b(bb.a(a, hp.b));
+            ii iiVar = new ii("-1", false);
+            iiVar.c(ht.p.f498a);
+            iiVar.a(it.a(ibVar));
+            ao.a(this.a).a((ao) iiVar, hj.i, (hw) null);
         }
     }
 }

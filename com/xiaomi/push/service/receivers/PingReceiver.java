@@ -9,10 +9,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.channel.commonutils.logger.b;
-import com.xiaomi.push.er;
+import com.xiaomi.push.eu;
 import com.xiaomi.push.service.ServiceClient;
 import com.xiaomi.push.service.XMPushService;
-import com.xiaomi.push.service.az;
+import com.xiaomi.push.service.bk;
 /* loaded from: classes8.dex */
 public class PingReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
@@ -37,9 +37,12 @@ public class PingReceiver extends BroadcastReceiver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
             b.c(intent.getPackage() + " is the package name");
-            if (!az.o.equals(intent.getAction())) {
-                b.m108a("cancel the old ping timer");
-                er.a();
+            if (XMPushService.m579e()) {
+                return;
+            }
+            if (!bk.p.equals(intent.getAction())) {
+                b.m84a("cancel the old ping timer");
+                eu.a();
             } else if (TextUtils.equals(context.getPackageName(), intent.getPackage())) {
                 b.c("Ping XMChannelService on timer");
                 try {

@@ -20,8 +20,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.w17;
-import com.repackage.wq4;
+import com.repackage.f37;
+import com.repackage.fr4;
 /* loaded from: classes4.dex */
 public class HotVideoViewHolder extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -38,15 +38,15 @@ public class HotVideoViewHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoHotTopicSearchAdapter.a a;
-        public final /* synthetic */ w17 b;
+        public final /* synthetic */ f37 b;
         public final /* synthetic */ VideoHotTopicSearchAdapter c;
 
-        public a(HotVideoViewHolder hotVideoViewHolder, VideoHotTopicSearchAdapter.a aVar, w17 w17Var, VideoHotTopicSearchAdapter videoHotTopicSearchAdapter) {
+        public a(HotVideoViewHolder hotVideoViewHolder, VideoHotTopicSearchAdapter.a aVar, f37 f37Var, VideoHotTopicSearchAdapter videoHotTopicSearchAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hotVideoViewHolder, aVar, w17Var, videoHotTopicSearchAdapter};
+                Object[] objArr = {hotVideoViewHolder, aVar, f37Var, videoHotTopicSearchAdapter};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -57,7 +57,7 @@ public class HotVideoViewHolder extends RecyclerView.ViewHolder {
                 }
             }
             this.a = aVar;
-            this.b = w17Var;
+            this.b = f37Var;
             this.c = videoHotTopicSearchAdapter;
         }
 
@@ -95,59 +95,59 @@ public class HotVideoViewHolder extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        this.a = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092112);
-        this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0920d6);
-        this.c = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0920c4);
-        this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09236e);
-        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09236d);
-        this.f = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f2f);
+        this.a = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09210d);
+        this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0920d1);
+        this.c = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0920bf);
+        this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09235b);
+        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09235a);
+        this.f = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f1e);
     }
 
-    public void a(@NonNull HotVideoViewHolder hotVideoViewHolder, int i, w17 w17Var, TbPageContext tbPageContext, long j, VideoHotTopicSearchAdapter.a aVar, VideoHotTopicSearchAdapter videoHotTopicSearchAdapter) {
+    public void a(@NonNull HotVideoViewHolder hotVideoViewHolder, int i, f37 f37Var, TbPageContext tbPageContext, long j, VideoHotTopicSearchAdapter.a aVar, VideoHotTopicSearchAdapter videoHotTopicSearchAdapter) {
         EMRichTextAnyIconSpan eMRichTextAnyIconSpan;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{hotVideoViewHolder, Integer.valueOf(i), w17Var, tbPageContext, Long.valueOf(j), aVar, videoHotTopicSearchAdapter}) == null) {
-            if (w17Var.i()) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{hotVideoViewHolder, Integer.valueOf(i), f37Var, tbPageContext, Long.valueOf(j), aVar, videoHotTopicSearchAdapter}) == null) {
+            if (f37Var.i()) {
                 this.d.setVisibility(0);
                 this.f.setVisibility(8);
-                wq4 d = wq4.d(this.d);
+                fr4 d = fr4.d(this.d);
                 d.z(R.dimen.T_X09);
                 d.v(R.color.CAM_X0108);
                 return;
             }
             this.d.setVisibility(8);
             this.f.setVisibility(0);
-            if (w17Var.a() > 0) {
+            if (f37Var.a() > 0) {
                 hotVideoViewHolder.b.setVisibility(0);
-                hotVideoViewHolder.b.setText(String.format(tbPageContext.getString(R.string.obfuscated_res_0x7f0f088f), StringHelper.numberUniformFormatExtra(w17Var.a())));
+                hotVideoViewHolder.b.setText(String.format(tbPageContext.getString(R.string.obfuscated_res_0x7f0f088c), StringHelper.numberUniformFormatExtra(f37Var.a())));
             } else {
                 hotVideoViewHolder.b.setVisibility(8);
             }
-            if (!TextUtils.isEmpty(w17Var.b())) {
+            if (!TextUtils.isEmpty(f37Var.b())) {
                 hotVideoViewHolder.c.setVisibility(0);
-                hotVideoViewHolder.c.setText(w17Var.b());
+                hotVideoViewHolder.c.setText(f37Var.b());
             } else {
                 hotVideoViewHolder.c.setVisibility(8);
             }
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(HotSelectActivityConfig.HOT_TOPIC_SING + w17Var.e() + HotSelectActivityConfig.HOT_TOPIC_SING);
-            if (w17Var.j()) {
-                if (j == w17Var.d().longValue()) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(HotSelectActivityConfig.HOT_TOPIC_SING + f37Var.e() + HotSelectActivityConfig.HOT_TOPIC_SING);
+            if (f37Var.j()) {
+                if (j == f37Var.d().longValue()) {
                     spannableStringBuilder.insert(1, (CharSequence) "v");
-                    wq4.d(hotVideoViewHolder.a).v(R.color.CAM_X0304);
-                    eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080a10, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+                    fr4.d(hotVideoViewHolder.a).v(R.color.CAM_X0304);
+                    eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f0809fb, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
                 } else {
                     spannableStringBuilder.insert(1, (CharSequence) "v");
-                    wq4.d(hotVideoViewHolder.a).v(R.color.CAM_X0105);
-                    eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080a10, R.color.CAM_X0105, EMRichTextAnyIconSpan.IconType.WEBP);
+                    fr4.d(hotVideoViewHolder.a).v(R.color.CAM_X0105);
+                    eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f0809fb, R.color.CAM_X0105, EMRichTextAnyIconSpan.IconType.WEBP);
                 }
                 eMRichTextAnyIconSpan.d(VideoHotTopicSearchAdapter.h);
                 eMRichTextAnyIconSpan.b(VideoHotTopicSearchAdapter.h);
                 spannableStringBuilder.setSpan(eMRichTextAnyIconSpan, 1, 2, 17);
             }
             hotVideoViewHolder.a.setText(spannableStringBuilder);
-            wq4.d(hotVideoViewHolder.b).v(R.color.CAM_X0110);
-            wq4.d(hotVideoViewHolder.c).v(R.color.CAM_X0108);
-            hotVideoViewHolder.e.setOnClickListener(new a(this, aVar, w17Var, videoHotTopicSearchAdapter));
+            fr4.d(hotVideoViewHolder.b).v(R.color.CAM_X0110);
+            fr4.d(hotVideoViewHolder.c).v(R.color.CAM_X0108);
+            hotVideoViewHolder.e.setOnClickListener(new a(this, aVar, f37Var, videoHotTopicSearchAdapter));
         }
     }
 }

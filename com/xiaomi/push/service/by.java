@@ -1,53 +1,49 @@
 package com.xiaomi.push.service;
 
-import android.database.ContentObserver;
-import android.os.Handler;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.service.XMPushService;
+import com.xiaomi.push.service.bx;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes8.dex */
-public class by extends ContentObserver {
+public class by implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ XMPushService a;
+    public final /* synthetic */ bx a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public by(XMPushService xMPushService, Handler handler) {
-        super(handler);
+    public by(bx bxVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xMPushService, handler};
+            Object[] objArr = {bxVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Handler) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = xMPushService;
+        this.a = bxVar;
     }
 
-    @Override // android.database.ContentObserver
-    public void onChange(boolean z) {
-        boolean m594f;
+    @Override // java.lang.Runnable
+    public void run() {
+        ConcurrentHashMap concurrentHashMap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            super.onChange(z);
-            m594f = this.a.m594f();
-            com.xiaomi.channel.commonutils.logger.b.m108a("ExtremePowerMode:" + m594f);
-            if (!m594f) {
-                this.a.a(true);
-                return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                concurrentHashMap = this.a.f951a;
+                for (bx.a aVar : concurrentHashMap.values()) {
+                    aVar.run();
+                }
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.m84a("Sync job exception :" + e.getMessage());
             }
-            XMPushService xMPushService = this.a;
-            xMPushService.a(new XMPushService.f(xMPushService, 23, null));
+            this.a.f952a = false;
         }
     }
 }

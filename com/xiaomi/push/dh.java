@@ -1,31 +1,27 @@
 package com.xiaomi.push;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.xiaomi.push.ao;
+import com.xiaomi.push.df;
 /* loaded from: classes8.dex */
-public class dh implements Application.ActivityLifecycleCallbacks {
+public class dh extends ao.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public ao.b a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f218a;
-    public String b;
+    public final /* synthetic */ df f212a;
 
-    public dh(Context context, String str) {
+    public dh(df dfVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {dfVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,84 +31,32 @@ public class dh implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        this.f218a = "";
-        this.a = context;
-        this.f218a = str;
+        this.f212a = dfVar;
     }
 
-    private void a(String str) {
+    @Override // com.xiaomi.push.ao.b
+    public void b() {
+        df.b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, str) == null) {
-            hn hnVar = new hn();
-            hnVar.a(str);
-            hnVar.a(System.currentTimeMillis());
-            hnVar.a(hh.s);
-            dq.a(this.a, hnVar);
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityCreated(Activity activity, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityDestroyed(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityPaused(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-            String localClassName = activity.getLocalClassName();
-            if (TextUtils.isEmpty(this.f218a) || TextUtils.isEmpty(localClassName)) {
-                return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = (df.b) this.f212a.f200a.peek()) != null && bVar.a()) {
+            if (this.f212a.f200a.remove(bVar)) {
+                this.a = bVar;
             }
-            this.b = "";
-            if (!TextUtils.isEmpty("") && !TextUtils.equals(this.b, localClassName)) {
-                this.f218a = "";
-                return;
+            ao.b bVar2 = this.a;
+            if (bVar2 != null) {
+                bVar2.b();
             }
-            a(this.a.getPackageName() + "|" + localClassName + ":" + this.f218a + "," + String.valueOf(System.currentTimeMillis() / 1000));
-            this.f218a = "";
-            this.b = "";
         }
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityResumed(Activity activity) {
+    @Override // com.xiaomi.push.ao.b
+    /* renamed from: c */
+    public void mo260c() {
+        ao.b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                this.b = activity.getLocalClassName();
-            }
-            this.f218a = String.valueOf(System.currentTimeMillis() / 1000);
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bVar = this.a) == null) {
+            return;
         }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStarted(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStopped(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
-        }
+        bVar.mo260c();
     }
 }

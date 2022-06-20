@@ -2,57 +2,87 @@ package com.repackage;
 
 import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kwad.v8.NodeJS;
-import com.repackage.e34;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class h34 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755699192, "Lcom/repackage/h34;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    @NonNull
+    public static RecommendItemModel a(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            RecommendItemModel recommendItemModel = new RecommendItemModel();
+            recommendItemModel.appName = jSONObject.optString("app_name");
+            recommendItemModel.appKey = jSONObject.optString(GameGuideConfigInfo.KEY_APP_KEY);
+            recommendItemModel.iconUrl = jSONObject.optString("icon_url");
+            recommendItemModel.scheme = jSONObject.optString("scheme");
+            recommendItemModel.desc = jSONObject.optString("desc");
+            JSONObject optJSONObject = jSONObject.optJSONObject(NativeConstants.ID_BUTTON);
+            if (optJSONObject != null) {
+                recommendItemModel.buttonText = optJSONObject.optString("text");
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755699192, "Lcom/repackage/h34;");
-                return;
-            }
+            return recommendItemModel;
         }
-        a = rf1.a;
+        return (RecommendItemModel) invokeL.objValue;
     }
 
-    public static void a(@NonNull hz2 hz2Var, @NonNull e34.e eVar) {
+    @NonNull
+    public static g34 b(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, hz2Var, eVar) == null) {
-            long l = hz2Var.V().l("launch_time", 0L);
-            if (l <= 0) {
-                if (a) {
-                    Log.d("GameWebViewStatistic", "doH5GameLoadingFinishStats: launchTime is invalid.");
-                    return;
-                }
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            g34 g34Var = new g34();
+            if (jSONObject == null) {
+                return g34Var;
             }
-            j63 j63Var = new j63();
-            j63Var.a = a63.n(hz2Var.V().G());
-            j63Var.f = hz2Var.getAppId();
-            j63Var.c = hz2Var.V().T();
-            j63Var.b = NodeJS.STARTUP_SCRIPT_NAME;
-            j63Var.g = eVar.a;
-            j63Var.e = eVar.b;
-            j63Var.a("na_start", Long.valueOf(l));
-            j63Var.a("h5_start", Long.valueOf(eVar.c));
-            j63Var.a("h5_finish", Long.valueOf(eVar.d));
-            a63.x("1235", j63Var);
+            JSONObject optJSONObject = jSONObject.optJSONObject("game_center");
+            if (optJSONObject != null) {
+                g34Var.a = a(optJSONObject);
+            }
+            g34Var.b = new ArrayList();
+            JSONArray optJSONArray = jSONObject.optJSONArray("app_list");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    g34Var.b.add(a(optJSONArray.optJSONObject(i)));
+                }
+            }
+            return g34Var;
         }
+        return (g34) invokeL.objValue;
+    }
+
+    @NonNull
+    public static i34 c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            i34 i34Var = new i34();
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                i34Var.a = jSONObject.getInt("errno");
+                i34Var.b = jSONObject.optString("errmsg");
+                i34Var.c = jSONObject.optJSONObject("data");
+                return i34Var;
+            } catch (JSONException e) {
+                i34Var.a = -1;
+                i34Var.b = "network error: response parse failed.";
+                if (cg1.a) {
+                    Log.e("RecommendModelParser", "parseResponseModel error:" + e);
+                }
+                return i34Var;
+            }
+        }
+        return (i34) invokeL.objValue;
     }
 }

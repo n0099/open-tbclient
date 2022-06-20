@@ -15,10 +15,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f9;
-import com.repackage.ki;
-import com.repackage.wq4;
-import com.repackage.yj6;
+import com.repackage.bl6;
+import com.repackage.fr4;
+import com.repackage.h9;
+import com.repackage.oi;
 /* loaded from: classes3.dex */
 public class CardItemDetailListItemLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -145,8 +145,8 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !ki.isEmpty(this.a.d) && (f9.a(this.a.getContext()) instanceof TbPageContext)) {
-                UrlManager.getInstance().dealOneLink((TbPageContext) f9.a(this.a.getContext()), new String[]{this.a.d});
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !oi.isEmpty(this.a.d) && (h9.a(this.a.getContext()) instanceof TbPageContext)) {
+                UrlManager.getInstance().dealOneLink((TbPageContext) h9.a(this.a.getContext()), new String[]{this.a.d});
             }
         }
     }
@@ -176,12 +176,12 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (e == null) {
-                e = getContext().getString(R.string.obfuscated_res_0x7f0f09f0);
+                e = getContext().getString(R.string.obfuscated_res_0x7f0f09f5);
             }
-            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d03e4, this);
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0914c3);
-            this.b = (LimitiedCoTextView) findViewById(R.id.obfuscated_res_0x7f0922ca);
-            this.c = findViewById(R.id.obfuscated_res_0x7f0907c5);
+            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d03e1, this);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0914b5);
+            this.b = (LimitiedCoTextView) findViewById(R.id.obfuscated_res_0x7f0922b7);
+            this.c = findViewById(R.id.obfuscated_res_0x7f0907b0);
             this.b.setOnClickListener(new a(this));
         }
     }
@@ -189,13 +189,13 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            wq4.d(this.a).v(R.color.CAM_X0108);
-            if (ki.isEmpty(this.d)) {
-                wq4 d = wq4.d(this.b);
+            fr4.d(this.a).v(R.color.CAM_X0108);
+            if (oi.isEmpty(this.d)) {
+                fr4 d = fr4.d(this.b);
                 d.w(R.dimen.M_T_X002);
                 d.v(R.color.CAM_X0105);
             } else {
-                wq4 d2 = wq4.d(this.b);
+                fr4 d2 = fr4.d(this.b);
                 d2.w(R.dimen.M_T_X002);
                 d2.v(R.color.CAM_X0304);
             }
@@ -203,12 +203,12 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         }
     }
 
-    public void setData(yj6 yj6Var) {
+    public void setData(bl6 bl6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yj6Var) == null) {
-            this.a.setText(yj6Var.a);
-            this.b.setText(yj6Var.b);
-            this.d = yj6Var.c;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bl6Var) == null) {
+            this.a.setText(bl6Var.a);
+            this.b.setText(bl6Var.b);
+            this.d = bl6Var.c;
         }
     }
 

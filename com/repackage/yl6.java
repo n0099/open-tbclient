@@ -1,26 +1,72 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
-import com.baidu.tieba.R;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: LikeSign.java */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import tbclient.ZoneRight.DataReq;
+import tbclient.ZoneRight.ZoneRightReqIdl;
 /* loaded from: classes7.dex */
-public final /* synthetic */ class yl6 {
+public class yl6 implements r65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public long b;
+    public String c;
+    public int d;
+    public int e;
 
-    public static void a(@NonNull TBSpecificationBtn tBSpecificationBtn) {
+    public yl6() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, tBSpecificationBtn) == null) && UbsABTestHelper.isFrsModifyABTestA()) {
-            Object tag = tBSpecificationBtn.getTag(R.id.obfuscated_res_0x7f090f73);
-            if ((tag instanceof Boolean) && ((Boolean) tag).booleanValue()) {
-                ot4 ot4Var = (ot4) tBSpecificationBtn.getStyleConfig();
-                ot4Var.t(R.color.CAM_X0105);
-                tBSpecificationBtn.setConfig(ot4Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.repackage.t65
+    public Object g(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            DataReq.Builder builder = new DataReq.Builder();
+            qc5.c(builder, true, false, true);
+            builder.forum_id = Long.valueOf(ng.g(this.c, 0L));
+            builder.thread_id = Long.valueOf(this.b);
+            builder.req_type = Integer.valueOf(this.d == 1 ? 2 : 1);
+            ZoneRightReqIdl.Builder builder2 = new ZoneRightReqIdl.Builder();
+            builder2.data = builder.build(false);
+            return builder2.build(false);
+        }
+        return invokeZ.objValue;
+    }
+
+    @Override // com.repackage.q65
+    public HashMap<String, Object> v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    @Override // com.repackage.q65
+    public HashMap<String, String> x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (HashMap) invokeV.objValue;
     }
 }

@@ -55,11 +55,11 @@ public class LocalChannelTopicSelectView extends RelativeLayout implements View.
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01cb, (ViewGroup) this, true);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905af);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905b1);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905ae);
-            this.e = findViewById(R.id.obfuscated_res_0x7f0905b0);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01c8, (ViewGroup) this, true);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09058f);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090591);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f09058e);
+            this.e = findViewById(R.id.obfuscated_res_0x7f090590);
             setOnClickListener(this);
             b();
         }
@@ -73,7 +73,7 @@ public class LocalChannelTopicSelectView extends RelativeLayout implements View.
         }
         this.a = skinType;
         SkinManager.setBackgroundResource(this, R.drawable.forum_selected_view_bg);
-        this.b.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809f5, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
+        this.b.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809e0, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.d, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
         SkinManager.setBackgroundColor(this.e, R.color.CAM_X0210);
@@ -98,7 +98,7 @@ public class LocalChannelTopicSelectView extends RelativeLayout implements View.
     public void setLocalChannelTopic(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a44, str));
+            this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a48, str));
         }
     }
 

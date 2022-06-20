@@ -66,7 +66,7 @@ public final class a implements Closeable {
 
     /* renamed from: com.kwad.sdk.core.diskcache.kwai.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public final class C0294a {
+    public final class C0302a {
         public final b b;
         public final boolean[] c;
         public boolean d;
@@ -74,8 +74,8 @@ public final class a implements Closeable {
 
         /* renamed from: com.kwad.sdk.core.diskcache.kwai.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0295a extends FilterOutputStream {
-            public C0295a(OutputStream outputStream) {
+        public class C0303a extends FilterOutputStream {
+            public C0303a(OutputStream outputStream) {
                 super(outputStream);
             }
 
@@ -84,7 +84,7 @@ public final class a implements Closeable {
                 try {
                     ((FilterOutputStream) this).out.close();
                 } catch (IOException unused) {
-                    C0294a.this.d = true;
+                    C0302a.this.d = true;
                 }
             }
 
@@ -93,7 +93,7 @@ public final class a implements Closeable {
                 try {
                     ((FilterOutputStream) this).out.flush();
                 } catch (IOException unused) {
-                    C0294a.this.d = true;
+                    C0302a.this.d = true;
                 }
             }
 
@@ -102,7 +102,7 @@ public final class a implements Closeable {
                 try {
                     ((FilterOutputStream) this).out.write(i);
                 } catch (IOException unused) {
-                    C0294a.this.d = true;
+                    C0302a.this.d = true;
                 }
             }
 
@@ -111,19 +111,19 @@ public final class a implements Closeable {
                 try {
                     ((FilterOutputStream) this).out.write(bArr, i, i2);
                 } catch (IOException unused) {
-                    C0294a.this.d = true;
+                    C0302a.this.d = true;
                 }
             }
         }
 
-        public C0294a(b bVar) {
+        public C0302a(b bVar) {
             this.b = bVar;
             this.c = bVar.d ? null : new boolean[a.this.i];
         }
 
         public OutputStream a(int i) {
             FileOutputStream fileOutputStream;
-            C0295a c0295a;
+            C0303a c0303a;
             if (i < 0 || i >= a.this.i) {
                 throw new IllegalArgumentException("Expected index " + i + " to be greater than 0 and less than the maximum value count of " + a.this.i);
             }
@@ -145,9 +145,9 @@ public final class a implements Closeable {
                         return a.p;
                     }
                 }
-                c0295a = new C0295a(fileOutputStream);
+                c0303a = new C0303a(fileOutputStream);
             }
-            return c0295a;
+            return c0303a;
         }
 
         public void a() {
@@ -170,7 +170,7 @@ public final class a implements Closeable {
         public final String b;
         public final long[] c;
         public boolean d;
-        public C0294a e;
+        public C0302a e;
         public long f;
 
         public b(String str) {
@@ -252,7 +252,7 @@ public final class a implements Closeable {
         this.h = j;
     }
 
-    private synchronized C0294a a(String str, long j) {
+    private synchronized C0302a a(String str, long j) {
         i();
         e(str);
         b bVar = this.l.get(str);
@@ -263,12 +263,12 @@ public final class a implements Closeable {
             } else if (bVar.e != null) {
                 return null;
             }
-            C0294a c0294a = new C0294a(bVar);
-            bVar.e = c0294a;
+            C0302a c0302a = new C0302a(bVar);
+            bVar.e = c0302a;
             Writer writer = this.k;
             writer.write("DIRTY " + str + '\n');
             this.k.flush();
-            return c0294a;
+            return c0302a;
         }
         return null;
     }
@@ -308,18 +308,18 @@ public final class a implements Closeable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void a(C0294a c0294a, boolean z) {
-        b bVar = c0294a.b;
-        if (bVar.e != c0294a) {
+    public synchronized void a(C0302a c0302a, boolean z) {
+        b bVar = c0302a.b;
+        if (bVar.e != c0302a) {
             throw new IllegalStateException();
         }
         if (z && !bVar.d) {
             for (int i = 0; i < this.i; i++) {
-                if (!c0294a.c[i]) {
-                    c0294a.b();
+                if (!c0302a.c[i]) {
+                    c0302a.b();
                     throw new IllegalStateException("Newly created entry didn't create value for index " + i);
                 } else if (!bVar.b(i).exists()) {
-                    c0294a.b();
+                    c0302a.b();
                     return;
                 }
             }
@@ -400,7 +400,7 @@ public final class a implements Closeable {
             bVar.e = null;
             bVar.a(split);
         } else if (indexOf2 == -1 && indexOf == 5 && str.startsWith("DIRTY")) {
-            bVar.e = new C0294a(bVar);
+            bVar.e = new C0302a(bVar);
         } else if (indexOf2 == -1 && indexOf == 4 && str.startsWith("READ")) {
         } else {
             throw new IOException("unexpected journal line: " + str);
@@ -549,7 +549,7 @@ public final class a implements Closeable {
         return this.c;
     }
 
-    public C0294a b(String str) {
+    public C0302a b(String str) {
         return a(str, -1L);
     }
 

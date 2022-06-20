@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j2a;
-import com.repackage.n2a;
+import com.repackage.q2a;
+import com.repackage.u2a;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagItemInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
@@ -27,8 +27,8 @@ import java.util.List;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.adapter.PayAmountCampaignListAdapter;
 import tv.athena.revenue.payui.view.adapter.PayCampaignListItemDecoration;
-/* loaded from: classes8.dex */
-public class YYPayAmountCampaignView extends LinearLayout implements n2a {
+/* loaded from: classes9.dex */
+public class YYPayAmountCampaignView extends LinearLayout implements u2a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Activity a;
@@ -67,9 +67,9 @@ public class YYPayAmountCampaignView extends LinearLayout implements n2a {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(new ContextThemeWrapper(context, j2a.a.a(this.e))).inflate(R.layout.obfuscated_res_0x7f0d064c, (ViewGroup) this, true);
-            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091af3);
-            this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091ab6);
+            LayoutInflater.from(new ContextThemeWrapper(context, q2a.a.a(this.e))).inflate(R.layout.obfuscated_res_0x7f0d0649, (ViewGroup) this, true);
+            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091aeb);
+            this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091aae);
             this.h = new LinearLayoutManager(context, 0, false);
             this.g = new PayAmountCampaignListAdapter(this.a, this.f, this.e);
             this.b.setLayoutManager(this.h);
@@ -78,14 +78,14 @@ public class YYPayAmountCampaignView extends LinearLayout implements n2a {
         }
     }
 
-    @Override // com.repackage.m2a
+    @Override // com.repackage.t2a
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.m2a
+    @Override // com.repackage.t2a
     public void refreshView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -105,7 +105,7 @@ public class YYPayAmountCampaignView extends LinearLayout implements n2a {
         }
     }
 
-    @Override // com.repackage.n2a
+    @Override // com.repackage.u2a
     public void setGiftBagsInfo(GiftBagsInfo giftBagsInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, giftBagsInfo) == null) {

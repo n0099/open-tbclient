@@ -1,47 +1,81 @@
 package com.repackage;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Bundle;
+import android.util.SparseArray;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Callable;
-import java.util.concurrent.FutureTask;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public abstract class ee<V> extends FutureTask<V> {
+public class ee {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdAsyncTask<?, ?, ?> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ee(Callable<V> callable, BdAsyncTask<?, ?, ?> bdAsyncTask) {
-        super(callable);
+    public static final lc a(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {callable, bdAsyncTask};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Callable) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, obj)) == null) {
+            if (obj == null) {
+                return null;
             }
+            Class<?> cls = obj.getClass();
+            if (cls != Boolean.TYPE && cls != Boolean.class) {
+                if (cls == Bundle.class) {
+                    return new gc((Bundle) obj);
+                }
+                if (cls != Byte.TYPE && cls != Byte.class) {
+                    if (cls != Character.TYPE && cls != Character.class) {
+                        if (cls != Double.TYPE && cls != Double.class) {
+                            if (cls != Float.TYPE && cls != Float.class) {
+                                if (cls != Integer.TYPE && cls != Integer.class) {
+                                    if (cls != Long.TYPE && cls != Long.class) {
+                                        if (cls != Short.TYPE && cls != Short.class) {
+                                            if (cls == String.class) {
+                                                return new vc((String) obj);
+                                            }
+                                            if (cls.isArray()) {
+                                                return new ec(obj);
+                                            }
+                                            if (cls == SparseArray.class) {
+                                                return new uc((SparseArray) obj);
+                                            }
+                                            if (obj instanceof List) {
+                                                return new nc((List) obj);
+                                            }
+                                            if (obj instanceof Queue) {
+                                                return new rc((Queue) obj);
+                                            }
+                                            if (obj instanceof Map) {
+                                                return new pc((Map) obj);
+                                            }
+                                            if (obj instanceof Set) {
+                                                return new sc((Set) obj);
+                                            }
+                                            if (bc.e(cls, OrmObject.class)) {
+                                                return new qc((OrmObject) obj);
+                                            }
+                                            return null;
+                                        }
+                                        return new tc(((Short) obj).shortValue());
+                                    }
+                                    return new oc(((Long) obj).longValue());
+                                }
+                                return new mc(((Integer) obj).intValue());
+                            }
+                            return new kc(((Float) obj).floatValue());
+                        }
+                        return new jc(((Double) obj).doubleValue());
+                    }
+                    return new ic(((Character) obj).charValue());
+                }
+                return new hc(((Byte) obj).byteValue());
+            }
+            return new fc(((Boolean) obj).booleanValue());
         }
-        this.a = null;
-        this.a = bdAsyncTask;
-    }
-
-    public abstract void a();
-
-    public BdAsyncTask<?, ?, ?> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (BdAsyncTask) invokeV.objValue;
+        return (lc) invokeL.objValue;
     }
 }

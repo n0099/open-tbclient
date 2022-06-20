@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
+import com.repackage.pi;
 /* loaded from: classes3.dex */
 public class FunAdButton extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -225,7 +225,7 @@ public class FunAdButton extends View {
     public void setButtonTextSize(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.l = li.d(getContext(), i);
+            this.l = pi.d(getContext(), i);
             postInvalidate();
         }
     }
@@ -314,7 +314,7 @@ public class FunAdButton extends View {
         this.a = R.color.CAM_X0101;
         this.b = R.color.CAM_X0304;
         this.c = R.color.CAM_X0302;
-        this.d = R.drawable.obfuscated_res_0x7f0800c2;
+        this.d = R.drawable.obfuscated_res_0x7f0800c1;
         this.e = getResources().getDimensionPixelSize(R.dimen.M_W_X006);
         this.f = getResources().getDimensionPixelSize(R.dimen.tbds198);
         this.g = 0;

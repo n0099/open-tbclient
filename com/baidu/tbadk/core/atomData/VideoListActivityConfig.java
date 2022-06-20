@@ -11,8 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ki;
-/* loaded from: classes2.dex */
+import com.repackage.oi;
+/* loaded from: classes3.dex */
 public class VideoListActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_FORUM_ID = "KEY_FORUM_ID";
@@ -50,9 +50,9 @@ public class VideoListActivityConfig extends IntentConfig {
                 return this;
             }
             Intent intent = getIntent();
-            intent.putExtra(KEY_FORUM_ID, str);
+            intent.putExtra("KEY_FORUM_ID", str);
             intent.putExtra(KEY_THREAD_ID, str2);
-            if (!ki.isEmpty(str3)) {
+            if (!oi.isEmpty(str3)) {
                 intent.putExtra(KEY_SOURCE, str3);
             }
             if (!(this.mContext instanceof Activity)) {
@@ -69,7 +69,7 @@ public class VideoListActivityConfig extends IntentConfig {
         if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, str)) == null) {
             Intent intent = getIntent();
             intent.putExtra("user_id", j);
-            if (!ki.isEmpty(str)) {
+            if (!oi.isEmpty(str)) {
                 intent.putExtra(KEY_SOURCE, str);
             }
             if (!(this.mContext instanceof Activity)) {

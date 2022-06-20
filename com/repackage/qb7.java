@@ -1,65 +1,55 @@
 package com.repackage;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.SeekBar;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.lego.card.model.ImmersiveVideoCardEx;
-import com.baidu.tieba.play.VideoControllerView;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ib7;
-import com.repackage.kb7;
+import com.squareup.wire.Wire;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.Lego.DataRes;
 /* loaded from: classes6.dex */
 public class qb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public View b;
-    public f48 c;
-    public int d;
-    public ImmersiveVideoCardEx.a e;
-    public TbImageView f;
-    public ImageView g;
-    public String h;
-    public boolean i;
-    public View j;
-    public int k;
-    public int l;
-    public boolean m;
-    public pb7 n;
-    public ib7 o;
-    public kb7 p;
-    public TbImageView.g q;
-    public SeekBar.OnSeekBarChangeListener r;
-    public VideoControllerView.d s;
-    public View.OnClickListener t;
-    public kb7.n u;
-    public CyberPlayerManager.OnPreparedListener v;
-    public VideoControllerView.c w;
-    public ib7.h x;
+    public c a;
+    public final List<ICardInfo> b;
+    public int c;
+    public boolean d;
+    public String e;
+    public boolean f;
+    public boolean g;
+    public final BdListView h;
+    public final ac7 i;
+    public long j;
+    public String k;
 
     /* loaded from: classes6.dex */
-    public class a implements TbImageView.g {
+    public class a extends ad5<DataRes> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qb7 a;
+        public final /* synthetic */ te a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ String c;
 
-        public a(qb7 qb7Var) {
+        public a(qb7 qb7Var, te teVar, long j, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qb7Var};
+                Object[] objArr = {qb7Var, teVar, Long.valueOf(j), str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -69,27 +59,39 @@ public class qb7 {
                     return;
                 }
             }
-            this.a = qb7Var;
+            this.a = teVar;
+            this.b = j;
+            this.c = str;
         }
 
-        @Override // com.baidu.tbadk.widget.TbImageView.g
-        public void a(String str, boolean z) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ad5
+        /* renamed from: a */
+        public DataRes doInBackground() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) && z && this.a.f != null) {
-                this.a.f.setDefaultBgResource(0);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                te teVar = this.a;
+                StringBuilder sb = new StringBuilder();
+                sb.append(this.b);
+                sb.append("_");
+                sb.append(TextUtils.isEmpty(this.c) ? "" : this.c);
+                byte[] bArr = (byte[]) teVar.get(sb.toString());
+                if (bArr != null && bArr.length != 0) {
+                    try {
+                        return (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
+                    } catch (IOException e) {
+                        BdLog.e(e);
+                    }
+                }
+                return null;
             }
-        }
-
-        @Override // com.baidu.tbadk.widget.TbImageView.g
-        public void onCancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
+            return (DataRes) invokeV.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements SeekBar.OnSeekBarChangeListener {
+    public class b implements gc5<DataRes> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ qb7 a;
@@ -112,284 +114,38 @@ public class qb7 {
             this.a = qb7Var;
         }
 
-        @Override // android.widget.SeekBar.OnSeekBarChangeListener
-        public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.gc5
+        /* renamed from: a */
+        public void onReturnDataInUI(DataRes dataRes) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{seekBar, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && z) {
-                this.a.p.V();
-            }
-        }
-
-        @Override // android.widget.SeekBar.OnSeekBarChangeListener
-        public void onStartTrackingTouch(SeekBar seekBar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, seekBar) == null) {
-            }
-        }
-
-        @Override // android.widget.SeekBar.OnSeekBarChangeListener
-        public void onStopTrackingTouch(SeekBar seekBar) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, seekBar) == null) || this.a.p.Y() || this.a.p.f0() == null) {
-                return;
-            }
-            this.a.p.B0(this.a.p.f0().getSeekPosition());
-            this.a.p.M0(this.a.h);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements VideoControllerView.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qb7 a;
-
-        public c(qb7 qb7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qb7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qb7Var;
-        }
-
-        @Override // com.baidu.tieba.play.VideoControllerView.d
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || this.a.r()) {
-                return;
-            }
-            this.a.p.g0(i);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qb7 a;
-
-        public d(qb7 qb7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qb7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qb7Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !this.a.r() && view2.getId() == this.a.b.getId()) {
-                if (!ji.z()) {
-                    li.L(this.a.a.getPageActivity(), this.a.a.getString(R.string.obfuscated_res_0x7f0f0c33));
-                }
-                if (this.a.o == null || !this.a.c.isPlaying()) {
-                    return;
-                }
-                this.a.o.r();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) {
+                this.a.h(dataRes);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class e implements kb7.n {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qb7 a;
+    public interface c {
+        void a(List<fd7> list);
 
-        public e(qb7 qb7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qb7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qb7Var;
-        }
+        void b(long j, String str);
 
-        @Override // com.repackage.kb7.n
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
+        void c(int i, String str);
 
-        @Override // com.repackage.kb7.n
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.o.l();
-            }
-        }
+        void d(String str, String str2, String str3, List<gd7> list);
+
+        void onError(int i, String str);
+
+        void onSuccess();
     }
 
-    /* loaded from: classes6.dex */
-    public class f implements CyberPlayerManager.OnPreparedListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qb7 a;
-
-        public f(qb7 qb7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qb7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qb7Var;
-        }
-
-        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
-        public void onPrepared() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.c == null) {
-                return;
-            }
-            this.a.o.r();
-            if (this.a.n == null || this.a.n.e() == null || !this.a.n.e().equals(this.a.h) || this.a.n.f() <= 0) {
-                if (this.a.n == null || this.a.n.g(this.a.h) <= 0) {
-                    return;
-                }
-                this.a.c.seekTo(this.a.n.g(this.a.h));
-                return;
-            }
-            this.a.c.seekTo(this.a.n.f());
-            this.a.n.o(null);
-            this.a.n.p(0);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class g implements VideoControllerView.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qb7 a;
-
-        public g(qb7 qb7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qb7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qb7Var;
-        }
-
-        @Override // com.baidu.tieba.play.VideoControllerView.c
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.r() || this.a.o == null || this.a.j == null) {
-                return;
-            }
-            if (this.a.c.isPlaying()) {
-                this.a.o.r();
-            }
-            if (this.a.j.getAlpha() != 1.0f) {
-                this.a.j.setAlpha(1.0f);
-            }
-            this.a.j.clearAnimation();
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class h implements ib7.h {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qb7 a;
-
-        public h(qb7 qb7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qb7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qb7Var;
-        }
-
-        @Override // com.repackage.ib7.h
-        public void a() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.p.Y()) {
-                this.a.p.j0();
-            }
-        }
-
-        @Override // com.repackage.ib7.h
-        public void b() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a.p.Y()) {
-                this.a.p.U();
-            }
-        }
-
-        @Override // com.repackage.ib7.h
-        public void c() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a.p.Y()) {
-                this.a.p.U();
-            }
-        }
-    }
-
-    public qb7(TbPageContext<?> tbPageContext, View view2) {
+    public qb7(BdListView bdListView, ac7 ac7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2};
+            Object[] objArr = {bdListView, ac7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -399,210 +155,241 @@ public class qb7 {
                 return;
             }
         }
-        this.i = false;
-        this.m = false;
-        this.q = new a(this);
-        this.r = new b(this);
-        this.s = new c(this);
-        this.t = new d(this);
-        this.u = new e(this);
-        this.v = new f(this);
-        this.w = new g(this);
-        this.x = new h(this);
-        this.a = tbPageContext;
-        this.b = view2;
-        view2.setOnClickListener(this.t);
-        kb7 a2 = lb7.a(tbPageContext);
-        this.p = a2;
-        a2.F0(this);
-        this.c = this.p.d0();
-        TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092366);
-        this.f = tbImageView;
-        tbImageView.setEvent(this.q);
-        this.g = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090e97);
-        this.j = this.p.Z();
-        this.k = li.k(this.a.getPageActivity());
-        this.l = li.i(this.a.getPageActivity());
-        this.n = lb7.c(this.a);
+        this.a = null;
+        this.b = new LinkedList();
+        this.c = 1;
+        this.e = "";
+        this.f = false;
+        this.g = false;
+        this.h = bdListView;
+        this.i = ac7Var;
     }
 
-    public int k() {
+    public List<ICardInfo> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (r()) {
-                return 0;
-            }
-            return this.c.getCurrentPosition();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (List) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.booleanValue;
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : invokeV.booleanValue;
+    }
+
+    public final void e(long j, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(1048579, this, j, str) == null) {
+            mq4.f();
+            ed5.b(new a(this, mq4.d("tb.lego_update"), j, str), new b(this));
         }
-        return invokeV.intValue;
     }
 
-    public int l() {
-        InterceptResult invokeV;
+    public final void f(long j, String str) {
+        c cVar;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.h : (String) invokeV.objValue;
-    }
-
-    public View n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (View) invokeV.objValue;
-    }
-
-    public final void o() {
-        kb7 kb7Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (kb7Var = this.p) == null || this.c == null || this.e == null) {
+        if (!(interceptable == null || interceptable.invokeJL(1048580, this, j, str) == null) || (cVar = this.a) == null) {
             return;
         }
-        kb7Var.N0();
-        this.p.y0(this.b);
-        if (this.p.c0()) {
-            this.p.O();
-        }
-        this.p.f0().setOnProgressUpdatedListener(this.s);
-        this.p.f0().setOnDragingListener(this.w);
-        this.p.f0().setOnSeekBarChangeListener(this.r);
-        this.p.x0(this.v);
-        this.p.E0(this.e.d);
-        this.p.G0(this.e.g);
-        this.p.H0(this.h);
-        this.p.v0(this.u);
-        this.p.p0();
-        this.p.J0();
+        cVar.b(j, str);
     }
 
-    public boolean p() {
-        InterceptResult invokeV;
+    public void g() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.m : invokeV.booleanValue;
-    }
-
-    public boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? !this.i : invokeV.booleanValue;
-    }
-
-    public final boolean r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b == null || this.c == null || this.f == null || this.g == null || this.j == null || this.o == null : invokeV.booleanValue;
-    }
-
-    public void s(ib7 ib7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ib7Var) == null) {
-            this.o = ib7Var;
-            if (ib7Var != null) {
-                ib7Var.t(this.x);
-            }
-        }
-    }
-
-    public void t(boolean z) {
-        kb7 kb7Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048585, this, z) == null) || (kb7Var = this.p) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || d() || this.a == null) {
             return;
         }
-        kb7Var.A0(z);
+        this.c++;
+        k(true);
+        this.a.c(this.c, this.e);
     }
 
-    public void u(boolean z) {
-        kb7 kb7Var;
+    public final void h(DataRes dataRes) {
+        c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || (kb7Var = this.p) == null) {
-            return;
-        }
-        kb7Var.L0(z);
-    }
-
-    public void v() {
-        kb7 kb7Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.m) {
-            return;
-        }
-        int i = this.d;
-        if (i <= 0 || i == fb7.a) {
-            this.m = true;
-            if (r()) {
-                return;
-            }
-            o();
-            if (!zf8.b() || (kb7Var = this.p) == null) {
-                return;
-            }
-            kb7Var.M0(this.h);
-        }
-    }
-
-    public void w() {
-        kb7 kb7Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || r()) {
-            return;
-        }
-        if (this.m && (kb7Var = this.p) != null && this.b.equals(kb7Var.a0())) {
-            this.p.N0();
-            if (this.p.c0()) {
-                this.p.h0();
-            }
-        }
-        this.m = false;
-        this.i = false;
-    }
-
-    public void x(ImmersiveVideoCardEx.a aVar, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048589, this, aVar, i) == null) {
-            this.e = aVar;
-            this.d = i;
-            if (r() || aVar == null) {
-                return;
-            }
-            String str = this.h;
-            if (str == null || !str.equalsIgnoreCase(aVar.a)) {
-                w();
-                this.h = aVar.a;
-                this.f.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-                this.f.K(aVar.d, 17, false);
-                int i2 = aVar.e;
-                int i3 = aVar.f;
-                ViewGroup.LayoutParams layoutParams = this.b.getLayoutParams();
-                if (i2 > 0 && i3 > 0 && layoutParams != null && !aVar.h) {
-                    if (i2 > i3) {
-                        layoutParams.height = ((this.k * 1) * i3) / i2;
-                    } else {
-                        layoutParams.height = this.k;
-                    }
-                    this.b.setLayoutParams(layoutParams);
-                    this.p.K0();
-                } else if (layoutParams != null && aVar.h) {
-                    layoutParams.width = this.k;
-                    layoutParams.height = this.l;
-                    this.b.setLayoutParams(layoutParams);
-                    this.p.i0();
+        if (interceptable == null || interceptable.invokeL(1048582, this, dataRes) == null) {
+            this.g = true;
+            if (dataRes != null) {
+                if (j(true, dataRes) && (cVar = this.a) != null) {
+                    cVar.onSuccess();
                 }
-                this.p.R();
+                f(this.j, this.k);
+                return;
+            }
+            f(this.j, this.k);
+        }
+    }
+
+    public void i(boolean z, DataRes dataRes, int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), dataRes, Integer.valueOf(i), str}) == null) {
+            k(false);
+            if (z) {
+                this.h.z();
+            }
+            if (i == 0 && dataRes != null && j(z, dataRes)) {
+                c cVar = this.a;
+                if (cVar != null) {
+                    cVar.onSuccess();
+                }
+                if (z) {
+                    m(dataRes);
+                }
+            } else if (this.b.size() > 0) {
+                c cVar2 = this.a;
+                if (cVar2 != null) {
+                    cVar2.onError(1, str);
+                }
+            } else {
+                c cVar3 = this.a;
+                if (cVar3 != null) {
+                    cVar3.onError(2, str);
+                }
             }
         }
     }
 
-    public void y(String str, String str2) {
-        kb7 kb7Var;
+    public final boolean j(boolean z, DataRes dataRes) {
+        InterceptResult invokeZL;
+        String str;
+        String str2;
+        String str3;
+        JSONObject jSONObject;
+        JSONObject jSONObject2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048590, this, str, str2) == null) || (kb7Var = this.p) == null) {
+        if (interceptable == null || (invokeZL = interceptable.invokeZL(InputDeviceCompat.SOURCE_TOUCHPAD, this, z, dataRes)) == null) {
+            if (dataRes == null) {
+                return false;
+            }
+            if (z) {
+                this.b.clear();
+            }
+            this.d = dataRes.has_more.intValue() == 1;
+            ArrayList arrayList = new ArrayList();
+            try {
+                JSONObject jSONObject3 = new JSONObject(dataRes.page_info);
+                JSONArray optJSONArray = jSONObject3.optJSONArray("tab");
+                JSONObject optJSONObject = jSONObject3.optJSONObject("title");
+                if (optJSONObject != null) {
+                    str2 = optJSONObject.optString("name");
+                    str3 = optJSONObject.optString("url");
+                    str = optJSONObject.optString("urlNight");
+                } else {
+                    str = "";
+                    str2 = str;
+                    str3 = str2;
+                }
+                if (optJSONArray != null) {
+                    int i = 0;
+                    while (i < optJSONArray.length()) {
+                        JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
+                        if (optJSONObject2 != null) {
+                            gd7 gd7Var = new gd7();
+                            gd7Var.c = optJSONObject2.optString("title");
+                            jSONObject2 = jSONObject3;
+                            gd7Var.a = optJSONObject2.optLong("page_id");
+                            optJSONObject2.optInt("page_type");
+                            gd7Var.d = optJSONObject2.optInt("rn");
+                            gd7Var.b = optJSONObject2.optString("item_id");
+                            gd7Var.e = optJSONObject2.optString("params");
+                            gd7Var.b();
+                            arrayList.add(gd7Var);
+                        } else {
+                            jSONObject2 = jSONObject3;
+                        }
+                        i++;
+                        jSONObject3 = jSONObject2;
+                    }
+                    jSONObject = jSONObject3;
+                    this.a.d(str2, str3, str, arrayList);
+                } else {
+                    jSONObject = jSONObject3;
+                }
+                JSONArray optJSONArray2 = jSONObject.optJSONArray("buttons");
+                if (optJSONArray2 != null) {
+                    ArrayList arrayList2 = new ArrayList();
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i2);
+                        if (optJSONObject3 != null) {
+                            fd7 fd7Var = new fd7();
+                            fd7Var.b(optJSONObject3);
+                            if (fd7Var.a()) {
+                                arrayList2.add(fd7Var);
+                            }
+                        }
+                    }
+                    this.a.a(arrayList2);
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (dataRes.cards != null) {
+                for (int i3 = 0; i3 < dataRes.cards.size(); i3++) {
+                    ICardInfo i4 = cc7.i(dataRes.cards.get(i3));
+                    if (i4 != null && i4.isValid()) {
+                        this.b.add(i4);
+                    }
+                }
+            }
+            if (this.b.size() == 0) {
+                return false;
+            }
+            try {
+                this.e = this.b.get(this.b.size() - 1).getFlipId();
+            } catch (Exception unused) {
+                this.e = "";
+            }
+            this.i.C(this.b);
+            return true;
+        }
+        return invokeZL.booleanValue;
+    }
+
+    public final void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.f = z;
+        }
+    }
+
+    public void l(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) {
+            this.a = cVar;
+        }
+    }
+
+    public final void m(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, dataRes) == null) || dataRes == null) {
             return;
         }
-        kb7Var.P0(str, str2);
+        mq4.f();
+        te<byte[]> d = mq4.d("tb.lego_update");
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.j);
+        sb.append("_");
+        sb.append(TextUtils.isEmpty(this.k) ? "" : this.k);
+        d.a(sb.toString(), dataRes.toByteArray());
+    }
+
+    public void update(long j, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(1048588, this, j, str) == null) {
+            this.c = 1;
+            this.j = j;
+            this.k = str;
+            if (this.b.size() == 0 && !this.g) {
+                e(j, str);
+            } else {
+                f(j, str);
+            }
+        }
     }
 }

@@ -24,9 +24,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b9;
-import com.repackage.dq4;
-import com.repackage.f9;
+import com.repackage.d9;
+import com.repackage.h9;
+import com.repackage.nq4;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -288,7 +288,7 @@ public class PermissionJudgePolicy {
         return (List) invokeV.objValue;
     }
 
-    private b9 getPageContext(Activity activity) {
+    private d9 getPageContext(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, activity)) == null) {
@@ -300,13 +300,13 @@ public class PermissionJudgePolicy {
             }
             return null;
         }
-        return (b9) invokeL.objValue;
+        return (d9) invokeL.objValue;
     }
 
     private int getPermissionDescriptionId(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, this, str)) == null) ? (TextUtils.isEmpty(str) || "android.permission.WRITE_EXTERNAL_STORAGE".equals(str)) ? R.string.obfuscated_res_0x7f0f0fd6 : ("android.permission.ACCESS_FINE_LOCATION".equals(str) || "android.permission.ACCESS_COARSE_LOCATION".equals(str)) ? R.string.obfuscated_res_0x7f0f0fdb : "android.permission.CAMERA".equals(str) ? R.string.obfuscated_res_0x7f0f0fd3 : "android.permission.RECORD_AUDIO".equals(str) ? R.string.obfuscated_res_0x7f0f0fdc : "android.permission.READ_PHONE_STATE".equals(str) ? R.string.obfuscated_res_0x7f0f0fd5 : "android.permission.SEND_SMS".equals(str) ? R.string.obfuscated_res_0x7f0f0fdd : "android.permission.CALL_PHONE".equals(str) ? R.string.obfuscated_res_0x7f0f0fd4 : R.string.obfuscated_res_0x7f0f0fd6 : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65548, this, str)) == null) ? (TextUtils.isEmpty(str) || "android.permission.WRITE_EXTERNAL_STORAGE".equals(str)) ? R.string.obfuscated_res_0x7f0f0fe1 : ("android.permission.ACCESS_FINE_LOCATION".equals(str) || "android.permission.ACCESS_COARSE_LOCATION".equals(str)) ? R.string.obfuscated_res_0x7f0f0fe6 : "android.permission.CAMERA".equals(str) ? R.string.obfuscated_res_0x7f0f0fde : "android.permission.RECORD_AUDIO".equals(str) ? R.string.obfuscated_res_0x7f0f0fe7 : "android.permission.READ_PHONE_STATE".equals(str) ? R.string.obfuscated_res_0x7f0f0fe0 : "android.permission.SEND_SMS".equals(str) ? R.string.obfuscated_res_0x7f0f0fe8 : "android.permission.CALL_PHONE".equals(str) ? R.string.obfuscated_res_0x7f0f0fdf : R.string.obfuscated_res_0x7f0f0fe1 : invokeL.intValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -382,11 +382,11 @@ public class PermissionJudgePolicy {
             if (ActivityCompat.shouldShowRequestPermissionRationale(activity, str)) {
                 return true;
             }
-            dq4 dq4Var = new dq4(activity);
-            dq4Var.setCanceledOnTouchOutside(false);
-            dq4Var.setTitle(R.string.obfuscated_res_0x7f0f0fd7);
-            dq4Var.setMessageId(getPermissionDescriptionId(str));
-            dq4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f096e, new dq4.e(this, activity, str) { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.4
+            nq4 nq4Var = new nq4(activity);
+            nq4Var.setCanceledOnTouchOutside(false);
+            nq4Var.setTitle(R.string.obfuscated_res_0x7f0f0fe2);
+            nq4Var.setMessageId(getPermissionDescriptionId(str));
+            nq4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0973, new nq4.e(this, activity, str) { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PermissionJudgePolicy this$0;
@@ -413,11 +413,11 @@ public class PermissionJudgePolicy {
                     this.val$permission = str;
                 }
 
-                @Override // com.repackage.dq4.e
-                public void onClick(dq4 dq4Var2) {
+                @Override // com.repackage.nq4.e
+                public void onClick(nq4 nq4Var2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, dq4Var2) == null) {
-                        dq4Var2.dismiss();
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, nq4Var2) == null) {
+                        nq4Var2.dismiss();
                         Intent intent = new Intent();
                         intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                         intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
@@ -428,7 +428,7 @@ public class PermissionJudgePolicy {
                         }
                     }
                 }
-            }).setNegativeButton(R.string.obfuscated_res_0x7f0f0376, new dq4.e(this, str) { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.3
+            }).setNegativeButton(R.string.obfuscated_res_0x7f0f0366, new nq4.e(this, str) { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PermissionJudgePolicy this$0;
@@ -453,18 +453,18 @@ public class PermissionJudgePolicy {
                     this.val$permission = str;
                 }
 
-                @Override // com.repackage.dq4.e
-                public void onClick(dq4 dq4Var2) {
+                @Override // com.repackage.nq4.e
+                public void onClick(nq4 nq4Var2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, dq4Var2) == null) {
-                        dq4Var2.dismiss();
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, nq4Var2) == null) {
+                        nq4Var2.dismiss();
                         if (this.this$0.mDialogClickListener != null) {
                             this.this$0.mDialogClickListener.onDialogCaneled(this.val$permission);
                         }
                     }
                 }
-            }).create(f9.a(activity));
-            dq4Var.show();
+            }).create(h9.a(activity));
+            nq4Var.show();
             return false;
         }
         return invokeLL.booleanValue;

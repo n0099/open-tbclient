@@ -21,13 +21,18 @@ import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.callback.AccountCenterCallback;
+import com.baidu.sapi2.callback.AccountRealNameCallback;
 import com.baidu.sapi2.callback.GlobalCallback;
 import com.baidu.sapi2.callback.OneKeyLoginCallback;
 import com.baidu.sapi2.callback.QrLoginCallback;
+import com.baidu.sapi2.callback.SapiCallback;
 import com.baidu.sapi2.callback.ShareModelCallback;
 import com.baidu.sapi2.dto.AccountCenterDTO;
 import com.baidu.sapi2.dto.PassNameValuePair;
+import com.baidu.sapi2.dto.RealNameDTO;
 import com.baidu.sapi2.result.AccountCenterResult;
+import com.baidu.sapi2.result.AccountRealNameResult;
+import com.baidu.sapi2.result.CheckUserFaceIdResult;
 import com.baidu.sapi2.result.OneKeyLoginResult;
 import com.baidu.sapi2.result.QrLoginResult;
 import com.baidu.sapi2.share.ShareStorage;
@@ -60,6 +65,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.passaccount.app.LoginActivity;
 import com.baidu.tieba.passaccount.app.LoginDialogActivity;
 import com.baidu.tieba.passaccount.app.OneKeyLoginActivity;
+import com.baidu.tieba.passaccount.framework.certification.CertificationCheckParams;
+import com.baidu.tieba.passaccount.framework.certification.CertificationRequestParams;
+import com.baidu.tieba.passaccount.framework.certification.ICheckCertificationCallback;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -68,23 +76,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.Gson;
-import com.repackage.bm4;
-import com.repackage.bo7;
-import com.repackage.co7;
-import com.repackage.d85;
-import com.repackage.eo7;
-import com.repackage.fv4;
-import com.repackage.gv4;
-import com.repackage.mg;
-import com.repackage.qn7;
-import com.repackage.wh5;
-import com.repackage.ys4;
+import com.repackage.ht4;
+import com.repackage.ip7;
+import com.repackage.jp7;
+import com.repackage.lm4;
+import com.repackage.lp7;
+import com.repackage.pv4;
+import com.repackage.q85;
+import com.repackage.qg;
+import com.repackage.qv4;
+import com.repackage.ti5;
+import com.repackage.xo7;
 import com.sina.weibo.sdk.WbSdk;
 import com.sina.weibo.sdk.auth.AuthInfo;
 import com.tencent.mm.sdk.modelbase.BaseResp;
 import com.tencent.mm.sdk.modelmsg.SendAuth;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 /* loaded from: classes3.dex */
 public class PassManagerStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -99,7 +109,7 @@ public class PassManagerStatic {
 
         /* renamed from: com.baidu.tieba.passaccount.framework.PassManagerStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0213a implements ShareModelCallback {
+        public class C0219a implements ShareModelCallback {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Context a;
@@ -107,25 +117,25 @@ public class PassManagerStatic {
 
             /* renamed from: com.baidu.tieba.passaccount.framework.PassManagerStatic$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public class C0214a extends OneKeyLoginCallback {
+            public class C0220a extends OneKeyLoginCallback {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ C0213a a;
+                public final /* synthetic */ C0219a a;
 
                 /* renamed from: com.baidu.tieba.passaccount.framework.PassManagerStatic$a$a$a$a  reason: collision with other inner class name */
                 /* loaded from: classes3.dex */
-                public class RunnableC0215a implements Runnable {
+                public class RunnableC0221a implements Runnable {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ OneKeyLoginResult a;
-                    public final /* synthetic */ C0214a b;
+                    public final /* synthetic */ C0220a b;
 
-                    public RunnableC0215a(C0214a c0214a, OneKeyLoginResult oneKeyLoginResult) {
+                    public RunnableC0221a(C0220a c0220a, OneKeyLoginResult oneKeyLoginResult) {
                         Interceptable interceptable = $ic;
                         if (interceptable != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {c0214a, oneKeyLoginResult};
+                            Object[] objArr = {c0220a, oneKeyLoginResult};
                             interceptable.invokeUnInit(65536, newInitContext);
                             int i = newInitContext.flag;
                             if ((i & 1) != 0) {
@@ -135,7 +145,7 @@ public class PassManagerStatic {
                                 return;
                             }
                         }
-                        this.b = c0214a;
+                        this.b = c0220a;
                         this.a = oneKeyLoginResult;
                     }
 
@@ -153,8 +163,8 @@ public class PassManagerStatic {
                                 }
                             } else if (LoginDialogData.FIRST_LOGIN_ABTEST.equals(this.b.a.b.getLocate())) {
                             } else {
-                                C0213a c0213a = this.b.a;
-                                if (!PassManagerStatic.i(c0213a.a, c0213a.b) && PassManagerStatic.h(this.b.a.a)) {
+                                C0219a c0219a = this.b.a;
+                                if (!PassManagerStatic.i(c0219a.a, c0219a.b) && PassManagerStatic.h(this.b.a.a)) {
                                     LoginActivityConfig loginActivityConfig = new LoginActivityConfig(this.b.a.a, true);
                                     loginActivityConfig.setLoginListener(this.b.a.b.getLoginListener());
                                     loginActivityConfig.setMinePageStatisticParams(this.b.a.b.getMinePageKey(), this.b.a.b.getMinePageLocate());
@@ -171,14 +181,14 @@ public class PassManagerStatic {
                 public class b implements Runnable {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ C0214a a;
+                    public final /* synthetic */ C0220a a;
 
-                    public b(C0214a c0214a) {
+                    public b(C0220a c0220a) {
                         Interceptable interceptable = $ic;
                         if (interceptable != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {c0214a};
+                            Object[] objArr = {c0220a};
                             interceptable.invokeUnInit(65536, newInitContext);
                             int i = newInitContext.flag;
                             if ((i & 1) != 0) {
@@ -188,7 +198,7 @@ public class PassManagerStatic {
                                 return;
                             }
                         }
-                        this.a = c0214a;
+                        this.a = c0220a;
                     }
 
                     @Override // java.lang.Runnable
@@ -197,8 +207,8 @@ public class PassManagerStatic {
                         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || LoginDialogData.FIRST_LOGIN_ABTEST.equals(this.a.a.b.getLocate())) {
                             return;
                         }
-                        C0213a c0213a = this.a.a;
-                        if (!PassManagerStatic.i(c0213a.a, c0213a.b) && PassManagerStatic.h(this.a.a.a)) {
+                        C0219a c0219a = this.a.a;
+                        if (!PassManagerStatic.i(c0219a.a, c0219a.b) && PassManagerStatic.h(this.a.a.a)) {
                             LoginActivityConfig loginActivityConfig = new LoginActivityConfig(this.a.a.a, true);
                             loginActivityConfig.setLoginListener(this.a.a.b.getLoginListener());
                             loginActivityConfig.setMinePageStatisticParams(this.a.a.b.getMinePageKey(), this.a.a.b.getMinePageLocate());
@@ -208,12 +218,12 @@ public class PassManagerStatic {
                     }
                 }
 
-                public C0214a(C0213a c0213a) {
+                public C0220a(C0219a c0219a) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0213a};
+                        Object[] objArr = {c0219a};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -223,14 +233,14 @@ public class PassManagerStatic {
                             return;
                         }
                     }
-                    this.a = c0213a;
+                    this.a = c0219a;
                 }
 
                 @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
                 public void available(OneKeyLoginResult oneKeyLoginResult) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(1048576, this, oneKeyLoginResult) == null) {
-                        mg.a().post(new RunnableC0215a(this, oneKeyLoginResult));
+                        qg.a().post(new RunnableC0221a(this, oneKeyLoginResult));
                     }
                 }
 
@@ -238,12 +248,12 @@ public class PassManagerStatic {
                 public void unAvailable(OneKeyLoginResult oneKeyLoginResult) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oneKeyLoginResult) == null) {
-                        mg.a().post(new b(this));
+                        qg.a().post(new b(this));
                     }
                 }
             }
 
-            public C0213a(a aVar, Context context, LoginDialogData loginDialogData) {
+            public C0219a(a aVar, Context context, LoginDialogData loginDialogData) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -268,7 +278,7 @@ public class PassManagerStatic {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
                     if (list.size() == 0) {
-                        SapiAccountManager.getInstance().getOneKeyLoginIsAvailable(new C0214a(this));
+                        SapiAccountManager.getInstance().getOneKeyLoginIsAvailable(new C0220a(this));
                     } else if (ListUtils.isEmpty(list) || (storageModel = list.get(0)) == null || !PassManagerStatic.h(this.a)) {
                     } else {
                         String json = new Gson().toJson(storageModel);
@@ -307,7 +317,7 @@ public class PassManagerStatic {
                 if (confignation != null && !confignation.isAgreeDangerousProtocol()) {
                     SapiAccountManager.getInstance().setAgreeDangerousProtocol(PermissionUtil.isAgreePrivacyPolicy());
                 }
-                SapiAccountManager.getInstance().getShareModels(1500L, new C0213a(this, context, data));
+                SapiAccountManager.getInstance().getShareModels(1500L, new C0219a(this, context, data));
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -419,7 +429,7 @@ public class PassManagerStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class d implements CustomMessageTask.CustomRunnable<qn7> {
+    public static class d implements CustomMessageTask.CustomRunnable<xo7> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -438,13 +448,13 @@ public class PassManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<qn7> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<xo7> customMessage) {
             InterceptResult invokeL;
             BaseResp baseResp;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && (customMessage.getData() instanceof qn7)) {
-                    qn7 data = customMessage.getData();
+                if (customMessage != null && (customMessage.getData() instanceof xo7)) {
+                    xo7 data = customMessage.getData();
                     if (data.a != null && (baseResp = data.b) != null && (baseResp instanceof SendAuth.Resp)) {
                         PassportSDK.getInstance().handleWXLoginResp(data.a, ((SendAuth.Resp) baseResp).state, ((SendAuth.Resp) baseResp).code, data.b.errCode);
                     }
@@ -501,11 +511,11 @@ public class PassManagerStatic {
 
             /* renamed from: com.baidu.tieba.passaccount.framework.PassManagerStatic$f$a$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public class RunnableC0216a implements Runnable {
+            public class RunnableC0222a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                public RunnableC0216a(a aVar) {
+                public RunnableC0222a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -526,7 +536,7 @@ public class PassManagerStatic {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                         Context context = TbadkApplication.getInst().getContext();
-                        BdToast.f(context, context.getString(R.string.obfuscated_res_0x7f0f109d), BdToast.DefaultIcon.SUCCESS).n();
+                        BdToast.f(context, context.getString(R.string.obfuscated_res_0x7f0f10a8), BdToast.DefaultIcon.SUCCESS).n();
                     }
                 }
             }
@@ -551,7 +561,7 @@ public class PassManagerStatic {
             public void onFinish(QrLoginResult qrLoginResult) {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeL(1048576, this, qrLoginResult) == null) && qrLoginResult != null && qrLoginResult.getResultCode() == 0) {
-                    mg.a().postDelayed(new RunnableC0216a(this), 200L);
+                    qg.a().postDelayed(new RunnableC0222a(this), 200L);
                 }
             }
 
@@ -588,7 +598,7 @@ public class PassManagerStatic {
                 String data = customMessage.getData();
                 if (SapiUtils.isQrLoginSchema(data)) {
                     if ("pc".equals(SapiUtils.parseQrLoginSchema(data).get(SapiUtils.KEY_QR_LOGIN_LP))) {
-                        PassManagerStatic.z();
+                        PassManagerStatic.A();
                         PassportSDK.getInstance().loadQrLogin(new a(this), data);
                     }
                     return new CustomResponsedMessage<>(2921339, Boolean.TRUE);
@@ -649,7 +659,250 @@ public class PassManagerStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class h implements CustomMessageTask.CustomRunnable<Context> {
+    public static class h implements CustomMessageTask.CustomRunnable<CertificationCheckParams> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* loaded from: classes3.dex */
+        public class a implements SapiCallback<CheckUserFaceIdResult> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ICheckCertificationCallback a;
+
+            public a(h hVar, ICheckCertificationCallback iCheckCertificationCallback) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {hVar, iCheckCertificationCallback};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = iCheckCertificationCallback;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.sapi2.callback.SapiCallback
+            /* renamed from: a */
+            public void onFailure(CheckUserFaceIdResult checkUserFaceIdResult) {
+                ICheckCertificationCallback iCheckCertificationCallback;
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, checkUserFaceIdResult) == null) || (iCheckCertificationCallback = this.a) == null) {
+                    return;
+                }
+                iCheckCertificationCallback.onResult(checkUserFaceIdResult.getResultCode(), -1);
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.sapi2.callback.SapiCallback
+            /* renamed from: b */
+            public void onSuccess(CheckUserFaceIdResult checkUserFaceIdResult) {
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, checkUserFaceIdResult) == null) || this.a == null) {
+                    return;
+                }
+                if ("advanced_cert_face_match".equals(checkUserFaceIdResult.action)) {
+                    this.a.onResult(checkUserFaceIdResult.getResultCode(), 2);
+                } else if ("cert_face_match".equals(checkUserFaceIdResult.action)) {
+                    this.a.onResult(checkUserFaceIdResult.getResultCode(), 1);
+                } else {
+                    this.a.onResult(checkUserFaceIdResult.getResultCode(), 0);
+                }
+            }
+
+            @Override // com.baidu.sapi2.callback.SapiCallback
+            public void onFinish() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                }
+            }
+
+            @Override // com.baidu.sapi2.callback.SapiCallback
+            public void onStart() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                }
+            }
+        }
+
+        public h() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<?> run(CustomMessage<CertificationCheckParams> customMessage) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+                if (customMessage != null && (customMessage.getData() instanceof CertificationCheckParams)) {
+                    CertificationCheckParams data = customMessage.getData();
+                    ICheckCertificationCallback iCheckCertificationCallback = data.callback;
+                    SapiAccount session = SapiAccountManager.getInstance().getSession();
+                    if (session != null && !TextUtils.isEmpty(session.bduss)) {
+                        SapiAccountManager.getInstance().getAccountService().checkUserFaceId(new a(this, iCheckCertificationCallback), session.bduss, data.params);
+                    }
+                }
+                return null;
+            }
+            return (CustomResponsedMessage) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class i implements CustomMessageTask.CustomRunnable<CertificationRequestParams> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* loaded from: classes3.dex */
+        public class a extends AccountRealNameCallback {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ CertificationRequestParams a;
+
+            /* renamed from: com.baidu.tieba.passaccount.framework.PassManagerStatic$i$a$a  reason: collision with other inner class name */
+            /* loaded from: classes3.dex */
+            public class RunnableC0223a implements Runnable {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ int a;
+                public final /* synthetic */ HashMap b;
+                public final /* synthetic */ a c;
+
+                public RunnableC0223a(a aVar, int i, HashMap hashMap) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {aVar, Integer.valueOf(i), hashMap};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.c = aVar;
+                    this.a = i;
+                    this.b = hashMap;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                        this.c.a.callback.onResult(this.a, this.b);
+                    }
+                }
+            }
+
+            public a(i iVar, CertificationRequestParams certificationRequestParams) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {iVar, certificationRequestParams};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = certificationRequestParams;
+            }
+
+            @Override // com.baidu.sapi2.callback.AccountRealNameCallback
+            public void onFinish(AccountRealNameResult accountRealNameResult) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, accountRealNameResult) == null) {
+                    super.onFinish(accountRealNameResult);
+                    if (this.a.callback != null) {
+                        HashMap hashMap = new HashMap();
+                        int resultCode = accountRealNameResult.getResultCode();
+                        String resultMsg = accountRealNameResult.getResultMsg();
+                        boolean z = accountRealNameResult.juniorRealNameSuc;
+                        boolean z2 = accountRealNameResult.seniorRealNameSuc;
+                        String str = accountRealNameResult.callbackkey;
+                        if (TextUtils.isEmpty(resultMsg)) {
+                            resultMsg = "";
+                        }
+                        if (TextUtils.isEmpty(str)) {
+                            str = "";
+                        }
+                        hashMap.put("resultMsg", resultMsg);
+                        hashMap.put("callbackkey", str);
+                        hashMap.put("juniorRealNameSuc", z ? "1" : "0");
+                        hashMap.put("seniorRealNameSuc", z2 ? "1" : "0");
+                        qg.a().post(new RunnableC0223a(this, resultCode, hashMap));
+                    }
+                }
+            }
+        }
+
+        public i() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<?> run(CustomMessage<CertificationRequestParams> customMessage) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+                if (customMessage != null && (customMessage.getData() instanceof CertificationRequestParams)) {
+                    CertificationRequestParams data = customMessage.getData();
+                    SapiAccount session = SapiAccountManager.getInstance().getSession();
+                    if (session != null && !TextUtils.isEmpty(session.bduss)) {
+                        String str = session.bduss;
+                        RealNameDTO realNameDTO = new RealNameDTO();
+                        realNameDTO.bduss = str;
+                        realNameDTO.scene = data.scene;
+                        realNameDTO.needCbKey = data.needCbKey;
+                        realNameDTO.realNameLevel = data.realNameLevel;
+                        Map<String, Object> map = data.params;
+                        if (map != null) {
+                            realNameDTO.customRealNameUrl = map.containsKey("certify_url") ? data.params.get("certify_url").toString() : "";
+                        }
+                        PassportSDK.getInstance().loadAccountRealName(TbadkApplication.getInst().getContext(), new a(this, data), realNameDTO);
+                    }
+                }
+                return null;
+            }
+            return (CustomResponsedMessage) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class j implements CustomMessageTask.CustomRunnable<Context> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -659,27 +912,27 @@ public class PassManagerStatic {
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Context a;
 
-            /* renamed from: com.baidu.tieba.passaccount.framework.PassManagerStatic$h$a$a  reason: collision with other inner class name */
+            /* renamed from: com.baidu.tieba.passaccount.framework.PassManagerStatic$j$a$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public class C0217a extends OneKeyLoginCallback {
+            public class C0224a extends OneKeyLoginCallback {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                /* renamed from: com.baidu.tieba.passaccount.framework.PassManagerStatic$h$a$a$a  reason: collision with other inner class name */
+                /* renamed from: com.baidu.tieba.passaccount.framework.PassManagerStatic$j$a$a$a  reason: collision with other inner class name */
                 /* loaded from: classes3.dex */
-                public class RunnableC0218a implements Runnable {
+                public class RunnableC0225a implements Runnable {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ OneKeyLoginResult a;
-                    public final /* synthetic */ C0217a b;
+                    public final /* synthetic */ C0224a b;
 
-                    public RunnableC0218a(C0217a c0217a, OneKeyLoginResult oneKeyLoginResult) {
+                    public RunnableC0225a(C0224a c0224a, OneKeyLoginResult oneKeyLoginResult) {
                         Interceptable interceptable = $ic;
                         if (interceptable != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {c0217a, oneKeyLoginResult};
+                            Object[] objArr = {c0224a, oneKeyLoginResult};
                             interceptable.invokeUnInit(65536, newInitContext);
                             int i = newInitContext.flag;
                             if ((i & 1) != 0) {
@@ -689,7 +942,7 @@ public class PassManagerStatic {
                                 return;
                             }
                         }
-                        this.b = c0217a;
+                        this.b = c0224a;
                         this.a = oneKeyLoginResult;
                     }
 
@@ -709,7 +962,7 @@ public class PassManagerStatic {
                     }
                 }
 
-                public C0217a(a aVar) {
+                public C0224a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -731,7 +984,7 @@ public class PassManagerStatic {
                 public void available(OneKeyLoginResult oneKeyLoginResult) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(1048576, this, oneKeyLoginResult) == null) {
-                        mg.a().post(new RunnableC0218a(this, oneKeyLoginResult));
+                        qg.a().post(new RunnableC0225a(this, oneKeyLoginResult));
                     }
                 }
 
@@ -743,17 +996,17 @@ public class PassManagerStatic {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921673));
                             return;
                         }
-                        wh5.d();
+                        ti5.d();
                     }
                 }
             }
 
-            public a(h hVar, Context context) {
+            public a(j jVar, Context context) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {hVar, context};
+                    Object[] objArr = {jVar, context};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -772,7 +1025,7 @@ public class PassManagerStatic {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
                     if (list.size() == 0) {
-                        SapiAccountManager.getInstance().getOneKeyLoginIsAvailable(new C0217a(this));
+                        SapiAccountManager.getInstance().getOneKeyLoginIsAvailable(new C0224a(this));
                     } else if (ListUtils.isEmpty(list) || (storageModel = list.get(0)) == null || !PassManagerStatic.h(this.a)) {
                     } else {
                         String json = new Gson().toJson(storageModel);
@@ -783,7 +1036,7 @@ public class PassManagerStatic {
             }
         }
 
-        public h() {
+        public j() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -818,11 +1071,11 @@ public class PassManagerStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class i implements CustomMessageTask.CustomRunnable<Activity> {
+    public static class k implements CustomMessageTask.CustomRunnable<Activity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public i() {
+        public k() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -837,19 +1090,19 @@ public class PassManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<gv4> run(CustomMessage<Activity> customMessage) {
+        public CustomResponsedMessage<qv4> run(CustomMessage<Activity> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2001268, eo7.d()) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2001268, lp7.d()) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class j implements CustomMessageTask.CustomRunnable<Activity> {
+    public static class l implements CustomMessageTask.CustomRunnable<Activity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public j() {
+        public l() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -864,20 +1117,20 @@ public class PassManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<bm4> run(CustomMessage<Activity> customMessage) {
+        public CustomResponsedMessage<lm4> run(CustomMessage<Activity> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2001293, bo7.e()) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2001293, ip7.e()) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class k extends CustomMessageListener {
+    public static class m extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public k(int i) {
+        public m(int i) {
             super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -907,11 +1160,11 @@ public class PassManagerStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class l implements UrlManager.UrlDealListener {
+    public static class n implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public l() {
+        public n() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -944,11 +1197,11 @@ public class PassManagerStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class m implements CustomMessageTask.CustomRunnable<Application> {
+    public static class o implements CustomMessageTask.CustomRunnable<Application> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public m() {
+        public o() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -985,11 +1238,11 @@ public class PassManagerStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class n implements CustomMessageTask.CustomRunnable<Application> {
+    public static class p implements CustomMessageTask.CustomRunnable<Application> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public n() {
+        public p() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1019,11 +1272,11 @@ public class PassManagerStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class o implements CustomMessageTask.CustomRunnable<Context> {
+    public static class q implements CustomMessageTask.CustomRunnable<Context> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public o() {
+        public q() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1043,7 +1296,7 @@ public class PassManagerStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && (customMessage.getData() instanceof Context)) {
-                    PassManagerStatic.y(customMessage.getData());
+                    PassManagerStatic.z(customMessage.getData());
                 }
                 return null;
             }
@@ -1064,19 +1317,20 @@ public class PassManagerStatic {
                 return;
             }
         }
+        r();
+        x();
+        s();
+        p();
         q();
         w();
-        r();
-        o();
-        p();
-        v();
         TbadkCoreApplication.getInst().RegisterIntent(ChangeSystemPhotoActivityConfig.class, ChangeSystemPhotoActivity.class);
-        x();
+        y();
+        v();
+        o();
+        jp7.o();
+        t();
         u();
         n();
-        co7.o();
-        s();
-        t();
     }
 
     public PassManagerStatic() {
@@ -1093,10 +1347,22 @@ public class PassManagerStatic {
         }
     }
 
+    public static void A() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || b == null) {
+            return;
+        }
+        if (TbadkCoreApplication.getInst().getSkinType() == 1) {
+            b.isNightMode = true;
+        } else {
+            b.isNightMode = false;
+        }
+    }
+
     public static boolean h(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
             if (context instanceof Activity) {
                 Activity activity = (Activity) context;
                 return (Build.VERSION.SDK_INT < 17 || !activity.isDestroyed()) && !activity.isFinishing();
@@ -1109,7 +1375,7 @@ public class PassManagerStatic {
     public static boolean i(Context context, LoginDialogData loginDialogData) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, loginDialogData)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, loginDialogData)) == null) {
             if (LoginDialogData.HOME_PAGE_RESULT_PAGE.equals(loginDialogData.getLocate())) {
                 return true;
             }
@@ -1127,7 +1393,7 @@ public class PassManagerStatic {
 
     public static void j(TbPageContext<?> tbPageContext, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65547, null, tbPageContext, str) == null) || tbPageContext == null || StringUtils.isNull(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(65548, null, tbPageContext, str) == null) || tbPageContext == null || StringUtils.isNull(str)) {
             return;
         }
         UrlManager.getInstance().dealOneLinkWithOutJumpWebView(tbPageContext, new String[]{str});
@@ -1136,7 +1402,7 @@ public class PassManagerStatic {
     public static FastLoginFeature[] k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
             List<FastLoginFeature> l2 = l();
             FastLoginFeature[] fastLoginFeatureArr = new FastLoginFeature[l2.size()];
             l2.toArray(fastLoginFeatureArr);
@@ -1148,7 +1414,7 @@ public class PassManagerStatic {
     public static List<FastLoginFeature> l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(FastLoginFeature.TX_QQ_SSO);
             arrayList.add(FastLoginFeature.TX_WEIXIN_SSO);
@@ -1161,19 +1427,19 @@ public class PassManagerStatic {
 
     public static void m(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65551, null, context) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             SapiAccountManager.setGlobalCallback(new b());
             SapiConfiguration.Builder builder = new SapiConfiguration.Builder(context);
-            if (ys4.k().h("is_domain_qa", false)) {
-                fv4.a = Domain.DOMAIN_QA;
+            if (ht4.k().h("is_domain_qa", false)) {
+                pv4.a = Domain.DOMAIN_QA;
                 builder.setRuntimeEnvironment(Domain.DOMAIN_QA);
             } else {
-                builder.setRuntimeEnvironment(fv4.a);
+                builder.setRuntimeEnvironment(pv4.a);
             }
             builder.setProductLineInfo(TbConfig.PassConfig.TPL, "1", TbConfig.PassConfig.ENC_KEY).sofireSdkConfig("200033", "ea737e4f435b53786043369d2e5ace4f", 1).customActionBar(true).skin("file:///android_asset/sapi_theme/style.css").fastLoginSupport(k()).wxAppID(TbConfig.WEIXIN_SHARE_APP_ID).qqAppID("101462192").sinaAppID("1511099634", PassBioEnv.PASSPORT_DOMAIN).yyOauthConfig("openyy183").setSupportTouchLogin(false).setSupportFaceLogin(true).enableShare(true).forbidPresetPhoneNumber(true);
             builder.setAgreeDangerousProtocol(PermissionUtil.isAgreePrivacyPolicy());
-            Domain domain = fv4.a;
+            Domain domain = pv4.a;
             Domain domain2 = Domain.DOMAIN_QA;
             if (domain == domain2) {
                 builder.setRuntimeEnvironment(domain2.forceHttps(true));
@@ -1185,23 +1451,26 @@ public class PassManagerStatic {
             } catch (Exception e2) {
                 BdLog.e(e2);
             }
-            d85.b().A(System.currentTimeMillis() - currentTimeMillis);
+            q85.b().A(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
     public static void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65551, null) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2921352, new g());
+        if (interceptable == null || interceptable.invokeV(65552, null) == null) {
+            CustomMessageTask customMessageTask = new CustomMessageTask(2921709, new h());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
+            CustomMessageTask customMessageTask2 = new CustomMessageTask(2921710, new i());
+            customMessageTask2.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+            MessageManager.getInstance().registerTask(customMessageTask2);
         }
     }
 
     public static void o() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65552, null) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2921328, new n());
+        if (interceptable == null || interceptable.invokeV(65553, null) == null) {
+            CustomMessageTask customMessageTask = new CustomMessageTask(2921352, new g());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
         }
@@ -1209,44 +1478,44 @@ public class PassManagerStatic {
 
     public static void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65553, null) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2921438, new m());
-            customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+        if (interceptable == null || interceptable.invokeV(65554, null) == null) {
+            CustomMessageTask customMessageTask = new CustomMessageTask(2921328, new p());
+            customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
         }
     }
 
     public static void q() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65554, null) == null) {
-            fv4.a();
+        if (interceptable == null || interceptable.invokeV(65555, null) == null) {
+            CustomMessageTask customMessageTask = new CustomMessageTask(2921438, new o());
+            customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+            MessageManager.getInstance().registerTask(customMessageTask);
+        }
+    }
+
+    public static void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65556, null) == null) {
+            pv4.a();
             TbadkCoreApplication.getInst().RegisterOrUpdateIntent(LoginActivityConfig.class, LoginActivity.class);
             TbadkCoreApplication.getInst().RegisterOrUpdateIntent(LoginDialogActivityConfig.class, LoginDialogActivity.class);
             TbadkCoreApplication.getInst().RegisterOrUpdateIntent(OneKeyLoginActivityConfig.class, OneKeyLoginActivity.class);
         }
     }
 
-    public static void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65555, null) == null) {
-            MessageManager.getInstance().registerListener(new k(2016301));
-            UrlManager.getInstance().addListener(new l());
-        }
-    }
-
     public static void s() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65556, null) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2921530, new a());
-            customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-            MessageManager.getInstance().registerTask(customMessageTask);
+        if (interceptable == null || interceptable.invokeV(65557, null) == null) {
+            MessageManager.getInstance().registerListener(new m(2016301));
+            UrlManager.getInstance().addListener(new n());
         }
     }
 
     public static void t() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65557, null) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2921535, new h());
+        if (interceptable == null || interceptable.invokeV(65558, null) == null) {
+            CustomMessageTask customMessageTask = new CustomMessageTask(2921530, new a());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
         }
@@ -1254,9 +1523,8 @@ public class PassManagerStatic {
 
     public static void u() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65558, null) == null) {
-            MessageManager.getInstance().registerListener(new e(2921339));
-            CustomMessageTask customMessageTask = new CustomMessageTask(2921339, new f());
+        if (interceptable == null || interceptable.invokeV(65559, null) == null) {
+            CustomMessageTask customMessageTask = new CustomMessageTask(2921535, new j());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
         }
@@ -1264,8 +1532,9 @@ public class PassManagerStatic {
 
     public static void v() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65559, null) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2921329, new o());
+        if (interceptable == null || interceptable.invokeV(65560, null) == null) {
+            MessageManager.getInstance().registerListener(new e(2921339));
+            CustomMessageTask customMessageTask = new CustomMessageTask(2921339, new f());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
         }
@@ -1273,28 +1542,37 @@ public class PassManagerStatic {
 
     public static void w() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65560, null) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2001268, new i());
+        if (interceptable == null || interceptable.invokeV(65561, null) == null) {
+            CustomMessageTask customMessageTask = new CustomMessageTask(2921329, new q());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
-            CustomMessageTask customMessageTask2 = new CustomMessageTask(2001293, new j());
-            customMessageTask2.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-            MessageManager.getInstance().registerTask(customMessageTask2);
         }
     }
 
     public static void x() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65561, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65562, null) == null) {
+            CustomMessageTask customMessageTask = new CustomMessageTask(2001268, new k());
+            customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+            MessageManager.getInstance().registerTask(customMessageTask);
+            CustomMessageTask customMessageTask2 = new CustomMessageTask(2001293, new l());
+            customMessageTask2.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+            MessageManager.getInstance().registerTask(customMessageTask2);
+        }
+    }
+
+    public static void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65563, null) == null) {
             CustomMessageTask customMessageTask = new CustomMessageTask(2921351, new d());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
         }
     }
 
-    public static void y(Context context) {
+    public static void z(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65562, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65564, null, context) == null) {
             MessageManager.getInstance().runTask(2921332, (Class) null);
             SapiAccount session = SapiAccountManager.getInstance().getSession();
             if (session == null || TextUtils.isEmpty(session.bduss)) {
@@ -1305,20 +1583,8 @@ public class PassManagerStatic {
             accountCenterDTO.paramsList.add(AccountCenterDTO.HIDE_PERSONAL_DATA);
             accountCenterDTO.paramsList.add(new PassNameValuePair("thirdparty", "0"));
             PassportSDK passportSDK = PassportSDK.getInstance();
-            z();
+            A();
             passportSDK.loadAccountCenter(new c(context), accountCenterDTO);
-        }
-    }
-
-    public static void z() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65563, null) == null) || b == null) {
-            return;
-        }
-        if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-            b.isNightMode = true;
-        } else {
-            b.isNightMode = false;
         }
     }
 }

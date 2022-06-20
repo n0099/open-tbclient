@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qe;
+import com.repackage.te;
 /* loaded from: classes3.dex */
 public abstract class TbSocketReponsedMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
@@ -31,14 +31,11 @@ public abstract class TbSocketReponsedMessage extends SocketResponsedMessage {
         }
     }
 
-    public static void saveProtocolBufferDataToCache(qe<byte[]> qeVar, String str, byte[] bArr) {
+    public static void saveProtocolBufferDataToCache(te<byte[]> teVar, String str, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65537, null, qeVar, str, bArr) == null) || str == null || qeVar == null || bArr == null || bArr.length <= 0) {
+        if (!(interceptable == null || interceptable.invokeLLL(65537, null, teVar, str, bArr) == null) || str == null || teVar == null || bArr == null || bArr.length <= 0) {
             return;
         }
-        qeVar.g(str, bArr);
+        teVar.g(str, bArr);
     }
-
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public abstract /* synthetic */ void decodeInBackGround(int i, T t) throws Exception;
 }

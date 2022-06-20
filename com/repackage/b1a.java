@@ -1,41 +1,38 @@
 package com.repackage;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.k0a;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.view.IYYPayWayView;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.UiEventType;
 import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes5.dex */
-public class b1a implements k0a.a {
+public class b1a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public b1a(IYYPayWayView iYYPayWayView) {
+    public static void a(int i, int i2, CancelType cancelType) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {iYYPayWayView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeIIL(65536, null, i, i2, cancelType) == null) {
+            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
+                b2a.b(i, i2, UiEventType.purchaseclose_bt);
+                RLog.info("PayDialogStatistic", UiEventType.purchaseclose_bt);
+            } else if (cancelType == CancelType.EMPTY_AREA_CLICK) {
+                b2a.b(i, i2, UiEventType.purchaseclose_transparent);
+                RLog.info("PayDialogStatistic", UiEventType.purchaseclose_transparent);
             }
         }
-        RLog.info("PayConfirmDialogCallback", "create PayConfirmDialogCallback");
     }
 
-    @Override // com.repackage.k0a.a
-    public void a(CancelType cancelType) {
+    public static void b(int i, int i2, CancelType cancelType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            RLog.info("PayConfirmDialogCallback", "onNotifyCancelType clickArea:" + cancelType);
+        if (interceptable == null || interceptable.invokeIIL(65537, null, i, i2, cancelType) == null) {
+            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
+                b2a.b(i, i2, UiEventType.paypageclose_bt);
+                RLog.info("PayDialogStatistic", UiEventType.paypageclose_bt);
+            } else if (cancelType == CancelType.EMPTY_AREA_CLICK) {
+                b2a.b(i, i2, UiEventType.paypageclose_transparent);
+                RLog.info("PayDialogStatistic", UiEventType.paypageclose_transparent);
+            }
         }
     }
 }

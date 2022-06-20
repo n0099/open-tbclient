@@ -1,6 +1,8 @@
 package com.repackage;
 
 import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,10 +10,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class au1 extends ns1 {
+public class au1 extends ys1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vs1 a;
+    public Paint.Join a;
 
     public au1() {
         Interceptable interceptable = $ic;
@@ -27,27 +29,29 @@ public class au1 extends ns1 {
         }
     }
 
-    @Override // com.repackage.ns1
-    public void a(os1 os1Var, Canvas canvas) {
-        vs1 vs1Var;
+    @Override // com.repackage.ys1
+    public void a(zs1 zs1Var, Canvas canvas) {
+        Paint.Join join;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, os1Var, canvas) == null) && (vs1Var = this.a) != null && vs1Var.d()) {
-            if (this.a.c()) {
-                os1Var.c.setShader(this.a.b());
-                return;
-            }
-            os1Var.m = this.a.a();
-            os1Var.c.setColor(this.a.a());
-            os1Var.b.setShader(null);
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, zs1Var, canvas) == null) || (join = this.a) == null) {
+            return;
         }
+        zs1Var.c.setStrokeJoin(join);
     }
 
-    @Override // com.repackage.ns1
+    @Override // com.repackage.ys1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 0) {
             return;
         }
-        this.a = new vs1(jSONArray);
+        String optString = jSONArray.optString(0);
+        if (TextUtils.equals(optString, "bevel")) {
+            this.a = Paint.Join.BEVEL;
+        } else if (TextUtils.equals(optString, "round")) {
+            this.a = Paint.Join.ROUND;
+        } else if (TextUtils.equals(optString, "miter")) {
+            this.a = Paint.Join.MITER;
+        }
     }
 }

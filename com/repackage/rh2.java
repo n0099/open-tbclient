@@ -1,13 +1,15 @@
 package com.repackage;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes7.dex */
-public class rh2 implements qh2 {
+public class rh2 extends md2<di2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,24 +27,22 @@ public class rh2 implements qh2 {
         }
     }
 
-    @Override // com.repackage.qh2
-    public void a(String str, String str2) {
+    @Override // com.repackage.md2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setUseFreeFlow" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.qh2
-    public void b(boolean z, HybridUbcFlow hybridUbcFlow) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.md2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull di2 di2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, hybridUbcFlow) == null) {
-        }
-    }
-
-    @Override // com.repackage.qh2
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, di2Var) == null) {
+            di2Var.B(command.arg1 == 1);
+            d(di2Var, command.what, null, false);
         }
     }
 }

@@ -457,7 +457,7 @@ public class d extends b {
         ViewGroup.LayoutParams a2 = e2 ? a(bb.b(this.a), K) : b(bb.a(this.a));
         this.r.setVisibility(8);
         this.o.setVisibility(8);
-        ViewGroup viewGroup = (ViewGroup) this.n.findViewById(R.id.obfuscated_res_0x7f09106b);
+        ViewGroup viewGroup = (ViewGroup) this.n.findViewById(R.id.obfuscated_res_0x7f09105b);
         viewGroup.setVisibility(0);
         ViewParent parent = this.i.e.getParent();
         if (parent instanceof ViewGroup) {
@@ -626,15 +626,15 @@ public class d extends b {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        KsAdWebView ksAdWebView = (KsAdWebView) m().findViewById(R.id.obfuscated_res_0x7f091156);
+        KsAdWebView ksAdWebView = (KsAdWebView) m().findViewById(R.id.obfuscated_res_0x7f091146);
         this.r = ksAdWebView;
         ksAdWebView.setBackgroundColor(0);
         this.r.setVisibility(4);
         this.E = new com.kwad.sdk.core.j.f(this.r, 70);
-        this.n = (KSFrameLayout) m().findViewById(R.id.obfuscated_res_0x7f091024);
-        this.o = (KSFrameLayout) m().findViewById(R.id.obfuscated_res_0x7f091129);
-        this.y = (ImageView) m().findViewById(R.id.obfuscated_res_0x7f091139);
-        this.w = (ImageView) m().findViewById(R.id.obfuscated_res_0x7f091071);
+        this.n = (KSFrameLayout) m().findViewById(R.id.obfuscated_res_0x7f091014);
+        this.o = (KSFrameLayout) m().findViewById(R.id.obfuscated_res_0x7f091119);
+        this.y = (ImageView) m().findViewById(R.id.obfuscated_res_0x7f091129);
+        this.w = (ImageView) m().findViewById(R.id.obfuscated_res_0x7f091061);
         this.a = q();
     }
 

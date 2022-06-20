@@ -23,12 +23,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.db7;
-import com.repackage.hb5;
-import com.repackage.ib5;
-import com.repackage.ji;
-import com.repackage.ph5;
-import com.repackage.z45;
+import com.repackage.mi5;
+import com.repackage.ni;
+import com.repackage.o55;
+import com.repackage.oc7;
+import com.repackage.ub5;
+import com.repackage.vb5;
 import java.util.Map;
 import org.aspectj.runtime.reflect.SignatureImpl;
 import org.json.JSONArray;
@@ -95,14 +95,14 @@ public class AdAsyncRequestData extends HttpMessage {
             addParam("model", Build.MODEL);
             addParam(HttpRequest.CLIENT_TYPE, "2");
             addParam("_os_version", Build.VERSION.RELEASE);
-            addParam("net_type", String.valueOf(ji.I()));
+            addParam("net_type", String.valueOf(ni.I()));
             addParam(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
             addParam(HttpRequest.ANDROID_ID, TbadkCoreApplication.getInst().getAndroidId());
             addParam(CommonUrlParamManager.PARAM_CMODE, PermissionUtil.isAgreePrivacyPolicy() ? 1 : 2);
             String sampleId = TbSingleton.getInstance().getSampleId();
             addParam("eid", sampleId == null ? "" : sampleId.replace(SignatureImpl.SEP, ','));
             addParam(TiebaStatic.Params.SAMPLE_ID, getSampleId());
-            addParam("app_transmit_data", ib5.a());
+            addParam("app_transmit_data", vb5.a());
         }
     }
 
@@ -127,13 +127,13 @@ public class AdAsyncRequestData extends HttpMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
             JSONArray jSONArray = new JSONArray();
-            if (ph5.a().b("tieba_no_oaid_param", 0) != 1) {
-                jSONArray.put(create(AdExtParam.KEY_IADEX, hb5.e()));
+            if (mi5.a().b("tieba_no_oaid_param", 0) != 1) {
+                jSONArray.put(create(AdExtParam.KEY_IADEX, ub5.e()));
                 jSONArray.put(create("oaid_v", PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst())));
                 jSONArray.put(create("mac", PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst())));
             }
             jSONArray.put(create(AdExtParam.KEY_NAD_CORE_VERSION, "5.2.0.21"));
-            if (!db7.f(map)) {
+            if (!oc7.f(map)) {
                 for (Map.Entry<String, String> entry : map.entrySet()) {
                     jSONArray.put(create(entry.getKey(), entry.getValue()));
                 }
@@ -148,7 +148,7 @@ public class AdAsyncRequestData extends HttpMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             if (TextUtils.isEmpty(TbSingleton.getInstance().getSampleId())) {
-                TbSingleton.getInstance().setSampleId(z45.d("multi_process_sample_id", ""));
+                TbSingleton.getInstance().setSampleId(o55.d("multi_process_sample_id", ""));
             }
             return TbSingleton.getInstance().getSampleId();
         }

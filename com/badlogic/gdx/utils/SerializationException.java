@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h8;
+import com.repackage.j8;
 /* loaded from: classes.dex */
 public class SerializationException extends RuntimeException {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public h8 trace;
+    public j8 trace;
 
     public SerializationException() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class SerializationException extends RuntimeException {
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             if (str != null) {
                 if (this.trace == null) {
-                    this.trace = new h8(512);
+                    this.trace = new j8(512);
                 }
                 this.trace.a('\n');
                 this.trace.n(str);
@@ -57,14 +57,14 @@ public class SerializationException extends RuntimeException {
             if (this.trace == null) {
                 return super.getMessage();
             }
-            h8 h8Var = new h8(512);
-            h8Var.n(super.getMessage());
-            if (h8Var.length() > 0) {
-                h8Var.a('\n');
+            j8 j8Var = new j8(512);
+            j8Var.n(super.getMessage());
+            if (j8Var.length() > 0) {
+                j8Var.a('\n');
             }
-            h8Var.n("Serialization trace:");
-            h8Var.j(this.trace);
-            return h8Var.toString();
+            j8Var.n("Serialization trace:");
+            j8Var.j(this.trace);
+            return j8Var.toString();
         }
         return (String) invokeV.objValue;
     }

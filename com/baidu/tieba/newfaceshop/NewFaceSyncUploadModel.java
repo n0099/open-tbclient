@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kl7;
+import com.repackage.vm7;
 /* loaded from: classes3.dex */
 public class NewFaceSyncUploadModel extends FaceBaseModel {
     public static /* synthetic */ Interceptable $ic;
@@ -53,7 +53,7 @@ public class NewFaceSyncUploadModel extends FaceBaseModel {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003350 && (httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
                 try {
-                    kl7.w(((Long) ((HttpMessage) ((JsonHttpResponsedMessage) httpResponsedMessage).getOrginalMessage()).getParams().get("pkg_update_time")).longValue());
+                    vm7.w(((Long) ((HttpMessage) ((JsonHttpResponsedMessage) httpResponsedMessage).getOrginalMessage()).getParams().get("pkg_update_time")).longValue());
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -108,7 +108,7 @@ public class NewFaceSyncUploadModel extends FaceBaseModel {
         }
     }
 
-    public void y(String str) {
+    public void z(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             long currentTimeMillis = System.currentTimeMillis();

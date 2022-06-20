@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xv;
-import com.repackage.yv;
+import com.repackage.bw;
+import com.repackage.cw;
 /* loaded from: classes.dex */
 public class BdPermissionActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String[] mPermissions;
-    public int mReqCode;
+    public int a;
+    public String[] b;
 
     public BdPermissionActivity() {
         Interceptable interceptable = $ic;
@@ -33,19 +33,10 @@ public class BdPermissionActivity extends Activity {
         }
     }
 
-    private void getRequest() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            Intent intent = getIntent();
-            this.mReqCode = intent.getIntExtra("request_code", 0);
-            this.mPermissions = intent.getStringArrayExtra("permissions");
-        }
-    }
-
     private void requestPermissions() {
         String[] strArr;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (strArr = this.mPermissions) == null || strArr.length == 0) {
+        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (strArr = this.b) == null || strArr.length == 0) {
             return;
         }
         boolean z = false;
@@ -53,20 +44,29 @@ public class BdPermissionActivity extends Activity {
             z = z || ActivityCompat.shouldShowRequestPermissionRationale(this, str);
         }
         if (z) {
-            ActivityCompat.requestPermissions(this, this.mPermissions, this.mReqCode);
-        } else if (yv.c(this, this.mReqCode)) {
-            ActivityCompat.requestPermissions(this, this.mPermissions, this.mReqCode);
+            ActivityCompat.requestPermissions(this, this.b, this.a);
+        } else if (cw.c(this, this.a)) {
+            ActivityCompat.requestPermissions(this, this.b, this.a);
         } else {
-            onRequestPermissionsResult(this.mReqCode, this.mPermissions, new int[0]);
+            onRequestPermissionsResult(this.a, this.b, new int[0]);
+        }
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Intent intent = getIntent();
+            this.a = intent.getIntExtra("request_code", 0);
+            this.b = intent.getStringArrayExtra("permissions");
         }
     }
 
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            getRequest();
+            a();
             LogUtil.logActivity(this, "onCreate");
         }
     }
@@ -74,8 +74,8 @@ public class BdPermissionActivity extends Activity {
     @Override // android.app.Activity
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, strArr, iArr) == null) {
-            ActivityCompat.OnRequestPermissionsResultCallback c = xv.b().c(this.mReqCode);
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, strArr, iArr) == null) {
+            ActivityCompat.OnRequestPermissionsResultCallback c = bw.b().c(this.a);
             if (c != null) {
                 c.onRequestPermissionsResult(i, strArr, iArr);
             }
@@ -86,7 +86,7 @@ public class BdPermissionActivity extends Activity {
     @Override // android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onResume();
             requestPermissions();
         }

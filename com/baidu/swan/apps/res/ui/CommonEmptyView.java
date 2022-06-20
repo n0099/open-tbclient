@@ -20,8 +20,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi2;
-import com.repackage.v43;
+import com.repackage.g53;
+import com.repackage.zi2;
 /* loaded from: classes2.dex */
 public class CommonEmptyView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -35,7 +35,7 @@ public class CommonEmptyView extends RelativeLayout {
     public TextView g;
 
     /* loaded from: classes2.dex */
-    public class a implements v43 {
+    public class a implements g53 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CommonEmptyView a;
@@ -83,15 +83,15 @@ public class CommonEmptyView extends RelativeLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d009a, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0099, (ViewGroup) this, true);
             setBackground(context.getResources().getDrawable(R.color.obfuscated_res_0x7f06039e));
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0908b1);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0908b5);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0908b4);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0908b2);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0908b0);
-            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0908af);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0908b3);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09089c);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0908a0);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09089f);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09089d);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09089b);
+            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09089a);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09089e);
             setPageResources();
         }
     }
@@ -101,7 +101,7 @@ public class CommonEmptyView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onAttachedToWindow();
-            oi2.M().f(this, new a(this));
+            zi2.M().f(this, new a(this));
         }
     }
 
@@ -130,7 +130,7 @@ public class CommonEmptyView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDetachedFromWindow();
-            oi2.M().g(this);
+            zi2.M().g(this);
         }
     }
 
@@ -177,8 +177,8 @@ public class CommonEmptyView extends RelativeLayout {
             }
             TextView textView3 = this.e;
             if (textView3 != null) {
-                textView3.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08014d));
-                this.e.setTextColor(AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f060a47));
+                textView3.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08014c));
+                this.e.setTextColor(AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f060a45));
             }
             TextView textView4 = this.c;
             if (textView4 != null) {

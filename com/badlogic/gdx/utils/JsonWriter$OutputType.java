@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h8;
-import com.repackage.o7;
+import com.repackage.j8;
+import com.repackage.q7;
 import com.tachikoma.core.utility.FileUtil;
 import java.util.regex.Pattern;
 import kotlin.text.Typography;
@@ -91,24 +91,24 @@ public final class JsonWriter$OutputType {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            h8 h8Var = new h8(str);
-            h8Var.G(FileUtil.WINDOWS_SEPARATOR, "\\\\");
-            h8Var.G('\r', "\\r");
-            h8Var.G('\n', "\\n");
-            h8Var.G('\t', "\\t");
-            int i = o7.a[ordinal()];
+            j8 j8Var = new j8(str);
+            j8Var.G(FileUtil.WINDOWS_SEPARATOR, "\\\\");
+            j8Var.G('\r', "\\r");
+            j8Var.G('\n', "\\n");
+            j8Var.G('\t', "\\t");
+            int i = q7.a[ordinal()];
             if (i == 1) {
-                if (!str.contains("//") && !str.contains("/*") && minimalNamePattern.matcher(h8Var).matches()) {
-                    return h8Var.toString();
+                if (!str.contains("//") && !str.contains("/*") && minimalNamePattern.matcher(j8Var).matches()) {
+                    return j8Var.toString();
                 }
             }
-            if (javascriptPattern.matcher(h8Var).matches()) {
-                return h8Var.toString();
+            if (javascriptPattern.matcher(j8Var).matches()) {
+                return j8Var.toString();
             }
             StringBuilder sb = new StringBuilder();
             sb.append(Typography.quote);
-            h8Var.G(Typography.quote, "\\\"");
-            sb.append(h8Var.toString());
+            j8Var.G(Typography.quote, "\\\"");
+            sb.append(j8Var.toString());
             sb.append(Typography.quote);
             return sb.toString();
         }
@@ -127,18 +127,18 @@ public final class JsonWriter$OutputType {
             if ((obj instanceof Number) || (obj instanceof Boolean)) {
                 return obj2;
             }
-            h8 h8Var = new h8(obj2);
-            h8Var.G(FileUtil.WINDOWS_SEPARATOR, "\\\\");
-            h8Var.G('\r', "\\r");
-            h8Var.G('\n', "\\n");
-            h8Var.G('\t', "\\t");
-            if (this == minimal && !obj2.equals("true") && !obj2.equals("false") && !obj2.equals(StringUtil.NULL_STRING) && !obj2.contains("//") && !obj2.contains("/*") && (length = h8Var.length()) > 0 && h8Var.charAt(length - 1) != ' ' && minimalValuePattern.matcher(h8Var).matches()) {
-                return h8Var.toString();
+            j8 j8Var = new j8(obj2);
+            j8Var.G(FileUtil.WINDOWS_SEPARATOR, "\\\\");
+            j8Var.G('\r', "\\r");
+            j8Var.G('\n', "\\n");
+            j8Var.G('\t', "\\t");
+            if (this == minimal && !obj2.equals("true") && !obj2.equals("false") && !obj2.equals(StringUtil.NULL_STRING) && !obj2.contains("//") && !obj2.contains("/*") && (length = j8Var.length()) > 0 && j8Var.charAt(length - 1) != ' ' && minimalValuePattern.matcher(j8Var).matches()) {
+                return j8Var.toString();
             }
             StringBuilder sb = new StringBuilder();
             sb.append(Typography.quote);
-            h8Var.G(Typography.quote, "\\\"");
-            sb.append(h8Var.toString());
+            j8Var.G(Typography.quote, "\\\"");
+            sb.append(j8Var.toString());
             sb.append(Typography.quote);
             return sb.toString();
         }

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b45;
+import com.repackage.q45;
 /* loaded from: classes2.dex */
 public class InitNoNetworkViewTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -35,10 +35,7 @@ public class InitNoNetworkViewTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                b45.e().a(1013, new NoNetworkView(TbadkCoreApplication.getInst()));
-                b45.e().a(1021, new NoNetworkView(TbadkCoreApplication.getInst()));
-                b45.e().a(1041, new NoNetworkView(TbadkCoreApplication.getInst()));
-                b45.e().a(1051, new NoNetworkView(TbadkCoreApplication.getInst()));
+                q45.e().a(1013, new NoNetworkView(TbadkCoreApplication.getInst()));
             } catch (Exception e) {
                 BdLog.e(e);
             }

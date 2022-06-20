@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 /* loaded from: classes3.dex */
 public class CurrentPageTypeHelper {
     public static /* synthetic */ Interceptable $ic;
@@ -47,7 +48,7 @@ public class CurrentPageTypeHelper {
             SMART_APP = new PageType("SMART_APP", 3);
             OTHER = new PageType("OTHER", 4);
             NATIVE_WEB = new PageType("NATIVE_WEB", 5);
-            PageType pageType = new PageType("NONE", 6);
+            PageType pageType = new PageType(HlsPlaylistParser.METHOD_NONE, 6);
             NONE = pageType;
             $VALUES = new PageType[]{NATIVE, FLUTTER, WEB, SMART_APP, OTHER, NATIVE_WEB, pageType};
         }

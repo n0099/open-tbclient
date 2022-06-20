@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes.dex */
 public final class TiledMapTile$BlendMode {
@@ -29,7 +30,7 @@ public final class TiledMapTile$BlendMode {
                 return;
             }
         }
-        NONE = new TiledMapTile$BlendMode("NONE", 0);
+        NONE = new TiledMapTile$BlendMode(HlsPlaylistParser.METHOD_NONE, 0);
         TiledMapTile$BlendMode tiledMapTile$BlendMode = new TiledMapTile$BlendMode("ALPHA", 1);
         ALPHA = tiledMapTile$BlendMode;
         $VALUES = new TiledMapTile$BlendMode[]{NONE, tiledMapTile$BlendMode};

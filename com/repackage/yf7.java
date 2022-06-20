@@ -1,14 +1,14 @@
 package com.repackage;
 
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.ShareService;
+import com.baidu.searchbox.live.interfaces.service.EventDispatcherService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class yf7 extends db1<ShareService> {
+public class yf7 extends ob1<EventDispatcherService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,11 +27,11 @@ public class yf7 extends db1<ShareService> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.db1
+    @Override // com.repackage.ob1
     /* renamed from: a */
-    public ShareService createService() throws ServiceNotFoundException {
+    public EventDispatcherService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new zf7() : (ShareService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new zf7() : (EventDispatcherService) invokeV.objValue;
     }
 }

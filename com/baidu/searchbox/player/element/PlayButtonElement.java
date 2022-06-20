@@ -63,14 +63,14 @@ public class PlayButtonElement extends AbsElement implements View.OnClickListene
                 if (imageView == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("playBtn");
                 }
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080213);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080212);
                 return;
             }
             ImageView imageView2 = this.playBtn;
             if (imageView2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("playBtn");
             }
-            imageView2.setImageResource(R.drawable.obfuscated_res_0x7f080214);
+            imageView2.setImageResource(R.drawable.obfuscated_res_0x7f080213);
         }
     }
 

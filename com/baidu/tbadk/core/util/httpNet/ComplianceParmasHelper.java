@@ -11,12 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ci;
+import com.repackage.gi;
 import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class ComplianceParmasHelper {
     public static /* synthetic */ Interceptable $ic;
+    public static String SERVER_ADDRESS_PEIWAN;
     public static final List TIEBAHOST_CHANGE_LIST;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,6 +35,7 @@ public class ComplianceParmasHelper {
             }
         }
         TIEBAHOST_CHANGE_LIST = Arrays.asList(TbConfig.GET_SYNC_ADDRESS, "c/s/msg", "c/e/meme/suggest", TbConfig.LOG_UPLOAD_URL, TbConfig.LOAD_REG_PV_ADDRESS, TbConfig.URL_FUN_AD_RECORD, TbConfig.GET_PAY_CONFIG, TbConfig.URL_PLAY_STATISTICS, TbConfig.IMAGE_PB_ADDRESS, TbConfig.URL_PLAY_DURATION_STATISTICS, TbConfig.URL_CONCERN_CHECK_RED_NOTIFY, TbConfig.URL_VIDEO_HOLY_CARD, TbConfig.STAT_CLIENT_START);
+        SERVER_ADDRESS_PEIWAN = TbConfig.SERVER_GAME_PLAY_ADRESS;
     }
 
     public ComplianceParmasHelper() {
@@ -53,7 +55,7 @@ public class ComplianceParmasHelper {
     public static String getBase64Value(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? !TextUtils.isEmpty(str) ? ci.j(str.getBytes()) : str : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? !TextUtils.isEmpty(str) ? gi.j(str.getBytes()) : str : (String) invokeL.objValue;
     }
 
     public static String getRenameKey(String str) {
@@ -65,6 +67,12 @@ public class ComplianceParmasHelper {
     public static boolean isNeedChange(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? !TextUtils.isEmpty(str) && ComplianceParmasSwitch.getIsOn() && str.contains(TbConfig.SERVER_ADDRESS) && TIEBAHOST_CHANGE_LIST.contains(str.replace(TbConfig.SERVER_ADDRESS, "")) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str) || !ComplianceParmasSwitch.getIsOn()) {
+                return false;
+            }
+            return str.contains(TbConfig.SERVER_ADDRESS) ? TIEBAHOST_CHANGE_LIST.contains(str.replace(TbConfig.SERVER_ADDRESS, "")) : SERVER_ADDRESS_PEIWAN.equalsIgnoreCase(str);
+        }
+        return invokeL.booleanValue;
     }
 }

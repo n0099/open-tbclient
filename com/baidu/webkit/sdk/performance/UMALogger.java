@@ -1,7 +1,6 @@
 package com.baidu.webkit.sdk.performance;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.pm.provider.BundleOpProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -126,7 +125,7 @@ public abstract class UMALogger {
         if (!(interceptable == null || interceptable.invokeLLL(1048582, this, jSONObject, list, str) == null) || jSONObject == null) {
             return;
         }
-        Log.i(TAG, BundleOpProvider.METHOD_BUNDLE_RECORD);
+        Log.i(TAG, "record");
         Iterator<String> keys = jSONObject.keys();
         while (keys.hasNext()) {
             String next = keys.next();

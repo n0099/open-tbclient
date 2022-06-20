@@ -1,156 +1,190 @@
 package com.repackage;
 
-import android.app.Activity;
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.text.TextUtils;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class e93 extends e13 {
+public class e93 implements SensorEventListener {
     public static /* synthetic */ Interceptable $ic;
+    @SuppressLint({"StaticFieldLeak"})
+    public static volatile e93 i;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public SensorManager b;
+    public Sensor c;
+    public a d;
+    public double[] e;
+    public boolean f;
+    public long g;
+    public int h;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e93(e03 e03Var) {
-        super(e03Var, "/swanAPI/brightness");
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(double[] dArr);
+    }
+
+    public e93() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {e03Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.e = new double[3];
+        this.f = false;
+        this.g = 0L;
     }
 
-    @Override // com.repackage.e13
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hz2 hz2Var) {
-        InterceptResult invokeLLLL;
+    public static e93 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, hz2Var)) == null) {
-            if (e13.b) {
-                Log.d("Brightness", "handle entity: " + unitedSchemeEntity.toString());
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (i == null) {
+                synchronized (e93.class) {
+                    if (i == null) {
+                        i = new e93();
+                    }
+                }
             }
-            return false;
+            return i;
         }
-        return invokeLLLL.booleanValue;
+        return (e93) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:65:0x010c  */
-    /* JADX WARN: Removed duplicated region for block: B:68:0x011a  */
-    @Override // com.repackage.e13
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, hz2 hz2Var) {
-        InterceptResult invokeLLLLL;
+    public static synchronized void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, hz2Var)) == null) {
-            if (e13.b) {
-                Log.d("Brightness", "handleSubAction: " + unitedSchemeEntity.toString());
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (e13.b) {
-                Log.i("Brightness", "handleSubAction params: " + unitedSchemeEntity.getParam("params"));
-            }
-            JSONObject jSONObject = null;
-            Activity activity = context instanceof Activity ? (Activity) context : null;
-            if (activity == null) {
-                hw1.c("brightness", "activity is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
-            }
-            int i = 1001;
-            char c = 65535;
-            int hashCode = str.hashCode();
-            boolean z = true;
-            if (hashCode != -1634890823) {
-                if (hashCode != 1913219981) {
-                    if (hashCode == 1913231513 && str.equals("/swanAPI/brightness/set")) {
-                        c = 0;
-                    }
-                } else if (str.equals("/swanAPI/brightness/get")) {
-                    c = 1;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            synchronized (e93.class) {
+                if (i == null) {
+                    return;
                 }
-            } else if (str.equals("/swanAPI/brightness/keepScreenOn")) {
-                c = 2;
+                i.c();
             }
-            if (c == 0) {
-                if (optParamsAsJo == null) {
-                    hw1.c("brightness", "paramsJson is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
-                }
-                String optString = optParamsAsJo.optString("value");
-                float f = -1.0f;
-                if (!TextUtils.isEmpty(optString)) {
-                    try {
-                        f = Float.parseFloat(optString);
-                    } catch (Exception unused) {
-                    }
-                }
-                if (f >= 0.0f && f <= 1.0f) {
-                    f93.c().e(activity, f);
-                    if (!z) {
-                    }
-                    return z;
-                }
-                i = 202;
-                z = false;
-                if (!z) {
-                }
-                return z;
-            }
-            if (c != 1) {
-                if (c == 2) {
-                    if (optParamsAsJo == null) {
-                        hw1.c("brightness", "paramsJson is null");
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                        return false;
-                    }
-                    try {
-                        f93.c().f(activity, optParamsAsJo.getBoolean("keepScreenOn"));
-                    } catch (JSONException unused2) {
-                    }
-                }
-                z = false;
-            } else {
-                jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("value", f93.c().a(activity));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (!z) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(i);
-            } else if (jSONObject != null) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-            } else {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            }
-            return z;
         }
-        return invokeLLLLL.booleanValue;
+    }
+
+    public synchronized void b(Context context, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, context, i2) == null) {
+            synchronized (this) {
+                this.a = context;
+                this.h = i2;
+            }
+        }
+    }
+
+    public final synchronized void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                sw1.i("accelerometer", "release");
+                if (this.f) {
+                    g();
+                }
+                this.a = null;
+                i = null;
+            }
+        }
+    }
+
+    public synchronized void e(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            synchronized (this) {
+                this.d = aVar;
+            }
+        }
+    }
+
+    public synchronized void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                if (this.a == null) {
+                    sw1.c("accelerometer", "start error, none context");
+                } else if (this.f) {
+                    sw1.o("accelerometer", "has already start");
+                } else {
+                    SensorManager sensorManager = (SensorManager) this.a.getSystemService("sensor");
+                    this.b = sensorManager;
+                    if (sensorManager != null) {
+                        Sensor defaultSensor = sensorManager.getDefaultSensor(1);
+                        this.c = defaultSensor;
+                        this.b.registerListener(this, defaultSensor, 1);
+                        this.f = true;
+                        sw1.i("accelerometer", "start listen");
+                    } else {
+                        sw1.c("accelerometer", "none sensorManager");
+                    }
+                }
+            }
+        }
+    }
+
+    public synchronized void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                if (!this.f) {
+                    sw1.o("accelerometer", "has already stop");
+                    return;
+                }
+                if (this.b != null) {
+                    this.b.unregisterListener(this);
+                }
+                this.b = null;
+                this.c = null;
+                this.f = false;
+            }
+        }
+    }
+
+    @Override // android.hardware.SensorEventListener
+    public void onAccuracyChanged(Sensor sensor, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, sensor, i2) == null) {
+        }
+    }
+
+    @Override // android.hardware.SensorEventListener
+    public void onSensorChanged(SensorEvent sensorEvent) {
+        Sensor sensor;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, sensorEvent) == null) || sensorEvent == null || (sensor = sensorEvent.sensor) == null || sensor.getType() != 1) {
+            return;
+        }
+        float[] fArr = sensorEvent.values;
+        if (fArr != null && fArr.length == 3) {
+            synchronized (this) {
+                if (this.f && this.d != null && System.currentTimeMillis() - this.g > this.h) {
+                    this.e[0] = (-sensorEvent.values[0]) / 9.8d;
+                    this.e[1] = (-sensorEvent.values[1]) / 9.8d;
+                    this.e[2] = (-sensorEvent.values[2]) / 9.8d;
+                    this.d.a(this.e);
+                    this.g = System.currentTimeMillis();
+                }
+                if (sz2.v) {
+                    Log.d("AccelerometerManager", "current Time : " + this.g + "current Acc x : " + this.e[0] + "current Acc y : " + this.e[1] + "current Acc z : " + this.e[2]);
+                }
+            }
+            return;
+        }
+        sw1.o("accelerometer", "illegal accelerometer event");
     }
 }

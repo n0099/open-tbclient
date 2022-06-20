@@ -1,21 +1,64 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.repackage.i84;
-import okhttp3.Callback;
-import org.json.JSONObject;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes7.dex */
-public interface ui1 {
-    void d(byte[] bArr);
+public class ui1 implements il1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    <T> void e(String str, String str2, ResponseCallback<T> responseCallback);
+    public ui1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void f(String str, String str2, i84.c cVar);
+    @Override // com.repackage.il1
+    public String[] a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (String[]) invokeV.objValue;
+    }
 
-    boolean g(String str);
+    @Override // com.repackage.il1
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
-    boolean h();
-
-    boolean i(@NonNull hz2 hz2Var, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, Callback callback, ae3<String> ae3Var);
+    @Override // com.repackage.il1
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (zi2.w0().d()) {
+                return null;
+            }
+            if (s52.b()) {
+                return s52.b + File.separator + "libcom.baidu.zeus.so";
+            }
+            return s52.d + File.separator + "libcom.baidu.zeus.so";
+        }
+        return (String) invokeV.objValue;
+    }
 }

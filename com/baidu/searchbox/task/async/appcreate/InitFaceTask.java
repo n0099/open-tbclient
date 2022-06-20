@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.k05;
+import com.repackage.z05;
 /* loaded from: classes2.dex */
 public class InitFaceTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -33,8 +33,8 @@ public class InitFaceTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            k05.i();
-            TbFaceManager.i().q(TbadkCoreApplication.getInst(), new k05());
+            z05.i();
+            TbFaceManager.i().q(TbadkCoreApplication.getInst(), new z05());
         }
     }
 

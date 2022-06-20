@@ -1,46 +1,49 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.tu9;
-import java.util.concurrent.PriorityBlockingQueue;
+import com.repackage.av9;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.Executor;
+import java.util.concurrent.RejectedExecutionException;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
+import rx.internal.schedulers.ScheduledAction;
 /* loaded from: classes7.dex */
-public final class tw9 extends tu9 {
+public final class tw9 extends av9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final tw9 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Executor a;
 
     /* loaded from: classes7.dex */
-    public static final class a extends tu9.a implements xu9 {
+    public static final class a extends av9.a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final AtomicInteger a;
-        public final PriorityBlockingQueue<b> b;
-        public final jz9 c;
+        public final Executor a;
+        public final rz9 b;
+        public final ConcurrentLinkedQueue<ScheduledAction> c;
         public final AtomicInteger d;
+        public final ScheduledExecutorService e;
 
         /* renamed from: com.repackage.tw9$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0531a implements dv9 {
+        public class C0536a implements kv9 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
+            public final /* synthetic */ sz9 a;
             public final /* synthetic */ a b;
 
-            public C0531a(a aVar, b bVar) {
+            public C0536a(a aVar, sz9 sz9Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, bVar};
+                    Object[] objArr = {aVar, sz9Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -51,22 +54,68 @@ public final class tw9 extends tu9 {
                     }
                 }
                 this.b = aVar;
-                this.a = bVar;
+                this.a = sz9Var;
             }
 
-            @Override // com.repackage.dv9
+            @Override // com.repackage.kv9
             public void call() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.b.b.remove(this.a);
+                    this.b.b.b(this.a);
                 }
             }
         }
 
-        public a() {
+        /* loaded from: classes7.dex */
+        public class b implements kv9 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ sz9 a;
+            public final /* synthetic */ kv9 b;
+            public final /* synthetic */ ev9 c;
+            public final /* synthetic */ a d;
+
+            public b(a aVar, sz9 sz9Var, kv9 kv9Var, ev9 ev9Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, sz9Var, kv9Var, ev9Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.d = aVar;
+                this.a = sz9Var;
+                this.b = kv9Var;
+                this.c = ev9Var;
+            }
+
+            @Override // com.repackage.kv9
+            public void call() {
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.isUnsubscribed()) {
+                    return;
+                }
+                ev9 b = this.d.b(this.b);
+                this.a.a(b);
+                if (b.getClass() == ScheduledAction.class) {
+                    ((ScheduledAction) b).add(this.c);
+                }
+            }
+        }
+
+        public a(Executor executor) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {executor};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -76,157 +125,133 @@ public final class tw9 extends tu9 {
                     return;
                 }
             }
-            this.a = new AtomicInteger();
-            this.b = new PriorityBlockingQueue<>();
-            this.c = new jz9();
+            this.a = executor;
+            this.c = new ConcurrentLinkedQueue<>();
             this.d = new AtomicInteger();
+            this.b = new rz9();
+            this.e = uw9.a();
         }
 
-        @Override // com.repackage.tu9.a
-        public xu9 b(dv9 dv9Var) {
+        @Override // com.repackage.av9.a
+        public ev9 b(kv9 kv9Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dv9Var)) == null) ? d(dv9Var, a()) : (xu9) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, kv9Var)) == null) {
+                if (isUnsubscribed()) {
+                    return uz9.c();
+                }
+                ScheduledAction scheduledAction = new ScheduledAction(ez9.q(kv9Var), this.b);
+                this.b.a(scheduledAction);
+                this.c.offer(scheduledAction);
+                if (this.d.getAndIncrement() == 0) {
+                    try {
+                        this.a.execute(this);
+                    } catch (RejectedExecutionException e) {
+                        this.b.b(scheduledAction);
+                        this.d.decrementAndGet();
+                        ez9.j(e);
+                        throw e;
+                    }
+                }
+                return scheduledAction;
+            }
+            return (ev9) invokeL.objValue;
         }
 
-        @Override // com.repackage.tu9.a
-        public xu9 c(dv9 dv9Var, long j, TimeUnit timeUnit) {
+        @Override // com.repackage.av9.a
+        public ev9 c(kv9 kv9Var, long j, TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{dv9Var, Long.valueOf(j), timeUnit})) == null) {
-                long a = a() + timeUnit.toMillis(j);
-                return d(new sw9(dv9Var, this, a), a);
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{kv9Var, Long.valueOf(j), timeUnit})) == null) {
+                if (j <= 0) {
+                    return b(kv9Var);
+                }
+                if (isUnsubscribed()) {
+                    return uz9.c();
+                }
+                kv9 q = ez9.q(kv9Var);
+                sz9 sz9Var = new sz9();
+                sz9 sz9Var2 = new sz9();
+                sz9Var2.a(sz9Var);
+                this.b.a(sz9Var2);
+                ev9 a = uz9.a(new C0536a(this, sz9Var2));
+                ScheduledAction scheduledAction = new ScheduledAction(new b(this, sz9Var2, q, a));
+                sz9Var.a(scheduledAction);
+                try {
+                    scheduledAction.add(this.e.schedule(scheduledAction, j, timeUnit));
+                    return a;
+                } catch (RejectedExecutionException e) {
+                    ez9.j(e);
+                    throw e;
+                }
             }
-            return (xu9) invokeCommon.objValue;
+            return (ev9) invokeCommon.objValue;
         }
 
-        public final xu9 d(dv9 dv9Var, long j) {
-            InterceptResult invokeLJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, dv9Var, j)) == null) {
-                if (this.c.isUnsubscribed()) {
-                    return nz9.c();
-                }
-                b bVar = new b(dv9Var, Long.valueOf(j), this.a.incrementAndGet());
-                this.b.add(bVar);
-                if (this.d.getAndIncrement() == 0) {
-                    do {
-                        b poll = this.b.poll();
-                        if (poll != null) {
-                            poll.a.call();
-                        }
-                    } while (this.d.decrementAndGet() > 0);
-                    return nz9.c();
-                }
-                return nz9.a(new C0531a(this, bVar));
-            }
-            return (xu9) invokeLJ.objValue;
-        }
-
-        @Override // com.repackage.xu9
+        @Override // com.repackage.ev9
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c.isUnsubscribed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b.isUnsubscribed() : invokeV.booleanValue;
         }
 
-        @Override // com.repackage.xu9
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                while (!this.b.isUnsubscribed()) {
+                    ScheduledAction poll = this.c.poll();
+                    if (poll == null) {
+                        return;
+                    }
+                    if (!poll.isUnsubscribed()) {
+                        if (!this.b.isUnsubscribed()) {
+                            poll.run();
+                        } else {
+                            this.c.clear();
+                            return;
+                        }
+                    }
+                    if (this.d.decrementAndGet() == 0) {
+                        return;
+                    }
+                }
+                this.c.clear();
+            }
+        }
+
+        @Override // com.repackage.ev9
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.c.unsubscribe();
+                this.b.unsubscribe();
+                this.c.clear();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static final class b implements Comparable<b> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final dv9 a;
-        public final Long b;
-        public final int c;
-
-        public b(dv9 dv9Var, Long l, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dv9Var, l, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dv9Var;
-            this.b = l;
-            this.c = i;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.lang.Comparable
-        /* renamed from: a */
-        public int compareTo(b bVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
-                int compareTo = this.b.compareTo(bVar.b);
-                return compareTo == 0 ? tw9.a(this.c, bVar.c) : compareTo;
-            }
-            return invokeL.intValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755276197, "Lcom/repackage/tw9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755276197, "Lcom/repackage/tw9;");
-                return;
-            }
-        }
-        a = new tw9();
-    }
-
-    public tw9() {
+    public tw9(Executor executor) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {executor};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = executor;
     }
 
-    public static int a(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) {
-            if (i < i2) {
-                return -1;
-            }
-            return i == i2 ? 0 : 1;
-        }
-        return invokeII.intValue;
-    }
-
-    @Override // com.repackage.tu9
-    public tu9.a createWorker() {
+    @Override // com.repackage.av9
+    public av9.a createWorker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a() : (tu9.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this.a) : (av9.a) invokeV.objValue;
     }
 }

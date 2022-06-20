@@ -23,36 +23,36 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b38;
-import com.repackage.b9;
-import com.repackage.c38;
-import com.repackage.co8;
-import com.repackage.dy7;
-import com.repackage.f28;
-import com.repackage.jg;
-import com.repackage.ji;
-import com.repackage.ki;
-import com.repackage.u08;
-import com.repackage.wa;
+import com.repackage.d9;
+import com.repackage.f48;
+import com.repackage.g48;
+import com.repackage.j38;
+import com.repackage.ko8;
+import com.repackage.kz7;
+import com.repackage.ng;
+import com.repackage.ni;
+import com.repackage.oi;
+import com.repackage.y18;
+import com.repackage.za;
 import tbclient.UserMuteCheck.DataRes;
 /* loaded from: classes3.dex */
 public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int RN = 20;
     public transient /* synthetic */ FieldHolder $fh;
-    public f28 a;
+    public j38 a;
     public int b;
     public String c;
-    public c38 d;
-    public b38 e;
+    public g48 d;
+    public f48 e;
     public boolean f;
-    public wa g;
+    public za g;
     public CustomMessageListener h;
     public CustomMessageListener i;
     public CustomMessageListener j;
 
     /* loaded from: classes3.dex */
-    public class a extends wa {
+    public class a extends za {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonPolymericModel a;
@@ -79,7 +79,7 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
             this.a = personPolymericModel;
         }
 
-        @Override // com.repackage.wa
+        @Override // com.repackage.za
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || responsedMessage.getOrginalMessage() == null) {
@@ -87,18 +87,18 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
             }
             boolean z = responsedMessage instanceof ProfileSocketResponseMessage;
             if ((z || (responsedMessage instanceof ProfileHttpResponseMessage)) && this.a.unique_id == responsedMessage.getOrginalMessage().getTag()) {
-                dy7 dy7Var = z ? (ProfileSocketResponseMessage) responsedMessage : null;
+                kz7 kz7Var = z ? (ProfileSocketResponseMessage) responsedMessage : null;
                 if (responsedMessage instanceof ProfileHttpResponseMessage) {
-                    dy7Var = (ProfileHttpResponseMessage) responsedMessage;
+                    kz7Var = (ProfileHttpResponseMessage) responsedMessage;
                 }
-                if (dy7Var.getErrorCode() == 0) {
-                    this.a.a.v(dy7Var);
+                if (kz7Var.getErrorCode() == 0) {
+                    this.a.a.v(kz7Var);
                 }
-                u08.d().n(System.currentTimeMillis() - u08.d().e());
+                y18.d().n(System.currentTimeMillis() - y18.d().e());
                 if (responsedMessage.getError() == 0) {
-                    this.a.d.c(this.a.a);
+                    this.a.d.d(this.a.a);
                 } else {
-                    this.a.d.c(null);
+                    this.a.d.d(null);
                 }
             }
         }
@@ -135,22 +135,22 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof co8) && customResponsedMessage.getOrginalMessage().getTag() == this.a.unique_id) {
-                co8 co8Var = (co8) customResponsedMessage.getData();
-                DataRes dataRes = co8Var.a;
-                if (co8Var.c != 0 || StringUtils.isNULL(dataRes.is_mute)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ko8) && customResponsedMessage.getOrginalMessage().getTag() == this.a.unique_id) {
+                ko8 ko8Var = (ko8) customResponsedMessage.getData();
+                DataRes dataRes = ko8Var.a;
+                if (ko8Var.c != 0 || StringUtils.isNULL(dataRes.is_mute)) {
                     return;
                 }
                 if (dataRes.is_mute.equals("0")) {
                     this.a.b = 0;
                     this.a.c = dataRes.mute_confirm;
-                    if (ki.isEmpty(this.a.c)) {
+                    if (oi.isEmpty(this.a.c)) {
                         this.a.c = "确定禁言？";
                     }
                 } else if (dataRes.is_mute.equals("1")) {
                     this.a.b = 1;
                 }
-                this.a.e.a(0, this.a.b, this.a.c, co8Var.c, co8Var.b);
+                this.a.e.a(0, this.a.b, this.a.c, ko8Var.c, ko8Var.b);
             }
         }
     }
@@ -249,7 +249,7 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((b9) newInitContext.callArgs[0]);
+                super((d9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -271,18 +271,18 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
         registerListener(this.g);
     }
 
-    public f28 J() {
+    public j38 K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (f28) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (j38) invokeV.objValue;
     }
 
-    public void K(long j, String str) {
+    public void L(long j, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, str) == null) && ji.A()) {
+        if ((interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, str) == null) && ni.A()) {
             ProfileRequestMessage profileRequestMessage = new ProfileRequestMessage();
             if (TbadkCoreApplication.getCurrentAccount() != null) {
-                profileRequestMessage.set_uid(Long.valueOf(jg.g(TbadkCoreApplication.getCurrentAccount(), 0L)));
+                profileRequestMessage.set_uid(Long.valueOf(ng.g(TbadkCoreApplication.getCurrentAccount(), 0L)));
             }
             if (!this.f) {
                 profileRequestMessage.set_friend_uid(Long.valueOf(j));
@@ -303,10 +303,10 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public void L(long j) {
+    public void M(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) && ji.A()) {
-            long g = jg.g(TbadkCoreApplication.getCurrentAccount(), 0L);
+        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) && ni.A()) {
+            long g = ng.g(TbadkCoreApplication.getCurrentAccount(), 0L);
             if (j == g || !TbadkCoreApplication.isLogin()) {
                 return;
             }
@@ -320,31 +320,31 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public void M() {
+    public void N() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.a.w();
         }
     }
 
-    public void N(c38 c38Var) {
+    public void O(g48 g48Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, c38Var) == null) {
-            this.d = c38Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, g48Var) == null) {
+            this.d = g48Var;
         }
     }
 
-    public void O(b38 b38Var) {
+    public void P(f48 f48Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, b38Var) == null) {
-            this.e = b38Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, f48Var) == null) {
+            this.e = f48Var;
         }
     }
 
-    public void P(f28 f28Var) {
+    public void Q(j38 j38Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, f28Var) == null) {
-            this.a = f28Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, j38Var) == null) {
+            this.a = j38Var;
         }
     }
 

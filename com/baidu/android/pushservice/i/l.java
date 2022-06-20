@@ -27,7 +27,7 @@ public class l {
             try {
                 intent.putExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME, context.getPackageName());
                 intent.putExtra("method_version", "V2");
-                intent.putExtra(!m.o(context) ? "priority2" : "priority3", 0);
+                intent.putExtra(!m.A(context) ? "priority2" : "priority3", 0);
             } catch (Exception e) {
                 new b.c(context).a(Log.getStackTraceString(e)).a();
             }
@@ -40,9 +40,9 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65537, null, context, i) == null) {
             com.baidu.android.pushservice.b.d.a(context).d();
-            if (!com.baidu.android.pushservice.b.d.q(context) || com.baidu.android.pushservice.b.d.c(context)) {
+            if (!com.baidu.android.pushservice.b.d.r(context) || com.baidu.android.pushservice.b.d.c(context)) {
                 int b = i.b(context, "key_push_launch_task_level", 0);
-                if (!com.baidu.android.pushservice.job.a.a() && !m.g(context) && ((Build.VERSION.SDK_INT > 22 || (!m.f() && !m.i())) && b != 1)) {
+                if (!com.baidu.android.pushservice.job.a.a() && !m.g(context) && ((Build.VERSION.SDK_INT > 22 || (!m.p(context) && !m.s(context))) && b != 1)) {
                     new Handler(context.getMainLooper()).postDelayed(new Runnable(context, i) { // from class: com.baidu.android.pushservice.i.l.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
@@ -126,7 +126,7 @@ public class l {
             if (intent == null || TextUtils.isEmpty(intent.getAction())) {
                 intent = a(context);
             }
-            if (!com.baidu.android.pushservice.b.d.q(context) || com.baidu.android.pushservice.b.d.c(context)) {
+            if (!com.baidu.android.pushservice.b.d.r(context) || com.baidu.android.pushservice.b.d.c(context)) {
                 if (System.currentTimeMillis() - com.baidu.android.pushservice.e.j < 30000) {
                     i = com.baidu.android.pushservice.e.i;
                 }
@@ -148,7 +148,7 @@ public class l {
             try {
                 if (!TextUtils.isEmpty(str)) {
                     intent.setPackage(str);
-                    intent.setClassName(str, m.m() ? "com.baidu.pushservice.PushService" : "com.baidu.android.pushservice.PushService");
+                    intent.setClassName(str, m.w(context) ? "com.baidu.pushservice.PushService" : "com.baidu.android.pushservice.PushService");
                     context.startService(intent);
                     com.baidu.android.pushservice.f.a.a("ServiceUtils", "startPushService by startService", context.getApplicationContext());
                     return true;
@@ -159,7 +159,7 @@ public class l {
                     return false;
                 }
             }
-            if (!m.p(context) && m.e(context, str)) {
+            if (!m.B(context) && m.e(context, str)) {
                 try {
                     String b = m.b(context, str, intent.getAction());
                     if (!TextUtils.isEmpty(b)) {

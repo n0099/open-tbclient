@@ -25,28 +25,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.tabs.TabLayout;
-import com.repackage.b45;
-import com.repackage.gu6;
-import com.repackage.jc6;
-import com.repackage.ji;
-import com.repackage.jn;
-import com.repackage.kl4;
-import com.repackage.nb;
-import com.repackage.nt6;
-import com.repackage.ot6;
-import com.repackage.qn;
-import com.repackage.sn;
+import com.repackage.jd6;
+import com.repackage.lv6;
+import com.repackage.ni;
+import com.repackage.nn;
+import com.repackage.q45;
+import com.repackage.qb;
+import com.repackage.su6;
+import com.repackage.tu6;
+import com.repackage.ul4;
+import com.repackage.un;
+import com.repackage.wn;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class HotTopicTabFragment extends BaseFragment implements jc6, ot6 {
+public class HotTopicTabFragment extends BaseFragment implements jd6, tu6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HotTopicTabModel a;
     public HotTopicTabView b;
     public FrsTabItemData c;
     public TabLayout.OnTabSelectedListener d;
-    public kl4<Object> e;
+    public ul4<Object> e;
     public boolean f;
 
     /* loaded from: classes3.dex */
@@ -87,21 +87,21 @@ public class HotTopicTabFragment extends BaseFragment implements jc6, ot6 {
                 FrsTabItemData frsTabItemData = (FrsTabItemData) tab.getTag();
                 if (this.a.c != null && this.a.c.tabId != frsTabItemData.tabId) {
                     String str = frsTabItemData.tabCode;
-                    this.a.a.I(str);
+                    this.a.a.J(str);
                     this.a.a.setTabId(frsTabItemData.tabId);
                     if (this.a.a.loadData()) {
-                        this.a.b.y();
-                        this.a.b.i();
-                        this.a.b.j();
-                        this.a.Q0();
+                        this.a.b.B();
+                        this.a.b.l();
+                        this.a.b.m();
+                        this.a.E1();
                     } else {
-                        this.a.b.y();
-                        this.a.b.i();
-                        List<jn> E = this.a.a.E(str);
-                        if (!ListUtils.isEmpty(E)) {
-                            this.a.b.setListData(E);
+                        this.a.b.B();
+                        this.a.b.l();
+                        List<nn> F = this.a.a.F(str);
+                        if (!ListUtils.isEmpty(F)) {
+                            this.a.b.setListData(F);
                         } else {
-                            this.a.N0();
+                            this.a.B1();
                         }
                     }
                 }
@@ -113,13 +113,13 @@ public class HotTopicTabFragment extends BaseFragment implements jc6, ot6 {
         public void onTabUnselected(TabLayout.Tab tab) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tab) == null) {
-                this.a.b.y();
+                this.a.b.B();
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b implements kl4<Object> {
+    public class b implements ul4<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotTopicTabFragment a;
@@ -142,22 +142,22 @@ public class HotTopicTabFragment extends BaseFragment implements jc6, ot6 {
             this.a = hotTopicTabFragment;
         }
 
-        @Override // com.repackage.kl4
-        public void a(View view2, Object obj, int i, long j) {
+        @Override // com.repackage.ul4
+        public void c(View view2, Object obj, int i, long j) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) || obj == null) {
                 return;
             }
-            nt6.a(view2, obj, i + 1, this.a.K0());
+            su6.a(view2, obj, i + 1, this.a.x1());
         }
 
-        @Override // com.repackage.kl4
-        public void c(View view2, Object obj, int i, long j) {
+        @Override // com.repackage.ul4
+        public void d(View view2, Object obj, int i, long j) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) || obj == null) {
                 return;
             }
-            nt6.b(view2, obj, this.a.K0());
+            su6.b(view2, obj, this.a.x1());
         }
     }
 
@@ -191,7 +191,7 @@ public class HotTopicTabFragment extends BaseFragment implements jc6, ot6 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.L0(this.a);
+                this.b.y1(this.a);
             }
         }
     }
@@ -214,119 +214,130 @@ public class HotTopicTabFragment extends BaseFragment implements jc6, ot6 {
         this.f = true;
     }
 
-    @Override // com.repackage.jc6
-    public void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
-    public final String K0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            HotTopicTabModel hotTopicTabModel = this.a;
-            return hotTopicTabModel != null ? String.valueOf(hotTopicTabModel.getTabId() + 1) : "1";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void L0(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.f) {
-            this.f = false;
-            TbPageContext pageContext = context instanceof TbPageContextSupport ? ((TbPageContextSupport) context).getPageContext() : null;
-            this.a = new HotTopicTabModel(pageContext);
-            HotTopicTabView hotTopicTabView = new HotTopicTabView(pageContext);
-            this.b = hotTopicTabView;
-            hotTopicTabView.setOnTabSelectedListener(this.d);
-            this.b.setOnItemCoverListener(this.e);
-        }
-    }
-
-    public void M0(ScrollFragmentTabHost scrollFragmentTabHost) {
+    public void A1(ScrollFragmentTabHost scrollFragmentTabHost) {
         HotTopicTabView hotTopicTabView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, scrollFragmentTabHost) == null) || (hotTopicTabView = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, scrollFragmentTabHost) == null) || (hotTopicTabView = this.b) == null) {
             return;
         }
         hotTopicTabView.setScrollFragmentTabHost(scrollFragmentTabHost);
     }
 
-    public final void N0() {
+    public final void B1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.b.s()) {
+                this.b.m();
+                D1();
+                return;
+            }
+            this.b.y(false);
+        }
+    }
+
+    public final void C1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (this.b.s()) {
+                this.b.l();
+                E1();
+                return;
+            }
+            this.b.x(false);
+        }
+    }
+
+    @Override // com.repackage.tu6
+    public void D0(int i, lv6 lv6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, lv6Var) == null) {
+            this.b.l();
+            this.b.m();
+            this.b.B();
+            if (lv6Var != null && i == 0 && !ListUtils.isEmpty(lv6Var.getDataList())) {
+                this.b.setData(lv6Var);
+                this.b.z();
+            } else if (ListUtils.isEmpty(this.a.E())) {
+                B1();
+            } else {
+                this.b.setListData(this.a.E());
+            }
+        }
+    }
+
+    public void D1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.b.p()) {
-                this.b.j();
-                P0();
-                return;
-            }
-            this.b.v(false);
+            ArrayList arrayList = new ArrayList();
+            wn wnVar = new wn();
+            wnVar.b = R.drawable.new_pic_emotion_05;
+            wnVar.a = getString(R.string.obfuscated_res_0x7f0f0c50);
+            arrayList.add(wnVar);
+            this.b.n();
+            this.b.setListData(arrayList);
         }
     }
 
-    public final void O0() {
+    public void E1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.b.p()) {
-                this.b.i();
-                Q0();
-                return;
-            }
-            this.b.u(false);
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new un());
+            this.b.n();
+            this.b.setListData(arrayList);
         }
     }
 
-    public void P0() {
+    @Override // com.repackage.jd6
+    public void W() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            ArrayList arrayList = new ArrayList();
-            sn snVar = new sn();
-            snVar.b = R.drawable.new_pic_emotion_05;
-            snVar.a = getString(R.string.obfuscated_res_0x7f0f0c4c);
-            arrayList.add(snVar);
-            this.b.k();
-            this.b.setListData(arrayList);
         }
     }
 
-    public void Q0() {
+    @Override // com.repackage.tu6
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new qn());
-            this.b.k();
-            this.b.setListData(arrayList);
-        }
-    }
-
-    @Override // com.repackage.ot6
-    public void W(int i, gu6 gu6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, gu6Var) == null) {
-            this.b.i();
-            this.b.j();
-            this.b.y();
-            if (gu6Var != null && i == 0 && !ListUtils.isEmpty(gu6Var.getDataList())) {
-                this.b.setData(gu6Var);
-                this.b.w();
-            } else if (ListUtils.isEmpty(this.a.D())) {
-                N0();
+            boolean loadData = this.a.loadData();
+            HotTopicTabModel hotTopicTabModel = this.a;
+            List<nn> F = hotTopicTabModel.F(hotTopicTabModel.G());
+            if (loadData) {
+                if (!ListUtils.isEmpty(F) || this.b.s()) {
+                    return;
+                }
+                this.b.B();
+                this.b.m();
+                C1();
+                return;
+            }
+            this.b.B();
+            this.b.l();
+            if (!ListUtils.isEmpty(F)) {
+                this.b.setListData(F);
+            } else if (ni.A()) {
             } else {
-                this.b.setListData(this.a.D());
+                B1();
             }
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.f75
+    @Override // com.repackage.jd6
+    public void b0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.t75
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? "a076" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.f75
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.t75
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         ArrayList arrayList;
@@ -345,47 +356,12 @@ public class HotTopicTabFragment extends BaseFragment implements jc6, ot6 {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.jc6
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.b.s();
-        }
-    }
-
-    @Override // com.repackage.ot6
-    public void loadData() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            boolean loadData = this.a.loadData();
-            HotTopicTabModel hotTopicTabModel = this.a;
-            List<jn> E = hotTopicTabModel.E(hotTopicTabModel.F());
-            if (loadData) {
-                if (!ListUtils.isEmpty(E) || this.b.p()) {
-                    return;
-                }
-                this.b.y();
-                this.b.j();
-                O0();
-                return;
-            }
-            this.b.y();
-            this.b.i();
-            if (!ListUtils.isEmpty(E)) {
-                this.b.setListData(E);
-            } else if (ji.A()) {
-            } else {
-                N0();
-            }
-        }
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            this.a.H(this);
+            this.a.I(this);
             this.a.setUniqueId(getUniqueId());
         }
     }
@@ -393,16 +369,16 @@ public class HotTopicTabFragment extends BaseFragment implements jc6, ot6 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.b.q();
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.b.t();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, bundle) == null) {
-            L0(getContext());
+        if (interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) {
+            y1(getContext());
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOT_TOPIC_TAB_ON_CREATE_START_STAMP_KEY);
             super.onCreate(bundle);
             this.b.setPresenter(this);
@@ -416,7 +392,7 @@ public class HotTopicTabFragment extends BaseFragment implements jc6, ot6 {
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048592, this, layoutInflater, viewGroup, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048590, this, layoutInflater, viewGroup, bundle)) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOT_TOPIC_TAB_ON_CREATE_VIEW_START_STAMP_KEY);
             if (this.b.getParent() instanceof ViewGroup) {
                 ((ViewGroup) this.b.getParent()).removeView(this.b);
@@ -430,29 +406,29 @@ public class HotTopicTabFragment extends BaseFragment implements jc6, ot6 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroyView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.onDestroyView();
             if (!this.f) {
-                this.b.h();
+                this.b.k();
                 this.a.onDestroy();
             }
             this.f = false;
-            b45.e().b();
+            q45.e().b();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            loadData();
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            a();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onPrimary();
             if (isPrimary()) {
                 this.b.setViewForeground();
@@ -460,17 +436,41 @@ public class HotTopicTabFragment extends BaseFragment implements jc6, ot6 {
         }
     }
 
-    @Override // com.repackage.jc6
-    public void q() {
+    @Override // com.repackage.jd6
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            this.b.v();
+        }
+    }
+
+    public final String x1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            HotTopicTabModel hotTopicTabModel = this.a;
+            return hotTopicTabModel != null ? String.valueOf(hotTopicTabModel.getTabId() + 1) : "1";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.jd6
+    public void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
         }
     }
 
-    @Override // com.repackage.jc6
-    public void z() {
+    public void y1(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+        if ((interceptable == null || interceptable.invokeL(1048597, this, context) == null) && this.f) {
+            this.f = false;
+            TbPageContext pageContext = context instanceof TbPageContextSupport ? ((TbPageContextSupport) context).getPageContext() : null;
+            this.a = new HotTopicTabModel(pageContext);
+            HotTopicTabView hotTopicTabView = new HotTopicTabView(pageContext);
+            this.b = hotTopicTabView;
+            hotTopicTabView.setOnTabSelectedListener(this.d);
+            this.b.setOnItemCoverListener(this.e);
         }
     }
 
@@ -494,7 +494,7 @@ public class HotTopicTabFragment extends BaseFragment implements jc6, ot6 {
         this.e = new b(this);
         this.f = true;
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOT_TOPIC_TAB_START_STAMP_KEY);
-        nb.b().a("hotTopic", new c(this, context));
+        qb.b().a("hotTopic", new c(this, context));
         SpeedStatsManager.getInstance().addStatsTimeStamp(5027);
     }
 }

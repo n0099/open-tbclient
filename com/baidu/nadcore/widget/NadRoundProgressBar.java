@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.zz0;
+import com.repackage.d01;
 /* loaded from: classes2.dex */
 public class NadRoundProgressBar extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -246,11 +246,11 @@ public class NadRoundProgressBar extends View {
         this.a = new Paint();
         this.l = new RectF();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04045b, R.attr.obfuscated_res_0x7f04048b, R.attr.obfuscated_res_0x7f04053b, R.attr.obfuscated_res_0x7f04054b, R.attr.obfuscated_res_0x7f04054c, R.attr.obfuscated_res_0x7f04054d, R.attr.obfuscated_res_0x7f04054e, R.attr.obfuscated_res_0x7f04054f, R.attr.obfuscated_res_0x7f040551, R.attr.obfuscated_res_0x7f040553, R.attr.obfuscated_res_0x7f040554, R.attr.obfuscated_res_0x7f040657, R.attr.obfuscated_res_0x7f040661, R.attr.obfuscated_res_0x7f040664});
-        this.b = obtainStyledAttributes.getColor(3, getResources().getColor(R.color.obfuscated_res_0x7f060838));
-        this.c = obtainStyledAttributes.getColor(7, getResources().getColor(R.color.obfuscated_res_0x7f060839));
-        this.d = obtainStyledAttributes.getColor(8, getResources().getColor(R.color.obfuscated_res_0x7f06083a));
-        this.e = obtainStyledAttributes.getDimension(9, zz0.c.a(getContext(), 11.0f));
-        this.f = obtainStyledAttributes.getDimension(4, zz0.c.a(getContext(), 8.0f));
+        this.b = obtainStyledAttributes.getColor(3, getResources().getColor(R.color.obfuscated_res_0x7f060836));
+        this.c = obtainStyledAttributes.getColor(7, getResources().getColor(R.color.obfuscated_res_0x7f060837));
+        this.d = obtainStyledAttributes.getColor(8, getResources().getColor(R.color.obfuscated_res_0x7f060838));
+        this.e = obtainStyledAttributes.getDimension(9, d01.c.a(getContext(), 11.0f));
+        this.f = obtainStyledAttributes.getDimension(4, d01.c.a(getContext(), 8.0f));
         this.g = obtainStyledAttributes.getDimension(10, 5.0f);
         this.h = obtainStyledAttributes.getInteger(5, 100);
         this.j = obtainStyledAttributes.getBoolean(12, true);

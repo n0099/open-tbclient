@@ -1,305 +1,379 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.StyleRes;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import androidx.fragment.app.DialogFragment;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.support.v4.app.Fragment;
+import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.swan.apps.model.SwanAppBearInfo;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.swan.pms.PMSConstants;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.internal.ETAG;
+import com.repackage.ka4;
+import com.xiaomi.mipush.sdk.Constants;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class xc4 extends Fragment implements DialogInterface.OnCancelListener, DialogInterface.OnDismissListener {
+public class xc4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int h0;
-    public int i0;
-    public boolean j0;
-    public boolean k0;
-    public int l0;
-    public Dialog m0;
-    public boolean n0;
-    public boolean o0;
-    public boolean p0;
 
-    public xc4() {
+    public static PMSAppInfo a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            PMSAppInfo pMSAppInfo = new PMSAppInfo();
+            pMSAppInfo.appKey = jSONObject.optString(GameGuideConfigInfo.KEY_APP_KEY);
+            pMSAppInfo.appName = jSONObject.optString("app_name");
+            pMSAppInfo.description = jSONObject.optString("app_desc");
+            pMSAppInfo.appStatus = jSONObject.optInt("app_status");
+            pMSAppInfo.statusDetail = jSONObject.optString("status_detail");
+            pMSAppInfo.statusDesc = jSONObject.optString("status_desc");
+            pMSAppInfo.resumeDate = jSONObject.optString("resume_date");
+            pMSAppInfo.subjectInfo = jSONObject.optString("subject_info");
+            pMSAppInfo.maxAge = jSONObject.optLong("max_age");
+            pMSAppInfo.appCategory = jSONObject.optInt("sub_category");
+            pMSAppInfo.iconUrl = jSONObject.optString("icon_url");
+            pMSAppInfo.serviceCategory = jSONObject.optString("service_category");
+            pMSAppInfo.webViewDomains = jSONObject.optString("webview_domains");
+            pMSAppInfo.domainConfig = jSONObject.optString("domain_config");
+            pMSAppInfo.webAction = jSONObject.optString("web_action");
+            pMSAppInfo.domains = jSONObject.optString("domains");
+            pMSAppInfo.serverExt = jSONObject.optString("ext");
+            pMSAppInfo.appSign = jSONObject.optLong("app_sign");
+            pMSAppInfo.payProtected = jSONObject.optInt("pay_protected", PMSConstants.PayProtected.NO_PAY_PROTECTED.type);
+            pMSAppInfo.customerService = jSONObject.optInt("customer_service", PMSConstants.CustomerService.NO_CUSTOMER_SERVICE.type);
+            pMSAppInfo.globalNotice = jSONObject.optInt("global_notice", PMSConstants.CloudSwitch.NO_DISPLAY.value);
+            pMSAppInfo.globalPrivate = jSONObject.optInt("global_private", PMSConstants.CloudSwitch.NO_DISPLAY.value);
+            pMSAppInfo.paNumber = jSONObject.optString("pa_number");
+            String optString = p(pMSAppInfo.serverExt).optString("quick_app_key");
+            if (!TextUtils.isEmpty(optString)) {
+                pMSAppInfo.quickAppKey = optString;
+            }
+            JSONObject optJSONObject = p(pMSAppInfo.serverExt).optJSONObject(SwanAppBearInfo.BEAR_INFO);
+            if (optJSONObject != null) {
+                pMSAppInfo.bearInfo = optJSONObject.toString();
+            }
+            JSONArray optJSONArray = jSONObject.optJSONArray("plugins");
+            if (optJSONArray != null) {
+                pMSAppInfo.pluginInfo = optJSONArray.toString();
+            }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject(Constants.PHONE_BRAND);
+            if (optJSONObject2 != null) {
+                pMSAppInfo.brandsInfo = optJSONObject2.toString();
+            }
+            b74.b().k(jSONObject.optJSONArray("ban_page"), jSONObject.optString("ban_tips"), pMSAppInfo.appKey);
+            b74.b().s(pMSAppInfo, jSONObject.optJSONObject("scope_list"), jSONObject.optInt("service_degrade", 0) != 0);
+            pMSAppInfo.webUrl = jSONObject.optString("web_url");
+            pMSAppInfo.rank = jSONObject.optInt("rank");
+            pMSAppInfo.webPermit = jSONObject.optInt("web_permit");
+            pMSAppInfo.csProtocolVersion = PMSConstants.a.a();
+            pMSAppInfo.userActionApis = jSONObject.optString("user_action_apis");
+            return pMSAppInfo;
+        }
+        return (PMSAppInfo) invokeL.objValue;
+    }
+
+    public static boolean b(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) ? jSONObject != null && 1 == jSONObject.optInt("reset_env", 0) : invokeL.booleanValue;
+    }
+
+    public static l84 c(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            return (l84) j(jSONObject, new l84());
+        }
+        return (l84) invokeL.objValue;
+    }
+
+    public static n84 d(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            return (n84) j(jSONObject, new n84());
+        }
+        return (n84) invokeL.objValue;
+    }
+
+    public static ja4 e(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            ja4 ja4Var = new ja4();
+            JSONArray optJSONArray = jSONObject.optJSONArray("list");
+            List<r84> l = l(optJSONArray);
+            ja4Var.c = l;
+            if (l != null && l.contains(null)) {
+                k(ja4Var, optJSONArray);
+            } else {
+                ja4Var.a = 0;
+            }
+            return ja4Var;
+        }
+        return (ja4) invokeL.objValue;
+    }
+
+    public static ka4 f(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            ka4 ka4Var = new ka4();
+            ArrayList arrayList = new ArrayList();
+            JSONArray optJSONArray = jSONObject.optJSONArray("list");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    ka4.a aVar = new ka4.a();
+                    aVar.a = optJSONObject.optInt("errno");
+                    aVar.b = optJSONObject.optString("bundle_id");
+                    aVar.c = optJSONObject.optInt("category");
+                    aVar.d = m(optJSONObject.optJSONObject("main"));
+                    aVar.e = n(optJSONObject.optJSONArray("sub"));
+                    aVar.f = l(optJSONObject.optJSONArray("dep"));
+                    aVar.g = a(optJSONObject.optJSONObject("app_info"));
+                    b74.b().p(aVar.b, optJSONObject, aVar.d, aVar.e);
+                    arrayList.add(aVar);
+                }
+            }
+            ka4Var.a = arrayList;
+            return ka4Var;
+        }
+        return (ka4) invokeL.objValue;
+    }
+
+    public static la4 g(String str, JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            la4 la4Var = new la4();
+            JSONObject optJSONObject = jSONObject.optJSONObject("pkg");
+            if (optJSONObject != null) {
+                la4Var.a = m(optJSONObject.optJSONObject("main"));
+                la4Var.b = n(optJSONObject.optJSONArray("sub"));
+                la4Var.c = l(optJSONObject.optJSONArray("dep"));
+                b74.b().p(str, optJSONObject, la4Var.a, la4Var.b);
+            }
+            la4Var.d = d(jSONObject.optJSONObject("framework"));
+            la4Var.f = c(jSONObject.optJSONObject(ETAG.KEY_EXTENSION));
+            la4Var.e = a(jSONObject.optJSONObject("app_info"));
+            return la4Var;
+        }
+        return (la4) invokeLL.objValue;
+    }
+
+    public static ma4 h(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            ma4 ma4Var = new ma4();
+            ma4Var.a = o(jSONObject);
+            return ma4Var;
+        }
+        return (ma4) invokeL.objValue;
+    }
+
+    public static na4 i(String str, JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            na4 na4Var = new na4();
+            JSONObject optJSONObject = jSONObject.optJSONObject("pkg");
+            if (optJSONObject != null) {
+                na4Var.a = n(optJSONObject.optJSONArray("sub"));
+                b74.b().p(str, optJSONObject, null, na4Var.a);
+            }
+            return na4Var;
+        }
+        return (na4) invokeLL.objValue;
+    }
+
+    public static <T extends o84> T j(JSONObject jSONObject, T t) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, jSONObject, t)) == null) {
+            if (jSONObject == null || t == null) {
+                return null;
+            }
+            t.g = jSONObject.optString("bundle_id");
+            t.h = jSONObject.optInt("category");
+            t.j = jSONObject.optString("version_name");
+            t.i = jSONObject.optLong("version_code");
+            t.k = jSONObject.optLong("size");
+            t.l = jSONObject.optString(PackageTable.MD5);
+            t.m = jSONObject.optString("sign");
+            t.n = jSONObject.optString("download_url");
+            return t;
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    public static void k(ja4 ja4Var, JSONArray jSONArray) {
+        int optInt;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65546, null, ja4Var, jSONArray) == null) || jSONArray == null) {
+            return;
+        }
+        int length = jSONArray.length();
+        for (int i = 0; i < length; i++) {
+            JSONObject optJSONObject = jSONArray.optJSONObject(i);
+            if (optJSONObject != null && (optInt = optJSONObject.optInt("errno", 0)) != 0) {
+                String optString = optJSONObject.optString("bundle_id");
+                ja4Var.a = optInt;
+                ja4Var.b = String.format("%s : Not Exist.", optString);
                 return;
             }
         }
-        this.h0 = 0;
-        this.i0 = 0;
-        this.j0 = true;
-        this.k0 = true;
-        this.l0 = -1;
     }
 
-    @Override // com.baidu.swan.support.v4.app.Fragment
-    public void B0() {
+    public static List<r84> l(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.B0();
-            Dialog dialog = this.m0;
-            if (dialog != null) {
-                this.n0 = true;
-                dialog.dismiss();
-                this.m0 = null;
-            }
-        }
-    }
-
-    @Override // com.baidu.swan.support.v4.app.Fragment
-    public void C0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.C0();
-            if (this.p0 || this.o0) {
-                return;
-            }
-            this.o0 = true;
-        }
-    }
-
-    @Override // com.baidu.swan.support.v4.app.Fragment
-    public void K0(Bundle bundle) {
-        Bundle onSaveInstanceState;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            super.K0(bundle);
-            Dialog dialog = this.m0;
-            if (dialog != null && (onSaveInstanceState = dialog.onSaveInstanceState()) != null) {
-                bundle.putBundle(DialogFragment.SAVED_DIALOG_STATE_TAG, onSaveInstanceState);
-            }
-            int i = this.h0;
-            if (i != 0) {
-                bundle.putInt(DialogFragment.SAVED_STYLE, i);
-            }
-            int i2 = this.i0;
-            if (i2 != 0) {
-                bundle.putInt(DialogFragment.SAVED_THEME, i2);
-            }
-            boolean z = this.j0;
-            if (!z) {
-                bundle.putBoolean(DialogFragment.SAVED_CANCELABLE, z);
-            }
-            boolean z2 = this.k0;
-            if (!z2) {
-                bundle.putBoolean(DialogFragment.SAVED_SHOWS_DIALOG, z2);
-            }
-            int i3 = this.l0;
-            if (i3 != -1) {
-                bundle.putInt(DialogFragment.SAVED_BACK_STACK_ID, i3);
-            }
-        }
-    }
-
-    @Override // com.baidu.swan.support.v4.app.Fragment
-    public void L0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.L0();
-            Dialog dialog = this.m0;
-            if (dialog != null) {
-                this.n0 = false;
-                dialog.show();
-            }
-        }
-    }
-
-    @Override // com.baidu.swan.support.v4.app.Fragment
-    public void M0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.M0();
-            Dialog dialog = this.m0;
-            if (dialog != null) {
-                dialog.hide();
-            }
-        }
-    }
-
-    public void m1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            n1(false);
-        }
-    }
-
-    public void n1(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || this.o0) {
-            return;
-        }
-        this.o0 = true;
-        this.p0 = false;
-        Dialog dialog = this.m0;
-        if (dialog != null) {
-            dialog.dismiss();
-            this.m0 = null;
-        }
-        this.n0 = true;
-        if (this.l0 >= 0) {
-            v().e(this.l0, 1);
-            this.l0 = -1;
-            return;
-        }
-        dd4 a = v().a();
-        a.h(this);
-        if (z) {
-            a.f();
-        } else {
-            a.e();
-        }
-    }
-
-    public Dialog o1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.m0 : (Dialog) invokeV.objValue;
-    }
-
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dialogInterface) == null) {
-        }
-    }
-
-    public void onDismiss(DialogInterface dialogInterface) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, dialogInterface) == null) || this.n0) {
-            return;
-        }
-        n1(true);
-    }
-
-    @StyleRes
-    public int p1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.i0 : invokeV.intValue;
-    }
-
-    @Override // com.baidu.swan.support.v4.app.Fragment
-    public void q0(Bundle bundle) {
-        Bundle bundle2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
-            super.q0(bundle);
-            if (this.k0) {
-                View S = S();
-                if (S != null) {
-                    if (S.getParent() == null) {
-                        this.m0.setContentView(S);
-                    } else {
-                        throw new IllegalStateException("DialogFragment can not be attached to a container view");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, jSONArray)) == null) {
+            if (jSONArray != null && (length = jSONArray.length()) > 0) {
+                ArrayList arrayList = new ArrayList();
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        JSONObject optJSONObject2 = optJSONObject.optJSONObject("main");
+                        JSONObject optJSONObject3 = optJSONObject.optJSONObject("app_info");
+                        r84 o = o(optJSONObject2);
+                        if (o != null && optJSONObject3 != null) {
+                            o.r = optJSONObject3.optString(GameGuideConfigInfo.KEY_APP_KEY);
+                            o.s = optJSONObject3.optString("app_name");
+                            o.q = optJSONObject3.optString("domains");
+                        }
+                        arrayList.add(o);
                     }
                 }
-                this.m0.setOwnerActivity(getActivity());
-                this.m0.setCancelable(this.j0);
-                this.m0.setOnCancelListener(this);
-                this.m0.setOnDismissListener(this);
-                if (bundle == null || (bundle2 = bundle.getBundle(DialogFragment.SAVED_DIALOG_STATE_TAG)) == null) {
-                    return;
-                }
-                this.m0.onRestoreInstanceState(bundle2);
+                return arrayList;
             }
+            return null;
         }
+        return (List) invokeL.objValue;
     }
 
-    @NonNull
-    public Dialog q1(Bundle bundle) {
+    public static p84 m(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, bundle)) == null) ? new Dialog(getActivity(), p1()) : (Dialog) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            p84 p84Var = (p84) j(jSONObject, new p84());
+            p84Var.o = jSONObject.optInt("pkg_type");
+            p84Var.p = jSONObject.optString("ext");
+            return p84Var;
+        }
+        return (p84) invokeL.objValue;
     }
 
-    public void r1(Dialog dialog, int i) {
+    public static List<q84> n(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048589, this, dialog, i) == null) {
-            if (i != 1 && i != 2) {
-                if (i != 3) {
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, jSONArray)) == null) {
+            if (jSONArray != null && (length = jSONArray.length()) > 0) {
+                ArrayList arrayList = new ArrayList();
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                    q84 q84Var = (q84) j(optJSONObject, new q84());
+                    q84Var.q = optJSONObject.optInt("pkg_type");
+                    q84Var.p = optJSONObject.optString("sub_path");
+                    q84Var.r = optJSONObject.optBoolean("independent");
+                    q84Var.s = optJSONObject.optString("ext");
+                    arrayList.add(q84Var);
                 }
-                dialog.getWindow().addFlags(24);
+                return arrayList;
             }
-            dialog.requestWindowFeature(1);
+            return null;
         }
+        return (List) invokeL.objValue;
     }
 
-    @Override // com.baidu.swan.support.v4.app.Fragment
-    public void s0(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, activity) == null) {
-            super.s0(activity);
-            if (this.p0) {
-                return;
-            }
-            this.o0 = false;
-        }
-    }
-
-    public void s1(bd4 bd4Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, bd4Var, str) == null) {
-            this.o0 = false;
-            this.p0 = true;
-            dd4 a = bd4Var.a();
-            a.c(this, str);
-            a.e();
-        }
-    }
-
-    @Override // com.baidu.swan.support.v4.app.Fragment
-    public void v0(@Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, bundle) == null) {
-            super.v0(bundle);
-            this.k0 = this.x == 0;
-            if (bundle != null) {
-                this.h0 = bundle.getInt(DialogFragment.SAVED_STYLE, 0);
-                this.i0 = bundle.getInt(DialogFragment.SAVED_THEME, 0);
-                this.j0 = bundle.getBoolean(DialogFragment.SAVED_CANCELABLE, true);
-                this.k0 = bundle.getBoolean(DialogFragment.SAVED_SHOWS_DIALOG, this.k0);
-                this.l0 = bundle.getInt(DialogFragment.SAVED_BACK_STACK_ID, -1);
-            }
-        }
-    }
-
-    @Override // com.baidu.swan.support.v4.app.Fragment
-    public LayoutInflater w(Bundle bundle) {
+    public static r84 o(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, bundle)) == null) {
-            if (!this.k0) {
-                return super.w(bundle);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            Dialog q1 = q1(bundle);
-            this.m0 = q1;
-            if (q1 != null) {
-                r1(q1, this.h0);
-                return (LayoutInflater) this.m0.getContext().getSystemService("layout_inflater");
+            r84 r84Var = new r84();
+            j(jSONObject, r84Var);
+            long optLong = jSONObject.optLong("max_age");
+            if (optLong < 0) {
+                optLong = 0;
             }
-            return (LayoutInflater) this.t.getContext().getSystemService("layout_inflater");
+            r84Var.o = optLong;
+            return r84Var;
         }
-        return (LayoutInflater) invokeL.objValue;
+        return (r84) invokeL.objValue;
+    }
+
+    public static JSONObject p(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new JSONObject();
+            }
+            try {
+                return new JSONObject(str);
+            } catch (JSONException unused) {
+                return new JSONObject();
+            }
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static oa4 q(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            oa4 oa4Var = new oa4();
+            oa4Var.a = jSONObject.optLong("max_age");
+            long optLong = jSONObject.optLong("lastsynctime");
+            if (optLong > 0) {
+                wb4.c = optLong;
+            }
+            oa4Var.b = jSONObject;
+            return oa4Var;
+        }
+        return (oa4) invokeL.objValue;
     }
 }

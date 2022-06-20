@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kh3;
-import com.repackage.rf1;
+import com.repackage.cg1;
+import com.repackage.vh3;
 /* loaded from: classes2.dex */
 public class QuickLoginInfo extends SwanAppIPCData {
     public static /* synthetic */ Interceptable $ic;
@@ -79,7 +79,7 @@ public class QuickLoginInfo extends SwanAppIPCData {
                 return;
             }
         }
-        DEBUG = rf1.a;
+        DEBUG = cg1.a;
         CREATOR = new a();
     }
 
@@ -88,20 +88,20 @@ public class QuickLoginInfo extends SwanAppIPCData {
     }
 
     @Nullable
-    public static QuickLoginInfo parseQuickLoginInfo(kh3 kh3Var) {
+    public static QuickLoginInfo parseQuickLoginInfo(vh3 vh3Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, kh3Var)) == null) {
-            if (kh3Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, vh3Var)) == null) {
+            if (vh3Var == null) {
                 return null;
             }
             QuickLoginInfo quickLoginInfo = new QuickLoginInfo();
-            quickLoginInfo.supportQuickLogin = kh3Var.f();
-            quickLoginInfo.encryptPhoneNum = kh3Var.c();
-            quickLoginInfo.serviceAgreement = kh3Var.b();
-            quickLoginInfo.hasHistory = kh3Var.d();
-            quickLoginInfo.loginMode = kh3Var.e();
-            quickLoginInfo.agreeText = kh3Var.a();
+            quickLoginInfo.supportQuickLogin = vh3Var.f();
+            quickLoginInfo.encryptPhoneNum = vh3Var.c();
+            quickLoginInfo.serviceAgreement = vh3Var.b();
+            quickLoginInfo.hasHistory = vh3Var.d();
+            quickLoginInfo.loginMode = vh3Var.e();
+            quickLoginInfo.agreeText = vh3Var.a();
             return quickLoginInfo;
         }
         return (QuickLoginInfo) invokeL.objValue;

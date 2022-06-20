@@ -1,12 +1,12 @@
 package com.repackage;
 
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.open.SocialOperation;
 import java.util.HashSet;
 import java.util.Set;
 import org.json.JSONArray;
@@ -16,79 +16,59 @@ public class tb4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
-    public final int b;
-    public final int c;
-    public final String d;
-    public final String e;
-    public final String f;
-    public final String g;
-    public final Set<String> h;
-    public final String i;
-    public final Long j;
-    public int k;
+    public final Set<String> b;
 
-    public tb4(String str, int i, int i2, String str2, String str3, String str4, String str5, Set<String> set, String str6, Long l) {
+    public tb4(String str, Set<String> set) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), str2, str3, str4, str5, set, str6, l};
+            Object[] objArr = {str, set};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = str;
-        this.c = i2;
-        this.b = i;
-        this.d = str2;
-        this.e = str3;
-        this.f = str4;
-        this.g = str5;
-        this.h = set;
-        this.i = str6;
-        this.j = l;
+        this.b = set;
     }
 
     public static tb4 a(JSONObject jSONObject) {
         InterceptResult invokeL;
         JSONObject optJSONObject;
+        JSONArray optJSONArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            try {
-                String optString = jSONObject.optString("version");
-                if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
-                    return null;
-                }
-                String optString2 = optJSONObject.optString("content_type");
-                int optInt = optJSONObject.optInt("official_no");
-                int optInt2 = optJSONObject.optInt("container_no");
-                String optString3 = optJSONObject.optString("host_name");
-                String optString4 = optJSONObject.optString("share_callback_url");
-                JSONArray optJSONArray = optJSONObject.optJSONArray(SocialOperation.GAME_SIGNATURE);
-                String optString5 = optJSONObject.optString("scheme_head");
-                String optString6 = optJSONObject.optString("failure_url");
-                HashSet hashSet = new HashSet();
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        String optString7 = optJSONArray.optString(i);
-                        if (!TextUtils.isEmpty(optString7)) {
-                            hashSet.add(optString7);
-                        }
-                    }
-                }
-                tb4 tb4Var = new tb4(optString2, optInt, optInt2, optString3, optString4, optString6, optString, hashSet.size() > 0 ? hashSet : null, optString5, null);
-                tb4Var.k = optJSONObject.optInt("use_openbundleid", -1);
-                return tb4Var;
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
+            if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null || (optJSONArray = optJSONObject.optJSONArray("appkeys")) == null) {
                 return null;
             }
+            String optString = jSONObject.optString("version");
+            HashSet hashSet = new HashSet();
+            int length = optJSONArray.length();
+            for (int i = 0; i < length; i++) {
+                String optString2 = optJSONArray.optString(i);
+                if (!TextUtils.isEmpty(optString2)) {
+                    hashSet.add(optString2);
+                }
+            }
+            return new tb4(optString, hashSet);
         }
         return (tb4) invokeL.objValue;
+    }
+
+    public Set<String> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Set) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 }

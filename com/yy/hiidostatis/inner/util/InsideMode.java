@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import com.yy.hiidostatis.inner.util.cipher.Coder;
 import com.yy.hiidostatis.inner.util.log.L;
 /* loaded from: classes8.dex */
@@ -104,7 +105,7 @@ public class InsideMode {
                     return;
                 }
             }
-            NONE = new EncriptType("NONE", 0);
+            NONE = new EncriptType(HlsPlaylistParser.METHOD_NONE, 0);
             MD5 = new EncriptType("MD5", 1);
             DOUBLE_MD5 = new EncriptType("DOUBLE_MD5", 2);
             EncriptType encriptType = new EncriptType("SHA256", 3);
@@ -168,7 +169,7 @@ public class InsideMode {
                     return;
                 }
             }
-            NONE = new HostApp("NONE", 0);
+            NONE = new HostApp(HlsPlaylistParser.METHOD_NONE, 0);
             MI = new HostApp("MI", 1);
             VIVO = new HostApp("VIVO", 2);
             HostApp hostApp = new HostApp("MEIPAI", 3);

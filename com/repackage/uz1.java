@@ -1,55 +1,445 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedHashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class uz1 extends rz1 {
+public final class uz1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static b b;
+    public static LinkedHashMap<String, String> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bitmap d;
 
-    public uz1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public static class a implements le3<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ le3 a;
+
+        public a(le3 le3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {le3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = le3Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.le3
+        /* renamed from: b */
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                if (uz1.a) {
+                    Log.d("SwanAppLaunchTips", ">> default launchInfo: " + str);
+                }
+                this.a.a(uz1.b.d(str));
             }
         }
     }
 
-    public static uz1 a(String str, Bitmap bitmap) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, bitmap)) == null) {
-            uz1 uz1Var = new uz1();
-            uz1Var.a = 1;
-            uz1Var.b = str;
-            uz1Var.c = 0L;
-            uz1Var.d = bitmap;
-            return uz1Var;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755243771, "Lcom/repackage/uz1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755243771, "Lcom/repackage/uz1;");
+                return;
+            }
         }
-        return (uz1) invokeLL.objValue;
+        a = cg1.a;
     }
 
-    public static uz1 b(String str, long j) {
-        InterceptResult invokeLJ;
+    public static void c() {
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, str, j)) == null) {
-            uz1 uz1Var = new uz1();
-            uz1Var.a = 1;
-            uz1Var.b = str;
-            uz1Var.c = j;
-            return uz1Var;
+        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || (bVar = b) == null) {
+            return;
         }
-        return (uz1) invokeLJ.objValue;
+        bVar.c();
+    }
+
+    public static synchronized void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            synchronized (uz1.class) {
+                if (b != null) {
+                    sz1.e();
+                    b.i();
+                }
+                b = new b(null);
+                if (c != null) {
+                    for (Map.Entry<String, String> entry : c.entrySet()) {
+                        b.g(entry.getKey(), entry.getValue());
+                    }
+                    b.l(true);
+                    c = null;
+                }
+                b.h();
+            }
+        }
+    }
+
+    public static void e(le3<String> le3Var) {
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65541, null, le3Var) == null) || le3Var == null || (bVar = b) == null) {
+            return;
+        }
+        if (!TextUtils.isEmpty(bVar.a)) {
+            if (a) {
+                Log.d("SwanAppLaunchTips", ">> exception launchInfo: " + b.a);
+            }
+            b bVar2 = b;
+            le3Var.a(bVar2.d(bVar2.a));
+            return;
+        }
+        b.e(new a(le3Var));
+    }
+
+    public static void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(65542, null, z) == null) || rz2.K().l() == 1) {
+            return;
+        }
+        d();
+        l();
+        j();
+        k();
+    }
+
+    public static void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
+            h(str, gc3.g(System.currentTimeMillis(), "【HH:mm:ss】"));
+        }
+    }
+
+    public static void h(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) {
+            b bVar = b;
+            if (bVar != null) {
+                bVar.g(str, str2);
+                return;
+            }
+            if (c == null) {
+                c = new LinkedHashMap<>();
+            }
+            c.put(str, str2);
+        }
+    }
+
+    public static void i(int i) {
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(65545, null, i) == null) || (bVar = b) == null) {
+            return;
+        }
+        bVar.k(i);
+    }
+
+    public static void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+            xz1.d().g();
+            xz1.d().i();
+        }
+    }
+
+    public static void k() {
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65547, null) == null) || (bVar = b) == null) {
+            return;
+        }
+        bVar.m();
+    }
+
+    public static void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
+            j02.d().g();
+            j02.d().i();
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public boolean b;
+        public int c;
+        public long d;
+        public final p02 e;
+
+        /* loaded from: classes7.dex */
+        public class a extends pc2 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ SwanAppActivity a;
+            public final /* synthetic */ b b;
+
+            public a(b bVar, SwanAppActivity swanAppActivity) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, swanAppActivity};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = bVar;
+                this.a = swanAppActivity;
+            }
+
+            @Override // com.repackage.pc2, com.repackage.qc2
+            public void f() {
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.j()) {
+                    this.a.F0(this);
+                }
+            }
+        }
+
+        /* renamed from: com.repackage.uz1$b$b  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class C0542b implements le3<String> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ le3 a;
+
+            public C0542b(b bVar, le3 le3Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, le3Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = le3Var;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.repackage.le3
+            /* renamed from: b */
+            public void a(String str) {
+                le3 le3Var;
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (le3Var = this.a) == null) {
+                    return;
+                }
+                le3Var.a(str);
+            }
+        }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(60190087, "Lcom/repackage/uz1$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(60190087, "Lcom/repackage/uz1$b;");
+                    return;
+                }
+            }
+            zi2.g0().n();
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.a = "";
+            this.b = true;
+            System.currentTimeMillis();
+            this.c = 0;
+            this.d = f();
+            this.e = new p02();
+        }
+
+        public void c() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c == 1) {
+                if (!TextUtils.equals(fl2.U().T(), rz1.a())) {
+                    if (uz1.a) {
+                        Log.d("SwanAppLaunchTips", "current page is not skeleton error first page");
+                        Log.d("SwanAppLaunchTips", "current page: " + fl2.U().T());
+                        String a2 = rz1.a();
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("skeleton error first page: ");
+                        if (a2 == null) {
+                            a2 = "";
+                        }
+                        sb.append(a2);
+                        Log.d("SwanAppLaunchTips", sb.toString());
+                        return;
+                    }
+                    return;
+                }
+                String C = fl2.U().C();
+                if (TextUtils.isEmpty(C)) {
+                    return;
+                }
+                fl2.U().m(C, new t92("check-skeleton-status"));
+            }
+        }
+
+        public String d(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                StringBuilder sb = new StringBuilder(zi2.c().getText(R.string.obfuscated_res_0x7f0f1322));
+                sb.append(str);
+                String e = pz1.e();
+                if (!TextUtils.isEmpty(e)) {
+                    sb.append(e);
+                }
+                return sb.toString();
+            }
+            return (String) invokeL.objValue;
+        }
+
+        public void e(@NonNull le3<String> le3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, le3Var) == null) {
+                this.e.e(new C0542b(this, le3Var));
+            }
+        }
+
+        public final long f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                sz2 b0 = sz2.b0();
+                if (b0 != null) {
+                    return b0.W().l("launch_time", 0L);
+                }
+                return 0L;
+            }
+            return invokeV.longValue;
+        }
+
+        public void g(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+                String str3 = "\n" + str2 + str;
+                if (!TextUtils.isEmpty(this.a)) {
+                    str3 = this.a + str3;
+                }
+                this.a = str3;
+                sw1.k("SwanAppLaunchTips", str2 + str);
+            }
+        }
+
+        public void h() {
+            SwanAppActivity activity;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (activity = fl2.U().getActivity()) == null || activity.isFinishing()) {
+                return;
+            }
+            activity.t0(new a(this, activity));
+        }
+
+        public void i() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+                this.e.i();
+            }
+        }
+
+        public final boolean j() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                String f = !TextUtils.isEmpty(this.a) ? this.a : this.e.f();
+                if (!this.b || TextUtils.isEmpty(f)) {
+                    return false;
+                }
+                pz1.h(this.d, f);
+                this.b = false;
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public void k(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+                this.c = i;
+            }
+        }
+
+        public void l(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+                this.b = z;
+            }
+        }
+
+        public void m() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+                this.e.h();
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
     }
 }
